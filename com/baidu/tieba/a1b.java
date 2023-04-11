@@ -1,9 +1,20 @@
 package com.baidu.tieba;
 
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
-public interface a1b {
-    void a(CancelType cancelType);
+public class a1b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(int i);
+    public static ByteBuffer a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return ByteBuffer.allocate(0);
+        }
+        return (ByteBuffer) invokeV.objValue;
+    }
 }

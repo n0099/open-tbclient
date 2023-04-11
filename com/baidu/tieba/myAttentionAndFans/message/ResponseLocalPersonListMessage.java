@@ -2,7 +2,7 @@ package com.baidu.tieba.myAttentionAndFans.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qy4;
+import com.baidu.tieba.sy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ResponseLocalPersonListMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qy4 data;
+    public sy4 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseLocalPersonListMessage() {
@@ -33,7 +33,7 @@ public class ResponseLocalPersonListMessage extends CustomResponsedMessage<Objec
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.qy4' to match base method */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.sy4' to match base method */
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage
     /* renamed from: getData */
     public Object getData2() {
@@ -42,13 +42,13 @@ public class ResponseLocalPersonListMessage extends CustomResponsedMessage<Objec
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.data;
         }
-        return (qy4) invokeV.objValue;
+        return (sy4) invokeV.objValue;
     }
 
-    public void setData(qy4 qy4Var) {
+    public void setData(sy4 sy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qy4Var) == null) {
-            this.data = qy4Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sy4Var) == null) {
+            this.data = sy4Var;
         }
     }
 }

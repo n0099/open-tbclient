@@ -1,48 +1,117 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.widget.RelativeLayout;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.PollOptionData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.VoteView;
+import com.baidu.tbadk.coreExtra.data.WriteVoteData;
+import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
+import com.baidu.tieba.c05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.RandomAccessFile;
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.Calendar;
 /* loaded from: classes6.dex */
 public class w6a {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int i = 500;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile int a;
-    public volatile int b;
-    public volatile boolean c;
-    public int d;
-    public int e;
-    public String f;
-    public volatile String g;
-    public Context h;
+    public TbPageContext<?> a;
+    public RelativeLayout b;
+    public VoteView c;
+    public WriteVoteData d;
+    public b e;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public interface b {
+        void a(WriteVoteData writeVoteData);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ byte[] a;
-        public final /* synthetic */ w6a b;
+        public final /* synthetic */ w6a a;
 
-        public a(w6a w6aVar, byte[] bArr) {
+        /* renamed from: com.baidu.tieba.w6a$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0464a implements c05.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0464a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // com.baidu.tieba.c05.e
+            public void onClick(c05 c05Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null && interceptable.invokeL(1048576, this, c05Var) != null) {
+                    return;
+                }
+                this.a.a.d = null;
+                this.a.a.i(false);
+                c05Var.dismiss();
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class b implements c05.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.c05.e
+            public void onClick(c05 c05Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                    c05Var.dismiss();
+                }
+            }
+        }
+
+        public a(w6a w6aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w6aVar, bArr};
+                Object[] objArr = {w6aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,224 +121,153 @@ public class w6a {
                     return;
                 }
             }
-            this.b = w6aVar;
-            this.a = bArr;
+            this.a = w6aVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    Bitmap a = new z7a(this.b.h).a(this.b.j(this.a, this.b.e, this.b.d), this.b.d, this.b.e);
-                    this.b.g = this.b.b(a);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                c05 c05Var = new c05(this.a.a.getPageActivity());
+                c05Var.setTitle(this.a.a.getString(R.string.obfuscated_res_0x7f0f16b6));
+                c05Var.setTitleShowCenter(true);
+                c05Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f16b5));
+                c05Var.setMessageShowCenter(true);
+                c05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04d9, new C0464a(this));
+                c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new b(this));
+                c05Var.create(this.a.a).show();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948223911, "Lcom/baidu/tieba/w6a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948223911, "Lcom/baidu/tieba/w6a;");
-        }
-    }
-
-    public w6a(Context context) {
+    public w6a(TbPageContext<?> tbPageContext, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {tbPageContext, relativeLayout};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = -1;
-        this.h = context;
+        this.a = tbPageContext;
+        this.b = relativeLayout;
+        VoteView voteView = new VoteView(this.a.getPageActivity());
+        this.c = voteView;
+        voteView.setPageContext(this.a);
+        this.c.setDeleteOnClickListener(new a(this));
+        this.c.setVoteViewDeleteVisibility(0);
+        this.b.addView(this.c);
+        i(false);
     }
 
-    public final String b(Bitmap bitmap) {
-        InterceptResult invokeL;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            File file = new File(new File(this.f), "samplecover.dat");
-            try {
-                FileOutputStream fileOutputStream = new FileOutputStream(file);
-                if (bitmap != null) {
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
-                }
-                fileOutputStream.flush();
-                fileOutputStream.close();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.c.D(i);
+        }
+    }
+
+    public void e(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.e = bVar;
+        }
+    }
+
+    public void f(View.OnClickListener onClickListener) {
+        VoteView voteView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && (voteView = this.c) != null && onClickListener != null) {
+            voteView.setOnItemClickListener(onClickListener);
+        }
+    }
+
+    public void g(View.OnClickListener onClickListener) {
+        VoteView voteView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) && (voteView = this.c) != null && onClickListener != null) {
+            voteView.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void i(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            RelativeLayout relativeLayout = this.b;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
             }
-            g(file);
-            return file.getAbsolutePath();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void e(int i2, int i3, int i4, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Boolean.valueOf(z)}) == null) {
-            this.d = i2;
-            this.e = i3;
-            this.f = str;
-            this.c = z;
-        }
-    }
-
-    public final void f(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public final void g(File file) {
-        RandomAccessFile randomAccessFile;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, file) == null) {
-            Closeable closeable = null;
-            try {
-                try {
-                    randomAccessFile = new RandomAccessFile(file, "rw");
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                byte[] bArr = new byte[i];
-                randomAccessFile.read(bArr, 0, i);
-                byte[] m = m(bArr);
-                randomAccessFile.seek(0L);
-                randomAccessFile.write(m, 0, i);
-                f(randomAccessFile);
-            } catch (Exception e2) {
-                e = e2;
-                closeable = randomAccessFile;
-                e.printStackTrace();
-                f(closeable);
-            } catch (Throwable th2) {
-                th = th2;
-                closeable = randomAccessFile;
-                f(closeable);
-                throw th;
+            relativeLayout.setVisibility(i);
+            b bVar = this.e;
+            if (bVar != null) {
+                bVar.a(this.d);
             }
         }
     }
 
-    public void h(byte[] bArr) {
+    public WriteVoteData c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) {
-            if (this.b > 0 && this.c && this.a == this.b) {
-                byte[] bArr2 = new byte[bArr.length];
-                for (int i2 = 0; i2 < bArr.length; i2++) {
-                    bArr2[i2] = bArr[i2];
-                }
-                new Thread(new a(this, bArr2), "yuvtobitmap").start();
-            }
-            this.a++;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
+        return (WriteVoteData) invokeV.objValue;
     }
 
-    public final byte[] j(byte[] bArr, int i2, int i3) {
-        InterceptResult invokeLII;
+    public void h(WriteVoteData writeVoteData) {
+        VoteView voteView;
+        TbPageContext<?> tbPageContext;
+        int i;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i2, i3)) == null) {
-            int i4 = i2 * i3;
-            byte[] bArr2 = new byte[(i4 * 3) / 2];
-            int i5 = i2 - 1;
-            int i6 = 0;
-            for (int i7 = i5; i7 >= 0; i7--) {
-                for (int i8 = 0; i8 < i3; i8++) {
-                    bArr2[i6] = bArr[(i8 * i2) + i7];
-                    i6++;
-                }
+        if ((interceptable == null || interceptable.invokeL(1048581, this, writeVoteData) == null) && writeVoteData != null && (voteView = this.c) != null) {
+            this.d = writeVoteData;
+            voteView.setVoteTitle(writeVoteData.getTitle());
+            if (this.d.getIs_multi() == 1) {
+                tbPageContext = this.a;
+                i = R.string.vote_type_multiple;
+            } else {
+                tbPageContext = this.a;
+                i = R.string.vote_type_single;
             }
-            int i9 = i4;
-            while (i5 > 0) {
-                for (int i10 = 0; i10 < i3 / 2; i10++) {
-                    int i11 = (i10 * i2) + i4;
-                    bArr2[i9] = bArr[i11 + i5];
-                    int i12 = i9 + 1;
-                    bArr2[i12] = bArr[i11 + (i5 - 1)];
-                    i9 = i12 + 1;
-                }
-                i5 -= 2;
+            String string = tbPageContext.getString(i);
+            int expire_type = this.d.getExpire_type();
+            if (expire_type > 0) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.add(6, expire_type);
+                str = String.format(this.a.getString(R.string.write_vote_content_time), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
+            } else {
+                str = "";
             }
-            n(bArr2, i3, i2);
-            return bArr2;
-        }
-        return (byte[]) invokeLII.objValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.b >= 0) {
-            return;
-        }
-        this.b = new Random().nextInt(240);
-    }
-
-    public final byte[] m(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
-            int i2 = i;
-            int i3 = i2 / 2;
-            byte[] bArr2 = new byte[i2];
-            int i4 = 0;
-            for (int i5 = 0; i5 < i3; i5++) {
-                bArr2[i4] = bArr[i5];
-                int i6 = i4 + 1;
-                bArr2[i6] = bArr[i3 + i5];
-                i4 = i6 + 1;
+            if (StringUtils.isNull(str)) {
+                this.c.setVoteSubContent(string);
+            } else {
+                VoteView voteView2 = this.c;
+                voteView2.setVoteSubContent(string + " · " + str);
             }
-            return bArr2;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public final byte[] n(byte[] bArr, int i2, int i3) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3)) == null) {
-            for (int i4 = 0; i4 < (i3 * 3) / 2; i4++) {
-                for (int i5 = 0; i5 < i2 / 2; i5++) {
-                    int i6 = (i4 * i2) + i5;
-                    byte b = bArr[i6];
-                    int i7 = (((i4 + 1) * i2) - 1) - i5;
-                    bArr[i6] = bArr[i7];
-                    bArr[i7] = b;
+            ArrayList arrayList = new ArrayList();
+            for (WriteVoteItemData writeVoteItemData : this.d.getOptions()) {
+                PollOptionData pollOptionData = new PollOptionData();
+                pollOptionData.setId(writeVoteItemData.getId());
+                pollOptionData.setText(writeVoteItemData.getText());
+                arrayList.add(pollOptionData);
+            }
+            if (!ListUtils.isEmpty(arrayList)) {
+                if (arrayList.size() > 3) {
+                    this.c.setData(arrayList.subList(0, 3));
+                } else {
+                    this.c.setData(arrayList);
                 }
             }
-            return bArr;
         }
-        return (byte[]) invokeLII.objValue;
     }
 }

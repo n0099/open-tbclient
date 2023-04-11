@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -83,7 +83,7 @@ public class WrapperLinearLayout extends LinearLayout {
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) {
-            n15 d = n15.d(this);
+            q25 d = q25.d(this);
             d.o(R.string.J_X14);
             d.f(R.color.CAM_X0212);
         }

@@ -156,7 +156,7 @@ public class p {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public void m750a() {
+            public void m752a() {
                 this.f997a = new d[this.a];
                 this.b = 0;
             }
@@ -182,7 +182,7 @@ public class p {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public void m751a(d dVar) {
+            public void m753a(d dVar) {
                 d[] dVarArr = this.f997a;
                 int length = dVarArr.length;
                 int i = this.b;
@@ -200,12 +200,12 @@ public class p {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public boolean m752a() {
+            public boolean m754a() {
                 return this.b == 0;
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public boolean m753a(int i) {
+            public boolean m755a(int i) {
                 for (int i2 = 0; i2 < this.b; i2++) {
                     if (this.f997a[i2].a == i) {
                         return true;
@@ -248,18 +248,18 @@ public class p {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(d dVar) {
-            this.f994a.m751a(dVar);
+            this.f994a.m753a(dVar);
             notify();
         }
 
         public synchronized void a() {
             this.f996b = true;
-            this.f994a.m750a();
+            this.f994a.m752a();
             notify();
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m749a() {
+        public boolean m751a() {
             return this.f995a && SystemClock.uptimeMillis() - this.a > 600000;
         }
 
@@ -292,7 +292,7 @@ public class p {
                     if (this.f996b) {
                         return;
                     }
-                    if (!this.f994a.m752a()) {
+                    if (!this.f994a.m754a()) {
                         long a2 = p.a();
                         d a3 = this.f994a.a();
                         synchronized (a3.f1000a) {
@@ -438,8 +438,8 @@ public class p {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m744a() {
-        com.xiaomi.channel.commonutils.logger.b.m99a("quit. finalizer:" + this.f992a);
+    public void m746a() {
+        com.xiaomi.channel.commonutils.logger.b.m101a("quit. finalizer:" + this.f992a);
         this.f993a.a();
     }
 
@@ -473,23 +473,23 @@ public class p {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m745a() {
-        return this.f993a.m749a();
+    public boolean m747a() {
+        return this.f993a.m751a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m746a(int i) {
-        boolean m753a;
+    public boolean m748a(int i) {
+        boolean m755a;
         synchronized (this.f993a) {
-            m753a = this.f993a.f994a.m753a(i);
+            m755a = this.f993a.f994a.m755a(i);
         }
-        return m753a;
+        return m755a;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m747b() {
+    public void m749b() {
         synchronized (this.f993a) {
-            this.f993a.f994a.m750a();
+            this.f993a.f994a.m752a();
         }
     }
 }

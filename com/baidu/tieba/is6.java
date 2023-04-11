@@ -1,7 +1,36 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import androidx.annotation.Nullable;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter;
+import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
+import java.util.List;
 /* loaded from: classes5.dex */
 public interface is6 {
-    void a(View view2, qs6<?> qs6Var, ps6<?, ?> ps6Var);
+    void c();
+
+    void d(js6 js6Var);
+
+    void e(VlogEditManager vlogEditManager, MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter);
+
+    void f();
+
+    void i(float f);
+
+    @Nullable
+    List<MultiMediaData> j();
+
+    void l();
+
+    void m(String str);
+
+    boolean o();
+
+    void onDestroy();
+
+    float p();
+
+    void q(@Nullable List<MultiMediaData> list);
+
+    void reset();
 }

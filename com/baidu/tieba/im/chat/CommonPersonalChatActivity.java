@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.EmotionImageActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.hs7;
+import com.baidu.tieba.e28;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
@@ -87,14 +87,14 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void C(View view2, int i, int i2, long j) {
+    public void D(View view2, int i, int i2, long j) {
         MsglistModel msglistModel;
         ChatMessage msg;
         String content;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            super.C(view2, i, i2, j);
-            if (i != 7 || !G1() || (msglistModel = this.c) == null || (msg = msglistModel.getMsg(i2)) == null || !hs7.x(msg) || content == null) {
+            super.D(view2, i, i2, j);
+            if (i != 7 || !G1() || (msglistModel = this.c) == null || (msg = msglistModel.getMsg(i2)) == null || !e28.x(msg) || content == null) {
                 return;
             }
             JSONObject jSONObject = null;

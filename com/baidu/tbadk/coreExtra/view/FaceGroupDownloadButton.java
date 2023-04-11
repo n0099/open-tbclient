@@ -13,7 +13,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -281,8 +281,8 @@ public class FaceGroupDownloadButton extends View {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Paint paint = new Paint(1);
             this.e = paint;
-            paint.setTextSize(hi.g(getContext(), R.dimen.T_X08));
-            this.g = hi.g(getContext(), R.dimen.L_X02);
+            paint.setTextSize(ii.g(getContext(), R.dimen.T_X08));
+            this.g = ii.g(getContext(), R.dimen.L_X02);
             e();
         }
     }

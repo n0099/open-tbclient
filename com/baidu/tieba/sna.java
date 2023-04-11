@@ -1,108 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.AsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 /* loaded from: classes6.dex */
-public class sna extends AsyncTask<Context, Integer, Boolean> {
+public class sna extends fna<TTNativeExpressAd> {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948158563, "Lcom/baidu/tieba/sna;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948158563, "Lcom/baidu/tieba/sna;");
-                return;
-            }
-        }
-        a = sna.class.getSimpleName();
-    }
-
-    public sna() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sna(TTNativeExpressAd tTNativeExpressAd) {
+        super(tTNativeExpressAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tTNativeExpressAd};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // android.os.AsyncTask
-    public void onPreExecute() {
+    @Override // com.baidu.tieba.fna
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            una.b(a, "onPreExecute");
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(Context... contextArr) {
-        InterceptResult invokeL;
-        InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, contextArr)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                inputStream = pna.m(contextArr[0]);
-            } catch (Exception e) {
-                String str = a;
-                una.d(str, "doInBackground: exception : " + e.getMessage());
-                inputStream = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b.isEmpty()) {
+                this.b = (String) ((TTNativeExpressAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
             }
-            String str2 = a;
-            una.b(str2, "doInBackground: get bks from hms tss cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-            if (inputStream != null) {
-                tna.b(inputStream);
-                return Boolean.TRUE;
-            }
-            return Boolean.FALSE;
+            return this.b;
         }
-        return (Boolean) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: b */
-    public void onPostExecute(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-            if (bool.booleanValue()) {
-                una.e(a, "onPostExecute: upate done");
-            } else {
-                una.d(a, "onPostExecute: upate failed");
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: c */
-    public void onProgressUpdate(Integer... numArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, numArr) == null) {
-            una.e(a, "onProgressUpdate");
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,29 +1,29 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ora;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fwa<T, R> extends gwa<T, R> {
+public class fwa<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final qva<T> b;
+    public final mwa<TResult> a;
 
     /* loaded from: classes4.dex */
-    public class a implements ora.a<R> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gwa a;
+        public final /* synthetic */ fwa a;
 
-        public a(gwa gwaVar) {
+        public a(fwa fwaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gwaVar};
+                Object[] objArr = {fwaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -33,64 +33,70 @@ public class fwa<T, R> extends gwa<T, R> {
                     return;
                 }
             }
-            this.a = gwaVar;
+            this.a = fwaVar;
         }
 
-        public void call(ura<? super R> uraVar) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, uraVar) == null) {
-                this.a.B(uraVar);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a.l();
             }
-        }
-
-        @Override // com.baidu.tieba.ora.a, com.baidu.tieba.csa
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((ura) ((ura) obj));
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fwa(gwa<T, R> gwaVar) {
-        super(new a(gwaVar));
+    public fwa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gwaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ora.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new qva<>(gwaVar);
+        this.a = new mwa<>();
     }
 
-    @Override // com.baidu.tieba.pra
-    public void onCompleted() {
+    public fwa(zva zvaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.onCompleted();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zvaVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new mwa<>();
+        zvaVar.b(new a(this));
+    }
+
+    public ewa<TResult> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ewa) invokeV.objValue;
+    }
+
+    public void c(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            this.a.j(exc);
         }
     }
 
-    @Override // com.baidu.tieba.pra
-    public void onError(Throwable th) {
+    public void setResult(TResult tresult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.b.onError(th);
-        }
-    }
-
-    @Override // com.baidu.tieba.pra
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.b.onNext(t);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tresult) == null) {
+            this.a.k(tresult);
         }
     }
 }

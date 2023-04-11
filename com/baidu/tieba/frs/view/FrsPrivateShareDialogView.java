@@ -24,13 +24,13 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gi;
+import com.baidu.tieba.c05;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.o87;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.li7;
+import com.baidu.tieba.o57;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.uw6;
 import com.baidu.tieba.view.ImageOverlayView;
-import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,11 +63,11 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     public TextView q;
     public FrsViewData r;
     public TbPageContext s;
-    public zz4 t;
+    public c05 t;
     public ForumActiveInfo u;
     public String v;
-    public uw6 w;
-    public uw6.e x;
+    public o57 w;
+    public o57.e x;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -103,7 +103,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements uw6.e {
+    public class b implements o57.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsPrivateShareDialogView a;
@@ -126,7 +126,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.a = frsPrivateShareDialogView;
         }
 
-        @Override // com.baidu.tieba.uw6.e
+        @Override // com.baidu.tieba.o57.e
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -189,12 +189,12 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.e.setVisibility(8);
         }
         if (frsViewData.getForum() != null && frsViewData.getForum().getImage_url() != null) {
-            this.g.M(frsViewData.getForum().getImage_url(), 10, false);
+            this.g.N(frsViewData.getForum().getImage_url(), 10, false);
         }
         if (frsViewData.getUserData() != null && frsViewData.getUserData().getPortrait() != null) {
-            this.h.M(frsViewData.getUserData().getPortrait(), 12, false);
+            this.h.N(frsViewData.getUserData().getPortrait(), 12, false);
         } else {
-            this.h.M(String.valueOf((int) R.drawable.icon_default_avatar100), 12, false);
+            this.h.N(String.valueOf((int) R.drawable.icon_default_avatar100), 12, false);
         }
         if (frsViewData.getUserData() != null && !StringUtils.isNull(frsViewData.getUserData().getName_show()) && !"0".equals(frsViewData.getUserData().getName_show())) {
             this.p.setText(frsViewData.getUserData().getName_show());
@@ -216,7 +216,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.q.setVisibility(8);
         }
         if (frsViewData.getForum() != null) {
-            e(o87.c(frsViewData.getForum()));
+            e(li7.c(frsViewData.getForum()));
         }
         if (frsViewData.getForum() != null && frsViewData.getForum().getMember_num() > 3) {
             TextView textView2 = this.k;
@@ -241,13 +241,13 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.n.setVisibility(8);
             this.o.setVisibility(0);
             if (frsViewData.getUserData() != null && !StringUtils.isNull(frsViewData.getUserData().getPortrait())) {
-                this.o.M(frsViewData.getUserData().getPortrait(), 12, false);
+                this.o.N(frsViewData.getUserData().getPortrait(), 12, false);
             } else {
-                this.o.M(String.valueOf((int) R.drawable.icon_default_avatar100), 12, false);
+                this.o.N(String.valueOf((int) R.drawable.icon_default_avatar100), 12, false);
             }
         }
         if (this.w != null && (forumActiveInfo = this.u) != null) {
-            if (gi.isEmpty(forumActiveInfo.forum_share_url)) {
+            if (hi.isEmpty(forumActiveInfo.forum_share_url)) {
                 str = TbConfig.TIEBA_ADDRESS;
             } else {
                 str = this.u.forum_share_url;
@@ -260,7 +260,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0362, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0363, this);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_private_share);
             this.b = linearLayout;
             SkinManager.setBackgroundResource(linearLayout, R.drawable.bg_frs_private_dialog);
@@ -269,13 +269,13 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             SkinManager.setBackgroundResource(relativeLayout, R.drawable.bg_frs_private_dialog);
             LinearGradientView linearGradientView = (LinearGradientView) this.b.findViewById(R.id.obfuscated_res_0x7f090cef);
             this.c = linearGradientView;
-            linearGradientView.setCornerRadius(hi.g(context, R.dimen.tbds30));
+            linearGradientView.setCornerRadius(ii.g(context, R.dimen.tbds30));
             this.c.setRoundMode(3);
             TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090cee);
             this.d = tbImageView;
             tbImageView.setDefaultBgResource(R.color.transparent);
-            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f080fd6);
-            this.d.setRadius(hi.g(this.s.getPageActivity(), R.dimen.tbds30));
+            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f080fc1);
+            this.d.setRadius(ii.g(this.s.getPageActivity(), R.dimen.tbds30));
             this.d.setConrers(3);
             h();
             TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090ce5);
@@ -292,9 +292,9 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             BarImageView barImageView = (BarImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ce6);
             this.g = barImageView;
             barImageView.setShowOval(true);
-            this.g.setStrokeWith(hi.g(this.s.getPageActivity(), R.dimen.tbds3));
+            this.g.setStrokeWith(ii.g(this.s.getPageActivity(), R.dimen.tbds3));
             this.g.setStrokeColorResId(R.color.CAM_X0201);
-            this.h = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091b55);
+            this.h = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091b45);
             this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d26);
             this.h.setDefaultBgResource(R.color.CAM_X0205);
             this.h.setIsRound(true);
@@ -304,18 +304,18 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             this.k = textView3;
             SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0106);
             if (this.w == null) {
-                uw6 uw6Var = new uw6(this.s);
-                this.w = uw6Var;
-                uw6Var.o(this.b, this.m, null);
+                o57 o57Var = new o57(this.s);
+                this.w = o57Var;
+                o57Var.o(this.b, this.m, null);
                 this.w.s(this.x);
             }
             this.n = (ImageOverlayView) this.b.findViewById(R.id.obfuscated_res_0x7f090ce0);
-            int g = hi.g(getContext(), R.dimen.tbds68);
-            this.n.a(5, g, g, 0, 0, hi.g(getContext(), R.dimen.tbds16));
+            int g = ii.g(getContext(), R.dimen.tbds68);
+            this.n.a(5, g, g, 0, 0, ii.g(getContext(), R.dimen.tbds16));
             this.n.setOrientation(true);
             this.n.setLoadImageType(12);
             this.n.d();
-            HeadImageView headImageView = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090340);
+            HeadImageView headImageView = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090337);
             this.o = headImageView;
             headImageView.setDefaultBgResource(R.color.CAM_X0205);
             this.o.setIsRound(true);
@@ -328,13 +328,13 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         }
     }
 
-    public boolean d(FrsViewData frsViewData, TbPageContext tbPageContext, zz4 zz4Var) {
+    public boolean d(FrsViewData frsViewData, TbPageContext tbPageContext, c05 c05Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsViewData, tbPageContext, zz4Var)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsViewData, tbPageContext, c05Var)) == null) {
             this.r = frsViewData;
             this.s = tbPageContext;
-            this.t = zz4Var;
+            this.t = c05Var;
             this.u = frsViewData.getForumActiveInfo();
             f(this.a);
             c(frsViewData);
@@ -369,7 +369,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
                 str = themeElement4.pattern_image;
             }
             this.d.setVisibility(0);
-            this.d.M(str, 10, false);
+            this.d.N(str, 10, false);
             return;
         }
         this.d.setVisibility(8);

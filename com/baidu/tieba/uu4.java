@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes6.dex */
-public interface uu4 {
-    void a(View view2, boolean z, Object obj);
+public interface uu4<T> {
+    void a(T t);
 }

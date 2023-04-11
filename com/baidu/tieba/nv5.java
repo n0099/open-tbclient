@@ -1,130 +1,107 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.newdetail.HotTopicDetailModel;
-import com.baidu.tieba.yg5;
+import android.content.Context;
+import android.graphics.Typeface;
+import android.view.ViewGroup;
+import com.baidu.spswitch.utils.BDEmotionPanelManager;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Calendar;
 /* loaded from: classes5.dex */
-public class nv5 implements qj1<yg5> {
+public class nv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context A;
+    public String B;
+    public String C;
+    public String D;
+    public int E;
+    public int F;
+    public int G;
+    public int H;
+    public int I;
+    public int J;
+    public int K;
+    public int L;
+    public int M;
+    public int N;
+    public int O;
+    public int P;
+    public float Q;
+    public boolean R;
+    public boolean S;
+    public boolean T;
+    public WheelView.DividerType U;
+    public tv5 a;
+    public sv5 b;
+    public ov5 c;
+    public boolean[] d;
+    public Calendar e;
+    public Calendar f;
+    public Calendar g;
+    public int h;
+    public int i;
+    public boolean j;
+    public boolean k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public int r;
+    public int s;
+    public int t;
+    public int u;
+    public int v;
+    public int w;
+    public int x;
+    public ViewGroup y;
+    public int z;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b implements yg5, HotTopicDetailModel.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HotTopicDetailModel b;
-        @Nullable
-        public yg5.a c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.yg5
-        public void c(@Nullable yg5.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                this.c = aVar;
-            }
-        }
-
-        @Override // com.baidu.tieba.yg5
-        public yg5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), str})) == null) {
-                HotTopicDetailModel hotTopicDetailModel = new HotTopicDetailModel(tbPageContext);
-                this.b = hotTopicDetailModel;
-                hotTopicDetailModel.g0(j, str);
-                this.b.f0(this);
-                return this;
-            }
-            return (yg5) invokeCommon.objValue;
-        }
-
-        @Override // com.baidu.tieba.yg5
-        public void b(int i, jy4 jy4Var, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), jy4Var, Long.valueOf(j)}) == null) {
-                this.b.T(i, jy4Var, j);
-            }
-        }
-
-        @Override // com.baidu.tieba.newdetail.HotTopicDetailModel.d
-        public void p(int i, @Nullable km7 km7Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048579, this, i, km7Var) == null) && this.c != null) {
-                if (km7Var != null) {
-                    ArrayList arrayList = new ArrayList();
-                    for (sf6 sf6Var : km7Var.a) {
-                        if (sf6Var instanceof sf6) {
-                            ThreadData threadData = sf6Var.getThreadData();
-                            if (!TextUtils.equals(threadData.getTid(), "0")) {
-                                arrayList.add(threadData);
-                            }
-                        }
-                    }
-                    this.c.b(arrayList, km7Var.g());
-                }
-                this.c.a();
-            }
-        }
-    }
-
-    public nv5() {
+    public nv5(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qj1
-    /* renamed from: a */
-    public yg5 getService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new b(null);
+        this.d = new boolean[]{true, true, true, false, false, false};
+        this.j = false;
+        this.k = false;
+        this.z = 17;
+        this.E = -16417281;
+        this.F = -16417281;
+        this.G = -16777216;
+        this.H = -1;
+        this.I = BDEmotionPanelManager.COLOR_EMOTION_TYPE_LAYOUT;
+        this.J = 17;
+        this.K = 18;
+        this.L = 18;
+        this.M = -5723992;
+        this.N = -14013910;
+        this.O = -2763307;
+        this.P = -1;
+        this.Q = 1.6f;
+        this.S = true;
+        this.T = false;
+        Typeface typeface = Typeface.MONOSPACE;
+        this.U = WheelView.DividerType.FILL;
+        if (i == 1) {
+            this.x = R.layout.pickerview_options;
+        } else {
+            this.x = R.layout.pickerview_time;
         }
-        return (yg5) invokeV.objValue;
     }
 }

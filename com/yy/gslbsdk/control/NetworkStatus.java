@@ -1,7 +1,7 @@
 package com.yy.gslbsdk.control;
 
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NetworkStatus {
     public static final int IP_V4 = 1;
     public static final int IP_V6 = 2;
@@ -21,7 +21,7 @@ public class NetworkStatus {
     }
 
     public static NetworkStatus getInstanceClone() {
-        return getInstance().m763clone();
+        return getInstance().m765clone();
     }
 
     public boolean canV4() {
@@ -67,7 +67,7 @@ public class NetworkStatus {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public NetworkStatus m763clone() {
+    public NetworkStatus m765clone() {
         NetworkStatus networkStatus = new NetworkStatus();
         networkStatus.mEnableV6 = this.mEnableV6;
         networkStatus.mStatus = this.mStatus;

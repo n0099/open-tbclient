@@ -3,7 +3,7 @@ package com.baidu.tieba.barselect;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
-import com.baidu.tieba.p96;
+import com.baidu.tieba.va6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,11 +37,11 @@ public class VoteViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    public void a(int i, p96 p96Var) {
+    public void a(int i, va6 va6Var) {
         VoteCandidateCard voteCandidateCard;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, p96Var) == null) && (voteCandidateCard = this.a) != null) {
-            voteCandidateCard.setData(i, p96Var);
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, va6Var) == null) && (voteCandidateCard = this.a) != null) {
+            voteCandidateCard.setData(i, va6Var);
         }
     }
 }

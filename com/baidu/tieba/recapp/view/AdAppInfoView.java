@@ -20,11 +20,11 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g19;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.jw4;
-import com.baidu.tieba.k11;
-import com.baidu.tieba.xw5;
+import com.baidu.tieba.dy5;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.l11;
+import com.baidu.tieba.lw4;
+import com.baidu.tieba.wa9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class AdAppInfoView extends FrameLayout {
     public TextView f;
     public TextView g;
     public RelativeLayout h;
-    public jw4 i;
+    public lw4 i;
     public AdvertAppInfo j;
     public int k;
     public int l;
@@ -145,7 +145,7 @@ public class AdAppInfoView extends FrameLayout {
                 int id = view2.getId();
                 String str3 = "";
                 if (id == R.id.ad_privacy) {
-                    jw4.b bVar = this.a.i.g;
+                    lw4.b bVar = this.a.i.g;
                     if (bVar != null) {
                         str3 = bVar.b;
                         str = bVar.c;
@@ -155,20 +155,20 @@ public class AdAppInfoView extends FrameLayout {
                     str2 = str;
                 } else {
                     if (id == R.id.ad_permission) {
-                        jw4.a aVar = this.a.i.h;
+                        lw4.a aVar = this.a.i.h;
                         if (aVar != null) {
                             str3 = aVar.b;
                             str = aVar.c;
                             str2 = "app_permission";
                         }
                     } else if (id == R.id.ad_author_full_name) {
-                        hi.Q(this.a.getContext(), this.a.i.d);
+                        ii.Q(this.a.getContext(), this.a.i.d);
                         return;
                     }
                     str = "";
                     str2 = str;
                 }
-                g19.a(this.a.getContext(), str3, null, null, str);
+                wa9.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };
@@ -180,7 +180,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, xw5.SimpleAdInfoView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, dy5.SimpleAdInfoView);
         this.k = obtainStyledAttributes.getResourceId(0, this.k);
         obtainStyledAttributes.recycle();
     }
@@ -219,7 +219,7 @@ public class AdAppInfoView extends FrameLayout {
             this.e = (TextView) findViewById(R.id.ad_privacy);
             this.f = (TextView) findViewById(R.id.ad_permission);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0900fe);
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0908e9);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0908eb);
             this.e.setOnClickListener(this.m);
             this.f.setOnClickListener(this.m);
         }
@@ -303,7 +303,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.j != null && !TextUtils.isEmpty(str)) {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(ClogBuilder.LogType.FREE_CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.j.position + 1)).j(str).p(this.j.g);
-            k11.b(clogBuilder);
+            l11.b(clogBuilder);
         }
     }
 
@@ -319,60 +319,60 @@ public class AdAppInfoView extends FrameLayout {
         }
     }
 
-    public void setAppInfo(jw4 jw4Var) {
+    public void setAppInfo(lw4 lw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jw4Var) == null) {
-            if (jw4Var != null && jw4.c(jw4Var)) {
-                this.i = jw4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, lw4Var) == null) {
+            if (lw4Var != null && lw4.c(lw4Var)) {
+                this.i = lw4Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(jw4Var.c)) {
+                    if (!TextUtils.isEmpty(lw4Var.c)) {
                         this.a.setVisibility(0);
-                        this.a.setText(jw4Var.c);
+                        this.a.setText(lw4Var.c);
                     } else {
                         this.a.setVisibility(8);
                     }
                 }
                 AdStarRatingBar adStarRatingBar = this.b;
                 if (adStarRatingBar != null) {
-                    float f = jw4Var.e;
+                    float f = lw4Var.e;
                     if (f >= 0.0f && f <= 5.0f) {
                         adStarRatingBar.setVisibility(0);
-                        this.b.setRating(jw4Var.e);
+                        this.b.setRating(lw4Var.e);
                     } else {
                         this.b.setVisibility(8);
                     }
                 }
                 if (this.c != null) {
-                    if (!TextUtils.isEmpty(jw4Var.f)) {
+                    if (!TextUtils.isEmpty(lw4Var.f)) {
                         this.c.setVisibility(0);
-                        this.c.setText(jw4Var.f);
+                        this.c.setText(lw4Var.f);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    if (!TextUtils.isEmpty(jw4Var.d)) {
+                    if (!TextUtils.isEmpty(lw4Var.d)) {
                         this.d.setVisibility(0);
-                        this.d.setText(jw4Var.d);
+                        this.d.setText(lw4Var.d);
                         c();
                     } else {
                         this.d.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    jw4.b bVar = jw4Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(jw4Var.g.a)) {
+                    lw4.b bVar = lw4Var.g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(lw4Var.g.a)) {
                         this.e.setVisibility(0);
-                        this.e.setText(jw4Var.g.a);
+                        this.e.setText(lw4Var.g.a);
                     } else {
                         this.e.setVisibility(8);
                     }
                 }
                 if (this.f != null) {
-                    jw4.a aVar = jw4Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(jw4Var.h.a)) {
+                    lw4.a aVar = lw4Var.h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(lw4Var.h.a)) {
                         this.f.setVisibility(0);
-                        this.f.setText(jw4Var.h.a);
+                        this.f.setText(lw4Var.h.a);
                     } else {
                         this.f.setVisibility(8);
                     }

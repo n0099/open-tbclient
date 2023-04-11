@@ -7,26 +7,26 @@ import android.view.Window;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-import com.baidu.tieba.ar2;
-import com.baidu.tieba.do1;
-import com.baidu.tieba.id3;
-import com.baidu.tieba.j43;
-import com.baidu.tieba.l43;
-import com.baidu.tieba.ls2;
-import com.baidu.tieba.nl3;
-import com.baidu.tieba.x23;
+import com.baidu.tieba.br2;
+import com.baidu.tieba.eo1;
+import com.baidu.tieba.jd3;
+import com.baidu.tieba.k43;
+import com.baidu.tieba.m43;
+import com.baidu.tieba.ms2;
+import com.baidu.tieba.ol3;
+import com.baidu.tieba.y23;
 /* loaded from: classes3.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
-    public static final boolean l = do1.a;
-    public id3 j = null;
-    public x23 k;
+    public static final boolean l = eo1.a;
+    public jd3 j = null;
+    public y23 k;
 
-    public id3 y() {
+    public jd3 y() {
         return this.j;
     }
 
-    public void A(int i, @NonNull String[] strArr, x23.a aVar) {
-        x23 c = x23.c();
+    public void A(int i, @NonNull String[] strArr, y23.a aVar) {
+        y23 c = y23.c();
         this.k = c;
         c.requestPermissions(this, i, strArr, aVar);
     }
@@ -35,28 +35,28 @@ public class SwanAppBaseActivity extends FragmentActivity {
         super.onRequestPermissionsResult(i, strArr, iArr);
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.tieba.dl4.b
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.tieba.el4.b
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        x23 x23Var = this.k;
-        if (x23Var != null) {
-            x23Var.f(this, i, strArr, iArr);
+        y23 y23Var = this.k;
+        if (y23Var != null) {
+            y23Var.f(this, i, strArr, iArr);
         } else {
             B(i, strArr, iArr);
         }
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.jl4, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.kl4, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        int c0 = nl3.c0(this);
+        int c0 = ol3.c0(this);
         super.onCreate(bundle);
-        nl3.g(this, c0);
+        ol3.g(this, c0);
     }
 
     @Override // android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        boolean a = ar2.M().a();
-        ls2.e(Boolean.valueOf(a));
+        boolean a = br2.M().a();
+        ms2.e(Boolean.valueOf(a));
         z(a, false);
     }
 
@@ -70,7 +70,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
             return;
         }
         if (this.j == null) {
-            this.j = new id3();
+            this.j = new jd3();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
@@ -79,10 +79,10 @@ public class SwanAppBaseActivity extends FragmentActivity {
             this.j.b(viewGroup);
         }
         if (z2) {
-            j43 e = j43.e();
-            l43 l43Var = new l43(5);
-            l43Var.f(true);
-            e.h(l43Var);
+            k43 e = k43.e();
+            m43 m43Var = new m43(5);
+            m43Var.f(true);
+            e.h(m43Var);
         }
     }
 }

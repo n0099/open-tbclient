@@ -67,11 +67,11 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.no_network_more_view);
-            z1();
+            x1();
         }
     }
 
-    public void z1() {
+    public void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);

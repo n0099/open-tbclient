@@ -1,122 +1,287 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.browser.BrowserType;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.util.IBaiduIdentityContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes3.dex */
-public class bf9 {
+public class bf9 implements IBaiduIdentityContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final se9 b;
-    public ch6 c;
-    public ch6 d;
-    public ch6 e;
 
-    public bf9(MainTabActivity mainTabActivity, se9 se9Var) {
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public byte[] encryptByNativeBds(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? new byte[0] : (byte[]) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getAppMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getBDVCInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getIid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean getJoinUserExperiencePreference(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getLocString(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, context, i)) == null) {
+            return null;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getLocationInfo(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getMatrixstyle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getOEMChannel(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getOsBranch() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getPassUid(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getPkgName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean getPrivacySwitch(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, context)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String[] getProcessUARegex(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, context)) == null) ? new String[0] : (String[]) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getSearchBoxTypeId(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getTn(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getZid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean isAgreePrivacy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean isBlinkEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean isDataFlowPopDialog(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, context)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean isPeakTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean isSelfUpdateInstalled(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, context)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public CookieManager obtainCookieManager(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return null;
+        }
+        return (CookieManager) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String processUrlExternal(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048599, this, str, z)) == null) {
+            return null;
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String processUserAgentExternal(String str, BrowserType browserType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, str, browserType)) == null) {
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public void setCookieManualNoBdussOperate(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048601, this, str, str2, z) == null) {
+        }
+    }
+
+    public bf9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, se9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = mainTabActivity;
-        this.b = se9Var;
-    }
-
-    public void a() {
-        ch6 ch6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ch6Var = this.e) != null && ch6Var.e()) {
-            this.e.d();
-        }
-    }
-
-    public void b() {
-        ch6 ch6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ch6Var = this.d) != null && ch6Var.e()) {
-            this.d.d();
-            this.d = null;
-        }
-    }
-
-    public void c() {
-        ch6 ch6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ch6Var = this.c) != null && ch6Var.e()) {
-            this.c.d();
-            this.c = null;
-        }
-    }
-
-    public void d() {
-        se9 se9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (se9Var = this.b) != null && se9Var.y() != null) {
-            FragmentTabWidget fragmentTabWidget = this.b.y().getFragmentTabWidget();
-            if (fragmentTabWidget.getChildCount() < 2) {
-                return;
-            }
-            ch6 ch6Var = new ch6(this.a.getPageContext(), fragmentTabWidget.getChildAt(1));
-            this.e = ch6Var;
-            ch6Var.C(R.drawable.bg_tip_blue_down);
-            this.e.h(2);
-            this.e.k(32);
-            this.e.E(true);
-            this.e.I(-hi.g(this.a, R.dimen.tbds10));
-            this.e.t(R.color.CAM_X0101);
-            this.e.l(R.dimen.tbds54);
-            this.e.p(1);
-            this.e.j(4000);
-            this.e.w(hi.g(this.a, R.dimen.tbds44));
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str)) {
-            FragmentTabWidget fragmentTabWidget = this.b.y().getFragmentTabWidget();
-            if (fragmentTabWidget.getChildCount() < 2) {
-                return;
-            }
-            ch6 ch6Var = new ch6(this.a.getPageContext(), fragmentTabWidget.getChildAt(2));
-            this.c = ch6Var;
-            ch6Var.C(R.drawable.bg_tip_blue_down);
-            this.c.h(2);
-            this.c.k(32);
-            this.c.E(true);
-            this.c.I(-hi.g(this.a, R.dimen.tbds10));
-            this.c.t(R.color.CAM_X0101);
-            this.c.l(R.dimen.tbds54);
-            this.c.p(999);
-            this.c.j(5000);
-            this.c.w(hi.g(this.a, R.dimen.tbds44));
-            this.c.M(str, "categoryUpdate", false, true);
-        }
-    }
-
-    public void f() {
-        ch6 ch6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (ch6Var = this.e) != null && !ch6Var.e()) {
-            ch6 ch6Var2 = this.e;
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f05c3);
-            ch6Var2.K(string, "first_like_forum_enterforumtab_tips" + TbadkCoreApplication.getCurrentAccount());
         }
     }
 }

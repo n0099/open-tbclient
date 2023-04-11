@@ -1,151 +1,253 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
+import android.text.TextUtils;
+import android.view.Surface;
+import com.baidu.tieba.pfa;
+import com.baidu.tieba.sfa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.MediaView;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FileOutputStream;
+import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
-public class ofa extends BaseFunNativeAd {
+public class ofa extends pfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NativeUnifiedADData b;
-    public final ChannelNativeAds c;
-    public final MediaView d;
-    public final ffa e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ofa(NativeUnifiedADData nativeUnifiedADData, MediaView mediaView, String str, Ssp.Pid pid, ffa ffaVar) {
-        super(str, pid);
+    public ofa(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nativeUnifiedADData, mediaView, str, pid, ffaVar};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = nativeUnifiedADData;
-        this.d = mediaView;
-        this.c = ChannelNativeAds.createGdt(nativeUnifiedADData);
-        this.e = ffaVar;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public ChannelNativeAds getChannelNativeAds() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:49:0x015c A[Catch: all -> 0x0282, TryCatch #0 {all -> 0x0282, blocks: (B:27:0x00e3, B:29:0x00e9, B:31:0x00f2, B:47:0x0156, B:49:0x015c, B:51:0x0162, B:52:0x016f, B:55:0x0175, B:57:0x0178, B:59:0x0192, B:61:0x0198, B:63:0x01a6, B:65:0x01ac, B:69:0x01b9, B:76:0x01c9, B:78:0x01d0, B:79:0x01d9, B:81:0x01f7, B:83:0x0201, B:86:0x020f, B:89:0x021c, B:33:0x010d, B:35:0x0115, B:39:0x0126, B:44:0x0143, B:42:0x0131, B:93:0x0240, B:95:0x0246, B:96:0x024e), top: B:108:0x00e3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x0209  */
+    @TargetApi(16)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public pfa.b a(String str, boolean z, sfa.f fVar, sfa.f fVar2, long j, long j2, long j3) throws Exception {
+        InterceptResult invokeCommon;
+        MediaFormat mediaFormat;
+        ByteBuffer[] byteBufferArr;
+        long j4;
+        int dequeueOutputBuffer;
+        ByteBuffer[] byteBufferArr2;
+        byte[] bArr;
+        byte[] bArr2;
+        byte[] bArr3;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ChannelNativeAds) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.getDesc() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getIconUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.getIconUrl() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public List<String> getImageUrls() {
-        InterceptResult invokeV;
-        String imgUrl;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<String> imgList = this.b.getImgList();
-            if (imgList == null) {
-                imgList = new ArrayList<>();
-            }
-            if (imgList.isEmpty() && (imgUrl = this.b.getImgUrl()) != null) {
-                imgList.add(imgUrl);
-            }
-            return imgList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public FunNativeAd.InteractionType getInteractionType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b.isAppAd()) {
-                int appStatus = this.b.getAppStatus();
-                if (appStatus != 0) {
-                    if (appStatus != 1) {
-                        if (appStatus != 2 && appStatus != 4) {
-                            if (appStatus != 8) {
-                                if (appStatus != 16) {
-                                    return FunNativeAd.InteractionType.TYPE_UNKNOW;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), fVar, fVar2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            sfa.f fVar3 = fVar2;
+            long j5 = j2;
+            if (!TextUtils.isEmpty(str) && fVar != null && fVar3 != null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                String str2 = this.a;
+                MediaExtractor mediaExtractor = new MediaExtractor();
+                mediaExtractor.setDataSource(str2);
+                int i = 0;
+                while (true) {
+                    if (i < mediaExtractor.getTrackCount()) {
+                        mediaFormat = mediaExtractor.getTrackFormat(i);
+                        if (mediaFormat.getString("mime").startsWith("audio/")) {
+                            mediaExtractor.selectTrack(i);
+                            break;
+                        }
+                        i++;
+                    } else {
+                        mediaFormat = null;
+                        break;
+                    }
+                }
+                dha.c("AndroidAudioDecoder", "startTime:" + j + ",endTime:" + j5);
+                if (j > 0) {
+                    mediaExtractor.seekTo(j * 1000, 0);
+                }
+                if (mediaFormat == null) {
+                    dha.b("not a valid file with audio track..");
+                    mediaExtractor.release();
+                    return null;
+                }
+                dha.b("mediaFormat " + mediaFormat);
+                pfa.b bVar = new pfa.b();
+                int i2 = fVar3.b;
+                int i3 = fVar3.a;
+                int i4 = fVar3.c;
+                bVar.a = str;
+                FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
+                MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
+                createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
+                createDecoderByType.start();
+                ByteBuffer[] inputBuffers = createDecoderByType.getInputBuffers();
+                ByteBuffer[] outputBuffers = createDecoderByType.getOutputBuffers();
+                double d = mediaFormat.getLong("durationUs");
+                MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+                boolean z2 = false;
+                boolean z3 = false;
+                ByteBuffer[] byteBufferArr3 = outputBuffers;
+                while (!z2) {
+                    long j6 = currentTimeMillis;
+                    if (!z3) {
+                        try {
+                            int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(5000L);
+                            if (dequeueInputBuffer >= 0) {
+                                int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], 0);
+                                if (readSampleData < 0) {
+                                    dha.b("saw input EOS.");
+                                    createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                    byteBufferArr = inputBuffers;
+                                    j4 = 5000;
+                                } else {
+                                    long sampleTime = mediaExtractor.getSampleTime();
+                                    if (j3 != 0) {
+                                        byteBufferArr = inputBuffers;
+                                        mediaExtractor.seekTo(sampleTime + j3, 0);
+                                    } else {
+                                        byteBufferArr = inputBuffers;
+                                    }
+                                    if (j5 != -1 && sampleTime + j3 >= j5 * 1000) {
+                                        createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                        j4 = 5000;
+                                    }
+                                    createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, sampleTime, 0);
+                                    mediaExtractor.advance();
+                                    j4 = 5000;
+                                    dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
+                                    if (dequeueOutputBuffer >= 0) {
+                                        if ((bufferInfo.flags & 2) != 0) {
+                                            dha.b("audio encoder: codec config buffer");
+                                            createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                            inputBuffers = byteBufferArr;
+                                            currentTimeMillis = j6;
+                                        } else {
+                                            if (bufferInfo.size != 0 && dequeueOutputBuffer >= 0 && byteBufferArr3.length > dequeueOutputBuffer) {
+                                                ByteBuffer byteBuffer = byteBufferArr3[dequeueOutputBuffer];
+                                                byteBuffer.position(bufferInfo.offset);
+                                                byteBufferArr2 = byteBufferArr3;
+                                                byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
+                                                byte[] bArr4 = new byte[bufferInfo.size];
+                                                byteBuffer.get(bArr4);
+                                                if (!z) {
+                                                    if (fVar2.a()) {
+                                                        bArr2 = sfa.c(fVar3.c / 8, fVar.c / 8, bArr4);
+                                                    } else {
+                                                        bArr2 = null;
+                                                    }
+                                                    if (fVar2.b()) {
+                                                        int i5 = fVar3.b;
+                                                        int i6 = fVar.b;
+                                                        int i7 = fVar.c / 8;
+                                                        if (bArr2 == null) {
+                                                            bArr3 = bArr4;
+                                                        } else {
+                                                            bArr3 = bArr2;
+                                                        }
+                                                        bArr = sfa.d(i5, i6, i7, bArr3);
+                                                    } else {
+                                                        bArr = null;
+                                                    }
+                                                } else {
+                                                    bArr = null;
+                                                    bArr2 = null;
+                                                }
+                                                if (bArr == null) {
+                                                    if (bArr2 == null) {
+                                                        bArr = bArr4;
+                                                    } else {
+                                                        bArr = bArr2;
+                                                    }
+                                                }
+                                                fileOutputStream.write(bArr);
+                                                if (this.b != null) {
+                                                    this.b.a(bArr4, bufferInfo.presentationTimeUs / d);
+                                                }
+                                                dha.b(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
+                                            } else {
+                                                byteBufferArr2 = byteBufferArr3;
+                                            }
+                                            createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                            if ((bufferInfo.flags & 4) != 0) {
+                                                dha.b("saw output EOS.");
+                                                z2 = true;
+                                            }
+                                        }
+                                    } else {
+                                        byteBufferArr2 = byteBufferArr3;
+                                        if (dequeueOutputBuffer == -3) {
+                                            byteBufferArr3 = createDecoderByType.getOutputBuffers();
+                                            dha.b("output buffers have changed.");
+                                            fVar3 = fVar2;
+                                            inputBuffers = byteBufferArr;
+                                            j5 = j2;
+                                            currentTimeMillis = j6;
+                                        } else if (dequeueOutputBuffer == -2) {
+                                            dha.b("output format has changed to " + createDecoderByType.getOutputFormat());
+                                        }
+                                    }
+                                    byteBufferArr3 = byteBufferArr2;
+                                    fVar3 = fVar2;
+                                    inputBuffers = byteBufferArr;
+                                    j5 = j2;
+                                    currentTimeMillis = j6;
                                 }
+                                z3 = true;
+                                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
+                                if (dequeueOutputBuffer >= 0) {
+                                }
+                                byteBufferArr3 = byteBufferArr2;
+                                fVar3 = fVar2;
+                                inputBuffers = byteBufferArr;
+                                j5 = j2;
+                                currentTimeMillis = j6;
                             }
+                        } finally {
+                            fileOutputStream.close();
+                            createDecoderByType.stop();
+                            createDecoderByType.release();
+                            mediaExtractor.release();
                         }
                     }
-                    return FunNativeAd.InteractionType.TYPE_BROWSE;
+                    byteBufferArr = inputBuffers;
+                    j4 = 5000;
+                    dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
+                    if (dequeueOutputBuffer >= 0) {
+                    }
+                    byteBufferArr3 = byteBufferArr2;
+                    fVar3 = fVar2;
+                    inputBuffers = byteBufferArr;
+                    j5 = j2;
+                    currentTimeMillis = j6;
                 }
-                return FunNativeAd.InteractionType.TYPE_DOWNLOAD;
+                long j7 = currentTimeMillis;
+                if (this.b != null) {
+                    this.b.a(null, 1.0d);
+                }
+                dha.b("decode " + str + " cost " + (System.currentTimeMillis() - j7) + " milliseconds !");
+                return bVar;
             }
-            return FunNativeAd.InteractionType.TYPE_BROWSE;
+            return null;
         }
-        return (FunNativeAd.InteractionType) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.getTitle() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public View getVideoView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (View) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
-    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
-            if (viewGroup instanceof NativeAdContainer) {
-                this.e.o(this.b, this.mSid, (NativeAdContainer) viewGroup, this.d, list, funAdInteractionListener, this.c.getGdtADStatusChangeListener());
-                return;
-            }
-            LogPrinter.e("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer", new Object[0]);
-            if (FunAdSdk.isLogEnabled()) {
-                throw new IllegalArgumentException("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer");
-            }
-        }
+        return (pfa.b) invokeCommon.objValue;
     }
 }

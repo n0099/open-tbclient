@@ -1,6 +1,9 @@
 package com.baidu.searchbox.pms.init.response;
 
 import android.text.TextUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.dyesdk.DyeService;
+import com.baidu.searchbox.net.update.UpdateConstants;
 import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
@@ -12,6 +15,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ParseUtils {
+    public static final String BIZ_NAME_PREFIX = "aps_";
+    public static final String UNIQUE_VERSION = "unique_version";
+
     public static List<PackageInfo> parseAPSItems(JSONObject jSONObject) {
         PackageInfo parsePkgItem;
         ArrayList arrayList = null;
@@ -117,6 +123,10 @@ public class ParseUtils {
         packageInfo.errNo = jSONObject.optInt("errno", 0);
         packageInfo.updateVersion = jSONObject.optLong("version");
         packageInfo.updateSign = jSONObject.optString("sign");
+        DyeService dyeService = (DyeService) ServiceManager.getService(DyeService.Companion.getSERVICE_REFERENCE());
+        if (dyeService != null) {
+            dyeService.putRawDyeConfig(BIZ_NAME_PREFIX + str, str2, jSONObject.optString(UpdateConstants.TRACE_ID, ""));
+        }
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("pkg_info");
@@ -154,7 +164,9 @@ public class ParseUtils {
                 packageInfo.extraServer = jSONObject2;
                 if (jSONObject2 != null) {
                     try {
-                        packageInfo.abi = new JSONObject(packageInfo.extraServer).optString(PackageTable.ABI);
+                        JSONObject jSONObject3 = new JSONObject(packageInfo.extraServer);
+                        packageInfo.abi = jSONObject3.optString(PackageTable.ABI);
+                        packageInfo.uniqueVersion = jSONObject3.optString(UNIQUE_VERSION);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

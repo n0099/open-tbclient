@@ -1,12 +1,6 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.MessageQueue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cd6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,137 +8,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
 public class cd6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, Object> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947670964, "Lcom/baidu/tieba/cd6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947670964, "Lcom/baidu/tieba/cd6;");
-        }
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes3.dex */
-    public static class a {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final cd6 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Handler a;
-        public final Looper b;
-        public MessageQueue c;
 
-        public a(Looper looper) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-893963658, "Lcom/baidu/tieba/cd6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-893963658, "Lcom/baidu/tieba/cd6$b;");
                     return;
                 }
             }
-            this.b = looper;
-            this.a = new Handler(looper);
-        }
-
-        public static /* synthetic */ boolean b(Runnable runnable) {
-            runnable.run();
-            return false;
-        }
-
-        public boolean c(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable)) == null) {
-                if (a() == null) {
-                    return false;
-                }
-                return this.a.post(runnable);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public void e(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) && a() != null) {
-                this.a.removeCallbacks(runnable);
-            }
-        }
-
-        public void f(final Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, runnable) != null) || a() == null) {
-                return;
-            }
-            this.c.addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.yc6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.os.MessageQueue.IdleHandler
-                public final boolean queueIdle() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? cd6.a.b(runnable) : invokeV.booleanValue;
-                }
-            });
-        }
-
-        @SuppressLint({"DiscouragedPrivateApi"})
-        public final synchronized MessageQueue a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                synchronized (this) {
-                    if (this.c != null) {
-                        return this.c;
-                    }
-                    if (Build.VERSION.SDK_INT >= 23) {
-                        MessageQueue queue = this.b.getQueue();
-                        this.c = queue;
-                        return queue;
-                    }
-                    try {
-                        Field declaredField = Looper.class.getDeclaredField("mQueue");
-                        declaredField.setAccessible(true);
-                        Object obj = declaredField.get(this.b);
-                        if (obj instanceof MessageQueue) {
-                            this.c = (MessageQueue) obj;
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return this.c;
-                }
-            }
-            return (MessageQueue) invokeV.objValue;
-        }
-
-        public boolean d(Runnable runnable, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j)) == null) {
-                if (a() == null) {
-                    return false;
-                }
-                return this.a.postDelayed(runnable, j);
-            }
-            return invokeLJ.booleanValue;
+            a = new cd6(null);
         }
     }
 
@@ -152,29 +49,78 @@ public class cd6 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentHashMap();
+    }
+
+    public static cd6 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (cd6) invokeV.objValue;
+    }
+
+    public /* synthetic */ cd6(a aVar) {
+        this();
+    }
+
+    public synchronized void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            synchronized (this) {
+                if (!this.a.containsKey(str)) {
+                    this.a.put(str, new Object());
+                }
             }
         }
     }
 
-    public static a a() {
-        InterceptResult invokeV;
+    public synchronized boolean c(String str) {
+        InterceptResult invokeL;
+        boolean containsKey;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (cd6.class) {
-                    if (a == null) {
-                        a = new a(Looper.getMainLooper());
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                containsKey = this.a.containsKey(str);
             }
-            return a;
+            return containsKey;
         }
-        return (a) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void e(String str) {
+        Object remove;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (remove = this.a.remove(str)) != null) {
+            try {
+                synchronized (remove) {
+                    remove.notifyAll();
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public void d(String str, long j) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) && (obj = this.a.get(str)) != null) {
+            try {
+                synchronized (obj) {
+                    obj.wait(j);
+                }
+            } catch (InterruptedException unused) {
+            }
+        }
     }
 }

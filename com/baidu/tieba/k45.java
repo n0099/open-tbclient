@@ -1,177 +1,116 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class k45 extends TBSpecificationButtonConfig {
-    public static /* synthetic */ Interceptable $ic;
+public class k45 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static j45 a = null;
+    public static int b = 0;
+    public static int c = 0;
+    public static int d = 0;
+    public static int e = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean u;
-    public boolean v;
 
-    public k45() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947863133, "Lcom/baidu/tieba/k45;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947863133, "Lcom/baidu/tieba/k45;");
+        }
+    }
+
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            j45 j45Var = a;
+            if (j45Var == null) {
+                return -1;
             }
+            return j45Var.getCurrentTabType();
         }
-        this.b = R.color.CAM_X0302;
-        this.u = true;
+        return invokeV.intValue;
     }
 
-    public void s() {
+    public static Class<?> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = R.color.CAM_X0101;
-            this.d = R.color.CAM_X0904;
-            this.u = false;
-            this.q = true;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            j45 j45Var = a;
+            if (j45Var == null) {
+                return null;
             }
+            return j45Var.d();
         }
+        return (Class) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable a(float f) {
-        InterceptResult invokeF;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            return x(f);
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public void t(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
-            this.u = true;
-            this.q = true;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            j45 j45Var = a;
+            if (j45Var == null) {
+                return null;
             }
+            return j45Var.f();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void d(Context context) {
+        j45 j45Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) != null) || (j45Var = a) == null) {
+            return;
+        }
+        j45Var.a(context);
+    }
+
+    public static void h(j45 j45Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, j45Var) == null) {
+            a = j45Var;
         }
     }
 
-    public void u(@ColorInt int i) {
+    public static void e(Context context, int i) {
+        j45 j45Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b = i;
-            this.u = true;
-            this.q = false;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
-            }
+        if ((interceptable != null && interceptable.invokeLI(65541, null, context, i) != null) || (j45Var = a) == null) {
+            return;
         }
+        j45Var.b(context, i);
     }
 
-    public void v(@ColorRes int i) {
+    public static void f(Context context, int i, boolean z) {
+        j45 j45Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.b = i;
-            this.d = R.color.CAM_X0903;
-            this.u = false;
-            this.q = true;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
-            }
+        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (j45Var = a) == null) {
+            return;
         }
+        j45Var.c(context, i, z);
     }
 
-    public void w(@ColorRes int i) {
+    public static void g(Context context, int i, boolean z) {
+        j45 j45Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
-            this.d = R.color.CAM_X0211;
-            this.u = false;
-            this.q = true;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
-            }
+        if ((interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (j45Var = a) == null) {
+            return;
         }
-    }
-
-    public void y(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.q = z;
-        }
-    }
-
-    public void q(@ColorInt int i, @ColorInt int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.d = i;
-            this.b = i2;
-            this.v = true;
-            this.q = false;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public void r(@ColorRes int i, @ColorRes int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            this.d = i;
-            this.b = i2;
-            this.u = false;
-            this.q = true;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public final Drawable x(float f) {
-        InterceptResult invokeF;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            if (this.v) {
-                gradientDrawable.setColor(this.d);
-            } else if (this.u) {
-                if (this.q) {
-                    i = SkinManager.getColor(this.r, this.b);
-                } else {
-                    i = this.b;
-                }
-                gradientDrawable.setColor(ga9.a(i, 0.08f));
-            } else {
-                gradientDrawable.setColor(SkinManager.getColor(this.r, this.d));
-            }
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
-        }
-        return (Drawable) invokeF.objValue;
+        j45Var.e(context, i, z);
     }
 }

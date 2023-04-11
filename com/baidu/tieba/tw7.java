@@ -1,73 +1,59 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class tw7 extends ux7 {
+public class tw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<um> a;
 
-    @Override // com.baidu.tieba.tx7
-    public boolean a(int i, boolean z, Object obj) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public tw7() {
+    public tw7(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+        y47 y47Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921336, y47.class, tbPageContext);
+        if (runTask != null && (y47Var = (y47) runTask.getData()) != null) {
+            this.a.add(y47Var);
+        }
+        this.a.add(new uw7(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC));
+        this.a.add(new sw7(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC_VIDEO));
+        bdTypeRecyclerView.addAdapters(this.a);
     }
 
-    @Override // com.baidu.tieba.ux7
-    public List<sx7> j(@NonNull List list) {
-        InterceptResult invokeL;
+    public void a(TbPageTag tbPageTag) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < list.size(); i++) {
-                Object obj = list.get(i);
-                if (obj instanceof BaseMsg) {
-                    BaseMsg baseMsg = (BaseMsg) obj;
-                    List<AbilityItem> quickOperate = baseMsg.getCommonMsgField().getQuickOperate();
-                    if (ListUtils.isEmpty(quickOperate)) {
-                        break;
-                    }
-                    for (int i2 = 0; i2 < ListUtils.getCount(quickOperate); i2++) {
-                        AbilityItem abilityItem = (AbilityItem) ListUtils.getItem(quickOperate, i2);
-                        if (abilityItem != null && abilityItem.getStyleConf().shouldShow()) {
-                            yw7 yw7Var = new yw7();
-                            yw7Var.d(abilityItem);
-                            yw7Var.e(baseMsg);
-                            arrayList.add(yw7Var);
-                        }
-                    }
-                }
-            }
-            return arrayList;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, tbPageTag) != null) || ListUtils.isEmpty(this.a)) {
+            return;
         }
-        return (List) invokeL.objValue;
+        for (um umVar : this.a) {
+            if (umVar instanceof y47) {
+                ((y47) umVar).E(tbPageTag);
+            }
+        }
     }
 }

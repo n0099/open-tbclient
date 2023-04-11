@@ -1,219 +1,322 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.Headers;
-import com.baidu.searchbox.network.outback.core.HttpMethod;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.internal.Util;
-import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
+import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.ProxySelector;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLSocketFactory;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class m60 implements j60 {
+public class m60 implements h60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g60 a;
-    public k60 b;
-    public e60 c;
+    public HttpURLConnection a;
+    public int b;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a extends InputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public InputStream a;
+        public final /* synthetic */ m60 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947924482, "Lcom/baidu/tieba/m60;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947924482, "Lcom/baidu/tieba/m60;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public e60 a;
-
-        public b() {
+        public a(m60 m60Var, InputStream inputStream) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m60Var, inputStream};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = m60Var;
+            this.a = inputStream;
+        }
+
+        public final IOException a(IOException iOException) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iOException)) == null) {
+                this.b.disconnect();
+                if (TextUtils.isEmpty(iOException.getMessage())) {
+                    return new IOException(iOException.getClass().getName(), iOException);
+                }
+                return iOException;
+            }
+            return (IOException) invokeL.objValue;
+        }
+
+        @Override // java.io.InputStream
+        public synchronized void mark(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                synchronized (this) {
+                    this.a.mark(i);
                 }
             }
         }
 
-        public m60 b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new m60(this, null);
-            }
-            return (m60) invokeV.objValue;
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        public b c(e60 e60Var) {
+        @Override // java.io.InputStream
+        public int read(byte[] bArr) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e60Var)) == null) {
-                this.a = e60Var;
-                return this;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+                try {
+                    return read(bArr, 0, bArr.length);
+                } catch (IOException e) {
+                    throw a(e);
+                }
             }
-            return (b) invokeL.objValue;
+            return invokeL.intValue;
+        }
+
+        @Override // java.io.InputStream
+        public long skip(long j) throws IOException {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+                try {
+                    return this.a.skip(j);
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeJ.longValue;
+        }
+
+        @Override // java.io.InputStream
+        public int available() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                try {
+                    return this.a.available();
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+        public void close() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                try {
+                    if (read() >= 0) {
+                        this.a.close();
+                        this.b.disconnect();
+                        return;
+                    }
+                    this.a.close();
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+        }
+
+        @Override // java.io.InputStream
+        public boolean markSupported() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.a.markSupported();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // java.io.InputStream
+        public int read() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                try {
+                    return this.a.read();
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.io.InputStream
+        public synchronized void reset() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                synchronized (this) {
+                    try {
+                        this.a.reset();
+                    } catch (IOException e) {
+                        throw a(e);
+                    }
+                }
+            }
+        }
+
+        @Override // java.io.InputStream
+        public int read(byte[] bArr, int i, int i2) throws IOException {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, bArr, i, i2)) == null) {
+                try {
+                    return this.a.read(bArr, i, i2);
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeLII.intValue;
         }
     }
 
-    public m60(b bVar) {
+    public m60(HttpURLConnection httpURLConnection) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {httpURLConnection};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        e60 e60Var = bVar.a;
-        this.c = e60Var;
-        ProxySelector.setDefault(e60Var.y());
-        this.b = this.c.s();
+        this.b = 4;
+        this.a = httpURLConnection;
     }
 
-    public /* synthetic */ m60(b bVar, a aVar) {
-        this(bVar);
-    }
-
-    public final void c(Request request, HttpURLConnection httpURLConnection) throws IOException {
+    @Override // com.baidu.tieba.h60
+    public void t(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, httpURLConnection) == null) {
-            OutputStream outputStream = null;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        HttpURLConnection httpURLConnection;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (httpURLConnection = this.a) != null) {
+            httpURLConnection.disconnect();
+        }
+    }
+
+    @Override // com.baidu.tieba.h60
+    public void disconnect() {
+        HttpURLConnection httpURLConnection;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (httpURLConnection = this.a) != null) {
             try {
-                try {
-                    outputStream = httpURLConnection.getOutputStream();
-                    request.body().writeTo(outputStream);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    throw e;
-                }
-            } finally {
-                Util.closeQuietly(outputStream);
+                httpURLConnection.disconnect();
+            } catch (NullPointerException e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public static b b() {
+    @Override // com.baidu.tieba.h60
+    public int getCode() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new b(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                return this.a.getResponseCode();
+            } catch (IOException e) {
+                disconnect();
+                throw e;
+            }
         }
-        return (b) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.j60
-    public g60 a(Request request) throws IOException {
-        InterceptResult invokeL;
-        int i;
+    @Override // com.baidu.tieba.h60
+    public Map<String, List<String>> getHeaders() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) {
-            HttpURLConnection openHttpURLConnection = this.b.openHttpURLConnection(request.url().url());
-            boolean equals = "CronetHttpURLConnection".equals(openHttpURLConnection.getClass().getSimpleName());
-            if (!equals) {
-                i = 4;
-            } else {
-                i = 5;
-            }
-            NetworkStatRecord networkStatRecord = request.getNetworkStatRecord();
-            if (networkStatRecord != null) {
-                networkStatRecord.netEngine = i;
-            }
-            if (request.getConnectionTimeout() > 0) {
-                openHttpURLConnection.setConnectTimeout(request.getConnectionTimeout());
-            } else if (this.c.o() > 0) {
-                openHttpURLConnection.setConnectTimeout(this.c.o());
-            }
-            if (request.getReadTimeout() > 0) {
-                openHttpURLConnection.setReadTimeout(request.getReadTimeout());
-            } else if (this.c.z() > 0) {
-                openHttpURLConnection.setReadTimeout(this.c.z());
-            }
-            openHttpURLConnection.setInstanceFollowRedirects(request.isFollowRedirects());
-            if ("https".equalsIgnoreCase(request.url().scheme()) && !equals) {
-                SSLSocketFactory B = this.c.B();
-                if (B != null) {
-                    ((HttpsURLConnection) openHttpURLConnection).setSSLSocketFactory(B);
-                }
-                HostnameVerifier r = this.c.r();
-                if (r != null) {
-                    ((HttpsURLConnection) openHttpURLConnection).setHostnameVerifier(r);
-                }
-            }
-            String method = request.method();
-            openHttpURLConnection.setRequestMethod(method);
-            openHttpURLConnection.setDoInput(true);
-            boolean permitsRequestBody = HttpMethod.permitsRequestBody(method);
-            openHttpURLConnection.setDoOutput(permitsRequestBody);
-            Headers headers = request.headers();
-            if (permitsRequestBody) {
-                long contentLength = request.body().contentLength();
-                int i2 = (contentLength > 0L ? 1 : (contentLength == 0L ? 0 : -1));
-                if (i2 < 0 && !"chunked".equals(headers.get("Transfer-Encoding"))) {
-                    throw new IOException("content length < 0 but transfer-encoding is not set to chunked");
-                }
-                if (i2 < 0 && "chunked".equals(headers.get("Transfer-Encoding"))) {
-                    openHttpURLConnection.setChunkedStreamingMode(-1);
-                } else {
-                    openHttpURLConnection.setFixedLengthStreamingMode((int) contentLength);
-                }
-            }
-            int size = headers.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                openHttpURLConnection.setRequestProperty(headers.name(i3), headers.value(i3));
-            }
-            if (permitsRequestBody) {
-                c(request, openHttpURLConnection);
-            }
-            openHttpURLConnection.connect();
-            l60 l60Var = new l60(openHttpURLConnection);
-            this.a = l60Var;
-            l60Var.t(i);
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.getHeaderFields();
         }
-        return (g60) invokeL.objValue;
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h60
+    public InputStream getInputStream() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                InputStream inputStream = this.a.getInputStream();
+                if (inputStream == null) {
+                    disconnect();
+                    return inputStream;
+                }
+                return new BufferedInputStream(new a(this, inputStream));
+            } catch (IOException e) {
+                disconnect();
+                throw e;
+            }
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h60
+    public String getMessage() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                return this.a.getResponseMessage();
+            } catch (IOException e) {
+                disconnect();
+                throw e;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h60
+    public InputStream q() throws IOException {
+        InterceptResult invokeV;
+        InputStream inputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (getCode() >= 400) {
+                inputStream = this.a.getErrorStream();
+            } else {
+                inputStream = null;
+            }
+            if (inputStream != null) {
+                return new a(this, inputStream);
+            }
+            return inputStream;
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h60
+    public int u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 }

@@ -1,9 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes4.dex */
-public interface hn<T> {
-    int getCount();
-
-    T getItem(int i);
-
-    void notifyDataSetChanged();
+public interface hn {
+    BdUniqueId getType();
 }

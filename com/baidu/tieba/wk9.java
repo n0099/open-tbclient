@@ -1,25 +1,43 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.tieba.video.editvideo.data.PendantData;
-import java.util.List;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.os.Environment;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface wk9 {
-    void U();
+public class wk9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void h();
+    public static boolean a(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (Build.VERSION.SDK_INT < 23) {
+                return true;
+            }
+            boolean checkWriteExternalStorage = PermissionUtil.checkWriteExternalStorage(activity);
+            if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
+                return false;
+            }
+            return checkWriteExternalStorage;
+        }
+        return invokeL.booleanValue;
+    }
 
-    void j0(String str);
-
-    void m();
-
-    void onNext();
-
-    void p1(Bitmap bitmap);
-
-    void q0(String str);
-
-    void s(List<PendantData> list);
-
-    void z();
+    public static boolean b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (context.getPackageManager().getPackageInfo(str, 0) == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
 }

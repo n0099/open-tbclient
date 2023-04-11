@@ -1,78 +1,94 @@
 package com.baidu.tieba;
 
-import android.animation.AnimatorInflater;
-import android.animation.ObjectAnimator;
-import android.animation.StateListAnimator;
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewOutlineProvider;
-import androidx.annotation.RequiresApi;
-import androidx.constraintlayout.motion.widget.Key;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.ViewCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@RequiresApi(21)
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class sa0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948144551, "Lcom/baidu/tieba/sa0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948144551, "Lcom/baidu/tieba/sa0;");
+    public sa0(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new int[]{16843848};
+        this.a = view2;
     }
 
-    public static void a(View view2) {
+    public boolean c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
-            view2.setOutlineProvider(ViewOutlineProvider.BOUNDS);
-        }
-    }
-
-    public static void b(View view2, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65538, null, view2, f) == null) {
-            int integer = view2.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0011);
-            StateListAnimator stateListAnimator = new StateListAnimator();
-            long j = integer;
-            stateListAnimator.addState(new int[]{16842766, R.attr.obfuscated_res_0x7f040494, -2130969749}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(j));
-            stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, f).setDuration(j));
-            stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(0L));
-            view2.setStateListAnimator(stateListAnimator);
-        }
-    }
-
-    public static void c(View view2, AttributeSet attributeSet, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65539, null, view2, attributeSet, i, i2) == null) {
-            Context context = view2.getContext();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a, i, i2);
-            try {
-                if (obtainStyledAttributes.hasValue(0)) {
-                    view2.setStateListAnimator(AnimatorInflater.loadStateListAnimator(context, obtainStyledAttributes.getResourceId(0, 0)));
-                }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                obtainStyledAttributes.recycle();
-                throw th;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (this.e != i) {
+                this.e = i;
+                e();
+                return true;
             }
-            obtainStyledAttributes.recycle();
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public boolean d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (this.d != i) {
+                this.d = i;
+                e();
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = this.a.getTop();
+            this.c = this.a.getLeft();
+            e();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            View view2 = this.a;
+            ViewCompat.offsetTopAndBottom(view2, this.d - (view2.getTop() - this.b));
+            View view3 = this.a;
+            ViewCompat.offsetLeftAndRight(view3, this.e - (view3.getLeft() - this.c));
         }
     }
 }

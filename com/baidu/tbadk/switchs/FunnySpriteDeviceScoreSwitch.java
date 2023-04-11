@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m35;
+import com.baidu.tieba.p45;
 import com.baidu.tieba.te;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -30,7 +30,8 @@ public final class FunnySpriteDeviceScoreSwitch extends te {
     }
 
     @Override // com.baidu.tieba.te
-    public String[] getCrashKeys() {
+    /* renamed from: getCrashKeys */
+    public String[] mo55getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -124,7 +125,7 @@ public final class FunnySpriteDeviceScoreSwitch extends te {
             }
         }
         Companion = new Companion(null);
-        deviceScore = m35.m().n(KEY, 0);
+        deviceScore = p45.m().n(KEY, 0);
     }
 
     public FunnySpriteDeviceScoreSwitch() {

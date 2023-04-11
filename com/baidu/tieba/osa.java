@@ -1,23 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ora;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.InstallActivity;
 /* loaded from: classes5.dex */
-public final class osa<T, R> implements ora.a<R> {
+public final class osa implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ora.a<T> a;
-    public final ora.b<? extends R, ? super T> b;
+    public final /* synthetic */ InstallActivity a;
 
-    public osa(ora.a<T> aVar, ora.b<? extends R, ? super T> bVar) {
+    public osa(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar};
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,26 +27,16 @@ public final class osa<T, R> implements ora.a<R> {
                 return;
             }
         }
-        this.a = aVar;
-        this.b = bVar;
+        this.a = installActivity;
     }
 
-    public void call(ura<? super R> uraVar) {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, uraVar) == null) {
-            try {
-                ura uraVar2 = (ura) vva.n(this.b).call(uraVar);
-                uraVar2.d();
-                this.a.call(uraVar2);
-            } catch (Throwable th) {
-                asa.e(th);
-                uraVar.onError(th);
-            }
+        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.ora.a, com.baidu.tieba.csa
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((ura) ((ura) obj));
+        this.a.h();
+        this.a.n();
     }
 }

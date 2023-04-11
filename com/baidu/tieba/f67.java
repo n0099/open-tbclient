@@ -1,12 +1,11 @@
 package com.baidu.tieba;
-
-import android.view.View;
-import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes4.dex */
 public interface f67 {
-    void a(gb9 gb9Var, FrsViewData frsViewData);
+    void I(int i, int i2, p67 p67Var);
 
-    View getView();
+    void N(j67 j67Var);
 
-    void onChangeSkinType(int i);
+    void init();
+
+    void q();
 }

@@ -1,102 +1,128 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorBar;
-import com.baidu.tbadk.editortools.EditorTools;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class st9 {
-    public static /* synthetic */ Interceptable $ic;
+public final class st9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "databases";
+    public static final String b = "shared_prefs";
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public ch6 b;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ st9 a;
-
-        public a(st9 st9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {st9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = st9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.b.d();
-            }
-        }
-    }
-
-    public st9(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-    }
-
-    public void b() {
-        ch6 ch6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ch6Var = this.b) != null) {
-            ch6Var.d();
-        }
-    }
-
-    public void c(EditorTools editorTools) {
-        EditorBar editorBar;
-        View s;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) != null) || editorTools == null || (editorBar = editorTools.a) == null || this.a == null || (s = editorBar.s(26)) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948163089, "Lcom/baidu/tieba/st9;")) == null) {
             return;
         }
-        if (this.b == null) {
-            ch6 ch6Var = new ch6(this.a, s);
-            this.b = ch6Var;
-            ch6Var.C(R.drawable.bg_tip_blue_down);
-            this.b.k(32);
-            this.b.h(2);
-            this.b.i(new a(this));
-            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070231);
-            int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
-            int dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
-            this.b.v(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
-            this.b.H(0);
-            this.b.I(-dimensionPixelSize3);
-            this.b.j(3000);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        this.b.K(this.a.getResources().getString(R.string.hot_topic_tip), "key_show_hottopic_tip");
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948163089, "Lcom/baidu/tieba/st9;");
+        }
+    }
+
+    public static final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            c(au9.f());
+            e();
+            d();
+            au9.a();
+        }
+    }
+
+    public static final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a();
+            f();
+            h();
+            g();
+        }
+    }
+
+    public static final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (Intrinsics.areEqual("mounted", Environment.getExternalStorageState()) && au9.c(au9.d().getExternalCacheDir())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return au9.c(au9.d().getCacheDir());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static final boolean f() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            File filesDir = au9.d().getFilesDir();
+            if (filesDir != null) {
+                str = filesDir.getParent();
+            } else {
+                str = null;
+            }
+            return au9.c(new File(str, a));
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return au9.c(au9.d().getFilesDir());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static final boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return au9.c(au9.g(str));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean h() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            File filesDir = au9.d().getFilesDir();
+            if (filesDir != null) {
+                str = filesDir.getParent();
+            } else {
+                str = null;
+            }
+            boolean c = au9.c(new File(str, b));
+            if (c) {
+                au9.b();
+            }
+            return c;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e75;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.te7;
+import com.baidu.tieba.h85;
+import com.baidu.tieba.q25;
+import com.baidu.tieba.qo7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -62,21 +62,21 @@ public class NewHotTipLabelView extends EMTextView {
             } else {
                 setBackground(SkinManager.getDrawable(R.drawable.icon_mask_hot_point_bubble));
             }
-            n15 d = n15.d(this);
+            q25 d = q25.d(this);
             d.w(R.color.CAM_X0310);
-            d.A(R.dimen.T_X10);
-            d.B(R.string.F_X01);
+            d.B(R.dimen.T_X10);
+            d.C(R.string.F_X01);
         }
     }
 
-    public void setData(e75 e75Var) {
+    public void setData(h85 h85Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, e75Var) != null) || e75Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, h85Var) != null) || h85Var == null) {
             return;
         }
-        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(e75Var.a(), 6, "");
+        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(h85Var.a(), 6, "");
         if (StringUtils.isNull(cutChineseAndEnglishWithSuffix)) {
-            cutChineseAndEnglishWithSuffix = getContext().getString(R.string.obfuscated_res_0x7f0f0d25);
+            cutChineseAndEnglishWithSuffix = getContext().getString(R.string.obfuscated_res_0x7f0f0d21);
         }
         setText(cutChineseAndEnglishWithSuffix);
         setVisibility(0);
@@ -141,10 +141,10 @@ public class NewHotTipLabelView extends EMTextView {
     }
 
     public void c() {
-        e75 hotNotifyConfig;
+        h85 hotNotifyConfig;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (hotNotifyConfig = TbSingleton.getInstance().getHotNotifyConfig()) != null) {
-            te7.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
+            qo7.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
         }
     }
 

@@ -1,76 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Build;
+import android.os.HandlerThread;
+import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class vv {
+public class vv extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, uv> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448320237, "Lcom/baidu/tieba/vv;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448320237, "Lcom/baidu/tieba/vv;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vv(String str, int i) {
+        super(str, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap<>();
     }
 
-    public static synchronized uv a(String str) {
-        InterceptResult invokeL;
-        uv b;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            synchronized (vv.class) {
-                b = b(str, 0);
-            }
-            return b;
-        }
-        return (uv) invokeL.objValue;
-    }
-
-    public static synchronized void c(uv uvVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, uvVar) == null) {
-            synchronized (vv.class) {
-                if (uvVar != null) {
-                    uvVar.a();
-                    a.values().remove(uvVar);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                Looper looper = getLooper();
+                if (Build.VERSION.SDK_INT >= 18) {
+                    looper.quitSafely();
+                } else {
+                    looper.quit();
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public static synchronized uv b(String str, int i) {
-        InterceptResult invokeLI;
-        uv uvVar;
+    @Override // android.os.HandlerThread
+    public boolean quit() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            synchronized (vv.class) {
-                if (a.containsKey(str) && (uvVar = a.get(str)) != null) {
-                    return uvVar;
-                }
-                uv uvVar2 = new uv(str, i);
-                try {
-                    uvVar2.start();
-                } catch (Exception unused) {
-                }
-                a.put(str, uvVar2);
-                return uvVar2;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return quitSafely();
         }
-        return (uv) invokeLI.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.os.HandlerThread
+    public boolean quitSafely() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            wv.c(this);
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

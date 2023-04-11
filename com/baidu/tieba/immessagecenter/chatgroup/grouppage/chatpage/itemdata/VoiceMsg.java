@@ -10,10 +10,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bq5;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
-import com.baidu.tieba.t55;
-import com.baidu.tieba.vo5;
+import com.baidu.tieba.w65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
     public transient /* synthetic */ FieldHolder $fh;
     public final String VOICE_THUMBNAIL_TEXT;
     @SerializedName("during_time")
-    @vo5(serialize = false)
+    @bq5(serialize = false)
     public String during;
     public boolean isLocal;
     public String path;
@@ -42,7 +42,7 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
     public VoiceData.VoiceModel voiceModel;
     public int voiceStatus;
     @SerializedName("voice_url")
-    @vo5(serialize = false)
+    @bq5(serialize = false)
     public String voiceUrl;
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
@@ -123,7 +123,7 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
         return (CharSequence) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.gn
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.hn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -213,7 +213,7 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
             VoiceMsg voiceMsg = new VoiceMsg();
             voiceMsg.during = String.valueOf(i);
             voiceMsg.vid = str;
-            voiceMsg.path = t55.b(str);
+            voiceMsg.path = w65.b(str);
             voiceMsg.voiceStatus = 1;
             return voiceMsg;
         }

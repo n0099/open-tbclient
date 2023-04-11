@@ -1,129 +1,151 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.util.ChatStatusManager;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.jy7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class my7 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "2";
-    public static final String b = "1";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, String str3, int i, boolean z) {
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14740");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_id", str);
-            statisticItem.addParam("obj_name", str2);
-            if (z) {
-                str4 = a;
-            } else {
-                str4 = b;
+    /* loaded from: classes5.dex */
+    public static class a implements jy7.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            statisticItem.addParam("obj_type", str4);
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str3);
-            TiebaStatic.log(statisticItem);
         }
-    }
 
-    public static void e(String str, String str2, String str3, int i, boolean z) {
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14739");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_id", str);
-            statisticItem.addParam("obj_name", str2);
-            if (z) {
-                str4 = a;
-            } else {
-                str4 = b;
+        @Override // com.baidu.tieba.jy7.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                boolean isOpen = ChatStatusManager.getInst().getIsOpen(0);
+                String curId = ChatStatusManager.getInst().getCurId(0);
+                if (TextUtils.isEmpty(str) || !isOpen || !str.equals(curId)) {
+                    return false;
+                }
+                return true;
             }
-            statisticItem.addParam("obj_type", str4);
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str3);
-            TiebaStatic.log(statisticItem);
+            return invokeL.booleanValue;
         }
     }
 
-    public static StatisticItem g(String str, String str2, String str3, int i, boolean z) {
-        InterceptResult invokeCommon;
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_id", str2);
-            statisticItem.addParam("obj_name", str3);
-            if (z) {
-                str4 = a;
-            } else {
-                str4 = b;
+    /* loaded from: classes5.dex */
+    public static class b implements jy7.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            statisticItem.addParam("obj_type", str4);
-            statisticItem.addParam("obj_locate", i);
-            return statisticItem;
         }
-        return (StatisticItem) invokeCommon.objValue;
-    }
 
-    public static void h(String str, String str2, String str3, int i, boolean z) {
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14738");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_id", str);
-            statisticItem.addParam("obj_name", str2);
-            if (z) {
-                str4 = a;
-            } else {
-                str4 = b;
+        @Override // com.baidu.tieba.jy7.a
+        public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMessage, imMessageCenterPojo)) == null) {
+                if (chatMessage != null && chatMessage.getMsgType() == 22) {
+                    if (e28.w(chatMessage)) {
+                        return true;
+                    }
+                    long a = my7.a(chatMessage);
+                    if (a > imMessageCenterPojo.getRead_msgId()) {
+                        imMessageCenterPojo.setRead_msgId(a);
+                    }
+                    return true;
+                }
+                return false;
             }
-            statisticItem.addParam("obj_type", str4);
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str3);
-            TiebaStatic.log(statisticItem);
+            return invokeLL.booleanValue;
         }
     }
 
-    public static void b(String str, String str2, int i, boolean z) {
+    public static long a(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            TiebaStatic.log(g("c14742", str, str2, i, z));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
+            if (chatMessage == null) {
+                return -1L;
+            }
+            if (chatMessage.getMsgType() == 22) {
+                try {
+                    String content = chatMessage.getContent();
+                    if (TextUtils.isEmpty(content)) {
+                        return -1L;
+                    }
+                    JSONObject jSONObject = new JSONObject(content);
+                    String optString = jSONObject.optString("eventId");
+                    if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != p08.j.longValue()) {
+                        return -1L;
+                    }
+                } catch (Exception unused) {
+                    return -1L;
+                }
+            }
+            return d28.a(optJSONObject.optLong("readMsgId"));
+        }
+        return invokeL.longValue;
+    }
+
+    public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, jy7.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            jy7.e(groupMsgData, imMessageCenterPojo, bVar, new a(), ChatStatusManager.getInst().getIsOpen(5), new b());
         }
     }
 
-    public static void d(String str, String str2, int i, boolean z) {
+    public static void c(GroupMsgData groupMsgData) {
+        LinkedList<ChatMessage> listMessage;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            TiebaStatic.log(g("c14744", str, str2, i, z));
+        if ((interceptable != null && interceptable.invokeL(65538, null, groupMsgData) != null) || groupMsgData == null || (listMessage = groupMsgData.getListMessage()) == null) {
+            return;
         }
-    }
-
-    public static void c(String str, String str2, int i, boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            StatisticItem g = g("c14743", str, str2, i, z);
-            g.addParam("obj_source", i2);
-            TiebaStatic.log(g);
-        }
-    }
-
-    public static void f(String str, String str2, int i, boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            StatisticItem g = g("c14741", str, str2, i, z);
-            g.addParam("obj_source", i2);
-            TiebaStatic.log(g);
+        for (int i = 0; i < listMessage.size(); i++) {
+            try {
+                if (new JSONObject(listMessage.get(i).getContent()).optString("eventId").equals(TbEnum.SystemMessage.EVENT_ID_CYBER_VIOLENCE)) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
+                }
+            } catch (Exception unused) {
+            }
         }
     }
 }

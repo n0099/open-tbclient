@@ -17,27 +17,27 @@ public final class CompletedExceptionallyKt {
             if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
                 th = StackTraceRecoveryKt.access$recoverFromStackFrame(th, (CoroutineStackFrame) continuation);
             }
-            return Result.m768constructorimpl(ResultKt.createFailure(th));
+            return Result.m770constructorimpl(ResultKt.createFailure(th));
         }
         Result.Companion companion2 = Result.Companion;
-        return Result.m768constructorimpl(obj);
+        return Result.m770constructorimpl(obj);
     }
 
     public static final <T> Object toState(Object obj, CancellableContinuation<?> cancellableContinuation) {
-        Throwable m771exceptionOrNullimpl = Result.m771exceptionOrNullimpl(obj);
-        if (m771exceptionOrNullimpl != null) {
+        Throwable m773exceptionOrNullimpl = Result.m773exceptionOrNullimpl(obj);
+        if (m773exceptionOrNullimpl != null) {
             if (DebugKt.getRECOVER_STACK_TRACES() && (cancellableContinuation instanceof CoroutineStackFrame)) {
-                m771exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m771exceptionOrNullimpl, (CoroutineStackFrame) cancellableContinuation);
+                m773exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m773exceptionOrNullimpl, (CoroutineStackFrame) cancellableContinuation);
             }
-            return new CompletedExceptionally(m771exceptionOrNullimpl, false, 2, null);
+            return new CompletedExceptionally(m773exceptionOrNullimpl, false, 2, null);
         }
         return obj;
     }
 
     public static final <T> Object toState(Object obj) {
-        Throwable m771exceptionOrNullimpl = Result.m771exceptionOrNullimpl(obj);
-        if (m771exceptionOrNullimpl != null) {
-            return new CompletedExceptionally(m771exceptionOrNullimpl, false, 2, null);
+        Throwable m773exceptionOrNullimpl = Result.m773exceptionOrNullimpl(obj);
+        if (m773exceptionOrNullimpl != null) {
+            return new CompletedExceptionally(m773exceptionOrNullimpl, false, 2, null);
         }
         return obj;
     }

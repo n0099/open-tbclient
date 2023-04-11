@@ -29,7 +29,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Excluder m86clone() {
+    public Excluder m88clone() {
         try {
             return (Excluder) super.clone();
         } catch (CloneNotSupportedException e) {
@@ -38,15 +38,15 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     }
 
     public Excluder disableInnerClassSerialization() {
-        Excluder m86clone = m86clone();
-        m86clone.serializeInnerClasses = false;
-        return m86clone;
+        Excluder m88clone = m88clone();
+        m88clone.serializeInnerClasses = false;
+        return m88clone;
     }
 
     public Excluder excludeFieldsWithoutExposeAnnotation() {
-        Excluder m86clone = m86clone();
-        m86clone.requireExpose = true;
-        return m86clone;
+        Excluder m88clone = m88clone();
+        m88clone.requireExpose = true;
+        return m88clone;
     }
 
     private boolean excludeClassChecks(Class<?> cls) {
@@ -176,18 +176,18 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     }
 
     public Excluder withModifiers(int... iArr) {
-        Excluder m86clone = m86clone();
-        m86clone.modifiers = 0;
+        Excluder m88clone = m88clone();
+        m88clone.modifiers = 0;
         for (int i : iArr) {
-            m86clone.modifiers = i | m86clone.modifiers;
+            m88clone.modifiers = i | m88clone.modifiers;
         }
-        return m86clone;
+        return m88clone;
     }
 
     public Excluder withVersion(double d) {
-        Excluder m86clone = m86clone();
-        m86clone.version = d;
-        return m86clone;
+        Excluder m88clone = m88clone();
+        m88clone.version = d;
+        return m88clone;
     }
 
     public boolean excludeField(Field field, boolean z) {
@@ -223,17 +223,17 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     }
 
     public Excluder withExclusionStrategy(ExclusionStrategy exclusionStrategy, boolean z, boolean z2) {
-        Excluder m86clone = m86clone();
+        Excluder m88clone = m88clone();
         if (z) {
             ArrayList arrayList = new ArrayList(this.serializationStrategies);
-            m86clone.serializationStrategies = arrayList;
+            m88clone.serializationStrategies = arrayList;
             arrayList.add(exclusionStrategy);
         }
         if (z2) {
             ArrayList arrayList2 = new ArrayList(this.deserializationStrategies);
-            m86clone.deserializationStrategies = arrayList2;
+            m88clone.deserializationStrategies = arrayList2;
             arrayList2.add(exclusionStrategy);
         }
-        return m86clone;
+        return m88clone;
     }
 }

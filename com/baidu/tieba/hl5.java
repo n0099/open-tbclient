@@ -1,31 +1,27 @@
 package com.baidu.tieba;
 
-import android.os.Process;
-import android.os.SystemClock;
-import android.util.Log;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.Closeables;
-import com.baidu.android.util.soloader.SoLoader;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.launch.stats.ZygoteSpeedStats;
-import com.baidu.searchbox.launch.utils.LaunchNativeUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.Closeable;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public final class hl5 {
+public class hl5 {
     public static /* synthetic */ Interceptable $ic;
+    public static hl5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
+    public List<String> a;
+    public List<String> b;
 
     public hl5() {
         Interceptable interceptable = $ic;
@@ -40,111 +36,163 @@ public final class hl5 {
                 return;
             }
         }
-        this.a = -1L;
-        this.b = -1L;
+        this.a = i(p45.m().s("key_need_add_source_stat_list", ""));
+        this.b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
     }
 
-    public void a() {
+    public static void b(Context context, StatisticItem statisticItem, ol5 ol5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = SystemClock.elapsedRealtime();
-            Process.getElapsedCpuTime();
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, context, statisticItem, ol5Var) == null) && ol5Var != null && statisticItem != null && !TextUtils.isEmpty(statisticItem.getKey())) {
+            fl5 k = ol5Var.k();
+            if (k == null || k.f()) {
+                k = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+            }
+            if (k != null && !k.f()) {
+                c(statisticItem, k);
+            }
+            TbPageExtraHelper.printLog(statisticItem.toString());
         }
     }
 
-    public long c() {
+    public static void c(StatisticItem statisticItem, fl5 fl5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, statisticItem, fl5Var) == null) && statisticItem != null && fl5Var != null && !TextUtils.isEmpty(statisticItem.getKey())) {
+            String a = fl5Var.a();
+            if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
+                statisticItem.param("page_key", a);
+            }
+            String a2 = gl5.a(fl5Var.d(), a, 6);
+            if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
+                statisticItem.param("page_source", a2);
+            }
+        }
+    }
+
+    public static hl5 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == -1) {
-                b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (hl5.class) {
+                    if (c == null) {
+                        c = new hl5();
+                    }
+                }
             }
-            return this.b;
+            return c;
         }
-        return invokeV.longValue;
+        return (hl5) invokeV.objValue;
     }
 
-    /* JADX WARN: Not initialized variable reg: 6, insn: 0x00b5: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r6 I:??[OBJECT, ARRAY]), block:B:44:0x00b5 */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00ae  */
-    /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b() {
-        BufferedReader bufferedReader;
-        NumberFormatException e;
-        IOException e2;
-        FileNotFoundException e3;
-        Closeable closeable;
-        long j;
+    public final void a(StatisticItem statisticItem) {
+        Activity currentActivity;
+        fl5 currentVisiblePageExtra;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            fl5.b().d();
-            Closeable closeable2 = null;
-            long j2 = -1;
-            try {
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/self/stat")), 1000);
-                    try {
-                        String[] split = bufferedReader.readLine().split(" ");
-                        if (split.length > 21 && split[0].equals(String.valueOf(Process.myPid()))) {
-                            String str = split[21];
-                            try {
-                                SoLoader.load(AppRuntime.getAppContext(), "launch_native");
-                                j = LaunchNativeUtils.getClkTck();
-                            } catch (UnsatisfiedLinkError e4) {
-                                Log.e(ZygoteSpeedStats.TAG, "load so failed, UnsatisfiedLinkError", e4);
-                                j = 0;
-                            }
-                            Log.d(ZygoteSpeedStats.TAG, "_SC_CLK_TCK " + j);
-                            if (j <= 0) {
-                                j = 100;
-                            }
-                            j2 = (Long.parseLong(str) * 1000) / j;
-                        }
-                    } catch (FileNotFoundException e5) {
-                        e3 = e5;
-                        Log.e(ZygoteSpeedStats.TAG, "can't read process status file", e3);
-                        Closeables.closeSafely(bufferedReader);
-                        if (j2 <= 0) {
-                        }
-                    } catch (IOException e6) {
-                        e2 = e6;
-                        Log.e(ZygoteSpeedStats.TAG, "read process status failed", e2);
-                        Closeables.closeSafely(bufferedReader);
-                        if (j2 <= 0) {
-                        }
-                    } catch (NumberFormatException e7) {
-                        e = e7;
-                        Log.e(ZygoteSpeedStats.TAG, "parse status file failed", e);
-                        Closeables.closeSafely(bufferedReader);
-                        if (j2 <= 0) {
-                        }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(currentActivity)) == null) {
+            return;
+        }
+        String a = currentVisiblePageExtra.a();
+        if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
+            statisticItem.param("page_key", a);
+        }
+        String b = currentVisiblePageExtra.b();
+        if (!TextUtils.isEmpty(b) && !statisticItem.hasParam("page_tag")) {
+            statisticItem.param("page_tag", b);
+        }
+        ArrayList<String> d = currentVisiblePageExtra.d();
+        String a2 = gl5.a(d, a, 6);
+        if (statisticItem.getKey().equals("common_exp") && statisticItem.hasParam("common_exp_source_pb_comment") && d.size() == 0 && (currentActivity instanceof ll5)) {
+            List<String> currentPageSourceKeyList = ((ll5) currentActivity).getCurrentPageSourceKeyList();
+            if (currentPageSourceKeyList instanceof ArrayList) {
+                a2 = gl5.a((ArrayList) currentPageSourceKeyList, a, 6);
+                statisticItem.delete("common_exp_source_pb_comment");
+            }
+        }
+        if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
+            statisticItem.param("page_source", a2);
+        }
+        TbPageExtraHelper.printLog(statisticItem.toString());
+    }
+
+    public final <T> List<T> d(T[] tArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tArr)) == null) {
+            if (tArr != null && tArr.length != 0) {
+                ArrayList arrayList = new ArrayList(tArr.length);
+                for (T t : tArr) {
+                    if (t != null && !TextUtils.isEmpty(t.toString())) {
+                        arrayList.add(t);
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    closeable2 = closeable;
-                    Closeables.closeSafely(closeable2);
-                    throw th;
                 }
-            } catch (FileNotFoundException e8) {
-                bufferedReader = null;
-                e3 = e8;
-            } catch (IOException e9) {
-                bufferedReader = null;
-                e2 = e9;
-            } catch (NumberFormatException e10) {
-                bufferedReader = null;
-                e = e10;
-            } catch (Throwable th2) {
-                th = th2;
-                Closeables.closeSafely(closeable2);
-                throw th;
+                return arrayList;
             }
-            Closeables.closeSafely(bufferedReader);
-            if (j2 <= 0) {
-                this.b = this.a - j2;
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (!ListUtils.isEmpty(this.b) && !hi.isEmpty(str)) {
+                for (String str2 : this.b) {
+                    if (str.equals(str2)) {
+                        return true;
+                    }
+                }
             }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (!ListUtils.isEmpty(this.a) && !hi.isEmpty(str)) {
+                for (String str2 : this.a) {
+                    if (str.equals(str2)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, statisticItem) == null) && statisticItem != null && !statisticItem.hasParam("page_source")) {
+            if (h(statisticItem.getKey()) || g(statisticItem.getKey())) {
+                a(statisticItem);
+            }
+        }
+    }
+
+    public final List<String> i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (hi.isEmpty(str)) {
+                return null;
+            }
+            return d(str.split(","));
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.a = i(str);
+            if (str == null) {
+                str = "";
+            }
+            p45.m().B("key_need_add_source_stat_list", str);
         }
     }
 }

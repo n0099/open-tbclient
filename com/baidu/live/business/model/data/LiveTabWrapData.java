@@ -1,7 +1,7 @@
 package com.baidu.live.business.model.data;
 
 import android.text.TextUtils;
-import com.baidu.tieba.k90;
+import com.baidu.tieba.l90;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -40,15 +40,15 @@ public class LiveTabWrapData {
             JSONArray optJSONArray = jSONObject.optJSONArray("items");
             getTabListByJson(optJSONArray);
             if (z && optJSONArray != null && (list = this.tabList) != null && !list.isEmpty() && z2) {
-                k90.e(LIVE_FEED_PAGE_TAB_CACHE_TIME, System.currentTimeMillis());
-                k90.f(LIVE_FEED_PAGE_TAB_CACHE_KEY, optJSONArray.toString());
+                l90.e(LIVE_FEED_PAGE_TAB_CACHE_TIME, System.currentTimeMillis());
+                l90.f(LIVE_FEED_PAGE_TAB_CACHE_KEY, optJSONArray.toString());
             }
         }
         if (z2 && z) {
             List<LiveTabEntity> list2 = this.tabList;
             if (list2 == null || list2.isEmpty()) {
                 this.cacheCause = 2;
-                String b = k90.b(LIVE_FEED_PAGE_TAB_CACHE_KEY, "");
+                String b = l90.b(LIVE_FEED_PAGE_TAB_CACHE_KEY, "");
                 if (!TextUtils.isEmpty(b)) {
                     try {
                         getTabListByJson(new JSONArray(b));
@@ -58,10 +58,10 @@ public class LiveTabWrapData {
                         } else if (this.errCode != 0) {
                             this.cacheCause = 3;
                         }
-                        this.cacheTime = k90.c(LIVE_FEED_PAGE_TAB_CACHE_TIME, 0L);
+                        this.cacheTime = l90.c(LIVE_FEED_PAGE_TAB_CACHE_TIME, 0L);
                     } catch (JSONException unused) {
-                        k90.g(LIVE_FEED_PAGE_TAB_CACHE_KEY);
-                        k90.g(LIVE_FEED_PAGE_TAB_CACHE_TIME);
+                        l90.g(LIVE_FEED_PAGE_TAB_CACHE_KEY);
+                        l90.g(LIVE_FEED_PAGE_TAB_CACHE_TIME);
                     }
                 }
             }

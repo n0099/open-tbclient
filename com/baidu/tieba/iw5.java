@@ -1,18 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.annotation.SuppressLint;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import androidx.annotation.NonNull;
+import androidx.core.view.MotionEventCompat;
+import androidx.core.view.ViewConfigurationCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,134 +17,154 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class iw5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean d = true;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public jw5 b;
-    public BaseFragmentActivity c;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public float d;
+    public float e;
+    public float f;
+    public int g;
+    public VelocityTracker h;
+    @NonNull
+    public ViewGroup i;
+    public boolean j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947867938, "Lcom/baidu/tieba/iw5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947867938, "Lcom/baidu/tieba/iw5;");
-        }
-    }
-
-    public iw5(BaseFragmentActivity baseFragmentActivity) {
+    public iw5(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {viewGroup};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = -1L;
-        this.c = baseFragmentActivity;
+        this.g = -1;
+        this.j = true;
+        this.i = viewGroup;
+        this.c = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(viewGroup.getContext()));
     }
 
-    public final void b(Bundle bundle) {
+    public final void b(MotionEvent motionEvent) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            if (k79.a(this.c.getIntent())) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
-            }
-            if (bundle != null) {
-                LogoActivityConfig.isFirst = bundle.getBoolean("is_first", true);
-            } else {
-                LogoActivityConfig.isFirst = true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent) == null) {
+            int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
+            if (MotionEventCompat.getPointerId(motionEvent, actionIndex) == this.g) {
+                if (actionIndex == 0) {
+                    i = 1;
+                } else {
+                    i = 0;
+                }
+                this.d = MotionEventCompat.getY(motionEvent, i);
+                this.g = MotionEventCompat.getPointerId(motionEvent, i);
+                VelocityTracker velocityTracker = this.h;
+                if (velocityTracker != null) {
+                    velocityTracker.clear();
+                }
             }
         }
     }
 
-    public final void a(Intent intent) {
+    @SuppressLint({"LongLogTag"})
+    public boolean a(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        float f;
+        float f2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null) {
-            if (intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false)) {
-                Intent intent2 = new Intent();
-                intent2.putExtra(DealIntentService.KEY_CLASS, 2);
-                intent2.putExtra("fname", intent.getStringExtra("fname"));
-                intent2.putExtra(FrsActivityConfig.FROM_SHORT_CUT, true);
-                intent2.putExtra("back_special", true);
-                intent2.putExtra("from", "short_cut");
-                intent.putExtra(LogoActivityConfig.EXTRAINTENT, intent2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            int action = motionEvent.getAction() & 255;
+            if (action != 3 && action != 1) {
+                if (action != 0) {
+                    if (this.a) {
+                        return true;
+                    }
+                    if (this.b) {
+                        return false;
+                    }
+                }
+                if (action != 0) {
+                    if (action != 2) {
+                        if (action == 6) {
+                            b(motionEvent);
+                        }
+                    } else {
+                        int i = this.g;
+                        if (i != -1) {
+                            int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i);
+                            if (findPointerIndex >= 0 && findPointerIndex < motionEvent.getPointerCount()) {
+                                float y = MotionEventCompat.getY(motionEvent, findPointerIndex) - this.d;
+                                float abs = Math.abs(y);
+                                float abs2 = Math.abs(MotionEventCompat.getX(motionEvent, findPointerIndex) - this.e);
+                                if (this.j) {
+                                    f = 0.5f;
+                                } else {
+                                    f = 3.0f;
+                                }
+                                if (abs > this.c && abs * f > abs2) {
+                                    this.a = true;
+                                    c(true);
+                                    if (y > 0.0f) {
+                                        f2 = this.f + this.c;
+                                    } else {
+                                        f2 = this.f - this.c;
+                                    }
+                                    this.d = f2;
+                                } else if (abs2 > this.c) {
+                                    this.b = true;
+                                }
+                            } else {
+                                this.a = false;
+                            }
+                        }
+                    }
+                } else {
+                    this.e = motionEvent.getX();
+                    float y2 = motionEvent.getY();
+                    this.f = y2;
+                    this.d = y2;
+                    this.g = MotionEventCompat.getPointerId(motionEvent, 0);
+                    this.b = false;
+                    this.a = false;
+                }
+                if (this.h == null) {
+                    this.h = VelocityTracker.obtain();
+                }
+                this.h.addMovement(motionEvent);
+                return this.a;
             }
-            TbadkCoreApplication.setIntent((Intent) intent.getParcelableExtra(LogoActivityConfig.EXTRAINTENT));
+            this.a = false;
+            this.b = false;
+            this.g = -1;
+            VelocityTracker velocityTracker = this.h;
+            if (velocityTracker != null) {
+                velocityTracker.recycle();
+                this.h = null;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void c(boolean z) {
+        ViewParent parent;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (parent = this.i.getParent()) != null) {
+            parent.requestDisallowInterceptTouchEvent(z);
         }
     }
 
-    public void c(Configuration configuration) {
-        jw5 jw5Var;
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) && (jw5Var = this.b) != null) {
-            jw5Var.d(configuration);
-        }
-    }
-
-    public void d(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            this.a = System.currentTimeMillis();
-            if ("MuMu".equals(ji.g()) && "6.0.1".equals(ji.k())) {
-                this.c.finish();
-                return;
-            }
-            b(bundle);
-            if (!k79.a(this.c.getIntent()) && (k79.b(this.c.getIntent()) || this.c.isTaskRoot() || this.c.getIntent().getBooleanExtra(LogoActivityConfig.IS_DEAL_INTENT, false))) {
-                a(this.c.getIntent());
-            }
-            da9.g().i(this.c.getUniqueId());
-            jw5 jw5Var = new jw5(this.c);
-            this.b = jw5Var;
-            jw5Var.i(d);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            da9.g().k(this.c.getUniqueId());
-            d = false;
-            jw5 jw5Var = this.b;
-            if (jw5Var != null) {
-                jw5Var.g();
-            }
-        }
-    }
-
-    public void f() {
-        jw5 jw5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (jw5Var = this.b) != null) {
-            jw5Var.e();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (LogoActivityConfig.isFirst && this.a >= 0) {
-                fl5.b().v(System.currentTimeMillis() - this.a);
-            }
-            jw5 jw5Var = this.b;
-            if (jw5Var != null) {
-                jw5Var.f();
-            }
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.j = z;
         }
     }
 }

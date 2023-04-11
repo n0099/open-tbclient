@@ -10,8 +10,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SlideListInfo {
+    public int errno;
+    public String errorMessage;
     public int hasMore;
     public ArrayList<SlideInfo> list;
+    public String logId;
     public String pageSession;
 
     /* loaded from: classes2.dex */
@@ -95,7 +98,11 @@ public class SlideListInfo {
     }
 
     public void loadFromJson(String str) throws JSONException {
-        JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+        JSONObject jSONObject = new JSONObject(str);
+        this.errorMessage = jSONObject.optString("errmsg");
+        this.errno = jSONObject.optInt("errno");
+        this.logId = jSONObject.optString("logid");
+        JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
             this.pageSession = optJSONObject.optString("page_session");
             this.hasMore = optJSONObject.optInt("has_more");

@@ -1,80 +1,95 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g45 implements h45 {
+public class g45 {
     public static /* synthetic */ Interceptable $ic;
+    public static final LinkedList<String> a;
+    public static final LinkedList<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ImageView a;
 
-    @Override // com.baidu.tieba.h45
-    public void onDismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.h45
-    public void onShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public g45(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947743969, "Lcom/baidu/tieba/g45;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947743969, "Lcom/baidu/tieba/g45;");
                 return;
             }
         }
-        this.a = new ImageView(context);
+        a = new LinkedList<>();
+        b = new LinkedList<>();
     }
 
-    @Override // com.baidu.tieba.h45
-    public void a(d45 d45Var) {
+    public static JSONObject a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, d45Var) == null) {
-            ImageView imageView = this.a;
-            int i = d45Var.c;
-            int i2 = -2;
-            if (i < 0) {
-                i = -2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            int i3 = d45Var.c;
-            if (i3 >= 0) {
-                i2 = i3;
+            b(jSONObject, "uid", TbadkCoreApplication.getCurrentAccount());
+            b(jSONObject, "latest_related_tid", TbadkCoreApplication.getInst().getLatestRelatedTid());
+            b(jSONObject, "latest_related_fid", TbadkCoreApplication.getInst().getLatestRelatedFid());
+            b(jSONObject, "continuous_crash_times", String.valueOf(m45.q().o()));
+            b(jSONObject, "trigger_safe_mode_status", String.valueOf(m45.q().s()));
+            b(jSONObject, "fid_info", String.valueOf(a));
+            b(jSONObject, "tid_info", String.valueOf(b));
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject b(JSONObject jSONObject, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jSONObject, str, str2)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            imageView.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
-            SkinManager.setImageResource(this.a, d45Var.b);
+            if (str != null && str2 != null) {
+                try {
+                    jSONObject.put(str, str2);
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a.offer(str);
+            if (a.size() > 10) {
+                a.poll();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.h45
-    public View getView() {
-        InterceptResult invokeV;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            b.offer(str);
+            if (b.size() > 10) {
+                b.poll();
+            }
         }
-        return (View) invokeV.objValue;
     }
 }

@@ -10,7 +10,7 @@ public class FinalizerCloseableReference<T> extends CloseableReference<T> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.references.CloseableReference
     /* renamed from: clone */
-    public CloseableReference<T> mo85clone() {
+    public CloseableReference<T> mo87clone() {
         return this;
     }
 

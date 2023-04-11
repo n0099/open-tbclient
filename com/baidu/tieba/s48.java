@@ -1,98 +1,110 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class s48 implements r48 {
+public final class s48 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<r48> a;
-    public static final r48 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final a b;
+    public final Map<String, StringBuilder> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948101554, "Lcom/baidu/tieba/s48;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948101554, "Lcom/baidu/tieba/s48;");
-                return;
-            }
-        }
-        a = new AtomicReference<>(null);
-        b = new s48();
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(String str, String str2);
     }
 
-    public s48() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public s48(a callback) {
+        this(null, callback, 1, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {callback};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (a) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(callback, "callback");
+    }
+
+    @JvmOverloads
+    public s48(String separator, a callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {separator, callback};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(separator, "separator");
+        Intrinsics.checkNotNullParameter(callback, "callback");
+        this.a = separator;
+        this.b = callback;
+        this.c = new ConcurrentHashMap();
     }
 
-    public static r48 d() {
-        InterceptResult invokeV;
+    public /* synthetic */ s48(String str, a aVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? "#<>#" : str, aVar);
+    }
+
+    public final void a(String key, String log) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            r48 r48Var = a.get();
-            if (r48Var == null) {
-                return b;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, key, log) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(log, "log");
+            StringBuilder sb = this.c.get(key);
+            if (sb == null) {
+                sb = new StringBuilder();
+                this.c.put(key, sb);
+            } else {
+                sb.append(this.a);
             }
-            return r48Var;
+            sb.append(log);
         }
-        return (r48) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.r48
-    public j48 a(n48 n48Var) {
-        InterceptResult invokeL;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, n48Var)) == null) {
-            BdLog.e("Card project loaded failed.");
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (Map.Entry<String, StringBuilder> entry : this.c.entrySet()) {
+                String sb = entry.getValue().toString();
+                Intrinsics.checkNotNullExpressionValue(sb, "it.value.toString()");
+                this.b.a(entry.getKey(), sb);
+            }
+            this.c.clear();
         }
-        return (j48) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.r48
-    public n38 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
-        InterceptResult invokeLLI;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, i)) == null) {
-            BdLog.e("Card project loaded failed.");
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.clear();
         }
-        return (n38) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.r48
-    public t48 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, bdUniqueId)) == null) {
-            BdLog.e("Card project loaded failed.");
-            return null;
-        }
-        return (t48) invokeLL.objValue;
     }
 }

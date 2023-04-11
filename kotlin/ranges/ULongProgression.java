@@ -39,7 +39,7 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
         }
 
         /* renamed from: fromClosedRange-7ftBX0g  reason: not valid java name */
-        public final ULongProgression m1981fromClosedRange7ftBX0g(long j, long j2, long j3) {
+        public final ULongProgression m1983fromClosedRange7ftBX0g(long j, long j2, long j3) {
             return new ULongProgression(j, j2, j3, null);
         }
     }
@@ -48,7 +48,7 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
         if (j3 != 0) {
             if (j3 != Long.MIN_VALUE) {
                 this.first = j;
-                this.last = UProgressionUtilKt.m1958getProgressionLastElement7ftBX0g(j, j2, j3);
+                this.last = UProgressionUtilKt.m1960getProgressionLastElement7ftBX0g(j, j2, j3);
                 this.step = j3;
                 return;
             }
@@ -61,7 +61,7 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
         if (obj instanceof ULongProgression) {
             if (!isEmpty() || !((ULongProgression) obj).isEmpty()) {
                 ULongProgression uLongProgression = (ULongProgression) obj;
-                if (m1979getFirstsVKNKU() != uLongProgression.m1979getFirstsVKNKU() || m1980getLastsVKNKU() != uLongProgression.m1980getLastsVKNKU() || this.step != uLongProgression.step) {
+                if (m1981getFirstsVKNKU() != uLongProgression.m1981getFirstsVKNKU() || m1982getLastsVKNKU() != uLongProgression.m1982getLastsVKNKU() || this.step != uLongProgression.step) {
                 }
             }
             return true;
@@ -70,12 +70,12 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
     }
 
     /* renamed from: getFirst-s-VKNKU  reason: not valid java name */
-    public final long m1979getFirstsVKNKU() {
+    public final long m1981getFirstsVKNKU() {
         return this.first;
     }
 
     /* renamed from: getLast-s-VKNKU  reason: not valid java name */
-    public final long m1980getLastsVKNKU() {
+    public final long m1982getLastsVKNKU() {
         return this.last;
     }
 
@@ -85,7 +85,7 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
 
     public boolean isEmpty() {
         int i = (this.step > 0L ? 1 : (this.step == 0L ? 0 : -1));
-        int ulongCompare = UnsignedKt.ulongCompare(m1979getFirstsVKNKU(), m1980getLastsVKNKU());
+        int ulongCompare = UnsignedKt.ulongCompare(m1981getFirstsVKNKU(), m1982getLastsVKNKU());
         if (i > 0) {
             if (ulongCompare > 0) {
                 return true;
@@ -98,7 +98,7 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
 
     @Override // java.lang.Iterable
     public final Iterator<ULong> iterator() {
-        return new ULongProgressionIterator(m1979getFirstsVKNKU(), m1980getLastsVKNKU(), this.step, null);
+        return new ULongProgressionIterator(m1981getFirstsVKNKU(), m1982getLastsVKNKU(), this.step, null);
     }
 
     public int hashCode() {
@@ -106,7 +106,7 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
             return -1;
         }
         long j = this.step;
-        return ((int) (j ^ (j >>> 32))) + (((((int) ULong.m940constructorimpl(m1979getFirstsVKNKU() ^ ULong.m940constructorimpl(m1979getFirstsVKNKU() >>> 32))) * 31) + ((int) ULong.m940constructorimpl(m1980getLastsVKNKU() ^ ULong.m940constructorimpl(m1980getLastsVKNKU() >>> 32)))) * 31);
+        return ((int) (j ^ (j >>> 32))) + (((((int) ULong.m942constructorimpl(m1981getFirstsVKNKU() ^ ULong.m942constructorimpl(m1981getFirstsVKNKU() >>> 32))) * 31) + ((int) ULong.m942constructorimpl(m1982getLastsVKNKU() ^ ULong.m942constructorimpl(m1982getLastsVKNKU() >>> 32)))) * 31);
     }
 
     public String toString() {
@@ -114,16 +114,16 @@ public class ULongProgression implements Iterable<ULong>, KMappedMarker {
         long j;
         if (this.step > 0) {
             sb = new StringBuilder();
-            sb.append((Object) ULong.m985toStringimpl(m1979getFirstsVKNKU()));
+            sb.append((Object) ULong.m987toStringimpl(m1981getFirstsVKNKU()));
             sb.append(IStringUtil.TOP_PATH);
-            sb.append((Object) ULong.m985toStringimpl(m1980getLastsVKNKU()));
+            sb.append((Object) ULong.m987toStringimpl(m1982getLastsVKNKU()));
             sb.append(" step ");
             j = this.step;
         } else {
             sb = new StringBuilder();
-            sb.append((Object) ULong.m985toStringimpl(m1979getFirstsVKNKU()));
+            sb.append((Object) ULong.m987toStringimpl(m1981getFirstsVKNKU()));
             sb.append(" downTo ");
-            sb.append((Object) ULong.m985toStringimpl(m1980getLastsVKNKU()));
+            sb.append((Object) ULong.m987toStringimpl(m1982getLastsVKNKU()));
             sb.append(" step ");
             j = -this.step;
         }

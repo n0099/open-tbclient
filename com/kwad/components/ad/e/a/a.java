@@ -99,8 +99,8 @@ public final class a extends com.kwad.components.ad.e.kwai.a implements View.OnC
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.jP = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0911fa);
-        this.jQ = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911fb);
-        this.jR = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fc);
+        this.jP = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0911fe);
+        this.jQ = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911ff);
+        this.jR = (TextView) findViewById(R.id.obfuscated_res_0x7f091200);
     }
 }

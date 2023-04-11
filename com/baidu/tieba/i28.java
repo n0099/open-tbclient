@@ -1,54 +1,42 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import android.widget.TextView;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.interestlabel.activity.LabelRecommendActivity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class i28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LabelRecommendActivity a;
-    public ViewGroup b;
-    public View c;
-    public TextView d;
-    public NoNetworkView e;
-    public TextView f;
-    public BdListView g;
-    public d28 h;
-    public h28 i;
-    public View.OnClickListener j;
-    public List<e28> k;
-    public List<Integer> l;
-    public View.OnClickListener m;
 
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i28 a;
+        public final /* synthetic */ ThreadData a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ boolean f;
 
-        public a(i28 i28Var) {
+        public a(ThreadData threadData, long j, String str, String str2, String str3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {i28Var};
+                Object[] objArr = {threadData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -58,180 +46,202 @@ public class i28 {
                     return;
                 }
             }
-            this.a = i28Var;
+            this.a = threadData;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = z;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof e28)) {
-                Integer valueOf = Integer.valueOf(((e28) view2.getTag()).a);
-                if (this.a.l.contains(valueOf)) {
-                    this.a.l.remove(valueOf);
-                } else {
-                    this.a.l.add(valueOf);
-                }
-                this.a.i();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageUtils.createAndSendPersonalThreadChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
             }
         }
     }
 
-    public i28(LabelRecommendActivity labelRecommendActivity) {
+    /* loaded from: classes4.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ForumData a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ boolean f;
+
+        public b(ForumData forumData, long j, String str, String str2, String str3, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {forumData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = forumData;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageUtils.createAndSendPersonalForumChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GroupInfoData a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ boolean f;
+
+        public c(GroupInfoData groupInfoData, long j, String str, String str2, String str3, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {groupInfoData, Long.valueOf(j), str, str2, str3, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = groupInfoData;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageUtils.createAndSendPersonalGroupChatMessage(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
+        }
+    }
+
+    public static void a(@Nullable ForumData forumData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {labelRecommendActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{forumData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                MessageUtils.createAndSendPersonalForumChatMessage(forumData, j, str2, str3, str4, z);
                 return;
             }
-        }
-        this.k = new ArrayList();
-        this.l = new ArrayList();
-        this.m = new a(this);
-        if (labelRecommendActivity == null) {
-            return;
-        }
-        this.a = labelRecommendActivity;
-        g();
-    }
-
-    public void k(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.j = onClickListener;
-            this.d.setOnClickListener(onClickListener);
+            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
+            jg.a().postDelayed(new b(forumData, j, str2, str3, str4, z), 500L);
         }
     }
 
-    public View c() {
-        InterceptResult invokeV;
+    public static void b(@Nullable GroupInfoData groupInfoData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public List<Integer> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList(this.l);
-            arrayList.add(0, Integer.valueOf(this.i.b()));
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public View e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0041);
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0927e4);
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f09215f);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920d4);
-            this.e = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092179);
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.c.getLayoutParams().height = UtilHelper.getStatusBarHeight();
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{groupInfoData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                MessageUtils.createAndSendPersonalGroupChatMessage(groupInfoData, j, str2, str3, str4, z);
+                return;
             }
-            l(0, 0);
-            this.g = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f09149e);
-            d28 d28Var = new d28(this.a.getPageContext().getPageActivity());
-            this.h = d28Var;
-            d28Var.b(this.m);
-            h28 h28Var = new h28(this.a.getPageContext().getPageActivity());
-            this.i = h28Var;
-            this.g.addHeaderView(h28Var.a());
-            this.g.setAdapter((ListAdapter) this.h);
-            h();
+            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
+            jg.a().postDelayed(new c(groupInfoData, j, str2, str3, str4, z), 500L);
         }
     }
 
-    public final void h() {
+    public static void c(@Nullable ThreadData threadData, @Nullable String str, long j, String str2, String str3, String str4, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f, (int) R.drawable.color_sub_lable_selector);
-            SkinManager.setBackgroundResource(this.f, R.drawable.bule_bg_commen_label_button);
-            this.e.d(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            for (e28 e28Var : this.k) {
-                if (e28Var != null) {
-                    e28Var.c = this.l.contains(Integer.valueOf(e28Var.a));
-                }
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{threadData, str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                MessageUtils.createAndSendPersonalThreadChatMessage(threadData, j, str2, str3, str4, z);
+                return;
             }
-            this.h.a(this.k);
-            l(this.l.size(), this.k.size());
+            MessageUtils.createAndSendPersonalTextChatMessage(str, j, str2, str3, str4, z);
+            jg.a().postDelayed(new a(threadData, j, str2, str3, str4, z), 500L);
         }
     }
 
-    public void j(f28 f28Var) {
+    public static void d(String str, int i, ThreadData threadData, ForumData forumData, GroupInfoData groupInfoData, GroupInfoData groupInfoData2) {
+        String str2;
+        long j;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, f28Var) == null) && f28Var != null && f28Var.b() != null && f28Var.a() != null) {
-            for (e28 e28Var : f28Var.a()) {
-                if (e28Var != null) {
-                    e28Var.c = false;
-                }
-            }
-            this.k.clear();
-            this.k.addAll(f28Var.a());
-            this.i.d(f28Var.b());
-            this.h.a(this.k);
-            this.g.setVisibility(0);
-            l(0, this.k.size());
-        }
-    }
-
-    public final void l(int i, int i2) {
-        boolean z;
-        View.OnClickListener onClickListener;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            TextView textView = this.f;
-            if (i > 0) {
-                z = true;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), threadData, forumData, groupInfoData, groupInfoData2}) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP);
+            String str3 = "";
+            if (threadData == null) {
+                str2 = "";
             } else {
-                z = false;
+                str2 = threadData.getId();
             }
-            textView.setEnabled(z);
-            this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f12e4, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
-            TextView textView2 = this.f;
-            if (i > 0) {
-                onClickListener = this.j;
+            httpMessage.addParam("thread_id", str2);
+            if (forumData != null) {
+                str3 = forumData.getId();
+            }
+            httpMessage.addParam("fid", str3);
+            httpMessage.addParam(GroupInfoData.SHARE_KEY_TYPE, i);
+            if (groupInfoData2 != null) {
+                j = groupInfoData2.getGroupId();
             } else {
-                onClickListener = null;
+                j = 0;
             }
-            textView2.setOnClickListener(onClickListener);
+            httpMessage.addParam("chatroom_id", j);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public static void e(String str, @Nullable GroupInfoData groupInfoData, @NonNull ForumData forumData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, groupInfoData, forumData) == null) {
+            d(str, 2, null, forumData, null, groupInfoData);
+        }
+    }
+
+    public static void f(String str, GroupInfoData groupInfoData, @NonNull GroupInfoData groupInfoData2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, groupInfoData, groupInfoData2) == null) {
+            d(str, 3, null, null, groupInfoData2, groupInfoData);
+        }
+    }
+
+    public static void g(String str, GroupInfoData groupInfoData, @NonNull ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, groupInfoData, threadData) == null) {
+            ForumData forumData = new ForumData();
+            if (threadData.getForumData() != null) {
+                forumData.setId(threadData.getForumData().a);
+                forumData.setName(threadData.getForumData().b);
+            }
+            if (TextUtils.isEmpty(forumData.getId())) {
+                forumData.setId(threadData.getFid() + "");
+            }
+            if (TextUtils.isEmpty(forumData.getName())) {
+                forumData.setName(threadData.getForum_name());
+            }
+            d(str, 1, threadData, forumData, null, groupInfoData);
         }
     }
 }

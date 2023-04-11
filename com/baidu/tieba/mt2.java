@@ -1,39 +1,20 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public class mt2 implements kt2 {
+public class mt2 implements lt2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final boolean b;
-    public long c;
-    public volatile boolean d;
-    @NonNull
-    public final List<kt2> e;
-    public final Runnable f;
-    public final Runnable g;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements ds3<cu1> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mt2 a;
 
         public a(mt2 mt2Var) {
             Interceptable interceptable = $ic;
@@ -47,26 +28,25 @@ public class mt2 implements kt2 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = mt2Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ds3
+        /* renamed from: a */
+        public void run(@NonNull cu1 cu1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d();
+            if (interceptable == null || interceptable.invokeL(1048576, this, cu1Var) == null) {
+                cu1Var.N();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements Runnable {
+    public class b implements ds3<cu1> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mt2 a;
 
         public b(mt2 mt2Var) {
             Interceptable interceptable = $ic;
@@ -80,46 +60,22 @@ public class mt2 implements kt2 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = mt2Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ds3
+        /* renamed from: a */
+        public void run(@NonNull cu1 cu1Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e();
+            if (interceptable == null || interceptable.invokeL(1048576, this, cu1Var) == null) {
+                cu1Var.q();
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final mt2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-593014945, "Lcom/baidu/tieba/mt2$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-593014945, "Lcom/baidu/tieba/mt2$c;");
-                    return;
-                }
-            }
-            a = new mt2(null);
         }
     }
 
     public mt2() {
-        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,114 +85,33 @@ public class mt2 implements kt2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        long millis = TimeUnit.SECONDS.toMillis(rt2.b.a());
-        this.a = millis;
-        if (millis >= 0 && rt2.b.e()) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.b = z;
-        this.c = 0L;
-        this.d = false;
-        this.f = new a(this);
-        this.g = new b(this);
-        this.e = new ArrayList();
-        if (rt2.b.e()) {
-            if (rt2.b.d()) {
-                this.e.add(new nt2());
-            }
-            if (rt2.b.b()) {
-                this.e.add(new ot2());
-            }
-            if (rt2.b.c()) {
-                this.e.add(new lt2());
             }
         }
     }
 
-    public /* synthetic */ mt2(a aVar) {
-        this();
-    }
-
-    public static kt2 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return c.a;
-        }
-        return (kt2) invokeV.objValue;
-    }
-
-    public final void d() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.c;
-            if (this.b && !this.d && ProcessUtils.isSwanProcess() && kl3.C(true)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            t42.i("SwanBackStageManager", "performPause: shouldPerform=" + z + " for " + currentTimeMillis + "/" + this.a);
-            if (z) {
-                for (kt2 kt2Var : this.e) {
-                    t42.i("SwanBackStageManager", "performPause for strategy=" + kt2Var);
-                    kt2Var.onPause();
-                }
-                this.d = true;
-            }
-        }
-    }
-
-    public final void e() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.b && this.d) {
-                z = true;
-            } else {
-                z = false;
-            }
-            t42.i("SwanBackStageManager", "performResume: shouldPerform=" + z);
-            for (kt2 kt2Var : this.e) {
-                t42.i("SwanBackStageManager", "performResume for strategy=" + kt2Var);
-                kt2Var.onResume();
-            }
-            this.d = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.kt2
-    @AnyThread
+    @Override // com.baidu.tieba.lt2
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            t42.i("SwanBackStageManager", "onPause: enable=" + this.b + " delay=" + this.a);
-            if (this.b) {
-                this.c = System.currentTimeMillis();
-                Handler M = s73.M();
-                M.removeCallbacks(this.f);
-                M.removeCallbacks(this.g);
-                M.postDelayed(this.f, this.a);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a(new a(this));
         }
     }
 
-    @Override // com.baidu.tieba.kt2
-    @AnyThread
+    @Override // com.baidu.tieba.lt2
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            t42.i("SwanBackStageManager", "onResume: enable=" + this.b);
-            if (this.b) {
-                Handler M = s73.M();
-                M.removeCallbacks(this.f);
-                M.removeCallbacks(this.g);
-                nl3.e0(this.g);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a(new b(this));
+        }
+    }
+
+    public final void a(@NonNull ds3<cu1> ds3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ds3Var) == null) {
+            for (cu1 cu1Var : oe2.U().V().values()) {
+                if (cu1Var != null) {
+                    ds3Var.run(cu1Var);
+                }
             }
         }
     }

@@ -1,17 +1,28 @@
 package com.baidu.searchbox.live.game.interfaces;
 
 import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.webkit.sdk.WebChromeClient;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.Map;
 import kotlin.Metadata;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\bf\u0018\u0000 \u000f2\u00020\u0001:\u0002\u000f\u0010J)\u0010\u0006\u001a\u00020\u00052\u0018\b\u0002\u0010\u0004\u001a\u0012\u0012\u0004\u0012\u00020\u0003\u0012\u0006\u0012\u0004\u0018\u00010\u0003\u0018\u00010\u0002H&¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\b\u001a\u00020\u0005H&¢\u0006\u0004\b\b\u0010\tJ\u001b\u0010\f\u001a\u00020\u00052\n\b\u0002\u0010\u000b\u001a\u0004\u0018\u00010\nH&¢\u0006\u0004\b\f\u0010\rJ\u000f\u0010\u000e\u001a\u00020\u0005H&¢\u0006\u0004\b\u000e\u0010\t¨\u0006\u0011"}, d2 = {"Lcom/baidu/searchbox/live/game/interfaces/GameService;", "Lkotlin/Any;", "", "", "params", "", "callHostMsgSendAPI", "(Ljava/util/Map;)V", "clearCachedHostMsgSendAPI", "()V", "Lcom/baidu/searchbox/live/game/interfaces/GameService$MsgSendListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "initHostMsgSendAPI", "(Lcom/baidu/searchbox/live/game/interfaces/GameService$MsgSendListener;)V", "releaseHostMsgSendAPI", "Companion", "MsgSendListener", "lib-game-interface_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\b\bf\u0018\u0000 \u00132\u00020\u0001:\u0003\u0013\u0014\u0015J)\u0010\u0006\u001a\u00020\u00052\u0018\b\u0002\u0010\u0004\u001a\u0012\u0012\u0004\u0012\u00020\u0003\u0012\u0006\u0012\u0004\u0018\u00010\u0003\u0018\u00010\u0002H&¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\b\u001a\u00020\u0005H&¢\u0006\u0004\b\b\u0010\tJ+\u0010\f\u001a\u00020\u00052\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00030\u00022\u0006\u0010\u000b\u001a\u00020\nH&¢\u0006\u0004\b\f\u0010\rJ\u001b\u0010\u0010\u001a\u00020\u00052\n\b\u0002\u0010\u000f\u001a\u0004\u0018\u00010\u000eH&¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0012\u001a\u00020\u0005H&¢\u0006\u0004\b\u0012\u0010\t¨\u0006\u0016"}, d2 = {"Lcom/baidu/searchbox/live/game/interfaces/GameService;", "Lkotlin/Any;", "", "", "params", "", "callHostMsgSendAPI", "(Ljava/util/Map;)V", "clearCachedHostMsgSendAPI", "()V", "Lcom/baidu/searchbox/live/game/interfaces/GameService$GameAuthCallback;", WebChromeClient.KEY_ARG_CALLBACK, "doAuth", "(Ljava/util/Map;Lcom/baidu/searchbox/live/game/interfaces/GameService$GameAuthCallback;)V", "Lcom/baidu/searchbox/live/game/interfaces/GameService$MsgSendListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "initHostMsgSendAPI", "(Lcom/baidu/searchbox/live/game/interfaces/GameService$MsgSendListener;)V", "releaseHostMsgSendAPI", "Companion", "GameAuthCallback", "MsgSendListener", "lib-game-interface_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public interface GameService {
     public static final Companion Companion = Companion.$$INSTANCE;
 
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\bf\u0018\u00002\u00020\u0001J!\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\b\u0010\u0005\u001a\u0004\u0018\u00010\u0004H&¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0006H&¢\u0006\u0004\b\t\u0010\n¨\u0006\u000b"}, d2 = {"Lcom/baidu/searchbox/live/game/interfaces/GameService$GameAuthCallback;", "Lkotlin/Any;", "", "code", "", "msg", "", "onFail", "(ILjava/lang/String;)V", "onSuccess", "()V", "lib-game-interface_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes2.dex */
+    public interface GameAuthCallback {
+        void onFail(int i, String str);
+
+        void onSuccess();
+    }
+
     void callHostMsgSendAPI(Map<String, String> map);
 
     void clearCachedHostMsgSendAPI();
+
+    void doAuth(Map<String, String> map, GameAuthCallback gameAuthCallback);
 
     void initHostMsgSendAPI(MsgSendListener msgSendListener);
 

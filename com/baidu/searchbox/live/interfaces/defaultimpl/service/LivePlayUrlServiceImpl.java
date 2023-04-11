@@ -1,12 +1,18 @@
 package com.baidu.searchbox.live.interfaces.defaultimpl.service;
 
+import android.app.Application;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
 import com.baidu.searchbox.live.interfaces.player.internal.LivePlayUrlService;
+import com.baidu.searchbox.live.interfaces.service.AbConfigService;
+import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.searchbox.live.interfaces.service.ILivePlayEtnService;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+import com.google.android.exoplayer2.util.MimeTypes;
 import java.util.Map;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
@@ -61,16 +67,6 @@ public final class LivePlayUrlServiceImpl implements LivePlayUrlService {
         Object obj = null;
         if (pluginManagerService != null && (mediaLivePlayConfig = pluginManagerService.getMediaLivePlayConfig("is_support_avc", null)) != null) {
             obj = mediaLivePlayConfig.get("is_support_avc");
-        }
-        return Intrinsics.areEqual(obj, Boolean.TRUE);
-    }
-
-    private final boolean isSupportHevc() {
-        Map<String, Object> mediaLivePlayConfig;
-        PluginInvokeService pluginManagerService = getPluginManagerService();
-        Object obj = null;
-        if (pluginManagerService != null && (mediaLivePlayConfig = pluginManagerService.getMediaLivePlayConfig("is_support_hevc", null)) != null) {
-            obj = mediaLivePlayConfig.get("is_support_hevc");
         }
         return Intrinsics.areEqual(obj, Boolean.TRUE);
     }
@@ -162,6 +158,55 @@ public final class LivePlayUrlServiceImpl implements LivePlayUrlService {
             return null;
         }
         return MultiRatePlayUrlHelper.INSTANCE.getMultiDataByScheme(jSONObject, userSelectedRank, urlType);
+    }
+
+    private final boolean isSupportHevc() {
+        boolean z;
+        Application application;
+        float f;
+        Map<String, Object> mediaLivePlayConfig;
+        PluginInvokeService pluginManagerService = getPluginManagerService();
+        boolean z2 = true;
+        Object obj = null;
+        if (pluginManagerService != null && pluginManagerService.isPluginLoaded("com.baidu.searchbox.livenps")) {
+            PluginInvokeService pluginManagerService2 = getPluginManagerService();
+            if (pluginManagerService2 != null && (mediaLivePlayConfig = pluginManagerService2.getMediaLivePlayConfig("is_support_hevc", null)) != null) {
+                obj = mediaLivePlayConfig.get("is_support_hevc");
+            }
+            boolean areEqual = Intrinsics.areEqual(obj, Boolean.TRUE);
+            MultiRatePlayUrlHelper.INSTANCE.log("isSupportHevc：一级插件已经加载，返回插件结果: " + areEqual);
+            return areEqual;
+        }
+        Object obj2 = ((AbConfigService) ServiceManager.getService(AbConfigService.Companion.getSERVICE_REFERENCE())).getSwitch("live_android_hevc_enable_def");
+        if (!(obj2 instanceof Boolean)) {
+            obj2 = null;
+        }
+        Boolean bool = (Boolean) obj2;
+        if (bool != null) {
+            z = bool.booleanValue();
+        } else {
+            z = false;
+        }
+        MultiRatePlayUrlHelper.INSTANCE.log("isSupportHevc：云控默认开关：" + z);
+        if (z) {
+            AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+            if (appInfoService != null) {
+                application = appInfoService.getApplication();
+            } else {
+                application = null;
+            }
+            if (appInfoService != null) {
+                f = appInfoService.getStaticDeviceScore(application);
+            } else {
+                f = -1.0f;
+            }
+            int devicePlayQualityScore = CyberPlayerManager.getDevicePlayQualityScore(MimeTypes.VIDEO_H265, 0, RecordConstants.VIDEO_CONSTANT_WIDTH_OLD, 960, null);
+            z2 = (((double) f) < 0.3d || devicePlayQualityScore < 80) ? false : false;
+            MultiRatePlayUrlHelper.INSTANCE.log("isSupportHevc：播放分数：" + devicePlayQualityScore + "，设备分数：" + f + "，结果：" + z2);
+            return z2;
+        }
+        MultiRatePlayUrlHelper.INSTANCE.log("isSupportHevc：云控默认关闭，返回不支持 hevc");
+        return false;
     }
 
     private final LivePlayUrlService.PlayUrlData selectUrlByDevice(String str, String str2, String str3, String str4, String str5) {

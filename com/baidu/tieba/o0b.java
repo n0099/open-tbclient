@@ -1,15 +1,5 @@
 package com.baidu.tieba;
-
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 /* loaded from: classes5.dex */
-public interface o0b extends l0b {
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
-    }
-
-    void setCallback(a aVar);
-
-    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
+public interface o0b extends t0b {
+    String f();
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import android.content.Context;
 /* loaded from: classes7.dex */
 public interface ys1 {
-    void b(t73 t73Var, JSONObject jSONObject);
+    void a(String str, vx2 vx2Var, Context context);
 }

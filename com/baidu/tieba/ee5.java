@@ -1,11 +1,11 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes4.dex */
 public interface ee5 {
-    void b();
+    boolean b();
 
-    View getView();
+    void handleHide();
 
-    void onClick();
+    void handleShow();
+
+    boolean isVisible();
 }

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,8 +38,8 @@ public class FlowLabelLayout extends ViewGroup {
                 return;
             }
         }
-        this.a = hi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        this.b = hi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        this.a = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.b = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,8 +61,8 @@ public class FlowLabelLayout extends ViewGroup {
                 return;
             }
         }
-        this.a = hi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        this.b = hi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        this.a = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.b = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
     @Override // android.view.View
@@ -110,8 +110,8 @@ public class FlowLabelLayout extends ViewGroup {
                 return;
             }
         }
-        this.a = hi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        this.b = hi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        this.a = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.b = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
     public int getHorizontalSpacing() {

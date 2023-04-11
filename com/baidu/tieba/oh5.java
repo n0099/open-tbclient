@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
 public interface oh5 {
-    int getPid();
-
-    int getTag();
-
-    int getType();
-
-    void setTag(BdUniqueId bdUniqueId);
+    void a(long j, int i, @NonNull String str);
 }

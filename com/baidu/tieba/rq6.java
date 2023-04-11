@@ -1,41 +1,20 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.ac5;
-import com.baidu.tieba.faceshop.EmotionGroupData;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rq6 extends ac5 {
+public class rq6 {
     public static /* synthetic */ Interceptable $ic;
-    public static rq6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<dc5> a;
-
-    @Override // com.baidu.tieba.ac5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 4;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ac5
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
+    public List<sq6> a;
 
     public rq6() {
         Interceptable interceptable = $ic;
@@ -47,46 +26,42 @@ public class rq6 extends ac5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new LinkedList<>();
     }
 
-    public static rq6 e() {
+    public List<sq6> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (rq6.class) {
-                    if (b == null) {
-                        b = new rq6();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (rq6) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ac5
-    public void b(ac5.a aVar) {
+    public static rq6 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD()) {
-            List<MyEmotionGroupData> h = eq6.c().h(TbadkCoreApplication.getCurrentAccount());
-            this.a.clear();
-            for (MyEmotionGroupData myEmotionGroupData : h) {
-                EmotionGroupData n = mq6.o().n(myEmotionGroupData.getGroupId());
-                if (n != null) {
-                    gq6 gq6Var = new gq6(n);
-                    if (gq6Var.d() != null) {
-                        this.a.add(gq6Var);
-                        if (aVar != null) {
-                            aVar.a(gq6Var);
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray("recommend_forum_info")) == null) {
+                return null;
             }
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                arrayList.add(sq6.q(optJSONArray.optJSONObject(i)));
+            }
+            rq6 rq6Var = new rq6();
+            rq6Var.c(arrayList);
+            return rq6Var;
+        }
+        return (rq6) invokeL.objValue;
+    }
+
+    public void c(List<sq6> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
         }
     }
 }

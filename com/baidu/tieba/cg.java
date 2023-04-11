@@ -104,7 +104,7 @@ public class cg {
         public void b(bg<T> bgVar, BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, bgVar, bdUniqueId) == null) {
-                hi.c();
+                ii.c();
                 if (this.i.containsKey(bgVar)) {
                     return;
                 }
@@ -115,7 +115,7 @@ public class cg {
         public void c(BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
-                hi.c();
+                ii.c();
                 if (this.i.size() == 0) {
                     cancel();
                     return;
@@ -176,7 +176,7 @@ public class cg {
         public void d(BdUniqueId bdUniqueId, bg<T> bgVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, bdUniqueId, bgVar) == null) {
-                hi.c();
+                ii.c();
                 if (this.i.size() == 0) {
                     cancel();
                     return;
@@ -199,7 +199,7 @@ public class cg {
         public void e(bg<T> bgVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, bgVar) == null) {
-                hi.c();
+                ii.c();
                 this.i.remove(bgVar);
                 if (bgVar != null) {
                     bgVar.onCancelled(this.a);

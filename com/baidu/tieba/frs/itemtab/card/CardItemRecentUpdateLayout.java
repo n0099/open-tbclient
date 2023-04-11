@@ -15,17 +15,17 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.view.MultiLineEllipsizeTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.hx;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.s45;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.ix;
+import com.baidu.tieba.q25;
+import com.baidu.tieba.v55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.RecentUpdate;
 /* loaded from: classes4.dex */
-public class CardItemRecentUpdateLayout extends LinearLayout implements hx {
+public class CardItemRecentUpdateLayout extends LinearLayout implements ix {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -110,14 +110,14 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements hx {
                 CardItemRecentUpdateLayout cardItemRecentUpdateLayout = this.a;
                 cardItemRecentUpdateLayout.i = !cardItemRecentUpdateLayout.i;
                 if (!this.a.i) {
-                    this.a.g.setText(R.string.obfuscated_res_0x7f0f0632);
+                    this.a.g.setText(R.string.obfuscated_res_0x7f0f062c);
                     this.a.f.setMaxLines(3);
                     return;
                 }
-                this.a.g.setText(R.string.obfuscated_res_0x7f0f069e);
+                this.a.g.setText(R.string.obfuscated_res_0x7f0f0696);
                 this.a.f.setMaxLines(Integer.MAX_VALUE);
                 this.a.f.setText(this.a.h);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new s45(10)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new v55(10)));
             }
         }
     }
@@ -203,27 +203,27 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements hx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01b3, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09112b);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09112c);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091128);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09112a);
-            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091129);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09112f);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091130);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09112c);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09112e);
+            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09112d);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView = new MultiLineEllipsizeTextView(context);
             this.f = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.f;
-            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f0632))));
-            n15 d = n15.d(this.f);
-            d.A(R.dimen.T_X06);
-            d.x(R.dimen.M_T_X002);
-            this.f.setPadding(hi.g(context, R.dimen.M_W_X005), 0, 0, hi.g(context, R.dimen.M_H_X005));
+            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f062c))));
+            q25 d = q25.d(this.f);
+            d.B(R.dimen.T_X06);
+            d.y(R.dimen.M_T_X002);
+            this.f.setPadding(ii.g(context, R.dimen.M_W_X005), 0, 0, ii.g(context, R.dimen.M_H_X005));
             this.e.addView(this.f, new LinearLayout.LayoutParams(-1, -2));
             this.f.setOnTextMeasuredCallback(new a(this));
             EMTextView eMTextView = new EMTextView(context);
             this.g = eMTextView;
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f0632);
-            n15.d(this.f).A(R.dimen.T_X06);
-            this.g.setPadding(hi.g(context, R.dimen.M_W_X005), hi.g(context, R.dimen.M_H_X005), 0, hi.g(context, R.dimen.M_H_X005));
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f062c);
+            q25.d(this.f).B(R.dimen.T_X06);
+            this.g.setPadding(ii.g(context, R.dimen.M_W_X005), ii.g(context, R.dimen.M_H_X005), 0, ii.g(context, R.dimen.M_H_X005));
             this.g.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 85;
@@ -232,29 +232,29 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements hx {
         }
     }
 
-    @Override // com.baidu.tieba.hx
+    @Override // com.baidu.tieba.ix
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            n15 d = n15.d(this);
+            q25 d = q25.d(this);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            n15 d2 = n15.d(this.a);
-            d2.B(R.string.F_X02);
+            q25 d2 = q25.d(this.a);
+            d2.C(R.string.F_X02);
             d2.w(R.color.CAM_X0105);
-            n15 d3 = n15.d(this.b);
-            d3.B(R.string.F_X01);
+            q25 d3 = q25.d(this.b);
+            d3.C(R.string.F_X01);
             d3.w(R.color.CAM_X0108);
-            n15 d4 = n15.d(this.c);
-            d4.B(R.string.F_X01);
+            q25 d4 = q25.d(this.c);
+            d4.C(R.string.F_X01);
             d4.w(R.color.CAM_X0108);
-            n15 d5 = n15.d(this.f);
-            d5.B(R.string.F_X01);
+            q25 d5 = q25.d(this.f);
+            d5.C(R.string.F_X01);
             d5.w(R.color.CAM_X0105);
-            n15 d6 = n15.d(this.g);
-            d6.B(R.string.F_X01);
+            q25 d6 = q25.d(this.g);
+            d6.C(R.string.F_X01);
             d6.w(R.color.CAM_X0304);
-            n15.d(this.d).f(R.color.CAM_X0111);
+            q25.d(this.d).f(R.color.CAM_X0111);
         }
     }
 }

@@ -1,14 +1,18 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.rs2;
+import com.baidu.tieba.y63;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,35 +20,101 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-import rx.schedulers.Schedulers;
 /* loaded from: classes5.dex */
-public class l74 extends t33 implements q43 {
+public class l74 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static final Set<String> h;
-    public static long i;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int f;
+    public y63 a;
 
     /* loaded from: classes5.dex */
-    public class a implements csa<String> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ Bundle b;
-        public final /* synthetic */ l74 c;
+        public final /* synthetic */ SwanAppActivity a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ b02 c;
+        public final /* synthetic */ rs2 d;
+        public final /* synthetic */ l74 e;
 
-        public a(l74 l74Var, boolean z, Bundle bundle) {
+        public a(l74 l74Var, SwanAppActivity swanAppActivity, String str, b02 b02Var, rs2 rs2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l74Var, Boolean.valueOf(z), bundle};
+                Object[] objArr = {l74Var, swanAppActivity, str, b02Var, rs2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = l74Var;
+            this.a = swanAppActivity;
+            this.b = str;
+            this.c = b02Var;
+            this.d = rs2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.f(this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b02 a;
+
+        public b(l74 l74Var, b02 b02Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l74Var, b02Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b02Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                ga4.call(this.a, true, new n74(false));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b02 a;
+        public final /* synthetic */ rs2 b;
+        public final /* synthetic */ l74 c;
+
+        public c(l74 l74Var, b02 b02Var, rs2 rs2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l74Var, b02Var, rs2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,34 +125,16 @@ public class l74 extends t33 implements q43 {
                 }
             }
             this.c = l74Var;
-            this.a = z;
-            this.b = bundle;
+            this.a = b02Var;
+            this.b = rs2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.csa
-        public void call(String str) {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.a) {
-                    if (l74.g) {
-                        Log.i("SwanGameReloadDelegate", "execCall: addCallback CALLBACK_TERM = " + l74.i);
-                    }
-                    u43.k().c(this.c, l74.i);
-                }
-                dg2 d = fg2.c().d();
-                if (d != null) {
-                    List<String> singletonList = Collections.singletonList(this.b.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
-                    oh2 l = oh2.l();
-                    l.i(6);
-                    d.h(singletonList, true, l.k());
-                }
-                if (l74.g) {
-                    Log.i("SwanGameReloadDelegate", "execCall: addCallback purge finish = " + d);
-                }
-                if (!this.a) {
-                    this.c.h();
-                }
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                ga4.call(this.a, true, new n74(true));
+                this.c.e(this.b);
             }
         }
     }
@@ -100,22 +152,7 @@ public class l74 extends t33 implements q43 {
                 return;
             }
         }
-        g = do1.a;
-        h = Sets.newHashSet("event_puppet_unload_app", "event_puppet_offline");
-        i = TimeUnit.SECONDS.toMillis(10L);
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            String string = this.a.getString("scheme");
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "invoke: scheme = " + string);
-            }
-            if (!TextUtils.isEmpty(string)) {
-                SchemeRouter.invoke(AppRuntime.getAppContext(), string);
-            }
-        }
+        b = eo1.a;
     }
 
     public l74() {
@@ -123,52 +160,84 @@ public class l74 extends t33 implements q43 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final void c(b02 b02Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, b02Var, str) == null) {
+            d24 d24Var = new d24();
+            d24Var.errMsg = str;
+            ga4.call(b02Var, false, d24Var);
+        }
+    }
+
+    public void d(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+            b02 F = b02.F(jsObject);
+            if (F == null) {
+                F = new b02();
+            }
+            b02 b02Var = F;
+            u73 q = t73.K().q();
+            if (!q.I()) {
+                c(b02Var, "reload failed, api internal error.");
                 return;
             }
-        }
-        this.f = SwanAppProcessInfo.UNKNOWN.index;
-    }
-
-    @Override // com.baidu.tieba.q43
-    public void timeout() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "timeout");
+            SwanAppActivity w = q.w();
+            rs2.a W = q.W();
+            if (w == null) {
+                c(b02Var, "reload failed, api internal error.");
+                return;
             }
-            h();
-        }
-    }
-
-    @Override // com.baidu.tieba.q43
-    public void a(String str, s43 s43Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, s43Var) == null) && s43Var.b.index == this.f && h.contains(str)) {
-            u43.k().h(this);
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "onEvent: event = " + str);
+            String B = b02Var.B("content");
+            if (TextUtils.isEmpty(B)) {
+                B = w.getString(R.string.obfuscated_res_0x7f0f0184);
             }
-            h();
+            ol3.e0(new a(this, w, B, b02Var, W));
         }
     }
 
-    @Override // com.baidu.tieba.t33
-    public void b(@NonNull Bundle bundle) {
+    public final void e(@NonNull rs2 rs2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            int i2 = bundle.getInt("target", SwanAppProcessInfo.UNKNOWN.index);
-            this.f = i2;
-            boolean checkProcessId = SwanAppProcessInfo.checkProcessId(i2);
-            if (g) {
-                Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
-                Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rs2Var) == null) {
+            String H = rs2Var.H();
+            String h1 = ss2.h1(rs2Var.H(), rs2Var.T(), rs2Var.G());
+            Bundle bundle = new Bundle();
+            bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, H);
+            bundle.putString("scheme", h1);
+            bundle.putInt("target", SwanAppProcessInfo.current().index);
+            if (b) {
+                Log.d("SwanGameReloadApi", "reload-appid:" + rs2Var.H());
             }
-            ora.f("").k(Schedulers.io()).w(new a(this, checkProcessId, bundle));
+            p43.Q().W(bundle, m74.class);
+        }
+    }
+
+    public final void f(@NonNull Activity activity, @NonNull String str, @NonNull b02 b02Var, @NonNull rs2 rs2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, str, b02Var, rs2Var) == null) {
+            y63 y63Var = this.a;
+            if (y63Var != null && y63Var.isShowing()) {
+                c(b02Var, "reload failed, the reload dialog has been displayed.");
+                return;
+            }
+            y63.a aVar = new y63.a(activity);
+            aVar.U(R.string.obfuscated_res_0x7f0f0185);
+            aVar.x(str);
+            aVar.a();
+            aVar.n(new cn3());
+            aVar.m(false);
+            aVar.B(R.string.obfuscated_res_0x7f0f0114, new b(this, b02Var));
+            aVar.O(R.string.obfuscated_res_0x7f0f01a4, new c(this, b02Var, rs2Var));
+            this.a = aVar.X();
         }
     }
 }

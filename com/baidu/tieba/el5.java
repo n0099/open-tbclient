@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,12 +10,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class el5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public BaseFragment a;
 
-    public el5() {
+    public el5(BaseFragment baseFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,15 +27,15 @@ public class el5 {
                 return;
             }
         }
-        this.a = null;
+        this.a = baseFragment;
     }
 
-    public static og a() {
+    public BaseFragment a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (og) invokeV.objValue;
+        return (BaseFragment) invokeV.objValue;
     }
 }

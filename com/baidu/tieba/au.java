@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class au implements vr {
+public final class au implements bs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,25 +23,11 @@ public final class au implements vr {
         }
     }
 
-    @Override // com.baidu.tieba.vr
-    public String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.bs
+    public void a(String str, as asVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Object b = com.baidu.bdtask.service.cache.storage.c.i.a().b(str);
-            if (!(b instanceof String)) {
-                b = null;
-            }
-            return (String) b;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.vr
-    public void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            com.baidu.bdtask.service.cache.storage.c.i.a().d(str2, str);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, asVar) == null) {
+            asVar.onError();
         }
     }
 }

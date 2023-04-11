@@ -1,42 +1,60 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.Resource;
 /* loaded from: classes3.dex */
-public class ai7 extends fg6 {
+public final class ai7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ai7() {
+    public static final String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return p45.m().s(p45.q("forum_group_entrance_guide_has_show_array"), "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return p45.m().s(p45.q("forum_group_feed_card_has_show_array"), "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return p45.m().n(p45.q("forum_group_entrance_guide_frequency"), 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static final int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return p45.m().n(p45.q("forum_group_feed_card_frequency"), 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static final void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            p45.m().B(p45.q("forum_group_entrance_guide_has_show_array"), str);
         }
     }
 
-    public void c(Resource resource) {
+    public static final void l(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, resource) != null) || resource == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+            p45.m().B(p45.q("forum_group_feed_card_has_show_array"), str);
         }
-        this.a = resource.res_id.longValue();
-        this.b = resource.user_name;
-        this.c = resource.user_image;
-        this.d = resource.user_link;
-        this.e = resource.res_title;
-        this.f = resource.res_image;
-        this.g = resource.res_link;
-        this.h = resource.position.longValue();
-        this.i = resource.icon_text;
     }
 }

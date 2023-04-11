@@ -1,123 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.opengl.GLSurfaceView;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.DuMixCallback;
-import com.baidu.ar.capture.ICaptureResult;
-import com.baidu.minivideo.arface.bean.Filter;
-import com.baidu.minivideo.arface.bean.Sticker;
-import com.baidu.tieba.x6a;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.message.EvaluateRelevanceItemUpdatedMessage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.write.relevance.RelevanceItemSearchData;
+import com.baidu.tieba.write.write.relevance.RelevanceItemSearchResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class m6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v6a a;
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(Object obj);
-    }
+    public int a;
+    public BdUniqueId b;
+    public final String c;
+    public b d;
+    public List<String> e;
+    public HttpMessageListener f;
 
     /* loaded from: classes5.dex */
     public interface b {
-        boolean a();
-
-        int b();
-
-        void c(int i, int i2, int i3, int i4);
-
-        void d(byte[] bArr);
-
-        String e();
-
-        boolean f();
-
-        void g(int i, int i2, int i3, boolean z);
-
-        void h(boolean z);
-
-        void i(boolean z);
-
-        void j(boolean z);
-
-        boolean k(SurfaceTexture surfaceTexture, f fVar);
-
-        void l(int i);
-
-        void m(boolean z);
-
-        void n();
-
-        boolean o();
-
-        boolean p();
-
-        void q();
-
-        int r();
-
-        void release();
-
-        void s(a aVar);
-
-        void t(int i, int i2, int i3, int i4);
-
-        void u(int i);
-
-        int v();
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d {
-        void onBeautyEnableChanged(de0 de0Var);
-
-        void onChangeGender(boolean z);
-
-        void onLuaMessage(HashMap<String, Object> hashMap);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface e extends x6a.b {
         void a();
 
-        void b(ICaptureResult iCaptureResult);
+        void c(RelevanceItemSearchData relevanceItemSearchData);
 
-        void c();
+        void d();
 
-        void d(int i);
-
-        void e();
-
-        void f(int i, int i2);
-
-        void g(boolean z);
+        void onError(int i, String str);
     }
 
     /* loaded from: classes5.dex */
-    public interface f {
-        void a(byte[] bArr, int i);
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m6a a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(m6a m6aVar, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m6aVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m6aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            RelevanceItemSearchData relevanceItemSearchData;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && this.a.d != null) {
+                if (httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() != this.a.b) {
+                    return;
+                }
+                if (httpResponsedMessage instanceof RelevanceItemSearchResponse) {
+                    relevanceItemSearchData = ((RelevanceItemSearchResponse) httpResponsedMessage).getResponseData();
+                } else {
+                    relevanceItemSearchData = null;
+                }
+                if (relevanceItemSearchData != null && relevanceItemSearchData.getData() != null) {
+                    if (!ListUtils.equalList(this.a.e, relevanceItemSearchData.getData().getTab_option())) {
+                        this.a.e = relevanceItemSearchData.getData().getTab_option();
+                        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(this.a.e));
+                    }
+                    if (httpResponsedMessage.getError() == 0) {
+                        if (ListUtils.isEmpty(relevanceItemSearchData.getData().getItem_list())) {
+                            if (this.a.a == 1) {
+                                this.a.d.a();
+                                return;
+                            } else {
+                                this.a.d.d();
+                                return;
+                            }
+                        } else if (relevanceItemSearchData != null) {
+                            this.a.d.c(relevanceItemSearchData);
+                            if (this.a.a == 1 && relevanceItemSearchData.getData().getItem_list().size() < 20) {
+                                this.a.d.d();
+                            }
+                            m6a.f(this.a);
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                    this.a.d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    this.a.l();
+                    return;
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(null));
+                this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d1b));
+                this.a.l();
+            }
+        }
     }
 
-    public m6a(Context context) {
+    public m6a(BdUniqueId bdUniqueId, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {bdUniqueId, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -127,233 +133,85 @@ public class m6a {
                 return;
             }
         }
-        this.a = new v6a(context);
+        this.a = 1;
+        a aVar = new a(this, CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+        this.f = aVar;
+        this.b = bdUniqueId;
+        this.c = str;
+        aVar.setTag(bdUniqueId);
+        k();
+        MessageManager.getInstance().registerListener(this.f);
     }
 
-    public boolean A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a0() : invokeV.booleanValue;
+    public static /* synthetic */ int f(m6a m6aVar) {
+        int i = m6aVar.a;
+        m6aVar.a = i + 1;
+        return i;
     }
 
-    public boolean B() {
-        InterceptResult invokeV;
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c0() : invokeV.booleanValue;
-    }
-
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.X();
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            l();
+            i(str);
         }
     }
 
-    public void D(int i) {
-        v6a v6aVar;
+    public void m(b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (v6aVar = this.a) == null) {
-            return;
-        }
-        v6aVar.r(i);
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.onDestroy();
-        }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.q0() : (String) invokeV.objValue;
-    }
-
-    public void c(b bVar, int i, int i2, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{bVar, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), str}) == null) {
-            this.a.A(bVar, i, i2, z, str);
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            v6a v6aVar = this.a;
-            if (v6aVar != null) {
-                return v6aVar.p0();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.a.B(cVar);
-            this.a.e0();
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.a.onPause();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.a.onResume();
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 
     public void h() {
-        v6a v6aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (v6aVar = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+            httpMessage.addParam("tab_name", this.c);
+            httpMessage.addParam("pn", this.a);
+            httpMessage.addParam("rn", 20);
+            httpMessage.setTag(this.b);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        v6aVar.k0();
     }
 
-    public void i(int i, int i2) {
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
-            this.a.s(i, i2);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH, TbConfig.SERVER_ADDRESS + TbConfig.RELEVANCE_ITEM_SEARCH_URL);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(RelevanceItemSearchResponse.class);
+            tbHttpMessageTask.setPriority(4);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public final void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+            httpMessage.addParam("tab_name", this.c);
+            httpMessage.addParam("keyword", str);
+            httpMessage.addParam("pn", this.a);
+            httpMessage.addParam("rn", 20);
+            httpMessage.setTag(this.b);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public void j() {
-        v6a v6aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (v6aVar = this.a) == null) {
-            return;
-        }
-        v6aVar.c();
-    }
-
-    public void k(DuMixCallback duMixCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, duMixCallback) == null) {
-            this.a.x(duMixCallback);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().removeMessage(this.b);
+            MessageManager.getInstance().unRegisterListener(this.b);
         }
     }
 
-    public void l(Filter filter) {
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, filter) == null) {
-            this.a.y(filter);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a = 1;
         }
-    }
-
-    public void m(GLSurfaceView gLSurfaceView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, gLSurfaceView) == null) {
-            this.a.w(gLSurfaceView);
-        }
-    }
-
-    public void n() {
-        v6a v6aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (v6aVar = this.a) == null) {
-            return;
-        }
-        v6aVar.d();
-    }
-
-    public void o(boolean z) {
-        v6a v6aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || (v6aVar = this.a) == null) {
-            return;
-        }
-        v6aVar.f0(z);
-    }
-
-    public void p(SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, onFrameAvailableListener) == null) {
-            this.a.u(onFrameAvailableListener);
-        }
-    }
-
-    public void q(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, dVar) == null) {
-            this.a.C(dVar);
-        }
-    }
-
-    public void r(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, eVar) == null) {
-            this.a.D(eVar);
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-        }
-    }
-
-    public void t(boolean z) {
-        v6a v6aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048599, this, z) == null) || (v6aVar = this.a) == null) {
-            return;
-        }
-        v6aVar.G(z);
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-        }
-    }
-
-    public void v(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.a.T(z);
-        }
-    }
-
-    public void w(boolean z) {
-        v6a v6aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || (v6aVar = this.a) == null) {
-            return;
-        }
-        v6aVar.Y(z);
-    }
-
-    public void x(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048603, this, f2) == null) {
-            this.a.setSpeed(f2);
-        }
-    }
-
-    public boolean y(Sticker sticker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, sticker, str)) == null) ? this.a.H(sticker, str) : invokeLL.booleanValue;
-    }
-
-    public void z(float f2) {
-        v6a v6aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048605, this, f2) == null) || (v6aVar = this.a) == null) {
-            return;
-        }
-        v6aVar.q(f2);
     }
 }

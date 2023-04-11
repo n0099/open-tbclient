@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.fv4;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.j45;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.m55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -165,8 +165,8 @@ public class NoDataView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             Drawable drawable = SkinManager.getDrawable(i);
-            int g = hi.g(this.a, R.dimen.obfuscated_res_0x7f070207);
-            int g2 = hi.g(this.a, R.dimen.obfuscated_res_0x7f070303);
+            int g = ii.g(this.a, R.dimen.obfuscated_res_0x7f070207);
+            int g2 = ii.g(this.a, R.dimen.obfuscated_res_0x7f070303);
             drawable.setBounds(0, 0, g, g);
             this.f.setCompoundDrawablePadding(g2);
             this.f.setCompoundDrawables(drawable, null, null, null);
@@ -263,9 +263,9 @@ public class NoDataView extends LinearLayout {
             this.f = (TextView) this.b.findViewById(R.id.tv_subtitle);
             this.g = (TextView) this.b.findViewById(R.id.tv_title);
             this.h = (TBSpecificationBtn) this.b.findViewById(R.id.btn_func);
-            j45 j45Var = new j45();
+            m55 m55Var = new m55();
             this.h.setTextSize(R.dimen.T_X05);
-            this.h.setConfig(j45Var);
+            this.h.setConfig(m55Var);
             this.l = (LinearLayout) this.b.findViewById(R.id.two_button_layout);
             this.o = R.color.CAM_X0107;
             this.p = R.color.CAM_X0109;
@@ -279,7 +279,7 @@ public class NoDataView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLI(1048581, this, a9Var, i) == null) {
             if (a9Var instanceof TbPageContext) {
                 TbPageContext tbPageContext = (TbPageContext) a9Var;
-                fv4 layoutMode = tbPageContext.getLayoutMode();
+                hv4 layoutMode = tbPageContext.getLayoutMode();
                 if (i == 4) {
                     z = true;
                 } else {
@@ -369,7 +369,7 @@ public class NoDataView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.c.setImageDrawable(null);
-            this.c.M(null, 10, false);
+            this.c.N(null, 10, false);
         }
     }
 
@@ -393,7 +393,7 @@ public class NoDataView extends LinearLayout {
     public final void h() {
         int j;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (j = hi.j(TbadkCoreApplication.getInst())) > 0) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (j = ii.j(TbadkCoreApplication.getInst())) > 0) {
             int i = (int) (j * 0.16d);
             ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -427,11 +427,11 @@ public class NoDataView extends LinearLayout {
             if (bVar2 != null && bVar != null) {
                 this.i = (TBSpecificationBtn) this.l.findViewById(R.id.btn_left);
                 this.j = (TBSpecificationBtn) this.l.findViewById(R.id.btn_right);
-                j45 j45Var = new j45();
+                m55 m55Var = new m55();
                 this.i.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.i.setConfig(j45Var);
+                this.i.setConfig(m55Var);
                 this.j.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.j.setConfig(j45Var);
+                this.j.setConfig(m55Var);
                 this.i.setOnClickListener(bVar.a);
                 this.i.setText(bVar.b);
                 this.j.setOnClickListener(bVar2.a);

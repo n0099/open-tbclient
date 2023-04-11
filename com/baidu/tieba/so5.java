@@ -1,168 +1,138 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.template.state.ViewType;
+import com.baidu.tieba.xo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class so5 {
+public class so5 implements ro5 {
     public static /* synthetic */ Interceptable $ic;
-    public static so5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public b b;
+    public final HashMap<ViewType, to5> a;
+    public final ViewGroup b;
+    public final ap5 c;
+    public final xo5 d;
+    public ViewType e;
+    public to5 f;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void onResult(boolean z);
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends BdAsyncTask<String, Integer, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ so5 a;
-
-        public c(so5 so5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {so5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = so5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Boolean doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                return Boolean.valueOf(this.a.d());
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) && this.a.b != null && bool != null) {
-                this.a.b.onResult(bool.booleanValue());
-            }
-        }
-
-        public /* synthetic */ c(so5 so5Var, a aVar) {
-            this(so5Var);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948158160, "Lcom/baidu/tieba/so5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948158160, "Lcom/baidu/tieba/so5;");
-                return;
-            }
-        }
-        c = new so5();
-    }
-
-    public so5() {
+    public so5(ap5 ap5Var, @NonNull ViewGroup viewGroup, @NonNull xo5 xo5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ap5Var, viewGroup, xo5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+        this.b = viewGroup;
+        this.c = ap5Var;
+        this.d = xo5Var;
+    }
+
+    @Override // com.baidu.tieba.ro5
+    public void a(ViewType viewType, String str) {
+        xo5.a aVar;
+        xo5.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, viewType, str) == null) {
+            if (viewType == ViewType.ERROR && (bVar = this.d.c) != null) {
+                bVar.a = str;
+            } else if (viewType == ViewType.EMPTY && (aVar = this.d.b) != null) {
+                aVar.a = str;
             }
         }
     }
 
-    public static so5 e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ro5
+    public void c(ViewType viewType, @NonNull to5 to5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return c;
-        }
-        return (so5) invokeV.objValue;
-    }
-
-    public void c(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.b = bVar;
-            c cVar = this.a;
-            if (cVar != null) {
-                cVar.cancel();
-            }
-            c cVar2 = new c(this, null);
-            this.a = cVar2;
-            cVar2.setPriority(4);
-            this.a.execute(new String[0]);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewType, to5Var) == null) {
+            this.a.put(viewType, to5Var);
         }
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
-        String str;
-        String[] split;
-        int e;
+    @Override // com.baidu.tieba.ro5
+    public void b(ViewType viewType) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] GetFileData = FileHelper.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
-            if (GetFileData != null) {
-                str = new String(GetFileData);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewType) != null) || this.e == viewType) {
+            return;
+        }
+        this.e = viewType;
+        if (this.b == null) {
+            return;
+        }
+        ap5 ap5Var = this.c;
+        if (ap5Var != null && ap5Var.getView() != null) {
+            View view2 = this.c.getView();
+            if (viewType == ViewType.CONTENT) {
+                i = 0;
             } else {
-                str = null;
+                i = 8;
             }
-            long j = StringUtils.getyyyyMMddHHTimeForNow();
-            long j2 = 0;
-            if (TextUtils.isEmpty(str) || (split = str.split(":")) == null || split.length != 2) {
-                e = 0;
-            } else {
-                e = gg.e(split[0], 0);
-                j2 = gg.g(split[1], j);
-            }
-            if (j2 == j && e > 1) {
-                return true;
-            }
-            return false;
+            view2.setVisibility(i);
         }
-        return invokeV.booleanValue;
+        to5 to5Var = this.f;
+        if (to5Var != null) {
+            to5Var.b(this.b);
+        }
+        to5 to5Var2 = this.a.get(viewType);
+        xo5.e d = d(viewType);
+        if (to5Var2 != null && d != null) {
+            to5Var2.c(viewType, this.b, d);
+            this.f = to5Var2;
+            this.a.put(viewType, to5Var2);
+        }
+    }
+
+    public final xo5.e d(ViewType viewType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewType)) == null) {
+            if (viewType == ViewType.ERROR) {
+                return this.d.c;
+            }
+            if (viewType == ViewType.EMPTY) {
+                return this.d.b;
+            }
+            if (viewType == ViewType.LOADING) {
+                return this.d.a;
+            }
+            return null;
+        }
+        return (xo5.e) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ro5
+    public void onChangeSkinType(int i) {
+        to5 to5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (to5Var = this.f) != null) {
+            to5Var.e(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.ro5
+    public void onDestroy() {
+        to5 to5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (to5Var = this.f) != null) {
+            to5Var.b(this.b);
+        }
     }
 }

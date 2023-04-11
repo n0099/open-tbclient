@@ -1,45 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes5.dex */
-public class ji5 implements ph5<LiveStartClickDataEvent> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ji5 {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "GroupChatService");
 
-    public ji5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void a(@NonNull Context context, long j, int i, String str);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ph5
-    /* renamed from: a */
-    public boolean onEvent(LiveStartClickDataEvent liveStartClickDataEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, liveStartClickDataEvent)) == null) {
-            if (liveStartClickDataEvent == null) {
-                return false;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921734, liveStartClickDataEvent.viewTag));
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    void b(@NonNull Context context, long j);
+
+    void c(@NonNull Context context, long j, String str);
+
+    void d(@NonNull Context context, long j, int i, String str, String str2, long j2, boolean z);
 }

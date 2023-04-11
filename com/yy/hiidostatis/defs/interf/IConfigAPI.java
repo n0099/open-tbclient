@@ -2,7 +2,7 @@ package com.yy.hiidostatis.defs.interf;
 
 import android.content.Context;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IConfigAPI {
     JSONObject getAppListConfig(Context context, boolean z);
 

@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.KotlinGsonWidget;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.vo5;
+import com.baidu.tieba.bq5;
+import com.baidu.tieba.jv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -381,8 +381,8 @@ public final class DataExt {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fieldAttributes)) == null) {
-                vo5 vo5Var = (vo5) fieldAttributes.getAnnotation(vo5.class);
-                if (vo5Var != null && !vo5Var.deserialize()) {
+                bq5 bq5Var = (bq5) fieldAttributes.getAnnotation(bq5.class);
+                if (bq5Var != null && !bq5Var.deserialize()) {
                     return true;
                 }
                 return false;
@@ -425,8 +425,8 @@ public final class DataExt {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fieldAttributes)) == null) {
-                vo5 vo5Var = (vo5) fieldAttributes.getAnnotation(vo5.class);
-                if (vo5Var != null && !vo5Var.serialize()) {
+                bq5 bq5Var = (bq5) fieldAttributes.getAnnotation(bq5.class);
+                if (bq5Var != null && !bq5Var.serialize()) {
                     return true;
                 }
                 return false;
@@ -627,7 +627,7 @@ public final class DataExt {
         }
         GsonBuilder gsonBuilder = new GsonBuilder();
         GsonWidget.BadNumberFix.c(gsonBuilder);
-        GSON = gsonBuilder.registerTypeAdapter(GsonWidget.a, new GsonWidget.MapDeserializerDoubleAsIntFix(null)).registerTypeAdapter(KotlinGsonWidget.a, new KotlinGsonWidget.MapDeserializerDoubleAsIntFix(new c())).registerTypeAdapterFactory(KotlinReflectiveTypeAdapterFactory.a(!hv4.e())).addSerializationExclusionStrategy(new b()).addDeserializationExclusionStrategy(new a()).create();
+        GSON = gsonBuilder.registerTypeAdapter(GsonWidget.a, new GsonWidget.MapDeserializerDoubleAsIntFix(null)).registerTypeAdapter(KotlinGsonWidget.a, new KotlinGsonWidget.MapDeserializerDoubleAsIntFix(new c())).registerTypeAdapterFactory(KotlinReflectiveTypeAdapterFactory.a(!jv4.e())).addSerializationExclusionStrategy(new b()).addDeserializationExclusionStrategy(new a()).create();
     }
 
     public DataExt() {

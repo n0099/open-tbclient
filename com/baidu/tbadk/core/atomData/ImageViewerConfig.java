@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
-import com.baidu.tieba.a35;
-import com.baidu.tieba.jo5;
+import com.baidu.tieba.c45;
+import com.baidu.tieba.d45;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.z25;
+import com.baidu.tieba.pp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -482,12 +482,12 @@ public class ImageViewerConfig extends IntentConfig {
         intent.putExtra("from_forum_id", builder.n);
         intent.putExtra("skin_type", TbadkCoreApplication.getInst().getSkinType());
         intent.putExtra(IS_YOUNGSTER_MODE, false);
-        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, jo5.c());
-        if (z25.a() != null && z25.a().a != null) {
-            intent.putExtra(REMIND_LIVE_DATA, z25.a().a);
+        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, pp5.c());
+        if (c45.a() != null && c45.a().a != null) {
+            intent.putExtra(REMIND_LIVE_DATA, c45.a().a);
         }
-        if (a35.b() != null) {
-            intent.putExtra(REMIND_LIVE_FREQUENCY, a35.b().a());
+        if (d45.b() != null) {
+            intent.putExtra(REMIND_LIVE_FREQUENCY, d45.b().a());
         }
         intent.putExtra(KEY_IS_BROWSE_MODE, PermissionUtil.isBrowseMode());
     }

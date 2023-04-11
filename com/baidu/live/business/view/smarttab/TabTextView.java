@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.appcompat.widget.AppCompatTextView;
-import com.baidu.tieba.u90;
+import com.baidu.tieba.v90;
 /* loaded from: classes2.dex */
 public class TabTextView extends AppCompatTextView {
     public final int a;
@@ -47,7 +47,7 @@ public class TabTextView extends AppCompatTextView {
         }
     }
 
-    public final void b(boolean z) {
+    public final void c(boolean z) {
         if (this.p) {
             if (z) {
                 float f = this.l;
@@ -67,7 +67,7 @@ public class TabTextView extends AppCompatTextView {
     @Override // android.view.View
     public void dispatchSetSelected(boolean z) {
         super.dispatchSetSelected(z);
-        b(z);
+        c(z);
         setBold(z);
         a(z);
     }
@@ -104,7 +104,7 @@ public class TabTextView extends AppCompatTextView {
         super(context, attributeSet, i);
         this.i = true;
         this.j = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, u90.LiveFeedPageTabTextView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, v90.LiveFeedPageTabTextView);
         this.a = obtainStyledAttributes.getColor(7, 0);
         this.b = obtainStyledAttributes.getColor(1, 0);
         this.d = obtainStyledAttributes.getColor(4, 0);
@@ -115,12 +115,12 @@ public class TabTextView extends AppCompatTextView {
         this.n = obtainStyledAttributes.getBoolean(8, false);
         this.p = obtainStyledAttributes.getBoolean(6, false);
         obtainStyledAttributes.recycle();
-        d();
+        e();
     }
 
     public final void a(boolean z) {
         if (z) {
-            if (e()) {
+            if (h()) {
                 if (this.o == null) {
                     if (getMeasuredWidth() == 0) {
                         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
@@ -160,11 +160,11 @@ public class TabTextView extends AppCompatTextView {
         }
     }
 
-    public void c() {
+    public void d() {
         getPaint().setShader(null);
     }
 
-    public final void d() {
+    public final void e() {
         float f = this.k;
         if (f != -1.0f) {
             setTextSize(0, f);
@@ -175,7 +175,7 @@ public class TabTextView extends AppCompatTextView {
         }
     }
 
-    public final boolean e() {
+    public final boolean h() {
         if (this.a != -1 && this.b != -1 && this.i) {
             return true;
         }

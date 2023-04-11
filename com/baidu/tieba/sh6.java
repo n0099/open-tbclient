@@ -1,19 +1,11 @@
 package com.baidu.tieba;
-
-import java.util.List;
 /* loaded from: classes6.dex */
-public interface sh6 {
+public interface sh6 extends hn {
+    void J(boolean z);
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a();
+    void g(boolean z);
 
-        void b();
+    int getPosition();
 
-        void c(String str);
-    }
-
-    void a();
-
-    boolean b(List<String> list);
+    boolean t();
 }

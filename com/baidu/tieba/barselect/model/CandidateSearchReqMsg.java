@@ -3,7 +3,7 @@ package com.baidu.tieba.barselect.model;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.kp5;
+import com.baidu.tieba.qq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +46,7 @@ public class CandidateSearchReqMsg extends NetMessage {
             builder.apply_id = Integer.valueOf(this.applyId);
             builder.fid = Long.valueOf(this.fid);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                kp5.a(builder, true);
+                qq5.a(builder, true);
             }
             SearchReqIdl.Builder builder2 = new SearchReqIdl.Builder();
             builder2.data = builder.build(false);

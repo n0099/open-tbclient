@@ -1,7 +1,7 @@
 package com.fun.ad.sdk.channel;
 
-import com.baidu.tieba.tea;
-import com.baidu.tieba.vea;
+import com.baidu.tieba.koa;
+import com.baidu.tieba.moa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,9 +69,9 @@ public class GdtModule implements Module {
             GDTAdSdk.init(funAdConfig.appContext, str);
             GlobalSetting.setChannel(3);
             GlobalSetting.setPersonalizedState(!funAdConfig.runtimeAdConfig.personalRecommendStatus ? 1 : 0);
-            GdtHelper.sGdtNativeContainerCreator = tea.b;
+            GdtHelper.sGdtNativeContainerCreator = koa.b;
             funAdConfig.runtimeAdConfig.registerPersonalRecommendObserver(new a());
-            return new vea();
+            return new moa();
         }
         return (PidLoaderCreator) invokeLL.objValue;
     }

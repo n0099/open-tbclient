@@ -8,11 +8,12 @@ import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.live.mix.interfaces.MixLiveSingletonManagerInterface;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.data.constant.MixTagConstants;
+import com.baidu.searchbox.live.interfaces.context.PluginContextUtil;
 import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
 import com.baidu.searchbox.live.util.ListLogKt;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import kotlin.Metadata;
-import kotlin.TypeCastException;
+import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u0001B\u000f\u0012\u0006\u0010\u000b\u001a\u00020\n¢\u0006\u0004\b\u0016\u0010\u0017J\u000f\u0010\u0003\u001a\u00020\u0002H\u0007¢\u0006\u0004\b\u0003\u0010\u0004J\u000f\u0010\u0005\u001a\u00020\u0002H\u0007¢\u0006\u0004\b\u0005\u0010\u0004J\u000f\u0010\u0006\u001a\u00020\u0002H\u0007¢\u0006\u0004\b\u0006\u0010\u0004J\u000f\u0010\u0007\u001a\u00020\u0002H\u0007¢\u0006\u0004\b\u0007\u0010\u0004J\u000f\u0010\b\u001a\u00020\u0002H\u0007¢\u0006\u0004\b\b\u0010\u0004J\u000f\u0010\t\u001a\u00020\u0002H\u0007¢\u0006\u0004\b\t\u0010\u0004R\u0019\u0010\u000b\u001a\u00020\n8\u0006@\u0006¢\u0006\f\n\u0004\b\u000b\u0010\f\u001a\u0004\b\r\u0010\u000eR\u0018\u0010\u0010\u001a\u0004\u0018\u00010\u000f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0010\u0010\u0011R\u001e\u0010\u0014\u001a\n \u0013*\u0004\u0018\u00010\u00120\u00128\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u0014\u0010\u0015¨\u0006\u0018"}, d2 = {"Lcom/baidu/searchbox/live/list/plugin/YYActivityLifeCyclePlugin;", "Landroidx/lifecycle/LifecycleObserver;", "", "onCreate", "()V", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onResume", "onStart", MissionEvent.MESSAGE_STOP, "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "Lcom/baidu/live/mix/interfaces/MixLiveSingletonManagerInterface;", "mixLiveImpl", "Lcom/baidu/live/mix/interfaces/MixLiveSingletonManagerInterface;", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "kotlin.jvm.PlatformType", "pluginInvokeService", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "<init>", "(Landroid/content/Context;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class YYActivityLifeCyclePlugin implements LifecycleObserver {
@@ -51,12 +52,11 @@ public final class YYActivityLifeCyclePlugin implements LifecycleObserver {
         try {
             MixLiveSingletonManagerInterface mixLiveSingletonManagerInterface = this.mixLiveImpl;
             if (mixLiveSingletonManagerInterface != null) {
-                Context context = this.context;
-                if (context != null) {
-                    mixLiveSingletonManagerInterface.onActivityCreate((Activity) context);
-                    return;
+                Activity activity = PluginContextUtil.INSTANCE.getActivity(this.context);
+                if (activity == null) {
+                    Intrinsics.throwNpe();
                 }
-                throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                mixLiveSingletonManagerInterface.onActivityCreate(activity);
             }
         } catch (Throwable th2) {
             th2.printStackTrace();
@@ -70,12 +70,11 @@ public final class YYActivityLifeCyclePlugin implements LifecycleObserver {
         try {
             MixLiveSingletonManagerInterface mixLiveSingletonManagerInterface = this.mixLiveImpl;
             if (mixLiveSingletonManagerInterface != null) {
-                Context context = this.context;
-                if (context != null) {
-                    mixLiveSingletonManagerInterface.onActivityDestroy((Activity) context);
-                    return;
+                Activity activity = PluginContextUtil.INSTANCE.getActivity(this.context);
+                if (activity == null) {
+                    Intrinsics.throwNpe();
                 }
-                throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                mixLiveSingletonManagerInterface.onActivityDestroy(activity);
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -89,12 +88,11 @@ public final class YYActivityLifeCyclePlugin implements LifecycleObserver {
         try {
             MixLiveSingletonManagerInterface mixLiveSingletonManagerInterface = this.mixLiveImpl;
             if (mixLiveSingletonManagerInterface != null) {
-                Context context = this.context;
-                if (context != null) {
-                    mixLiveSingletonManagerInterface.onActivityPause((Activity) context);
-                    return;
+                Activity activity = PluginContextUtil.INSTANCE.getActivity(this.context);
+                if (activity == null) {
+                    Intrinsics.throwNpe();
                 }
-                throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                mixLiveSingletonManagerInterface.onActivityPause(activity);
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -108,12 +106,11 @@ public final class YYActivityLifeCyclePlugin implements LifecycleObserver {
         try {
             MixLiveSingletonManagerInterface mixLiveSingletonManagerInterface = this.mixLiveImpl;
             if (mixLiveSingletonManagerInterface != null) {
-                Context context = this.context;
-                if (context != null) {
-                    mixLiveSingletonManagerInterface.onActivityResume((Activity) context);
-                    return;
+                Activity activity = PluginContextUtil.INSTANCE.getActivity(this.context);
+                if (activity == null) {
+                    Intrinsics.throwNpe();
                 }
-                throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                mixLiveSingletonManagerInterface.onActivityResume(activity);
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -127,12 +124,11 @@ public final class YYActivityLifeCyclePlugin implements LifecycleObserver {
         try {
             MixLiveSingletonManagerInterface mixLiveSingletonManagerInterface = this.mixLiveImpl;
             if (mixLiveSingletonManagerInterface != null) {
-                Context context = this.context;
-                if (context != null) {
-                    mixLiveSingletonManagerInterface.onActivityStart((Activity) context);
-                    return;
+                Activity activity = PluginContextUtil.INSTANCE.getActivity(this.context);
+                if (activity == null) {
+                    Intrinsics.throwNpe();
                 }
-                throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                mixLiveSingletonManagerInterface.onActivityStart(activity);
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -146,12 +142,11 @@ public final class YYActivityLifeCyclePlugin implements LifecycleObserver {
         try {
             MixLiveSingletonManagerInterface mixLiveSingletonManagerInterface = this.mixLiveImpl;
             if (mixLiveSingletonManagerInterface != null) {
-                Context context = this.context;
-                if (context != null) {
-                    mixLiveSingletonManagerInterface.onActivityStop((Activity) context);
-                    return;
+                Activity activity = PluginContextUtil.INSTANCE.getActivity(this.context);
+                if (activity == null) {
+                    Intrinsics.throwNpe();
                 }
-                throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                mixLiveSingletonManagerInterface.onActivityStop(activity);
             }
         } catch (Throwable th) {
             th.printStackTrace();

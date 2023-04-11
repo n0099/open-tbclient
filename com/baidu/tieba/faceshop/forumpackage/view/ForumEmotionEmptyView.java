@@ -53,7 +53,7 @@ public class ForumEmotionEmptyView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02c7, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02c9, this);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b5a);
             this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090b5b);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090b56);

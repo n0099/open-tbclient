@@ -1,9 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.e14;
 /* loaded from: classes3.dex */
 public interface b54 {
-    boolean a(Object obj);
-
-    void b(Object obj);
-
-    void c(Object obj);
+    void b(e14.d dVar);
 }

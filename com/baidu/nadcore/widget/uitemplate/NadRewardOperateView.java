@@ -21,29 +21,29 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fp0;
-import com.baidu.tieba.gl0;
-import com.baidu.tieba.jk0;
-import com.baidu.tieba.k11;
-import com.baidu.tieba.nk0;
-import com.baidu.tieba.pk0;
-import com.baidu.tieba.qh0;
-import com.baidu.tieba.t41;
-import com.baidu.tieba.vb1;
+import com.baidu.tieba.gp0;
+import com.baidu.tieba.hl0;
+import com.baidu.tieba.kk0;
+import com.baidu.tieba.l11;
+import com.baidu.tieba.ok0;
+import com.baidu.tieba.qk0;
+import com.baidu.tieba.rh0;
+import com.baidu.tieba.u41;
 import com.baidu.tieba.wb1;
-import com.baidu.tieba.wj0;
-import com.baidu.tieba.yp0;
+import com.baidu.tieba.xb1;
+import com.baidu.tieba.xj0;
+import com.baidu.tieba.zp0;
 /* loaded from: classes2.dex */
 public class NadRewardOperateView extends FrameLayout {
-    public wb1 a;
-    public vb1 b;
+    public xb1 a;
+    public wb1 b;
     public AdImageView c;
     public SimpleFeedAdInfoView d;
     public RelativeLayout e;
     public TextView f;
     public TextView g;
     public TextView h;
-    public jk0 i;
+    public kk0 i;
 
     /* loaded from: classes2.dex */
     public class a implements SimpleAdInfoView.c {
@@ -73,16 +73,16 @@ public class NadRewardOperateView extends FrameLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class c implements nk0 {
+    public class c implements ok0 {
         public final /* synthetic */ AdBaseModel a;
-        public final /* synthetic */ wj0 b;
+        public final /* synthetic */ xj0 b;
 
-        public c(AdBaseModel adBaseModel, wj0 wj0Var) {
+        public c(AdBaseModel adBaseModel, xj0 xj0Var) {
             this.a = adBaseModel;
-            this.b = wj0Var;
+            this.b = xj0Var;
         }
 
-        @Override // com.baidu.tieba.nk0
+        @Override // com.baidu.tieba.ok0
         public void a(AdDownloadStatus adDownloadStatus) {
             int i = e.a[adDownloadStatus.ordinal()];
             if (i != 1) {
@@ -118,7 +118,7 @@ public class NadRewardOperateView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.nk0
+        @Override // com.baidu.tieba.ok0
         public void b(AdDownloadCode adDownloadCode) {
             boolean z;
             boolean z2 = true;
@@ -146,11 +146,11 @@ public class NadRewardOperateView extends FrameLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            qh0.c(this.a.h.d, NadRewardOperateView.this.getContext());
-            k11.b(new ClogBuilder().y(ClogBuilder.LogType.CLICK).p(this.a.f.d));
-            wb1 wb1Var = NadRewardOperateView.this.a;
-            if (wb1Var != null) {
-                wb1Var.b(this.a);
+            rh0.c(this.a.h.d, NadRewardOperateView.this.getContext());
+            l11.b(new ClogBuilder().y(ClogBuilder.LogType.CLICK).p(this.a.f.d));
+            xb1 xb1Var = NadRewardOperateView.this.a;
+            if (xb1Var != null) {
+                xb1Var.b(this.a);
             }
         }
     }
@@ -205,23 +205,23 @@ public class NadRewardOperateView extends FrameLayout {
         if (view2 == null) {
             return;
         }
-        t41.a(view2.getContext(), view2, 6.0f);
+        u41.a(view2.getContext(), view2, 6.0f);
     }
 
     public final boolean h(AdBaseModel adBaseModel) {
-        fp0 fp0Var;
-        if (adBaseModel == null || (fp0Var = adBaseModel.l) == null) {
+        gp0 gp0Var;
+        if (adBaseModel == null || (gp0Var = adBaseModel.l) == null) {
             return false;
         }
-        return fp0Var.e;
+        return gp0Var.e;
     }
 
     public final void k(AdBaseModel adBaseModel) {
         if (this.c == null) {
             return;
         }
-        yp0 yp0Var = adBaseModel.i;
-        if (yp0Var != null && !TextUtils.isEmpty(yp0Var.b)) {
+        zp0 zp0Var = adBaseModel.i;
+        if (zp0Var != null && !TextUtils.isEmpty(zp0Var.b)) {
             this.c.o(adBaseModel.i.b);
         } else if (!TextUtils.isEmpty(adBaseModel.f.f)) {
             this.c.o(adBaseModel.f.f);
@@ -241,12 +241,12 @@ public class NadRewardOperateView extends FrameLayout {
         this.d.setAfterListener(new a(adBaseModel));
     }
 
-    public void setFeedListener(wb1 wb1Var) {
-        this.a = wb1Var;
+    public void setFeedListener(xb1 xb1Var) {
+        this.a = xb1Var;
     }
 
-    public void setViewDownloadListener(vb1 vb1Var) {
-        this.b = vb1Var;
+    public void setViewDownloadListener(wb1 wb1Var) {
+        this.b = wb1Var;
     }
 
     public void update(AdBaseModel adBaseModel) {
@@ -277,7 +277,7 @@ public class NadRewardOperateView extends FrameLayout {
         if (adBaseModel != null && !TextUtils.isEmpty(adBaseModel.f.d)) {
             clogBuilder.p(adBaseModel.f.d);
         }
-        k11.b(clogBuilder);
+        l11.b(clogBuilder);
     }
 
     public NadRewardOperateView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
@@ -301,8 +301,8 @@ public class NadRewardOperateView extends FrameLayout {
 
     public final boolean i() {
         AdBaseModel adBaseModel;
-        fp0 fp0Var;
-        if (!(getTag() instanceof AdBaseModel) || (adBaseModel = (AdBaseModel) getTag()) == null || (fp0Var = adBaseModel.l) == null || !fp0Var.e) {
+        gp0 gp0Var;
+        if (!(getTag() instanceof AdBaseModel) || (adBaseModel = (AdBaseModel) getTag()) == null || (gp0Var = adBaseModel.l) == null || !gp0Var.e) {
             return false;
         }
         return true;
@@ -385,14 +385,14 @@ public class NadRewardOperateView extends FrameLayout {
             this.e.setVisibility(8);
             return;
         }
-        pk0<?> a2 = gl0.a(this.e, IDownloadViewCreator.ViewType.REWARD_DOWNLOAD_VIEW);
+        qk0<?> a2 = hl0.a(this.e, IDownloadViewCreator.ViewType.REWARD_DOWNLOAD_VIEW);
         this.e.setVisibility(0);
-        wj0 c2 = wj0.c(adBaseModel);
-        this.i = new jk0(c2, a2);
+        xj0 c2 = xj0.c(adBaseModel);
+        this.i = new kk0(c2, a2);
         this.e.setOnClickListener(new b());
-        vb1 vb1Var = this.b;
-        if (vb1Var != null) {
-            vb1Var.c(adBaseModel);
+        wb1 wb1Var = this.b;
+        if (wb1Var != null) {
+            wb1Var.c(adBaseModel);
         }
         this.i.o(new c(adBaseModel, c2));
     }

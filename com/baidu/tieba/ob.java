@@ -45,7 +45,7 @@ public class ob {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b(ji.g()) && a() && NSGif.f) {
+            if (b(ki.g()) && a() && NSGif.f) {
                 return true;
             }
             return false;

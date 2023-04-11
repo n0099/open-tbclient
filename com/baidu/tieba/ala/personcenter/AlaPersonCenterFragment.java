@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.r76;
+import com.baidu.tieba.x86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public String b;
     public String c;
     public String d;
-    public r76 e;
+    public x86 e;
 
     public void E1(String str) {
         Interceptable interceptable = $ic;
@@ -109,9 +109,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.changeSkinType(i);
-            r76 r76Var = this.e;
-            if (r76Var != null) {
-                r76Var.m(i);
+            x86 x86Var = this.e;
+            if (x86Var != null) {
+                x86Var.m(i);
             }
         }
     }
@@ -121,9 +121,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            r76 r76Var = this.e;
-            if (r76Var != null) {
-                r76Var.m(i);
+            x86 x86Var = this.e;
+            if (x86Var != null) {
+                x86Var.m(i);
             }
         }
     }
@@ -144,9 +144,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             this.a = pageContext;
-            r76 r76Var = new r76(pageContext, true);
-            this.e = r76Var;
-            r76Var.s(this.c);
+            x86 x86Var = new x86(pageContext, true);
+            this.e = x86Var;
+            x86Var.s(this.c);
             this.e.r(this.b);
             this.e.t(this.d);
             if (getArguments() != null) {

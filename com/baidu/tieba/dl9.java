@@ -1,239 +1,438 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.YuvImage;
-import android.util.SparseArray;
+import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.c05;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Date;
 /* loaded from: classes4.dex */
 public class dl9 {
     public static /* synthetic */ Interceptable $ic;
+    public static ye a;
+    public static Runnable b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public interface f {
+        void onRefresh();
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c implements xe {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ SpannableString c;
+        public final /* synthetic */ int d;
 
-        public a(int i, int i2) {
+        /* loaded from: classes4.dex */
+        public class a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    if (dl9.a != null) {
+                        dl9.a.d();
+                    }
+                    MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.a.a.getPageActivity(), true, 23004, "expiring");
+                    memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
+                }
+            }
+        }
+
+        public c(TbPageContext tbPageContext, boolean z, SpannableString spannableString, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {tbPageContext, Boolean.valueOf(z), spannableString, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i;
-            this.b = i2;
+            this.a = tbPageContext;
+            this.b = z;
+            this.c = spannableString;
+            this.d = i;
         }
-    }
 
-    public static boolean a(Bitmap bitmap, ArrayList<a> arrayList) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bitmap, arrayList)) == null) {
-            if (arrayList == null || arrayList.size() == 0 || bitmap == null || bitmap.isRecycled()) {
-                return false;
-            }
-            SparseArray sparseArray = new SparseArray();
-            Iterator<a> it = arrayList.iterator();
-            while (it.hasNext()) {
-                a next = it.next();
-                int i = next.a;
-                int i2 = next.b;
-                if (i >= bitmap.getWidth() || i2 >= bitmap.getHeight()) {
-                    return false;
+        @Override // com.baidu.tieba.xe
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.b) {
+                    return 4;
                 }
-                int pixel = bitmap.getPixel(i, i2);
-                if (sparseArray.get(pixel) != null) {
-                    return false;
+                return 2;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.xe
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.b) {
+                    return 32;
                 }
-                next.c = pixel;
-                sparseArray.put(pixel, next);
+                return 16;
             }
-            return true;
+            return invokeV.intValue;
         }
-        return invokeLL.booleanValue;
+
+        @Override // com.baidu.tieba.xe
+        public int getXOffset() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.b) {
+                    return 0;
+                }
+                return 4;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.xe
+        public int getYOffset() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (this.b) {
+                    return 5;
+                }
+                return 30;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.xe
+        public View c(LayoutInflater layoutInflater) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
+                TextView textView = new TextView(this.a.getPageActivity());
+                if (this.b) {
+                    textView.setBackgroundResource(R.drawable.pop_float_top);
+                } else {
+                    textView.setBackgroundResource(R.drawable.pop_float);
+                }
+                int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
+                int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027a);
+                if (this.b) {
+                    textView.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize2);
+                } else {
+                    textView.setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize);
+                }
+                textView.setGravity(17);
+                textView.setText(this.c);
+                textView.setCompoundDrawablePadding(dimensionPixelSize);
+                textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(this.d), (Drawable) null);
+                textView.setOnClickListener(new a(this));
+                return textView;
+            }
+            return (View) invokeL.objValue;
+        }
     }
 
-    public static Bitmap b(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
-            Bitmap bitmap = null;
-            try {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                new YuvImage(bArr, 17, i, i2, null).compressToJpeg(new Rect(0, 0, i, i2), 100, byteArrayOutputStream);
-                bitmap = BitmapFactory.decodeStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
-                byteArrayOutputStream.close();
-                return bitmap;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return bitmap;
+    /* loaded from: classes4.dex */
+    public static class a implements c05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+
+        public a(TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+        }
+
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                c05Var.dismiss();
+                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) this.a.getPageActivity(), true, 23004, "remind");
+                memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_BUBBLE_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
             }
         }
-        return (Bitmap) invokeLII.objValue;
     }
 
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            try {
-                Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
-                intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));
-                context.sendBroadcast(intent);
-            } catch (Exception unused) {
-            }
-        }
-    }
+    /* loaded from: classes4.dex */
+    public static class b implements c05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static void d(byte[] bArr, int[] iArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65539, null, bArr, iArr, i, i2) == null) {
-            int i3 = i * i2;
-            int i4 = 0;
-            int i5 = 0;
-            for (int i6 = 0; i6 < i2; i6++) {
-                int i7 = 0;
-                while (i7 < i) {
-                    int i8 = iArr[i5];
-                    int i9 = (iArr[i5] & 16711680) >> 16;
-                    int i10 = (iArr[i5] & 65280) >> 8;
-                    int i11 = 255;
-                    int i12 = (iArr[i5] & 255) >> 0;
-                    int i13 = (((((i9 * 66) + (i10 * 129)) + (i12 * 25)) + 128) >> 8) + 16;
-                    int i14 = (((((i9 * (-38)) - (i10 * 74)) + (i12 * 112)) + 128) >> 8) + 128;
-                    int i15 = (((((i9 * 112) - (i10 * 94)) - (i12 * 18)) + 128) >> 8) + 128;
-                    int i16 = i4 + 1;
-                    if (i13 < 0) {
-                        i13 = 0;
-                    } else if (i13 > 255) {
-                        i13 = 255;
-                    }
-                    bArr[i4] = (byte) i13;
-                    if (i6 % 2 == 0 && i5 % 2 == 0) {
-                        int i17 = i3 + 1;
-                        if (i15 < 0) {
-                            i15 = 0;
-                        } else if (i15 > 255) {
-                            i15 = 255;
-                        }
-                        bArr[i3] = (byte) i15;
-                        i3 = i17 + 1;
-                        if (i14 < 0) {
-                            i11 = 0;
-                        } else if (i14 <= 255) {
-                            i11 = i14;
-                        }
-                        bArr[i17] = (byte) i11;
-                    }
-                    i5++;
-                    i7++;
-                    i4 = i16;
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
-    }
 
-    public static byte[] e(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap)) == null) {
-            return g(bitmap.getWidth(), bitmap.getHeight(), bitmap);
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                c05Var.dismiss();
+                TiebaStatic.log(TbadkCoreStatisticKey.REMIND_EXPIRED);
+            }
         }
-        return (byte[]) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r10v2, resolved type: java.util.ArrayList<com.baidu.tieba.dl9$a> */
+    /* loaded from: classes4.dex */
+    public static class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ boolean b;
+
+        public d(TbPageContext tbPageContext, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+            this.b = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                dl9.e(this.a.getPageActivity(), this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && dl9.a != null) {
+                dl9.a.d();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947708536, "Lcom/baidu/tieba/dl9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947708536, "Lcom/baidu/tieba/dl9;");
+                return;
+            }
+        }
+        b = new e();
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && b != null) {
+            jg.a().removeCallbacks(b);
+        }
+    }
+
+    public static void e(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65541, null, activity, z) == null) {
+            ye yeVar = a;
+            if (yeVar != null) {
+                yeVar.m(activity);
+            }
+            if (z) {
+                return;
+            }
+            jg.a().postDelayed(b, 5000L);
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r3v8, resolved type: com.baidu.tieba.ze */
     /* JADX WARN: Multi-variable type inference failed */
-    public static ArrayList<a> f(Bitmap bitmap) {
-        InterceptResult invokeL;
+    /* JADX WARN: Type inference failed for: r12v3 */
+    /* JADX WARN: Type inference failed for: r12v4, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r12v7 */
+    public static void c(TbPageContext tbPageContext, View view2, boolean z, f fVar) {
+        int i;
+        SpannableString spannableString;
+        ?? r12;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
-            if (bitmap != null && !bitmap.isRecycled()) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                SparseArray sparseArray = new SparseArray();
-                int i = 0;
-                loop0: for (int i2 = 0; i2 < width; i2++) {
-                    for (int i3 = 0; i3 < height; i3++) {
-                        int pixel = bitmap.getPixel(i2, i3);
-                        a aVar = new a(i2, i3);
-                        if (sparseArray.get(pixel) == null) {
-                            sparseArray.put(pixel, aVar);
-                            i++;
-                        }
-                        if (i == 3) {
-                            break loop0;
-                        }
-                    }
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, view2, Boolean.valueOf(z), fVar}) != null) || !TbadkCoreApplication.getInst().appResponseToIntentClass(MemberPayActivityConfig.class)) {
+            return;
+        }
+        long defaultBubbleEndTime = TbadkCoreApplication.getInst().getDefaultBubbleEndTime();
+        if (defaultBubbleEndTime <= 0) {
+            return;
+        }
+        long currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
+        if (currentTimeMillis >= defaultBubbleEndTime) {
+            MessageManager.getInstance().runTask(2001283, TbPageContext.class, tbPageContext);
+            TbadkCoreApplication.getInst().setDefaultBubble(null);
+            TbadkCoreApplication.getInst().setDefaultBubbleDynamicRes(null);
+            TbadkCoreApplication.getInst().setDefaultBubbleEndTime(0);
+            if (fVar != null) {
+                fVar.onRefresh();
+            }
+            c05 c05Var = new c05(tbPageContext.getPageActivity());
+            c05Var.setCanceledOnTouchOutside(false);
+            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.bubble_free_dialog_content, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923c8);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923c9);
+            SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(textView2, R.color.CAM_X0105, 1);
+            textView.setText(tbPageContext.getPageActivity().getString(R.string.bubble_ended_tip));
+            textView2.setText(tbPageContext.getPageActivity().getString(R.string.bubble_ended_tip2));
+            textView2.setTextSize(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b7));
+            c05Var.setContentView(inflate);
+            c05Var.setPositiveButton(R.string.open_now, new a(tbPageContext));
+            c05Var.setNegativeButton(R.string.group_create_private_isee, new b());
+            c05Var.create(tbPageContext);
+            c05Var.show();
+            return;
+        }
+        long j = (defaultBubbleEndTime - currentTimeMillis) / 86400;
+        if (j <= 3 && j >= 0) {
+            if (System.currentTimeMillis() / 86400000 == p45.m().o("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
+                return;
+            }
+            if (i == 0) {
+                if (new Date(currentTimeMillis).getDay() == new Date(defaultBubbleEndTime).getDay()) {
+                    spannableString = new SpannableString(tbPageContext.getPageActivity().getString(R.string.bubble_end_time_tip_today));
+                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0111)), 0, spannableString.length(), 34);
+                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)), 9, 13, 34);
+                } else {
+                    spannableString = new SpannableString(String.format(tbPageContext.getPageActivity().getString(R.string.bubble_end_time_tip), 1));
+                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0111)), 0, spannableString.length(), 34);
+                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)), 10, 14, 34);
                 }
-                ArrayList<a> arrayList = new ArrayList<>();
-                for (int i4 = 0; i4 < sparseArray.size(); i4++) {
-                    arrayList.add(sparseArray.valueAt(i4));
-                }
-                return arrayList;
+                r12 = 0;
+            } else {
+                String string = tbPageContext.getPageActivity().getString(R.string.bubble_end_time_tip);
+                Long valueOf = Long.valueOf(j);
+                r12 = 0;
+                spannableString = new SpannableString(String.format(string, valueOf));
+                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0111)), 0, spannableString.length(), 34);
+                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)), 10, 14, 34);
             }
-            return new ArrayList<>();
+            ze zeVar = new ze();
+            zeVar.k(view2);
+            zeVar.c(r12);
+            zeVar.j(r12);
+            zeVar.a(new c(tbPageContext, z, spannableString, R.drawable.pop_float_arrow));
+            zeVar.d(true);
+            zeVar.i(r12);
+            a = zeVar.b();
+            new Handler().postDelayed(new d(tbPageContext, z), 1000L);
+            p45.m().A("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
         }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public static byte[] g(int i, int i2, Bitmap bitmap) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65542, null, i, i2, bitmap)) == null) {
-            int i3 = i * i2;
-            try {
-                int[] iArr = new int[i3];
-                bitmap.getPixels(iArr, 0, i, 0, 0, i, i2);
-                byte[] bArr = new byte[(i3 * 3) / 2];
-                d(bArr, iArr, i, i2);
-                return bArr;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (byte[]) invokeIIL.objValue;
-    }
-
-    public static Bitmap h(Bitmap bitmap, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65543, null, bitmap, f)) == null) {
-            if (bitmap != null && !bitmap.isRecycled()) {
-                Matrix matrix = new Matrix();
-                matrix.postRotate(f);
-                return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-            }
-            return null;
-        }
-        return (Bitmap) invokeLF.objValue;
     }
 }

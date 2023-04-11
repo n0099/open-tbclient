@@ -1,98 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class of5 extends ef5 {
+public class of5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public EMTextView b;
-    public EMTextView c;
-    public TBSpecificationBtn d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public of5(Context context) {
-        super(LayoutInflater.from(context).inflate(R.layout.loaction_view_layout, (ViewGroup) null));
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        a(context);
-    }
-
-    public final void a(Context context) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && (view2 = this.attachedView) != null) {
-            this.a = (ImageView) view2.findViewById(R.id.location_view_emotion);
-            EMTextView eMTextView = (EMTextView) this.attachedView.findViewById(R.id.location_view_title);
-            this.b = eMTextView;
-            eMTextView.setText(context.getResources().getString(R.string.location_view_title));
-            EMTextView eMTextView2 = (EMTextView) this.attachedView.findViewById(R.id.location_view_desc);
-            this.c = eMTextView2;
-            eMTextView2.setText(context.getResources().getString(R.string.location_view_desc));
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.attachedView.findViewById(R.id.locatin_view_button);
-            this.d = tBSpecificationBtn;
-            tBSpecificationBtn.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a46));
-            this.d.setTextSize(R.dimen.T_X05);
-            this.d.setConfig(new j45());
-        }
-    }
-
-    public void b(View.OnClickListener onClickListener) {
-        TBSpecificationBtn tBSpecificationBtn;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) && (tBSpecificationBtn = this.d) != null) {
-            tBSpecificationBtn.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            n15 d = n15.d(this.b);
-            d.A(R.dimen.T_X06);
-            d.w(R.color.CAM_X0107);
-            n15 d2 = n15.d(this.c);
-            d2.A(R.dimen.T_X09);
-            d2.w(R.color.CAM_X0108);
-            WebPManager.setMaskDrawable(this.a, R.drawable.new_pic_emotion_location, null);
-            TBSpecificationBtn tBSpecificationBtn = this.d;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.k();
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "before_request");
+                jSONObject.put("value", "1");
+                uBCManager.onEvent("4509", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
 
-    @Override // com.baidu.tieba.ef5
-    public void onViewAttached() {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onViewAttached();
-            onChangeSkinType();
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                jSONObject.put("value", "0");
+                JSONObject jSONObject2 = new JSONObject();
+                if (StringUtils.isNull(str)) {
+                    str = "";
+                }
+                jSONObject2.put("scheme", str);
+                jSONObject.put("ext", jSONObject2);
+                uBCManager.onEvent("4509", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                jSONObject.put("value", "1");
+                JSONObject jSONObject2 = new JSONObject();
+                if (StringUtils.isNull(str)) {
+                    str = "";
+                }
+                jSONObject2.put("scheme", str);
+                jSONObject.put("ext", jSONObject2);
+                uBCManager.onEvent("4509", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void d(boolean z, JSONObject jSONObject) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(65539, null, z, jSONObject) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("type", "request");
+                if (z) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                jSONObject2.put("value", str);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("slog", jSONObject != null ? jSONObject : "");
+                jSONObject2.put("ext", jSONObject3);
+                uBCManager.onEvent("4509", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

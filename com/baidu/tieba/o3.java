@@ -37,35 +37,35 @@ public class o3 implements Iterable<n3>, Comparator<n3>, Comparable<o3> {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return a();
         }
         return invokeV.intValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && !this.c) {
+            this.b.sort(this);
+            this.c = true;
+        }
     }
 
     @Override // java.lang.Iterable
     public final Iterator<n3> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.b.iterator();
         }
         return (Iterator) invokeV.objValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && !this.c) {
-            this.b.sort(this);
-            this.c = true;
-        }
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            j();
+            i();
             int i = this.b.b;
             long j = this.a + 71;
             int i2 = 1;
@@ -108,8 +108,8 @@ public class o3 implements Iterable<n3>, Comparator<n3>, Comparable<o3> {
                 }
                 return 1;
             }
-            j();
-            o3Var.j();
+            i();
+            o3Var.i();
             int i = 0;
             while (true) {
                 k6<n3> k6Var = this.b;
@@ -193,9 +193,9 @@ public class o3 implements Iterable<n3>, Comparator<n3>, Comparable<o3> {
         }
     }
 
-    public final void i(n3 n3Var) {
+    public final void h(n3 n3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, n3Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, n3Var) == null) {
             int f = f(n3Var.a);
             if (f < 0) {
                 d(n3Var.a);
@@ -204,7 +204,7 @@ public class o3 implements Iterable<n3>, Comparator<n3>, Comparable<o3> {
             } else {
                 this.b.k(f, n3Var);
             }
-            j();
+            i();
         }
     }
 
@@ -221,8 +221,8 @@ public class o3 implements Iterable<n3>, Comparator<n3>, Comparable<o3> {
             if (!z) {
                 return true;
             }
-            j();
-            o3Var.j();
+            i();
+            o3Var.i();
             int i = 0;
             while (true) {
                 k6<n3> k6Var = this.b;

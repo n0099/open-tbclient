@@ -1,479 +1,1046 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
+import android.app.Application;
+import android.content.Context;
+import android.os.Build;
+import android.provider.Settings;
 import android.text.TextUtils;
-import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.utils.PackageInstallUtil;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.IPaySignCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.FeedbackInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PaySignInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitMinAmountInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IFeedbackServiceProxy;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import com.huawei.hms.framework.common.ExceptionCode;
+import com.yy.hiidostatis.inner.BaseStatisContent;
+import com.yy.hiidostatis.inner.util.cipher.Coder;
+import com.yy.hiidostatis.inner.util.hdid.DeviceManagerV2;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.net.NetworkInterface;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
+import java.security.MessageDigest;
+import java.security.SecureRandom;
+import java.util.Enumeration;
+import java.util.Random;
+import java.util.UUID;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.DESKeySpec;
+import org.json.JSONException;
 import org.json.JSONObject;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.YYPayUIKit;
-import tv.athena.revenue.payui.model.NativeOperationParams;
-import tv.athena.revenue.payui.model.PayFlowModel;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.impl.YYPayWebView;
 /* loaded from: classes3.dex */
-public class aza {
+public final class aza {
     public static /* synthetic */ Interceptable $ic;
+    public static final aza b;
+    public static final Object c;
     public transient /* synthetic */ FieldHolder $fh;
+    public d a;
 
     /* loaded from: classes3.dex */
-    public static class a implements IPayCallback<CurrencyChargeMessage> {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
+        public static String a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IPayCallback a;
 
-        public a(IPayCallback iPayCallback) {
-            Interceptable interceptable = $ic;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-929623516, "Lcom/baidu/tieba/aza$a;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iPayCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = iPayCallback;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-929623516, "Lcom/baidu/tieba/aza$a;");
+            }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        /* renamed from: a */
-        public void onSuccess(CurrencyChargeMessage currencyChargeMessage, PayCallBackBean payCallBackBean) {
+        @SuppressLint({"NewApi"})
+        public static String a() {
+            InterceptResult invokeV;
+            byte[] hardwareAddress;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, currencyChargeMessage, payCallBackBean) == null) {
-                RLog.debug("PayWebViewCallHelper", "onSuccess");
-                IPayCallback iPayCallback = this.a;
-                if (iPayCallback != null) {
-                    iPayCallback.onSuccess(currencyChargeMessage, payCallBackBean);
-                }
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, purchaseStatus, payCallBackBean) == null) {
-                RLog.debug("PayWebViewCallHelper", "onPayStatus");
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) {
-                RLog.debug("PayWebViewCallHelper", "onFail code:" + i + " failReason:" + str);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                RLog.debug("PayWebViewCallHelper", "onPayStart");
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b implements IPayCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ YYPayWebView b;
-        public final /* synthetic */ String c;
-
-        public b(Activity activity, YYPayWebView yYPayWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {activity, yYPayWebView, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = activity;
-            this.b = yYPayWebView;
-            this.c = str;
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, payCallBackBean) == null) {
-                RLog.info("PayWebViewCallHelper", "onFail code:" + i + " failReason:" + str);
-                aza.h(this.a, this.b, this.c, i, str);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                RLog.info("PayWebViewCallHelper", "onPayStart");
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, purchaseStatus, payCallBackBean) == null) {
-                RLog.info("PayWebViewCallHelper", "onPayStatus status:" + purchaseStatus);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onSuccess(Object obj, PayCallBackBean payCallBackBean) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, obj, payCallBackBean) == null) {
-                RLog.info("PayWebViewCallHelper", "onSuccess payCallBackBean:" + payCallBackBean);
-                aza.i(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ YYPayWebView a;
-        public final /* synthetic */ String b;
-
-        public c(YYPayWebView yYPayWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yYPayWebView, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yYPayWebView;
-            this.b = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.k(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ YYPayWebView a;
-        public final /* synthetic */ String b;
-
-        public d(YYPayWebView yYPayWebView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yYPayWebView, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yYPayWebView;
-            this.b = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.k(this.b);
-            }
-        }
-    }
-
-    public static void c(int i, int i2, PayFlowType payFlowType, NativeOperationParams nativeOperationParams) {
-        AbsViewEventHandler absViewEventHandler;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, nativeOperationParams}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            if (uIKit == null) {
-                RLog.error("PayWebViewCallHelper", "onNativeOperation null yyPayUIKit", new Object[0]);
-            } else if (nativeOperationParams.params == null) {
-                RLog.error("PayWebViewCallHelper", "onNativeOperation error h5 params null", new Object[0]);
-            } else {
-                BannerConfigItem.BannerInfo bannerInfo = new BannerConfigItem.BannerInfo();
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                String str = null;
                 try {
-                    JSONObject jSONObject = new JSONObject(nativeOperationParams.params);
-                    bannerInfo.id = jSONObject.optString("id");
-                    bannerInfo.jumpType = jSONObject.optInt("jumpType");
-                    bannerInfo.jumpData = jSONObject.optString("jumpData", "");
-                    bannerInfo.imageUrl = jSONObject.optString("imageUrl", "");
-                    PayFlowModel payFlowModel = uIKit.getPayFlowModel(payFlowType);
-                    if (payFlowModel != null && (absViewEventHandler = payFlowModel.viewEventListener) != null) {
-                        absViewEventHandler.onBannerClick(bannerInfo);
-                    } else {
-                        RLog.error("PayWebViewCallHelper", "onNativeOperation error h5PayFlowModel null", new Object[0]);
+                    if (Build.VERSION.SDK_INT >= 9) {
+                        Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+                        while (networkInterfaces.hasMoreElements()) {
+                            NetworkInterface nextElement = networkInterfaces.nextElement();
+                            if (nextElement.getName().equalsIgnoreCase("wlan0") && (hardwareAddress = ApiReplaceUtil.getHardwareAddress(nextElement)) != null && hardwareAddress.length != 0) {
+                                StringBuilder sb = new StringBuilder();
+                                int length = hardwareAddress.length;
+                                for (int i = 0; i < length; i++) {
+                                    sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
+                                }
+                                if (sb.length() > 0) {
+                                    sb.deleteCharAt(sb.length() - 1);
+                                }
+                                str = sb.toString();
+                            }
+                        }
                     }
                 } catch (Exception e) {
-                    RLog.error("PayWebViewCallHelper", "get bannerInfo error:", e.getLocalizedMessage());
+                    e.printStackTrace();
                 }
+                return str;
             }
+            return (String) invokeV.objValue;
         }
-    }
 
-    public static void d(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            if (uIKit == null) {
-                RLog.error("PayWebViewCallHelper", "onOpenFeedbackPage null yyPayUIKit", new Object[0]);
-                return;
-            }
-            IFeedbackServiceProxy feedbackServiceProxy = uIKit.getFeedbackServiceProxy();
-            if (feedbackServiceProxy == null) {
-                RLog.error("PayWebViewCallHelper", "onOpenFeedbackPage error proxy null", new Object[0]);
-                return;
-            }
-            FeedbackInfo feedbackInfo = new FeedbackInfo();
-            feedbackInfo.appId = i;
-            feedbackInfo.userchannel = i2;
-            feedbackServiceProxy.openFeedbackPage(feedbackInfo);
-        }
-    }
-
-    public static void e(int i, int i2, Activity activity, NativeOperationParams nativeOperationParams, IPayCallback<CurrencyChargeMessage> iPayCallback) {
-        MiddleRevenueConfig middleRevenueConfig;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), activity, nativeOperationParams, iPayCallback}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            if (uIKit == null) {
-                RLog.error("PayWebViewCallHelper", "onNativeOperation null yyPayUIKit", new Object[0]);
-            } else if (nativeOperationParams.params == null) {
-                RLog.error("PayWebViewCallHelper", "onNativeOperation error h5 params null", new Object[0]);
-            } else {
-                ProductInfo productInfo = new ProductInfo();
+        public static String b(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
                 try {
-                    JSONObject jSONObject = new JSONObject(nativeOperationParams.params);
-                    productInfo.cid = jSONObject.optInt("cid");
-                    productInfo.productId = jSONObject.optString("productId", "");
-                    productInfo.srcCurrencySymbol = jSONObject.optString("srcCurrencySymbol", "");
-                    productInfo.destAmount = jSONObject.optInt("destAmount");
-                    productInfo.srcAmount = jSONObject.optDouble("srcAmount", 0.0d);
-                    List<SplitMinAmountInfo> k = k(jSONObject.optJSONArray("splitMinAmountConfigs"));
-                    int optInt = jSONObject.optInt("customAmount");
-                    IYYPayWayView.b bVar = new IYYPayWayView.b();
-                    PayUIKitConfig payUIKitConfig = uIKit.getPayUIKitConfig();
-                    if (payUIKitConfig != null) {
-                        middleRevenueConfig = payUIKitConfig.revenueConfig;
-                    } else {
-                        middleRevenueConfig = null;
-                    }
-                    if (middleRevenueConfig != null) {
-                        bVar.c = new hza(productInfo, middleRevenueConfig.getCurrencyType());
-                    } else {
-                        bVar.c = new hza(productInfo);
-                    }
-                    gza gzaVar = new gza();
-                    gzaVar.b = k;
-                    gzaVar.a = optInt;
-                    RLog.info("PayWebViewCallHelper", "startPayChannelDialog: payAmount:%s", bVar.c + " h5OpenPayParams:" + gzaVar);
-                    uIKit.startPayChannelDialog(activity, gzaVar, bVar, new a(iPayCallback));
                 } catch (Exception e) {
-                    RLog.error("PayWebViewCallHelper", "get productInfo error:", e.getLocalizedMessage());
+                    e.printStackTrace();
                 }
-            }
-        }
-    }
-
-    public static void j(int i, int i2, Activity activity, NativeOperationParams nativeOperationParams, YYPayWebView yYPayWebView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), activity, nativeOperationParams, yYPayWebView}) == null) {
-            IAppPayService b2 = rza.b(i, i2);
-            try {
-                JSONObject jSONObject = new JSONObject(nativeOperationParams.params);
-                String optString = jSONObject.optString("seq");
-                String optString2 = jSONObject.optString("payload");
-                String optString3 = jSONObject.optString("payChannel");
-                String optString4 = jSONObject.optString("payMethod");
-                RLog.info("PayWebViewCallHelper", "openThirdPartPayApp seq:" + optString + " payChannel:" + optString3 + " payMethod:" + optString4 + " payload:" + optString2);
-                if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4)) {
-                    if (b2 == null) {
-                        RLog.error("PayWebViewCallHelper", "openThirdPartPayApp error payService is null", new Object[0]);
-                        h(activity, yYPayWebView, optString, -1, "payService error");
-                        return;
-                    }
-                    b bVar = new b(activity, yYPayWebView, optString);
-                    PayType a2 = f0b.a(optString3, optString4);
-                    if (a2 == null) {
-                        h(activity, yYPayWebView, optString, -1, "h5 payType error");
-                        return;
-                    } else {
-                        b2.requestPay(activity, a2, "", optString2, bVar);
-                        return;
-                    }
+                if (a != null) {
+                    return a;
                 }
-                h(activity, yYPayWebView, optString, -1, "h5 params error");
-            } catch (Exception e) {
-                RLog.error("PayWebViewCallHelper", "openThirdPartPayApp error:", e.getLocalizedMessage());
+                a = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+                return a;
             }
+            return (String) invokeL.objValue;
         }
-    }
 
-    public static void f(Activity activity, int i, int i2, NativeOperationParams nativeOperationParams, IPaySignCallback iPaySignCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), nativeOperationParams, iPaySignCallback}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            if (uIKit == null) {
-                RLog.error("PayWebViewCallHelper", "onOpenSignPay null yyPayUIKit", new Object[0]);
-            } else if (nativeOperationParams.params == null) {
-                RLog.error("PayWebViewCallHelper", "onOpenSignPay error h5 params null", new Object[0]);
-            } else if (!PackageInstallUtil.isInstallAlipay(activity.getApplication())) {
-                Toast.makeText(activity.getApplication(), "未安装支付宝", 1).show();
-            } else {
-                PaySignInfo paySignInfo = new PaySignInfo();
+        public static boolean c(Context context, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+                boolean z = false;
                 try {
-                    JSONObject jSONObject = new JSONObject(nativeOperationParams.params);
-                    paySignInfo.signParams = jSONObject.optString("signParams");
-                    paySignInfo.scheme = jSONObject.optString("scheme");
-                    uIKit.signPay(activity, paySignInfo, iPaySignCallback);
+                    if (Build.VERSION.SDK_INT < 23 ? context.getPackageManager().checkPermission(str, context.getPackageName()) == 0 : context.checkSelfPermission(str) == 0) {
+                        z = true;
+                    }
                 } catch (Exception e) {
-                    RLog.error("PayWebViewCallHelper", "onOpenSignPay error:", e.getLocalizedMessage());
+                    e.printStackTrace();
+                }
+                return z;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public static boolean d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (TextUtils.isEmpty(str) || str.equalsIgnoreCase(Config.DEF_MAC_ID)) ? false : true : invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final char[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-929623485, "Lcom/baidu/tieba/aza$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-929623485, "Lcom/baidu/tieba/aza$b;");
+                    return;
+                }
+            }
+            a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".toCharArray();
+        }
+
+        public static int a(char c) {
+            InterceptResult invokeCommon;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c)})) == null) {
+                if (c < 'A' || c > 'Z') {
+                    if (c >= 'a' && c <= 'z') {
+                        i = c - 'a';
+                    } else if (c < '0' || c > '9') {
+                        if (c != '+') {
+                            if (c != '/') {
+                                if (c == '=') {
+                                    return 0;
+                                }
+                                throw new RuntimeException("unexpected code: ".concat(String.valueOf(c)));
+                            }
+                            return 63;
+                        }
+                        return 62;
+                    } else {
+                        i = (c - TransactionIdCreater.FILL_BYTE) + 26;
+                    }
+                    return i + 26;
+                }
+                return c - 'A';
+            }
+            return invokeCommon.intValue;
+        }
+
+        public static String b(byte[] bArr) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+                int length = bArr.length;
+                StringBuffer stringBuffer = new StringBuffer((bArr.length * 3) / 2);
+                int i = length - 3;
+                int i2 = 0;
+                while (i2 <= i) {
+                    int i3 = ((bArr[i2] & 255) << 16) | ((bArr[i2 + 1] & 255) << 8) | (bArr[i2 + 2] & 255);
+                    stringBuffer.append(a[(i3 >> 18) & 63]);
+                    stringBuffer.append(a[(i3 >> 12) & 63]);
+                    stringBuffer.append(a[(i3 >> 6) & 63]);
+                    stringBuffer.append(a[i3 & 63]);
+                    i2 += 3;
+                }
+                int i4 = length + 0;
+                if (i2 != i4 - 2) {
+                    if (i2 == i4 - 1) {
+                        int i5 = (bArr[i2] & 255) << 16;
+                        stringBuffer.append(a[(i5 >> 18) & 63]);
+                        stringBuffer.append(a[(i5 >> 12) & 63]);
+                        str = "==";
+                    }
+                    return stringBuffer.toString();
+                }
+                int i6 = ((bArr[i2 + 1] & 255) << 8) | ((bArr[i2] & 255) << 16);
+                stringBuffer.append(a[(i6 >> 18) & 63]);
+                stringBuffer.append(a[(i6 >> 12) & 63]);
+                stringBuffer.append(a[(i6 >> 6) & 63]);
+                str = "=";
+                stringBuffer.append(str);
+                return stringBuffer.toString();
+            }
+            return (String) invokeL.objValue;
+        }
+
+        public static void c(String str, OutputStream outputStream) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLL(65539, null, str, outputStream) != null) {
+                return;
+            }
+            int length = str.length();
+            int i = 0;
+            while (true) {
+                if (i < length && str.charAt(i) <= ' ') {
+                    i++;
+                } else if (i == length) {
+                    return;
+                } else {
+                    int i2 = i + 2;
+                    int i3 = i + 3;
+                    int a2 = (a(str.charAt(i)) << 18) + (a(str.charAt(i + 1)) << 12) + (a(str.charAt(i2)) << 6) + a(str.charAt(i3));
+                    outputStream.write((a2 >> 16) & 255);
+                    if (str.charAt(i2) == '=') {
+                        return;
+                    }
+                    outputStream.write((a2 >> 8) & 255);
+                    if (str.charAt(i3) == '=') {
+                        return;
+                    }
+                    outputStream.write(a2 & 255);
+                    i += 4;
                 }
             }
         }
-    }
 
-    public static void g(int i, int i2, PayFlowType payFlowType, NativeOperationParams nativeOperationParams) {
-        AbsViewEventHandler absViewEventHandler;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, nativeOperationParams}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            if (uIKit == null) {
-                RLog.error("PayWebViewCallHelper", "onNativeOperation null yyPayUIKit", new Object[0]);
-                return;
+        public static byte[] d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                try {
+                    c(str, byteArrayOutputStream);
+                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                    try {
+                        byteArrayOutputStream.close();
+                    } catch (IOException e) {
+                        PrintStream printStream = System.err;
+                        printStream.println("Error while decoding BASE64: " + e.toString());
+                    }
+                    return byteArray;
+                } catch (IOException unused) {
+                    throw new RuntimeException();
+                }
             }
-            PayFlowModel payFlowModel = uIKit.getPayFlowModel(payFlowType);
-            if (payFlowModel != null && (absViewEventHandler = payFlowModel.viewEventListener) != null) {
-                absViewEventHandler.onHandleUrl(nativeOperationParams.params);
-            } else {
-                RLog.error("PayWebViewCallHelper", "onNativeOperation error h5PayFlowModel null", new Object[0]);
-            }
+            return (byte[]) invokeL.objValue;
         }
     }
 
-    public static void h(Activity activity, YYPayWebView yYPayWebView, String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{activity, yYPayWebView, str, Integer.valueOf(i), str2}) == null) {
-            if (yYPayWebView == null) {
-                RLog.error("PayWebViewCallHelper", "onThirdPartPayFail error yyPayWebView null", new Object[0]);
-                return;
+    /* loaded from: classes3.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static String a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? c(MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"))) : (String) invokeL.objValue;
+        }
+
+        public static String b(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? b.b(d(str.getBytes("UTF-8"), str2.getBytes("UTF-8"))) : (String) invokeLL.objValue;
+        }
+
+        public static String c(byte[] bArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+                StringBuilder sb = new StringBuilder();
+                if (bArr != null) {
+                    for (byte b : bArr) {
+                        sb.append(Integer.toString((b & 255) + 256, 16).substring(1));
+                    }
+                }
+                return sb.toString();
             }
-            JSONObject jSONObject = new JSONObject();
+            return (String) invokeL.objValue;
+        }
+
+        public static byte[] d(byte[] bArr, byte[] bArr2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
+                SecureRandom secureRandom = new SecureRandom();
+                SecretKey generateSecret = SecretKeyFactory.getInstance(Coder.KEY_DES).generateSecret(new DESKeySpec(bArr2));
+                Cipher cipher = Cipher.getInstance(Coder.KEY_DES);
+                cipher.init(1, generateSecret, secureRandom);
+                return cipher.doFinal(bArr);
+            }
+            return (byte[]) invokeLL.objValue;
+        }
+
+        public static String e(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+                if (str == null) {
+                    return null;
+                }
+                return f(g(b.d(str), str2.getBytes("UTF-8")));
+            }
+            return (String) invokeLL.objValue;
+        }
+
+        public static String f(byte[] bArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? new String(bArr, "UTF-8") : (String) invokeL.objValue;
+        }
+
+        public static byte[] g(byte[] bArr, byte[] bArr2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, bArr, bArr2)) == null) {
+                SecureRandom secureRandom = new SecureRandom();
+                SecretKey generateSecret = SecretKeyFactory.getInstance(Coder.KEY_DES).generateSecret(new DESKeySpec(bArr2));
+                Cipher cipher = Cipher.getInstance(Coder.KEY_DES);
+                cipher.init(2, generateSecret, secureRandom);
+                return cipher.doFinal(bArr);
+            }
+            return (byte[]) invokeLL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static final class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public JSONObject f;
+        public long g;
+        public int h;
+        public String i;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = "0";
+            this.g = 0L;
+        }
+
+        public /* synthetic */ d(byte b) {
+            this();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: Removed duplicated region for block: B:47:0x0078 A[Catch: IOException -> 0x0074, TRY_LEAVE, TryCatch #2 {IOException -> 0x0074, blocks: (B:43:0x0070, B:47:0x0078), top: B:55:0x0070 }] */
+        /* JADX WARN: Removed duplicated region for block: B:55:0x0070 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public static final String a(String str) {
+            InterceptResult invokeL;
+            ByteArrayOutputStream byteArrayOutputStream;
+            Throwable th;
+            FileInputStream fileInputStream;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, str)) != null) {
+                return (String) invokeL.objValue;
+            }
             try {
-                jSONObject.put("state", 0);
-                jSONObject.put("seq", str);
-                jSONObject.put("code", i);
-                jSONObject.put("failReason", str2);
-            } catch (Throwable th) {
-                RLog.error("PayWebViewCallHelper", th.toString(), new Object[0]);
+                File file = new File(str);
+                if (!file.exists()) {
+                    return null;
+                }
+                fileInputStream = new FileInputStream(file);
+                try {
+                    byteArrayOutputStream = new ByteArrayOutputStream();
+                    try {
+                        try {
+                            byte[] bArr = new byte[1024];
+                            while (true) {
+                                int read = fileInputStream.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                byteArrayOutputStream.write(bArr, 0, read);
+                            }
+                            String trim = new String(byteArrayOutputStream.toByteArray(), "UTF-8").trim();
+                            try {
+                                fileInputStream.close();
+                                byteArrayOutputStream.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            return trim;
+                        } catch (Exception e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            if (fileInputStream != null) {
+                                try {
+                                    fileInputStream.close();
+                                } catch (IOException e3) {
+                                    e3.printStackTrace();
+                                    return null;
+                                }
+                            }
+                            if (byteArrayOutputStream != null) {
+                                byteArrayOutputStream.close();
+                            }
+                            return null;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
+                                throw th;
+                            }
+                        }
+                        if (byteArrayOutputStream != null) {
+                            byteArrayOutputStream.close();
+                        }
+                        throw th;
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                    byteArrayOutputStream = null;
+                } catch (Throwable th3) {
+                    byteArrayOutputStream = null;
+                    th = th3;
+                    if (fileInputStream != null) {
+                    }
+                    if (byteArrayOutputStream != null) {
+                    }
+                    throw th;
+                }
+            } catch (Exception e6) {
+                e = e6;
+                fileInputStream = null;
+                byteArrayOutputStream = null;
+            } catch (Throwable th4) {
+                byteArrayOutputStream = null;
+                th = th4;
+                fileInputStream = null;
             }
-            String jSONObject2 = jSONObject.toString();
-            String str3 = "javascript:onPayResult(" + jSONObject2 + SmallTailInfo.EMOTION_SUFFIX;
-            RLog.info("PayWebViewCallHelper", "onThirdPartPayFail jsonMsg:" + jSONObject2 + " jsMethod:" + str3);
-            activity.runOnUiThread(new c(yYPayWebView, str3));
         }
     }
 
-    public static void i(Activity activity, YYPayWebView yYPayWebView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, activity, yYPayWebView, str) == null) {
-            if (yYPayWebView == null) {
-                RLog.error("PayWebViewCallHelper", "onThirdPartPaySuccess error yyPayWebView null", new Object[0]);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947633857, "Lcom/baidu/tieba/aza;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947633857, "Lcom/baidu/tieba/aza;");
                 return;
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("state", 1);
-                jSONObject.put("seq", str);
-            } catch (Throwable th) {
-                RLog.error("PayWebViewCallHelper", th.toString(), new Object[0]);
-            }
-            String jSONObject2 = jSONObject.toString();
-            String str2 = "javascript:onPayResult(" + jSONObject2 + SmallTailInfo.EMOTION_SUFFIX;
-            RLog.info("PayWebViewCallHelper", "onThirdPartPayFail jsonMsg:" + jSONObject2 + " jsMethod:" + str2);
-            activity.runOnUiThread(new d(yYPayWebView, str2));
         }
+        b = new aza();
+        c = FilenameFilter.class;
     }
 
-    public static List<SplitMinAmountInfo> k(JSONArray jSONArray) {
+    public aza() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+    }
+
+    public static d a(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                jSONObject = new JSONObject(str);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                jSONObject = null;
+            }
+            if (jSONObject == null) {
+                return null;
+            }
+            String e3 = e(jSONObject, "hdid");
+            String e4 = e(jSONObject, "type");
+            String e5 = e(jSONObject, "imei");
+            String e6 = e(jSONObject, "mac");
+            if (k(e3 + e5 + e6).equals(e(jSONObject, "key"))) {
+                d dVar = new d((byte) 0);
+                dVar.f = jSONObject;
+                dVar.a = e3;
+                dVar.b = e5;
+                dVar.c = e6;
+                dVar.d = e4;
+                dVar.e = e(jSONObject, BaseStatisContent.ARID);
+                dVar.g = i(jSONObject, "crtTime");
+                return dVar;
+            }
+            return null;
+        }
+        return (d) invokeL.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            try {
+                return c.a(UUID.randomUUID().toString() + System.currentTimeMillis() + System.nanoTime() + new Random().nextInt(ExceptionCode.CRASH_EXCEPTION));
+            } catch (Exception unused) {
+                return UUID.randomUUID().toString().replace("-", "");
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (jSONArray == null) {
-                return arrayList;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? b.m(context).a : (String) invokeL.objValue;
+    }
+
+    public static String d(d dVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, dVar)) == null) {
+            if (dVar.f == null) {
+                dVar.f = new JSONObject();
             }
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    SplitMinAmountInfo splitMinAmountInfo = new SplitMinAmountInfo();
-                    splitMinAmountInfo.minAmount = optJSONObject.optInt("minAmount");
-                    splitMinAmountInfo.splitType = optJSONObject.optInt("type");
-                    arrayList.add(splitMinAmountInfo);
+            h(dVar.f, "hdid", dVar.a);
+            h(dVar.f, "type", dVar.d);
+            h(dVar.f, "imei", dVar.b);
+            h(dVar.f, "mac", dVar.c);
+            h(dVar.f, BaseStatisContent.ARID, dVar.e);
+            JSONObject jSONObject = dVar.f;
+            h(jSONObject, "key", k(dVar.a + dVar.b + dVar.c));
+            g(dVar.f, "crtTime", dVar.g);
+            return dVar.f.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jSONObject, str)) == null) {
+            if (jSONObject.has(str)) {
+                try {
+                    return jSONObject.getString(str);
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
                 }
             }
-            return arrayList;
+            return null;
         }
-        return (List) invokeL.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static void f(Context context, d dVar) {
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, dVar) == null) {
+            try {
+                String j = j(context);
+                String b2 = c.b(d(dVar), "!qazxsw@v2#edcvfr$v2");
+                FileOutputStream fileOutputStream2 = null;
+                try {
+                    try {
+                        File file = new File(j);
+                        if (!file.getParentFile().exists()) {
+                            file.getParentFile().mkdir();
+                        }
+                        fileOutputStream = new FileOutputStream(file);
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    fileOutputStream.write(b2.getBytes("UTF-8"));
+                    fileOutputStream.flush();
+                    try {
+                        fileOutputStream.close();
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
+                    }
+                } catch (Exception e4) {
+                    fileOutputStream2 = fileOutputStream;
+                    e = e4;
+                    e.printStackTrace();
+                    if (fileOutputStream2 != null) {
+                        try {
+                            fileOutputStream2.close();
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                } catch (Throwable th2) {
+                    fileOutputStream2 = fileOutputStream;
+                    th = th2;
+                    if (fileOutputStream2 != null) {
+                        try {
+                            fileOutputStream2.close();
+                        } catch (Exception e6) {
+                            e6.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception e7) {
+                e7.printStackTrace();
+            }
+        }
+    }
+
+    public static boolean g(JSONObject jSONObject, String str, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{jSONObject, str, Long.valueOf(j)})) == null) {
+            try {
+                jSONObject.put(str, j);
+                return true;
+            } catch (JSONException unused) {
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean h(JSONObject jSONObject, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, jSONObject, str, str2)) == null) {
+            try {
+                jSONObject.put(str, str2);
+                return true;
+            } catch (JSONException unused) {
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static long i(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, jSONObject, str)) == null) {
+            if (jSONObject.has(str)) {
+                try {
+                    return jSONObject.getLong(str);
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            }
+            return 0L;
+        }
+        return invokeLL.longValue;
+    }
+
+    public static String j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            try {
+                stringBuffer.append(context.getFilesDir().getAbsolutePath());
+                stringBuffer.append(File.separator);
+                stringBuffer.append("hdid_v2");
+                String stringBuffer2 = stringBuffer.toString();
+                stringBuffer.setLength(0);
+                return stringBuffer2;
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            try {
+                return c.a(str + "!qazxsw@v2#edcvfr$v2");
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void l(Context context, d dVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65549, null, context, dVar) == null) && a.c(context, "android.permission.WRITE_SETTINGS")) {
+            try {
+                if (!(context instanceof Application)) {
+                    context = context.getApplicationContext();
+                }
+                Settings.System.putString(context.getContentResolver(), DeviceManagerV2.SETTING_KEY, c.b(d(dVar), DeviceManagerV2.KEY_MAGIC2));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public static d n(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
+            d dVar = new d((byte) 0);
+            String str = "";
+            dVar.b = "";
+            String a2 = a.a();
+            dVar.e = a.b(context);
+            dVar.g = System.currentTimeMillis();
+            try {
+                int i = !TextUtils.isEmpty(dVar.e) ? 1 : 0;
+                boolean d2 = a.d(a2);
+                if (i == 0 && !d2) {
+                    dVar.d = "0";
+                    dVar.a = b();
+                    return dVar;
+                }
+                StringBuilder sb = new StringBuilder();
+                sb.append(i | (d2 ? 2 : 0));
+                dVar.d = sb.toString();
+                String str2 = dVar.e == null ? "" : dVar.e;
+                if (a2 != null) {
+                    str = a2;
+                }
+                dVar.a = c.a(str2 + "_" + str);
+                return dVar;
+            } catch (Exception unused) {
+                dVar.d = "0";
+                dVar.a = b();
+                return dVar;
+            }
+        }
+        return (d) invokeL.objValue;
+    }
+
+    public static d o(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
+            try {
+                String a2 = e.a(j(context));
+                if (a2 != null) {
+                    return a(c.e(a2, "!qazxsw@v2#edcvfr$v2"));
+                }
+                return null;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (d) invokeL.objValue;
+    }
+
+    public static d p(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
+            try {
+                if (!(context instanceof Application)) {
+                    context = context.getApplicationContext();
+                }
+                String string = ApiReplaceUtil.getString(context.getContentResolver(), DeviceManagerV2.SETTING_KEY);
+                if (string != null) {
+                    return a(c.e(string, DeviceManagerV2.KEY_MAGIC2));
+                }
+                return null;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return (d) invokeL.objValue;
+    }
+
+    public static String q(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
+            try {
+                boolean c2 = a.c(context, "android.permission.WRITE_SETTINGS");
+                StringBuilder sb = new StringBuilder();
+                sb.append(c2 ? 4 : 0);
+                return sb.toString();
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0051, code lost:
+        if (r9 == null) goto L34;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:109:0x00ec A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:123:0x00d8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:129:0x00e2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x00c3 A[Catch: all -> 0x00f5, TryCatch #12 {, blocks: (B:9:0x000c, B:11:0x0010, B:12:0x0012, B:38:0x0076, B:43:0x0080, B:47:0x0088, B:50:0x008d, B:78:0x00bf, B:80:0x00c3, B:81:0x00c9, B:82:0x00d1, B:46:0x0085, B:41:0x007b, B:64:0x00a5, B:69:0x00af, B:74:0x00b9, B:72:0x00b4, B:67:0x00aa, B:87:0x00d8, B:92:0x00e2, B:97:0x00ec, B:101:0x00f4, B:100:0x00f1, B:95:0x00e7, B:90:0x00dd), top: B:126:0x000c, inners: #0, #3, #5, #10, #13, #15, #16 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final d m(Context context) {
+        InterceptResult invokeL;
+        FileChannel fileChannel;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            d dVar = this.a;
+            if (dVar != null) {
+                return dVar;
+            }
+            synchronized (c) {
+                if (this.a != null) {
+                    return this.a;
+                }
+                FileLock fileLock = null;
+                try {
+                    fileOutputStream = new FileOutputStream(new File(context.getFilesDir(), "hdidlock.txt"));
+                    try {
+                        fileChannel = fileOutputStream.getChannel();
+                        try {
+                            try {
+                                long currentTimeMillis = System.currentTimeMillis();
+                                while (System.currentTimeMillis() - currentTimeMillis < 4000) {
+                                    try {
+                                        fileLock = fileChannel.lock();
+                                    } catch (Exception unused) {
+                                        Thread.sleep(2L);
+                                    }
+                                    if (fileLock.isValid()) {
+                                        d o = o(context);
+                                        d p = p(context);
+                                        if (o == null) {
+                                            if (p == null) {
+                                                o = n(context);
+                                                f(context, o);
+                                                l(context, o);
+                                                this.a = o;
+                                                break;
+                                                break;
+                                            }
+                                            p.h = 6;
+                                            f(context, p);
+                                            o = p;
+                                            this.a = o;
+                                            break;
+                                        }
+                                        o.h = 4;
+                                    } else {
+                                        Thread.sleep(2L);
+                                    }
+                                }
+                                if (fileLock != null) {
+                                    try {
+                                        fileLock.release();
+                                    } catch (Exception e2) {
+                                        e2.printStackTrace();
+                                    }
+                                }
+                                if (fileChannel != null) {
+                                    try {
+                                        fileChannel.close();
+                                    } catch (Exception e3) {
+                                        e3.printStackTrace();
+                                    }
+                                }
+                                try {
+                                    fileOutputStream.close();
+                                } catch (Exception e4) {
+                                    e = e4;
+                                    e.printStackTrace();
+                                    if (this.a == null) {
+                                    }
+                                    this.a.i = q(context);
+                                    return this.a;
+                                }
+                            } catch (Exception e5) {
+                                e = e5;
+                                e.printStackTrace();
+                                if (fileLock != null) {
+                                    try {
+                                        fileLock.release();
+                                    } catch (Exception e6) {
+                                        e6.printStackTrace();
+                                    }
+                                }
+                                if (fileChannel != null) {
+                                    try {
+                                        fileChannel.close();
+                                    } catch (Exception e7) {
+                                        e7.printStackTrace();
+                                    }
+                                }
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (Exception e8) {
+                                        e = e8;
+                                        e.printStackTrace();
+                                        if (this.a == null) {
+                                        }
+                                        this.a.i = q(context);
+                                        return this.a;
+                                    }
+                                }
+                                if (this.a == null) {
+                                }
+                                this.a.i = q(context);
+                                return this.a;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            if (fileLock != null) {
+                                try {
+                                    fileLock.release();
+                                } catch (Exception e9) {
+                                    e9.printStackTrace();
+                                }
+                            }
+                            if (fileChannel != null) {
+                                try {
+                                    fileChannel.close();
+                                } catch (Exception e10) {
+                                    e10.printStackTrace();
+                                }
+                            }
+                            if (fileOutputStream != null) {
+                                try {
+                                    fileOutputStream.close();
+                                } catch (Exception e11) {
+                                    e11.printStackTrace();
+                                }
+                            }
+                            throw th;
+                        }
+                    } catch (Exception e12) {
+                        e = e12;
+                        fileChannel = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileChannel = null;
+                        if (fileLock != null) {
+                        }
+                        if (fileChannel != null) {
+                        }
+                        if (fileOutputStream != null) {
+                        }
+                        throw th;
+                    }
+                } catch (Exception e13) {
+                    e = e13;
+                    fileChannel = null;
+                    fileOutputStream = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    fileChannel = null;
+                    fileOutputStream = null;
+                }
+                if (this.a == null) {
+                    this.a = n(context);
+                }
+                this.a.i = q(context);
+                return this.a;
+            }
+        }
+        return (d) invokeL.objValue;
     }
 }

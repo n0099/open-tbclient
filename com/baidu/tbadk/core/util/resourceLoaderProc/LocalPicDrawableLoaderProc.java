@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.rm;
+import com.baidu.tieba.sm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,24 +68,24 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.dg
-    public rm getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    public sm getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             String str3 = str + "";
-            rm u = TbImageMemoryCache.o().u(str3);
-            if (u == null) {
+            sm w = TbImageMemoryCache.s().w(str3);
+            if (w == null) {
                 Bitmap bitmap = SkinManager.getBitmap(gg.e(str2, 0));
                 if (bitmap == null) {
                     return null;
                 }
-                rm rmVar = new rm(bitmap, false, str2);
-                TbImageMemoryCache.o().g(str3, rmVar);
-                return rmVar;
+                sm smVar = new sm(bitmap, false, str2);
+                TbImageMemoryCache.s().k(str3, smVar);
+                return smVar;
             }
-            return u;
+            return w;
         }
-        return (rm) invokeCommon.objValue;
+        return (sm) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc

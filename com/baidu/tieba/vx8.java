@@ -1,38 +1,38 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
-import android.os.Handler;
-import android.os.Looper;
-import android.provider.Settings;
+import android.text.SpannableString;
+import android.view.MotionEvent;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.sx8;
-import com.baidu.tieba.wx8;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.LinkedList;
+import java.util.List;
+import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
 public class vx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> a;
-    public SensorManager b;
-    public sx8 c;
-    public Sensor d;
-    public boolean e;
-    public boolean f;
-    public wx8 g;
-    public boolean h;
-    public boolean i;
-    public sx8.a j;
-    public wx8.a k;
+    public qu8 a;
+    public oo6 b;
+    public View.OnTouchListener c;
 
     /* loaded from: classes6.dex */
-    public class a implements sx8.a {
+    public class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vx8 a;
@@ -55,82 +55,72 @@ public class vx8 {
             this.a = vx8Var;
         }
 
-        @Override // com.baidu.tieba.sx8.a
-        public void a(int i) {
-            Activity activity;
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.a == null || (activity = (Activity) this.a.a.get()) == null || !this.a.i) {
-                return;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                if (this.a.b != null) {
+                    this.a.b.c(motionEvent);
+                    return false;
+                }
+                return false;
             }
-            int requestedOrientation = activity.getRequestedOrientation();
-            if (!this.a.h) {
-                if (i > 225 && i < 315) {
-                    if (requestedOrientation == 8) {
-                        activity.setRequestedOrientation(0);
-                    }
-                } else if (i > 45 && i < 135 && requestedOrientation == 0) {
-                    activity.setRequestedOrientation(8);
-                }
-            } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
-                if (!this.a.f) {
-                    if (i > 55 && i < 125) {
-                        if (requestedOrientation != 8) {
-                            activity.setRequestedOrientation(8);
-                        }
-                    } else if (requestedOrientation != 0) {
-                        activity.setRequestedOrientation(0);
-                    }
-                }
-                this.a.e = false;
-            } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
-                if (!this.a.e && requestedOrientation != 1) {
-                    activity.setRequestedOrientation(1);
-                }
-                this.a.f = false;
-            }
+            return invokeLL.booleanValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements wx8.a {
+    public class b extends bv5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vx8 a;
+        public final /* synthetic */ eh6 i;
 
-        public b(vx8 vx8Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(vx8 vx8Var, int i, String str, eh6 eh6Var) {
+            super(i, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vx8Var};
+                Object[] objArr = {vx8Var, Integer.valueOf(i), str, eh6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = vx8Var;
+            this.i = eh6Var;
         }
 
-        @Override // com.baidu.tieba.wx8.a
-        public void a(boolean z) {
+        @Override // com.baidu.tieba.bv5, android.text.style.ClickableSpan
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                StatisticItem statisticItem = null;
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(view2.getContext(), d(), null)));
+                eh6 eh6Var = this.i;
+                if (eh6Var instanceof mh6) {
+                    statisticItem = ((mh6) eh6Var).S();
+                } else if (eh6Var instanceof nh6) {
+                    statisticItem = ((nh6) eh6Var).Q(null);
+                }
+                TiebaStatic.log(statisticItem);
             }
-            this.a.h = z;
         }
     }
 
-    public vx8(Activity activity) {
+    public vx8(BdTypeRecyclerView bdTypeRecyclerView, qu8 qu8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {bdTypeRecyclerView, qu8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -140,78 +130,188 @@ public class vx8 {
                 return;
             }
         }
-        this.e = false;
-        this.f = false;
-        this.h = false;
-        this.i = false;
-        this.j = new a(this);
-        this.k = new b(this);
-        if (activity == null) {
+        a aVar = new a(this);
+        this.c = aVar;
+        this.a = qu8Var;
+        bdTypeRecyclerView.setOnTouchListener(aVar);
+        this.b = new oo6();
+    }
+
+    public final mh6 d(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData)) == null) {
+            mh6 mh6Var = new mh6();
+            mh6Var.a = threadData;
+            threadData.isLinkThread();
+            if (!threadData.isLinkThread()) {
+                threadData.isGodThread();
+            }
+            return mh6Var;
+        }
+        return (mh6) invokeL.objValue;
+    }
+
+    public final void f(eh6 eh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, eh6Var) == null) {
+            eh6Var.n = true;
+            eh6Var.setSupportType(BaseCardInfo.SupportType.TOP);
+        }
+    }
+
+    public final void g(eh6 eh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, eh6Var) == null) {
+            ((mh6) eh6Var).q = true;
+            eh6Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public final void h(eh6 eh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, eh6Var) == null) {
+            ((mh6) eh6Var).p = true;
+            eh6Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public final void i(eh6 eh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, eh6Var) == null) {
+            ((mh6) eh6Var).r = true;
+            eh6Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public final void j(eh6 eh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eh6Var) == null) {
+            ((nh6) eh6Var).s = true;
+            eh6Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+        }
+    }
+
+    public final void b(List<ThreadInfo> list, List<hn> list2, String str) {
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, list, list2, str) == null) {
+            int i = 0;
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                ThreadInfo threadInfo = list.get(i2);
+                if (threadInfo != null) {
+                    ThreadData threadData2 = new ThreadData();
+                    threadData2.floorNum = i2 + 1;
+                    threadData2.parserProtobuf(threadInfo);
+                    if (threadData2.getForumData() != null) {
+                        threadData2.getForumData().i = str;
+                    }
+                    if ((mh6.W(threadData2) || nh6.R(threadData2)) && threadData2.getType() != ThreadData.TYPE_SHARE_THREAD) {
+                        mh6 d = d(threadData2);
+                        if (d != null && (threadData = d.a) != null && threadData.getForumData() != null && !StringUtils.isNull(threadData.getForumData().b)) {
+                            d.g = threadData2.getTid();
+                            d.position = i;
+                            f(d);
+                            list2.add(d);
+                        }
+                        int[] imageWidthAndHeight = threadData2.getImageWidthAndHeight();
+                        eh6 c = c(threadData2);
+                        if (c != null) {
+                            c.g = threadData2.getTid();
+                            c.position = i;
+                            if (c instanceof mh6) {
+                                if (threadData2.picCount() == 1) {
+                                    h(c);
+                                    c.j = imageWidthAndHeight[0];
+                                    c.k = imageWidthAndHeight[1];
+                                } else if (threadData2.picCount() >= 2) {
+                                    g(c);
+                                } else {
+                                    i(c);
+                                }
+                            } else if (c instanceof nh6) {
+                                j(c);
+                            }
+                        }
+                        if (c != null && c.isValid()) {
+                            c.a.insertItemToTitleOrAbstractText();
+                            if (!threadData2.isUgcThreadType() && threadData2.getAuthor() != null) {
+                                String format = String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), threadData2.getAuthor().getName_show());
+                                SpannableString spannableString = new SpannableString(format);
+                                spannableString.setSpan(new b(this, 16, threadData2.getAuthor().getUserId(), c), 0, format.length() - 1, 33);
+                                c.a.insertUsernameIntoTitleOrAbstract(spannableString);
+                            }
+                            list2.add(c);
+                        }
+                        mh6 d2 = d(threadData2);
+                        if (d2 != null) {
+                            d2.g = threadData2.getTid();
+                            d2.position = i;
+                            e(d2);
+                        }
+                        if (d2 != null && d2.isValid()) {
+                            list2.add(d2);
+                        }
+                    }
+                    i++;
+                }
+            }
+        }
+    }
+
+    public final eh6 c(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData)) == null) {
+            if (threadData == null) {
+                return null;
+            }
+            if (mh6.W(threadData)) {
+                mh6 mh6Var = new mh6();
+                threadData.isLinkThread();
+                threadData.isSmartAppThreadType();
+                if (!threadData.isLinkThread() && !threadData.isSmartAppThreadType()) {
+                    threadData.isGodThread();
+                }
+                mh6Var.a = threadData;
+                return mh6Var;
+            } else if (!nh6.R(threadData)) {
+                return null;
+            } else {
+                return new nh6(threadData);
+            }
+        }
+        return (eh6) invokeL.objValue;
+    }
+
+    public final void e(eh6 eh6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, eh6Var) == null) {
+            if (eh6Var instanceof mh6) {
+                ((mh6) eh6Var).A = true;
+            } else if (eh6Var instanceof nh6) {
+                ((nh6) eh6Var).A = true;
+            } else if (eh6Var instanceof lh6) {
+                ((lh6) eh6Var).A = true;
+            }
+            eh6Var.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+        }
+    }
+
+    public void k(zs8 zs8Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, zs8Var) != null) || zs8Var == null) {
             return;
         }
-        this.a = new WeakReference<>(activity);
-        this.b = (SensorManager) activity.getApplicationContext().getSystemService("sensor");
-        this.d = TbadkCoreApplication.getInst().getDefaultSensor(1);
-        this.c = new sx8(this.j);
-        if (activity.getClass().getName().contains("SwanAppActivity")) {
-            activity.setRequestedOrientation(1);
+        if (zs8Var.k() != null) {
+            str = zs8Var.k().getFirst_class();
+        } else {
+            str = "";
         }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void j() {
-        Activity activity;
-        Sensor sensor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SensorManager sensorManager = this.b;
-            if (sensorManager != null && (sensor = this.d) != null) {
-                sensorManager.registerListener(this.c, sensor, 2);
-            }
-            WeakReference<Activity> weakReference = this.a;
-            if (weakReference != null && (activity = weakReference.get()) != null) {
-                wx8 wx8Var = new wx8(activity.getApplicationContext(), new Handler(Looper.getMainLooper()));
-                this.g = wx8Var;
-                wx8Var.b(this.k);
-                activity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), true, this.g);
-            }
-        }
-    }
-
-    public void k() {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SensorManager sensorManager = this.b;
-            if (sensorManager != null) {
-                sensorManager.unregisterListener(this.c);
-            }
-            WeakReference<Activity> weakReference = this.a;
-            if (weakReference != null && this.g != null && (activity = weakReference.get()) != null) {
-                activity.getContentResolver().unregisterContentObserver(this.g);
-            }
-        }
-    }
-
-    public void l() {
-        WeakReference<Activity> weakReference;
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (weakReference = this.a) == null || (activity = weakReference.get()) == null) {
-            return;
-        }
-        if (activity.getRequestedOrientation() == 1) {
-            activity.setRequestedOrientation(0);
-            this.e = true;
-            return;
-        }
-        activity.setRequestedOrientation(1);
-        this.f = true;
+        List<ThreadInfo> H = zs8Var.H();
+        LinkedList linkedList = new LinkedList();
+        b(H, linkedList, str);
+        this.a.g(linkedList);
     }
 }

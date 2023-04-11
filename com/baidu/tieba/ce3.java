@@ -1,32 +1,31 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class ce3 {
+public class ce3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ve3 a;
+        public final /* synthetic */ JSONObject a;
 
-        public a(ve3 ve3Var) {
+        public a(ce3 ce3Var, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ve3Var};
+                Object[] objArr = {ce3Var, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -36,74 +35,167 @@ public final class ce3 {
                     return;
                 }
             }
-            this.a = ve3Var;
+            this.a = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ae3.k("934", this.a.f());
+                be3.k("777", this.a);
+                u42.k("SwanAppBusinessUbc", this.a.toString());
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947671832, "Lcom/baidu/tieba/ce3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ce3 a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public String h;
+
+        public b(int i) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947671832, "Lcom/baidu/tieba/ce3;");
-                return;
-            }
-        }
-        a = do1.a;
-    }
-
-    public static void a(ve3 ve3Var, qs2 qs2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, ve3Var, qs2Var) == null) && ve3Var != null && qs2Var != null) {
-            ve3Var.a = me3.n(qs2Var.G());
-            ve3Var.f = qs2Var.H();
-            ve3Var.c = qs2Var.T();
-            ve3Var.a("swan", yg3.h(qs2Var.G()));
-            ve3Var.a("appversion", qs2Var.v1());
-            ve3Var.a("thirdversion", qs2Var.w1());
-            ve3Var.b(me3.k(qs2Var.W()));
-            ve3Var.d(qs2Var.s0().getString(UBCCloudControlProcessor.UBC_KEY));
-        }
-    }
-
-    public static void b(we3 we3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, we3Var) == null) {
-            if (we3Var == null) {
-                if (a) {
-                    Log.w("SwanAppFuncUbc", "event is null");
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                return;
             }
-            ve3 ve3Var = new ve3();
-            ve3Var.f = we3Var.f;
-            ve3Var.a = we3Var.a;
-            ve3Var.g = we3Var.g;
-            ve3Var.c = we3Var.c;
-            ve3Var.b = we3Var.b;
-            ve3Var.e = we3Var.e;
-            ve3Var.e(we3Var.c());
-            c(ve3Var);
+            this.a = new ce3(null);
+            this.c = String.valueOf(i);
+            this.b = "swan";
+        }
+
+        public b h(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                this.g = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b i(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.h = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b j(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.f = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b k(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.d = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b l(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+                this.e = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public void m() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.a.b(this);
+            }
         }
     }
 
-    public static void c(ve3 ve3Var) {
+    public ce3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, ve3Var) == null) {
-            nk3.j(new a(ve3Var), "SwanAppFuncClickUBC");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public /* synthetic */ ce3(a aVar) {
+        this();
+    }
+
+    public final void b(b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            if (!TextUtils.isEmpty(bVar.b)) {
+                jSONObject.put("from", bVar.b);
+            }
+            if (!TextUtils.isEmpty(bVar.c)) {
+                jSONObject.put("type", bVar.c);
+            }
+            if (!TextUtils.isEmpty(bVar.e)) {
+                jSONObject.put("value", bVar.e);
+            }
+            if (!TextUtils.isEmpty(bVar.d)) {
+                jSONObject.put("source", bVar.d);
+            }
+            if (!TextUtils.isEmpty(bVar.f)) {
+                jSONObject.put("page", bVar.f);
+            }
+            boolean isEmpty = TextUtils.isEmpty(bVar.g);
+            boolean isEmpty2 = TextUtils.isEmpty(bVar.h);
+            if (!isEmpty || !isEmpty2) {
+                JSONObject jSONObject2 = new JSONObject();
+                if (!isEmpty) {
+                    jSONObject2.put("appid", bVar.g);
+                }
+                if (!isEmpty2) {
+                    jSONObject2.put("info", bVar.h);
+                }
+                jSONObject.put("ext", jSONObject2);
+            }
+            ok3.k(new a(this, jSONObject), "SwanAppBusinessUbcRunnable");
+        } catch (JSONException e) {
+            if (eo1.a) {
+                e.printStackTrace();
+            }
         }
     }
 }

@@ -1,87 +1,96 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.SpannableStringBuilder;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.BdToastData;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.message.UserGrowthTaskRequestMessage;
-import com.baidu.tbadk.core.util.BdToastHelper;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.material.badge.BadgeDrawable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ks7 {
+public class ks7 extends BaseCardInfo implements sh6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public boolean b;
 
-    public static void a(final String str, final boolean z, int i, int i2, final boolean z2) {
-        final boolean z3;
+    @Override // com.baidu.tieba.sh6
+    public void J(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
-            final Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (i == 3) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            jg.a().post(new Runnable() { // from class: com.baidu.tieba.yr7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        ks7.b(currentActivity, z, z2, z3, str);
-                    }
-                }
-            });
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
         }
     }
 
-    public static /* synthetic */ void b(Activity activity, boolean z, boolean z2, boolean z3, String str) {
-        int b;
-        if (activity != null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            if (z) {
-                boolean i = m35.m().i("key_person_growth_share_switch", false);
-                if (z2 && !TbSingleton.getInstance().isUserGrowthTaskCompleted(UserGrowthTaskRequestMessage.SHARE_THREAD) && !i && !z3) {
-                    m35.m().w("key_person_growth_share_switch", true);
-                    BdToastData bdToastData = new BdToastData();
-                    if (TbadkCoreApplication.getCurrentMemberType() > 0) {
-                        bdToastData.setIconType(5);
-                    } else {
-                        bdToastData.setIconType(4);
-                    }
-                    ArrayList arrayList = new ArrayList(1);
-                    BdToastData.ContentBean contentBean = new BdToastData.ContentBean();
-                    contentBean.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.im_share_success_info_ug));
-                    arrayList.add(contentBean);
-                    String userGrowthWeight = TbSingleton.getInstance().getUserGrowthWeight(UserGrowthTaskRequestMessage.SHARE_THREAD);
-                    if (userGrowthWeight != null) {
-                        if (TbadkCoreApplication.getCurrentMemberType() > 0 && (b = q7a.b(userGrowthWeight, -1)) >= 0) {
-                            userGrowthWeight = (b * 2) + "";
-                        }
-                        spannableStringBuilder.append((CharSequence) BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX).append((CharSequence) userGrowthWeight);
-                        BdToastData.ContentBean contentBean2 = new BdToastData.ContentBean();
-                        contentBean2.setHasColor(1);
-                        contentBean2.setText(spannableStringBuilder.toString());
-                        arrayList.add(contentBean2);
-                    }
-                    bdToastData.setContent(arrayList);
-                    BdToastHelper.toast(bdToastData);
-                    MessageManager.getInstance().sendMessage(new UserGrowthTaskRequestMessage(UserGrowthTaskRequestMessage.SHARE_THREAD));
-                    return;
-                }
-                spannableStringBuilder.append((CharSequence) str);
-            } else {
-                spannableStringBuilder.append((CharSequence) str);
-            }
-            BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).k();
+    @Override // com.baidu.tieba.sh6
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
         }
+    }
+
+    @Override // com.baidu.tieba.sh6
+    public int getPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.sh6
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947923738, "Lcom/baidu/tieba/ks7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947923738, "Lcom/baidu/tieba/ks7;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
+
+    public ks7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

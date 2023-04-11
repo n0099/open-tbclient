@@ -1,15 +1,18 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.interest.data.RecentClientInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tc8 implements sc8 {
+public class tc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public rc8 a;
+    public RecentClientInfo b;
 
     public tc8() {
         Interceptable interceptable = $ic;
@@ -25,23 +28,35 @@ public class tc8 implements sc8 {
         }
     }
 
-    @Override // com.baidu.tieba.sc8
-    public oc8 get() {
+    public rc8 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (rc8) invokeV.objValue;
+    }
+
+    public RecentClientInfo b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return az8.m();
+            return this.b;
         }
-        return (oc8) invokeV.objValue;
+        return (RecentClientInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sc8
-    public pc8 a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public void c(rc8 rc8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            return new qc8(str, str2, str3);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rc8Var) == null) {
+            this.a = rc8Var;
         }
-        return (pc8) invokeLLL.objValue;
+    }
+
+    public void d(RecentClientInfo recentClientInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, recentClientInfo) == null) {
+            this.b = recentClientInfo;
+        }
     }
 }

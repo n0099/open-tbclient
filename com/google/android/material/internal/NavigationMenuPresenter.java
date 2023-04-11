@@ -31,7 +31,7 @@ import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NavigationMenuPresenter implements MenuPresenter {
     public static final String STATE_ADAPTER = "android:menu:adapter";
     public static final String STATE_HEADER = "android:menu:header";
@@ -77,11 +77,11 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     };
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class NavigationMenuHeaderItem implements NavigationMenuItem {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface NavigationMenuItem {
     }
 
@@ -105,14 +105,14 @@ public class NavigationMenuPresenter implements MenuPresenter {
         return false;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class HeaderViewHolder extends ViewHolder {
         public HeaderViewHolder(View view2) {
             super(view2);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class NavigationMenuAdapter extends RecyclerView.Adapter<ViewHolder> {
         public static final String STATE_ACTION_VIEWS = "android:menu:action_views";
         public static final String STATE_CHECKED_ITEM = "android:menu:checked";
@@ -419,7 +419,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class NavigationMenuSeparatorItem implements NavigationMenuItem {
         public final int paddingBottom;
         public final int paddingTop;
@@ -438,7 +438,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class NavigationMenuTextItem implements NavigationMenuItem {
         public final MenuItemImpl menuItem;
         public boolean needsEmptyIcon;
@@ -452,7 +452,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class NavigationMenuViewAccessibilityDelegate extends RecyclerViewAccessibilityDelegate {
         public NavigationMenuViewAccessibilityDelegate(@NonNull RecyclerView recyclerView) {
             super(recyclerView);
@@ -465,29 +465,29 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class NormalViewHolder extends ViewHolder {
         public NormalViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, View.OnClickListener onClickListener) {
-            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d022e, viewGroup, false));
+            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0230, viewGroup, false));
             this.itemView.setOnClickListener(onClickListener);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SeparatorViewHolder extends ViewHolder {
         public SeparatorViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup) {
-            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0230, viewGroup, false));
+            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0232, viewGroup, false));
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SubheaderViewHolder extends ViewHolder {
         public SubheaderViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup) {
-            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0231, viewGroup, false));
+            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0233, viewGroup, false));
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(View view2) {
             super(view2);
@@ -694,7 +694,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public MenuView getMenuView(ViewGroup viewGroup) {
         if (this.menuView == null) {
-            NavigationMenuView navigationMenuView = (NavigationMenuView) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0232, viewGroup, false);
+            NavigationMenuView navigationMenuView = (NavigationMenuView) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0234, viewGroup, false);
             this.menuView = navigationMenuView;
             navigationMenuView.setAccessibilityDelegateCompat(new NavigationMenuViewAccessibilityDelegate(this.menuView));
             if (this.adapter == null) {
@@ -704,7 +704,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
             if (i != -1) {
                 this.menuView.setOverScrollMode(i);
             }
-            this.headerLayout = (LinearLayout) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d022f, (ViewGroup) this.menuView, false);
+            this.headerLayout = (LinearLayout) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0231, (ViewGroup) this.menuView, false);
             this.menuView.setAdapter(this.adapter);
         }
         return this.menuView;

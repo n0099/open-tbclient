@@ -8,8 +8,8 @@ import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.RemindRecommendMessage;
-import com.baidu.tieba.m35;
-import com.baidu.tieba.ze9;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.qo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,10 +36,10 @@ public class AlarmReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || !BdNetTypeUtil.isNetWorkAvailable() || !ze9.e() || ze9.f(m35.m().o("tieba_last_active_time", 0L))) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || !BdNetTypeUtil.isNetWorkAvailable() || !qo9.e() || qo9.f(p45.m().o("tieba_last_active_time", 0L))) {
             return;
         }
-        RemindRecommendMessage a = ze9.a(TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_info", ""));
+        RemindRecommendMessage a = qo9.a(TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_info", ""));
         if (a != null) {
             MessageManager.getInstance().dispatchResponsedMessage(a);
         }

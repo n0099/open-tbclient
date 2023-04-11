@@ -29,8 +29,8 @@ public final class b {
         private void xK() {
             synchronized (this.aja) {
                 while (this.aja.size() > 0) {
-                    C0639b c0639b = (C0639b) this.aja.removeFirst();
-                    c0639b.ajd.register(this.aiZ, 8, c0639b);
+                    C0640b c0640b = (C0640b) this.aja.removeFirst();
+                    c0640b.ajd.register(this.aiZ, 8, c0640b);
                 }
             }
         }
@@ -40,17 +40,17 @@ public final class b {
             while (it.hasNext()) {
                 SelectionKey next = it.next();
                 it.remove();
-                C0639b c0639b = (C0639b) next.attachment();
+                C0640b c0640b = (C0640b) next.attachment();
                 SocketChannel socketChannel = (SocketChannel) next.channel();
                 try {
                     if (socketChannel.finishConnect()) {
                         next.cancel();
-                        c0639b.ajh = SystemClock.elapsedRealtime();
+                        c0640b.ajh = SystemClock.elapsedRealtime();
                         socketChannel.close();
                     }
                 } catch (Throwable th) {
                     bd.b(socketChannel);
-                    c0639b.aje = th;
+                    c0640b.aje = th;
                 }
             }
         }
@@ -59,23 +59,23 @@ public final class b {
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0005 */
         /* JADX DEBUG: Multi-variable search result rejected for r5v4, resolved type: java.nio.channels.Selector */
         /* JADX WARN: Multi-variable type inference failed */
-        public final void a(C0639b c0639b) {
+        public final void a(C0640b c0640b) {
             SocketChannel socketChannel;
             try {
                 socketChannel = SocketChannel.open();
                 try {
                     socketChannel.configureBlocking(false);
-                    boolean connect = socketChannel.connect(c0639b.ajc);
-                    c0639b.ajd = socketChannel;
+                    boolean connect = socketChannel.connect(c0640b.ajc);
+                    c0640b.ajd = socketChannel;
                     long elapsedRealtime = SystemClock.elapsedRealtime();
-                    c0639b.ajg = elapsedRealtime;
+                    c0640b.ajg = elapsedRealtime;
                     if (connect) {
-                        c0639b.ajh = elapsedRealtime;
+                        c0640b.ajh = elapsedRealtime;
                         bd.b(socketChannel);
-                        c0639b = c0639b;
+                        c0640b = c0640b;
                     } else {
                         synchronized (this.aja) {
-                            this.aja.add(c0639b);
+                            this.aja.add(c0640b);
                         }
                         if (this.aiZ == null) {
                             return;
@@ -83,14 +83,14 @@ public final class b {
                         try {
                             Selector selector = this.aiZ;
                             selector.wakeup();
-                            c0639b = selector;
+                            c0640b = selector;
                         } catch (Throwable unused) {
                         }
                     }
                 } catch (Throwable th) {
                     th = th;
                     bd.b(socketChannel);
-                    c0639b.aje = th;
+                    c0640b.aje = th;
                 }
             } catch (Throwable th2) {
                 th = th2;
@@ -138,7 +138,7 @@ public final class b {
 
     /* renamed from: com.kwad.sdk.ip.direct.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0639b {
+    public static class C0640b {
         public InetSocketAddress ajc;
         public SocketChannel ajd;
         public Throwable aje;
@@ -148,7 +148,7 @@ public final class b {
         public boolean aji = false;
         public boolean success;
 
-        public C0639b(String str) {
+        public C0640b(String str) {
             try {
                 this.ajc = new InetSocketAddress(InetAddress.getByName(str), b.port);
             } catch (Throwable th) {
@@ -195,10 +195,10 @@ public final class b {
             aVar.start();
             LinkedList linkedList = new LinkedList();
             for (int i = 0; i < cVar.xN(); i++) {
-                C0639b c0639b = new C0639b(str);
-                linkedList.add(c0639b);
+                C0640b c0640b = new C0640b(str);
+                linkedList.add(c0640b);
                 try {
-                    aVar.a(c0639b);
+                    aVar.a(c0640b);
                 } catch (Throwable th2) {
                     th2.printStackTrace();
                 }
@@ -212,11 +212,11 @@ public final class b {
                     Iterator it = linkedList.iterator();
                     boolean z = true;
                     while (it.hasNext()) {
-                        C0639b c0639b2 = (C0639b) it.next();
-                        c0639b2.xM();
-                        z &= c0639b2.success;
+                        C0640b c0640b2 = (C0640b) it.next();
+                        c0640b2.xM();
+                        z &= c0640b2.success;
                         cVar.aU(z);
-                        f += c0639b2.ajf;
+                        f += c0640b2.ajf;
                     }
                     com.kwad.sdk.core.e.b.d("IpDirect_Ping", "sum:" + f + "*size:" + linkedList.size());
                     cVar.g(f / ((float) linkedList.size()));

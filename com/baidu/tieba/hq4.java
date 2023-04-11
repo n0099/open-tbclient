@@ -1,61 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hq4 extends dq4 {
+public class hq4 extends fq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile long e;
+    public long e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hq4(yp4 yp4Var) {
-        super(yp4Var);
+    public hq4(zp4 zp4Var, long j) {
+        super(zp4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yp4Var};
+            Object[] objArr = {zp4Var, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((yp4) newInitContext.callArgs[0]);
+                super((zp4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = System.currentTimeMillis();
+        this.e = j;
     }
 
-    public synchronized long i() {
+    public long i() {
         InterceptResult invokeV;
-        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                this.e = System.currentTimeMillis() + 60000;
-                j = this.e;
-            }
-            return j;
+            return this.e;
         }
         return invokeV.longValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (System.currentTimeMillis() - this.e >= 60000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

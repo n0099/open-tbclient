@@ -1,85 +1,34 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
+import android.content.DialogInterface;
+import android.os.Build;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class d05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ArrayList<m05> b;
-    public AdapterView.OnItemClickListener c;
-    public ViewGroup d;
-    public BdListView e;
-    public l05 f;
-    public TextView g;
-    public TbPageContext<?> h;
-    public boolean i;
-    public AlertDialog j;
-    public AdapterView.OnItemClickListener k;
+    public AlertDialog a;
+    public Activity b;
+    public View c;
+    public DialogInterface.OnDismissListener d;
 
-    /* loaded from: classes4.dex */
-    public class a implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d05 a;
-
-        public a(d05 d05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d05Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d05Var;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (this.a.c != null) {
-                    this.a.c.onItemClick(adapterView, view2, i, j);
-                }
-                this.a.f();
-            }
-        }
-    }
-
-    public d05(TbPageContext<?> tbPageContext) {
+    public d05(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -89,193 +38,73 @@ public class d05 {
                 return;
             }
         }
-        this.i = false;
-        this.k = new a(this);
-        this.h = tbPageContext;
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.dialog_rich_layout, (ViewGroup) null);
-        this.d = viewGroup;
-        this.g = (TextView) viewGroup.findViewById(R.id.dialog_title_list);
-        this.e = (BdListView) this.d.findViewById(R.id.dialog_content_list);
-        this.f = new l05(this.h);
+        this.b = activity;
     }
 
-    public void i(boolean z) {
+    public void c(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f.b(z);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            this.c = view2;
         }
     }
 
-    public d05 l(int i) {
-        InterceptResult invokeI;
+    public void d(DialogInterface.OnDismissListener onDismissListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            m(this.h.getResources().getString(i));
-            return this;
-        }
-        return (d05) invokeI.objValue;
-    }
-
-    public d05 m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            this.a = str;
-            return this;
-        }
-        return (d05) invokeL.objValue;
-    }
-
-    public void b(a9<?> a9Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, a9Var) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (a9Var instanceof TbPageContext) {
-                TbPageContext tbPageContext = (TbPageContext) a9Var;
-                fv4 layoutMode = tbPageContext.getLayoutMode();
-                if (skinType == 4) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                layoutMode.l(z);
-                tbPageContext.getLayoutMode().k(this.d);
-            }
-            this.d.setBackgroundResource(R.drawable.transparent_bg);
+        if (interceptable == null || interceptable.invokeL(1048579, this, onDismissListener) == null) {
+            this.d = onDismissListener;
         }
     }
 
-    public void h(int i) {
+    public void a() {
+        AlertDialog alertDialog;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            for (int i2 = 0; i2 < this.b.size(); i2++) {
-                if (i2 == i) {
-                    this.b.get(i2).e(true);
-                } else {
-                    this.b.get(i2).e(false);
-                }
-            }
-            this.f.c(this.b);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (alertDialog = this.a) != null && alertDialog.isShowing()) {
+            this.a.dismiss();
         }
     }
 
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            for (int i2 = 0; i2 < this.b.size(); i2++) {
-                if (i2 == i) {
-                    m05 m05Var = this.b.get(i2);
-                    m05Var.e(!m05Var.d());
-                }
-            }
-            this.f.c(this.b);
-        }
-    }
-
-    public d05 c() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.i) {
-                return this;
+            if (Build.VERSION.SDK_INT >= 19) {
+                return 5894;
             }
-            this.i = true;
-            if (!TextUtils.isEmpty(this.a)) {
-                this.g.setText(this.a);
-                this.g.setVisibility(0);
-            } else {
-                this.g.setVisibility(8);
-            }
-            this.e.setAdapter((ListAdapter) this.f);
-            this.f.c(this.b);
-            b(this.h);
-            return this;
+            return 1280;
         }
-        return (d05) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void d() {
-        AlertDialog alertDialog;
+    public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (alertDialog = this.j) != null) {
-            lg.a(alertDialog, this.h.getPageActivity());
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.b == null) {
+            return;
         }
-    }
-
-    public View e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (this.a == null) {
+            AlertDialog create = new AlertDialog.Builder(this.b).create();
+            this.a = create;
+            create.requestWindowFeature(b());
+            GreyUtil.grey(this.a);
         }
-        return (View) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d();
+        if (this.a.isShowing()) {
+            this.a.dismiss();
         }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            b(this.h);
-            l05 l05Var = this.f;
-            if (l05Var != null) {
-                l05Var.notifyDataSetChanged();
-            }
+        this.a.setCancelable(true);
+        this.a.setOnDismissListener(this.d);
+        this.a.show();
+        Window window = this.a.getWindow();
+        window.getDecorView().setSystemUiVisibility(b());
+        window.addFlags(Integer.MIN_VALUE);
+        window.setStatusBarColor(0);
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        attributes.width = -1;
+        attributes.height = -1;
+        window.setNavigationBarColor(0);
+        window.setAttributes(attributes);
+        window.setDimAmount(0.0f);
+        View view2 = this.c;
+        if (view2 != null) {
+            this.a.setContentView(view2);
         }
-    }
-
-    public d05 k(ArrayList<m05> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, arrayList, onItemClickListener)) == null) {
-            if (arrayList != null && arrayList.size() > 0) {
-                this.b = arrayList;
-                if (onItemClickListener != null) {
-                    this.c = onItemClickListener;
-                    this.e.setOnItemClickListener(this.k);
-                }
-            }
-            return this;
-        }
-        return (d05) invokeLL.objValue;
-    }
-
-    public d05 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.i) {
-                AlertDialog alertDialog = this.j;
-                if (alertDialog != null) {
-                    lg.j(alertDialog, this.h);
-                    return this;
-                }
-                AlertDialog create = new AlertDialog.Builder(this.h.getPageActivity()).create();
-                this.j = create;
-                GreyUtil.grey(create);
-                this.j.setCanceledOnTouchOutside(true);
-                if (!lg.i(this.j, this.h.getPageActivity())) {
-                    return this;
-                }
-                Window window = this.j.getWindow();
-                window.addFlags(512);
-                WindowManager.LayoutParams attributes = window.getAttributes();
-                attributes.y = hi.g(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
-                window.setAttributes(attributes);
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f100404);
-                window.setGravity(80);
-                window.setLayout(-1, -2);
-                window.setContentView(this.d);
-                return this;
-            }
-            throw new RuntimeException("Dialog must be created by function create()!");
-        }
-        return (d05) invokeV.objValue;
     }
 }

@@ -1,16 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
-import com.baidu.tieba.frs.FrsFragment;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tieba.feed.component.CardPlayVoiceView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface x07 {
-    z87 a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
+public class x07 extends lz6<CardPlayVoiceView, VoiceData.VoiceModel> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    v07 b(FrsFragment frsFragment, mn mnVar, boolean z);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x07(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    y07 c();
+    @Override // com.baidu.tieba.lz6, com.baidu.tieba.a07
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            i17.n(a, null, null, null, -2);
+            return a;
+        }
+        return (View) invokeL.objValue;
+    }
 
-    z07 d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
-
-    p97 e(String str, FrsFragment frsFragment, int i);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.a07
+    /* renamed from: e */
+    public void b(@NonNull CardPlayVoiceView cardPlayVoiceView, @NonNull VoiceData.VoiceModel voiceModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardPlayVoiceView, voiceModel) == null) {
+            cardPlayVoiceView.update(voiceModel);
+        }
+    }
 }

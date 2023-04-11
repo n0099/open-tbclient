@@ -12,7 +12,7 @@ public interface Caller<M extends Member> {
     Object call(Object[] objArr);
 
     /* renamed from: getMember */
-    M mo2015getMember();
+    M mo2017getMember();
 
     List<Type> getParameterTypes();
 

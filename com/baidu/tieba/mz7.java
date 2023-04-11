@@ -1,142 +1,100 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
+import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
+import protobuf.Item;
 /* loaded from: classes5.dex */
 public class mz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public ArrayList<gn> b;
-    public List<tm> c;
-    public iz7 d;
-    public iz7 e;
-    public iz7 f;
-    public kz7 g;
-    public kz7 h;
-    public kz7 i;
+    public Long a;
+    public String b;
+    public Double c;
+    public String d;
+    public List<String> e;
+    public Double f;
+    public Integer g;
+    public String h;
+    public String i;
+    public String j;
+    public Integer k;
+    public Integer l;
+    public String m;
+    public String n;
+    public ApkDetailPojo o;
 
-    public mz7(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    public mz7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = new LinkedList();
-        if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.a = bdTypeRecyclerView;
-            b(tbPageContext);
-        }
-    }
-
-    public void a(int i) {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (bdTypeRecyclerView = this.a) != null) {
-            bdTypeRecyclerView.removeItem(i);
-        }
-    }
-
-    public void e(qn qnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qnVar) == null) {
-            for (tm tmVar : this.c) {
-                if (tmVar != null) {
-                    tmVar.setOnAdapterItemClickListener(qnVar);
-                }
             }
         }
     }
 
-    public void f(ArrayList<gn> arrayList) {
+    public static mz7 a(Item item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
-            this.a.setData(arrayList);
-            this.b = arrayList;
-        }
-    }
-
-    public void g(rn rnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, rnVar) == null) {
-            for (tm tmVar : this.c) {
-                if (tmVar != null) {
-                    tmVar.setOnAdapterItemLongClickListener(rnVar);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, item)) == null) {
+            if (item == null) {
+                return null;
             }
+            mz7 mz7Var = new mz7();
+            mz7Var.a = item.itemId;
+            mz7Var.b = item.itemName;
+            mz7Var.c = item.iconSize;
+            mz7Var.d = item.iconUrl;
+            mz7Var.e = item.tags;
+            mz7Var.f = item.score;
+            mz7Var.g = item.star;
+            mz7Var.h = item.buttonName;
+            mz7Var.i = item.buttonLink;
+            mz7Var.j = item.itemAppid;
+            mz7Var.k = item.categoryId;
+            mz7Var.l = item.buttonLinkType;
+            mz7Var.m = item.apkName;
+            mz7Var.n = item.forumName;
+            mz7Var.o = ApkDetailPojo.Q(item.apkDetail);
+            return mz7Var;
         }
+        return (mz7) invokeL.objValue;
     }
 
-    public void h(lf6 lf6Var) {
+    public static mz7 b(tbclient.Item item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, lf6Var) == null) {
-            this.i.x(lf6Var);
-            this.h.x(lf6Var);
-            this.g.x(lf6Var);
-        }
-    }
-
-    public final void b(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            iz7 iz7Var = new iz7(tbPageContext, gz7.C);
-            this.d = iz7Var;
-            iz7Var.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
-            iz7 iz7Var2 = new iz7(tbPageContext, gz7.D);
-            this.e = iz7Var2;
-            iz7Var2.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
-            iz7 iz7Var3 = new iz7(tbPageContext, gz7.E);
-            this.f = iz7Var3;
-            iz7Var3.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
-            kz7 kz7Var = new kz7(tbPageContext, gz7.H);
-            this.g = kz7Var;
-            kz7Var.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            kz7 kz7Var2 = new kz7(tbPageContext, gz7.G);
-            this.h = kz7Var2;
-            kz7Var2.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            kz7 kz7Var3 = new kz7(tbPageContext, gz7.F);
-            this.i = kz7Var3;
-            kz7Var3.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.c.add(this.g);
-            this.c.add(this.h);
-            this.c.add(this.i);
-            this.c.add(this.f);
-            this.a.addAdapters(this.c);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (tm tmVar : this.c) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, item)) == null) {
+            if (item == null) {
+                return null;
             }
+            mz7 mz7Var = new mz7();
+            mz7Var.a = item.item_id;
+            mz7Var.b = item.item_name;
+            mz7Var.c = item.icon_size;
+            mz7Var.d = item.icon_url;
+            mz7Var.e = item.tags;
+            mz7Var.f = item.score;
+            mz7Var.g = item.star;
+            mz7Var.h = item.button_name;
+            mz7Var.i = item.button_link;
+            mz7Var.j = item.item_appid;
+            mz7Var.k = item.category_id;
+            mz7Var.l = item.button_link_type;
+            mz7Var.m = item.apk_name;
+            mz7Var.n = item.forum_name;
+            mz7Var.o = ApkDetailPojo.R(item.apk_detail);
+            return mz7Var;
         }
+        return (mz7) invokeL.objValue;
     }
 }

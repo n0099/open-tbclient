@@ -1,18 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.adapter.LegoDelegateAdapter;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class b38 implements r48 {
+public class b38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public long d;
+    public YyExtData e;
+    public String f;
+    public String g;
 
     public b38() {
         Interceptable interceptable = $ic;
@@ -28,33 +35,88 @@ public class b38 implements r48 {
         }
     }
 
-    @Override // com.baidu.tieba.r48
-    public j48 a(n48 n48Var) {
-        InterceptResult invokeL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, n48Var)) == null) {
-            return new l48(n48Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (j48) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.r48
-    public n38 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
-        InterceptResult invokeLLI;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, i)) == null) {
-            return new LegoDelegateAdapter(tbPageContext, bdUniqueId, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (n38) invokeLLI.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.r48
-    public t48 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, bdUniqueId)) == null) {
-            return new v48(tbPageContext, bdUniqueId);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
         }
-        return (t48) invokeLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public YyExtData g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (YyExtData) invokeV.objValue;
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+        jSONObject.optLong("live_id");
+        this.b = jSONObject.optString("user_name");
+        jSONObject.optString("portrait");
+        this.c = jSONObject.optInt("audience_count");
+        jSONObject.optString("title");
+        this.d = jSONObject.optLong("room_id");
+        jSONObject.optString("cover_wide");
+        JSONObject optJSONObject = jSONObject.optJSONObject("yy_ext");
+        YyExtData yyExtData = new YyExtData();
+        this.e = yyExtData;
+        yyExtData.parserJson(optJSONObject);
+        this.f = jSONObject.optString("label_name");
+        jSONObject.optString("feed_id");
+        this.g = jSONObject.optString("user_id");
     }
 }

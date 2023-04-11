@@ -1,78 +1,82 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class lq1 implements vd4 {
+public class lq1 implements ts1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<String> a;
 
-    @Override // com.baidu.tieba.vd4
-    public boolean a() {
+    @Override // com.baidu.tieba.ts1
+    public File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (File) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vd4
-    public void b(Activity activity, be4 be4Var) {
+    @Override // com.baidu.tieba.l13
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, be4Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vd4
-    public void c(int i, List<be4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.vd4
-    public void d(int i, List<be4> list) {
+    @Override // com.baidu.tieba.l13
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, list) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.vd4
-    public void g(Activity activity, be4 be4Var) {
+    @Override // com.baidu.tieba.ts1
+    public void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, activity, be4Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.vd4
-    public void h(Context context, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.ts1
+    public void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, th) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.vd4
-    public boolean j(be4 be4Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ts1
+    public void flush(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, be4Var)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ts1
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ts1
+    public void w(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ts1
+    public void w(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, th) == null) {
+        }
     }
 
     public lq1() {
@@ -85,39 +89,6 @@ public class lq1 implements vd4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        SparseArray<String> sparseArray = new SparseArray<>();
-        this.a = sparseArray;
-        sparseArray.put(38, DI.BD.FAVOR);
-        if (!ar2.c0().a()) {
-            this.a.put(35, "add to launch");
-        }
-        if (ar2.n().a().equals("vivobrowser")) {
-            this.a.put(4, "share");
-        }
-    }
-
-    @Override // com.baidu.tieba.vd4
-    public void e(int i, List<be4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, list) == null) {
-            l(i, list);
-        }
-    }
-
-    public final void l(int i, List<be4> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, list) == null) && !nl3.G() && list != null && list.size() > 0) {
-            ArrayList arrayList = new ArrayList();
-            for (be4 be4Var : list) {
-                if (this.a.get(be4Var.c()) != null) {
-                    arrayList.add(be4Var);
-                }
-            }
-            if (arrayList.size() > 0) {
-                list.removeAll(arrayList);
             }
         }
     }

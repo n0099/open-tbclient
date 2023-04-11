@@ -1,55 +1,82 @@
 package com.baidu.tieba;
 
+import android.app.ActivityManager;
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Process;
+import androidx.multidex.MultiDex;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.base.BuildConfig;
+import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes6.dex */
-public class w8a extends u8a {
+public class w8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public t8a i() {
-        InterceptResult invokeV;
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (t8a) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w8a(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                int myPid = Process.myPid();
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                    if (runningAppProcessInfo.pid == myPid) {
+                        return runningAppProcessInfo.processName;
+                    }
+                }
+                return null;
+            } catch (SecurityException unused) {
+                return null;
             }
         }
-        this.d = "";
-        this.b = false;
-        this.c = false;
-        this.g = -100;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.t8a
-    public t8a d() {
-        InterceptResult invokeV;
+    public static void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            i();
-            return this;
+        if ((interceptable != null && interceptable.invokeL(65537, null, context) != null) || !BuildConfig.isMultidexEnabled()) {
+            return;
         }
-        return (t8a) invokeV.objValue;
+        if (Build.VERSION.SDK_INT < 21 && !c(context)) {
+            u8a.h("base_multidex", "Skipping multidex installation: not needed for process.", new Object[0]);
+            return;
+        }
+        MultiDex.install(context);
+        u8a.h("base_multidex", "Completed multidex installation.", new Object[0]);
+    }
+
+    public static boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                Object invoke = Process.class.getMethod("isIsolated", new Class[0]).invoke(null, new Object[0]);
+                if (invoke != null && (invoke instanceof Boolean)) {
+                    if (((Boolean) invoke).booleanValue()) {
+                        return false;
+                    }
+                }
+            } catch (IllegalAccessException | IllegalArgumentException | NoSuchMethodException | InvocationTargetException unused) {
+            }
+            String a = a(context);
+            if (a == null) {
+                return true;
+            }
+            try {
+                ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                if (applicationInfo != null && applicationInfo.metaData != null) {
+                    Bundle bundle = applicationInfo.metaData;
+                    return !bundle.getBoolean(a + ".ignore_multidex", false);
+                }
+            } catch (PackageManager.NameNotFoundException unused2) {
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

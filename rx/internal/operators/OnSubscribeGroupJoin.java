@@ -1,15 +1,15 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.asa;
-import com.baidu.tieba.gsa;
-import com.baidu.tieba.hsa;
-import com.baidu.tieba.iwa;
-import com.baidu.tieba.ora;
-import com.baidu.tieba.pra;
-import com.baidu.tieba.qva;
-import com.baidu.tieba.rva;
-import com.baidu.tieba.ura;
-import com.baidu.tieba.vra;
+import com.baidu.tieba.f1b;
+import com.baidu.tieba.g1b;
+import com.baidu.tieba.h5b;
+import com.baidu.tieba.i5b;
+import com.baidu.tieba.l1b;
+import com.baidu.tieba.m1b;
+import com.baidu.tieba.r1b;
+import com.baidu.tieba.x1b;
+import com.baidu.tieba.y1b;
+import com.baidu.tieba.z5b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,31 +17,31 @@ import java.util.Map;
 import rx.subjects.PublishSubject;
 import rx.subscriptions.RefCountSubscription;
 /* loaded from: classes9.dex */
-public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements ora.a<R> {
-    public final ora<T1> a;
-    public final ora<T2> b;
-    public final gsa<? super T1, ? extends ora<D1>> c;
-    public final gsa<? super T2, ? extends ora<D2>> d;
-    public final hsa<? super T1, ? super ora<T2>, ? extends R> e;
+public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements f1b.a<R> {
+    public final f1b<T1> a;
+    public final f1b<T2> b;
+    public final x1b<? super T1, ? extends f1b<D1>> c;
+    public final x1b<? super T2, ? extends f1b<D2>> d;
+    public final y1b<? super T1, ? super f1b<T2>, ? extends R> e;
 
     /* loaded from: classes9.dex */
-    public final class ResultManager extends HashMap<Integer, pra<T2>> implements vra {
+    public final class ResultManager extends HashMap<Integer, g1b<T2>> implements m1b {
         public static final long serialVersionUID = -3035156013812425335L;
         public boolean leftDone;
         public int leftIds;
         public boolean rightDone;
         public int rightIds;
-        public final ura<? super R> subscriber;
+        public final l1b<? super R> subscriber;
         public final Map<Integer, T2> rightMap = new HashMap();
-        public final iwa group = new iwa();
+        public final z5b group = new z5b();
         public final RefCountSubscription cancel = new RefCountSubscription(this.group);
 
-        public Map<Integer, pra<T2>> leftMap() {
+        public Map<Integer, g1b<T2>> leftMap() {
             return this;
         }
 
         /* loaded from: classes9.dex */
-        public final class a extends ura<D1> {
+        public final class a extends l1b<D1> {
             public final int e;
             public boolean f = true;
 
@@ -49,9 +49,9 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements ora.a<R> {
                 this.e = i;
             }
 
-            @Override // com.baidu.tieba.pra
+            @Override // com.baidu.tieba.g1b
             public void onCompleted() {
-                pra<T2> remove;
+                g1b<T2> remove;
                 if (this.f) {
                     this.f = false;
                     synchronized (ResultManager.this) {
@@ -64,28 +64,28 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements ora.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.pra
+            @Override // com.baidu.tieba.g1b
             public void onError(Throwable th) {
                 ResultManager.this.errorMain(th);
             }
 
-            @Override // com.baidu.tieba.pra
+            @Override // com.baidu.tieba.g1b
             public void onNext(D1 d1) {
                 onCompleted();
             }
         }
 
         /* loaded from: classes9.dex */
-        public final class b extends ura<T1> {
+        public final class b extends l1b<T1> {
             public b() {
             }
 
-            @Override // com.baidu.tieba.pra
+            @Override // com.baidu.tieba.g1b
             public void onError(Throwable th) {
                 ResultManager.this.errorAll(th);
             }
 
-            @Override // com.baidu.tieba.pra
+            @Override // com.baidu.tieba.g1b
             public void onCompleted() {
                 ArrayList arrayList;
                 synchronized (ResultManager.this) {
@@ -101,20 +101,20 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements ora.a<R> {
                 ResultManager.this.complete(arrayList);
             }
 
-            @Override // com.baidu.tieba.pra
+            @Override // com.baidu.tieba.g1b
             public void onNext(T1 t1) {
                 int i;
                 ArrayList<Object> arrayList;
                 try {
                     PublishSubject D = PublishSubject.D();
-                    qva qvaVar = new qva(D);
+                    h5b h5bVar = new h5b(D);
                     synchronized (ResultManager.this) {
                         ResultManager resultManager = ResultManager.this;
                         i = resultManager.leftIds;
                         resultManager.leftIds = i + 1;
-                        ResultManager.this.leftMap().put(Integer.valueOf(i), qvaVar);
+                        ResultManager.this.leftMap().put(Integer.valueOf(i), h5bVar);
                     }
-                    ora a = ora.a(new a(D, ResultManager.this.cancel));
+                    f1b a = f1b.a(new a(D, ResultManager.this.cancel));
                     a aVar = new a(i);
                     ResultManager.this.group.a(aVar);
                     OnSubscribeGroupJoin.this.c.call(t1).B(aVar);
@@ -124,16 +124,16 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements ora.a<R> {
                     }
                     ResultManager.this.subscriber.onNext(call);
                     for (Object obj : arrayList) {
-                        qvaVar.onNext(obj);
+                        h5bVar.onNext(obj);
                     }
                 } catch (Throwable th) {
-                    asa.f(th, this);
+                    r1b.f(th, this);
                 }
             }
         }
 
         /* loaded from: classes9.dex */
-        public final class c extends ura<D2> {
+        public final class c extends l1b<D2> {
             public final int e;
             public boolean f = true;
 
@@ -141,7 +141,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements ora.a<R> {
                 this.e = i;
             }
 
-            @Override // com.baidu.tieba.pra
+            @Override // com.baidu.tieba.g1b
             public void onCompleted() {
                 if (this.f) {
                     this.f = false;
@@ -152,28 +152,28 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements ora.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.pra
+            @Override // com.baidu.tieba.g1b
             public void onError(Throwable th) {
                 ResultManager.this.errorMain(th);
             }
 
-            @Override // com.baidu.tieba.pra
+            @Override // com.baidu.tieba.g1b
             public void onNext(D2 d2) {
                 onCompleted();
             }
         }
 
         /* loaded from: classes9.dex */
-        public final class d extends ura<T2> {
+        public final class d extends l1b<T2> {
             public d() {
             }
 
-            @Override // com.baidu.tieba.pra
+            @Override // com.baidu.tieba.g1b
             public void onError(Throwable th) {
                 ResultManager.this.errorAll(th);
             }
 
-            @Override // com.baidu.tieba.pra
+            @Override // com.baidu.tieba.g1b
             public void onCompleted() {
                 ArrayList arrayList;
                 synchronized (ResultManager.this) {
@@ -189,10 +189,10 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements ora.a<R> {
                 ResultManager.this.complete(arrayList);
             }
 
-            @Override // com.baidu.tieba.pra
+            @Override // com.baidu.tieba.g1b
             public void onNext(T2 t2) {
                 int i;
-                ArrayList<pra> arrayList;
+                ArrayList<g1b> arrayList;
                 try {
                     synchronized (ResultManager.this) {
                         ResultManager resultManager = ResultManager.this;
@@ -206,23 +206,23 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements ora.a<R> {
                     synchronized (ResultManager.this) {
                         arrayList = new ArrayList(ResultManager.this.leftMap().values());
                     }
-                    for (pra praVar : arrayList) {
-                        praVar.onNext(t2);
+                    for (g1b g1bVar : arrayList) {
+                        g1bVar.onNext(t2);
                     }
                 } catch (Throwable th) {
-                    asa.f(th, this);
+                    r1b.f(th, this);
                 }
             }
         }
 
-        public ResultManager(ura<? super R> uraVar) {
-            this.subscriber = uraVar;
+        public ResultManager(l1b<? super R> l1bVar) {
+            this.subscriber = l1bVar;
         }
 
-        public void complete(List<pra<T2>> list) {
+        public void complete(List<g1b<T2>> list) {
             if (list != null) {
-                for (pra<T2> praVar : list) {
-                    praVar.onCompleted();
+                for (g1b<T2> g1bVar : list) {
+                    g1bVar.onCompleted();
                 }
                 this.subscriber.onCompleted();
                 this.cancel.unsubscribe();
@@ -239,14 +239,14 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements ora.a<R> {
         }
 
         public void errorAll(Throwable th) {
-            ArrayList<pra> arrayList;
+            ArrayList<g1b> arrayList;
             synchronized (this) {
                 arrayList = new ArrayList(leftMap().values());
                 leftMap().clear();
                 this.rightMap.clear();
             }
-            for (pra praVar : arrayList) {
-                praVar.onError(th);
+            for (g1b g1bVar : arrayList) {
+                g1bVar.onError(th);
             }
             this.subscriber.onError(th);
             this.cancel.unsubscribe();
@@ -261,78 +261,78 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements ora.a<R> {
             OnSubscribeGroupJoin.this.b.B(dVar);
         }
 
-        @Override // com.baidu.tieba.vra
+        @Override // com.baidu.tieba.m1b
         public boolean isUnsubscribed() {
             return this.cancel.isUnsubscribed();
         }
 
-        @Override // com.baidu.tieba.vra
+        @Override // com.baidu.tieba.m1b
         public void unsubscribe() {
             this.cancel.unsubscribe();
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class a<T> implements ora.a<T> {
+    public static final class a<T> implements f1b.a<T> {
         public final RefCountSubscription a;
-        public final ora<T> b;
+        public final f1b<T> b;
 
         /* renamed from: rx.internal.operators.OnSubscribeGroupJoin$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public final class C0745a extends ura<T> {
-            public final ura<? super T> e;
-            public final vra f;
+        public final class C0746a extends l1b<T> {
+            public final l1b<? super T> e;
+            public final m1b f;
 
-            public C0745a(a aVar, ura<? super T> uraVar, vra vraVar) {
-                super(uraVar);
-                this.e = uraVar;
-                this.f = vraVar;
+            public C0746a(a aVar, l1b<? super T> l1bVar, m1b m1bVar) {
+                super(l1bVar);
+                this.e = l1bVar;
+                this.f = m1bVar;
             }
 
-            @Override // com.baidu.tieba.pra
+            @Override // com.baidu.tieba.g1b
             public void onCompleted() {
                 this.e.onCompleted();
                 this.f.unsubscribe();
             }
 
-            @Override // com.baidu.tieba.pra
+            @Override // com.baidu.tieba.g1b
             public void onError(Throwable th) {
                 this.e.onError(th);
                 this.f.unsubscribe();
             }
 
-            @Override // com.baidu.tieba.pra
+            @Override // com.baidu.tieba.g1b
             public void onNext(T t) {
                 this.e.onNext(t);
             }
         }
 
-        public a(ora<T> oraVar, RefCountSubscription refCountSubscription) {
+        public a(f1b<T> f1bVar, RefCountSubscription refCountSubscription) {
             this.a = refCountSubscription;
-            this.b = oraVar;
+            this.b = f1bVar;
         }
 
-        public void call(ura<? super T> uraVar) {
-            vra a = this.a.a();
-            C0745a c0745a = new C0745a(this, uraVar, a);
-            c0745a.b(a);
-            this.b.B(c0745a);
+        public void call(l1b<? super T> l1bVar) {
+            m1b a = this.a.a();
+            C0746a c0746a = new C0746a(this, l1bVar, a);
+            c0746a.b(a);
+            this.b.B(c0746a);
         }
 
-        @Override // com.baidu.tieba.ora.a, com.baidu.tieba.csa
+        @Override // com.baidu.tieba.f1b.a, com.baidu.tieba.t1b
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((ura) ((ura) obj));
+            call((l1b) ((l1b) obj));
         }
     }
 
-    public void call(ura<? super R> uraVar) {
-        ResultManager resultManager = new ResultManager(new rva(uraVar));
-        uraVar.b(resultManager);
+    public void call(l1b<? super R> l1bVar) {
+        ResultManager resultManager = new ResultManager(new i5b(l1bVar));
+        l1bVar.b(resultManager);
         resultManager.init();
     }
 
-    @Override // com.baidu.tieba.ora.a, com.baidu.tieba.csa
+    @Override // com.baidu.tieba.f1b.a, com.baidu.tieba.t1b
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((ura) ((ura) obj));
+        call((l1b) ((l1b) obj));
     }
 }

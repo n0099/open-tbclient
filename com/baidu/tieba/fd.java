@@ -53,7 +53,7 @@ public class fd implements ed {
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return zh.e(String.valueOf(this.a), 0);
+                                                    return ai.e(String.valueOf(this.a), 0);
                                                 } catch (IOException e) {
                                                     e.printStackTrace();
                                                     return null;

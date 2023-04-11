@@ -1,24 +1,43 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
-import android.system.Os;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.rtc.RTCConst;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileOutputStream;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ko4 implements ho4<String> {
+public class ko4 implements io4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
+
+    @Override // com.baidu.tieba.io4
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.io4
+    /* renamed from: c */
+    public void put(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
 
     public ko4(Context context) {
         Interceptable interceptable = $ic;
@@ -38,18 +57,8 @@ public class ko4 implements ho4<String> {
         this.a = context.getApplicationContext();
     }
 
-    @Override // com.baidu.tieba.ho4
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !new File(this.a.getFilesDir(), "libuuid.so").exists();
-        }
-        return invokeV.booleanValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ho4
+    @Override // com.baidu.tieba.io4
     /* renamed from: b */
     public String get() {
         InterceptResult invokeV;
@@ -64,55 +73,24 @@ public class ko4 implements ho4<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File file = new File(this.a.getFilesDir(), "libuuid.so");
-            if (!file.exists()) {
-                return null;
-            }
-            return no4.c(file);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ho4
-    /* renamed from: c */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            e(str);
-        }
-    }
-
-    @SuppressLint({"WorldReadableFiles"})
-    @TargetApi(21)
-    public final void e(String str) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            File file = new File(this.a.getFilesDir(), "libuuid.so");
-            if (Build.VERSION.SDK_INT >= 24) {
-                i = 1;
-            } else {
-                i = 0;
-            }
-            FileOutputStream fileOutputStream = null;
-            try {
-                try {
-                    fileOutputStream = this.a.openFileOutput("libuuid.so", i ^ 1);
-                    fileOutputStream.write(str.getBytes());
-                    fileOutputStream.flush();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (i != 0) {
-                    try {
-                        Os.chmod(file.getAbsolutePath(), RTCConst.RTC_ROOM_USERID_ALREADY_EXIST_ERROR);
-                    } catch (Exception unused) {
+            List<ResolveInfo> queryBroadcastReceivers = this.a.getPackageManager().queryBroadcastReceivers(new Intent("com.baidu.intent.action.UUID"), 0);
+            String str = null;
+            if (queryBroadcastReceivers != null && queryBroadcastReceivers.size() > 0) {
+                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
+                    ActivityInfo activityInfo = resolveInfo.activityInfo;
+                    if (activityInfo != null && activityInfo.applicationInfo != null && !this.a.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
+                        File file = new File(new File(resolveInfo.activityInfo.applicationInfo.dataDir, NetDiskFileMsg.JSON_KEY_FILES), "libuuid.so");
+                        if (file.exists()) {
+                            str = oo4.c(file);
+                        }
+                        if (!TextUtils.isEmpty(str)) {
+                            break;
+                        }
                     }
                 }
-            } finally {
-                no4.a(fileOutputStream);
             }
+            return str;
         }
+        return (String) invokeV.objValue;
     }
 }

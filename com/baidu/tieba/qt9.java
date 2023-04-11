@@ -1,7 +1,25 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface qt9 {
-    void a(Bitmap bitmap, boolean z);
+public final class qt9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static final void a(String str) {
+        me<byte[]> c;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && (c = b05.c(str, TbadkCoreApplication.getCurrentAccount())) != null) {
+            c.g("0", null);
+        }
+    }
+
+    public static final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            a("tb.rec_frs_update");
+        }
+    }
 }

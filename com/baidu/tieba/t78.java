@@ -1,16 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.EventDispatcherService;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class t78 extends pj1<EventDispatcherService> {
+public abstract class t78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public r78 a;
+    public a58 b;
+
+    public abstract BaseTagItemViewHolder b(ViewGroup viewGroup, int i);
 
     public t78() {
         Interceptable interceptable = $ic;
@@ -26,15 +30,17 @@ public class t78 extends pj1<EventDispatcherService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pj1
-    /* renamed from: a */
-    public EventDispatcherService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void a(r78 r78Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new u78();
+        if (interceptable == null || interceptable.invokeL(1048576, this, r78Var) == null) {
+            this.a = r78Var;
         }
-        return (EventDispatcherService) invokeV.objValue;
+    }
+
+    public void c(a58 a58Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a58Var) == null) {
+            this.b = a58Var;
+        }
     }
 }

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum AsynTaskMgr {
     INSTANCE;
     
@@ -31,7 +31,7 @@ public enum AsynTaskMgr {
     public Handler mHandler = null;
     public AtomicBoolean mMonitorStarted = new AtomicBoolean(false);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class AsynTaskHandler extends Handler {
         public AsynTaskHandler(Looper looper) {
             super(looper);

@@ -1,141 +1,166 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class x18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<MetaData> a;
+    public List<MetaData> b;
+    public List<MetaData> c;
+    public List<MetaData> d;
 
-    @Nullable
-    public static ChatMsg a(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("type", 1);
-                jSONObject.put("from", "android");
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("text", str);
-                jSONObject.put("content", jSONObject2);
-                TextMsg textMsg = new TextMsg();
-                textMsg.setMsgId(0L);
-                textMsg.setMsgKey(String.valueOf(System.currentTimeMillis()));
-                textMsg.setContentExtra(jSONObject.toString());
-                textMsg.setText(str);
-                return textMsg;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
+    /* loaded from: classes6.dex */
+    public class a implements Comparator<MetaData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(x18 x18Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x18Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        return (ChatMsg) invokeL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(MetaData metaData, MetaData metaData2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, metaData, metaData2)) == null) {
+                return Long.compare(metaData.lastUpdateTime, metaData2.lastUpdateTime);
+            }
+            return invokeLL.intValue;
+        }
     }
 
-    @Nullable
-    public static ChatMsg b(@NonNull Object obj) {
-        InterceptResult invokeL;
+    public x18() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
-            if (obj instanceof l08) {
-                try {
-                    l08 l08Var = (l08) obj;
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("type", 1);
-                    jSONObject.put("from", "android");
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("text", l08Var.a());
-                    jSONObject.put("content", jSONObject2);
-                    TextMsg textMsg = new TextMsg();
-                    textMsg.setText(l08Var.a());
-                    textMsg.setSenderUid(BIMManager.getBdUidFromBdUK(String.valueOf(q18.k.a())));
-                    textMsg.setContentExtra(jSONObject.toString());
-                    return textMsg;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            } else if (obj instanceof i08) {
-                try {
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("type", Integer.MAX_VALUE);
-                    jSONObject3.put("from", "android");
-                    jSONObject3.put("isSelf", false);
-                    TextMsg textMsg2 = new TextMsg();
-                    textMsg2.setMsgId(Long.MAX_VALUE);
-                    textMsg2.setMsgKey(String.valueOf(System.currentTimeMillis()));
-                    textMsg2.setSenderUid(BIMManager.getBdUidFromBdUK(String.valueOf(q18.k.a())));
-                    textMsg2.setContentExtra(jSONObject3.toString());
-                    return textMsg2;
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                    return null;
-                }
-            } else {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (ChatMsg) invokeL.objValue;
+        this.d = new ArrayList();
     }
 
-    @Nullable
-    public static k08<Object> c(@NonNull ChatMsg chatMsg) {
-        InterceptResult invokeL;
+    public List<MetaData> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMsg)) == null) {
-            k08<Object> k08Var = new k08<>();
-            if (chatMsg instanceof TextMsg) {
-                String text = ((TextMsg) chatMsg).getText();
-                l08 l08Var = new l08();
-                if (text == null) {
-                    text = "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return c(true, true);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Collections.sort(this.d, new a(this));
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!me8.e(this.a)) {
+                for (MetaData metaData : this.a) {
+                    metaData.setItemType(1);
                 }
-                l08Var.b(text);
-                k08Var.h(l08Var);
             }
-            k08Var.c(chatMsg.getMsgId());
-            k08Var.d(chatMsg.getMsgKey());
-            k08Var.e().l(chatMsg.getContacterUk());
-            k08Var.e().k(q7a.c(chatMsg.getSenderUid(), 0L));
-            k08Var.e().i(chatMsg.getStatus());
-            k08Var.i(chatMsg);
-            boolean isSelf = chatMsg.isSelf(TbadkApplication.getInst());
-            k08Var.e().h(isSelf);
-            if (!isSelf) {
-                k08Var.e().g(TbSingleton.getInstance().getFunnySpriteAvatar());
-                k08Var.e().f(TbSingleton.getInstance().getFunnySpriteName());
-            } else {
-                k08Var.e().g(TbadkCoreApplication.getCurrentPortrait());
-                k08Var.e().f(TbadkCoreApplication.getCurrentAccountNameShow());
+            if (!me8.e(this.c)) {
+                for (MetaData metaData2 : this.c) {
+                    metaData2.setItemType(2);
+                }
             }
-            String contentExtra = chatMsg.getContentExtra();
-            if (!StringUtils.isNull(contentExtra)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(contentExtra);
-                    k08Var.e().j(jSONObject.optInt("type"));
-                    k08Var.e().e(jSONObject.optString("from"));
-                    if (k08Var.e().getType() == Integer.MAX_VALUE) {
-                        k08Var.h(new i08());
+            if (!me8.e(this.b)) {
+                for (MetaData metaData3 : this.b) {
+                    metaData3.setItemType(3);
+                }
+            }
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (MetaData metaData : this.a) {
+                if (metaData != null) {
+                    arrayList.add(metaData.getUserId());
+                }
+            }
+            if (me8.e(this.c)) {
+                return;
+            }
+            for (MetaData metaData2 : this.c) {
+                if (metaData2 != null) {
+                    if (metaData2.getUserId() == null) {
+                        this.d.add(metaData2);
+                    } else if (!arrayList.contains(metaData2.getUserId())) {
+                        arrayList.add(metaData2.getUserId());
+                        this.d.add(metaData2);
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 }
             }
-            return k08Var;
         }
-        return (k08) invokeL.objValue;
+    }
+
+    public List<MetaData> c(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            this.a = y18.a();
+            if (z) {
+                this.b = z18.a();
+            }
+            a();
+            e(z);
+            f();
+            if (z2) {
+                this.c = b28.a();
+                d();
+            }
+            return this.d;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            if (!me8.e(this.a)) {
+                this.d.addAll(this.a);
+            }
+            if (z && !me8.e(this.b)) {
+                this.d.addAll(this.b);
+            }
+        }
     }
 }

@@ -1,96 +1,103 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ce6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes7.dex */
-public abstract class ya6<T extends ce6> {
+public class ya6 {
     public static /* synthetic */ Interceptable $ic;
+    public static Timer a;
+    public static int b;
+    public static ExecutorService c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final T[] b;
 
-    public ya6(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Runnable a;
+
+        public a(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = runnable;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.run();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948323483, "Lcom/baidu/tieba/ya6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948323483, "Lcom/baidu/tieba/ya6;");
                 return;
             }
         }
-        this.a = 0;
-        if (i > 0) {
-            this.b = (T[]) new ce6[i];
-        } else {
-            this.b = (T[]) new ce6[5];
-        }
-        Arrays.fill(this.b, (Object) null);
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        b = availableProcessors;
+        c = Executors.newFixedThreadPool(availableProcessors);
     }
 
-    public synchronized boolean c(T t) {
+    public static void a() {
+        Timer timer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (timer = a) != null) {
+            timer.cancel();
+            a = null;
+        }
+    }
+
+    public static Timer b(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            synchronized (this) {
-                if (b(t)) {
-                    return true;
-                }
-                if (this.a < this.b.length) {
-                    T[] tArr = this.b;
-                    int i = this.a;
-                    this.a = i + 1;
-                    tArr[i] = t;
-                    return true;
-                }
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, runnable)) == null) {
+            Timer timer = a;
+            if (timer != null) {
+                return timer;
             }
+            a = new Timer();
+            a.scheduleAtFixedRate(new a(runnable), 0L, 2000L);
+            return a;
         }
-        return invokeL.booleanValue;
+        return (Timer) invokeL.objValue;
     }
 
-    public synchronized T a() {
-        InterceptResult invokeV;
+    public static void c(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.a <= 0) {
-                    return null;
-                }
-                T[] tArr = this.b;
-                int i = this.a - 1;
-                this.a = i;
-                T t = tArr[i];
-                this.b[i] = null;
-                return t;
-            }
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            c.execute(runnable);
         }
-        return (T) invokeV.objValue;
-    }
-
-    public boolean b(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-            for (int i = 0; i < this.a; i++) {
-                if (Objects.equals(this.b[i], t)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

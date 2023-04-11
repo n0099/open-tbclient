@@ -109,9 +109,9 @@ public final class SafeCollector<T> extends ContinuationImpl implements FlowColl
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public Object invokeSuspend(Object obj) {
-        Throwable m771exceptionOrNullimpl = Result.m771exceptionOrNullimpl(obj);
-        if (m771exceptionOrNullimpl != null) {
-            this.lastEmissionContext = new DownstreamExceptionElement(m771exceptionOrNullimpl);
+        Throwable m773exceptionOrNullimpl = Result.m773exceptionOrNullimpl(obj);
+        if (m773exceptionOrNullimpl != null) {
+            this.lastEmissionContext = new DownstreamExceptionElement(m773exceptionOrNullimpl);
         }
         Continuation<? super Unit> continuation = this.completion;
         if (continuation != null) {

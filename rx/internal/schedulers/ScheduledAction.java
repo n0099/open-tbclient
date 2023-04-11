@@ -1,37 +1,37 @@
 package rx.internal.schedulers;
 
-import com.baidu.tieba.bsa;
-import com.baidu.tieba.iwa;
-import com.baidu.tieba.vra;
-import com.baidu.tieba.vva;
-import com.baidu.tieba.zta;
+import com.baidu.tieba.m1b;
+import com.baidu.tieba.m5b;
+import com.baidu.tieba.q3b;
+import com.baidu.tieba.s1b;
+import com.baidu.tieba.z5b;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes9.dex */
-public final class ScheduledAction extends AtomicReference<Thread> implements Runnable, vra {
+public final class ScheduledAction extends AtomicReference<Thread> implements Runnable, m1b {
     public static final long serialVersionUID = -3962399486978279857L;
-    public final bsa action;
-    public final zta cancel;
+    public final s1b action;
+    public final q3b cancel;
 
     /* loaded from: classes9.dex */
-    public static final class Remover extends AtomicBoolean implements vra {
+    public static final class Remover extends AtomicBoolean implements m1b {
         public static final long serialVersionUID = 247232374289553518L;
-        public final iwa parent;
+        public final z5b parent;
         public final ScheduledAction s;
 
-        public Remover(ScheduledAction scheduledAction, iwa iwaVar) {
+        public Remover(ScheduledAction scheduledAction, z5b z5bVar) {
             this.s = scheduledAction;
-            this.parent = iwaVar;
+            this.parent = z5bVar;
         }
 
-        @Override // com.baidu.tieba.vra
+        @Override // com.baidu.tieba.m1b
         public boolean isUnsubscribed() {
             return this.s.isUnsubscribed();
         }
 
-        @Override // com.baidu.tieba.vra
+        @Override // com.baidu.tieba.m1b
         public void unsubscribe() {
             if (compareAndSet(false, true)) {
                 this.parent.b(this.s);
@@ -40,22 +40,22 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
     }
 
     /* loaded from: classes9.dex */
-    public static final class Remover2 extends AtomicBoolean implements vra {
+    public static final class Remover2 extends AtomicBoolean implements m1b {
         public static final long serialVersionUID = 247232374289553518L;
-        public final zta parent;
+        public final q3b parent;
         public final ScheduledAction s;
 
-        public Remover2(ScheduledAction scheduledAction, zta ztaVar) {
+        public Remover2(ScheduledAction scheduledAction, q3b q3bVar) {
             this.s = scheduledAction;
-            this.parent = ztaVar;
+            this.parent = q3bVar;
         }
 
-        @Override // com.baidu.tieba.vra
+        @Override // com.baidu.tieba.m1b
         public boolean isUnsubscribed() {
             return this.s.isUnsubscribed();
         }
 
-        @Override // com.baidu.tieba.vra
+        @Override // com.baidu.tieba.m1b
         public void unsubscribe() {
             if (compareAndSet(false, true)) {
                 this.parent.b(this.s);
@@ -64,19 +64,19 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
     }
 
     /* loaded from: classes9.dex */
-    public final class a implements vra {
+    public final class a implements m1b {
         public final Future<?> a;
 
         public a(Future<?> future) {
             this.a = future;
         }
 
-        @Override // com.baidu.tieba.vra
+        @Override // com.baidu.tieba.m1b
         public boolean isUnsubscribed() {
             return this.a.isCancelled();
         }
 
-        @Override // com.baidu.tieba.vra
+        @Override // com.baidu.tieba.m1b
         public void unsubscribe() {
             if (ScheduledAction.this.get() != Thread.currentThread()) {
                 this.a.cancel(true);
@@ -86,44 +86,44 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    public ScheduledAction(bsa bsaVar) {
-        this.action = bsaVar;
-        this.cancel = new zta();
+    public ScheduledAction(s1b s1bVar) {
+        this.action = s1bVar;
+        this.cancel = new q3b();
     }
 
-    public void add(vra vraVar) {
-        this.cancel.a(vraVar);
+    public void add(m1b m1bVar) {
+        this.cancel.a(m1bVar);
     }
 
-    public void addParent(iwa iwaVar) {
-        this.cancel.a(new Remover(this, iwaVar));
+    public void addParent(q3b q3bVar) {
+        this.cancel.a(new Remover2(this, q3bVar));
     }
 
     public void signalError(Throwable th) {
-        vva.j(th);
+        m5b.j(th);
         Thread currentThread = Thread.currentThread();
         currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, th);
     }
 
-    public ScheduledAction(bsa bsaVar, iwa iwaVar) {
-        this.action = bsaVar;
-        this.cancel = new zta(new Remover(this, iwaVar));
+    public ScheduledAction(s1b s1bVar, q3b q3bVar) {
+        this.action = s1bVar;
+        this.cancel = new q3b(new Remover2(this, q3bVar));
     }
 
-    public ScheduledAction(bsa bsaVar, zta ztaVar) {
-        this.action = bsaVar;
-        this.cancel = new zta(new Remover2(this, ztaVar));
+    public ScheduledAction(s1b s1bVar, z5b z5bVar) {
+        this.action = s1bVar;
+        this.cancel = new q3b(new Remover(this, z5bVar));
     }
 
     public void add(Future<?> future) {
         this.cancel.a(new a(future));
     }
 
-    public void addParent(zta ztaVar) {
-        this.cancel.a(new Remover2(this, ztaVar));
+    public void addParent(z5b z5bVar) {
+        this.cancel.a(new Remover(this, z5bVar));
     }
 
-    @Override // com.baidu.tieba.vra
+    @Override // com.baidu.tieba.m1b
     public boolean isUnsubscribed() {
         return this.cancel.isUnsubscribed();
     }
@@ -145,7 +145,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    @Override // com.baidu.tieba.vra
+    @Override // com.baidu.tieba.m1b
     public void unsubscribe() {
         if (!this.cancel.isUnsubscribed()) {
             this.cancel.unsubscribe();

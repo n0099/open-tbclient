@@ -401,7 +401,7 @@ public class AndroidDaydream extends DreamService implements q1 {
             o0.d = getFiles();
             o0.b = getGraphics();
             getNet();
-            this.input.P0();
+            this.input.Q0();
             a2 a2Var = this.graphics;
             if (a2Var != null) {
                 a2Var.q();
@@ -422,7 +422,7 @@ public class AndroidDaydream extends DreamService implements q1 {
             boolean d = this.graphics.d();
             this.graphics.u(true);
             this.graphics.r();
-            this.input.d0();
+            this.input.e0();
             this.graphics.h();
             this.graphics.j();
             this.graphics.u(d);

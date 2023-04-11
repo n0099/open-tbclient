@@ -1,26 +1,35 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class zb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public boolean c;
-    public boolean d;
+    public String c;
+    public String d;
     public String e;
-    public Object f;
-    public AgreeData g;
+    public String f;
+    public String g;
     public int h;
-    public int i;
+    public String i;
+    public String j;
+    public boolean k;
 
     public zb9() {
         Interceptable interceptable = $ic;
@@ -35,153 +44,85 @@ public class zb9 {
                 return;
             }
         }
-        this.c = false;
-        this.d = false;
-        this.e = "";
-        this.i = 0;
+        this.k = false;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(AdvertAppInfo advertAppInfo, @NonNull AdCard adCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, advertAppInfo, adCard) != null) || advertAppInfo == null) {
+            return;
         }
-        return invokeV.intValue;
+        int i = advertAppInfo.m;
+        if (i == 3) {
+            this.a = "apk_download";
+            this.f = advertAppInfo.p;
+            this.g = advertAppInfo.o;
+        } else if (i == 1) {
+            this.a = TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT;
+        }
+        this.e = adCard.getButtonText();
+        this.b = adCard.userName;
+        this.c = adCard.userImage;
+        this.d = adCard.scheme;
+        this.i = adCard.threadTitle;
+        this.j = adCard.getButtonCmdScheme();
     }
 
-    public AgreeData b() {
-        InterceptResult invokeV;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (AgreeData) invokeV.objValue;
+        this.a = jSONObject.optString("style");
+        this.b = jSONObject.optString("user_name");
+        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
+        this.d = jSONObject.optString("scheme");
+        this.e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+        this.h = jSONObject.optInt("close_time");
+        JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
+        if (optJSONObject != null) {
+            this.f = optJSONObject.optString("pkgname");
+            this.g = optJSONObject.optString("download_url");
+        }
+        jSONObject.optString("content");
+        this.k = true;
+        this.j = jSONObject.optString("button_scheme");
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (String) invokeV.objValue;
+        try {
+            b(new JSONObject(str));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("style", this.a);
+                jSONObject.put("user_name", this.b);
+                jSONObject.put(RecommendDetailActivityConfig.USER_PORTRAIT, this.c);
+                jSONObject.put("scheme", this.d);
+                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.e);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("pkgname", this.f);
+                jSONObject2.put("download_url", this.g);
+                jSONObject.put("ext_data", jSONObject2);
+                jSONObject.put("content", this.h);
+                jSONObject.put("button_scheme", this.j);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
         }
         return (String) invokeV.objValue;
-    }
-
-    public Object e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void k(AgreeData agreeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, agreeData) == null) {
-            this.g = agreeData;
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void o(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, obj) == null) {
-            this.f = obj;
-        }
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.a = str;
-        }
     }
 }

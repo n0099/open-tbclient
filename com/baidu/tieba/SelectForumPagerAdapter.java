@@ -24,7 +24,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<SelectForumActivity> a;
-    public List<qv5> b;
+    public List<ww5> b;
     public int c;
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -53,8 +53,8 @@ public class SelectForumPagerAdapter extends PagerAdapter {
         this.c = -1;
         this.a = tbPageContext;
         this.b = new ArrayList();
-        if (tbPageContext.getPageActivity() instanceof ov5) {
-            gameData = ((ov5) tbPageContext.getPageActivity()).i1();
+        if (tbPageContext.getPageActivity() instanceof uw5) {
+            gameData = ((uw5) tbPageContext.getPageActivity()).i1();
         } else {
             gameData = null;
         }
@@ -70,28 +70,28 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     @NonNull
     /* renamed from: b */
-    public qv5 instantiateItem(@NonNull ViewGroup viewGroup, int i) {
+    public ww5 instantiateItem(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            qv5 qv5Var = (qv5) ListUtils.getItem(this.b, i);
-            if (qv5Var instanceof View) {
-                View view2 = (View) qv5Var;
+            ww5 ww5Var = (ww5) ListUtils.getItem(this.b, i);
+            if (ww5Var instanceof View) {
+                View view2 = (View) ww5Var;
                 if (view2.getParent() != null) {
                     viewGroup.removeView(view2);
                 }
                 viewGroup.addView(view2);
             }
-            return qv5Var;
+            return ww5Var;
         }
-        return (qv5) invokeLI.objValue;
+        return (ww5) invokeLI.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (qv5 qv5Var : this.b) {
-                qv5Var.a();
+            for (ww5 ww5Var : this.b) {
+                ww5Var.a();
             }
         }
     }
@@ -109,8 +109,8 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            for (qv5 qv5Var : this.b) {
-                qv5Var.onDestroy();
+            for (ww5 ww5Var : this.b) {
+                ww5Var.onDestroy();
             }
         }
     }
@@ -132,9 +132,9 @@ public class SelectForumPagerAdapter extends PagerAdapter {
                 return;
             }
             this.c = i;
-            qv5 qv5Var = (qv5) ListUtils.getItem(this.b, i);
-            if (qv5Var != null) {
-                qv5Var.c(null);
+            ww5 ww5Var = (ww5) ListUtils.getItem(this.b, i);
+            if (ww5Var != null) {
+                ww5Var.c(null);
             }
         }
     }
@@ -147,7 +147,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
             if (ListUtils.getItem(this.b, i) == null) {
                 return "";
             }
-            return ((qv5) ListUtils.getItem(this.b, i)).getTitle();
+            return ((ww5) ListUtils.getItem(this.b, i)).getTitle();
         }
         return (CharSequence) invokeI.objValue;
     }

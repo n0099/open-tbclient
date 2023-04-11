@@ -1,82 +1,102 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.AdapterViewHolder;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.tabfeed.view.NearbyForumFriendCardView;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.ThreadInfo;
+import tbclient.VoiceRoom;
+import tbclient.VoiceRoomListPage.VoiceRoomListPageResIdl;
 /* loaded from: classes7.dex */
-public class yj7 extends tm<nd8, AdapterViewHolder<NearbyForumFriendCardView>> {
+public class yj7 implements kk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public AdapterViewHolder<NearbyForumFriendCardView> b;
+    @NonNull
+    public List<ThreadInfo> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yj7(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), nd8.d);
+    public yj7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = new ArrayList();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm
-    /* renamed from: s */
-    public AdapterViewHolder<NearbyForumFriendCardView> onCreateViewHolder(ViewGroup viewGroup) {
+    @NonNull
+    public List<VoiceRoomWrapper> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (ThreadInfo threadInfo : this.a) {
+                VoiceRoom voiceRoom = threadInfo.voice_room;
+                if (voiceRoom != null && b(voiceRoom)) {
+                    String str = threadInfo.fname;
+                    if (str == null) {
+                        str = "";
+                    }
+                    arrayList.add(new VoiceRoomWrapper(voiceRoom, str));
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean b(@NonNull VoiceRoom voiceRoom) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder = new AdapterViewHolder<>(new NearbyForumFriendCardView(this.a.getPageActivity()));
-            this.b = adapterViewHolder;
-            return adapterViewHolder;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceRoom)) == null) {
+            Long l = voiceRoom.room_id;
+            if (l != null && l.longValue() != 0 && !TextUtils.isEmpty(voiceRoom.room_name)) {
+                return true;
+            }
+            return false;
         }
-        return (AdapterViewHolder) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void u(boolean z) {
-        AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder;
+    @Override // com.baidu.tieba.kk5
+    public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (adapterViewHolder = this.b) != null) {
-            adapterViewHolder.a().setNeedCompleteProfile(z);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("voice_room_list");
+                if (optJSONArray != null) {
+                    this.a = DataExt.toEntityList(optJSONArray.toString(), ThreadInfo.class);
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, nd8 nd8Var, AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.kk5
+    public void initByProtobuf(Message message) {
+        List<ThreadInfo> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nd8Var, adapterViewHolder})) == null) {
-            NearbyForumFriendCardView a = adapterViewHolder.a();
-            a.a(nd8Var);
-            a.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return adapterViewHolder.getView();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof VoiceRoomListPageResIdl) && (list = ((VoiceRoomListPageResIdl) message).data.voice_room_list) != null) {
+            this.a = list;
         }
-        return (View) invokeCommon.objValue;
     }
 }

@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.live.business.refresh.LoadAnimStrategy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i90;
-import com.baidu.tieba.zb0;
+import com.baidu.tieba.ac0;
+import com.baidu.tieba.j90;
 /* loaded from: classes2.dex */
 public class LoadingView extends LinearLayout {
     public boolean a;
@@ -56,8 +56,8 @@ public class LoadingView extends LinearLayout {
     public final void b() {
         setGravity(17);
         setOrientation(1);
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0585, (ViewGroup) this, true);
-        LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091583);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0583, (ViewGroup) this, true);
+        LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091586);
         this.b = lottieAnimationView;
         if (lottieAnimationView != null && lottieAnimationView.isAnimating()) {
             this.b.cancelAnimation();
@@ -80,13 +80,13 @@ public class LoadingView extends LinearLayout {
 
     public void c(String str) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-        layoutParams.width = i90.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieWidth);
-        layoutParams.height = i90.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieHeight);
+        layoutParams.width = j90.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieWidth);
+        layoutParams.height = j90.b(getContext(), LoadAnimStrategy.getInstance().loadingLottieHeight);
         this.b.setLayoutParams(layoutParams);
         this.b.setImageAssetsFolder(LoadAnimStrategy.getInstance().loadingLottieImgRes);
-        String j = zb0.f().j(str);
+        String j = ac0.f().j(str);
         if (TextUtils.isEmpty(j)) {
-            int k = zb0.f().k(str);
+            int k = ac0.f().k(str);
             if (k != 0) {
                 this.b.setAnimation(k);
                 return;

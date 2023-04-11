@@ -51,7 +51,7 @@ public class BubbleListModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -197,49 +197,49 @@ public class BubbleListModel extends BdBaseModel {
         this.f = new b(this, CmdConfigHttp.SET_BUBBLE_CMD);
     }
 
-    public void Y(CustomMessageListener customMessageListener) {
+    public void X(CustomMessageListener customMessageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, customMessageListener) == null) {
             registerListener(customMessageListener);
         }
     }
 
-    public void b0(int i) {
+    public void a0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.c = i;
         }
     }
 
-    public void c0(int i) {
+    public void b0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.d = i;
         }
     }
 
-    public void d0(c cVar) {
+    public void c0(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
             this.a = cVar;
         }
     }
 
-    public void e0(d dVar) {
+    public void d0(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
             this.b = dVar;
         }
     }
 
-    public void f0(CustomMessageListener customMessageListener) {
+    public void e0(CustomMessageListener customMessageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, customMessageListener) == null) {
             MessageManager.getInstance().unRegisterListener(customMessageListener);
         }
     }
 
-    public static boolean T(List<BubbleListData.BubbleData> list) {
+    public static boolean S(List<BubbleListData.BubbleData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
@@ -256,7 +256,7 @@ public class BubbleListModel extends BdBaseModel {
         return invokeL.booleanValue;
     }
 
-    public int U() {
+    public int T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -265,7 +265,7 @@ public class BubbleListModel extends BdBaseModel {
         return invokeV.intValue;
     }
 
-    public int V() {
+    public int U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -283,7 +283,7 @@ public class BubbleListModel extends BdBaseModel {
         }
     }
 
-    public void W() {
+    public void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -295,7 +295,7 @@ public class BubbleListModel extends BdBaseModel {
         }
     }
 
-    public void X() {
+    public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -306,7 +306,7 @@ public class BubbleListModel extends BdBaseModel {
         }
     }
 
-    public void Z(int i, int i2, int i3, int i4) {
+    public void Y(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.REQUEST_BUBBLELIST_CMD);
@@ -318,7 +318,7 @@ public class BubbleListModel extends BdBaseModel {
         }
     }
 
-    public void a0(int i, int i2, int i3) {
+    public void Z(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_BUBBLE_CMD);

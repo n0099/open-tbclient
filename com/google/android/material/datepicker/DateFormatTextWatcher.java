@@ -10,7 +10,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Date;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class DateFormatTextWatcher implements TextWatcher {
     public final CalendarConstraints constraints;
     public final DateFormat dateFormat;
@@ -37,7 +37,7 @@ public abstract class DateFormatTextWatcher implements TextWatcher {
         this.dateFormat = dateFormat;
         this.textInputLayout = textInputLayout;
         this.constraints = calendarConstraints;
-        this.outOfRange = textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0bde);
+        this.outOfRange = textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0bda);
     }
 
     @Override // android.text.TextWatcher
@@ -58,9 +58,9 @@ public abstract class DateFormatTextWatcher implements TextWatcher {
                 onInvalidDate();
             }
         } catch (ParseException unused) {
-            String string = this.textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0bd9);
-            String format = String.format(this.textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0bdb), this.formatHint);
-            String format2 = String.format(this.textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0bda), this.dateFormat.format(new Date(UtcDates.getTodayCalendar().getTimeInMillis())));
+            String string = this.textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0bd5);
+            String format = String.format(this.textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0bd7), this.formatHint);
+            String format2 = String.format(this.textInputLayout.getContext().getString(R.string.obfuscated_res_0x7f0f0bd6), this.dateFormat.format(new Date(UtcDates.getTodayCalendar().getTimeInMillis())));
             TextInputLayout textInputLayout = this.textInputLayout;
             textInputLayout.setError(string + "\n" + format + "\n" + format2);
             onInvalidDate();

@@ -16,17 +16,17 @@ import java.util.concurrent.LinkedBlockingQueue;
 public final class k implements t {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.InterfaceC0644a ato;
+    public a.InterfaceC0645a ato;
     public a.c atp;
     public Queue<MessageSnapshot> atq;
     public boolean atr;
 
-    public k(a.InterfaceC0644a interfaceC0644a, a.c cVar) {
+    public k(a.InterfaceC0645a interfaceC0645a, a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC0644a, cVar};
+            Object[] objArr = {interfaceC0645a, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,13 +37,13 @@ public final class k implements t {
             }
         }
         this.atr = false;
-        a(interfaceC0644a, cVar);
+        a(interfaceC0645a, cVar);
     }
 
-    private void a(a.InterfaceC0644a interfaceC0644a, a.c cVar) {
+    private void a(a.InterfaceC0645a interfaceC0645a, a.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, this, interfaceC0644a, cVar) == null) {
-            this.ato = interfaceC0644a;
+        if (interceptable == null || interceptable.invokeLL(65537, this, interfaceC0645a, cVar) == null) {
+            this.ato = interfaceC0645a;
             this.atp = cVar;
             this.atq = new LinkedBlockingQueue();
         }
@@ -74,12 +74,12 @@ public final class k implements t {
     private void p(MessageSnapshot messageSnapshot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, messageSnapshot) == null) {
-            a.InterfaceC0644a interfaceC0644a = this.ato;
-            if (interfaceC0644a == null) {
+            a.InterfaceC0645a interfaceC0645a = this.ato;
+            if (interfaceC0645a == null) {
                 if (com.kwai.filedownloader.e.d.awL) {
                     com.kwai.filedownloader.e.d.e(this, "occur this case, it would be the host task of this messenger has been over(paused/warn/completed/error) on the other thread before receiving the snapshot(id[%d], status[%d])", Integer.valueOf(messageSnapshot.getId()), Byte.valueOf(messageSnapshot.Ca()));
                 }
-            } else if (!this.atr && interfaceC0644a.Ci().BX() != null) {
+            } else if (!this.atr && interfaceC0645a.Ci().BX() != null) {
                 this.atq.offer(messageSnapshot);
                 j.CI().a(this);
             } else {
@@ -117,13 +117,13 @@ public final class k implements t {
         }
         MessageSnapshot poll = this.atq.poll();
         byte Ca = poll.Ca();
-        a.InterfaceC0644a interfaceC0644a = this.ato;
-        if (interfaceC0644a == null) {
+        a.InterfaceC0645a interfaceC0645a = this.ato;
+        if (interfaceC0645a == null) {
             return;
         }
-        a Ci = interfaceC0644a.Ci();
+        a Ci = interfaceC0645a.Ci();
         i BX = Ci.BX();
-        x.a Cj = interfaceC0644a.Cj();
+        x.a Cj = interfaceC0645a.Cj();
         bV(Ca);
         if (BX == null) {
             return;
@@ -212,13 +212,13 @@ public final class k implements t {
     }
 
     @Override // com.kwai.filedownloader.t
-    public final void b(a.InterfaceC0644a interfaceC0644a, a.c cVar) {
+    public final void b(a.InterfaceC0645a interfaceC0645a, a.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, interfaceC0644a, cVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, interfaceC0645a, cVar) == null) {
             if (this.ato != null) {
-                throw new IllegalStateException(com.kwai.filedownloader.e.f.h("the messenger is working, can't re-appointment for %s", interfaceC0644a));
+                throw new IllegalStateException(com.kwai.filedownloader.e.f.h("the messenger is working, can't re-appointment for %s", interfaceC0645a));
             }
-            a(interfaceC0644a, cVar);
+            a(interfaceC0645a, cVar);
         }
     }
 
@@ -311,8 +311,8 @@ public final class k implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, messageSnapshot) == null) {
             if (com.kwai.filedownloader.e.d.awL) {
-                a.InterfaceC0644a interfaceC0644a = this.ato;
-                com.kwai.filedownloader.e.d.e(this, "notify error %s %s", interfaceC0644a, interfaceC0644a.Ci().Cc());
+                a.InterfaceC0645a interfaceC0645a = this.ato;
+                com.kwai.filedownloader.e.d.e(this, "notify error %s %s", interfaceC0645a, interfaceC0645a.Ci().Cc());
             }
             this.atp.Cr();
             p(messageSnapshot);
@@ -336,8 +336,8 @@ public final class k implements t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             Object[] objArr = new Object[2];
-            a.InterfaceC0644a interfaceC0644a = this.ato;
-            objArr[0] = Integer.valueOf(interfaceC0644a == null ? -1 : interfaceC0644a.Ci().getId());
+            a.InterfaceC0645a interfaceC0645a = this.ato;
+            objArr[0] = Integer.valueOf(interfaceC0645a == null ? -1 : interfaceC0645a.Ci().getId());
             objArr[1] = super.toString();
             return com.kwai.filedownloader.e.f.h("%d:%s", objArr);
         }

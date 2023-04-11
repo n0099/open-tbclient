@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.dc7;
-import com.baidu.tieba.ho5;
-import com.baidu.tieba.kp5;
-import com.baidu.tieba.m35;
-import com.baidu.tieba.r29;
+import com.baidu.tieba.am7;
+import com.baidu.tieba.ic9;
+import com.baidu.tieba.np5;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.qq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class ConcernPageRequestMessage extends NetMessage {
     public static final int LOAD_TYPE_LOAD_MORE = 2;
     public static final int LOAD_TYPE_UPDATE = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public ho5 adInfo;
+    public np5 adInfo;
     public int isNewFeed;
     public int loadType;
     public String pageTag;
@@ -61,18 +61,18 @@ public class ConcernPageRequestMessage extends NetMessage {
             if (isEmpty) {
                 e = 0;
             } else {
-                e = r29.f().e("CONCERN");
+                e = ic9.f().e("CONCERN");
             }
             String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
             String str = "";
             if (isEmpty) {
                 d = "";
             } else {
-                d = r29.f().d("CONCERN");
+                d = ic9.f().d("CONCERN");
             }
-            ho5 ho5Var = this.adInfo;
-            if (ho5Var != null && !isEmpty) {
-                str = ho5Var.b;
+            np5 np5Var = this.adInfo;
+            if (np5Var != null && !isEmpty) {
+                str = np5Var.b;
             }
             AdExtParam.a b = AdExtParam.a.b();
             b.g(e);
@@ -93,23 +93,23 @@ public class ConcernPageRequestMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.page_tag = this.pageTag;
-                if (dc7.I()) {
-                    if (!dc7.B()) {
-                        builder.page_tag = dc7.w();
+                if (am7.I()) {
+                    if (!am7.B()) {
+                        builder.page_tag = am7.w();
                     } else {
-                        builder.page_tag = dc7.v();
+                        builder.page_tag = am7.v();
                     }
                 }
-                builder.last_req_unix = Long.valueOf(m35.m().o(m35.q("concern_data_res_request_time"), 0L));
+                builder.last_req_unix = Long.valueOf(p45.m().o(p45.q("concern_data_res_request_time"), 0L));
                 int i2 = 1;
                 if (UbsABTestHelper.isConcernForumCardShow()) {
-                    i = m35.m().n("key_home_concern_all_status", 0);
+                    i = p45.m().n("key_home_concern_all_status", 0);
                 } else {
                     i = 1;
                 }
                 builder.follow_type = Integer.valueOf(i);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    kp5.a(builder, true);
+                    qq5.a(builder, true);
                 }
                 if (this.loadType > 0) {
                     builder.load_type = Integer.valueOf(this.loadType);
@@ -120,6 +120,7 @@ public class ConcernPageRequestMessage extends NetMessage {
                     builder.load_type = Integer.valueOf(i2);
                 }
                 builder.ad_ext_params = buildAdParam();
+                builder.is_newfeed = Integer.valueOf(this.isNewFeed);
                 UserlikeReqIdl.Builder builder2 = new UserlikeReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);
@@ -148,10 +149,10 @@ public class ConcernPageRequestMessage extends NetMessage {
         return (String) invokeV.objValue;
     }
 
-    public void setAdInfo(ho5 ho5Var) {
+    public void setAdInfo(np5 np5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ho5Var) == null) {
-            this.adInfo = ho5Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, np5Var) == null) {
+            this.adInfo = np5Var;
         }
     }
 

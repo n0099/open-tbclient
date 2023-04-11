@@ -1,243 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.webkit.WebView;
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
+import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
+import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xs9 implements ys9 {
+public class xs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NewVcodeView a;
-    public final NewWriteModel b;
-    public boolean c;
-    public PostWriteCallBackData d;
-    public final NewWriteModel.d e;
-    public NewWriteModel.d f;
 
-    @Override // com.baidu.tieba.ys9
-    public void e(boolean z, String str) {
+    public static void a(ClientUpdateInfo clientUpdateInfo, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ys9
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements NewWriteModel.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xs9 a;
-
-        public a(xs9 xs9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xs9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xs9Var;
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, x75 x75Var, WriteData writeData, AntiData antiData) {
-            String str;
-            String str2;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, x75Var, writeData, antiData}) != null) || this.a.a == null) {
+        if ((interceptable == null || interceptable.invokeLL(65536, null, clientUpdateInfo, str) == null) && clientUpdateInfo != null && !TextUtils.isEmpty(str)) {
+            if (!LooperBlockSwitch.getIsOn()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, str)));
                 return;
             }
-            this.a.a.showPostThreadLoadingView(false);
-            if (!z) {
-                if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                    this.a.a.getContext().setVisible(false);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-                    return;
-                } else if (this.a.f != null) {
-                    this.a.f.callback(false, postWriteCallBackData, x75Var, writeData, antiData);
-                    return;
-                } else {
-                    return;
-                }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("is_force_update", clientUpdateInfo.mIsForceUpdate);
+                jSONObject.put("status", clientUpdateInfo.mStatus);
+                jSONObject.put("reverson", clientUpdateInfo.mReverson);
+                jSONObject.put("content_url", clientUpdateInfo.mContentUrl);
+                jSONObject.put("apk_md5_rsa", str);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
-            this.a.d = postWriteCallBackData;
-            this.a.c = true;
-            String str3 = null;
-            if (x75Var != null && x75Var.a() != null) {
-                String str4 = x75Var.a().endPoint;
-                String str5 = x75Var.a().successImg;
-                String str6 = x75Var.a().slideEndPoint;
-                str = str4;
-                str3 = str5;
-                str2 = str6;
-            } else {
-                str = null;
-                str2 = null;
-            }
-            this.a.a.runJsMethod("success", str3 + "," + str + "," + str2);
-            eb9.j(writeData);
-            he9.a(writeData, postWriteCallBackData.getThreadId());
+            z05.o(TbadkCoreApplication.getInst().getApp(), "lcUpdateDialog", jSONObject);
         }
     }
 
-    public xs9(NewVcodeView newVcodeView, NewWriteModel newWriteModel) {
+    public static void b(w95 w95Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {newVcodeView, newWriteModel};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable != null && interceptable.invokeL(65537, null, w95Var) != null) || w95Var == null) {
+            return;
+        }
+        VersionData u = w95Var.u();
+        TbadkCoreApplication.getInst().setVersionData(u);
+        TbadkCoreApplication.getInst().refreshNewVersion(true);
+        if (u.forceUpdate()) {
+            if (w95Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0 && !LooperBlockSwitch.getIsOn()) {
+                TbSingleton.getInstance();
+                TbSingleton.setExceptInsertAdDiaShow(true);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), u, w95Var.j())));
                 return;
             }
+            return;
         }
-        a aVar = new a(this);
-        this.e = aVar;
-        this.a = newVcodeView;
-        this.b = newWriteModel;
-        newWriteModel.p0(aVar);
-    }
-
-    @Override // com.baidu.tieba.ys9
-    public void c(NewWriteModel.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.f = dVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.ys9
-    public void onPageFinished(WebView webView, String str) {
-        NewVcodeView newVcodeView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, webView, str) == null) && (newVcodeView = this.a) != null) {
-            newVcodeView.showWebViewDelay(1000);
-        }
-    }
-
-    @Override // com.baidu.tieba.ys9
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.a.setRatio(0.9433962f);
-            this.a.showWebView(false);
-            this.a.getWebView().loadUrl(TbConfig.SERVER_ADDRESS_WEB_VIEW + "n/captcha-drag");
-        }
-    }
-
-    @Override // com.baidu.tieba.ys9
-    public boolean b(WebView webView, String str) {
-        InterceptResult invokeLL;
-        WriteData h0;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
-            if (this.b.h0() == null || StringUtils.isNull(str) || (h0 = this.b.h0()) == null) {
-                return false;
+        Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
+        Long valueOf2 = Long.valueOf(new Date().getTime());
+        if (valueOf2.longValue() - valueOf.longValue() > 86400000 && u.getStrategy() == 0 && w95Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0) {
+            TbSingleton.getInstance().setSyncModel(w95Var);
+            if (TbSingleton.getInstance().hasPerformedFirstLoginTest() && !LooperBlockSwitch.getIsOn()) {
+                TbSingleton.getInstance();
+                TbSingleton.setExceptInsertAdDiaShow(true);
+                jy5.d();
             }
-            if (str.contains("objc:loadReady")) {
-                if (h0.getVcodeExtra() == null) {
-                    return false;
-                }
-                this.a.runJsMethod("handleFreshCaptcha", "'" + h0.getVcodeUrl() + "','" + h0.getVcodeExtra().slideImg + "','" + h0.getVcodeExtra().textImg + "'");
-                return true;
-            } else if (str.contains("objc:jsChangePosition")) {
-                j(tq5.a(str));
-                return true;
-            } else if (str.contains("objc:finish")) {
-                if (h0.isAddThread()) {
-                    String string = this.a.getContext().getResources().getString(R.string.send_success);
-                    PostWriteCallBackData postWriteCallBackData = this.d;
-                    String str3 = null;
-                    if (postWriteCallBackData != null) {
-                        str3 = postWriteCallBackData.getPreMsg();
-                        str2 = this.d.getColorMsg();
-                        string = this.d.getErrorString();
-                    } else {
-                        str2 = null;
-                    }
-                    ge9.b(this.a.getContext().getActivity(), string, str3, str2);
-                }
-                Intent intent = new Intent();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("post_write_callback_data", this.d);
-                intent.putExtras(bundle);
-                BaseActivity context = this.a.getContext();
-                this.a.getContext();
-                context.setResult(-1, intent);
-                this.a.getContext().finish();
-                return true;
-            } else {
-                if (str.contains("objc:jumpToFeedback()")) {
-                    NewVcodeView newVcodeView = this.a;
-                    if (newVcodeView != null && newVcodeView.getContext() != null) {
-                        ws9.a(this.a.getContext().getPageContext());
-                    }
-                    return true;
-                }
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ys9
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.showPostThreadLoadingView(false);
-            this.b.cancelLoadData();
+            TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
         }
     }
 
-    public final void j(String str) {
+    public static void c(VersionData versionData, ClientUpdateInfo clientUpdateInfo, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            if (!hi.F()) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d1f);
-                this.a.getContext().finish();
-            } else if (!StringUtils.isNull(str)) {
-                this.a.showPostThreadLoadingView(true);
-                this.b.h0().setVcode(str);
-                this.b.h0().setVcodeType("5");
-                this.b.s0();
-            } else {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d1f);
-                this.a.getContext().finish();
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{versionData, clientUpdateInfo, str, Boolean.valueOf(z)}) != null) || versionData == null) {
+            return;
+        }
+        TbadkCoreApplication.getInst().setVersionData(versionData);
+        TbadkCoreApplication.getInst().refreshNewVersion(true);
+        if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
+            if (versionData.forceUpdate()) {
+                a(clientUpdateInfo, str);
+            } else if ((Long.valueOf(new Date().getTime()).longValue() - Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime()).longValue() > 86400000 || z) && versionData.getStrategy() == 0) {
+                a(clientUpdateInfo, str);
             }
         }
     }

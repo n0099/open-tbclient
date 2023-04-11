@@ -1,125 +1,209 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.newdetail.HotTopicDetailActivity;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class ud8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, bs4> a;
 
-    public static void a(String str, Object obj, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65536, null, str, obj, i, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            if (obj instanceof wy4) {
-                statisticItem.param("fid", ((wy4) obj).h());
-            } else if (obj instanceof le8) {
-                le8 le8Var = (le8) obj;
-                ThreadData threadData = le8Var.h;
-                if (threadData != null) {
-                    statisticItem.param("tid", threadData.getTid());
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public String b;
+        public HashMap<String, String> c;
+
+        public b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                statisticItem.param("obj_locate", le8Var.a());
             }
-            statisticItem.param("topic_id", str2);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.eventStat();
-        }
-    }
-
-    public static void b(xd8 xd8Var, hw4 hw4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, xd8Var, hw4Var) == null) {
-            d(xd8Var, hw4Var, true);
-        }
-    }
-
-    public static void c(xd8 xd8Var, hw4 hw4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, xd8Var, hw4Var) == null) {
-            d(xd8Var, hw4Var, false);
-        }
-    }
-
-    public static void d(xd8 xd8Var, hw4 hw4Var, boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(65539, null, xd8Var, hw4Var, z) == null) && hw4Var != null && hw4Var.getThreadData() != null) {
-            ThreadData threadData = hw4Var.getThreadData();
-            boolean s = xd8Var.s();
-            if (z) {
-                if (s) {
-                    str = "c13823";
-                } else {
-                    str = "c13822";
+            this.a = false;
+            Uri parse = Uri.parse(str);
+            this.a = "tblego".equals(parse.getScheme());
+            if (e()) {
+                this.b = parse.getAuthority() + parse.getPath();
+                this.c = new HashMap<>();
+                for (String str2 : parse.getQueryParameterNames()) {
+                    this.c.put(str2, parse.getQueryParameter(str2));
                 }
-            } else if (s) {
-                str = "c13824";
-            } else {
-                str = "c13821";
+                return;
             }
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("tid", threadData.getTid());
-            statisticItem.param("fid", threadData.getFid());
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (xd8Var.t().getOrignalPage() instanceof HotTopicDetailActivity) {
-                statisticItem.param("topic_id", ((HotTopicDetailActivity) xd8Var.t().getOrignalPage()).B1());
+            this.b = "";
+            this.c = new HashMap<>();
+        }
+
+        public static b a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                return new b(str);
             }
-            statisticItem.eventStat();
+            return (b) invokeL.objValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public HashMap<String, String> c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.c;
+            }
+            return (HashMap) invokeV.objValue;
+        }
+
+        public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public String d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                if (!TextUtils.isEmpty(str) && e()) {
+                    for (String str2 : this.c.keySet()) {
+                        if (str.equals(str2)) {
+                            return this.c.get(str2);
+                        }
+                    }
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
         }
     }
 
-    public static void e(ThreadData threadData) {
-        int i;
+    /* loaded from: classes6.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static ud8 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-378579327, "Lcom/baidu/tieba/ud8$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-378579327, "Lcom/baidu/tieba/ud8$c;");
+                    return;
+                }
+            }
+            a = new ud8(null);
+        }
+    }
+
+    public ud8() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) != null) || threadData == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+    }
+
+    public static ud8 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c.a;
+        }
+        return (ud8) invokeV.objValue;
+    }
+
+    public /* synthetic */ ud8(a aVar) {
+        this();
+    }
+
+    public void b(yr4 yr4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, yr4Var) == null) {
+            c(yr4Var.c(), yr4Var);
+        }
+    }
+
+    public void c(String str, bs4 bs4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bs4Var) == null) {
+            this.a.put(str, bs4Var);
+        }
+    }
+
+    public void d(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, str) != null) || str == null) {
             return;
         }
-        StatisticItem addParam = new StatisticItem("c13022").addParam("tid", threadData.getTid()).addParam("fid", threadData.getFid()).addParam("fname", threadData.getForum_name()).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (UbsABTestHelper.isImgClickToPb()) {
-            i = 1;
-        } else {
-            i = 2;
-        }
-        addParam.addParam(TiebaStatic.Params.OBJ_TO, i).eventStat();
-    }
-
-    public static void f(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("topic_id", tbPageContext.getOrignalPage().B1());
-            statisticItem.eventStat();
+        b a2 = b.a(str);
+        bs4 bs4Var = this.a.get(a2.b());
+        if (bs4Var != null && a2.e()) {
+            bs4Var.b(obj, a2.c(), str);
         }
     }
 
-    public static void g(String str, String str2) {
+    public void e(Object obj, String str, HashMap<String, String> hashMap, z8 z8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("topic_id", str2);
-            statisticItem.eventStat();
+        if ((interceptable != null && interceptable.invokeLLLL(1048579, this, obj, str, hashMap, z8Var) != null) || str == null) {
+            return;
         }
-    }
-
-    public static void h(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("topic_id", tbPageContext.getOrignalPage().B1());
-            statisticItem.eventStat();
+        b a2 = b.a(str);
+        bs4 bs4Var = this.a.get(a2.b());
+        if (bs4Var != null && a2.e()) {
+            if (hashMap != null && !hashMap.isEmpty()) {
+                a2.c().putAll(hashMap);
+            }
+            bs4Var.a(obj, a2.c(), str, z8Var);
         }
     }
 }

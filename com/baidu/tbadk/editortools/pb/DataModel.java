@@ -16,7 +16,7 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public int S() {
+    public int R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -24,6 +24,8 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
         }
         return invokeV.intValue;
     }
+
+    public abstract String S();
 
     public abstract String T();
 
@@ -33,15 +35,13 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
 
     public abstract String W();
 
-    public abstract String X();
+    public abstract WriteData X(String str);
 
-    public abstract WriteData Y(String str);
+    public abstract boolean Z();
 
     public abstract boolean a0();
 
     public abstract boolean b0();
-
-    public abstract boolean c0();
 
     public abstract String getForumId();
 
@@ -68,7 +68,7 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
     }
 
     @Nullable
-    public String R() {
+    public String Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -77,11 +77,11 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
         return (String) invokeV.objValue;
     }
 
-    public boolean Z() {
+    public boolean Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!a0() && !b0()) {
+            if (!Z() && !a0()) {
                 return false;
             }
             return true;

@@ -1,52 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadResult;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Service
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class uy9 implements IActiveUploadResult {
+public class uy9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final long a;
+    public static final cu9 b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadResult
-    public String getSource() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tieba" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadResult
-    public void onFailure(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadResult
-    public void onSuccess(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject) == null) {
-        }
-    }
-
-    public uy9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948227476, "Lcom/baidu/tieba/uy9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948227476, "Lcom/baidu/tieba/uy9;");
+                return;
             }
         }
+        a = TimeUnit.DAYS.toMillis(5L);
+        b = new cu9("camera_last_api", 0, "camera_last_api_stamp");
+        c = "Lenovo K520".equals(ki.g());
     }
 }

@@ -1,135 +1,126 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ala.alasquare.subtablist.view.AlaSubListLiveDoubleViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class c56 extends tm<e56, AlaSubListLiveDoubleViewHolder> {
+public class c56 extends yf6<t46> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public m56 b;
-    public boolean c;
-    public k56 d;
-    public int e;
-    public int f;
+    public TextView i;
+    public TextView j;
+    public HeadImageView k;
+    public TextView l;
+    public View m;
+    public t46 n;
+    public RelativeLayout o;
+
+    @Override // com.baidu.tieba.yf6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d08bc : invokeV.intValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c56(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), e56.c);
+    public c56(TbPageContext tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.a = tbPageContext;
+        this.m = h();
+        this.o = (RelativeLayout) h().findViewById(R.id.obfuscated_res_0x7f090fad);
+        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090fab);
+        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090faa);
+        HeadImageView headImageView = (HeadImageView) h().findViewById(R.id.obfuscated_res_0x7f090fa9);
+        this.k = headImageView;
+        headImageView.setAutoChangeStyle(true);
+        this.k.setIsRound(true);
+        this.k.setDrawBorder(true);
+        this.k.setPlaceHolder(1);
+        this.k.setBorderWidth(ii.g(tbPageContext.getPageActivity(), R.dimen.tbds1));
+        this.k.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090fac);
+        this.o.setOnClickListener(this);
+        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm
-    /* renamed from: t */
-    public AlaSubListLiveDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.d = new k56(this.a, this.c);
-            return new AlaSubListLiveDoubleViewHolder(this.d);
-        }
-        return (AlaSubListLiveDoubleViewHolder) invokeL.objValue;
-    }
-
-    public void x(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void y(m56 m56Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, m56Var) == null) {
-            this.b = m56Var;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && e() != null) {
+            e().a(view2, this.n);
         }
     }
 
-    public void z(boolean z) {
+    @Override // com.baidu.tieba.yf6
+    public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public final void s(e56 e56Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e56Var) != null) || e56Var == null) {
-            return;
-        }
-        int i = this.f;
-        if (i == 1) {
-            if (e56Var.a != null) {
-                m46 b = m46.b();
-                m46 b2 = m46.b();
-                int i2 = this.e;
-                n26 n26Var = e56Var.a;
-                b.a(b2.d(i2, "c12117", n26Var.a, n26Var.b, n26Var.getThreadData()));
-            }
-            if (e56Var.b != null) {
-                m46 b3 = m46.b();
-                m46 b4 = m46.b();
-                int i3 = this.e;
-                n26 n26Var2 = e56Var.b;
-                b3.a(b4.d(i3, "c12117", n26Var2.a, n26Var2.b, n26Var2.getThreadData()));
-            }
-        } else if (i == 2) {
-            n26 n26Var3 = e56Var.a;
-            if (n26Var3 != null && n26Var3.getThreadData() != null && e56Var.a.getThreadData().getThreadAlaInfo() != null) {
-                ThreadData threadData = e56Var.a.getThreadData();
-                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.getThreadAlaInfo().appId).param("locate_type", e56Var.a.b));
-            }
-            n26 n26Var4 = e56Var.b;
-            if (n26Var4 != null && n26Var4.getThreadData() != null && e56Var.b.getThreadData().getThreadAlaInfo() != null) {
-                ThreadData threadData2 = e56Var.b.getThreadData();
-                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.getThreadAlaInfo().appId).param("locate_type", e56Var.b.b));
-            }
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0108);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, e56 e56Var, AlaSubListLiveDoubleViewHolder alaSubListLiveDoubleViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.yf6
+    /* renamed from: r */
+    public void l(t46 t46Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e56Var, alaSubListLiveDoubleViewHolder})) == null) {
-            s(e56Var);
-            alaSubListLiveDoubleViewHolder.a.l(e56Var);
-            alaSubListLiveDoubleViewHolder.a.s(this.b);
-            return alaSubListLiveDoubleViewHolder.getView();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, t46Var) == null) && t46Var != null) {
+            this.n = t46Var;
+            String str2 = t46Var.c;
+            String str3 = "";
+            if (StringUtils.isNull(str2)) {
+                if (StringUtils.isNull(t46Var.b)) {
+                    str2 = "";
+                } else {
+                    str2 = t46Var.b;
+                }
+            }
+            this.i.setText(str2);
+            TextView textView = this.j;
+            if (StringUtils.isNull(t46Var.e)) {
+                str = "";
+            } else {
+                str = t46Var.e;
+            }
+            textView.setText(str);
+            this.k.N(t46Var.d, 10, false);
+            TextView textView2 = this.l;
+            if (!StringUtils.isNull(t46Var.f)) {
+                str3 = t46Var.f;
+            }
+            textView2.setText(str3);
         }
-        return (View) invokeCommon.objValue;
     }
 }

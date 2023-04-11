@@ -1,123 +1,157 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.airbnb.lottie.ImageAssetDelegate;
-import com.airbnb.lottie.LottieImageAsset;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ts5 implements ImageAssetDelegate {
+public abstract class ts5<T> extends us5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public LocalFileImageLoaderProc b;
-    public boolean c;
+    public int b;
+    public List<T> c;
+    public Context d;
+    public LayoutInflater e;
+    public yu4<T> f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948191795, "Lcom/baidu/tieba/ts5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    public abstract void f(vs5 vs5Var, T t, int i);
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public T a;
+        public int b;
+        public final /* synthetic */ ts5 c;
+
+        public a(ts5 ts5Var, T t, int i) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ts5Var, t, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948191795, "Lcom/baidu/tieba/ts5;");
-                return;
+            this.c = ts5Var;
+            this.a = t;
+            this.b = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            yu4<T> yu4Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (yu4Var = this.c.f) != null) {
+                T t = this.a;
+                int i = this.b;
+                yu4Var.d(view2, t, i, i);
             }
         }
-        d = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
     }
 
-    public ts5() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ts5(Context context, int i) {
+        this(context, null, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (List) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public ts5(Context context, List<T> list, int i) {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, list, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = false;
+        this.d = context;
+        if (list == null) {
+            arrayList = new ArrayList();
+        } else {
+            arrayList = new ArrayList(list);
+        }
+        this.c = arrayList;
+        this.b = i;
+        this.e = LayoutInflater.from(this.d);
     }
 
-    public boolean b() {
+    @Override // com.baidu.tieba.us5
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.c.size();
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.us5
+    public View b(int i, ViewGroup viewGroup) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d + "/" + TbConfig.getTempDirName() + "/animation/";
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, viewGroup)) == null) {
+            View inflate = this.e.inflate(this.b, viewGroup, false);
+            vs5 vs5Var = new vs5(inflate);
+            T t = this.c.get(i);
+            f(vs5Var, t, i);
+            vs5Var.c(new a(this, t, i));
+            return inflate;
         }
-        return (String) invokeV.objValue;
+        return (View) invokeIL.objValue;
     }
 
-    public void c(boolean z) {
+    public void g(List<T> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = a() + str + "/";
-        }
-    }
-
-    @Override // com.airbnb.lottie.ImageAssetDelegate
-    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lottieImageAsset)) == null) {
-            if (gi.isEmpty(this.a)) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            if (list == null) {
+                list = new ArrayList<>();
             }
-            String str = this.a + lottieImageAsset.getDirName().replace("/", "") + "/" + lottieImageAsset.getFileName();
-            rm rmVar = (rm) cg.h().n(str, 36, new Object[0]);
-            if (rmVar == null && b()) {
-                if (this.b == null) {
-                    this.b = new LocalFileImageLoaderProc();
-                }
-                rmVar = this.b.getBitmapFromFile(str, 0, 0);
-            }
-            if (rmVar != null && rmVar.p() != null) {
-                Bitmap p = rmVar.p();
-                try {
-                    if (p.getConfig() != null) {
-                        return p.copy(p.getConfig(), false);
-                    }
-                } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.getInst().onAppMemoryLow();
-                    BdLog.e(e);
-                }
-            }
-            cg.h().m(str, 36, null, null);
-            return null;
+            this.c = list;
+            c();
         }
-        return (Bitmap) invokeL.objValue;
+    }
+
+    public void h(yu4<T> yu4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, yu4Var) == null) {
+            this.f = yu4Var;
+        }
     }
 }

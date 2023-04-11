@@ -1,73 +1,52 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "FestivalTipViewHelper")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class wp9 {
+public class wp9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public MainTabActivity a;
 
-    public static final void a(String str, String str2, TbRichTextView.Position position) {
-        boolean z;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wp9(MainTabActivity mainTabActivity) {
+        super(2921654);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, position) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FESTIVAL_TIP_VIEW_CLICK);
-            boolean z2 = false;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                statisticItem.addParam("tid", str);
-            }
-            if (!((str2 == null || str2.length() == 0) ? true : true)) {
-                statisticItem.addParam("pid", str2);
-            }
-            if (position != null) {
-                statisticItem.addParam("obj_locate", position.getIndex());
-            }
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.eventStat();
-        }
-    }
-
-    public static final void b(bc9 postData, TbRichTextView richTextView, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65537, null, postData, richTextView, z) == null) {
-            Intrinsics.checkNotNullParameter(postData, "postData");
-            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
-            if (postData.z() != null) {
-                if (z) {
-                    richTextView.getLayoutStrategy().m(-1);
-                } else {
-                    richTextView.getLayoutStrategy().m(hi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004));
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = mainTabActivity;
     }
 
-    public static final void c(bc9 postData, TbRichTextView richTextView) {
-        Rect rect;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, postData, richTextView) == null) {
-            Intrinsics.checkNotNullParameter(postData, "postData");
-            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
-            qt5 layoutStrategy = richTextView.getLayoutStrategy();
-            if (postData.z() != null) {
-                rect = new Rect(-1, -1, -1, hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds53));
-            } else {
-                rect = null;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
+            ud5 ud5Var = null;
+            if (customResponsedMessage.getData() instanceof ud5) {
+                ud5Var = (ud5) customResponsedMessage.getData();
             }
-            layoutStrategy.s(rect);
+            if (ud5Var != null && ud5Var.b() == 0) {
+                MainTabActivity mainTabActivity = this.a;
+                new td5(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f0921e6), ud5Var).m();
+            }
         }
     }
 }

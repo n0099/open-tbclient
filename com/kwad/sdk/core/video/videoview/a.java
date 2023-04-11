@@ -33,7 +33,7 @@ public final class a extends AdBasePvFrameLayout implements TextureView.SurfaceT
     public c.e JR;
     public c.h JS;
     public c.b JT;
-    public c.InterfaceC0634c JU;
+    public c.InterfaceC0635c JU;
     public c.d JV;
     public c.a JW;
     public SurfaceTexture Kd;
@@ -96,8 +96,8 @@ public final class a extends AdBasePvFrameLayout implements TextureView.SurfaceT
                 }
             }
         };
-        this.JU = new c.InterfaceC0634c() { // from class: com.kwad.sdk.core.video.videoview.a.4
-            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0634c
+        this.JU = new c.InterfaceC0635c() { // from class: com.kwad.sdk.core.video.videoview.a.4
+            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0635c
             public final boolean j(int i, int i2) {
                 if (i != -38) {
                     a.this.JF = -1;

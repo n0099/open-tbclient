@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fz4;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
                 return;
             }
         }
-        c = hi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X001);
+        c = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X001);
         d = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.L_X04);
     }
 
@@ -58,7 +58,7 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
             this.a.setDrawBorder(true);
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setPlaceHolder(1);
-            n15.d(this.b).w(R.color.CAM_X0105);
+            q25.d(this.b).w(R.color.CAM_X0105);
         }
     }
 
@@ -138,13 +138,13 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
         a(context);
     }
 
-    public void setData(fz4 fz4Var) {
+    public void setData(hz4 hz4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fz4Var) != null) || fz4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hz4Var) != null) || hz4Var == null) {
             return;
         }
         b();
-        this.a.M(fz4Var.a(), 10, false);
-        this.b.setText(fz4Var.b());
+        this.a.N(hz4Var.a(), 10, false);
+        this.b.setText(hz4Var.b());
     }
 }

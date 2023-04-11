@@ -23,19 +23,18 @@ import com.baidu.tbadk.core.util.MemberBroadcastHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g46;
-import com.baidu.tieba.ka0;
-import com.baidu.tieba.kx6;
-import com.baidu.tieba.tf5;
+import com.baidu.tieba.e67;
+import com.baidu.tieba.la0;
+import com.baidu.tieba.m56;
+import com.baidu.tieba.xg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaLiveTabFeedPageFragment extends BaseFragment implements kx6 {
+public class AlaLiveTabFeedPageFragment extends BaseFragment implements e67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ILiveFeedPageView a;
@@ -103,24 +102,24 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements kx6 {
         this.f = new a(this, 2921774);
     }
 
-    @Override // com.baidu.tieba.kx6
-    public void B() {
+    @Override // com.baidu.tieba.e67
+    public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             G1("onPageStartIn");
         }
     }
 
-    @Override // com.baidu.tieba.kx6
-    public void P() {
+    @Override // com.baidu.tieba.e67
+    public void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             G1("onPageOutEnd");
         }
     }
 
-    @Override // com.baidu.tieba.kx6
-    public void Z() {
+    @Override // com.baidu.tieba.e67
+    public void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             G1(CommonTbJsBridge.CHANGE_SKIN_TYPE);
@@ -128,7 +127,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements kx6 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.fk5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ll5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -149,7 +148,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements kx6 {
             if (iLiveFeedPageView != null) {
                 iLiveFeedPageView.onViewDestroy();
             }
-            tf5.e().b();
+            xg5.e().b();
             MessageManager.getInstance().unRegisterListener(this.f);
         }
     }
@@ -196,8 +195,8 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements kx6 {
         }
     }
 
-    @Override // com.baidu.tieba.kx6
-    public void q() {
+    @Override // com.baidu.tieba.e67
+    public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             G1("refreshPage");
@@ -221,7 +220,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements kx6 {
             if (this.b == null) {
                 this.b = new BottomCommonTipLayout(getFragmentActivity());
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-                layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
+                layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds176);
                 layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
                 layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
                 layoutParams.gravity = 80;
@@ -265,8 +264,8 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements kx6 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(null);
             G1("onCreate");
-            g46.a().c(TbadkCoreApplication.getInst());
-            this.a = new ka0();
+            m56.a().c(TbadkCoreApplication.getInst());
+            this.a = new la0();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY);
             registerListener(this.f);
             this.d = new PollingModel(getPageContext(), getUniqueId());
@@ -280,27 +279,12 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements kx6 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5038);
             G1("onCreateView");
-            if (LooperBlockSwitch.getIsOn()) {
-                this.e = new FrameLayout(getContext());
-                if (this.isLazyLoaded) {
-                    onLazyLoad();
-                }
-                SpeedStatsManager.getInstance().addStatsTimeStamp(5039);
-                return this.e;
-            }
-            if (this.a == null) {
-                this.a = new ka0();
-            }
-            View onCreateView = this.a.onCreateView(getFragmentActivity(), this, LiveFeedPageSdk.HOST_LIVE_TAB, "tab", null, null, false);
-            if (onCreateView.getParent() instanceof ViewGroup) {
-                ((ViewGroup) onCreateView.getParent()).removeView(onCreateView);
-            }
-            onCreateView.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.e = new FrameLayout(getContext());
             if (this.isLazyLoaded) {
                 onLazyLoad();
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(5039);
-            return onCreateView;
+            return this.e;
         }
         return (View) invokeLLL.objValue;
     }
@@ -311,19 +295,17 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements kx6 {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             G1("onLazyLoad");
             super.onLazyLoad();
-            if (LooperBlockSwitch.getIsOn()) {
-                if (this.a == null) {
-                    this.a = new ka0();
-                }
-                View onCreateView = this.a.onCreateView(getFragmentActivity(), this, LiveFeedPageSdk.HOST_LIVE_TAB, "tab", null, null, false);
-                if (onCreateView.getParent() instanceof ViewGroup) {
-                    ((ViewGroup) onCreateView.getParent()).removeView(onCreateView);
-                }
-                onCreateView.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-                ViewGroup viewGroup = this.e;
-                if (viewGroup != null) {
-                    viewGroup.addView(onCreateView);
-                }
+            if (this.a == null) {
+                this.a = new la0();
+            }
+            View onCreateView = this.a.onCreateView(getFragmentActivity(), this, LiveFeedPageSdk.HOST_LIVE_TAB, "tab", null, null, false);
+            if (onCreateView.getParent() instanceof ViewGroup) {
+                ((ViewGroup) onCreateView.getParent()).removeView(onCreateView);
+            }
+            onCreateView.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            ViewGroup viewGroup = this.e;
+            if (viewGroup != null) {
+                viewGroup.addView(onCreateView);
             }
             this.a.lazyLoad();
         }
@@ -342,7 +324,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements kx6 {
             }
             this.c = isPrimary();
             if (isPrimary() && (pollingModel = this.d) != null) {
-                pollingModel.y0(PollingModel.MEMBER_BROADCAST);
+                pollingModel.x0(PollingModel.MEMBER_BROADCAST);
             }
         }
     }

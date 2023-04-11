@@ -14,8 +14,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.je9;
+import com.baidu.tieba.ao9;
+import com.baidu.tieba.ii;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -398,7 +398,7 @@ public class ProgressButton extends View {
     public void g(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, je9.TBProgressButton);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ao9.TBProgressButton);
             this.k = obtainStyledAttributes.getDimensionPixelSize(4, R.dimen.T_X08);
             this.l = obtainStyledAttributes.getString(3);
             int i = obtainStyledAttributes.getInt(2, 0);
@@ -415,7 +415,7 @@ public class ProgressButton extends View {
             this.g = obtainStyledAttributes.getColor(6, SkinManager.getColor(this.h));
             this.d = obtainStyledAttributes.getFloat(0, 0.2f);
             obtainStyledAttributes.recycle();
-            this.n = hi.g(getContext(), R.dimen.L_X02);
+            this.n = ii.g(getContext(), R.dimen.L_X02);
             Paint paint = new Paint(1);
             this.i = paint;
             paint.setColor(this.b);

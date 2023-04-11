@@ -21,11 +21,11 @@ public class ie implements is<ie, Object>, Serializable, Cloneable {
     public int compareTo(ie ieVar) {
         int a2;
         if (ie.class.equals(ieVar.getClass())) {
-            int compareTo = Boolean.valueOf(m553a()).compareTo(Boolean.valueOf(ieVar.m553a()));
+            int compareTo = Boolean.valueOf(m555a()).compareTo(Boolean.valueOf(ieVar.m555a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m553a() || (a2 = it.a(this.f641a, ieVar.f641a)) == 0) {
+            if (!m555a() || (a2 = it.a(this.f641a, ieVar.f641a)) == 0) {
                 return 0;
             }
             return a2;
@@ -38,7 +38,7 @@ public class ie implements is<ie, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m552a() {
+    public void m554a() {
         if (this.f641a != null) {
             return;
         }
@@ -47,19 +47,19 @@ public class ie implements is<ie, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo619a();
+        jdVar.mo621a();
         while (true) {
-            ja mo615a = jdVar.mo615a();
-            byte b = mo615a.a;
+            ja mo617a = jdVar.mo617a();
+            byte b = mo617a.a;
             if (b == 0) {
                 jdVar.f();
-                m552a();
+                m554a();
                 return;
             }
-            if (mo615a.f813a == 1 && b == 15) {
-                jb mo616a = jdVar.mo616a();
-                this.f641a = new ArrayList(mo616a.f814a);
-                for (int i = 0; i < mo616a.f814a; i++) {
+            if (mo617a.f813a == 1 && b == 15) {
+                jb mo618a = jdVar.mo618a();
+                this.f641a = new ArrayList(mo618a.f814a);
+                for (int i = 0; i < mo618a.f814a; i++) {
                     hs hsVar = new hs();
                     hsVar.a(jdVar);
                     this.f641a.add(hsVar);
@@ -73,26 +73,26 @@ public class ie implements is<ie, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m553a() {
+    public boolean m555a() {
         return this.f641a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m554a(ie ieVar) {
+    public boolean m556a(ie ieVar) {
         if (ieVar == null) {
             return false;
         }
-        boolean m553a = m553a();
-        boolean m553a2 = ieVar.m553a();
-        if (m553a || m553a2) {
-            return m553a && m553a2 && this.f641a.equals(ieVar.f641a);
+        boolean m555a = m555a();
+        boolean m555a2 = ieVar.m555a();
+        if (m555a || m555a2) {
+            return m555a && m555a2 && this.f641a.equals(ieVar.f641a);
         }
         return true;
     }
 
     @Override // com.xiaomi.push.is
     public void b(jd jdVar) {
-        m552a();
+        m554a();
         jdVar.a(f640a);
         if (this.f641a != null) {
             jdVar.a(a);
@@ -104,12 +104,12 @@ public class ie implements is<ie, Object>, Serializable, Cloneable {
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo623a();
+        jdVar.mo625a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ie)) {
-            return m554a((ie) obj);
+            return m556a((ie) obj);
         }
         return false;
     }

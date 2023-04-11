@@ -12,10 +12,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.k45;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.so7;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.n55;
+import com.baidu.tieba.py7;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,12 +27,12 @@ public class GamePersonalChatTitleView extends RelativeLayout {
     public View a;
     public TextView b;
     public TBSpecificationBtn c;
-    public so7 d;
+    public py7 d;
     public b e;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(@NonNull so7 so7Var);
+        void a(@NonNull py7 py7Var);
     }
 
     /* loaded from: classes6.dex */
@@ -132,11 +132,11 @@ public class GamePersonalChatTitleView extends RelativeLayout {
         e();
     }
 
-    public void h(so7 so7Var) {
+    public void h(py7 py7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, so7Var) == null) {
-            this.d = so7Var;
-            this.b.setText(so7Var.c());
+        if (interceptable == null || interceptable.invokeL(1048581, this, py7Var) == null) {
+            this.d = py7Var;
+            this.b.setText(py7Var.c());
         }
     }
 
@@ -152,13 +152,13 @@ public class GamePersonalChatTitleView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = new TBSpecificationBtn(getContext());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, 0, hi.g(getContext(), R.dimen.M_W_X007), 0);
+            layoutParams.setMargins(0, 0, ii.g(getContext(), R.dimen.M_W_X007), 0);
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
-            k45 k45Var = new k45();
-            k45Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.c.setConfig(k45Var);
+            n55 n55Var = new n55();
+            n55Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.c.setConfig(n55Var);
             this.c.setText(getContext().getString(R.string.game_title_btn));
             addView(this.c);
             this.c.setOnClickListener(new a(this));
@@ -171,11 +171,11 @@ public class GamePersonalChatTitleView extends RelativeLayout {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(9);
             this.b.setLayoutParams(layoutParams);
-            this.b.setPadding(hi.g(getContext(), R.dimen.M_W_X008), hi.g(getContext(), R.dimen.tbds44), 0, hi.g(getContext(), R.dimen.tbds44));
+            this.b.setPadding(ii.g(getContext(), R.dimen.M_W_X008), ii.g(getContext(), R.dimen.tbds44), 0, ii.g(getContext(), R.dimen.tbds44));
             addView(this.b);
-            n15 d = n15.d(this.b);
-            d.A(R.dimen.T_X13);
-            d.B(R.string.F_X01);
+            q25 d = q25.d(this.b);
+            d.B(R.dimen.T_X13);
+            d.C(R.string.F_X01);
         }
     }
 
@@ -207,9 +207,9 @@ public class GamePersonalChatTitleView extends RelativeLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            n15.d(this).f(R.color.CAM_X0204);
-            n15.d(this.a).q(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
-            n15.d(this.b).w(R.color.CAM_X0105);
+            q25.d(this).f(R.color.CAM_X0204);
+            q25.d(this.a).q(new int[]{R.color.msg_navitation_bar_start, R.color.msg_navitation_bar_end}, Direction.LEFT);
+            q25.d(this.b).w(R.color.CAM_X0105);
             this.c.k();
         }
     }

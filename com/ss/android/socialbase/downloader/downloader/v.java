@@ -14,9 +14,9 @@ public class v implements c.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.c.a
-    public t a(c.a.InterfaceC0715a interfaceC0715a) {
+    public t a(c.a.InterfaceC0716a interfaceC0716a) {
         com.ss.android.socialbase.downloader.b.f fVar = new com.ss.android.socialbase.downloader.b.f();
-        fVar.a(interfaceC0715a);
+        fVar.a(interfaceC0716a);
         return fVar;
     }
 }

@@ -7,10 +7,13 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.live.arch.runtime.MiniShellRuntime;
 import com.baidu.live.arch.utils.MixNetWorkUtils;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
 import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.searchbox.live.interfaces.yy.YYStatInfo;
 import com.baidu.searchbox.live.pluginmanager.MiniPluginManager;
+import com.baidu.searchbox.live.service.ILivePageInfoInterface;
+import com.baidu.searchbox.live.service.MixRequestServiceLocator;
 import com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell;
 import com.baidu.searchbox.live.ubc.LiveComponentStatusHelper;
 import com.baidu.searchbox.live.util.MiniPluginInfoHelper;
@@ -30,7 +33,7 @@ import kotlin.jvm.internal.PropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010%\n\u0002\b\u0004\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u0000 :2\u00020\u0001:\u0001:B\t\b\u0002¢\u0006\u0004\b9\u0010\u001fJ)\u0010\u0007\u001a\u00020\u00062\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\b\u0010\u0004\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u0005\u001a\u00020\u0002¢\u0006\u0004\b\u0007\u0010\bJ\u0015\u0010\n\u001a\u00020\u00062\u0006\u0010\t\u001a\u00020\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u0019\u0010\u000e\u001a\u00020\f2\b\u0010\r\u001a\u0004\u0018\u00010\fH\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u0015\u0010\u0010\u001a\u00020\u00062\u0006\u0010\t\u001a\u00020\u0002¢\u0006\u0004\b\u0010\u0010\u000bJ\u0017\u0010\u0013\u001a\u00020\u00062\b\u0010\u0012\u001a\u0004\u0018\u00010\u0011¢\u0006\u0004\b\u0013\u0010\u0014J\u0019\u0010\u0016\u001a\u0004\u0018\u00010\u00152\u0006\u0010\t\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0016\u0010\u0017J'\u0010\u001a\u001a\u00020\u00062\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u0005\u001a\u00020\u00022\u0006\u0010\u0019\u001a\u00020\u0018¢\u0006\u0004\b\u001a\u0010\u001bJ\u0015\u0010\u001d\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u0002¢\u0006\u0004\b\u001d\u0010\u000bJ\u000f\u0010\u001e\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u001e\u0010\u001fJ\u0017\u0010!\u001a\u00020\u00062\u0006\u0010 \u001a\u00020\u0002H\u0016¢\u0006\u0004\b!\u0010\u000bR%\u0010(\u001a\n #*\u0004\u0018\u00010\"0\"8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b$\u0010%\u001a\u0004\b&\u0010'R\u0018\u0010)\u001a\u0004\u0018\u00010\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010*R\u0018\u0010,\u001a\u0004\u0018\u00010+8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010-R\"\u0010/\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\f0.8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b/\u00100R\"\u00101\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00150.8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b1\u00100R\u0018\u00102\u001a\u0004\u0018\u00010\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u0010*R\u0016\u00104\u001a\u0002038\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00105R\u0016\u00107\u001a\u0002068\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b7\u00108¨\u0006;"}, d2 = {"Lcom/baidu/searchbox/live/ubc/LiveComponentLoadLogger;", "com/baidu/searchbox/live/ubc/LiveComponentStatusHelper$ILiveComponentLoadFinish", "", "roomId", "source", "templateId", "", "bindRoomIdToExternalEnterFlow", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "key", "cancelCurrentComponentFlow", "(Ljava/lang/String;)V", "Lorg/json/JSONObject;", "ext", "contentItem", "(Lorg/json/JSONObject;)Lorg/json/JSONObject;", "endCurrentComponentFlow", "", "statInfo", "externalLiveLaunchMediaCompLoadFlow", "(Ljava/lang/Object;)V", "Lcom/baidu/ubc/Flow;", "getCurrentFlowRoomId", "(Ljava/lang/String;)Lcom/baidu/ubc/Flow;", "", "isFromUser", "launchMediaCompLoadFlow", "(Ljava/lang/String;Ljava/lang/String;Z)V", "msg", "logDebug", "onCoreFinished", "()V", "componentName", "onFinished", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "kotlin.jvm.PlatformType", "abService$delegate", "Lkotlin/Lazy;", "getAbService", "()Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "abService", "externalSource", "Ljava/lang/String;", "Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "externalYYStatInfo", "Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "", "flowExtContent", "Ljava/util/Map;", "flowMaps", "mCurrentRoomId", "", "mStartTime", "J", "Lcom/baidu/ubc/UBCManager;", UBCCloudControlProcessor.UBC_KEY, "Lcom/baidu/ubc/UBCManager;", "<init>", "Companion", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010%\n\u0002\b\u0004\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u0000 :2\u00020\u0001:\u0001:B\t\b\u0002¢\u0006\u0004\b9\u0010\u001fJ)\u0010\u0007\u001a\u00020\u00062\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\b\u0010\u0004\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u0005\u001a\u00020\u0002¢\u0006\u0004\b\u0007\u0010\bJ\u0015\u0010\n\u001a\u00020\u00062\u0006\u0010\t\u001a\u00020\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u0019\u0010\u000e\u001a\u00020\f2\b\u0010\r\u001a\u0004\u0018\u00010\fH\u0002¢\u0006\u0004\b\u000e\u0010\u000fJ\u0015\u0010\u0010\u001a\u00020\u00062\u0006\u0010\t\u001a\u00020\u0002¢\u0006\u0004\b\u0010\u0010\u000bJ\u0017\u0010\u0013\u001a\u00020\u00062\b\u0010\u0012\u001a\u0004\u0018\u00010\u0011¢\u0006\u0004\b\u0013\u0010\u0014J\u0019\u0010\u0016\u001a\u0004\u0018\u00010\u00152\u0006\u0010\t\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0016\u0010\u0017J1\u0010\u001a\u001a\u00020\u00062\b\u0010\u0003\u001a\u0004\u0018\u00010\u00022\u0006\u0010\u0005\u001a\u00020\u00022\u0006\u0010\u0019\u001a\u00020\u00182\b\b\u0002\u0010\u0004\u001a\u00020\u0002¢\u0006\u0004\b\u001a\u0010\u001bJ\u0015\u0010\u001d\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u0002¢\u0006\u0004\b\u001d\u0010\u000bJ\u000f\u0010\u001e\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u001e\u0010\u001fJ\u0017\u0010!\u001a\u00020\u00062\u0006\u0010 \u001a\u00020\u0002H\u0016¢\u0006\u0004\b!\u0010\u000bR%\u0010(\u001a\n #*\u0004\u0018\u00010\"0\"8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b$\u0010%\u001a\u0004\b&\u0010'R\u0018\u0010)\u001a\u0004\u0018\u00010\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010*R\u0018\u0010,\u001a\u0004\u0018\u00010+8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010-R\"\u0010/\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\f0.8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b/\u00100R\"\u00101\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00150.8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b1\u00100R\u0018\u00102\u001a\u0004\u0018\u00010\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u0010*R\u0016\u00104\u001a\u0002038\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00105R\u0016\u00107\u001a\u0002068\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b7\u00108¨\u0006;"}, d2 = {"Lcom/baidu/searchbox/live/ubc/LiveComponentLoadLogger;", "com/baidu/searchbox/live/ubc/LiveComponentStatusHelper$ILiveComponentLoadFinish", "", "roomId", "source", "templateId", "", "bindRoomIdToExternalEnterFlow", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "key", "cancelCurrentComponentFlow", "(Ljava/lang/String;)V", "Lorg/json/JSONObject;", "ext", "contentItem", "(Lorg/json/JSONObject;)Lorg/json/JSONObject;", "endCurrentComponentFlow", "", "statInfo", "externalLiveLaunchMediaCompLoadFlow", "(Ljava/lang/Object;)V", "Lcom/baidu/ubc/Flow;", "getCurrentFlowRoomId", "(Ljava/lang/String;)Lcom/baidu/ubc/Flow;", "", "isFromUser", "launchMediaCompLoadFlow", "(Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)V", "msg", "logDebug", "onCoreFinished", "()V", "componentName", "onFinished", "Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "kotlin.jvm.PlatformType", "abService$delegate", "Lkotlin/Lazy;", "getAbService", "()Lcom/baidu/searchbox/live/interfaces/service/AbConfigService;", "abService", "externalSource", "Ljava/lang/String;", "Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "externalYYStatInfo", "Lcom/baidu/searchbox/live/interfaces/yy/YYStatInfo;", "", "flowExtContent", "Ljava/util/Map;", "flowMaps", "mCurrentRoomId", "", "mStartTime", "J", "Lcom/baidu/ubc/UBCManager;", UBCCloudControlProcessor.UBC_KEY, "Lcom/baidu/ubc/UBCManager;", "<init>", "Companion", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.ILiveComponentLoadFinish {
     public static final String MEDIA_COMMPONENT_TAG = "LIVE_ARCH";
@@ -153,12 +156,23 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
         return jSONObject2;
     }
 
+    public static /* synthetic */ void launchMediaCompLoadFlow$default(LiveComponentLoadLogger liveComponentLoadLogger, String str, String str2, boolean z, String str3, int i, Object obj) {
+        if ((i & 8) != 0) {
+            str3 = MediaLivePluginLogger.PAGE_SELECT_SOURCE;
+        }
+        liveComponentLoadLogger.launchMediaCompLoadFlow(str, str2, z, str3);
+    }
+
     public final void bindRoomIdToExternalEnterFlow(String str, String str2, String str3) {
         String str4;
+        int i;
         boolean z;
         Object obj;
         boolean z2;
         Object obj2;
+        IntentData schemeIntentData;
+        IntentData.SchemeModel model;
+        IntentData schemeIntentData2;
         Object obj3;
         logDebug("bindRoomIdToExternalEnterFlow  :" + str);
         if (str != null) {
@@ -195,16 +209,27 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
                 jSONObject.put(MixYYFakeShell.ROOM_ID_YY, str);
                 jSONObject.put("setup_type", yYStatInfo2.loadType);
                 jSONObject.put("jump_source", str2);
+                ILivePageInfoInterface iLivePageInfoInterface = (ILivePageInfoInterface) MixRequestServiceLocator.Companion.getGlobalService(ILivePageInfoInterface.class);
+                String str5 = (iLivePageInfoInterface == null || (schemeIntentData2 = iLivePageInfoInterface.getSchemeIntentData()) == null || (str5 = schemeIntentData2.getId()) == null) ? "" : "";
+                ILivePageInfoInterface iLivePageInfoInterface2 = (ILivePageInfoInterface) MixRequestServiceLocator.Companion.getGlobalService(ILivePageInfoInterface.class);
+                boolean z3 = false;
+                if (iLivePageInfoInterface2 != null && (schemeIntentData = iLivePageInfoInterface2.getSchemeIntentData()) != null && (model = schemeIntentData.getModel()) != null) {
+                    i = model.getInterventions();
+                } else {
+                    i = 0;
+                }
+                if (Intrinsics.areEqual(str5, str)) {
+                    jSONObject.put("ganyu_scene_qufen", i);
+                }
                 jSONObject.put("livesdk", MiniPluginInfoHelper.INSTANCE.getVersionName("com.baidu.searchbox.livenps"));
                 jSONObject.put("templateId", str3);
                 AbConfigService abService = getAbService();
-                boolean z3 = true;
                 if (abService != null && abService.getSwitch(MiniPluginManager.PROHIBIT_PRE_LOAD_MEDIA_SWITCH, false)) {
                     z = true;
                 } else {
                     z = false;
                 }
-                String str5 = "1";
+                String str6 = "1";
                 if (z) {
                     obj = "1";
                 } else {
@@ -224,75 +249,15 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
                 }
                 jSONObject.put(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, obj2);
                 AbConfigService abService3 = getAbService();
-                z3 = (abService3 == null || !abService3.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false)) ? false : false;
-                if (!z3) {
-                    str5 = "0";
+                if (abService3 != null && abService3.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false)) {
+                    z3 = true;
                 }
-                jSONObject.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, str5);
+                if (!z3) {
+                    str6 = "0";
+                }
+                jSONObject.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, str6);
                 logDebug("禁止预加载二级实验 " + z + "， 延时加载二级实验： " + z2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "前请求 enter 接口实验 " + z3);
                 this.flowExtContent.put(str, jSONObject);
-            }
-        }
-    }
-
-    public final void launchMediaCompLoadFlow(String str, String str2, boolean z) {
-        boolean z2;
-        Object obj;
-        boolean z3;
-        Object obj2;
-        if (z && str != null) {
-            LiveComponentStatusHelper.Companion.getInstance().clean();
-            this.mCurrentRoomId = str;
-            if (this.flowMaps.get(str) == null) {
-                Flow flow = this.ubc.beginFlow(UBC_ID_ROOM_COMPONENT_LOAD_FINISH_FLOW);
-                this.ubc.flowAddEvent(flow, UBC_LIVE_EVENT_ENTER);
-                Map<String, Flow> map = this.flowMaps;
-                Intrinsics.checkExpressionValueIsNotNull(flow, "flow");
-                map.put(str, flow);
-                if (this.flowExtContent.get(str) == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(MixYYFakeShell.ROOM_ID_YY, str);
-                    jSONObject.put("setup_type", "launch");
-                    jSONObject.put("jump_source", MediaLivePluginLogger.PAGE_SELECT_SOURCE);
-                    jSONObject.put("livesdk", MiniPluginInfoHelper.INSTANCE.getVersionName("com.baidu.searchbox.livenps"));
-                    jSONObject.put("templateId", str2);
-                    AbConfigService abService = getAbService();
-                    boolean z4 = true;
-                    if (abService != null && abService.getSwitch(MiniPluginManager.PROHIBIT_PRE_LOAD_MEDIA_SWITCH, false)) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    String str3 = "1";
-                    if (z2) {
-                        obj = "1";
-                    } else {
-                        obj = "0";
-                    }
-                    jSONObject.put("prohibit_preload_media_business", obj);
-                    AbConfigService abService2 = getAbService();
-                    if (abService2 != null && abService2.getSwitch(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, false)) {
-                        z3 = true;
-                    } else {
-                        z3 = false;
-                    }
-                    if (z3) {
-                        obj2 = "1";
-                    } else {
-                        obj2 = "0";
-                    }
-                    jSONObject.put(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, obj2);
-                    AbConfigService abService3 = getAbService();
-                    z4 = (abService3 == null || !abService3.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false)) ? false : false;
-                    if (!z4) {
-                        str3 = "0";
-                    }
-                    jSONObject.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, str3);
-                    logDebug("禁止预加载二级实验 " + z2 + "， 延时加载二级实验： " + z3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "前请求 enter 接口实验 " + z4);
-                    this.flowExtContent.put(str, jSONObject);
-                }
-                this.mStartTime = System.currentTimeMillis();
-                logDebug("launchMediaCompLoadFlow  second jump create flow " + str);
             }
         }
     }
@@ -384,5 +349,84 @@ public final class LiveComponentLoadLogger implements LiveComponentStatusHelper.
             yYStatInfo6.flowObj = beginFlow;
         }
         logDebug("externalLiveLaunchMediaCompLoadFlow startTime flow" + this.mStartTime);
+    }
+
+    public final void launchMediaCompLoadFlow(String str, String str2, boolean z, String str3) {
+        int i;
+        boolean z2;
+        Object obj;
+        boolean z3;
+        Object obj2;
+        IntentData schemeIntentData;
+        IntentData.SchemeModel model;
+        IntentData schemeIntentData2;
+        if (z && str != null) {
+            LiveComponentStatusHelper.Companion.getInstance().clean();
+            this.mCurrentRoomId = str;
+            if (this.flowMaps.get(str) == null) {
+                Flow flow = this.ubc.beginFlow(UBC_ID_ROOM_COMPONENT_LOAD_FINISH_FLOW);
+                this.ubc.flowAddEvent(flow, UBC_LIVE_EVENT_ENTER);
+                Map<String, Flow> map = this.flowMaps;
+                Intrinsics.checkExpressionValueIsNotNull(flow, "flow");
+                map.put(str, flow);
+                if (this.flowExtContent.get(str) == null) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put(MixYYFakeShell.ROOM_ID_YY, str);
+                    jSONObject.put("setup_type", "launch");
+                    jSONObject.put("jump_source", str3);
+                    ILivePageInfoInterface iLivePageInfoInterface = (ILivePageInfoInterface) MixRequestServiceLocator.Companion.getGlobalService(ILivePageInfoInterface.class);
+                    String str4 = (iLivePageInfoInterface == null || (schemeIntentData2 = iLivePageInfoInterface.getSchemeIntentData()) == null || (str4 = schemeIntentData2.getId()) == null) ? "" : "";
+                    ILivePageInfoInterface iLivePageInfoInterface2 = (ILivePageInfoInterface) MixRequestServiceLocator.Companion.getGlobalService(ILivePageInfoInterface.class);
+                    boolean z4 = false;
+                    if (iLivePageInfoInterface2 != null && (schemeIntentData = iLivePageInfoInterface2.getSchemeIntentData()) != null && (model = schemeIntentData.getModel()) != null) {
+                        i = model.getInterventions();
+                    } else {
+                        i = 0;
+                    }
+                    if (Intrinsics.areEqual(str4, str)) {
+                        jSONObject.put("ganyu_scene_qufen", i);
+                    }
+                    jSONObject.put("livesdk", MiniPluginInfoHelper.INSTANCE.getVersionName("com.baidu.searchbox.livenps"));
+                    jSONObject.put("templateId", str2);
+                    AbConfigService abService = getAbService();
+                    if (abService != null && abService.getSwitch(MiniPluginManager.PROHIBIT_PRE_LOAD_MEDIA_SWITCH, false)) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    String str5 = "1";
+                    if (z2) {
+                        obj = "1";
+                    } else {
+                        obj = "0";
+                    }
+                    jSONObject.put("prohibit_preload_media_business", obj);
+                    AbConfigService abService2 = getAbService();
+                    if (abService2 != null && abService2.getSwitch(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, false)) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    if (z3) {
+                        obj2 = "1";
+                    } else {
+                        obj2 = "0";
+                    }
+                    jSONObject.put(MiniPluginManager.LIVE_DELAY_LOAD_MEDIA_SWITCH, obj2);
+                    AbConfigService abService3 = getAbService();
+                    if (abService3 != null && abService3.getSwitch(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, false)) {
+                        z4 = true;
+                    }
+                    if (!z4) {
+                        str5 = "0";
+                    }
+                    jSONObject.put(MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH, str5);
+                    logDebug("禁止预加载二级实验 " + z2 + "， 延时加载二级实验： " + z3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "前请求 enter 接口实验 " + z4);
+                    this.flowExtContent.put(str, jSONObject);
+                }
+                this.mStartTime = System.currentTimeMillis();
+                logDebug("launchMediaCompLoadFlow  second jump create flow " + str);
+            }
+        }
     }
 }

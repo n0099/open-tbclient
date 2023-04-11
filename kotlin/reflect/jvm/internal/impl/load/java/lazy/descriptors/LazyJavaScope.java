@@ -373,7 +373,7 @@ public abstract class LazyJavaScope extends MemberScopeImpl {
         if (descriptorKindFilter.acceptsKinds(DescriptorKindFilter.Companion.getCLASSIFIERS_MASK())) {
             for (Name name : computeClassNames(descriptorKindFilter, function1)) {
                 if (function1.invoke(name).booleanValue()) {
-                    CollectionsKt.addIfNotNull(linkedHashSet, mo2025getContributedClassifier(name, noLookupLocation));
+                    CollectionsKt.addIfNotNull(linkedHashSet, mo2027getContributedClassifier(name, noLookupLocation));
                 }
             }
         }
@@ -574,8 +574,8 @@ public abstract class LazyJavaScope extends MemberScopeImpl {
             JavaTypeAttributes attributes$default = JavaTypeResolverKt.toAttributes$default(TypeUsage.COMMON, z2, null, 3, null);
             FqName fqName = JvmAnnotationNames.PARAMETER_NAME_FQ_NAME;
             Intrinsics.checkExpressionValueIsNotNull(fqName, "JvmAnnotationNames.PARAMETER_NAME_FQ_NAME");
-            AnnotationDescriptor mo2018findAnnotation = resolveAnnotations.mo2018findAnnotation(fqName);
-            if (mo2018findAnnotation != null && (firstArgument = DescriptorUtilsKt.firstArgument(mo2018findAnnotation)) != null) {
+            AnnotationDescriptor mo2020findAnnotation = resolveAnnotations.mo2020findAnnotation(fqName);
+            if (mo2020findAnnotation != null && (firstArgument = DescriptorUtilsKt.firstArgument(mo2020findAnnotation)) != null) {
                 if (!(firstArgument instanceof StringValue)) {
                     firstArgument = null;
                 }

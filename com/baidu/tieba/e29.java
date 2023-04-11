@@ -1,19 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import tbclient.CustomGrid;
 /* loaded from: classes4.dex */
 public class e29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public String c;
+    public int c;
+    public String d;
+    public int e;
+    public long f;
+    public String g;
+    public String h;
 
     public e29() {
         Interceptable interceptable = $ic;
@@ -29,16 +34,37 @@ public class e29 {
         }
     }
 
-    public static e29 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void a(CustomGrid customGrid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            e29 e29Var = new e29();
-            e29Var.a = jSONObject.optString("lottie");
-            e29Var.b = jSONObject.optString("text");
-            e29Var.c = jSONObject.optString("cmd");
-            return e29Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, customGrid) == null) {
+            this.a = customGrid.title;
+            this.b = customGrid.action_uri;
+            this.c = customGrid.action_type.intValue();
+            this.d = customGrid.icon;
+            this.e = customGrid.type.intValue();
+            this.g = customGrid.desc;
+            this.h = customGrid.mark_text;
+            this.f = customGrid.red_point_version.longValue();
         }
-        return (e29) invokeL.objValue;
+    }
+
+    public n29 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            n29 n29Var = new n29();
+            n29Var.e = this.a;
+            n29Var.n = true;
+            n29Var.l = this.d;
+            n29Var.g = this.b;
+            n29Var.a = this.e;
+            n29Var.m = this.c;
+            p29 p29Var = new p29();
+            p29Var.b = this.g;
+            p29Var.i = this.h;
+            n29Var.i = p29Var;
+            return n29Var;
+        }
+        return (n29) invokeV.objValue;
     }
 }

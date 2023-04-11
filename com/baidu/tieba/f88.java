@@ -1,63 +1,17 @@
 package com.baidu.tieba;
 
-import android.location.Address;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.location.LocationCallback;
-import com.baidu.searchbox.live.interfaces.location.LocationInfo;
-import com.baidu.searchbox.live.interfaces.service.LiveLocationService;
-import com.baidu.tieba.cf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class f88 implements LiveLocationService {
+public class f88 extends n18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements cf.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LocationCallback a;
-        public final /* synthetic */ f88 b;
-
-        public a(f88 f88Var, LocationCallback locationCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f88Var, locationCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = f88Var;
-            this.a = locationCallback;
-        }
-
-        @Override // com.baidu.tieba.cf.c
-        public void a(int i, String str, Address address) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) {
-                try {
-                    if (this.a != null && address != null) {
-                        this.a.onReceiveLocation(this.b.b(address));
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f88() {
+        super(kz7.w(), 2001146);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,44 +19,12 @@ public class f88 implements LiveLocationService {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((yy7) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
-    public LocationInfo getLocationInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b(cf.n().k(false, null));
-        }
-        return (LocationInfo) invokeV.objValue;
-    }
-
-    public final LocationInfo b(Address address) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, address)) == null) {
-            LocationInfo locationInfo = new LocationInfo();
-            if (address != null) {
-                locationInfo.setCity(address.getLocality());
-                locationInfo.setLatitude(address.getLatitude());
-                locationInfo.setLongitude(address.getLongitude());
-                locationInfo.setProvince(address.getAdminArea());
-                locationInfo.setCounty(address.getCountryName());
-            }
-            return locationInfo;
-        }
-        return (LocationInfo) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
-    public void requestLocate(LocationCallback locationCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationCallback) == null) {
-            cf.n().k(false, new a(this, locationCallback));
         }
     }
 }

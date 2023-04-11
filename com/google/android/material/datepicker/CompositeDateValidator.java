@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.core.util.Preconditions;
 import com.google.android.material.datepicker.CalendarConstraints;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CompositeDateValidator implements CalendarConstraints.DateValidator {
     public static final Parcelable.Creator<CompositeDateValidator> CREATOR = new Parcelable.Creator<CompositeDateValidator>() { // from class: com.google.android.material.datepicker.CompositeDateValidator.1
         /* JADX DEBUG: Method merged with bridge method */

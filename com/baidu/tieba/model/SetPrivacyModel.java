@@ -167,14 +167,14 @@ public class SetPrivacyModel extends BdBaseModel {
         this.a = cardPersonDynamicThreadData;
     }
 
-    public void Y(a aVar) {
+    public void X(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             this.e = aVar;
         }
     }
 
-    public boolean X() {
+    public boolean W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

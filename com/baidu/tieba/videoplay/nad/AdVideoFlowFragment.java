@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dv5;
-import com.baidu.tieba.jo9;
-import com.baidu.tieba.u09;
+import com.baidu.tieba.ay9;
+import com.baidu.tieba.jw5;
+import com.baidu.tieba.ka9;
 import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.tieba.videoplay.view.GestureInterceptTouchFrameLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,12 +28,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class AdVideoFlowFragment extends BaseFragment implements dv5.b, jo9 {
+public class AdVideoFlowFragment extends BaseFragment implements jw5.b, ay9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GestureInterceptTouchFrameLayout a;
     public FrameLayout b;
-    public u09 c;
+    public ka9 c;
     public VideoItemModel d;
     public int e;
     public int f;
@@ -134,8 +134,8 @@ public class AdVideoFlowFragment extends BaseFragment implements dv5.b, jo9 {
         this.g = new a(this, 2921612);
     }
 
-    @Override // com.baidu.tieba.jo9
-    public VideoItemModel I0() {
+    @Override // com.baidu.tieba.ay9
+    public VideoItemModel L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -149,11 +149,11 @@ public class AdVideoFlowFragment extends BaseFragment implements dv5.b, jo9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            u09 u09Var = this.c;
-            if (u09Var == null) {
+            ka9 ka9Var = this.c;
+            if (ka9Var == null) {
                 return;
             }
-            u09Var.onDestroy();
+            ka9Var.onDestroy();
         }
     }
 
@@ -174,11 +174,11 @@ public class AdVideoFlowFragment extends BaseFragment implements dv5.b, jo9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPause();
-            u09 u09Var = this.c;
-            if (u09Var == null) {
+            ka9 ka9Var = this.c;
+            if (ka9Var == null) {
                 return;
             }
-            u09Var.onPause();
+            ka9Var.onPause();
         }
     }
 
@@ -187,48 +187,48 @@ public class AdVideoFlowFragment extends BaseFragment implements dv5.b, jo9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPrimary();
-            u09 u09Var = this.c;
-            if (u09Var == null) {
+            ka9 ka9Var = this.c;
+            if (ka9Var == null) {
                 return;
             }
-            u09Var.onPrimary(isPrimary());
+            ka9Var.onPrimary(isPrimary());
         }
     }
 
-    @Override // com.baidu.tieba.dv5.b
+    @Override // com.baidu.tieba.jw5.b
     public void onViewClick() {
-        u09 u09Var;
+        ka9 ka9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (u09Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (ka9Var = this.c) == null) {
             return;
         }
-        u09Var.onViewClick();
+        ka9Var.onViewClick();
     }
 
-    @Override // com.baidu.tieba.dv5.b
+    @Override // com.baidu.tieba.jw5.b
     public void onViewDragToRight() {
-        u09 u09Var;
+        ka9 ka9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (u09Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (ka9Var = this.c) == null) {
             return;
         }
-        u09Var.onViewDragToRight();
+        ka9Var.onViewDragToRight();
     }
 
-    @Override // com.baidu.tieba.jo9
-    public int p() {
+    @Override // com.baidu.tieba.ay9
+    public int t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.e;
         }
         return invokeV.intValue;
     }
 
-    public void E1(u09 u09Var) {
+    public void E1(ka9 ka9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, u09Var) == null) {
-            this.c = u09Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ka9Var) == null) {
+            this.c = ka9Var;
         }
     }
 
@@ -248,24 +248,24 @@ public class AdVideoFlowFragment extends BaseFragment implements dv5.b, jo9 {
         }
     }
 
-    @Override // com.baidu.tieba.jo9
-    public void r0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.e = i;
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void setUserVisibleHint(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             super.setUserVisibleHint(z);
-            u09 u09Var = this.c;
-            if (u09Var == null) {
+            ka9 ka9Var = this.c;
+            if (ka9Var == null) {
                 return;
             }
-            u09Var.onUserVisibleHint(z);
+            ka9Var.onUserVisibleHint(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.ay9
+    public void u0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.e = i;
         }
     }
 
@@ -282,7 +282,7 @@ public class AdVideoFlowFragment extends BaseFragment implements dv5.b, jo9 {
                 this.d = (VideoItemModel) arguments.get("video_data");
                 this.f = arguments.getInt(VideoPlayActivityConfig.CURRENT_TYPE);
             }
-            this.c.setDrawables(WebPManager.getMaskDrawable((int) R.drawable.icon_pure_video_play208, WebPManager.ResourceStateType.NORMAL), WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_return40, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0808a3, WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808a1, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808a8, SkinManager.getColor(R.color.CAM_X0104), WebPManager.ResourceStateType.NORMAL_DISABLE), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808a9, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.c.setDrawables(WebPManager.getMaskDrawable((int) R.drawable.icon_pure_video_play208, WebPManager.ResourceStateType.NORMAL), WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_return40, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080895, WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080893, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08089a, SkinManager.getColor(R.color.CAM_X0104), WebPManager.ResourceStateType.NORMAL_DISABLE), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08089b, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
             this.c.updateTiebaData(this.f, this.d);
             GestureInterceptTouchFrameLayout gestureInterceptTouchFrameLayout = (GestureInterceptTouchFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0077, (ViewGroup) null);
             this.a = gestureInterceptTouchFrameLayout;
@@ -297,13 +297,13 @@ public class AdVideoFlowFragment extends BaseFragment implements dv5.b, jo9 {
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.dv5.b
-    public void p0(float f, float f2) {
-        u09 u09Var;
+    @Override // com.baidu.tieba.jw5.b
+    public void s0(float f, float f2) {
+        ka9 ka9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || (u09Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || (ka9Var = this.c) == null) {
             return;
         }
-        u09Var.onViewDoubleClick();
+        ka9Var.onViewDoubleClick();
     }
 }

@@ -1,293 +1,143 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.media.MediaCodec;
-import android.media.MediaCodecInfo;
-import android.media.MediaCodecList;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.record.EncoderParams;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.extractor.ogg.OpusReader;
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-@SuppressLint({"NewApi"})
+import java.util.List;
 /* loaded from: classes4.dex */
-public class f6a implements z5a {
+public class f6a extends d6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MediaCodec a;
-    public MediaFormat b;
-    public ByteBuffer[] c;
-    public ByteBuffer[] d;
-    public BufferedOutputStream e;
-    public boolean f;
-    public ByteBuffer g;
-    public byte[] h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public h6a m;
+    @Nullable
+    public m5a V;
+    public l5a W;
 
-    public final int g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            switch (i) {
-                case 7350:
-                    return 12;
-                case 8000:
-                    return 11;
-                case 11025:
-                    return 10;
-                case 12000:
-                    return 9;
-                case 16000:
-                    return 8;
-                case 22050:
-                    return 7;
-                case 24000:
-                    return 6;
-                case 32000:
-                    return 5;
-                case OpusReader.SAMPLE_RATE /* 48000 */:
-                    return 3;
-                case 64000:
-                    return 2;
-                case 88200:
-                    return 1;
-                case 96000:
-                    return 0;
-                default:
-                    return 4;
-            }
-        }
-        return invokeI.intValue;
-    }
-
-    public f6a(int i, int i2) throws IOException {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f6a(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull p4a p4aVar, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, p4aVar, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, p4aVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (p4a) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = i2;
-        this.l = g(i);
-        MediaCodecInfo h = h("audio/mp4a-latm");
-        if (h == null) {
-            h6a h6aVar = this.m;
-            if (h6aVar != null) {
-                h6aVar.onExceptionThrown("not suport aac encoder");
-                return;
-            }
+    }
+
+    @Override // com.baidu.tieba.d6a, com.baidu.tieba.e6a
+    public void M(@NonNull List<q4a<?>> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || this.V == null) {
             return;
         }
-        this.a = MediaCodec.createByCodecName(h.getName());
-        MediaFormat mediaFormat = new MediaFormat();
-        this.b = mediaFormat;
-        mediaFormat.setString("mime", "audio/mp4a-latm");
-        this.b.setInteger("aac-profile", 2);
-        this.b.setInteger("sample-rate", i);
-        this.b.setInteger("channel-count", i2);
-        this.b.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
-        this.b.setInteger("max-input-size", 8192);
-        this.b.setInteger("bitrate-mode", 16);
-        this.a.configure(this.b, (Surface) null, (MediaCrypto) null, 1);
-        this.a.start();
-        this.c = this.a.getInputBuffers();
-        this.d = this.a.getOutputBuffers();
-        this.g = ByteBuffer.allocateDirect(8192);
-        this.h = new byte[4096];
+        if (this.W == null) {
+            this.W = new l5a(this.a, this, this.d, this.s, this.J, this.C, this.p);
+        }
+        list.addAll(this.W.a(this.V.d));
+        y0(list);
     }
 
-    @Override // com.baidu.tieba.z5a
-    public void a() throws IOException {
-        int dequeueInputBuffer;
+    @Override // com.baidu.tieba.d6a, com.baidu.tieba.e6a
+    public void O(@NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            m7a.j("VideoMuxer: ", "----set BUFFER_FLAG_END_OF_STREAM to encoder-----");
-            do {
-                dequeueInputBuffer = this.a.dequeueInputBuffer(10000L);
-                if (dequeueInputBuffer >= 0) {
-                    m7a.j("VideoMuxer: ", "----MediaCodec.BUFFER_FLAG_END_OF_STREAM-----");
-                    this.a.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
+            editorTools.setBarMaxLauCount(5);
+            editorTools.setMoreButtonAtEnd(true);
+            editorTools.setBarLauncherType(1);
+            editorTools.E(true);
+            editorTools.F(false);
+            editorTools.setBackgroundColorId(R.color.CAM_X0201);
+            x0(editorTools);
+            v5a.m(this.a, editorTools, this.p.getCallFrom(), this);
+            editorTools.f();
+            super.O(editorTools);
+        }
+    }
+
+    @Override // com.baidu.tieba.d6a, com.baidu.tieba.e6a
+    public void U(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.U(bundle);
+            if (this.a.getPageActivity() == null) {
+                return;
+            }
+            m5a a = m5a.a(this.a.getPageActivity().getIntent().getStringExtra(WriteActivityConfig.DYNAMIC_PARAMS));
+            this.V = a;
+            if (a == null) {
+                this.e.T0(9, true);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.d6a, com.baidu.tieba.e6a
+    public void P(@NonNull NavigationBar navigationBar) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
+            super.P(navigationBar);
+            m5a m5aVar = this.V;
+            if (m5aVar != null) {
+                if (TextUtils.isEmpty(m5aVar.a)) {
+                    str = this.a.getString(R.string.obfuscated_res_0x7f0f0fc7);
+                } else {
+                    str = this.V.a;
                 }
-                i();
-            } while (dequeueInputBuffer < 0);
-            while (!this.f) {
-                i();
+                navigationBar.setCenterTextTitle(str);
             }
         }
     }
 
-    public void f() {
+    public final void x0(@NonNull EditorTools editorTools) {
+        m5a m5aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            try {
-                this.a.stop();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                this.a.release();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-            this.a = null;
-            try {
-                this.e.flush();
-                this.e.close();
-            } catch (IOException e3) {
-                e3.printStackTrace();
-            }
+        if ((interceptable != null && interceptable.invokeL(1048580, this, editorTools) != null) || (m5aVar = this.V) == null) {
+            return;
+        }
+        for (String str : m5aVar.e) {
+            n5a.a(this.a, editorTools, this, str);
         }
     }
 
-    @Override // com.baidu.tieba.z5a
-    public void b(String str) throws IOException {
+    public final void y0(@NonNull List<q4a<?>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.e = new BufferedOutputStream(new FileOutputStream(str));
-        }
-    }
-
-    @Override // com.baidu.tieba.z5a
-    public void d(h6a h6aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, h6aVar) == null) {
-            this.m = h6aVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.z5a
-    public int c(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
-            if (this.g.capacity() < i2) {
-                this.g = ByteBuffer.allocateDirect(i2);
-            }
-            this.g.clear();
-            this.g.put(bArr, i, i2);
-            this.g.flip();
-            while (this.g.hasRemaining()) {
-                int dequeueInputBuffer = this.a.dequeueInputBuffer(10000L);
-                if (dequeueInputBuffer >= 0) {
-                    ByteBuffer byteBuffer = this.c[dequeueInputBuffer];
-                    int min = Math.min(byteBuffer.capacity(), this.g.remaining());
-                    if (min != this.h.length) {
-                        this.h = new byte[min];
-                    }
-                    this.g.get(this.h, 0, min);
-                    byteBuffer.clear();
-                    byteBuffer.put(this.h);
-                    this.a.queueInputBuffer(dequeueInputBuffer, 0, min, 0L, 0);
-                    this.i += min;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            for (q4a<?> q4aVar : list) {
+                if (q4aVar instanceof g4a) {
+                    this.D = (g4a) q4aVar;
+                } else if (q4aVar instanceof v3a) {
+                    this.E = (v3a) q4aVar;
+                } else if (q4aVar instanceof f4a) {
+                    this.F = (f4a) q4aVar;
+                } else if (q4aVar instanceof i4a) {
+                    this.G = (i4a) q4aVar;
+                } else if (q4aVar instanceof j4a) {
+                    this.H = (j4a) q4aVar;
+                } else if (q4aVar instanceof u3a) {
+                    this.I = (u3a) q4aVar;
                 }
-                i();
-            }
-            return 0;
-        }
-        return invokeLII.intValue;
-    }
-
-    public final void e(byte[] bArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, bArr, i) == null) {
-            int i2 = this.l;
-            int i3 = this.k;
-            bArr[0] = -1;
-            bArr[1] = -7;
-            bArr[2] = (byte) (64 + (i2 << 2) + (i3 >> 2));
-            bArr[3] = (byte) (((i3 & 3) << 6) + (i >> 11));
-            bArr[4] = (byte) ((i & 2047) >> 3);
-            bArr[5] = (byte) (((i & 7) << 5) + 31);
-            bArr[6] = -4;
-        }
-    }
-
-    public final MediaCodecInfo h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            int codecCount = MediaCodecList.getCodecCount();
-            for (int i = 0; i < codecCount; i++) {
-                MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
-                if (codecInfoAt.isEncoder()) {
-                    for (String str2 : codecInfoAt.getSupportedTypes()) {
-                        if (str2.equalsIgnoreCase(str)) {
-                            return codecInfoAt;
-                        }
-                    }
-                    continue;
-                }
-            }
-            return null;
-        }
-        return (MediaCodecInfo) invokeL.objValue;
-    }
-
-    public final void i() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-            int dequeueOutputBuffer = this.a.dequeueOutputBuffer(bufferInfo, 10000L);
-            if (dequeueOutputBuffer == -2) {
-                this.b = this.a.getOutputFormat();
-            } else if (dequeueOutputBuffer == -3) {
-                this.d = this.a.getOutputBuffers();
-            } else if (dequeueOutputBuffer == -1) {
-                m7a.j("VideoMuxer", "writeOutput INFO_TRY_AGAIN_LATER");
-            } else if (dequeueOutputBuffer >= 0) {
-                if ((bufferInfo.flags & 2) != 0) {
-                    this.a.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    return;
-                }
-                int i = bufferInfo.size;
-                if (i > 0) {
-                    int i2 = i + 7;
-                    ByteBuffer byteBuffer = this.d[dequeueOutputBuffer];
-                    byteBuffer.position(bufferInfo.offset);
-                    byteBuffer.limit(bufferInfo.offset + i);
-                    byte[] bArr = new byte[i2];
-                    e(bArr, i2);
-                    byteBuffer.get(bArr, 7, i);
-                    byteBuffer.position(bufferInfo.offset);
-                    this.e.write(bArr, 0, i2);
-                    this.j += bufferInfo.size;
-                    byteBuffer.clear();
-                }
-                this.a.releaseOutputBuffer(dequeueOutputBuffer, false);
-                if ((bufferInfo.flags & 4) != 0) {
-                    this.f = true;
-                    try {
-                        f();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    if (this.m != null) {
-                        m7a.j("VideoMuxer: ", "----Encode done-----,numBytesSubmitted:" + this.i + ",numBytesDequeued:" + this.j);
-                        this.m.onFinishedWriting(true);
-                    }
+                if (q4aVar != null) {
+                    q4aVar.q(list);
                 }
             }
         }

@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -118,8 +118,8 @@ public class HorizontalCenterSelectView extends RecyclerView {
                         return;
                     }
                 }
-                this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925d3);
-                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092538);
+                this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925c8);
+                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09252e);
             }
         }
 
@@ -148,22 +148,32 @@ public class HorizontalCenterSelectView extends RecyclerView {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         @NonNull
-        /* renamed from: e */
+        /* renamed from: l */
         public b onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
                 return new b(this, LayoutInflater.from(this.a.getContext()).inflate(this.a.k, viewGroup, false));
             }
             return (b) invokeLI.objValue;
         }
 
+        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+        public int getItemCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a.a.size();
+            }
+            return invokeV.intValue;
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        /* renamed from: d */
+        /* renamed from: k */
         public void onBindViewHolder(@NonNull b bVar, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, bVar, i) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, i) == null) {
                 if (this.a.a.get(i) == null) {
                     ViewGroup.LayoutParams layoutParams = bVar.b.getLayoutParams();
                     if (i < getItemCount() / 2) {
@@ -180,7 +190,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
                 }
                 bVar.b.setTextSize(0, this.a.b.getTextSize());
                 bVar.b.setTextColor(this.a.b.getColor());
-                n15.d(bVar.b).z(R.array.S_O_X001);
+                q25.d(bVar.b).A(R.array.S_O_X001);
                 bVar.b.setOnClickListener(new a(this, i));
                 if (i == this.a.i) {
                     bVar.b.setAlpha(1.0f);
@@ -192,16 +202,6 @@ public class HorizontalCenterSelectView extends RecyclerView {
                 marginLayoutParams.rightMargin = this.a.g / 2;
                 bVar.a.setLayoutParams(marginLayoutParams);
             }
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        public int getItemCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.a.size();
-            }
-            return invokeV.intValue;
         }
     }
 
@@ -385,7 +385,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
         this.a = new ArrayList();
         this.b = new Paint();
         this.h = false;
-        this.k = R.layout.obfuscated_res_0x7f0d0427;
+        this.k = R.layout.obfuscated_res_0x7f0d0429;
         this.l = new a(this);
         init();
     }

@@ -6,11 +6,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
+import java.util.ArrayList;
+import java.util.List;
+/* JADX WARN: Incorrect class signature, class is equals to this class: <TResult:Ljava/lang/Object;>Lcom/baidu/tieba/eua<TTResult;>; */
 /* loaded from: classes4.dex */
-public final class eua<E> extends bua<E> {
+public final class eua<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Object a;
+    public boolean b;
+    public TResult c;
+    public Exception d;
+    public List<sua<TResult>> e;
 
     public eua() {
         Interceptable interceptable = $ic;
@@ -25,55 +32,101 @@ public final class eua<E> extends bua<E> {
                 return;
             }
         }
-        LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>();
-        f(linkedQueueNode);
-        e(linkedQueueNode);
-        linkedQueueNode.soNext(null);
+        this.a = new Object();
+        this.e = new ArrayList();
     }
 
-    @Override // java.util.Queue
-    public E peek() {
+    public final Exception c() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedQueueNode<E> lvNext = a().lvNext();
-            if (lvNext != null) {
-                return lvNext.lpValue();
-            }
-            return null;
-        }
-        return (E) invokeV.objValue;
-    }
-
-    @Override // java.util.Queue
-    public E poll() {
-        InterceptResult invokeV;
+        Exception exc;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinkedQueueNode<E> lvNext = a().lvNext();
-            if (lvNext != null) {
-                E andNullValue = lvNext.getAndNullValue();
-                e(lvNext);
-                return andNullValue;
+            synchronized (this.a) {
+                exc = this.d;
             }
-            return null;
+            return exc;
         }
-        return (E) invokeV.objValue;
+        return (Exception) invokeV.objValue;
     }
 
-    @Override // java.util.Queue
-    public boolean offer(E e) {
+    public final TResult d() {
+        InterceptResult invokeV;
+        TResult tresult;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.a) {
+                if (this.d == null) {
+                    tresult = this.c;
+                } else {
+                    throw new RuntimeException(this.d);
+                }
+            }
+            return tresult;
+        }
+        return (TResult) invokeV.objValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this.a) {
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this.a) {
+                if (this.b) {
+                    e();
+                    if (this.d == null) {
+                        z = true;
+                    }
+                }
+                z = false;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final eua<TResult> a(sua<TResult> suaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
-            if (e != null) {
-                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
-                b().soNext(linkedQueueNode);
-                f(linkedQueueNode);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, suaVar)) == null) {
+            synchronized (this.a) {
+                if (!this.b) {
+                    this.e.add(suaVar);
+                } else {
+                    suaVar.a(this);
+                }
             }
-            throw new NullPointerException("null elements not allowed");
+            return this;
         }
-        return invokeL.booleanValue;
+        return (eua) invokeL.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.a) {
+                for (sua<TResult> suaVar : this.e) {
+                    try {
+                        suaVar.a(this);
+                    } catch (RuntimeException e) {
+                        throw e;
+                    } catch (Exception e2) {
+                        throw new RuntimeException(e2);
+                    }
+                }
+                this.e = null;
+            }
+        }
     }
 }

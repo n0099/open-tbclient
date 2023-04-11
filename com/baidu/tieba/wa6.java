@@ -1,160 +1,142 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.MutableContextWrapper;
-import android.content.res.Resources;
-import android.util.TypedValue;
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
-import androidx.appcompat.view.ContextThemeWrapper;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.core.cache.prefetch.FetchStaticResourceManager;
-import com.baidu.tieba.browser.core.webview.base.BaseWebView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public final class wa6 {
+public class wa6 extends BdAsyncTask<Void, String, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ya6<BaseWebView> a;
+    public int a;
+    public sa6 b;
+    public String c;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final wa6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-324151201, "Lcom/baidu/tieba/wa6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-324151201, "Lcom/baidu/tieba/wa6$b;");
-                    return;
-                }
-            }
-            a = new wa6(null);
-        }
-    }
-
-    public wa6() {
+    public wa6(String str, int i, sa6 sa6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), sa6Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new za6(8);
+        this.a = i;
+        this.b = sa6Var;
+        this.c = str;
     }
 
-    public static wa6 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (wa6) invokeV.objValue;
-    }
-
-    public /* synthetic */ wa6(a aVar) {
-        this();
-    }
-
-    @NonNull
-    public BaseWebView a(Context context) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public String doInBackground(Void... voidArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return new BaseWebView(new MutableContextWrapper(b(context)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+            String str = this.c;
+            if (str == null) {
+                return null;
+            }
+            return c(str);
         }
-        return (BaseWebView) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final ContextThemeWrapper b(Context context) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x0028 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0036 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0009 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v10, types: [java.io.FileInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r0v11 */
+    /* JADX WARN: Type inference failed for: r0v12 */
+    /* JADX WARN: Type inference failed for: r0v2, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    /* JADX WARN: Type inference failed for: r0v6 */
+    /* JADX WARN: Type inference failed for: r0v7 */
+    /* JADX WARN: Type inference failed for: r0v8, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r0v9 */
+    public String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            TypedValue typedValue = new TypedValue();
-            Resources.Theme theme = context.getTheme();
-            if (theme != null) {
-                theme.resolveAttribute(16973840, typedValue, true);
-            }
-            return new ContextThemeWrapper(context, typedValue.resourceId);
-        }
-        return (ContextThemeWrapper) invokeL.objValue;
-    }
-
-    public void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            f(a(context));
-            FetchStaticResourceManager.e();
-        }
-    }
-
-    @NonNull
-    public BaseWebView e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            BaseWebView a2 = this.a.a();
-            if (a2 == null) {
-                a2 = a(zc6.getContext());
-            }
-            Context context2 = a2.getContext();
-            if (context2 instanceof MutableContextWrapper) {
-                ((MutableContextWrapper) context2).setBaseContext(context);
-            } else {
-                a2.destroy();
-                a2 = a(context);
-            }
-            jb6.d(a2);
-            pd6.c("lt-log", "获取WebView实例耗时：" + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-            return a2;
-        }
-        return (BaseWebView) invokeL.objValue;
-    }
-
-    public void f(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, webView) == null) {
-            if (webView instanceof BaseWebView) {
-                BaseWebView baseWebView = (BaseWebView) webView;
-                boolean z = false;
-                Context context = baseWebView.getContext();
-                if (context instanceof MutableContextWrapper) {
-                    ((MutableContextWrapper) context).setBaseContext(zc6.getContext());
-                    z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            ?? isEmpty = TextUtils.isEmpty(str);
+            String str2 = null;
+            str2 = null;
+            str2 = null;
+            InputStream inputStream = null;
+            try {
+                try {
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-                if (z && baseWebView.o()) {
-                    this.a.c(baseWebView);
-                } else {
-                    baseWebView.destroy();
+                if (isEmpty != 0) {
+                    return null;
                 }
-            } else if (webView != null) {
-                webView.destroy();
+                try {
+                    isEmpty = new FileInputStream(str);
+                    try {
+                        byte[] bArr = new byte[isEmpty.available()];
+                        isEmpty.read(bArr);
+                        str2 = Base64.encodeToString(bArr, 0);
+                        isEmpty.close();
+                        isEmpty = isEmpty;
+                    } catch (Exception e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        if (isEmpty != 0) {
+                            isEmpty.close();
+                            isEmpty = isEmpty;
+                        }
+                        return str2;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    isEmpty = 0;
+                } catch (Throwable th) {
+                    th = th;
+                    if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+                return str2;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = isEmpty;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            super.onPostExecute((wa6) str);
+            sa6 sa6Var = this.b;
+            if (sa6Var != null && str != null) {
+                sa6Var.a("", this.a, str);
             }
         }
     }

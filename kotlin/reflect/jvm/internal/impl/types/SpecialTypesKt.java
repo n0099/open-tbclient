@@ -61,10 +61,10 @@ public final class SpecialTypesKt {
     }
 
     public static final IntersectionTypeConstructor makeDefinitelyNotNullOrNotNull(IntersectionTypeConstructor intersectionTypeConstructor) {
-        Collection<KotlinType> mo2024getSupertypes = intersectionTypeConstructor.mo2024getSupertypes();
-        ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2024getSupertypes, 10));
+        Collection<KotlinType> mo2026getSupertypes = intersectionTypeConstructor.mo2026getSupertypes();
+        ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2026getSupertypes, 10));
         boolean z = false;
-        for (KotlinType kotlinType : mo2024getSupertypes) {
+        for (KotlinType kotlinType : mo2026getSupertypes) {
             if (TypeUtils.isNullableType(kotlinType)) {
                 z = true;
                 kotlinType = makeDefinitelyNotNullOrNotNull(kotlinType.unwrap());

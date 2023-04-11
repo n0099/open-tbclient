@@ -1,81 +1,61 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.game.interfaces.GameService;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
+import android.widget.ListView;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.im.util.MessageUtils;
+import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class y78 implements GameService {
+public class y78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
-    public bb b;
+    public final ArrayList<x78> a;
 
     /* loaded from: classes7.dex */
-    public class a extends bb {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GameService.MsgSendListener a;
-        public final /* synthetic */ y78 b;
+        public final /* synthetic */ ListView a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ x78 c;
+        public final /* synthetic */ ChatMessage d;
+        public final /* synthetic */ ChatMessage e;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(y78 y78Var, int i, GameService.MsgSendListener msgSendListener) {
-            super(i);
+        public a(y78 y78Var, ListView listView, List list, x78 x78Var, ChatMessage chatMessage, ChatMessage chatMessage2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y78Var, Integer.valueOf(i), msgSendListener};
+                Object[] objArr = {y78Var, listView, list, x78Var, chatMessage, chatMessage2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = y78Var;
-            this.a = msgSendListener;
+            this.a = listView;
+            this.b = list;
+            this.c = x78Var;
+            this.d = chatMessage;
+            this.e = chatMessage2;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /* renamed from: a */
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, socketResponsedMessage) != null) || !(socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.getLastVisiblePosition() != this.b.size() - 1) {
                 return;
             }
-            ChatMessage chatMessage = (ChatMessage) ((ResponseCommitPersonalMessage) socketResponsedMessage).getOrginalMessage();
-            if (chatMessage instanceof PersonalChatMessage) {
-                String valueOf = String.valueOf(chatMessage.getRecordId());
-                if (this.b.a.containsKey(valueOf)) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("msg_id", this.b.a.get(valueOf));
-                    if (socketResponsedMessage.hasError()) {
-                        this.a.onFailed(hashMap);
-                    } else {
-                        this.a.onSuccess(hashMap);
-                    }
-                }
-            }
+            this.c.b(this.a, this.d, this.e);
         }
     }
 
@@ -92,62 +72,27 @@ public class y78 implements GameService {
                 return;
             }
         }
-        this.a = new HashMap();
+        ArrayList<x78> arrayList = new ArrayList<>(2);
+        this.a = arrayList;
+        arrayList.add(new w78());
+        this.a.add(new z78());
     }
 
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void clearCachedHostMsgSendAPI() {
+    public void a(MsglistModel msglistModel, ListView listView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void releaseHostMsgSendAPI() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.b != null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
-            this.b = null;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void initHostMsgSendAPI(@Nullable GameService.MsgSendListener msgSendListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, msgSendListener) != null) || msgSendListener == null) {
-            return;
-        }
-        if (this.b == null) {
-            this.b = new a(this, 0, msgSendListener);
-        }
-        MessageManager.getInstance().registerListener(205001, this.b);
-    }
-
-    @Override // com.baidu.searchbox.live.game.interfaces.GameService
-    public void callHostMsgSendAPI(@Nullable Map<String, String> map) {
-        long parseLong;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, map) == null) && map != null && !map.isEmpty()) {
-            String str = map.get("msg_id");
-            String str2 = map.get("msg_content");
-            String str3 = map.get("receiver_id");
-            String str4 = map.get("receiver_name");
-            String str5 = map.get("receiver_avatar");
-            String str6 = map.get(DI.FOLLOW_STATUS);
-            try {
-                if (TextUtils.isEmpty(str3)) {
-                    parseLong = -1;
-                } else {
-                    parseLong = Long.parseLong(str3);
-                }
-                boolean equalsIgnoreCase = "1".equalsIgnoreCase(str6);
-                if (parseLong > -1) {
-                    this.a.put(String.valueOf(MessageUtils.createAndSendPersonalText(str2, parseLong, str4, str4, str5, equalsIgnoreCase)), str);
-                }
-            } catch (NumberFormatException unused) {
-                if (BdBaseApplication.getInst().isDebugMode()) {
-                    BdLog.e("NumberFormatException: parse long");
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, msglistModel, listView) == null) && msglistModel != null && msglistModel.getData() != null) {
+            List<ChatMessage> chatMessages = msglistModel.getData().getChatMessages();
+            if (ListUtils.isEmpty(chatMessages)) {
+                return;
+            }
+            ChatMessage chatMessage = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 1);
+            ChatMessage chatMessage2 = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 2);
+            Iterator<x78> it = this.a.iterator();
+            while (it.hasNext()) {
+                x78 next = it.next();
+                if (next.a(chatMessage, chatMessage2)) {
+                    listView.postDelayed(new a(this, listView, chatMessages, next, chatMessage, chatMessage2), 200L);
+                    return;
                 }
             }
         }

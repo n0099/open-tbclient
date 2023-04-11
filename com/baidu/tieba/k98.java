@@ -1,177 +1,141 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService;
-import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.wallet.YYPayManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.modelpay.PayReq;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import java.util.HashMap;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class k98 implements ThirdPartWxRechargeService {
+public class k98 {
     public static /* synthetic */ Interceptable $ic;
-    public static BroadcastReceiver b;
     public transient /* synthetic */ FieldHolder $fh;
-    public IWXAPI a;
+    public BdTypeRecyclerView a;
+    public ArrayList<hn> b;
+    public List<um> c;
+    public g98 d;
+    public g98 e;
+    public g98 f;
+    public i98 g;
+    public i98 h;
+    public i98 i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947868031, "Lcom/baidu/tieba/k98;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947868031, "Lcom/baidu/tieba/k98;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k98 this$0;
-        public final /* synthetic */ ThirdPartWxRechargeService.WxPayType val$wxPayType;
-
-        public a(k98 k98Var, ThirdPartWxRechargeService.WxPayType wxPayType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k98Var, wxPayType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = k98Var;
-            this.val$wxPayType = wxPayType;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                intent.getExtras();
-                if (this.val$wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive) {
-                    str = "wx_pay_result";
-                } else {
-                    str = "yy_wx_pay_result";
-                }
-                HashMap hashMap = new HashMap();
-                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, Integer.valueOf(intent.getExtras().getInt("errorCode", -1)));
-                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, intent.getExtras().getString("errorMsg"));
-                LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str, hashMap);
-            }
-        }
-    }
-
-    public k98() {
+    public k98(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new LinkedList();
+        if (tbPageContext != null && bdTypeRecyclerView != null) {
+            this.a = bdTypeRecyclerView;
+            b(tbPageContext);
+        }
+    }
+
+    public void a(int i) {
+        BdTypeRecyclerView bdTypeRecyclerView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (bdTypeRecyclerView = this.a) != null) {
+            bdTypeRecyclerView.removeItem(i);
+        }
+    }
+
+    public void e(rn rnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, rnVar) == null) {
+            for (um umVar : this.c) {
+                if (umVar != null) {
+                    umVar.setOnAdapterItemClickListener(rnVar);
+                }
             }
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public void initWx() {
+    public void f(ArrayList<hn> arrayList) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
+            this.a.setData(arrayList);
+            this.b = arrayList;
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public boolean isWxInstalled() {
-        InterceptResult invokeV;
+    public void g(sn snVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a == null) {
-                this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+        if (interceptable == null || interceptable.invokeL(1048582, this, snVar) == null) {
+            for (um umVar : this.c) {
+                if (umVar != null) {
+                    umVar.setOnAdapterItemLongClickListener(snVar);
+                }
             }
-            return this.a.isWXAppInstalled();
         }
-        return invokeV.booleanValue;
     }
 
-    public final PayReq a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void h(xg6 xg6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            PayReq payReq = new PayReq();
-            payReq.appId = jSONObject.optString("appid");
-            payReq.partnerId = jSONObject.optString("partnerid");
-            payReq.prepayId = jSONObject.optString("prepayid");
-            payReq.packageValue = jSONObject.optString("package");
-            payReq.nonceStr = jSONObject.optString("noncestr");
-            payReq.timeStamp = jSONObject.optString("timestamp");
-            payReq.sign = jSONObject.optString("sign");
-            payReq.extData = "YY";
-            return payReq;
+        if (interceptable == null || interceptable.invokeL(1048583, this, xg6Var) == null) {
+            this.i.x(xg6Var);
+            this.h.x(xg6Var);
+            this.g.x(xg6Var);
         }
-        return (PayReq) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public void wxRecharge(String str, ThirdPartWxRechargeService.WxPayType wxPayType) {
-        String str2;
+    public final void b(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, wxPayType) == null) {
-            try {
-                if (this.a == null) {
-                    this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
-                }
-                PayReq a2 = a(new JSONObject(str));
-                this.a.registerApp(a2.appId);
-                if (!this.a.sendReq(a2)) {
-                    if (wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive) {
-                        str2 = "wx_pay_result";
-                    } else {
-                        str2 = "yy_wx_pay_result";
-                    }
-                    HashMap hashMap = new HashMap();
-                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, 6);
-                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, "wx_start_failed");
-                    LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
-                }
-                if (b != null) {
-                    TbadkCoreApplication.getInst().unregisterReceiver(b);
-                }
-                b = new a(this, wxPayType);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("WXPayResult");
-                TbadkCoreApplication.getInst().registerReceiver(b, intentFilter);
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
+            g98 g98Var = new g98(tbPageContext, e98.C);
+            this.d = g98Var;
+            g98Var.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
+            g98 g98Var2 = new g98(tbPageContext, e98.D);
+            this.e = g98Var2;
+            g98Var2.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
+            g98 g98Var3 = new g98(tbPageContext, e98.E);
+            this.f = g98Var3;
+            g98Var3.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
+            i98 i98Var = new i98(tbPageContext, e98.H);
+            this.g = i98Var;
+            i98Var.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
+            i98 i98Var2 = new i98(tbPageContext, e98.G);
+            this.h = i98Var2;
+            i98Var2.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
+            i98 i98Var3 = new i98(tbPageContext, e98.F);
+            this.i = i98Var3;
+            i98Var3.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
+            this.c.add(this.d);
+            this.c.add(this.e);
+            this.c.add(this.g);
+            this.c.add(this.h);
+            this.c.add(this.i);
+            this.c.add(this.f);
+            this.a.addAdapters(this.c);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.getAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (um umVar : this.c) {
             }
         }
     }

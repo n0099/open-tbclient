@@ -1,19 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import tbclient.ExcPbPage.DataRes;
-import tbclient.ExcPbPage.ExcPbPageResIdl;
 /* loaded from: classes6.dex */
-public class vh8 implements CustomMessageTask.CustomRunnable<Object> {
+public class vh8 extends qj1<AccountManagerService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,31 +26,15 @@ public class vh8 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
-        ExcPbPageResIdl excPbPageResIdl;
-        DataRes dataRes;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qj1
+    /* renamed from: a */
+    public AccountManagerService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            uh8 uh8Var = null;
-            if (customMessage == null || customMessage.getCmd() != 2001314) {
-                return null;
-            }
-            yz4.d();
-            byte[] bArr = yz4.b("tb.pb_normal").get("chosen_pb_page_cache");
-            if (bArr != null) {
-                try {
-                    excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
-                } catch (Exception unused) {
-                    excPbPageResIdl = null;
-                }
-                if (excPbPageResIdl != null && (dataRes = excPbPageResIdl.data) != null) {
-                    uh8Var = new uh8(dataRes.user_info, dataRes.thread_info, dataRes.post_list, dataRes.user_list);
-                }
-            }
-            return new ReadChosenPbCacheResponse(uh8Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new wh8();
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (AccountManagerService) invokeV.objValue;
     }
 }

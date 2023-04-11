@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gt4;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.lf6;
-import com.baidu.tieba.wr8;
-import com.baidu.tieba.xs8;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.it4;
+import com.baidu.tieba.m19;
+import com.baidu.tieba.n29;
+import com.baidu.tieba.xg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,13 +31,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wr8 a;
+    public m19 a;
     public Bundle b;
-    public xs8 c;
-    public lf6 d;
+    public n29 c;
+    public xg6 d;
 
     /* loaded from: classes5.dex */
-    public class a extends lf6<xs8> {
+    public class a extends xg6<n29> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterMoreActivity b;
@@ -61,18 +61,19 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lf6
+        @Override // com.baidu.tieba.xg6
         /* renamed from: d */
-        public void a(View view2, xs8 xs8Var) {
+        public void a(View view2, n29 n29Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, xs8Var) == null) {
-                this.b.c = xs8Var;
-                if (this.b.c == null || this.b.G1()) {
-                    return;
-                }
-                PersonCenterMoreActivity personCenterMoreActivity = this.b;
-                personCenterMoreActivity.E1(personCenterMoreActivity.c.g);
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, n29Var) != null) {
+                return;
             }
+            this.b.c = n29Var;
+            if (this.b.c == null || this.b.F1()) {
+                return;
+            }
+            PersonCenterMoreActivity personCenterMoreActivity = this.b;
+            personCenterMoreActivity.C1(personCenterMoreActivity.c.g);
         }
     }
 
@@ -92,7 +93,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         this.d = new a(this);
     }
 
-    public final boolean G1() {
+    public final boolean F1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -110,20 +111,20 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            wr8 wr8Var = this.a;
-            if (wr8Var != null) {
-                wr8Var.d();
+            m19 m19Var = this.a;
+            if (m19Var != null) {
+                m19Var.d();
             }
         }
     }
 
-    public final void E1(String str) {
+    public final void C1(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || StringUtils.isNull(str)) {
             return;
         }
         if (str.startsWith("tieba&")) {
-            F1(str);
+            E1(str);
         } else if (str.startsWith("nohead:url")) {
             StringBuilder sb = new StringBuilder();
             sb.append(str.replaceFirst("nohead:url=", ""));
@@ -139,21 +140,21 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
     }
 
-    public final void F1(String str) {
+    public final void E1(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
             return;
         }
         if (str.startsWith("tieba&")) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                hi.P(getPageContext().getPageActivity(), R.string.cosume_record_plugin_not_install_tip);
+                ii.P(getPageContext().getPageActivity(), R.string.cosume_record_plugin_not_install_tip);
                 return;
             }
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str.substring(6)});
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            gt4.D(getPageContext().getPageActivity(), true, str);
+            it4.D(getPageContext().getPageActivity(), true, str);
         }
     }
 
@@ -166,10 +167,10 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             if (intent != null) {
                 this.b = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d0755);
-            wr8 wr8Var = new wr8(getPageContext(), this.b, this.d);
-            this.a = wr8Var;
-            wr8Var.c();
+            setContentView(R.layout.obfuscated_res_0x7f0d074e);
+            m19 m19Var = new m19(getPageContext(), this.b, this.d);
+            this.a = m19Var;
+            m19Var.c();
         }
     }
 
@@ -177,7 +178,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeILL(1048581, this, i, strArr, iArr) == null) && 25040 == i && iArr[0] == 0) {
-            E1(this.c.g);
+            C1(this.c.g);
         }
     }
 }

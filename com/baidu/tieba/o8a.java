@@ -1,31 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class o8a {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile n8a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public t8a a;
 
-    public o8a(Context context) {
+    public static synchronized n8a a() {
+        InterceptResult invokeV;
+        n8a n8aVar;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (o8a.class) {
+                if (a == null) {
+                    a = new n8a();
+                }
+                n8aVar = a;
             }
+            return n8aVar;
         }
-        this.a = new p8a(context).a();
+        return (n8a) invokeV.objValue;
     }
 }

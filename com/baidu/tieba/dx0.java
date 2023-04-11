@@ -1,28 +1,15 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class dx0 extends mx0 implements tv0 {
+public class dx0 extends ww0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout e;
-    public jv0 f;
-
-    @Override // com.baidu.tieba.tv0
-    public sv0 getInterceptorLayer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : (sv0) invokeV.objValue;
-    }
 
     public dx0() {
         Interceptable interceptable = $ic;
@@ -34,97 +21,27 @@ public abstract class dx0 extends mx0 implements tv0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = new FrameLayout(this.c);
-        R(8);
     }
 
-    @Override // com.baidu.tieba.ex0
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            J(this);
-        }
-    }
-
-    public boolean O() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.e.getVisibility() == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void P() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.e.removeAllViews();
-        }
-    }
-
-    @Override // com.baidu.tieba.rx0
+    @Override // com.baidu.tieba.ww0, com.baidu.tieba.zw0
     @NonNull
-    public View getContentView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mx0, com.baidu.tieba.ex0, com.baidu.tieba.rx0
-    public void onLayerRelease() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.onLayerRelease();
-            J(null);
-            jv0 jv0Var = this.f;
-            if (jv0Var != null) {
-                jv0Var.onLayerRelease();
-                this.f = null;
-            }
-        }
-    }
-
-    public void N(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            this.e.addView(view2);
-        }
-    }
-
-    public void Q(jv0 jv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jv0Var) == null) {
-            this.f = jv0Var;
-        }
-    }
-
-    public void R(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.e.setVisibility(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.tv0
-    public boolean e(@NonNull ru0 ru0Var) {
+    public sw0 create(@NonNull String str) {
         InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ru0Var)) == null) {
-            jv0 jv0Var = this.f;
-            if (jv0Var == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str.hashCode() == -1843224545 && str.equals("InlineVideoKernel")) {
+                c = 0;
+            } else {
+                c = 65535;
             }
-            return jv0Var.b(ru0Var.c());
+            if (c != 0) {
+                return super.create(str);
+            }
+            return new bx0();
         }
-        return invokeL.booleanValue;
+        return (sw0) invokeL.objValue;
     }
 }

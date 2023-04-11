@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tieba.bc;
-import com.baidu.tieba.hp5;
+import com.baidu.tieba.nq5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class AppLaunchInfoFetcher {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void onFinish(hp5 hp5Var);
+        void onFinish(nq5 nq5Var);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -119,7 +119,7 @@ public class AppLaunchInfoFetcher {
     }
 
     @TargetApi(23)
-    public static hp5 b(Context context) {
+    public static nq5 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -127,14 +127,14 @@ public class AppLaunchInfoFetcher {
             if (appTasks != null) {
                 for (ActivityManager.AppTask appTask : appTasks) {
                     if (appTask != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseIntent != null && appTask.getTaskInfo().baseIntent.getComponent() != null) {
-                        return new hp5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
+                        return new nq5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
                     }
                 }
                 return null;
             }
             return null;
         }
-        return (hp5) invokeL.objValue;
+        return (nq5) invokeL.objValue;
     }
 
     public static Type d(Message message) {
@@ -160,7 +160,7 @@ public class AppLaunchInfoFetcher {
         return (Type) invokeL.objValue;
     }
 
-    public static hp5 c() {
+    public static nq5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -173,10 +173,10 @@ public class AppLaunchInfoFetcher {
                     Intent a2 = a(message);
                     Type d2 = d(message);
                     if (a2 != null && a2.getComponent() != null) {
-                        return new hp5(Type.ACTIVITY, a2);
+                        return new nq5(Type.ACTIVITY, a2);
                     }
                     if (d2 != Type.UNKNOWN) {
-                        return new hp5(d2, null);
+                        return new nq5(d2, null);
                     }
                     Object d3 = bc.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
                     if (d3 instanceof Message) {
@@ -188,27 +188,27 @@ public class AppLaunchInfoFetcher {
             }
             return null;
         }
-        return (hp5) invokeV.objValue;
+        return (nq5) invokeV.objValue;
     }
 
     public static void e(Context context, List<a> list) {
-        hp5 hp5Var;
+        nq5 nq5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 23) {
-                    hp5Var = b(context);
+                    nq5Var = b(context);
                 } else {
-                    hp5Var = null;
+                    nq5Var = null;
                 }
-                if (hp5Var == null) {
-                    hp5Var = c();
+                if (nq5Var == null) {
+                    nq5Var = c();
                 }
-                if (hp5Var == null) {
-                    hp5Var = new hp5(Type.UNKNOWN, null);
+                if (nq5Var == null) {
+                    nq5Var = new nq5(Type.UNKNOWN, null);
                 }
                 for (a aVar : list) {
-                    aVar.onFinish(hp5Var);
+                    aVar.onFinish(nq5Var);
                 }
             } catch (Throwable th) {
                 BdLog.e(th);

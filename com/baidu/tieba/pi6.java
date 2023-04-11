@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.graphics.RectF;
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tieba.av6;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,12 +13,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class pi6 extends ji6 {
+public final class pi6 implements av6.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
-    public PointF c;
-    public RectF d;
 
     public pi6() {
         Interceptable interceptable = $ic;
@@ -27,64 +27,49 @@ public final class pi6 extends ji6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new PointF();
-        this.d = new RectF();
     }
 
-    public final PointF c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.av6.l
+    public void a(ViewGroup view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (PointF) invokeV.objValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ji6, com.baidu.tieba.j7.a
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.reset();
-            this.b = false;
-            this.c = new PointF();
-            this.d = new RectF();
-        }
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public final pi6 update(boolean z, int i, PointF position, RectF rect, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), position, rect, Integer.valueOf(i2)})) == null) {
-            Intrinsics.checkNotNullParameter(position, "position");
-            Intrinsics.checkNotNullParameter(rect, "rect");
-            this.b = z;
-            if (!Intrinsics.areEqual(this.c, position)) {
-                this.c.set(position);
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            if (view2 instanceof PlayVoiceBntNew) {
+                ((PlayVoiceBntNew) view2).e();
             }
-            if (!Intrinsics.areEqual(this.d, rect)) {
-                this.d.set(rect);
-            }
-            return this;
         }
-        return (pi6) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.av6.h
+    public ViewGroup create(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            return new PlayVoiceBntNew(context, PlayVoiceBntNew.PLAY_TYPE.NORMAL);
+        }
+        return (ViewGroup) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.av6.h
+    public void update(ViewGroup view2, Object data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, data) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(data, "data");
+            if ((view2 instanceof PlayVoiceBntNew) && (data instanceof VoiceData.VoiceModel)) {
+                PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) view2;
+                VoiceData.VoiceModel voiceModel = (VoiceData.VoiceModel) data;
+                playVoiceBntNew.setVoiceModel(voiceModel);
+                playVoiceBntNew.setTag(data);
+                playVoiceBntNew.e();
+                Integer num = voiceModel.voice_status;
+                Intrinsics.checkNotNullExpressionValue(num, "data.voice_status");
+                playVoiceBntNew.m(num.intValue());
+                playVoiceBntNew.o();
+            }
+        }
     }
 }

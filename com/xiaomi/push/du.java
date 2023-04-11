@@ -30,8 +30,8 @@ public class du extends aj.a {
     private List<hp> a(File file) {
         RandomAccessFile randomAccessFile;
         FileInputStream fileInputStream;
-        dl m282a = dm.a().m282a();
-        String a = m282a == null ? "" : m282a.a();
+        dl m284a = dm.a().m284a();
+        String a = m284a == null ? "" : m284a.a();
         FileLock fileLock = null;
         if (TextUtils.isEmpty(a)) {
             return null;
@@ -41,7 +41,7 @@ public class du extends aj.a {
         synchronized (dp.a) {
             try {
                 File file2 = new File(this.a.getExternalFilesDir(null), "push_cdata.lock");
-                y.m762a(file2);
+                y.m764a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
                     FileLock lock = randomAccessFile.getChannel().lock();
@@ -135,7 +135,7 @@ public class du extends aj.a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m287a() {
+    private boolean m289a() {
         if (bi.e(this.a)) {
             return false;
         }
@@ -161,7 +161,7 @@ public class du extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo219a() {
+    public String mo221a() {
         return "1";
     }
 
@@ -172,7 +172,7 @@ public class du extends aj.a {
             if (file.length() > 1863680) {
                 file.delete();
             }
-        } else if (!m287a() && file.exists()) {
+        } else if (!m289a() && file.exists()) {
             List<hp> a = a(file);
             if (!ad.a(a)) {
                 int size = a.size();
@@ -185,9 +185,9 @@ public class du extends aj.a {
                 ig igVar = new ig("-1", false);
                 igVar.c(hr.DataCollection.f508a);
                 igVar.a(a2);
-                dl m282a = dm.a().m282a();
-                if (m282a != null) {
-                    m282a.a(igVar, hh.Notification, null);
+                dl m284a = dm.a().m284a();
+                if (m284a != null) {
+                    m284a.a(igVar, hh.Notification, null);
                 }
                 a();
             }

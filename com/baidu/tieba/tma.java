@@ -1,94 +1,63 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.sma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import com.fun.ad.sdk.FunSplashAdInteractionListener;
 /* loaded from: classes6.dex */
-public final class tma<TResult> implements jma<TResult> {
+public class tma extends sma.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lma a;
-    public Executor b;
-    public final Object c;
+    public final /* synthetic */ cna f;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nma a;
-        public final /* synthetic */ tma b;
-
-        public a(tma tmaVar, nma nmaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tmaVar, nmaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tmaVar;
-            this.a = nmaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b.c) {
-                    if (this.b.a != null) {
-                        this.b.a.onFailure(this.a.d());
-                    }
-                }
-            }
-        }
-    }
-
-    public tma(Executor executor, lma lmaVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tma(sma smaVar, wna wnaVar, String str, cna cnaVar) {
+        super(smaVar, wnaVar, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, lmaVar};
+            Object[] objArr = {smaVar, wnaVar, str, cnaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((sma) objArr2[0], (wna) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new Object();
-        this.a = lmaVar;
-        this.b = executor;
+        this.f = cnaVar;
     }
 
-    @Override // com.baidu.tieba.jma
-    public final void cancel() {
+    @Override // com.baidu.tieba.sma.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+    public void onAdClicked(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                this.a = null;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            super.onAdClicked(view2, i);
+            cna cnaVar = this.f;
+            String str = this.b;
+            FunSplashAdInteractionListener funSplashAdInteractionListener = cnaVar.j;
+            if (funSplashAdInteractionListener != null) {
+                funSplashAdInteractionListener.onAdClicked(str);
             }
         }
     }
 
-    @Override // com.baidu.tieba.jma
-    public final void onComplete(nma<TResult> nmaVar) {
+    @Override // com.baidu.tieba.sma.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+    public void onAdShow(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nmaVar) == null) || nmaVar.h() || nmaVar.f()) {
-            return;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+            super.onAdShow(view2, i);
+            cna cnaVar = this.f;
+            cnaVar.g = cnaVar.b.getWidth();
+            cnaVar.h = cnaVar.b.getHeight();
         }
-        this.b.execute(new a(this, nmaVar));
     }
 }

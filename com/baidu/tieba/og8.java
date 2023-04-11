@@ -1,218 +1,126 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-import com.baidu.tieba.uv4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class og8 {
+public abstract class og8<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public final BaseActivity<?> a;
-    @Nullable
-    public BdAsyncTask<?, ?, ?> b;
-    public final uv4.a c;
+    public String a;
 
-    /* loaded from: classes5.dex */
-    public class a implements uv4.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ og8 a;
-
-        public a(og8 og8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {og8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = og8Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948031401, "Lcom/baidu/tieba/og8;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.tieba.uv4.a
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) {
-                return;
-            }
-            this.a.j();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // com.baidu.tieba.uv4.a
-        public void c(AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) != null) {
-                return;
-            }
-            this.a.e();
-            this.a.g(accountData);
-        }
-
-        @Override // com.baidu.tieba.uv4.a
-        public void a(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                this.a.e();
-                if (this.a.a != null) {
-                    this.a.a.showToast(str2);
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948031401, "Lcom/baidu/tieba/og8;");
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AccountData a;
-
-        public b(og8 og8Var, AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {og8Var, accountData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = accountData;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                sv4.g(this.a);
-                b35.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
-            }
-        }
-    }
-
-    public og8(@Nullable BaseActivity<?> baseActivity) {
+    public og8(String key) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {key};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new a(this);
-        this.a = baseActivity;
+        Intrinsics.checkNotNullParameter(key, "key");
+        this.a = "default";
+        this.a = "key_prefix_" + key;
     }
 
-    public final void g(AccountData accountData) {
+    public final T a(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            i(accountData);
-            b35.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
-            if (this.a != null) {
-                TbadkCoreApplication.getInst().onUserChanged(this.a.getIntent());
-            }
-            f(-1);
-            TbadkCoreApplication.getInst().onDeviceFirstLoginChanged(accountData);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+            Intrinsics.checkNotNullParameter(t, "default");
+            return (T) b(t);
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.a = str;
         }
     }
 
-    public void f(int i) {
+    public final Object b(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.a == null) {
-            return;
-        }
-        this.a.setResult(i, new Intent());
-        this.a.finish();
-    }
-
-    public final void e() {
-        BaseActivity<?> baseActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (baseActivity = this.a) == null) {
-            return;
-        }
-        baseActivity.closeLoadingDialog();
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
-            SapiAccount session = SapiAccountManager.getInstance().getSession();
-            if (session != null) {
-                BdAsyncTask<?, ?, ?> bdAsyncTask = this.b;
-                if (bdAsyncTask != null) {
-                    bdAsyncTask.cancel();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
+            if (t instanceof String) {
+                String s = p45.m().s(this.a, (String) t);
+                Intrinsics.checkNotNullExpressionValue(s, "getInstance().getString(key, default as String)");
+                return s;
+            } else if (t instanceof Integer) {
+                return Integer.valueOf(p45.m().n(this.a, ((Integer) t).intValue()));
+            } else {
+                if (t instanceof Long) {
+                    return Long.valueOf(p45.m().o(this.a, ((Long) t).longValue()));
                 }
-                this.b = uv4.b().a(session.username, session.bduss, "", null, this.c);
-                return;
+                if (t instanceof Boolean) {
+                    return Boolean.valueOf(p45.m().i(this.a, ((Boolean) t).booleanValue()));
+                }
+                if (t instanceof Float) {
+                    return Float.valueOf(p45.m().l(this.a, ((Float) t).floatValue()));
+                }
+                return t;
             }
-            e();
-            f(0);
         }
+        return invokeL.objValue;
     }
 
-    public final void j() {
-        BaseActivity<?> baseActivity;
+    public final T d(T value) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (baseActivity = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, value)) == null) {
+            Intrinsics.checkNotNullParameter(value, "value");
+            if (value instanceof String) {
+                p45.m().B(this.a, (String) value);
+            } else if (value instanceof Integer) {
+                p45.m().z(this.a, ((Integer) value).intValue());
+            } else if (value instanceof Long) {
+                p45.m().A(this.a, ((Long) value).longValue());
+            } else if (value instanceof Boolean) {
+                p45.m().w(this.a, ((Boolean) value).booleanValue());
+            } else if (value instanceof Float) {
+                p45.m().y(this.a, ((Float) value).floatValue());
+            }
+            return value;
         }
-        if (baseActivity.getLoadingDialog() != null && this.a.getLoadingDialog().c()) {
-            return;
-        }
-        BaseActivity<?> baseActivity2 = this.a;
-        baseActivity2.showLoadingDialog(baseActivity2.getString(R.string.sapi_logining));
-        if (this.a.getLoadingDialog() != null) {
-            this.a.getLoadingDialog().f(false);
-            this.a.getLoadingDialog().g(false);
-        }
+        return (T) invokeL.objValue;
     }
 
-    public final void i(AccountData accountData) {
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, accountData) == null) {
-            mg.a().c(new b(this, accountData));
-            b35.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
-            BaseActivity<?> baseActivity = this.a;
-            if (baseActivity != null) {
-                TbadkCoreApplication.setCurrentAccount(accountData, baseActivity);
-            }
-            gt4.j(TbadkCoreApplication.getInst());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 }

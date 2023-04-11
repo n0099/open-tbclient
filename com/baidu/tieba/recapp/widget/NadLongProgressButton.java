@@ -19,8 +19,8 @@ import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ey5;
-import com.baidu.tieba.wj0;
+import com.baidu.tieba.kz5;
+import com.baidu.tieba.xj0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,31 +38,30 @@ import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
-@Metadata(d1 = {"\u0000\u0088\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u00002\u00020\u00012\u00020\u0002:\u0001LB'\b\u0007\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u00103\u001a\u0002042\u0006\u00105\u001a\u000206H\u0016J\u0018\u00107\u001a\u0002042\b\u00108\u001a\u0004\u0018\u0001092\u0006\u0010:\u001a\u00020;J\u0012\u0010<\u001a\u0002042\b\u00108\u001a\u0004\u0018\u000109H\u0002J\u0012\u0010=\u001a\u0002042\b\u00108\u001a\u0004\u0018\u000109H\u0002J\b\u0010>\u001a\u00020\u0001H\u0016J\b\u0010?\u001a\u00020\u0001H\u0016J\b\u0010@\u001a\u000204H\u0002J\u0010\u0010A\u001a\u0002042\u0006\u0010:\u001a\u00020\bH\u0016J\u0012\u0010B\u001a\u00020C2\b\u0010D\u001a\u0004\u0018\u00010\u0001H\u0016J\u0012\u0010E\u001a\u0002042\b\u00108\u001a\u0004\u0018\u000109H\u0014J\u0012\u0010F\u001a\u0002042\b\u0010G\u001a\u0004\u0018\u00010\u000fH\u0016J\u001a\u0010H\u001a\u0002042\b\u0010I\u001a\u0004\u0018\u00010\r2\u0006\u0010J\u001a\u00020KH\u0016R\u000e\u0010\n\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0012\u001a\u00020\u00138BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0016\u0010\u0017\u001a\u0004\b\u0014\u0010\u0015R\u0010\u0010\u0018\u001a\u0004\u0018\u00010\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\u001e\u001a\u00020\u001f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\"\u0010\u0017\u001a\u0004\b \u0010!R\u001b\u0010#\u001a\u00020\u00138BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b%\u0010\u0017\u001a\u0004\b$\u0010\u0015R\u0010\u0010&\u001a\u0004\u0018\u00010\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010'\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020)X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010*\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010+\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010,\u001a\u00020-8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b0\u0010\u0017\u001a\u0004\b.\u0010/R\u0010\u00101\u001a\u0004\u0018\u00010\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00102\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006M"}, d2 = {"Lcom/baidu/tieba/recapp/widget/NadLongProgressButton;", "Landroid/view/View;", "Lcom/baidu/tieba/ad/download/mvp/IDownloadView;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "buttonBgColor", "buttonBgColorRes", "buttonText", "", "clickInterceptListener", "Lcom/baidu/tieba/ad/download/mvp/IDownloadView$OnClickInterceptListener;", "horizontalDistance", "", "iconPaint", "Landroid/graphics/Paint;", "getIconPaint", "()Landroid/graphics/Paint;", "iconPaint$delegate", "Lkotlin/Lazy;", "iconShader", "Landroid/graphics/Shader;", "iconSize", "progress", "progressBgColor", "progressBgColorRes", "progressOval", "Landroid/graphics/RectF;", "getProgressOval", "()Landroid/graphics/RectF;", "progressOval$delegate", "progressPaint", "getProgressPaint", "progressPaint$delegate", "progressShader", "radius", "status", "Lcom/baidu/nadcore/download/consts/AdDownloadStatus;", "textColorInProgress", "textColorInProgressRes", "textPaint", "Landroid/text/TextPaint;", "getTextPaint", "()Landroid/text/TextPaint;", "textPaint$delegate", "textShader", "textSize", "bind", "", "p0", "Landroid/view/ViewGroup;", "drawIcon", "canvas", "Landroid/graphics/Canvas;", "type", "Lcom/baidu/tieba/recapp/widget/NadLongProgressButton$IconType;", "drawProgress", "drawText", "getActionBar", "getRealView", "initPaint", "onChangeSkinType", "onClickIntercept", "", NativeConstants.TYPE_VIEW, "onDraw", "setOnClickInterceptListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, StickerDataChangeType.UPDATE, "text", "adDownloadBean", "Lcom/baidu/nadcore/download/model/AdDownloadBean;", "IconType", "recApp_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000\u0088\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u00002\u00020\u00012\u00020\u0002:\u0001JB'\b\u0007\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u00101\u001a\u0002022\u0006\u00103\u001a\u000204H\u0016J\u0018\u00105\u001a\u0002022\b\u00106\u001a\u0004\u0018\u0001072\u0006\u00108\u001a\u000209J\u0012\u0010:\u001a\u0002022\b\u00106\u001a\u0004\u0018\u000107H\u0002J\u0012\u0010;\u001a\u0002022\b\u00106\u001a\u0004\u0018\u000107H\u0002J\b\u0010<\u001a\u00020\u0001H\u0016J\b\u0010=\u001a\u00020\u0001H\u0016J\b\u0010>\u001a\u000202H\u0002J\u0010\u0010?\u001a\u0002022\u0006\u00108\u001a\u00020\bH\u0016J\u0012\u0010@\u001a\u00020A2\b\u0010B\u001a\u0004\u0018\u00010\u0001H\u0016J\u0012\u0010C\u001a\u0002022\b\u00106\u001a\u0004\u0018\u000107H\u0014J\u0012\u0010D\u001a\u0002022\b\u0010E\u001a\u0004\u0018\u00010\rH\u0016J\u001a\u0010F\u001a\u0002022\b\u0010G\u001a\u0004\u0018\u00010\u000b2\u0006\u0010H\u001a\u00020IH\u0016R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0010\u001a\u00020\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0012\u0010\u0013R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\u001c\u001a\u00020\u001d8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b \u0010\u0015\u001a\u0004\b\u001e\u0010\u001fR\u001b\u0010!\u001a\u00020\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b#\u0010\u0015\u001a\u0004\b\"\u0010\u0013R\u0010\u0010$\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010&\u001a\u00020'X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010*\u001a\u00020+8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b.\u0010\u0015\u001a\u0004\b,\u0010-R\u0010\u0010/\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00100\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006K"}, d2 = {"Lcom/baidu/tieba/recapp/widget/NadLongProgressButton;", "Landroid/view/View;", "Lcom/baidu/tieba/ad/download/mvp/IDownloadView;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "buttonText", "", "clickInterceptListener", "Lcom/baidu/tieba/ad/download/mvp/IDownloadView$OnClickInterceptListener;", "horizontalDistance", "", "iconPaint", "Landroid/graphics/Paint;", "getIconPaint", "()Landroid/graphics/Paint;", "iconPaint$delegate", "Lkotlin/Lazy;", "iconShader", "Landroid/graphics/Shader;", "iconSize", "progress", "progressBgColor", "progressBgColorRes", "progressOval", "Landroid/graphics/RectF;", "getProgressOval", "()Landroid/graphics/RectF;", "progressOval$delegate", "progressPaint", "getProgressPaint", "progressPaint$delegate", "progressShader", "radius", "status", "Lcom/baidu/nadcore/download/consts/AdDownloadStatus;", "textColorInProgress", "textColorInProgressRes", "textPaint", "Landroid/text/TextPaint;", "getTextPaint", "()Landroid/text/TextPaint;", "textPaint$delegate", "textShader", "textSize", "bind", "", "p0", "Landroid/view/ViewGroup;", "drawIcon", "canvas", "Landroid/graphics/Canvas;", "type", "Lcom/baidu/tieba/recapp/widget/NadLongProgressButton$IconType;", "drawProgress", "drawText", "getActionBar", "getRealView", "initPaint", "onChangeSkinType", "onClickIntercept", "", NativeConstants.TYPE_VIEW, "onDraw", "setOnClickInterceptListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, StickerDataChangeType.UPDATE, "text", "adDownloadBean", "Lcom/baidu/nadcore/download/model/AdDownloadBean;", "IconType", "recApp_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class NadLongProgressButton extends View implements ey5 {
+public final class NadLongProgressButton extends View implements kz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
     public final int b;
-    public final int c;
+    public int c;
     public int d;
     public int e;
-    public int f;
-    public AdDownloadStatus g;
-    public String h;
+    public AdDownloadStatus f;
+    public String g;
+    public float h;
     public float i;
     public float j;
-    public float k;
-    public ey5.a l;
-    public int m;
+    public kz5.a k;
+    public int l;
+    public final Lazy m;
     public final Lazy n;
     public final Lazy o;
     public final Lazy p;
-    public final Lazy q;
+    public Shader q;
     public Shader r;
     public Shader s;
-    public Shader t;
 
     /* loaded from: classes6.dex */
     public /* synthetic */ class a {
@@ -144,7 +143,7 @@ public final class NadLongProgressButton extends View implements ey5 {
         }
     }
 
-    @Override // com.baidu.tieba.pk0
+    @Override // com.baidu.tieba.qk0
     public void b(ViewGroup p0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p0) == null) {
@@ -158,7 +157,7 @@ public final class NadLongProgressButton extends View implements ey5 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pk0
+    @Override // com.baidu.tieba.qk0
     public View getRealView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -254,20 +253,18 @@ public final class NadLongProgressButton extends View implements ey5 {
         new LinkedHashMap();
         this.a = R.color.CAM_X0101;
         this.b = R.color.CAM_X0302;
-        this.c = R.color.CAM_X0905;
-        this.d = SkinManager.getColor(R.color.CAM_X0101);
-        this.e = SkinManager.getColor(this.b);
-        SkinManager.getColor(this.c);
-        this.g = AdDownloadStatus.NONE;
-        this.h = "";
-        this.i = getResources().getDimensionPixelSize(R.dimen.T_X12);
-        this.j = getResources().getDimensionPixelSize(R.dimen.M_H_X005);
-        this.k = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
-        this.m = getResources().getDimensionPixelSize(R.dimen.tbds21);
-        this.n = LazyKt__LazyJVMKt.lazy(NadLongProgressButton$progressOval$2.INSTANCE);
-        this.o = LazyKt__LazyJVMKt.lazy(NadLongProgressButton$progressPaint$2.INSTANCE);
-        this.p = LazyKt__LazyJVMKt.lazy(NadLongProgressButton$textPaint$2.INSTANCE);
-        this.q = LazyKt__LazyJVMKt.lazy(NadLongProgressButton$iconPaint$2.INSTANCE);
+        this.c = SkinManager.getColor(R.color.CAM_X0101);
+        this.d = SkinManager.getColor(this.b);
+        this.f = AdDownloadStatus.NONE;
+        this.g = "";
+        this.h = getResources().getDimensionPixelSize(R.dimen.T_X12);
+        this.i = getResources().getDimensionPixelSize(R.dimen.M_H_X005);
+        this.j = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
+        this.l = getResources().getDimensionPixelSize(R.dimen.tbds21);
+        this.m = LazyKt__LazyJVMKt.lazy(NadLongProgressButton$progressOval$2.INSTANCE);
+        this.n = LazyKt__LazyJVMKt.lazy(NadLongProgressButton$progressPaint$2.INSTANCE);
+        this.o = LazyKt__LazyJVMKt.lazy(NadLongProgressButton$textPaint$2.INSTANCE);
+        this.p = LazyKt__LazyJVMKt.lazy(NadLongProgressButton$iconPaint$2.INSTANCE);
         f();
     }
 
@@ -279,7 +276,7 @@ public final class NadLongProgressButton extends View implements ey5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            return (Paint) this.q.getValue();
+            return (Paint) this.p.getValue();
         }
         return (Paint) invokeV.objValue;
     }
@@ -288,7 +285,7 @@ public final class NadLongProgressButton extends View implements ey5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            return (RectF) this.n.getValue();
+            return (RectF) this.m.getValue();
         }
         return (RectF) invokeV.objValue;
     }
@@ -297,7 +294,7 @@ public final class NadLongProgressButton extends View implements ey5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            return (Paint) this.o.getValue();
+            return (Paint) this.n.getValue();
         }
         return (Paint) invokeV.objValue;
     }
@@ -306,7 +303,7 @@ public final class NadLongProgressButton extends View implements ey5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            return (TextPaint) this.p.getValue();
+            return (TextPaint) this.o.getValue();
         }
         return (TextPaint) invokeV.objValue;
     }
@@ -316,16 +313,16 @@ public final class NadLongProgressButton extends View implements ey5 {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             getProgressPaint().setAntiAlias(true);
             getProgressPaint().setStyle(Paint.Style.FILL);
-            getProgressPaint().setColor(this.e);
+            getProgressPaint().setColor(this.d);
         }
     }
 
-    @Override // com.baidu.tieba.ey5
+    @Override // com.baidu.tieba.kz5
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            ey5.a aVar = this.l;
+            kz5.a aVar = this.k;
             if (aVar != null) {
                 return aVar.a(view2);
             }
@@ -334,22 +331,21 @@ public final class NadLongProgressButton extends View implements ey5 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ey5
+    @Override // com.baidu.tieba.kz5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.d = SkinManager.getColor(this.a);
-            this.e = SkinManager.getColor(this.b);
-            SkinManager.getColor(this.c);
+            this.c = SkinManager.getColor(this.a);
+            this.d = SkinManager.getColor(this.b);
             postInvalidate();
         }
     }
 
-    @Override // com.baidu.tieba.ey5
-    public void setOnClickInterceptListener(ey5.a aVar) {
+    @Override // com.baidu.tieba.kz5
+    public void setOnClickInterceptListener(kz5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            this.l = aVar;
+            this.k = aVar;
         }
     }
 
@@ -369,8 +365,8 @@ public final class NadLongProgressButton extends View implements ey5 {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, canvas, type) == null) {
             Intrinsics.checkNotNullParameter(type, "type");
             getIconPaint().setStyle(Paint.Style.FILL);
-            getIconPaint().setColor(this.e);
-            float f3 = this.f / 100.0f;
+            getIconPaint().setColor(this.d);
+            float f3 = this.e / 100.0f;
             int i = a.$EnumSwitchMapping$1[type.ordinal()];
             float f4 = 0.0f;
             if (i != 1) {
@@ -380,32 +376,32 @@ public final class NadLongProgressButton extends View implements ey5 {
                         f2 = 0.0f;
                     } else {
                         decodeResource = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.icon_pure_image_ok_select17);
-                        f4 = this.k;
-                        f = this.j;
+                        f4 = this.j;
+                        f = this.i;
                     }
                 } else {
                     decodeResource = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.icon_pure_list_arrow16_right);
-                    float measuredWidth = getMeasuredWidth() - this.k;
+                    float measuredWidth = getMeasuredWidth() - this.j;
                     f2 = measuredWidth;
-                    f4 = measuredWidth - this.j;
+                    f4 = measuredWidth - this.i;
                 }
-                float f5 = this.j;
+                float f5 = this.i;
                 Bitmap extractAlpha = Bitmap.createScaledBitmap(decodeResource, (int) f5, (int) f5, false).copy(Bitmap.Config.ARGB_8888, true).extractAlpha();
                 float measuredWidth2 = getMeasuredWidth() * f3;
-                float f6 = (measuredWidth2 - f4) / this.j;
-                switch (a.$EnumSwitchMapping$0[this.g.ordinal()]) {
+                float f6 = (measuredWidth2 - f4) / this.i;
+                switch (a.$EnumSwitchMapping$0[this.f.ordinal()]) {
                     case 1:
                     case 2:
                     case 3:
                     case 4:
                         getIconPaint().setShader(null);
-                        getIconPaint().setColor(this.d);
+                        getIconPaint().setColor(this.c);
                         break;
                     case 5:
                     case 6:
                         if (measuredWidth2 <= f4) {
                             getIconPaint().setShader(null);
-                            getIconPaint().setColor(this.e);
+                            getIconPaint().setColor(this.d);
                             break;
                         } else {
                             if (f4 <= measuredWidth2 && measuredWidth2 <= f2) {
@@ -414,32 +410,32 @@ public final class NadLongProgressButton extends View implements ey5 {
                                 z = false;
                             }
                             if (z) {
-                                this.t = new LinearGradient(0.0f, 0.0f, this.j, 0.0f, new int[]{this.d, this.e}, new float[]{f6, f6 + 0.001f}, Shader.TileMode.CLAMP);
-                                getIconPaint().setShader(this.t);
-                                getIconPaint().setColor(this.e);
+                                this.s = new LinearGradient(0.0f, 0.0f, this.i, 0.0f, new int[]{this.c, this.d}, new float[]{f6, f6 + 0.001f}, Shader.TileMode.CLAMP);
+                                getIconPaint().setShader(this.s);
+                                getIconPaint().setColor(this.d);
                                 break;
                             } else {
                                 getIconPaint().setShader(null);
-                                getIconPaint().setColor(this.d);
+                                getIconPaint().setColor(this.c);
                                 break;
                             }
                         }
                 }
                 if (canvas == null) {
-                    canvas.drawBitmap(extractAlpha, f4, (getMeasuredHeight() / 2) - (this.j / 2), getIconPaint());
+                    canvas.drawBitmap(extractAlpha, f4, (getMeasuredHeight() / 2) - (this.i / 2), getIconPaint());
                     return;
                 }
                 return;
             }
             decodeResource = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.icon_pure_pb_recommend_save30);
-            f4 = this.k;
-            f = this.j;
+            f4 = this.j;
+            f = this.i;
             f2 = f + f4;
-            float f52 = this.j;
+            float f52 = this.i;
             Bitmap extractAlpha2 = Bitmap.createScaledBitmap(decodeResource, (int) f52, (int) f52, false).copy(Bitmap.Config.ARGB_8888, true).extractAlpha();
             float measuredWidth22 = getMeasuredWidth() * f3;
-            float f62 = (measuredWidth22 - f4) / this.j;
-            switch (a.$EnumSwitchMapping$0[this.g.ordinal()]) {
+            float f62 = (measuredWidth22 - f4) / this.i;
+            switch (a.$EnumSwitchMapping$0[this.f.ordinal()]) {
             }
             if (canvas == null) {
             }
@@ -450,33 +446,33 @@ public final class NadLongProgressButton extends View implements ey5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             getProgressOval().left = 0.0f;
-            getProgressOval().top = -this.m;
+            getProgressOval().top = -this.l;
             getProgressOval().right = getMeasuredWidth();
             getProgressOval().bottom = getMeasuredHeight();
-            float f = this.f / 100.0f;
-            switch (a.$EnumSwitchMapping$0[this.g.ordinal()]) {
+            float f = this.e / 100.0f;
+            switch (a.$EnumSwitchMapping$0[this.f.ordinal()]) {
                 case 1:
                 case 2:
                 case 3:
                 case 4:
                     getProgressPaint().setShader(null);
-                    getProgressPaint().setColor(this.e);
+                    getProgressPaint().setColor(this.d);
                     break;
                 case 5:
                 case 6:
-                    this.r = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.e, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
-                    getProgressPaint().setShader(this.r);
+                    this.q = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.d, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
+                    getProgressPaint().setShader(this.q);
                     break;
             }
             if (canvas != null) {
                 canvas.save();
             }
             if (canvas != null) {
-                canvas.clipRect(getProgressOval().left, getProgressOval().top + this.m, getProgressOval().right, getProgressOval().bottom, Region.Op.INTERSECT);
+                canvas.clipRect(getProgressOval().left, getProgressOval().top + this.l, getProgressOval().right, getProgressOval().bottom, Region.Op.INTERSECT);
             }
             if (canvas != null) {
                 RectF progressOval = getProgressOval();
-                int i = this.m;
+                int i = this.l;
                 canvas.drawRoundRect(progressOval, i, i, getProgressPaint());
             }
             if (canvas != null) {
@@ -490,25 +486,25 @@ public final class NadLongProgressButton extends View implements ey5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             getTextPaint().setAntiAlias(true);
-            getTextPaint().setTextSize(this.i);
-            float measureText = getTextPaint().measureText(this.h);
+            getTextPaint().setTextSize(this.h);
+            float measureText = getTextPaint().measureText(this.g);
             float dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.M_W_X015);
             float f = dimensionPixelSize + measureText;
-            float measuredWidth = getMeasuredWidth() * (this.f / 100.0f);
+            float measuredWidth = getMeasuredWidth() * (this.e / 100.0f);
             float f2 = (measuredWidth - dimensionPixelSize) / measureText;
-            switch (a.$EnumSwitchMapping$0[this.g.ordinal()]) {
+            switch (a.$EnumSwitchMapping$0[this.f.ordinal()]) {
                 case 1:
                 case 2:
                 case 3:
                 case 4:
                     getTextPaint().setShader(null);
-                    getTextPaint().setColor(this.d);
+                    getTextPaint().setColor(this.c);
                     break;
                 case 5:
                 case 6:
                     if (measuredWidth <= dimensionPixelSize) {
                         getTextPaint().setShader(null);
-                        getTextPaint().setColor(this.e);
+                        getTextPaint().setColor(this.d);
                         break;
                     } else {
                         if (dimensionPixelSize <= measuredWidth && measuredWidth <= f) {
@@ -517,13 +513,13 @@ public final class NadLongProgressButton extends View implements ey5 {
                             z = false;
                         }
                         if (z) {
-                            this.s = new LinearGradient(dimensionPixelSize, 0.0f, f, 0.0f, new int[]{this.d, this.e}, new float[]{f2, f2 + 0.001f}, Shader.TileMode.CLAMP);
-                            getTextPaint().setShader(this.s);
-                            getTextPaint().setColor(this.e);
+                            this.r = new LinearGradient(dimensionPixelSize, 0.0f, f, 0.0f, new int[]{this.c, this.d}, new float[]{f2, f2 + 0.001f}, Shader.TileMode.CLAMP);
+                            getTextPaint().setShader(this.r);
+                            getTextPaint().setColor(this.d);
                             break;
                         } else {
                             getTextPaint().setShader(null);
-                            getTextPaint().setColor(this.d);
+                            getTextPaint().setColor(this.c);
                             break;
                         }
                     }
@@ -533,7 +529,7 @@ public final class NadLongProgressButton extends View implements ey5 {
             float f3 = fontMetrics.descent;
             float height = ((getHeight() / 2) - f3) + ((f3 - fontMetrics.ascent) / 2);
             if (canvas != null) {
-                canvas.drawText(this.h, dimensionPixelSize, height, getTextPaint());
+                canvas.drawText(this.g, dimensionPixelSize, height, getTextPaint());
             }
         }
     }
@@ -545,7 +541,7 @@ public final class NadLongProgressButton extends View implements ey5 {
             super.onDraw(canvas);
             d(canvas);
             e(canvas);
-            AdDownloadStatus adDownloadStatus = this.g;
+            AdDownloadStatus adDownloadStatus = this.f;
             if (adDownloadStatus != AdDownloadStatus.COMPLETED && adDownloadStatus != AdDownloadStatus.INSTALLED) {
                 c(canvas, IconType.LEFT);
                 c(canvas, IconType.RIGHT);
@@ -556,21 +552,21 @@ public final class NadLongProgressButton extends View implements ey5 {
         }
     }
 
-    @Override // com.baidu.tieba.pk0
-    public void update(String str, wj0 adDownloadBean) {
+    @Override // com.baidu.tieba.qk0
+    public void update(String str, xj0 adDownloadBean) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, adDownloadBean) == null) {
             Intrinsics.checkNotNullParameter(adDownloadBean, "adDownloadBean");
             AdDownloadStatus adDownloadStatus = adDownloadBean.c;
             Intrinsics.checkNotNullExpressionValue(adDownloadStatus, "adDownloadBean.status");
-            this.g = adDownloadStatus;
+            this.f = adDownloadStatus;
             if (str == null) {
                 str = getResources().getString(R.string.install_app);
                 Intrinsics.checkNotNullExpressionValue(str, "resources.getString(R.string.install_app)");
             }
-            this.h = str;
+            this.g = str;
             float f = 100;
-            this.f = (int) RangesKt___RangesKt.coerceAtLeast(adDownloadBean.i * f, adDownloadBean.j * f);
+            this.e = (int) RangesKt___RangesKt.coerceAtLeast(adDownloadBean.i * f, adDownloadBean.j * f);
             postInvalidate();
         }
     }

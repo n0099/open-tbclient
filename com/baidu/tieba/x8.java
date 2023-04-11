@@ -39,7 +39,7 @@ public class x8<T> extends y8<T> {
         inflate.setTag(this);
     }
 
-    public View i(int i) {
+    public View u(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -48,7 +48,7 @@ public class x8<T> extends y8<T> {
         return (View) invokeI.objValue;
     }
 
-    public View l() {
+    public View x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

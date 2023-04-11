@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m35;
+import com.baidu.tieba.p45;
 import com.baidu.tieba.te;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,7 +24,8 @@ public class WeChatShareSmallAppToH5Switch extends te {
     }
 
     @Override // com.baidu.tieba.te
-    public String[] getCrashKeys() {
+    /* renamed from: getCrashKeys */
+    public String[] mo55getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
@@ -85,7 +86,7 @@ public class WeChatShareSmallAppToH5Switch extends te {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (m35.m().n("key_wechat_small_app_to_h5", 0) != 1) {
+            if (p45.m().n("key_wechat_small_app_to_h5", 0) != 1) {
                 return false;
             }
             return true;

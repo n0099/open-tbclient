@@ -1,16 +1,14 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import java.util.List;
+import androidx.annotation.Nullable;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 /* loaded from: classes5.dex */
-public interface mn<V extends ViewGroup> {
-    void addAdapters(List<tm> list);
+public interface mn<T> extends in<T> {
+    int g(int i, int i2);
 
-    List<gn> getData();
+    um<hn, TypeAdapter.ViewHolder> h(hn hnVar);
 
-    hn getListAdapter();
+    void notifyItemChanged(int i);
 
-    V getListView();
-
-    void setData(List<? extends gn> list);
+    void notifyItemChanged(int i, @Nullable Object obj);
 }

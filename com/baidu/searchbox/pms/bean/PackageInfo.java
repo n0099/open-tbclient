@@ -60,6 +60,7 @@ public class PackageInfo implements NoProGuard, Cloneable {
     public String trafficUrl;
     public volatile int type;
     public String uniqueID;
+    public String uniqueVersion;
     public String updateSign;
     public long updateTime;
     public long updateVersion;
@@ -165,6 +166,7 @@ public class PackageInfo implements NoProGuard, Cloneable {
         this.version = -1L;
         this.updateVersion = 0L;
         this.abi = "";
+        this.uniqueVersion = "";
         this.type = 0;
         this.retryCount = 0;
         this.filePath = "";

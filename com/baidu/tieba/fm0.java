@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,11 +9,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public interface fm0 {
-    public static final fm0 a = new a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "exp_config");
+    public static final fm0 b = new a();
 
-    int a(String str, int i);
-
-    double b(String str, double d);
+    @NonNull
+    String[] a();
 
     /* loaded from: classes4.dex */
     public static class a implements fm0 {
@@ -20,17 +21,11 @@ public interface fm0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.fm0
-        public int a(String str, int i) {
-            InterceptResult invokeLI;
+        @NonNull
+        public String[] a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? i : invokeLI.intValue;
-        }
-
-        @Override // com.baidu.tieba.fm0
-        public double b(String str, double d) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d)})) == null) ? d : invokeCommon.doubleValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
         }
 
         public a() {

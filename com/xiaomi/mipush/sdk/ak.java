@@ -11,10 +11,10 @@ public class ak {
     }
 
     public static AbstractPushManager b(Context context, e eVar) {
-        l.a m169a = l.m169a(eVar);
-        if (m169a == null || TextUtils.isEmpty(m169a.a) || TextUtils.isEmpty(m169a.b)) {
+        l.a m171a = l.m171a(eVar);
+        if (m171a == null || TextUtils.isEmpty(m171a.a) || TextUtils.isEmpty(m171a.b)) {
             return null;
         }
-        return (AbstractPushManager) bj.a(m169a.a, m169a.b, context);
+        return (AbstractPushManager) bj.a(m171a.a, m171a.b, context);
     }
 }

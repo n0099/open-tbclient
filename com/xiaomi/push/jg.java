@@ -14,13 +14,13 @@ public class jg {
         int i2 = 0;
         switch (b) {
             case 2:
-                jdVar.mo625a();
+                jdVar.mo627a();
                 return;
             case 3:
                 jdVar.a();
                 return;
             case 4:
-                jdVar.mo612a();
+                jdVar.mo614a();
                 return;
             case 5:
             case 7:
@@ -28,21 +28,21 @@ public class jg {
             default:
                 return;
             case 6:
-                jdVar.mo622a();
+                jdVar.mo624a();
                 return;
             case 8:
-                jdVar.mo613a();
+                jdVar.mo615a();
                 return;
             case 10:
-                jdVar.mo614a();
+                jdVar.mo616a();
                 return;
             case 11:
-                jdVar.mo621a();
+                jdVar.mo623a();
                 return;
             case 12:
-                jdVar.mo619a();
+                jdVar.mo621a();
                 while (true) {
-                    byte b2 = jdVar.mo615a().a;
+                    byte b2 = jdVar.mo617a().a;
                     if (b2 == 0) {
                         jdVar.f();
                         return;
@@ -52,27 +52,27 @@ public class jg {
                     }
                 }
             case 13:
-                jc mo617a = jdVar.mo617a();
-                while (i2 < mo617a.f815a) {
+                jc mo619a = jdVar.mo619a();
+                while (i2 < mo619a.f815a) {
                     int i3 = i - 1;
-                    a(jdVar, mo617a.a, i3);
-                    a(jdVar, mo617a.b, i3);
+                    a(jdVar, mo619a.a, i3);
+                    a(jdVar, mo619a.b, i3);
                     i2++;
                 }
                 jdVar.h();
                 return;
             case 14:
-                jh mo618a = jdVar.mo618a();
-                while (i2 < mo618a.f816a) {
-                    a(jdVar, mo618a.a, i - 1);
+                jh mo620a = jdVar.mo620a();
+                while (i2 < mo620a.f816a) {
+                    a(jdVar, mo620a.a, i - 1);
                     i2++;
                 }
                 jdVar.j();
                 return;
             case 15:
-                jb mo616a = jdVar.mo616a();
-                while (i2 < mo616a.f814a) {
-                    a(jdVar, mo616a.a, i - 1);
+                jb mo618a = jdVar.mo618a();
+                while (i2 < mo618a.f814a) {
+                    a(jdVar, mo618a.a, i - 1);
                     i2++;
                 }
                 jdVar.i();

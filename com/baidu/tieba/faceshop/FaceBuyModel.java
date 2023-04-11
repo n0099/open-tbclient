@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.faceshop.FaceBuyQueryData;
-import com.baidu.tieba.gi;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -94,7 +94,7 @@ public class FaceBuyModel extends BdBaseModel {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 String obj = objArr[0].toString();
                 FaceBuyQueryData faceBuyQueryData = null;
-                if (!gi.isEmpty(obj)) {
+                if (!hi.isEmpty(obj)) {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
                     this.a = netWork;
                     netWork.addPostData("order_id", obj);
@@ -238,7 +238,7 @@ public class FaceBuyModel extends BdBaseModel {
         this.b = null;
     }
 
-    public void Y(String str) {
+    public void X(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a == null) {
             c cVar = new c(this, null);
@@ -248,7 +248,7 @@ public class FaceBuyModel extends BdBaseModel {
         }
     }
 
-    public void Z(String str) {
+    public void Y(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.b == null) {
             b bVar = new b(this, null);

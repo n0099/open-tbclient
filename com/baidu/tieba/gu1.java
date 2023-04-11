@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface gu1 {
-    fu1 a();
+    void a(w62 w62Var);
 
-    eu1 b();
+    void b(w62 w62Var);
 }

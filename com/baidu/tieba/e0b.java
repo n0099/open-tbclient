@@ -1,65 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitMinAmountInfo;
-import java.util.List;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes4.dex */
-public class e0b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface e0b {
+    e0b a();
 
-    public static int a(List<SplitMinAmountInfo> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            RLog.info("PaySplitOrderUtils", "getSplitMinAmount splitMinAmountInfoList:" + list);
-            for (SplitMinAmountInfo splitMinAmountInfo : list) {
-                if (splitMinAmountInfo.splitType == 1) {
-                    return splitMinAmountInfo.minAmount;
-                }
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
+    boolean b(String str);
 
-    public static boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            PaysSettingInfo d = iza.d();
-            if (d == null) {
-                RLog.error("PaySplitOrderUtils", "maybeShowSplitOrderDialog error settingInfo null", new Object[0]);
-                return false;
-            }
-            return c(d.splitMinAmountInfoList, i);
-        }
-        return invokeI.booleanValue;
-    }
+    void c(Framedata framedata);
 
-    public static boolean c(List<SplitMinAmountInfo> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
-            if (list != null && !list.isEmpty()) {
-                int a = a(list);
-                if (a <= 0) {
-                    RLog.info("PaySplitOrderUtils", "maybeShowSplitOrderDialog false splitMinAmount:" + a);
-                    return false;
-                }
-                RLog.info("PaySplitOrderUtils", "maybeShowSplitOrderDialog inputAmount:" + i + " splitMinAmount:" + a);
-                if (i < a) {
-                    return false;
-                }
-                return true;
-            }
-            RLog.warn("PaySplitOrderUtils", "maybeShowSplitOrderDialog error splitMinAmountInfoList null");
-            return false;
-        }
-        return invokeLI.booleanValue;
-    }
+    String d();
+
+    boolean e(String str);
+
+    void f(Framedata framedata) throws InvalidDataException;
+
+    String g();
+
+    void h(Framedata framedata) throws InvalidDataException;
+
+    void reset();
+
+    String toString();
 }

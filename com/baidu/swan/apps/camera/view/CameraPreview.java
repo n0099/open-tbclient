@@ -13,13 +13,13 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.c02;
-import com.baidu.tieba.do1;
-import com.baidu.tieba.k02;
-import com.baidu.tieba.m02;
+import com.baidu.tieba.d02;
+import com.baidu.tieba.eo1;
+import com.baidu.tieba.l02;
 import com.baidu.tieba.n02;
-import com.baidu.tieba.nk3;
-import com.baidu.tieba.xn4;
+import com.baidu.tieba.o02;
+import com.baidu.tieba.ok3;
+import com.baidu.tieba.yn4;
 import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
 import java.io.File;
 import java.io.IOException;
@@ -27,7 +27,7 @@ import java.util.Calendar;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
-    public static final boolean h = do1.a;
+    public static final boolean h = eo1.a;
     public static Camera i;
     public Context a;
     public MediaRecorder b;
@@ -35,12 +35,12 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     public String d;
     public String e;
     public String f;
-    public n02 g;
+    public o02 g;
 
     /* loaded from: classes3.dex */
     public class a implements Camera.PictureCallback {
         public final /* synthetic */ String a;
-        public final /* synthetic */ k02 b;
+        public final /* synthetic */ l02 b;
 
         /* renamed from: com.baidu.swan.apps.camera.view.CameraPreview$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
@@ -78,22 +78,22 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                 } else {
                     i = 0;
                 }
-                boolean h = c02.b().h(this.a, a.this.a, quality, i, !z2);
+                boolean h = d02.b().h(this.a, a.this.a, quality, i, !z2);
                 a aVar = a.this;
-                k02 k02Var = aVar.b;
-                if (k02Var != null) {
+                l02 l02Var = aVar.b;
+                if (l02Var != null) {
                     if (h) {
-                        k02Var.onSuccess(aVar.a);
+                        l02Var.onSuccess(aVar.a);
                     } else {
-                        k02Var.onFailure();
+                        l02Var.onFailure();
                     }
                 }
             }
         }
 
-        public a(String str, k02 k02Var) {
+        public a(String str, l02 l02Var) {
             this.a = str;
-            this.b = k02Var;
+            this.b = l02Var;
         }
 
         @Override // android.hardware.Camera.PictureCallback
@@ -103,14 +103,14 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                 CameraPreview.this.setCameraDisplayOrientation();
             } catch (RuntimeException e) {
                 if (CameraPreview.this.g != null) {
-                    c02.b().e(CameraPreview.this.g.c, CameraPreview.this.g.b, false);
+                    d02.b().e(CameraPreview.this.g.c, CameraPreview.this.g.b, false);
                 }
                 CameraPreview.this.p();
                 if (CameraPreview.h) {
                     e.printStackTrace();
                 }
             }
-            nk3.k(new RunnableC0182a(bArr), CommonTbJsBridge.SAVE_IMAGE);
+            ok3.k(new RunnableC0182a(bArr), CommonTbJsBridge.SAVE_IMAGE);
         }
     }
 
@@ -141,8 +141,8 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getFrontOrBackCameraId() {
-        n02 n02Var = this.g;
-        if (n02Var != null && n02Var.k()) {
+        o02 o02Var = this.g;
+        if (o02Var != null && o02Var.k()) {
             return 1;
         }
         return 0;
@@ -159,11 +159,11 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     }
 
     public String getSlaveId() {
-        n02 n02Var = this.g;
-        if (n02Var == null) {
+        o02 o02Var = this.g;
+        if (o02Var == null) {
             return "";
         }
-        return n02Var.c;
+        return o02Var.c;
     }
 
     public String getThumbPath() {
@@ -272,7 +272,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getPointerCount() == 1) {
             try {
-                m02.d(motionEvent, i, getWidth(), getHeight());
+                n02.d(motionEvent, i, getWidth(), getHeight());
             } catch (Exception e) {
                 if (h) {
                     Log.d("SwanAppCameraManager", Log.getStackTraceString(e));
@@ -303,20 +303,20 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         return false;
     }
 
-    public CameraPreview(Context context, n02 n02Var) {
+    public CameraPreview(Context context, o02 o02Var) {
         super(context);
         this.d = Quality.NORMAL.getQualityName();
         this.e = "";
         this.f = "";
         this.a = context;
-        this.g = n02Var;
+        this.g = o02Var;
         SurfaceHolder holder = getHolder();
         this.c = holder;
         holder.addCallback(this);
     }
 
-    public void w(String str, k02 k02Var) {
-        i.takePicture(null, null, new a(str, k02Var));
+    public void w(String str, l02 l02Var) {
+        i.takePicture(null, null, new a(str, l02Var));
     }
 
     private int getDegree() {
@@ -350,7 +350,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     private void setSaveMediaPath(String str) {
         this.e = str + File.separator + "VID_" + Calendar.getInstance().getTimeInMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
         this.f = str + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg";
-        xn4.h(new File(this.e));
+        yn4.h(new File(this.e));
     }
 
     public Camera getCameraInstance() {
@@ -536,9 +536,9 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         }
     }
 
-    public void x(n02 n02Var) {
+    public void x(o02 o02Var) {
         try {
-            this.g = n02Var;
+            this.g = o02Var;
             r();
             getCameraInstance();
             if (i != null) {
@@ -548,7 +548,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
                 i.autoFocus(new b());
             }
         } catch (IOException | RuntimeException e) {
-            c02.b().e(n02Var.c, n02Var.b, false);
+            d02.b().e(o02Var.c, o02Var.b, false);
             if (h) {
                 e.printStackTrace();
             }

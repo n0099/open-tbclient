@@ -1,9 +1,17 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 /* loaded from: classes7.dex */
-public interface zu7 {
-    void a(Drawable drawable);
+public class zu7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onFailed();
+    public abstract void a();
+
+    public abstract void b(List<hn> list);
+
+    public abstract void c(BdUniqueId bdUniqueId);
 }

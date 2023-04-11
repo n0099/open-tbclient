@@ -19,13 +19,13 @@ public class bt extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo674a() {
+    public String mo676a() {
         return "send a message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo391a() {
+    public void mo393a() {
         try {
             if (this.a != null) {
                 this.f951a.a(this.a);

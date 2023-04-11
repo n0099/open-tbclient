@@ -15,23 +15,23 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.b19;
-import com.baidu.tieba.bc9;
-import com.baidu.tieba.eo5;
+import com.baidu.tieba.dk7;
 import com.baidu.tieba.funad.view.FunAbsAdView;
 import com.baidu.tieba.funad.view.FunAdNativeCommentView;
 import com.baidu.tieba.funad.view.FunAdNativeFrsView;
 import com.baidu.tieba.funad.view.FunAdNativePbView;
-import com.baidu.tieba.ga7;
-import com.baidu.tieba.gn;
-import com.baidu.tieba.hw4;
-import com.baidu.tieba.ma7;
-import com.baidu.tieba.mz4;
-import com.baidu.tieba.sx5;
-import com.baidu.tieba.tm;
-import com.baidu.tieba.ua7;
-import com.baidu.tieba.w09;
-import com.baidu.tieba.zb9;
+import com.baidu.tieba.hn;
+import com.baidu.tieba.jk7;
+import com.baidu.tieba.jw4;
+import com.baidu.tieba.kp5;
+import com.baidu.tieba.ma9;
+import com.baidu.tieba.oz4;
+import com.baidu.tieba.ql9;
+import com.baidu.tieba.ra9;
+import com.baidu.tieba.rk7;
+import com.baidu.tieba.sl9;
+import com.baidu.tieba.um;
+import com.baidu.tieba.yy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
-public class FunAdNativeNewAdapter extends tm<gn, FunAdNativeViewHolder> implements b19, w09 {
+public class FunAdNativeNewAdapter extends um<hn, FunAdNativeViewHolder> implements ra9, ma9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isMulDelete;
@@ -51,14 +51,14 @@ public class FunAdNativeNewAdapter extends tm<gn, FunAdNativeViewHolder> impleme
     public String sid;
     public Set<String> sidSet;
 
-    @Override // com.baidu.tieba.w09
+    @Override // com.baidu.tieba.ma9
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.b19
+    @Override // com.baidu.tieba.ra9
     public void setIsFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
@@ -75,16 +75,16 @@ public class FunAdNativeNewAdapter extends tm<gn, FunAdNativeViewHolder> impleme
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zb9 a;
+        public final /* synthetic */ ql9 a;
         public final /* synthetic */ FunAdNativeViewHolder b;
         public final /* synthetic */ FunAdNativeNewAdapter c;
 
-        public a(FunAdNativeNewAdapter funAdNativeNewAdapter, zb9 zb9Var, FunAdNativeViewHolder funAdNativeViewHolder) {
+        public a(FunAdNativeNewAdapter funAdNativeNewAdapter, ql9 ql9Var, FunAdNativeViewHolder funAdNativeViewHolder) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {funAdNativeNewAdapter, zb9Var, funAdNativeViewHolder};
+                Object[] objArr = {funAdNativeNewAdapter, ql9Var, funAdNativeViewHolder};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -95,7 +95,7 @@ public class FunAdNativeNewAdapter extends tm<gn, FunAdNativeViewHolder> impleme
                 }
             }
             this.c = funAdNativeNewAdapter;
-            this.a = zb9Var;
+            this.a = ql9Var;
             this.b = funAdNativeViewHolder;
         }
 
@@ -139,19 +139,19 @@ public class FunAdNativeNewAdapter extends tm<gn, FunAdNativeViewHolder> impleme
         this.mActivity = baseFragmentActivity;
     }
 
-    private void showVipAdGuideTip(zb9 zb9Var, FunAdNativeViewHolder funAdNativeViewHolder, String str) {
+    private void showVipAdGuideTip(ql9 ql9Var, FunAdNativeViewHolder funAdNativeViewHolder, String str) {
         int a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, this, zb9Var, funAdNativeViewHolder, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65537, this, ql9Var, funAdNativeViewHolder, str) == null) {
             if ("pb_banner".equals(this.sceneKey)) {
-                a2 = zb9Var.a();
+                a2 = ql9Var.a();
             } else {
-                a2 = zb9Var.a();
-                if (sx5.k().m()) {
+                a2 = ql9Var.a();
+                if (yy5.k().m()) {
                     a2++;
                 }
             }
-            ua7.e(zb9Var, funAdNativeViewHolder, str, this.pageType, this.mFromTab, a2);
+            rk7.e(ql9Var, funAdNativeViewHolder, str, this.pageType, this.mFromTab, a2);
         }
     }
 
@@ -170,7 +170,7 @@ public class FunAdNativeNewAdapter extends tm<gn, FunAdNativeViewHolder> impleme
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w09
+    @Override // com.baidu.tieba.ma9
     public void onPause() {
         V v;
         Interceptable interceptable = $ic;
@@ -179,7 +179,7 @@ public class FunAdNativeNewAdapter extends tm<gn, FunAdNativeViewHolder> impleme
         }
     }
 
-    @Override // com.baidu.tieba.tm
+    @Override // com.baidu.tieba.um
     public void setMulDel(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
@@ -216,7 +216,7 @@ public class FunAdNativeNewAdapter extends tm<gn, FunAdNativeViewHolder> impleme
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm
+    @Override // com.baidu.tieba.um
     public FunAdNativeViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         FunAbsAdView funAdNativePbView;
@@ -238,7 +238,7 @@ public class FunAdNativeNewAdapter extends tm<gn, FunAdNativeViewHolder> impleme
         return (FunAdNativeViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.w09
+    @Override // com.baidu.tieba.ma9
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -247,45 +247,45 @@ public class FunAdNativeNewAdapter extends tm<gn, FunAdNativeViewHolder> impleme
                 ((FunAdNativeViewHolder) this.viewholder).d().b();
             }
             for (String str : this.sidSet) {
-                ga7.m().c(str);
+                dk7.m().c(str);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gn gnVar, FunAdNativeViewHolder funAdNativeViewHolder) {
+    @Override // com.baidu.tieba.um
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, hn hnVar, FunAdNativeViewHolder funAdNativeViewHolder) {
         InterceptResult invokeCommon;
-        zb9 zb9Var;
+        ql9 ql9Var;
         long j;
-        zb9 zb9Var2;
+        ql9 ql9Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gnVar, funAdNativeViewHolder})) == null) {
-            if (gnVar instanceof mz4) {
-                ThreadData threadData = ((mz4) gnVar).t;
-                zb9Var2 = threadData.funAdData;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hnVar, funAdNativeViewHolder})) == null) {
+            if (hnVar instanceof oz4) {
+                ThreadData threadData = ((oz4) hnVar).t;
+                ql9Var2 = threadData.funAdData;
                 j = threadData.getFid();
-            } else if (gnVar instanceof ThreadData) {
-                ThreadData threadData2 = (ThreadData) gnVar;
-                zb9Var2 = threadData2.funAdData;
+            } else if (hnVar instanceof ThreadData) {
+                ThreadData threadData2 = (ThreadData) hnVar;
+                ql9Var2 = threadData2.funAdData;
                 j = threadData2.getFid();
             } else {
-                if (gnVar instanceof bc9) {
-                    zb9Var = ((bc9) gnVar).w0;
+                if (hnVar instanceof sl9) {
+                    ql9Var = ((sl9) hnVar).w0;
                 } else {
-                    zb9Var = null;
+                    ql9Var = null;
                 }
                 j = 0;
-                zb9Var2 = zb9Var;
+                ql9Var2 = ql9Var;
             }
-            if (zb9Var2 == null) {
+            if (ql9Var2 == null) {
                 funAdNativeViewHolder.d().d(8);
                 return funAdNativeViewHolder.getView();
             }
-            showVipAdGuideTip(zb9Var2, funAdNativeViewHolder, String.valueOf(j));
+            showVipAdGuideTip(ql9Var2, funAdNativeViewHolder, String.valueOf(j));
             funAdNativeViewHolder.d().setFunAdMaskViewVisible(this.isMulDelete);
             if (!"personalize".equals(this.pageType) && !AdvertAppInfo.I.equals(this.mType)) {
-                this.sid = ma7.e().d(this.sceneKey);
+                this.sid = jk7.e().d(this.sceneKey);
             }
             BdUniqueId bdUniqueId = this.mType;
             String str = "1";
@@ -294,34 +294,34 @@ public class FunAdNativeNewAdapter extends tm<gn, FunAdNativeViewHolder> impleme
                     if (!UbsABTestHelper.isFrsFunAdSdkTest()) {
                         str = "0";
                     }
-                    ga7.m().K(this.mActivity, this.sid, ga7.b(this.pageType, str), String.valueOf(j), eo5.f());
+                    dk7.m().K(this.mActivity, this.sid, dk7.b(this.pageType, str), String.valueOf(j), kp5.f());
                 } else if ("personalize".equals(this.pageType)) {
                     if (!UbsABTestHelper.isPersonalizeFunAdABTest()) {
                         str = "0";
                     }
-                    ga7.m().J(this.mActivity, this.sid, ga7.b(this.pageType, str));
+                    dk7.m().J(this.mActivity, this.sid, dk7.b(this.pageType, str));
                 }
             } else if (bdUniqueId == AdvertAppInfo.I) {
-                ga7 m = ga7.m();
+                dk7 m = dk7.m();
                 BaseFragmentActivity baseFragmentActivity = this.mActivity;
                 String str2 = this.sid;
                 String str3 = this.pageType;
                 if (!UbsABTestHelper.isPbCommentFunAdABTest()) {
                     str = "0";
                 }
-                m.L(baseFragmentActivity, str2, ga7.b(str3, str), zb9Var2.g(), zb9Var2.d());
+                m.L(baseFragmentActivity, str2, dk7.b(str3, str), ql9Var2.g(), ql9Var2.d());
             }
-            funAdNativeViewHolder.i(new a(this, zb9Var2, funAdNativeViewHolder));
+            funAdNativeViewHolder.i(new a(this, ql9Var2, funAdNativeViewHolder));
             funAdNativeViewHolder.d().h();
             funAdNativeViewHolder.j(this.pageType);
             funAdNativeViewHolder.d().setCurpage(this.pageType);
             funAdNativeViewHolder.l(this.sid);
             this.sidSet.add(this.sid);
             int i2 = -1;
-            if (gnVar instanceof hw4) {
-                i2 = ((hw4) gnVar).position + 1;
+            if (hnVar instanceof jw4) {
+                i2 = ((jw4) hnVar).position + 1;
             }
-            funAdNativeViewHolder.m(zb9Var2, i2);
+            funAdNativeViewHolder.m(ql9Var2, i2);
             return funAdNativeViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

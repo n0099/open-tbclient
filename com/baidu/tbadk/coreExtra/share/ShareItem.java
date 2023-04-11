@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.bc9;
-import com.baidu.tieba.gi;
+import com.baidu.tieba.hi;
 import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.sl9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ShareItem {
     public static /* synthetic */ Interceptable $ic;
-    public static final String P0;
+    public static final String O0;
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public String A0;
@@ -55,25 +55,24 @@ public class ShareItem {
     public Bundle E;
     public String E0;
     public Location F;
-    public String F0;
+    public JSONArray F0;
     public String G;
-    public JSONArray G0;
+    public JSONObject G0;
     public String H;
-    public JSONObject H0;
+    public List<Integer> H0;
     public int I;
-    public List<Integer> I0;
+    public String I0;
     public int J;
     public String J0;
     public int K;
-    public String K0;
+    public Uri K0;
     public int L;
-    public Uri L0;
+    public GroupInfoData L0;
     public int M;
-    public GroupInfoData M0;
+    public boolean M0;
     public String N;
-    public boolean N0;
+    public int N0;
     public String O;
-    public int O0;
     public String P;
     public String Q;
     public int R;
@@ -214,10 +213,10 @@ public class ShareItem {
             return (ForwardInfo) invokeLI.objValue;
         }
 
-        public static ForwardInfo generateForwardInfo(ThreadData threadData, int i, bc9 bc9Var) {
+        public static ForwardInfo generateForwardInfo(ThreadData threadData, int i, sl9 sl9Var) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i, bc9Var)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i, sl9Var)) == null) {
                 String str = null;
                 if (threadData == null) {
                     return null;
@@ -239,8 +238,8 @@ public class ShareItem {
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
                     forwardInfo.originalTid = originalThreadInfo.f;
                     if (i == 1) {
-                        if (bc9Var != null && bc9Var.Z() != null) {
-                            str = bc9Var.Z().toString();
+                        if (sl9Var != null && sl9Var.a0() != null) {
+                            str = sl9Var.a0().toString();
                         } else if (threadData.getAbstract() != null) {
                             str = threadData.getAbstractText().toString();
                         }
@@ -253,10 +252,10 @@ public class ShareItem {
                     if (threadData.getAuthor() != null && !TextUtils.isEmpty(threadData.getAuthor().getName_show())) {
                         forwardInfo.transmitThreadAuthorNameShow = threadData.getAuthor().getName_show();
                     }
-                    if (i == 1 && bc9Var != null && gi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && bc9Var.r() != null) {
-                        forwardInfo.transmitThreadAuthorNameShow = bc9Var.r().getName_show();
+                    if (i == 1 && sl9Var != null && hi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && sl9Var.q() != null) {
+                        forwardInfo.transmitThreadAuthorNameShow = sl9Var.q().getName_show();
                     }
-                    if (i == 2 && gi.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
+                    if (i == 2 && hi.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
                     }
                 } else {
@@ -332,7 +331,7 @@ public class ShareItem {
                 return;
             }
         }
-        P0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+        O0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
     }
 
     public ShareItem() {
@@ -383,7 +382,7 @@ public class ShareItem {
         this.s0 = 0;
         this.v0 = true;
         this.w0 = false;
-        this.N0 = false;
+        this.M0 = false;
         this.v = null;
         this.w = null;
         this.x = null;
@@ -396,8 +395,8 @@ public class ShareItem {
         this.B = null;
         this.D = null;
         this.C = 0;
-        this.M0 = null;
-        this.N0 = false;
+        this.L0 = null;
+        this.M0 = false;
     }
 
     public void h() {
@@ -407,7 +406,7 @@ public class ShareItem {
             try {
                 try {
                     if (FileHelper.checkSD()) {
-                        File file = new File(P0);
+                        File file = new File(O0);
                         if (file.exists()) {
                             file.delete();
                         }
@@ -499,7 +498,7 @@ public class ShareItem {
                 } catch (JSONException unused) {
                 }
             }
-            shareItem.M0 = GroupInfoData.fromJsonH5(jSONObject);
+            shareItem.L0 = GroupInfoData.fromJsonH5(jSONObject);
             return shareItem;
         }
         return (ShareItem) invokeLZ.objValue;
@@ -509,7 +508,7 @@ public class ShareItem {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.I0;
+            return this.H0;
         }
         return (List) invokeV.objValue;
     }
@@ -584,7 +583,7 @@ public class ShareItem {
     public void i(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.I0 = list;
+            this.H0 = list;
         }
     }
 

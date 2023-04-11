@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -47,7 +47,7 @@ public class ConcernVideoImageView extends RelativeLayout {
     public void setData(List<MediaData> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && !ListUtils.isEmpty(list) && !StringUtils.isNull(list.get(0).getPicUrl())) {
-            this.a.M(list.get(0).getPicUrl(), 10, false);
+            this.a.N(list.get(0).getPicUrl(), 10, false);
         }
     }
 
@@ -98,11 +98,11 @@ public class ConcernVideoImageView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0209, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09075e);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d020b, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090762);
             this.a = tbImageView;
             tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-            int l = hi.l(getContext()) - hi.g(getContext(), R.dimen.obfuscated_res_0x7f070261);
+            int l = ii.l(getContext()) - ii.g(getContext(), R.dimen.obfuscated_res_0x7f070261);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.getLayoutParams();
             layoutParams.height = (l * 9) / 16;
             layoutParams.width = l;

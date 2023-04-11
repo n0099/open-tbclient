@@ -1,82 +1,51 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class lj6 {
+public final class lj6 implements e07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final <T extends ji6> T a(ki6 ki6Var, Class<T> type, y entity, ci6 item) {
-        InterceptResult invokeLLLL;
-        T t;
+    @Override // com.baidu.tieba.e07
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, ki6Var, type, entity, item)) == null) {
-            Intrinsics.checkNotNullParameter(ki6Var, "<this>");
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            Intrinsics.checkNotNullParameter(item, "item");
-            x f = ki6Var.f();
-            if (f != null && (t = (T) f.h(type)) != null) {
-                entity.a(t);
-                t.b(item);
-                return t;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    public lj6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return null;
         }
-        return (T) invokeLLLL.objValue;
     }
 
-    public static final long b(ki6 ki6Var) {
+    @Override // com.baidu.tieba.e07
+    public Map<String, String> a(qw6 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ki6Var)) == null) {
-            Intrinsics.checkNotNullParameter(ki6Var, "<this>");
-            return d(ki6Var).a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("page_from", ImageViewerConfig.FROM_CONCERN);
+            return linkedHashMap;
         }
-        return invokeL.longValue;
-    }
-
-    public static final ck6 c(ki6 ki6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ki6Var)) == null) {
-            Intrinsics.checkNotNullParameter(ki6Var, "<this>");
-            return ki6Var.i().d();
-        }
-        return (ck6) invokeL.objValue;
-    }
-
-    public static final fk6 d(ki6 ki6Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ki6Var)) == null) {
-            Intrinsics.checkNotNullParameter(ki6Var, "<this>");
-            return ki6Var.i().f();
-        }
-        return (fk6) invokeL.objValue;
-    }
-
-    public static final boolean e(ki6 ki6Var) {
-        InterceptResult invokeL;
-        ii6 ii6Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ki6Var)) == null) {
-            Intrinsics.checkNotNullParameter(ki6Var, "<this>");
-            x f = ki6Var.f();
-            if (f instanceof ii6) {
-                ii6Var = (ii6) f;
-            } else {
-                ii6Var = null;
-            }
-            if (ii6Var != null) {
-                return ii6Var.x();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (Map) invokeL.objValue;
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.view;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
@@ -15,10 +14,10 @@ import com.baidu.tbadk.core.data.RecommendTopicData;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gi;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.mp5;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.q25;
+import com.baidu.tieba.sq5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +30,6 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public static /* synthetic */ Interceptable $ic;
     public static final int b;
     public static final int c;
-    public static final int d;
     public transient /* synthetic */ FieldHolder $fh;
     public RecommendTopicData.RecommendTopicListData a;
 
@@ -48,9 +46,45 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        b = hi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        c = hi.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
-        d = (((((hi.l(TbadkCoreApplication.getInst()) / 2) - hi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (hi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - hi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - b) - c;
+        b = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        c = ii.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        int l = ii.l(TbadkCoreApplication.getInst()) / 2;
+        ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+        ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setHeight((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds62));
+            setMaxLines(1);
+            setGravity(17);
+            setPadding((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.M_W_X004), 0, (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.M_W_X004), 0);
+            setOnClickListener(this);
+            c();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            q25 d = q25.d(this);
+            d.C(R.string.F_X01);
+            d.B(R.dimen.T_X09);
+            d.w(R.color.CAM_X0304);
+            d.e(R.string.A_X07);
+            d.o(R.string.J_X01);
+            d.m(R.dimen.L_X02);
+            d.l(R.color.CAM_X0304);
+            Drawable maskDrawable = WebPManager.getMaskDrawable((int) R.drawable.icon_pb_huati, WebPManager.ResourceStateType.NORMAL_PRESS);
+            setCompoundDrawablePadding(b);
+            if (maskDrawable != null) {
+                int i = c;
+                maskDrawable.setBounds(0, 0, i, i);
+            }
+            setCompoundDrawables(maskDrawable, null, null, null);
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -71,26 +105,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        b();
-    }
-
-    public void a(RecommendTopicData.RecommendTopicListData recommendTopicListData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, recommendTopicListData) == null) {
-            this.a = recommendTopicListData;
-            if (recommendTopicListData != null) {
-                String topicName = recommendTopicListData.getTopicName();
-                if (gi.isEmpty(topicName)) {
-                    setVisibility(8);
-                    return;
-                }
-                setText(TextUtils.ellipsize(topicName, getPaint(), d, TextUtils.TruncateAt.END));
-                setVisibility(0);
-                c();
-                return;
-            }
-            setVisibility(8);
-        }
+        a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -112,7 +127,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        b();
+        a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -134,50 +149,17 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        b();
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setHeight((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds62));
-            setMaxLines(1);
-            setGravity(17);
-            setPadding((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.M_W_X004), 0, (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.M_W_X004), 0);
-            setOnClickListener(this);
-            c();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            n15 d2 = n15.d(this);
-            d2.B(R.string.F_X01);
-            d2.A(R.dimen.T_X09);
-            d2.w(R.color.CAM_X0304);
-            d2.e(R.string.A_X07);
-            d2.o(R.string.J_X01);
-            d2.m(R.dimen.L_X02);
-            d2.l(R.color.CAM_X0304);
-            Drawable maskDrawable = WebPManager.getMaskDrawable((int) R.drawable.icon_pb_huati, WebPManager.ResourceStateType.NORMAL_PRESS);
-            setCompoundDrawablePadding(b);
-            if (maskDrawable != null) {
-                int i = c;
-                maskDrawable.setBounds(0, 0, i, i);
-            }
-            setCompoundDrawables(maskDrawable, null, null, null);
-        }
+        a();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         RecommendTopicData.RecommendTopicListData recommendTopicListData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (recommendTopicListData = this.a) != null && !gi.isEmpty(recommendTopicListData.getTopicName())) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && (recommendTopicListData = this.a) != null && !hi.isEmpty(recommendTopicListData.getTopicName())) {
             if (NewWebHotTopicPageSwitch.isOn()) {
                 if (view2.getContext() instanceof BaseActivity) {
-                    mp5.e(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
+                    sq5.e(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
                     return;
                 }
                 return;

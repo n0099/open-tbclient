@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SingleDateSelector implements DateSelector<Long> {
     public static final Parcelable.Creator<SingleDateSelector> CREATOR = new Parcelable.Creator<SingleDateSelector>() { // from class: com.google.android.material.datepicker.SingleDateSelector.2
         /* JADX DEBUG: Method merged with bridge method */
@@ -53,7 +53,7 @@ public class SingleDateSelector implements DateSelector<Long> {
 
     @Override // com.google.android.material.datepicker.DateSelector
     public int getDefaultTitleResId() {
-        return R.string.obfuscated_res_0x7f0f0bd6;
+        return R.string.obfuscated_res_0x7f0f0bd2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -105,9 +105,9 @@ public class SingleDateSelector implements DateSelector<Long> {
         Resources resources = context.getResources();
         Long l = this.selectedItem;
         if (l == null) {
-            return resources.getString(R.string.obfuscated_res_0x7f0f0bd7);
+            return resources.getString(R.string.obfuscated_res_0x7f0f0bd3);
         }
-        return resources.getString(R.string.obfuscated_res_0x7f0f0bd5, DateStrings.getYearMonthDay(l.longValue()));
+        return resources.getString(R.string.obfuscated_res_0x7f0f0bd1, DateStrings.getYearMonthDay(l.longValue()));
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
@@ -134,8 +134,8 @@ public class SingleDateSelector implements DateSelector<Long> {
 
     @Override // com.google.android.material.datepicker.DateSelector
     public View onCreateTextInputView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle, CalendarConstraints calendarConstraints, @NonNull final OnSelectionChangedListener<Long> onSelectionChangedListener) {
-        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0607, viewGroup, false);
-        TextInputLayout textInputLayout = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091718);
+        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0605, viewGroup, false);
+        TextInputLayout textInputLayout = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09171c);
         EditText editText = textInputLayout.getEditText();
         if (ManufacturerUtils.isDateInputKeyboardMissingSeparatorCharacters()) {
             editText.setInputType(17);

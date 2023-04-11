@@ -1,82 +1,94 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.SurfaceTexture;
-import android.hardware.Camera;
-import android.media.MediaPlayer;
-import android.view.Surface;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tieba.m6a;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
+import com.baidu.tbadk.core.atomData.LoginDialogActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tieba.c05;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.view.Thread2GroupShareView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class ep9 extends bp9 {
+public class ep9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ep9 F;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A;
-    public Camera.CameraInfo B;
-    public Surface C;
-    public MediaPlayer D;
-    public byte[][] E;
-    public Camera r;
-    public Camera.Parameters s;
-    public int t;
-    public m6a.f u;
-    public int v;
-    public List<Camera.Area> w;
-    public List<Camera.Area> x;
-    public Matrix y;
-    public int z;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947742171, "Lcom/baidu/tieba/ep9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947742171, "Lcom/baidu/tieba/ep9;");
-        }
-    }
-
-    @Override // com.baidu.tieba.m6a.b
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.m6a.b
-    public void s(m6a.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, aVar) == null) {
-        }
-    }
+    public final MainTabActivity a;
+    public final jo9 b;
 
     /* loaded from: classes4.dex */
-    public class a implements Camera.PreviewCallback {
+    public class a implements ShareSuccessReplyToServerModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ep9 a;
+
+        @Override // com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.ep9$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class RunnableC0254a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ CustomDialogData a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0254a(a aVar, CustomDialogData customDialogData) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, customDialogData};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = customDialogData;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    fu8.a(this.b.a.a.getPageContext(), this.a).show();
+                }
+            }
+        }
 
         public a(ep9 ep9Var) {
             Interceptable interceptable = $ic;
@@ -96,572 +108,295 @@ public class ep9 extends bp9 {
             this.a = ep9Var;
         }
 
-        @Override // android.hardware.Camera.PreviewCallback
-        public void onPreviewFrame(byte[] bArr, Camera camera) {
+        @Override // com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.b
+        public void b(CustomDialogData customDialogData) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && this.a.u != null) {
-                this.a.u.a(bArr, 1);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customDialogData) == null) {
+                jg.a().postDelayed(new RunnableC0254a(this, customDialogData), 1000L);
             }
         }
     }
 
-    public ep9(TbPageContext tbPageContext) {
+    /* loaded from: classes4.dex */
+    public class b implements c05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Thread2GroupShareView a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ ShareFromPBMsgData f;
+        public final /* synthetic */ ep9 g;
+
+        public b(ep9 ep9Var, Thread2GroupShareView thread2GroupShareView, long j, String str, String str2, String str3, ShareFromPBMsgData shareFromPBMsgData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ep9Var, thread2GroupShareView, Long.valueOf(j), str, str2, str3, shareFromPBMsgData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = ep9Var;
+            this.a = thread2GroupShareView;
+            this.b = j;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = shareFromPBMsgData;
+        }
+
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                this.g.a.HidenSoftKeyPad((InputMethodManager) this.g.a.getSystemService("input_method"), this.a.getChatMsgView());
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.g.a.getPageContext().getPageActivity(), this.b, this.c, this.d, this.e, 0, this.a.getLeaveMsg(), this.f.toChatMessageContent())));
+                c05Var.dismiss();
+                ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
+                if (shareItem != null && shareItem.f() != null) {
+                    Bundle f = shareItem.f();
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).param("obj_source", 1).param("obj_type", f.getInt("obj_type")).param("obj_param1", 3).param("fid", f.getString("fid")).param("tid", f.getString("tid")).param("obj_locate", 5));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements c05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Thread2GroupShareView a;
+        public final /* synthetic */ ep9 b;
+
+        public c(ep9 ep9Var, Thread2GroupShareView thread2GroupShareView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ep9Var, thread2GroupShareView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ep9Var;
+            this.a = thread2GroupShareView;
+        }
+
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                this.b.a.HidenSoftKeyPad((InputMethodManager) this.b.a.getSystemService("input_method"), this.a.getChatMsgView());
+                c05Var.dismiss();
+            }
+        }
+    }
+
+    public ep9(MainTabActivity mainTabActivity, jo9 jo9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {mainTabActivity, jo9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.t = 0;
-        this.a = tbPageContext;
-        D();
-        ArrayList arrayList = new ArrayList();
-        this.w = arrayList;
-        arrayList.add(new Camera.Area(new Rect(0, 0, 0, 0), 1));
-        ArrayList arrayList2 = new ArrayList();
-        this.x = arrayList2;
-        arrayList2.add(new Camera.Area(new Rect(0, 0, 0, 0), 1));
+        this.a = mainTabActivity;
+        this.b = jo9Var;
     }
 
-    @Override // com.baidu.tieba.m6a.b
-    public void l(int i) {
+    public final void d(Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && this.r != null) {
-            if ((i >= 1 || i <= -1) && this.z != -1) {
-                try {
-                    Camera.Parameters parameters = this.r.getParameters();
-                    if (!parameters.isZoomSupported()) {
-                        return;
-                    }
-                    int i2 = this.A + i;
-                    if (i2 > this.z) {
-                        i2 = this.z;
-                    } else if (i2 < 0) {
-                        i2 = 0;
-                    }
-                    if (this.A != i2) {
-                        parameters.setZoom(i2);
-                        this.r.setParameters(parameters);
-                        this.A = i2;
-                    }
-                } catch (Exception e) {
-                    m7a.g(e);
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
+            long longExtra = intent.getLongExtra(PersonalChatActivityConfig.KEY_USER_ID, -1L);
+            String stringExtra = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_NAME);
+            String stringExtra2 = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT);
+            f(c(), longExtra, stringExtra, intent.getStringExtra("name_show"), stringExtra2);
+        }
+    }
+
+    public final void b(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null) {
+            PostWriteCallBackData postWriteCallBackData = null;
+            try {
+                postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921030, postWriteCallBackData));
+            jo9 jo9Var = this.b;
+            if (jo9Var != null && !jo9Var.t(postWriteCallBackData)) {
+                this.b.Q(postWriteCallBackData);
             }
         }
     }
 
-    public static ep9 B(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) {
-            if (F == null) {
-                synchronized (ep9.class) {
-                    if (F == null) {
-                        F = new ep9(tbPageContext);
-                    } else if (tbPageContext != null) {
-                        F.a = tbPageContext;
-                    }
-                }
-            }
-            return F;
-        }
-        return (ep9) invokeL.objValue;
-    }
-
-    public static Camera.Size C(List<Camera.Size> list, int i, int i2) {
-        InterceptResult invokeLII;
-        Camera.Size size;
-        Camera.Size size2;
-        Camera.Size size3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, list, i, i2)) == null) {
-            if (list != null) {
-                int i3 = i * i2;
-                int i4 = Integer.MAX_VALUE;
-                float f = i / i2;
-                float f2 = 2.1474836E9f;
-                float f3 = Float.MAX_VALUE;
-                Iterator<Camera.Size> it = list.iterator();
-                size = null;
-                size2 = null;
-                while (true) {
-                    if (it.hasNext()) {
-                        size3 = it.next();
-                        if (size3 != null) {
-                            if (size3.width == i && size3.height == i2) {
-                                break;
-                            }
-                            int abs = Math.abs(i3 - (size3.width * size3.height));
-                            if (abs < i4) {
-                                size = size3;
-                                i4 = abs;
-                            }
-                            float abs2 = Math.abs((size3.width / size3.height) - f);
-                            if (abs2 - f3 <= 0.001d) {
-                                float f4 = abs;
-                                if (f4 < f2) {
-                                    size2 = size3;
-                                    f2 = f4;
-                                    f3 = abs2;
-                                }
-                            }
-                        }
-                    } else {
-                        size3 = null;
-                        break;
-                    }
-                }
-            } else {
-                size = null;
-                size2 = null;
-                size3 = null;
-            }
-            if (size3 != null) {
-                return size3;
-            }
-            if (size2 != null) {
-                return size2;
-            }
-            if (size == null) {
-                return null;
-            }
-            return size;
-        }
-        return (Camera.Size) invokeLII.objValue;
-    }
-
-    public static void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            int numberOfCameras = Camera.getNumberOfCameras();
-            boolean z = false;
-            for (int i = 0; i < numberOfCameras; i++) {
-                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                try {
-                    Camera.getCameraInfo(i, cameraInfo);
-                    int i2 = cameraInfo.facing;
-                    if (i2 == 1) {
-                        bp9.o = true;
-                    } else if (i2 == 0) {
-                        bp9.p = true;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    u3a.b("getCameraInfo", e.getMessage());
-                }
-            }
-            if (bp9.o && !DeviceInfoUtil.isHuaweiMateX() && !DeviceInfoUtil.isOppN5207()) {
-                z = true;
-            }
-            bp9.o = z;
-        }
-    }
-
-    public final int A() {
+    public final ShareFromPBMsgData c() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int numberOfCameras = Camera.getNumberOfCameras();
-            if (numberOfCameras > 0) {
-                if (numberOfCameras == 1) {
-                    Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                    Camera.getCameraInfo(0, cameraInfo);
-                    this.B = cameraInfo;
-                    return 0;
-                }
-                for (int i = 0; i < numberOfCameras; i++) {
-                    Camera.CameraInfo cameraInfo2 = new Camera.CameraInfo();
-                    Camera.getCameraInfo(i, cameraInfo2);
-                    if (this.b && cameraInfo2.facing == 1) {
-                        this.B = cameraInfo2;
-                        return i;
-                    } else if (!this.b && cameraInfo2.facing == 0) {
-                        this.B = cameraInfo2;
-                        return i;
-                    }
-                }
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.m6a.b
-    public void d(byte[] bArr) {
-        Camera camera;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) && (camera = this.r) != null) {
-            camera.addCallbackBuffer(bArr);
-        }
-    }
-
-    @Override // com.baidu.tieba.m6a.b
-    public void i(boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            if ((z && x()) || (!z && !w())) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            this.b = z2;
-        }
-    }
-
-    @Override // com.baidu.tieba.m6a.b
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.v = i;
-        }
-    }
-
-    public final int[] E() {
-        InterceptResult invokeV;
+        String uri;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<int[]> supportedPreviewFpsRange = this.r.getParameters().getSupportedPreviewFpsRange();
-            int[] iArr = null;
-            if (supportedPreviewFpsRange != null && supportedPreviewFpsRange.size() != 0) {
-                int i = Integer.MAX_VALUE;
-                Iterator<int[]> it = supportedPreviewFpsRange.iterator();
-                int i2 = 0;
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    int[] next = it.next();
-                    if (next != null) {
-                        int i3 = 1000;
-                        if (next[1] < 1000) {
-                            i3 = 1;
-                        }
-                        int i4 = next[0] / i3;
-                        int i5 = next[1] / i3;
-                        int i6 = this.k;
-                        if (i6 >= i4 && i6 <= i5) {
-                            iArr = next;
-                            i2 = i6;
-                            break;
-                        }
-                        int abs = Math.abs(i4 - this.k);
-                        int abs2 = Math.abs(i5 - this.k);
-                        if (abs <= abs2 && abs < i) {
-                            iArr = next;
-                            i2 = i4;
-                            i = abs;
-                        } else if (abs2 <= abs && abs2 < i) {
-                            iArr = next;
-                            i2 = i5;
-                            i = abs2;
-                        }
-                    }
-                }
-                this.t = i2;
+            ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
+            if (shareItem == null) {
+                return null;
             }
-            return iArr;
+            Uri uri2 = shareItem.z;
+            if (uri2 == null) {
+                uri = "https://tb5.bdstatic.com/yunying/tieba_logo.jpg";
+            } else {
+                uri = uri2.toString();
+            }
+            ShareFromPBMsgData shareFromPBMsgData = new ShareFromPBMsgData();
+            shareFromPBMsgData.setTitle(shareItem.v);
+            shareFromPBMsgData.setContent(shareItem.H);
+            shareFromPBMsgData.setImageUrl(uri);
+            shareFromPBMsgData.setForumName(shareItem.t);
+            shareFromPBMsgData.setThreadId(shareItem.O);
+            return shareFromPBMsgData;
         }
-        return (int[]) invokeV.objValue;
+        return (ShareFromPBMsgData) invokeV.objValue;
     }
 
-    public final void F() {
+    public void e(int i, int i2, Intent intent) {
+        String str;
+        ShareSuccessReplyToServerModel shareSuccessReplyToServerModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            List<Camera.Size> supportedPreviewSizes = this.r.getParameters().getSupportedPreviewSizes();
-            Camera.Size C = C(supportedPreviewSizes, this.f, this.g);
-            if (C != null) {
-                this.d = C.width;
-                this.e = C.height;
-            }
-            if (bp9.q == null) {
-                if (C == null || this.f != C.width || this.g != C.height) {
-                    StringBuilder sb = new StringBuilder();
-                    if (supportedPreviewSizes != null) {
-                        for (Camera.Size size : supportedPreviewSizes) {
-                            sb.append(size.width);
-                            sb.append(',');
-                            sb.append(size.height);
-                            sb.append('=');
-                            sb.append(size.height / size.width);
-                            sb.append('\n');
-                        }
-                    }
-                    bp9.q = sb.toString();
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
+            if (i2 != -1) {
+                if (i == 25059) {
+                    jy5.d();
+                } else if (i == 25060) {
+                    jy5.d();
                 }
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.m6a.b
-    public void q() {
-        Camera camera;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (camera = this.r) != null) {
-            try {
-                camera.stopPreview();
-            } catch (Exception e) {
-                e.printStackTrace();
-                String str = "stopPreview:" + e.getMessage();
-            }
-            try {
-                this.r.setPreviewTexture(null);
-                this.r.setPreviewCallbackWithBuffer(null);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                String str2 = "stopPreview:" + e2.getMessage();
-            }
-            try {
-                this.r.release();
-            } catch (Exception e3) {
-                e3.printStackTrace();
-                String str3 = "stopPreview:" + e3.getMessage();
-            }
-            this.z = 0;
-            this.A = 0;
-            this.y = null;
-            this.r = null;
-            Surface surface = this.C;
-            if (surface != null) {
-                surface.release();
-            }
-            MediaPlayer mediaPlayer = this.D;
-            if (mediaPlayer != null) {
-                mediaPlayer.stop();
-                this.D.release();
-            }
-        }
-    }
-
-    public final void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if ((this.c && this.d < this.e) || (!this.c && this.d > this.e)) {
-                this.h = this.e;
-                this.i = this.d;
+            if (zr5.c(i, i2, intent)) {
                 return;
             }
-            this.h = this.d;
-            this.i = this.e;
-        }
-    }
-
-    @Override // com.baidu.tieba.m6a.b
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Camera camera = this.r;
-            if (camera != null && this.a != null) {
-                return camera.getParameters().getPreviewFormat();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.m6a.b
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return bp9.q;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.m6a.b
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.r != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.m6a.b
-    public void n() {
-        TbPageContext tbPageContext;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.r != null && (tbPageContext = this.a) != null) {
-            ip9.h(tbPageContext, A(), this.r);
-            G();
-        }
-    }
-
-    @Override // com.baidu.tieba.m6a.b
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            Camera.CameraInfo cameraInfo = this.B;
-            if ((cameraInfo != null && cameraInfo.facing == 1) || this.b) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.m6a.b
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            F = null;
-            this.a = null;
-            this.u = null;
-            this.l = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.m6a.b
-    public void c(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) && this.r != null && this.a != null) {
-            try {
-                z(i, i2, 1.0f, i3, i4, f8a.e(), f8a.d(), this.w.get(0).rect);
-                z(i, i2, 1.5f, i3, i4, f8a.e(), f8a.d(), this.x.get(0).rect);
-                this.r.cancelAutoFocus();
-                Camera.Parameters parameters = this.r.getParameters();
-                if (parameters.getSupportedFocusModes().contains("auto")) {
-                    parameters.setFocusMode("auto");
-                    parameters.setFocusAreas(this.w);
+            if (i2 != -1) {
+                jo9 jo9Var = this.b;
+                if (jo9Var != null && jo9Var.y() != null && this.b.y().getCurrentFragment() != null) {
+                    this.b.y().getCurrentFragment().onActivityResult(i, i2, intent);
                 }
-                parameters.setMeteringAreas(this.x);
-                this.r.setParameters(parameters);
-                this.r.autoFocus(null);
-            } catch (Exception e) {
-                m7a.g(e);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.m6a.b
-    public void g(int i, int i2, int i3, boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-            this.f = Math.max(i, i2);
-            this.g = Math.min(i, i2);
-            if (i > i2) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            this.c = z2;
-            this.k = i3;
-            i(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.m6a.b
-    public boolean k(SurfaceTexture surfaceTexture, m6a.f fVar) {
-        InterceptResult invokeLL;
-        float f;
-        List<String> supportedAntibanding;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, surfaceTexture, fVar)) == null) {
-            this.l = surfaceTexture;
-            this.u = fVar;
-            try {
-                q();
-                int A = A();
-                this.j = A;
-                if (A >= 0) {
-                    Camera open = Camera.open(A);
-                    this.r = open;
-                    if (open != null) {
-                        F();
-                        int[] E = E();
-                        if (this.d > 0 && this.e > 0 && this.t != 0 && E != null && E.length == 2) {
-                            Camera.Parameters parameters = this.r.getParameters();
-                            this.s = parameters;
-                            parameters.setPreviewSize(this.d, this.e);
-                            if (dp9.c && (supportedAntibanding = this.s.getSupportedAntibanding()) != null && supportedAntibanding.contains("50hz")) {
-                                this.s.setAntibanding("50hz");
+            } else if (i == 25046) {
+                if (TbadkCoreApplication.isLogin()) {
+                    oq4.f().k(this.a.getPageContext());
+                }
+            } else if (i == 25066) {
+                MainTabActivity mainTabActivity = this.a;
+                mainTabActivity.c = true;
+                mainTabActivity.b = mainTabActivity.getCurrentTabType();
+                TbSingleton.getInstance().setVideoChannelRelogin(true);
+            } else if (i != 13003 && i != 25048) {
+                if (i == 23007) {
+                    d(intent);
+                } else if (i == 13011) {
+                    y99.g().m(this.a.getPageContext());
+                } else if (i == 24007) {
+                    int intExtra = intent.getIntExtra("extra_share_status", 2);
+                    int intExtra2 = intent.getIntExtra("extra_show_channel", 1);
+                    if (intExtra == 1) {
+                        y99.g().m(this.a.getPageContext());
+                        ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
+                        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
+                        if (shareItem != null) {
+                            int i3 = shareItem.M;
+                            if (i3 == 0) {
+                                statisticItem.param("obj_locate", 15);
+                            } else {
+                                statisticItem.param("obj_locate", i3);
                             }
-                            List<String> supportedFocusModes = this.s.getSupportedFocusModes();
-                            if (supportedFocusModes != null && supportedFocusModes.contains("continuous-video")) {
-                                this.s.setFocusMode("continuous-video");
-                            }
-                            this.s.setPreviewFpsRange(E[0], E[1]);
-                            ip9.g(this.v, this.j, this.r);
-                            if (this.s.isVideoStabilizationSupported() && !this.s.getVideoStabilization()) {
-                                this.s.setVideoStabilization(true);
-                            }
-                            try {
-                                this.s.setExposureCompensation((int) (((this.s.getMaxExposureCompensation() - f) * 0.5d) + this.s.getMinExposureCompensation()));
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                            this.z = ip9.c(this.s);
-                            this.r.setParameters(this.s);
-                            if (this.E == null) {
-                                this.E = (byte[][]) Array.newInstance(byte.class, 3, ((this.d * this.e) * 3) / 2);
-                            }
-                            a aVar = new a(this);
-                            this.r.setPreviewCallbackWithBuffer(aVar);
-                            for (int i = 0; i < 3; i++) {
-                                this.r.addCallbackBuffer(this.E[i]);
-                            }
-                            this.r.setPreviewCallbackWithBuffer(aVar);
-                            this.r.setPreviewTexture(this.l);
-                            this.r.startPreview();
-                            G();
-                            dp9.b.k(1);
-                            return true;
+                        }
+                        if (shareItem != null) {
+                            statisticItem.param("tid", shareItem.O);
+                        }
+                        statisticItem.param("pid", intent.getStringExtra("pid"));
+                        TiebaStatic.log(statisticItem);
+                        if (shareItem != null && (str = shareItem.x) != null && (shareSuccessReplyToServerModel = this.a.u) != null) {
+                            shareSuccessReplyToServerModel.Q(str, intExtra2, new a(this));
                         }
                     }
+                } else if (i == 25059) {
+                    if (UbsABTestHelper.isFirstLoginTestA()) {
+                        if (TbadkApplication.getInst().isNeedNewUserLead() && TbadkCoreApplication.isLogin()) {
+                            InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this.a, 4);
+                            interestGuideActivityConfig.setRequestCode(25060);
+                            interestGuideActivityConfig.setIntentAction(IntentAction.ActivityForResult);
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig));
+                            return;
+                        }
+                        return;
+                    }
+                    jy5.d();
+                } else if (i == 25060) {
+                    if (UbsABTestHelper.isFirstLoginTestB()) {
+                        if (!TbadkCoreApplication.isLogin()) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2921535, this));
+                            return;
+                        }
+                        return;
+                    }
+                    jy5.d();
+                } else if (i == 25064) {
+                    MainTabActivity mainTabActivity2 = this.a;
+                    i1a i1aVar = mainTabActivity2.q;
+                    if (i1aVar != null) {
+                        i1aVar.c(mainTabActivity2.getPageContext());
+                    }
+                } else if (i == 25071) {
+                    if (intent != null) {
+                        String stringExtra = intent.getStringExtra(LoginDialogActivityConfig.HOME_OPERATE_JUMP_URL);
+                        if (!TextUtils.isEmpty(stringExtra)) {
+                            it4.v(this.a, null, stringExtra, true);
+                        }
+                    }
+                } else {
+                    jo9 jo9Var2 = this.b;
+                    if (jo9Var2 != null && jo9Var2.y() != null && this.b.y().getCurrentFragment() != null) {
+                        this.b.y().getCurrentFragment().onActivityResult(i, i2, intent);
+                    }
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                e2.getMessage();
+            } else {
+                b(intent);
             }
-            q();
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.m6a.b
-    public void t(int i, int i2, int i3, int i4) {
+    public final void f(ShareFromPBMsgData shareFromPBMsgData, long j, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIII(1048595, this, i, i2, i3, i4) != null) || this.r == null || this.a == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{shareFromPBMsgData, Long.valueOf(j), str, str2, str3}) != null) || shareFromPBMsgData == null) {
+            return;
         }
-    }
-
-    public final void z(int i, int i2, float f, int i3, int i4, int i5, int i6, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), rect}) == null) {
-            int i7 = (int) (i * f);
-            int i8 = (int) (i2 * f);
-            int a2 = ip9.a(i3 - (i7 / 2), 0, i5 - i7);
-            int a3 = ip9.a(i4 - (i8 / 2), 0, i6 - i8);
-            RectF rectF = new RectF(a2, a3, a2 + i7, a3 + i8);
-            if (this.y == null) {
-                this.y = new Matrix();
-                Matrix matrix = new Matrix();
-                TbPageContext tbPageContext = this.a;
-                if (tbPageContext != null) {
-                    ip9.e(tbPageContext, this.j, matrix);
-                }
-                matrix.invert(this.y);
-            }
-            this.y.mapRect(rectF);
-            ip9.f(rectF, rect);
+        c05 c05Var = new c05(this.a.getPageContext().getPageActivity());
+        Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(this.a.getPageContext().getPageActivity());
+        thread2GroupShareView.setData(shareFromPBMsgData);
+        c05Var.setContentViewSize(1);
+        c05Var.setContentView(thread2GroupShareView);
+        c05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1208, new b(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
+        c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new c(this, thread2GroupShareView));
+        c05Var.setCanceledOnTouchOutside(true);
+        c05Var.create(this.a.getPageContext()).show();
+        if (!hi.isEmpty(shareFromPBMsgData.getImageUrl())) {
+            thread2GroupShareView.c(shareFromPBMsgData.getImageUrl(), false);
         }
     }
 }

@@ -1,7 +1,9 @@
 package com.baidu.tieba;
+
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface qs4 {
-    void a(ss4 ss4Var);
+    void a(List<os4> list);
 
     void onPreLoad();
 }

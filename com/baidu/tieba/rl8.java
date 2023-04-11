@@ -1,77 +1,118 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbLoadMoreItemVideoViewHolder;
+import com.baidu.tbadk.core.data.SmallTailThemeData;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetTails.ColorInfo;
+import tbclient.GetTails.ResData;
+import tbclient.GetTails.TailInfo;
 /* loaded from: classes6.dex */
-public class rl8 extends bl8<ri8, PbLoadMoreItemVideoViewHolder> {
+public class rl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener g;
+    public List<TailData> a;
+    public List<String> b;
+    public SmallTailThemeData c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rl8(wp8 wp8Var, BdUniqueId bdUniqueId) {
-        super(wp8Var, bdUniqueId);
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    public rl8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wp8Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((wp8) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ArrayList();
+        this.b = new ArrayList();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm
-    /* renamed from: u */
-    public PbLoadMoreItemVideoViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public List<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public SmallTailThemeData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (SmallTailThemeData) invokeV.objValue;
+    }
+
+    public List<TailData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void d(ResData resData) {
+        List<TailInfo> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, resData) != null) || resData == null || (list = resData.tailList) == null) {
+            return;
+        }
+        for (TailInfo tailInfo : list) {
+            if (f(tailInfo)) {
+                TailData tailData = new TailData();
+                tailData.setContent(tailInfo.tailContent);
+                tailData.setFontColor(tailInfo.fontColor);
+                tailData.setFontType(tailInfo.fontKeyName);
+                tailData.setId(tailInfo.tailId.intValue());
+                boolean z = true;
+                if (tailInfo.is_selected.intValue() != 1) {
+                    z = false;
+                }
+                tailData.setSelected(z);
+                c().add(tailData);
+            }
+        }
+        e(resData.default_color);
+        for (ColorInfo colorInfo : resData.colorList) {
+            a().add(colorInfo.fontColor);
+        }
+        if (resData.tail_style != null) {
+            this.c = new SmallTailThemeData(resData.tail_style);
+        } else {
+            this.c = SmallTailThemeData.DEFAULT;
+        }
+    }
+
+    public final boolean f(TailInfo tailInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PbLoadMoreItemVideoViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_video_more, viewGroup, false));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tailInfo)) == null) {
+            Integer num = tailInfo.tailId;
+            if (num == null || num.intValue() == 0 || tailInfo.fontColor == null) {
+                return false;
+            }
+            return true;
         }
-        return (PbLoadMoreItemVideoViewHolder) invokeL.objValue;
-    }
-
-    public void y(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.g = onClickListener;
-        }
-    }
-
-    @Override // com.baidu.tieba.bl8, com.baidu.tieba.tm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        x(i, view2, viewGroup, (ri8) obj, (PbLoadMoreItemVideoViewHolder) viewHolder);
-        return view2;
-    }
-
-    public View x(int i, View view2, ViewGroup viewGroup, ri8 ri8Var, PbLoadMoreItemVideoViewHolder pbLoadMoreItemVideoViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ri8Var, pbLoadMoreItemVideoViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) ri8Var, (ri8) pbLoadMoreItemVideoViewHolder);
-            pbLoadMoreItemVideoViewHolder.a(this.g);
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -1,20 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.im.message.RequestOfficialBarMenuLocalMessage;
-import com.baidu.tieba.im.message.ResponseOfficialBarMenuLocalMessage;
-import com.baidu.tieba.im.message.ResponseOfficialBarMenuMessage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Personalized.CardForum;
+import tbclient.Personalized.PersonalForum;
 /* loaded from: classes6.dex */
-public class wr7 implements CustomMessageTask.CustomRunnable<Object> {
+public class wr7 extends kh6 implements sh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public CardForum e;
+
+    public static boolean i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 1 : invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sh6
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     public wr7() {
         Interceptable interceptable = $ic;
@@ -30,24 +46,74 @@ public class wr7 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.sh6
+    public int getPosition() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestOfficialBarMenuLocalMessage)) {
-                yz4.d();
-                byte[] bArr = yz4.b("tb.official_bar_menu").get(ResponseOfficialBarMenuMessage.OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuLocalMessage) customMessage).getForum_id());
-                ResponseOfficialBarMenuLocalMessage responseOfficialBarMenuLocalMessage = new ResponseOfficialBarMenuLocalMessage();
-                try {
-                    responseOfficialBarMenuLocalMessage.decodeInBackGround(2001177, bArr);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return responseOfficialBarMenuLocalMessage;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            CardForum cardForum = this.e;
+            if (cardForum != null) {
+                return cardForum.position.intValue();
             }
-            return null;
+            return 0;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return invokeV.intValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (ListUtils.getCount(getDataList()) <= 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sh6
+    public void J(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.showBottomDivider = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.sh6
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.showTopDivider = z;
+        }
+    }
+
+    public void l(CardForum cardForum) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, cardForum) == null) && cardForum != null) {
+            this.e = cardForum;
+            this.mGroupTitle = cardForum.card_title;
+            if (cardForum.position != null) {
+                h(e() + cardForum.position.intValue());
+            } else {
+                h(e() + 0);
+            }
+            if (ListUtils.getCount(cardForum.forum_list) > 0) {
+                for (PersonalForum personalForum : cardForum.forum_list) {
+                    if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
+                        jh6 jh6Var = new jh6();
+                        jh6Var.b = personalForum.avatar;
+                        jh6Var.c = personalForum.forum_name;
+                        jh6Var.d = gg.e("" + personalForum.forum_id, -1);
+                        boolean z = true;
+                        if (personalForum.is_like.intValue() != 1) {
+                            z = false;
+                        }
+                        jh6Var.e = z;
+                        c(jh6Var);
+                    }
+                }
+            }
+        }
     }
 }

@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j45;
 import com.baidu.tieba.jg;
+import com.baidu.tieba.m55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -295,7 +295,7 @@ public class ScreenTopToast extends LinearLayout {
             this.b = (TextView) findViewById(R.id.screen_top_toast_title);
             this.c = (TextView) findViewById(R.id.screen_top_toast_content);
             this.d = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
-            this.d.setConfig(new j45());
+            this.d.setConfig(new m55());
             f();
             h();
         }

@@ -57,7 +57,7 @@ public class TbRichTextCommInfo extends OrmObject {
         this.i = 0;
     }
 
-    public int R() {
+    public int Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -66,7 +66,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public String S() {
+    public String R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -75,7 +75,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String T() {
+    public String S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -85,7 +85,7 @@ public class TbRichTextCommInfo extends OrmObject {
     }
 
     @Nullable
-    public PbContent U() {
+    public PbContent T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -94,7 +94,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return (PbContent) invokeV.objValue;
     }
 
-    public int V() {
+    public int U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -103,7 +103,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public int W() {
+    public int V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -112,7 +112,7 @@ public class TbRichTextCommInfo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public void X() {
+    public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             String str = this.a;

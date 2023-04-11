@@ -399,11 +399,11 @@ public class z9 extends BdAsyncTask<String, SocketResponsedMessage, SocketRespon
             r3.decodeExtraDataInBackGround(r5, r0)     // Catch: java.lang.Exception -> L16c
             goto L19d
         L16c:
-            com.baidu.tieba.hj r0 = com.baidu.tieba.hj.j()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L198
+            com.baidu.tieba.ij r0 = com.baidu.tieba.ij.j()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L198
             java.lang.String r16 = r0.q()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L198
             r17 = 0
             r18 = 0
-            com.baidu.tieba.hj r0 = com.baidu.tieba.hj.j()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L198
+            com.baidu.tieba.ij r0 = com.baidu.tieba.ij.j()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L198
             long r19 = r0.g()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L198
             r21 = 0
             r23 = 0
@@ -487,11 +487,11 @@ public class z9 extends BdAsyncTask<String, SocketResponsedMessage, SocketRespon
             java.lang.String r0 = r0.getMessage()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L272
             com.baidu.adp.lib.util.BdLog.e(r0)     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L272
         L21a:
-            com.baidu.tieba.hj r0 = com.baidu.tieba.hj.j()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L272
+            com.baidu.tieba.ij r0 = com.baidu.tieba.ij.j()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L272
             java.lang.String r16 = r0.q()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L272
             r17 = 1
             r18 = 0
-            com.baidu.tieba.hj r0 = com.baidu.tieba.hj.j()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L272
+            com.baidu.tieba.ij r0 = com.baidu.tieba.ij.j()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L272
             long r19 = r0.g()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L272
             r29 = 0
             r11 = r14
@@ -510,11 +510,11 @@ public class z9 extends BdAsyncTask<String, SocketResponsedMessage, SocketRespon
         L245:
             r10 = r5
             r2 = r35
-            com.baidu.tieba.hj r0 = com.baidu.tieba.hj.j()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L272
+            com.baidu.tieba.ij r0 = com.baidu.tieba.ij.j()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L272
             java.lang.String r16 = r0.q()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L272
             r17 = 0
             r18 = 0
-            com.baidu.tieba.hj r0 = com.baidu.tieba.hj.j()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L272
+            com.baidu.tieba.ij r0 = com.baidu.tieba.ij.j()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L272
             long r19 = r0.g()     // Catch: com.baidu.adp.framework.client.socket.coder.CoderException -> L272
             r21 = 0
             r23 = 0
@@ -601,11 +601,11 @@ public class z9 extends BdAsyncTask<String, SocketResponsedMessage, SocketRespon
             r5 = r0
             r6 = r12
             com.baidu.tieba.ea.b(r4, r5, r6, r8, r9, r10, r11)
-            com.baidu.tieba.hj r4 = com.baidu.tieba.hj.j()
+            com.baidu.tieba.ij r4 = com.baidu.tieba.ij.j()
             java.lang.String r37 = r4.q()
             r38 = 0
             r39 = 0
-            com.baidu.tieba.hj r4 = com.baidu.tieba.hj.j()
+            com.baidu.tieba.ij r4 = com.baidu.tieba.ij.j()
             long r40 = r4.g()
             r42 = 0
             r44 = 0

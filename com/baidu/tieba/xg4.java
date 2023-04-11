@@ -1,381 +1,190 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.GetRequest;
+import com.baidu.searchbox.http.request.PostByteRequest;
 import com.baidu.swan.pms.PMSConstants;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.si4;
-import com.baidu.tieba.ui4;
-import com.baidu.tieba.xi4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.ETAG;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.AbstractBceClient;
+import java.util.Map;
+import okhttp3.MediaType;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+@Deprecated
+/* loaded from: classes7.dex */
 public class xg4 {
     public static /* synthetic */ Interceptable $ic;
+    public static CookieManager a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static JSONArray a(String str, long j, boolean z) {
-        InterceptResult invokeCommon;
-        long j2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            List<mg4> l = ef4.b().l(str, j);
-            JSONArray jSONArray = new JSONArray();
-            if (l != null && !l.isEmpty()) {
-                ArrayList arrayList = new ArrayList();
-                try {
-                    for (mg4 mg4Var : l) {
-                        if (mg4Var.b) {
-                            j2 = mg4Var.c;
-                        } else {
-                            ug4 b = zk4.b(mg4Var.a, mg4Var.d, mg4Var.e, arrayList);
-                            if (b == null) {
-                                j2 = 0;
-                            } else {
-                                j2 = b.i;
-                            }
-                        }
-                        if (j2 != 0) {
-                            JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("bundle_id", mg4Var.a);
-                            jSONObject.put("pkg_ver", j2);
-                            if (z) {
-                                jSONObject.put("category", 6);
-                            }
-                            jSONArray.put(jSONObject);
-                        }
-                    }
-                } catch (JSONException unused) {
-                }
-                if (!arrayList.isEmpty()) {
-                    qf4.i().g(arrayList);
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(Map<String, String> map, byte[] bArr, String str);
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ bh4 b;
+
+        public a(Map map, bh4 bh4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map, bh4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return jSONArray;
+            this.a = map;
+            this.b = bh4Var;
         }
-        return (JSONArray) invokeCommon.objValue;
+
+        @Override // com.baidu.tieba.xg4.c
+        public void a(Map<String, String> map, byte[] bArr, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, map, bArr, str) == null) {
+                PostByteRequest.PostByteRequestBuilder postByteRequest = ye4.g().postByteRequest();
+                gf4.a(postByteRequest, this.a);
+                postByteRequest.url(ch4.j(str, this.a)).content(bArr).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6).requestSubFrom(10);
+                if (map != null) {
+                    postByteRequest.addHeaders(map);
+                }
+                if (!TextUtils.isEmpty(xg4.b)) {
+                    postByteRequest.userAgent(xg4.b);
+                }
+                postByteRequest.cookieManager(xg4.a).enableStat(true).build().executeStat(this.b);
+            }
+        }
     }
 
-    @NonNull
-    public static JSONObject b() throws JSONException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("swan_ext_ver", g(0));
-            jSONObject.put("game_ext_ver", g(1));
-            jSONObject.put("swan_ext_vercode", ef4.b().j(0));
-            jSONObject.put("game_ext_vercode", ef4.b().j(1));
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public static class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ bh4 b;
 
-    @NonNull
-    public static JSONObject c() throws JSONException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("swan_core_ver", h(0));
-            jSONObject.put("swan_game_ver", h(1));
-            jSONObject.put("swan_vercode", ef4.b().w(0));
-            jSONObject.put("game_vercode", ef4.b().w(1));
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public static JSONObject d(si4 si4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, si4Var)) == null) {
-            if (si4Var != null && si4Var.f() != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("framework", c());
-                    jSONObject.put(ETAG.KEY_EXTENSION, b());
-                    JSONArray jSONArray = new JSONArray();
-                    for (si4.a aVar : si4Var.f()) {
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("bundle_id", aVar.a());
-                        jSONObject2.put("category", aVar.b());
-                        jSONObject2.put("pkg_ver", aVar.e());
-                        JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put("min_version", aVar.d());
-                        jSONObject3.put("max_version", aVar.c());
-                        jSONObject2.put("version_range", jSONObject3);
-                        jSONArray.put(jSONObject2);
-                    }
-                    jSONObject.put("list", jSONArray);
-                    return jSONObject;
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        public b(Map map, bh4 bh4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map, bh4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return null;
+            this.a = map;
+            this.b = bh4Var;
         }
-        return (JSONObject) invokeL.objValue;
-    }
 
-    public static JSONObject e(ui4 ui4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ui4Var)) == null) {
-            if (ui4Var != null && ui4Var.f() != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("framework", c());
-                    jSONObject.put(ETAG.KEY_EXTENSION, b());
-                    JSONArray jSONArray = new JSONArray();
-                    for (ui4.a aVar : ui4Var.f()) {
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("bundle_id", aVar.b());
-                        if (aVar.c() != -1) {
-                            jSONObject2.put("category", aVar.c());
-                        }
-                        jSONObject2.put("pkg_ver", aVar.d());
-                        jSONObject2.put("app_sign", aVar.a());
-                        if (aVar.c() == 0 && aVar.d() != -1 && aVar.d() != 0) {
-                            jSONObject2.put("dep", a(aVar.b(), aVar.d(), true));
-                        }
-                        if (aVar instanceof xi4.b) {
-                            xi4.b bVar = (xi4.b) aVar;
-                            String[] i = bVar.i();
-                            if (i != null && i.length > 0) {
-                                jSONObject2.put("path", new JSONArray((Collection) Arrays.asList(i)));
-                            }
-                            JSONObject jSONObject3 = new JSONObject();
-                            List<xi4.a> j = bVar.j();
-                            if (j != null && !j.isEmpty()) {
-                                JSONArray jSONArray2 = new JSONArray();
-                                for (xi4.a aVar2 : j) {
-                                    JSONObject jSONObject4 = new JSONObject();
-                                    jSONObject4.put("id", aVar2.a());
-                                    jSONObject4.put("type", aVar2.getType());
-                                    jSONArray2.put(jSONObject4);
-                                }
-                                jSONObject3.put("list", jSONArray2);
-                                jSONObject3.put("ver", j.get(0).b());
-                            }
-                            jSONObject2.put("sub_info", jSONObject3);
-                        }
-                        jSONArray.put(jSONObject2);
-                    }
-                    jSONObject.put("list", jSONArray);
-                    return jSONObject;
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        @Override // com.baidu.tieba.xg4.c
+        public void a(Map<String, String> map, byte[] bArr, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, map, bArr, str) == null) {
+                GetRequest.GetRequestBuilder requestSubFrom = ye4.g().getRequest().url(ch4.j(str, this.a)).requestSubFrom(10);
+                if (!TextUtils.isEmpty(xg4.b)) {
+                    requestSubFrom.userAgent(xg4.b);
                 }
-            }
-            return null;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static HashMap<String, String> k(yi4 yi4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, yi4Var)) == null) {
-            if (yi4Var == null) {
-                return null;
-            }
-            HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("bundle_id", yi4Var.f());
-            hashMap.put("category", String.valueOf(yi4Var.a()));
-            hashMap.put("pkg_ver", String.valueOf(yi4Var.j()));
-            hashMap.put("expect_pkg_ver", String.valueOf(yi4Var.j()));
-            hashMap.put("sub_id", yi4Var.k());
-            if (!TextUtils.equals(yi4Var.b(), "-1")) {
-                hashMap.put("from", yi4Var.b());
-            }
-            if (TextUtils.isEmpty(yi4Var.i())) {
-                yi4Var.m(h(yi4Var.a()));
-            }
-            if (!TextUtils.isEmpty(yi4Var.i())) {
-                hashMap.put("framework_ver", yi4Var.i());
-            }
-            if (TextUtils.isEmpty(yi4Var.h())) {
-                yi4Var.l(g(yi4Var.a()));
-            }
-            if (!TextUtils.isEmpty(yi4Var.h())) {
-                hashMap.put("extension_ver", yi4Var.h());
-            }
-            long w = ef4.b().w(yi4Var.a());
-            long j = ef4.b().j(yi4Var.a());
-            if (yi4Var.a() == 1) {
-                hashMap.put("game_vercode", w + "");
-                hashMap.put("game_ext_vercode", j + "");
-            } else {
-                hashMap.put("swan_vercode", w + "");
-                hashMap.put("swan_ext_vercode", j + "");
-            }
-            if (yi4Var.g() != -1) {
-                hashMap.put("expect_pkg_ver", String.valueOf(yi4Var.g()));
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public static HashMap<String, String> f(zi4 zi4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, zi4Var)) == null) {
-            if (zi4Var == null) {
-                return null;
-            }
-            HashMap<String, String> hashMap = new HashMap<>();
-            if (!TextUtils.equals(zi4Var.b(), "-1")) {
-                hashMap.put("from", zi4Var.b());
-            }
-            if (!TextUtils.equals(zi4Var.c(), "-1")) {
-                hashMap.put("scene", zi4Var.c());
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public static String g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            String v = ef4.b().v(i);
-            if (TextUtils.isEmpty(v)) {
-                return "0";
-            }
-            return v;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static String h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
-            String J = ef4.b().J(i);
-            if (TextUtils.isEmpty(J)) {
-                return "0";
-            }
-            return J;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static HashMap<String, String> i(vi4 vi4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, vi4Var)) == null) {
-            PMSAppInfo pMSAppInfo = null;
-            if (vi4Var == null) {
-                return null;
-            }
-            HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("bundle_id", vi4Var.g());
-            hashMap.put("category", String.valueOf(vi4Var.a()));
-            if (vi4Var.m() == -1) {
-                pMSAppInfo = qf4.i().u(vi4Var.g());
-                if (pMSAppInfo != null && qf4.i().o(sg4.class, vi4Var.g()) != null) {
-                    vi4Var.u(pMSAppInfo.versionCode);
-                } else {
-                    vi4Var.u(0L);
+                if (map != null) {
+                    requestSubFrom.addHeaders(map);
                 }
+                requestSubFrom.cookieManager(xg4.a).enableStat(true).build().executeStat(this.b);
             }
-            hashMap.put("pkg_ver", String.valueOf(vi4Var.m()));
-            if (vi4Var.a() == 0 && vi4Var.m() != -1 && vi4Var.m() != 0) {
-                hashMap.put("dep", a(vi4Var.g(), vi4Var.m(), false).toString());
-            }
-            if (vi4Var.f() == -1) {
-                if (pMSAppInfo == null) {
-                    pMSAppInfo = qf4.i().u(vi4Var.g());
-                }
-                if (pMSAppInfo != null && pMSAppInfo.csProtocolVersion >= PMSConstants.a.a()) {
-                    vi4Var.o(pMSAppInfo.appSign);
-                } else {
-                    vi4Var.o(0L);
-                }
-            }
-            hashMap.put("app_sign", String.valueOf(vi4Var.f()));
-            if (vi4Var.i() != -1) {
-                hashMap.put("expect_pkg_ver", String.valueOf(vi4Var.i()));
-            }
-            String k = vi4Var.k();
-            if (TextUtils.isEmpty(k)) {
-                k = h(vi4Var.a());
-                vi4Var.s(k);
-            }
-            String str = "0";
-            if (TextUtils.isEmpty(k)) {
-                k = "0";
-            }
-            hashMap.put("framework_ver", k);
-            long w = ef4.b().w(vi4Var.a());
-            long j = ef4.b().j(vi4Var.a());
-            if (vi4Var.a() == 1) {
-                hashMap.put("game_vercode", w + "");
-                hashMap.put("game_ext_vercode", j + "");
-            } else {
-                hashMap.put("swan_vercode", w + "");
-                hashMap.put("swan_ext_vercode", j + "");
-            }
-            String j2 = vi4Var.j();
-            if (TextUtils.isEmpty(j2)) {
-                j2 = g(vi4Var.a());
-                vi4Var.r(j2);
-            }
-            if (!TextUtils.isEmpty(j2)) {
-                str = j2;
-            }
-            hashMap.put("extension_ver", str);
-            if (!TextUtils.isEmpty(vi4Var.l())) {
-                hashMap.put("path", vi4Var.l());
-            }
-            if (!TextUtils.equals(vi4Var.b(), "-1")) {
-                hashMap.put("from", vi4Var.b());
-            }
-            if (!TextUtils.equals(vi4Var.c(), "-1")) {
-                hashMap.put("scene", vi4Var.c());
-            }
-            hashMap.put(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, String.valueOf(vi4Var.n()));
-            hashMap.put("host_env", String.valueOf(ef4.b().B()));
-            return hashMap;
         }
-        return (HashMap) invokeL.objValue;
     }
 
-    public static HashMap<String, String> j(wi4 wi4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, wi4Var)) == null) {
-            if (wi4Var == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948299396, "Lcom/baidu/tieba/xg4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("bundle_id", wi4Var.f());
-            hashMap.put("category", String.valueOf(wi4Var.a()));
-            if (TextUtils.isEmpty(wi4Var.h())) {
-                wi4Var.i(String.valueOf(-1));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948299396, "Lcom/baidu/tieba/xg4;");
+                return;
             }
-            hashMap.put("plugin_ver", wi4Var.h());
-            if (wi4Var.g() >= 0) {
-                hashMap.put("plugin_vercode", wi4Var.g() + "");
-            }
-            return hashMap;
         }
-        return (HashMap) invokeL.objValue;
+        a = ff4.b().f();
+        le4 b2 = me4.b();
+        if (b2 != null && ye4.g().c()) {
+            b = b2.getUserAgent();
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    @Deprecated
+    public static void a(String str, Map<String, String> map, Map<String, String> map2, bh4<String> bh4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65537, null, str, map, map2, bh4Var) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (bh4Var != null) {
+            bh4Var.onStart();
+        }
+        df4 b2 = ff4.b();
+        if (PMSConstants.a(b2)) {
+            b2.m(ch4.j(str, map), null, new b(map, bh4Var));
+            return;
+        }
+        GetRequest.GetRequestBuilder requestSubFrom = ye4.g().getRequest().url(ch4.j(str, map)).requestSubFrom(10);
+        if (!TextUtils.isEmpty(b)) {
+            requestSubFrom.userAgent(b);
+        }
+        if (map2 != null) {
+            requestSubFrom.addHeaders(map2);
+        }
+        requestSubFrom.cookieManager(a).enableStat(true).build().executeStat(bh4Var);
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    @Deprecated
+    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, bh4<String> bh4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLLL(65538, null, str, map, map2, jSONObject, bh4Var) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (bh4Var != null) {
+            bh4Var.onStart();
+        }
+        df4 b2 = ff4.b();
+        if (PMSConstants.a(b2)) {
+            b2.m(ch4.j(str, map), jSONObject.toString(), new a(map, bh4Var));
+            return;
+        }
+        ue4 postStringRequest = ye4.g().postStringRequest();
+        gf4.a(postStringRequest, map);
+        postStringRequest.url(ch4.j(str, map)).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6).requestSubFrom(10);
+        if (map2 != null) {
+            postStringRequest.addHeaders(map2);
+        }
+        if (!TextUtils.isEmpty(b)) {
+            postStringRequest.userAgent(b);
+        }
+        postStringRequest.cookieManager(a).enableStat(true).build().executeStat(bh4Var);
     }
 }

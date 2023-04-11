@@ -1,21 +1,19 @@
 package com.baidu.tieba;
-
-import android.webkit.CookieManager;
-import android.webkit.WebView;
-import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public final class mb6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface mb6 {
 
-    public static void a(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, webView) == null) {
-            CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
-            webView.getSettings().setMixedContentMode(0);
-            CompatibleUtile.getInstance().WebViewNoDataBase(webView.getSettings());
-        }
+    /* loaded from: classes5.dex */
+    public interface a {
+        boolean a(int i);
     }
+
+    int a();
+
+    void b(int i);
+
+    boolean c();
+
+    float getSpeed();
+
+    void reset();
 }

@@ -12,7 +12,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o31;
+import com.baidu.tieba.p31;
 /* loaded from: classes2.dex */
 public class BannerDownloadView extends AppCompatTextView {
     public float a;
@@ -43,7 +43,7 @@ public class BannerDownloadView extends AppCompatTextView {
         this.l = new Paint();
         this.m = new RectF();
         this.n = new RectF();
-        d(context, attributeSet);
+        e(context, attributeSet);
     }
 
     public BannerDownloadView(Context context, AttributeSet attributeSet, int i) {
@@ -59,7 +59,7 @@ public class BannerDownloadView extends AppCompatTextView {
         this.l = new Paint();
         this.m = new RectF();
         this.n = new RectF();
-        d(context, attributeSet);
+        e(context, attributeSet);
     }
 
     public final void a(Canvas canvas) {
@@ -76,14 +76,14 @@ public class BannerDownloadView extends AppCompatTextView {
         canvas.drawRoundRect(rectF2, i, i, this.k);
     }
 
-    public final void c(Canvas canvas) {
+    public final void d(Canvas canvas) {
         Paint.FontMetrics fontMetrics = this.l.getFontMetrics();
         float f = fontMetrics.descent;
         float measuredWidth = (getMeasuredWidth() - this.l.measureText(this.f)) / 2.0f;
         canvas.drawText(this.f, measuredWidth, (float) (((getHeight() / 2) - f) + ((f - fontMetrics.ascent) / 2.0f) + 0.5d), this.l);
     }
 
-    public final void b(Canvas canvas) {
+    public final void c(Canvas canvas) {
         this.h = getMeasuredHeight() / 2;
         RectF rectF = this.m;
         int i = this.i;
@@ -103,8 +103,8 @@ public class BannerDownloadView extends AppCompatTextView {
         canvas.drawRoundRect(rectF3, i3, i3, this.j);
     }
 
-    public final void d(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, o31.nad_progress);
+    public final void e(Context context, AttributeSet attributeSet) {
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, p31.nad_progress);
         int color = getResources().getColor(R.color.nad_download_button_text_color);
         int color2 = getResources().getColor(R.color.nad_download_button_fg_start);
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.nad_progress_button_radian);
@@ -118,10 +118,10 @@ public class BannerDownloadView extends AppCompatTextView {
         this.c = obtainStyledAttributes.getDimension(9, (int) getResources().getDimension(R.dimen.nad_progress_button_font_size));
         this.h = obtainStyledAttributes.getDimensionPixelSize(5, dimensionPixelSize);
         obtainStyledAttributes.recycle();
-        e();
+        h();
     }
 
-    public final void e() {
+    public final void h() {
         this.l.setAntiAlias(true);
         this.l.setTextSize(this.c);
         this.l.setColor(this.b);
@@ -136,11 +136,11 @@ public class BannerDownloadView extends AppCompatTextView {
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.a > 0.0f) {
-            b(canvas);
+            c(canvas);
         }
         a(canvas);
         if (!TextUtils.isEmpty(this.f)) {
-            c(canvas);
+            d(canvas);
         }
     }
 
@@ -166,7 +166,7 @@ public class BannerDownloadView extends AppCompatTextView {
             return;
         }
         this.b = i;
-        e();
+        h();
         postInvalidate();
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m35;
+import com.baidu.tieba.p45;
 import com.baidu.tieba.te;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +17,8 @@ public class ImmersiveStickySwitch extends te {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tieba.te
-    public String[] getCrashKeys() {
+    /* renamed from: getCrashKeys */
+    public String[] mo55getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -82,9 +83,9 @@ public class ImmersiveStickySwitch extends te {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i == 1) {
-                m35.m().w("switch_immersive_sticky_status", true);
+                p45.m().w("switch_immersive_sticky_status", true);
             } else {
-                m35.m().w("switch_immersive_sticky_status", false);
+                p45.m().w("switch_immersive_sticky_status", false);
             }
         }
     }

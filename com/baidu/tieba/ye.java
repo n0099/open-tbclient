@@ -323,13 +323,6 @@ public class ye implements View.OnKeyListener, View.OnClickListener, View.OnTouc
         }
     }
 
-    public void p(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, activity) == null) {
-            o((ViewGroup) activity.getWindow().getDecorView(), activity, true);
-        }
-    }
-
     public void d() {
         MaskView maskView;
         Interceptable interceptable = $ic;
@@ -498,9 +491,9 @@ public class ye implements View.OnKeyListener, View.OnClickListener, View.OnTouc
         return invokeLIL.booleanValue;
     }
 
-    public void q(Activity activity, ViewGroup viewGroup, boolean z) {
+    public void p(Activity activity, ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(1048592, this, activity, viewGroup, z) != null) || viewGroup == null) {
+        if ((interceptable != null && interceptable.invokeLLZ(1048591, this, activity, viewGroup, z) != null) || viewGroup == null) {
             return;
         }
         if (!z) {

@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
 import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,72 +11,54 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class b31 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile b31 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947593929, "Lcom/baidu/tieba/b31;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947593929, "Lcom/baidu/tieba/b31;");
-        }
-    }
+    public w21 a;
+    public BaseExecutorCell b;
 
     public b31() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0L;
+        this.a = new w21();
+        this.b = BaseExecutorCell.b(1, BaseExecutorCell.ExecutorType.SERIAL);
     }
 
-    public static b31 b() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (b31.class) {
-                    if (b == null) {
-                        b = new b31();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ((r21) this.b).j();
         }
-        return (b31) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ElasticTask a(@NonNull Runnable runnable, @NonNull String str, int i) {
-        InterceptResult invokeLLI;
-        ElasticTask elasticTask;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, runnable, str, i)) == null) {
-            if (runnable != null && !TextUtils.isEmpty(str)) {
-                synchronized (this) {
-                    long j = this.a + 1;
-                    this.a = j;
-                    elasticTask = new ElasticTask(runnable, str, j, i);
-                }
-                return elasticTask;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ElasticTask b = this.a.b();
+            if (b == null || !this.b.c(b)) {
+                return false;
             }
-            throw new IllegalArgumentException("illegal params");
+            this.a.e(b);
+            return true;
         }
-        return (ElasticTask) invokeLLI.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void b(Runnable runnable, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str, i) == null) {
+            this.a.c(runnable, str, i);
+        }
     }
 }

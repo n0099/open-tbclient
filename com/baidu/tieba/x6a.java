@@ -1,116 +1,156 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.graphics.SurfaceTexture;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
-import android.opengl.EGL14;
-import android.opengl.EGLContext;
-import android.opengl.GLES20;
-import android.opengl.Matrix;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.os.Process;
-import android.text.TextUtils;
-import androidx.annotation.WorkerThread;
+import android.content.Intent;
+import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.auth.FeatureCodes;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.coreExtra.data.WriteVoteData;
+import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
+import com.baidu.tieba.frs.ForumWriteData;
+import com.baidu.tieba.write.write.vote.WriteVoteActivity;
+import com.baidu.tieba.write.write.vote.WriteVoteViewAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.faceunity.gles.EglCore;
-import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
-import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
-import com.baidu.ugc.editvideo.faceunity.gles.WindowSurface;
-import com.baidu.ugc.editvideo.record.RecordConstants;
-import com.faceunity.encoder.TextureMovieEncoder;
-import com.faceunity.gles.GeneratedTexture;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.io.File;
-import java.io.IOException;
-import java.lang.ref.WeakReference;
-import java.nio.ByteBuffer;
-import kotlinx.coroutines.CoroutineContextKt;
-@TargetApi(18)
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class x6a {
+public class x6a implements bn5, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A;
-    public e7a B;
-    public boolean C;
-    public boolean D;
-    public v3a E;
-    public boolean F;
-    public f G;
-    public d H;
-    public final Object I;
-    public boolean J;
-    public final Object K;
-    public boolean L;
-    public String M;
-    public boolean N;
-    public volatile boolean O;
-    public long P;
-    public long Q;
-    public volatile long R;
-    public WindowSurface a;
-    public EglCore b;
-    public FullFrameRect c;
-    public int d;
-    public b7a e;
-    public y6a f;
-    public a7a g;
-    public volatile g h;
-    public Object i;
-    public boolean j;
-    public boolean k;
-    public int l;
-    public b m;
-    public e n;
-    public volatile long o;
-    public volatile long p;
-    public volatile long q;
-    public volatile long r;
-    public int s;
-    public int t;
-    public int u;
-    public volatile boolean v;
-    public float w;
-    public float x;
-    public long y;
-    public long z;
+    public Intent A;
+    public TbPageContext<WriteVoteActivity> a;
+    public LinearLayout b;
+    public NavigationBar c;
+    public BdRecyclerView d;
+    public WriteVoteViewAdapter e;
+    public LinearLayout f;
+    public LinearLayout g;
+    public TextView h;
+    public EditText i;
+    public List<WriteVoteItemData> j;
+    public WriteVoteData k;
+    public ForumWriteData l;
+    public String m;
+    public TextView n;
+    public TextView o;
+    public TextView p;
+    public TextView q;
+    public TextView r;
+    public TextView s;
+    public TextView t;
+    public TextView u;
+    public TextView v;
+    public int w;
+    public int x;
+    public boolean y;
+    public boolean z;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.bn5
+    public boolean N0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void onError(int i, String str);
-
-        void onProgress(long j);
-
-        void onStartSuccess();
-
-        @WorkerThread
-        void onStopSuccess();
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends Thread {
+    public class c implements WriteVoteViewAdapter.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ x6a a;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.e.setData(this.a.a.j);
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            public b(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.e.setData(this.a.a.j);
+                }
+            }
+        }
 
         public c(x6a x6aVar) {
             Interceptable interceptable = $ic;
@@ -130,188 +170,70 @@ public class x6a {
             this.a = x6aVar;
         }
 
-        public /* synthetic */ c(x6a x6aVar, a aVar) {
-            this(x6aVar);
+        @Override // com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.f
+        public void a(int i) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.j.remove(i);
+                this.a.d.post(new b(this));
+                x6a x6aVar = this.a;
+                x6aVar.z = x6aVar.y();
+                x6a x6aVar2 = this.a;
+                if (x6aVar2.y && this.a.z) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                x6aVar2.K(z);
+            }
         }
 
-        @Override // java.lang.Thread, java.lang.Runnable
-        public void run() {
-            y6a y6aVar;
+        @Override // com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.f
+        public void b() {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Process.setThreadPriority(-19);
-                int i = RecordConstants.MOVIE_ENCODE_SAMPLE_RATE;
-                z3a z3aVar = (z3a) c8a.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
-                if (z3aVar != null) {
-                    z3aVar.init(i, 1);
-                    z3aVar.setSpeed(this.a.w);
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.j.add(new WriteVoteItemData());
+                this.a.d.post(new a(this));
+                x6a x6aVar = this.a;
+                x6aVar.z = x6aVar.y();
+                x6a x6aVar2 = this.a;
+                if (x6aVar2.y && this.a.z) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                synchronized (this.a.I) {
-                    while (!this.a.J) {
-                        try {
-                            this.a.I.wait();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                x6aVar2.K(z);
+            }
+        }
+
+        @Override // com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.f
+        public void c(WriteVoteItemData writeVoteItemData, int i) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, writeVoteItemData, i) == null) {
+                this.a.j.set(i, writeVoteItemData);
+                x6a x6aVar = this.a;
+                x6aVar.z = x6aVar.y();
+                x6a x6aVar2 = this.a;
+                if (x6aVar2.y && this.a.z) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                try {
-                    z6a z6aVar = new z6a(this.a.A);
-                    if (z6aVar.d() != null) {
-                        this.a.v = true;
-                        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(z6a.d);
-                        ByteBuffer allocateDirect2 = ByteBuffer.allocateDirect(10240);
-                        z6aVar.c();
-                        if (z6aVar.e() != 3) {
-                            x6a x6aVar = this.a;
-                            x6aVar.e(1114, "音频开始录制失败 " + z6aVar.e());
-                            z6aVar.b();
-                            this.a.f.d();
-                            return;
-                        }
-                        this.a.l = 1;
-                        while (!this.a.O) {
-                            try {
-                                allocateDirect.clear();
-                                allocateDirect2.clear();
-                                int a = z6aVar.a(allocateDirect, z6a.d);
-                                if (this.a.C && this.a.B != null) {
-                                    double a2 = g7a.a(allocateDirect, a);
-                                    if (a2 > 0.0d) {
-                                        this.a.B.a(a2);
-                                    }
-                                }
-                                if (a > 0) {
-                                    if (z3aVar == null) {
-                                        allocateDirect.position(a);
-                                        allocateDirect.flip();
-                                        this.a.f.b(allocateDirect, 0, a, this.a.G());
-                                        y6aVar = this.a.f;
-                                    } else {
-                                        byte[] bArr = new byte[a];
-                                        allocateDirect.get(bArr);
-                                        z3aVar.putBytes(bArr, a);
-                                        allocateDirect.position(a);
-                                        allocateDirect.flip();
-                                        int availableBytes = z3aVar.availableBytes();
-                                        if (availableBytes > 0) {
-                                            byte[] bArr2 = new byte[availableBytes];
-                                            z3aVar.receiveBytes(bArr2, availableBytes);
-                                            if (this.a.D) {
-                                                byte[] k = c6a.k(bArr2, 4.0d);
-                                                if (k != null) {
-                                                    availableBytes = k.length;
-                                                }
-                                                allocateDirect2.put(k);
-                                            } else {
-                                                allocateDirect2.put(bArr2);
-                                            }
-                                            int i2 = availableBytes;
-                                            allocateDirect2.position(i2);
-                                            allocateDirect2.flip();
-                                            this.a.f.b(allocateDirect2, 0, i2, this.a.G());
-                                            y6aVar = this.a.f;
-                                        }
-                                    }
-                                    y6aVar.c();
-                                }
-                            } finally {
-                                z6aVar.b();
-                            }
-                        }
-                        this.a.f.b(null, 0, 0, this.a.G());
-                        this.a.f.c();
-                        z6aVar.b();
-                        this.a.f.d();
-                    } else {
-                        m7a.e(TextureMovieEncoder.TAG, "failed to initialize AudioRecord");
-                    }
-                } catch (Exception e2) {
-                    m7a.f(TextureMovieEncoder.TAG, "AudioThread#run", e2);
-                    m7a.g(e2);
-                    if (this.a.l != 6) {
-                        this.a.l = 6;
-                        String message = e2.getMessage();
-                        x6a x6aVar2 = this.a;
-                        x6aVar2.e(1115, "结束音频编码错误" + message);
-                    }
-                }
-                synchronized (this.a.K) {
-                    this.a.L = true;
-                    this.a.K.notifyAll();
-                }
+                x6aVar2.K(z);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class d {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final File a;
-        public final int b;
-        public final int c;
-        public final int d;
-        public final EGLContext e;
-        public final long f;
-        public int g;
+        public final /* synthetic */ x6a a;
 
-        public d(File file, int i, int i2, int i3, int i4, EGLContext eGLContext, long j, int i5) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), eGLContext, Long.valueOf(j), Integer.valueOf(i5)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i6 = newInitContext.flag;
-                if ((i6 & 1) != 0) {
-                    int i7 = i6 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.g = 10000;
-            this.a = file;
-            this.b = i;
-            this.c = i2;
-            this.d = i3;
-            if (eGLContext != null) {
-                this.e = eGLContext;
-            } else {
-                this.e = EGL14.eglGetCurrentContext();
-            }
-            this.f = j;
-            this.g = i5;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "EncoderConfig: " + this.b + "x" + this.c + CoroutineContextKt.DEBUG_THREAD_NAME_SEPARATOR + this.d + " to '" + this.a.toString() + "' ctxt=" + this.e;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface e {
-        void a(long j);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface f {
-        void a();
-    }
-
-    /* loaded from: classes6.dex */
-    public static class g extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<x6a> a;
-
-        public g(x6a x6aVar) {
+        public a(x6a x6aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -326,62 +248,48 @@ public class x6a {
                     return;
                 }
             }
-            this.a = new WeakReference<>(x6aVar);
+            this.a = x6aVar;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                Object obj = message.obj;
-                x6a x6aVar = this.a.get();
-                if (x6aVar == null) {
-                    m7a.l(TextureMovieEncoder.TAG, "VideoEncoderHandler.handleMessage: encoder is null");
-                } else if (i == 0) {
-                    x6aVar.C((d) obj);
-                } else if (i == 1) {
-                    x6aVar.P();
-                } else if (i == 2) {
-                    if (x6aVar.N) {
-                        x6aVar.t((float[]) obj, (message.arg1 << 32) | (message.arg2 & 4294967295L));
-                    }
-                } else if (i == 3) {
-                    if (x6aVar.N) {
-                        x6aVar.H(message.arg1);
-                    }
-                } else if (i == 4) {
-                    if (x6aVar.N) {
-                        x6aVar.g((EGLContext) message.obj);
-                    }
-                } else if (i == 5) {
-                    Looper.myLooper().quit();
-                } else {
-                    throw new RuntimeException("Unhandled msg what=" + i);
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ii.O(this.a.a.getPageActivity(), this.a.i);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class h extends Thread {
+    public class b implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ x6a a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public h(x6a x6aVar, String str) {
-            super(str);
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        public b(x6a x6aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {x6aVar, str};
+                Object[] objArr = {x6aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -390,686 +298,471 @@ public class x6a {
             this.a = x6aVar;
         }
 
-        @Override // java.lang.Thread, java.lang.Runnable
-        public void run() {
+        @Override // android.text.TextWatcher
+        public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Looper.prepare();
-                synchronized (this.a.i) {
-                    this.a.h = new g(this.a);
-                    this.a.j = true;
-                    this.a.i.notifyAll();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, editable) != null) || editable == null) {
+                return;
+            }
+            String obj = editable.toString();
+            if (!StringUtils.isNull(obj)) {
+                String replace = obj.replace(" ", "");
+                if (jr5.e(replace) > 40) {
+                    this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f172c), 20));
                 }
-                Looper.loop();
-                m7a.c(TextureMovieEncoder.TAG, "Encoder thread exiting");
-                synchronized (this.a.i) {
-                    x6a x6aVar = this.a;
-                    this.a.k = false;
-                    x6aVar.j = false;
-                    this.a.h = null;
+                String m = jr5.m(replace, 40);
+                if (!m.equals(editable.toString())) {
+                    this.a.i.setText(m);
+                    this.a.i.setSelection(m.length());
+                }
+                this.a.i.setTypeface(Typeface.defaultFromStyle(1));
+                this.a.y = true;
+                x6a x6aVar = this.a;
+                x6aVar.K(x6aVar.z);
+                return;
+            }
+            this.a.i.setTypeface(Typeface.defaultFromStyle(0));
+            this.a.y = false;
+            this.a.K(false);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d extends RecyclerView.OnScrollListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x6a a;
+
+        public d(x6a x6aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x6aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x6aVar;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
+                super.onScrollStateChanged(recyclerView, i);
+                if (i == 1 || i == 2) {
+                    ii.z(this.a.a.getPageActivity(), recyclerView);
                 }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948253702, "Lcom/baidu/tieba/x6a;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x6a a;
+
+        public e(x6a x6aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x6aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x6aVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948253702, "Lcom/baidu/tieba/x6a;");
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                List<WriteVoteItemData> x = this.a.x();
+                HashMap hashMap = new HashMap();
+                int size = x.size();
+                for (int i = 0; i < size; i++) {
+                    WriteVoteItemData writeVoteItemData = x.get(i);
+                    if (!hashMap.containsKey(writeVoteItemData.getText())) {
+                        hashMap.put(writeVoteItemData.getText(), Integer.valueOf(i));
+                    } else {
+                        this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f172a), Integer.valueOf(((Integer) hashMap.get(writeVoteItemData.getText())).intValue() + 1), Integer.valueOf(i + 1)));
+                        return;
+                    }
+                }
+                this.a.k = new WriteVoteData();
+                this.a.k.setTitle(this.a.i.getText().toString());
+                this.a.k.setExpire_type(this.a.x);
+                this.a.k.setIs_multi(this.a.w);
+                this.a.k.setOptions(x);
+                this.a.A = new Intent();
+                this.a.A.putExtra(IntentConfig.WRITE_VOTE_DATA, this.a.k);
+                this.a.a.getPageActivity().finish();
+                x6a x6aVar = this.a;
+                x6aVar.G(x6aVar.m);
+            }
         }
     }
 
-    public x6a() {
+    public x6a(TbPageContext tbPageContext, LinearLayout linearLayout, NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, linearLayout, navigationBar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new Object();
-        this.l = 4;
-        this.o = 0L;
-        this.p = 0L;
-        this.q = 0L;
-        this.r = 0L;
-        this.v = false;
-        this.w = 1.0f;
-        this.x = 0.0f;
-        this.y = -1L;
-        this.z = 0L;
-        this.A = -100;
-        this.E = null;
-        this.H = null;
-        this.I = new Object();
-        this.J = false;
-        this.K = new Object();
-        this.L = false;
-        this.M = null;
-        this.N = false;
-        this.O = false;
-        this.P = 0L;
-        this.Q = 0L;
-        this.R = 0L;
-        this.l = 2;
-    }
-
-    public void A(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
-            this.x = f2;
-        }
-    }
-
-    public void B(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.A = i;
-        }
-    }
-
-    public final void C(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            m7a.c(TextureMovieEncoder.TAG, "handleStartRecording " + dVar);
-            this.H = dVar;
-            i6a i6aVar = new i6a();
-            if (w(dVar.e, dVar.b, dVar.c, dVar.d, dVar.a, i6aVar)) {
-                this.O = false;
-                b bVar = this.m;
-                if (bVar != null) {
-                    bVar.onStartSuccess();
-                }
-            } else if (this.l != 6) {
-                this.l = 6;
-                String str = i6aVar.e;
-                e(1111, "开始录制编码错误" + dVar.toString() + " , 错误信息：" + str);
+        this.w = 0;
+        this.x = -1;
+        this.y = false;
+        this.z = false;
+        this.a = tbPageContext;
+        this.b = linearLayout;
+        this.c = navigationBar;
+        Intent intent = tbPageContext.getPageActivity().getIntent();
+        if (intent != null) {
+            Serializable serializableExtra = intent.getSerializableExtra(WriteVoteActivityConfig.EXTRA_DATA_KEY);
+            if (serializableExtra instanceof WriteVoteData) {
+                this.k = (WriteVoteData) serializableExtra;
+            } else if (serializableExtra instanceof ForumWriteData) {
+                this.l = (ForumWriteData) serializableExtra;
             }
+            this.m = intent.getStringExtra("title");
         }
+        WriteVoteData writeVoteData = this.k;
+        if (writeVoteData != null && !ListUtils.isEmpty(writeVoteData.getOptions()) && this.k.getOptions().size() >= 2) {
+            this.j = this.k.getOptions();
+        } else {
+            ArrayList arrayList = new ArrayList();
+            this.j = arrayList;
+            arrayList.add(new WriteVoteItemData());
+            this.j.add(new WriteVoteItemData());
+        }
+        A();
     }
 
-    public void E(boolean z) {
+    public final void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.C = z;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            BdRecyclerView bdRecyclerView = new BdRecyclerView(this.a.getPageActivity());
+            this.d = bdRecyclerView;
+            bdRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
+            layoutParams.topMargin = ii.g(this.a.getPageActivity(), R.dimen.tbds27);
+            this.b.addView(this.d, layoutParams);
+            WriteVoteViewAdapter writeVoteViewAdapter = new WriteVoteViewAdapter(this.a);
+            this.e = writeVoteViewAdapter;
+            this.d.setAdapter(writeVoteViewAdapter);
+            E();
+            C();
+            B();
+            D();
+            this.d.addHeaderView(this.f);
+            this.d.addFooterView(this.g);
+            this.e.setData(this.j);
+            F();
+            this.i.requestFocus();
+            this.i.postDelayed(new a(this), 150L);
         }
     }
 
-    public long G() {
-        InterceptResult invokeV;
+    public final void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.w == 1.0f) {
-                return M();
-            }
-            long nanoTime = System.nanoTime();
-            if (this.o != 0) {
-                if (this.r == 0) {
-                    this.r = nanoTime;
-                }
-                nanoTime = (((float) (nanoTime - this.r)) / this.w) + this.o;
-            }
-            long j = nanoTime / 1000;
-            long j2 = this.Q;
-            if (j < j2) {
-                j = 100 + j2;
-            }
-            this.Q = j;
-            return j;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d096e, (ViewGroup) null);
+            this.g = linearLayout;
+            this.n = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0928d7);
+            this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092846);
+            this.p = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092845);
+            this.q = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0928d6);
+            this.r = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092842);
+            this.s = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09283f);
+            this.t = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092841);
+            this.u = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092840);
         }
-        return invokeV.longValue;
     }
 
-    public final void H(int i) {
+    public final void C() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.d = i;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d096f, (ViewGroup) null);
+            this.f = linearLayout;
+            this.h = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092833);
+            this.i = (EditText) this.f.findViewById(R.id.vote_title);
         }
     }
 
-    public void I(boolean z) {
+    public final void F() {
+        WriteVoteData writeVoteData;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.D = z;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (writeVoteData = this.k) == null) {
+            return;
         }
+        this.i.setText(writeVoteData.getTitle());
+        this.w = this.k.getIs_multi();
+        this.x = this.k.getExpire_type();
+        J();
+        I();
+        boolean y = y();
+        this.z = y;
+        if (this.y && y) {
+            z = true;
+        } else {
+            z = false;
+        }
+        K(z);
     }
 
-    public long M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long nanoTime = System.nanoTime();
-            if (this.o != 0) {
-                if (this.p == 0) {
-                    this.p = nanoTime;
-                }
-                nanoTime = (((float) (nanoTime - this.p)) / this.w) + this.o;
-            }
-            long j = nanoTime / 1000;
-            if (j < this.R) {
-                j = this.R + 100;
-            }
-            this.R = j;
-            return j;
-        }
-        return invokeV.longValue;
-    }
-
-    public final void P() {
+    public final void I() {
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            m7a.c(TextureMovieEncoder.TAG, "handleStopRecording");
-            this.O = true;
-            try {
-                this.e.c(true);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            TextView textView = this.r;
+            boolean z4 = false;
+            if (this.x == -1) {
+                z = true;
+            } else {
+                z = false;
             }
-            Q();
-            m7a.e(TextureMovieEncoder.TAG, "handleStopRecording before stop success");
-            while (!this.L && this.v) {
-                synchronized (this.K) {
-                    try {
-                        this.K.wait();
-                    } catch (InterruptedException e3) {
-                        e3.printStackTrace();
-                    }
-                }
+            H(textView, z);
+            TextView textView2 = this.s;
+            if (this.x == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
             }
-            long a2 = k6a.a(this.M);
-            e eVar = this.n;
-            if (eVar != null) {
-                eVar.a(a2);
+            H(textView2, z2);
+            TextView textView3 = this.t;
+            if (this.x == 7) {
+                z3 = true;
+            } else {
+                z3 = false;
             }
-            this.L = false;
-            b bVar = this.m;
-            if (bVar != null) {
-                bVar.onStopSuccess();
+            H(textView3, z3);
+            TextView textView4 = this.u;
+            if (this.x == 30) {
+                z4 = true;
             }
+            H(textView4, z4);
         }
     }
 
-    public final void Q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            try {
-                this.e.d();
-                if (this.a != null) {
-                    this.a.release();
-                    this.a = null;
-                }
-                if (this.c != null) {
-                    this.c.release(false);
-                    this.c = null;
-                }
-                if (this.b != null) {
-                    this.b.release();
-                    this.b = null;
-                }
-            } catch (Exception e2) {
-                m7a.g(e2);
-            }
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this.i) {
-                while (!this.j) {
-                    try {
-                        this.i.wait();
-                    } catch (InterruptedException unused) {
-                    }
-                }
-            }
-            this.s = 0;
-            a7a a7aVar = this.g;
-            if (a7aVar == null || !a7aVar.e()) {
-                this.O = true;
-                b7a b7aVar = this.e;
-                if (b7aVar != null) {
-                    b7aVar.e();
-                }
-                y6a y6aVar = this.f;
-                if (y6aVar != null) {
-                    y6aVar.a();
-                }
-            }
-            this.l = 4;
-            this.h.sendMessage(this.h.obtainMessage(1));
-            this.h.sendMessage(this.h.obtainMessage(5));
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0019, code lost:
-        if (r5 < 0.33333334f) goto L9;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void d(float f2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048587, this, f2) == null) || f2 == this.w) {
-            return;
-        }
-        float f3 = f2 <= 3.0f ? 0.33333334f : 3.0f;
-        this.w = f3;
-        this.w = f2;
-    }
-
-    public final void e(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i, str) == null) {
-            c();
-            b bVar = this.m;
-            if (bVar != null) {
-                bVar.onError(i, str);
-            }
-        }
-    }
-
-    public void f(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, surfaceTexture) == null) {
-            synchronized (this.i) {
-                if (this.j) {
-                    synchronized (this.I) {
-                        if (!this.J && this.N) {
-                            this.J = true;
-                            this.I.notifyAll();
-                            this.l = 1;
-                            if (this.G != null) {
-                                this.G.a();
-                            }
-                        }
-                    }
-                    if (this.J) {
-                        float[] fArr = new float[16];
-                        Matrix.setIdentityM(fArr, 0);
-                        long timestamp = surfaceTexture.getTimestamp();
-                        if (timestamp == 0) {
-                            m7a.l(TextureMovieEncoder.TAG, "HEY: got SurfaceTexture with timestamp of zero");
-                        } else {
-                            this.h.sendMessage(this.h.obtainMessage(2, (int) (timestamp >> 32), (int) timestamp, fArr));
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public final void g(EGLContext eGLContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, eGLContext) == null) {
-            m7a.c(TextureMovieEncoder.TAG, "handleUpdatedSharedContext " + eGLContext);
-            WindowSurface windowSurface = this.a;
-            if (windowSurface != null) {
-                windowSurface.releaseEglSurface();
-            }
-            this.c.release(false);
-            EglCore eglCore = this.b;
-            if (eglCore != null) {
-                eglCore.release();
-            }
-            EglCore eglCore2 = new EglCore(eGLContext, 2);
-            this.b = eglCore2;
-            WindowSurface windowSurface2 = this.a;
-            if (windowSurface2 != null) {
-                windowSurface2.recreate(eglCore2);
-                this.a.makeCurrent();
-            }
-            this.c = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
-        }
-    }
-
-    public void h(FullFrameRect fullFrameRect, int i, float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048591, this, fullFrameRect, i, fArr) == null) || this.s == 0) {
-            return;
-        }
-        int[] iArr = new int[4];
-        GLES20.glGetIntegerv(2978, iArr, 0);
-        int[] iArr2 = new int[1];
-        GLES20.glGenFramebuffers(1, iArr2, 0);
-        GLES20.glBindFramebuffer(36160, iArr2[0]);
-        GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.s, 0);
-        GLES20.glViewport(0, 0, this.t, this.u);
-        if (fullFrameRect != null) {
-            try {
-                fullFrameRect.drawFrame(i, fArr);
-            } catch (Exception e2) {
-                e(1112, "setTextureId错误fuTex:" + i + "---" + e2.toString());
-            }
-        }
-        GLES20.glBindFramebuffer(36160, 0);
-        GLES20.glDeleteFramebuffers(1, iArr2, 0);
-        GLES20.glViewport(iArr[0], iArr[1], iArr[2], iArr[3]);
-        synchronized (this.i) {
-            if (this.j) {
-                this.h.sendMessage(this.h.obtainMessage(3, this.s, 0, null));
-            }
-        }
-    }
-
-    public void i(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bVar) == null) {
-            this.m = bVar;
-        }
-    }
-
-    public void j(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, dVar) == null) {
-            this.t = dVar.b;
-            this.u = dVar.c;
-            int[] iArr = new int[1];
-            GLES20.glGenTextures(1, iArr, 0);
-            int i = iArr[0];
-            this.s = i;
-            GLES20.glBindTexture(3553, i);
-            GLES20.glTexParameteri(3553, 10241, 9729);
-            GLES20.glTexParameteri(3553, 10240, 9729);
-            GLES20.glTexParameterf(3553, 10242, 33071.0f);
-            GLES20.glTexParameterf(3553, 10243, 33071.0f);
-            GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, this.t, this.u, 0, GeneratedTexture.FORMAT, 5121, null);
-            GLES20.glBindTexture(3553, 0);
-            this.l = 5;
-            this.o = dVar.f;
-            this.p = System.nanoTime();
-            this.q = 0L;
-            this.r = 0L;
-            synchronized (this.i) {
-                if (this.k) {
-                    m7a.l(TextureMovieEncoder.TAG, "Encoder thread already running");
-                    if (this.l != 6) {
-                        this.l = 6;
-                        e(1113, "录制编码调起错误" + dVar.toString());
-                    }
-                    return;
-                }
-                this.k = true;
-                new h(this, "TextureMovieVideoEncoder").start();
-                new c(this, null).start();
-                while (!this.j) {
-                    try {
-                        this.i.wait();
-                    } catch (InterruptedException unused) {
-                    }
-                }
-                this.y = -1L;
-                this.h.sendMessage(this.h.obtainMessage(0, dVar));
-            }
-        }
-    }
-
-    public void k(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, eVar) == null) {
-            this.n = eVar;
-        }
-    }
-
-    public void l(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, fVar) == null) {
-            this.G = fVar;
-        }
-    }
-
-    public void r(e7a e7aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, e7aVar) == null) {
-            this.B = e7aVar;
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.F = z;
-        }
-    }
-
-    public final void t(float[] fArr, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048598, this, fArr, j) == null) {
-            v3a v3aVar = this.E;
-            if (v3aVar != null) {
-                v3aVar.b();
-            }
-            if (this.s != 0) {
-                try {
-                    this.e.c(false);
-                } catch (Exception e2) {
-                    m7a.g(e2);
-                    if (this.l != 6) {
-                        this.l = 6;
-                        String message = e2.getMessage();
-                        e(FeatureCodes.SPLIT_FILTER, "录制编码错误transform:" + fArr + "timestampNanos:" + j + " , Exception : " + message);
-                    }
-                }
-                d dVar = this.H;
-                GLES20.glViewport(0, 0, dVar.b, dVar.c);
-                synchronized (x6a.class) {
-                    if (this.x != 0.0f) {
-                        this.c.setAngle(this.x);
-                    }
-                    this.c.drawFrame(this.d, fArr);
-                }
-                if (this.a != null) {
-                    long z = z();
-                    if (this.y == -1) {
-                        this.y = z;
-                        this.z = 0L;
-                    }
-                    this.a.setPresentationTime(z * 1000);
-                    this.a.swapBuffers();
-                    long j2 = z - this.y;
-                    this.z = j2;
-                    e eVar = this.n;
-                    if (eVar != null) {
-                        eVar.a(j2 / 1000);
-                    }
-                }
-            }
-        }
-    }
-
-    public boolean u(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) ? this.l == i : invokeI.booleanValue;
-    }
-
-    public final boolean v(int i, int i2, String str) {
-        InterceptResult invokeIIL;
-        String str2;
-        File file;
-        MediaMuxer mediaMuxer;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048600, this, i, i2, str)) == null) {
-            MediaMuxer mediaMuxer2 = null;
-            try {
-                if (w7a.m(MimeTypes.VIDEO_H265) != null) {
-                    str2 = str + File.separator + System.currentTimeMillis() + "_checkHevc.mp4";
-                    try {
-                        try {
-                            mediaMuxer = new MediaMuxer(str2, 0);
-                        } catch (Exception e2) {
-                            e = e2;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                    try {
-                        mediaMuxer.addTrack(MediaFormat.createVideoFormat(MimeTypes.VIDEO_H265, i, i2));
-                        mediaMuxer2 = mediaMuxer;
-                    } catch (Exception e3) {
-                        e = e3;
-                        mediaMuxer2 = mediaMuxer;
-                        e.printStackTrace();
-                        this.F = false;
-                        if (mediaMuxer2 != null) {
-                            try {
-                                mediaMuxer2.release();
-                            } catch (Exception e4) {
-                                e4.printStackTrace();
-                            }
-                        }
-                        if (!TextUtils.isEmpty(str2)) {
-                            file = new File(str2);
-                            ye0.d(file);
-                        }
-                        return this.F;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        mediaMuxer2 = mediaMuxer;
-                        if (mediaMuxer2 != null) {
-                            try {
-                                mediaMuxer2.release();
-                            } catch (Exception e5) {
-                                e5.printStackTrace();
-                            }
-                        }
-                        if (!TextUtils.isEmpty(str2)) {
-                            ye0.d(new File(str2));
-                        }
-                        throw th;
-                    }
-                } else {
-                    str2 = null;
-                }
-                if (mediaMuxer2 != null) {
-                    try {
-                        mediaMuxer2.release();
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
-                    }
-                }
-            } catch (Exception e7) {
-                e = e7;
-                str2 = null;
-            } catch (Throwable th3) {
-                th = th3;
-                str2 = null;
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                file = new File(str2);
-                ye0.d(file);
-            }
-            return this.F;
-        }
-        return invokeIIL.booleanValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0093 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r8v1, types: [java.lang.RuntimeException] */
-    /* JADX WARN: Type inference failed for: r8v2 */
-    /* JADX WARN: Type inference failed for: r8v3, types: [java.lang.Throwable] */
-    /* JADX WARN: Type inference failed for: r8v4, types: [java.lang.IllegalStateException] */
-    /* JADX WARN: Type inference failed for: r8v8 */
-    /* JADX WARN: Type inference failed for: r8v9 */
-    public final boolean w(EGLContext eGLContext, int i, int i2, int i3, File file, i6a i6aVar) {
-        InterceptResult invokeCommon;
-        String message;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{eGLContext, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), file, i6aVar})) == null) {
-            try {
-                if (this.D) {
-                    RecordConstants.MOVIE_ENCODE_SAMPLE_RATE = 16000;
-                    z6a.c = 16000;
-                    RecordConstants.AUDIO_ENCODE_SAMPLE_RATE = 16000;
-                } else {
-                    RecordConstants.MOVIE_ENCODE_SAMPLE_RATE = 44100;
-                    RecordConstants.AUDIO_ENCODE_SAMPLE_RATE = 44100;
-                    z6a.c = 44100;
-                }
-                this.M = file.toString();
-                this.g = new a7a(file.toString());
-                if (this.F && Build.VERSION.SDK_INT <= 23) {
-                    this.F = v(i, i2, new File(file.toString()).getParent());
-                }
-                b7a b7aVar = new b7a(i, i2, i3, this.F, this.g);
-                this.e = b7aVar;
-                b7aVar.b(this.H.g);
-                this.f = new y6a(this.g);
-                this.N = true;
-                EglCore eglCore = new EglCore(eGLContext, 2);
-                this.b = eglCore;
-                WindowSurface windowSurface = new WindowSurface(eglCore, this.e.a(), true);
-                this.a = windowSurface;
-                windowSurface.makeCurrent();
-                this.c = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
-                return true;
-            } catch (IOException e2) {
-                if (i6aVar != null && !TextUtils.isEmpty(e2.getMessage())) {
-                    i6aVar.e = e2.getMessage();
-                }
-                m7a.g(e2);
-                return false;
-            } catch (IllegalStateException e3) {
-                e = e3;
-                if (i6aVar != null && !TextUtils.isEmpty(e.getMessage())) {
-                    message = e.getMessage();
-                    e = e;
-                    i6aVar.e = message;
-                }
-                m7a.g(e);
-                this.N = false;
-                return false;
-            } catch (RuntimeException e4) {
-                e = e4;
-                if (i6aVar != null && !TextUtils.isEmpty(e.getMessage())) {
-                    message = e.getMessage();
-                    e = e;
-                    i6aVar.e = message;
-                }
-                m7a.g(e);
-                this.N = false;
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public long z() {
+    public final List<WriteVoteItemData> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            if (this.w == 1.0f) {
-                return M();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            List<WriteVoteItemData> list = this.j;
+            if (list == null) {
+                return arrayList;
             }
-            long nanoTime = System.nanoTime();
-            if (this.o != 0) {
-                if (this.q == 0) {
-                    this.q = nanoTime;
-                }
-                nanoTime = (((float) (nanoTime - this.q)) / this.w) + this.o;
+            int size = list.size();
+            int i = 0;
+            while (i < size) {
+                WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
+                int i2 = i + 1;
+                writeVoteItemData.setId(i2);
+                writeVoteItemData.setText(this.j.get(i).getText());
+                arrayList.add(writeVoteItemData);
+                i = i2;
             }
-            long j = nanoTime / 1000;
-            long j2 = this.P;
-            if (j < j2) {
-                j = 100 + j2;
-            }
-            this.P = j;
-            return j;
+            return arrayList;
         }
-        return invokeV.longValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            int size = this.j.size();
+            for (int i = 0; i < size; i++) {
+                if (StringUtils.isNull(this.j.get(i).getText())) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.o.setOnClickListener(this);
+            this.p.setOnClickListener(this);
+            this.r.setOnClickListener(this);
+            this.s.setOnClickListener(this);
+            this.t.setOnClickListener(this);
+            this.u.setOnClickListener(this);
+            this.i.addTextChangedListener(new b(this));
+            this.e.o(new c(this));
+            this.d.addOnScrollListener(new d(this));
+            this.v.setOnClickListener(new e(this));
+        }
+    }
+
+    public final void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f16fd));
+            TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0530));
+            this.v = addTextButton;
+            addTextButton.setTextSize(0, ii.g(this.a.getPageActivity(), R.dimen.tbds44));
+            this.v.setEnabled(false);
+        }
+    }
+
+    public final void G(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || this.l == null || WriteActivityConfig.isAsyncWriting()) {
+            return;
+        }
+        WriteActivityConfig.newInstance(this.a.getPageActivity()).setType(9).setForumWriteData(this.l).setShowVoteData(this.k).setTitle(str).send();
+    }
+
+    public final void K(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.v.setEnabled(z);
+            if (z) {
+                this.v.setTextColor(SkinManager.getColor(R.color.CAM_X0302));
+            } else {
+                this.v.setTextColor(xj9.a(SkinManager.getColor(R.color.CAM_X0302), 0.5f));
+            }
+        }
+    }
+
+    public final void H(TextView textView, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, textView, z) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setCornerRadius(this.a.getResources().getDimension(R.dimen.tbds10));
+            if (z) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0302);
+                gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0905));
+                textView.setBackgroundDrawable(gradientDrawable);
+                return;
+            }
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
+            gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0209));
+            textView.setBackgroundDrawable(gradientDrawable);
+        }
+    }
+
+    public final void J() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            TextView textView = this.o;
+            boolean z2 = false;
+            if (this.w != 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            H(textView, z);
+            TextView textView2 = this.p;
+            if (this.w == 1) {
+                z2 = true;
+            }
+            H(textView2, z2);
+        }
+    }
+
+    @Override // com.baidu.tieba.bn5
+    public Intent getResultIntent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.A;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.bn5
+    public boolean z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            LinearLayout linearLayout = this.f;
+            if (linearLayout == null || this.d == null || linearLayout.getTop() != 0 || this.d.getFirstVisiblePosition() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bn5
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0109);
+            this.i.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
+            this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.n.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.q.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            if (this.y && this.z) {
+                this.v.setTextColor(SkinManager.getColor(R.color.CAM_X0302));
+            } else {
+                this.v.setTextColor(xj9.a(SkinManager.getColor(R.color.CAM_X0302), 0.5f));
+            }
+            J();
+            I();
+            WriteVoteViewAdapter writeVoteViewAdapter = this.e;
+            if (writeVoteViewAdapter != null) {
+                writeVoteViewAdapter.notifyDataSetChanged();
+            }
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092846) {
+                this.w = 0;
+                J();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092845) {
+                this.w = 1;
+                J();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092842) {
+                this.x = -1;
+                I();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09283f) {
+                this.x = 1;
+                I();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092841) {
+                this.x = 7;
+                I();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092840) {
+                this.x = 30;
+                I();
+            }
+        }
     }
 }

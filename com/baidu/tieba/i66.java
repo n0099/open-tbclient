@@ -1,106 +1,135 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.ala.alasquare.subtablist.view.AlaSubListLiveDoubleViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class i66 extends um {
+public class i66 extends um<k66, AlaSubListLiveDoubleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context b;
-    public View c;
-    public ImageView d;
-    public TextView e;
-    public View f;
-    public View g;
-    public View.OnClickListener h;
+    public TbPageContext<?> a;
+    public s66 b;
+    public boolean c;
+    public q66 d;
+    public int e;
+    public int f;
 
-    public i66(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i66(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), k66.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = context;
+        this.c = false;
+        this.a = tbPageContext;
     }
 
-    public void f(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.h = onClickListener;
-        }
-    }
-
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.um
-    public View a() {
-        InterceptResult invokeV;
+    /* renamed from: t */
+    public AlaSubListLiveDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d00f9, (ViewGroup) null);
-            this.c = inflate;
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901e5);
-            this.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0901e4);
-            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f0901e6);
-            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f0901e3);
-            e(TbadkCoreApplication.getInst().getSkinType());
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            this.d = new q66(this.a, this.c);
+            return new AlaSubListLiveDoubleViewHolder(this.d);
         }
-        return (View) invokeV.objValue;
+        return (AlaSubListLiveDoubleViewHolder) invokeL.objValue;
     }
 
+    public void x(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void y(s66 s66Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, s66Var) == null) {
+            this.b = s66Var;
+        }
+    }
+
+    public void z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public final void s(k66 k66Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k66Var) != null) || k66Var == null) {
+            return;
+        }
+        int i = this.f;
+        if (i == 1) {
+            if (k66Var.a != null) {
+                s56 b = s56.b();
+                s56 b2 = s56.b();
+                int i2 = this.e;
+                t36 t36Var = k66Var.a;
+                b.a(b2.d(i2, "c12117", t36Var.a, t36Var.b, t36Var.getThreadData()));
+            }
+            if (k66Var.b != null) {
+                s56 b3 = s56.b();
+                s56 b4 = s56.b();
+                int i3 = this.e;
+                t36 t36Var2 = k66Var.b;
+                b3.a(b4.d(i3, "c12117", t36Var2.a, t36Var2.b, t36Var2.getThreadData()));
+            }
+        } else if (i == 2) {
+            t36 t36Var3 = k66Var.a;
+            if (t36Var3 != null && t36Var3.getThreadData() != null && k66Var.a.getThreadData().getThreadAlaInfo() != null) {
+                ThreadData threadData = k66Var.a.getThreadData();
+                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.getThreadAlaInfo().appId).param("locate_type", k66Var.a.b));
+            }
+            t36 t36Var4 = k66Var.b;
+            if (t36Var4 != null && t36Var4.getThreadData() != null && k66Var.b.getThreadData().getThreadAlaInfo() != null) {
+                ThreadData threadData2 = k66Var.b.getThreadData();
+                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.getThreadAlaInfo().appId).param("locate_type", k66Var.b.b));
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.um
-    public void d() {
-        View.OnClickListener onClickListener;
-        View view2;
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, k66 k66Var, AlaSubListLiveDoubleViewHolder alaSubListLiveDoubleViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (onClickListener = this.h) != null && (view2 = this.c) != null) {
-            onClickListener.onClick(view2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, k66Var, alaSubListLiveDoubleViewHolder})) == null) {
+            s(k66Var);
+            alaSubListLiveDoubleViewHolder.a.l(k66Var);
+            alaSubListLiveDoubleViewHolder.a.s(this.b);
+            return alaSubListLiveDoubleViewHolder.getView();
         }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            View view2 = this.c;
-            if (view2 != null) {
-                SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-            }
-            TextView textView = this.e;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0304);
-            }
-            ImageView imageView = this.d;
-            if (imageView != null) {
-                SkinManager.setImageResource(imageView, R.drawable.icon_inf_arrowblue_n);
-            }
-            View view3 = this.f;
-            if (view3 != null) {
-                SkinManager.setBackgroundResource(view3, R.color.CAM_X0204);
-            }
-            View view4 = this.g;
-            if (view4 != null) {
-                SkinManager.setBackgroundResource(view4, R.color.CAM_X0204);
-            }
-        }
+        return (View) invokeCommon.objValue;
     }
 }

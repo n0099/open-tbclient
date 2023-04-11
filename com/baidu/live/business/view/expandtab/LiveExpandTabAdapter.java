@@ -13,9 +13,9 @@ import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o90;
-import com.baidu.tieba.vb0;
-import com.baidu.tieba.zb0;
+import com.baidu.tieba.ac0;
+import com.baidu.tieba.p90;
+import com.baidu.tieba.wb0;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.List;
 import kotlin.Metadata;
@@ -48,9 +48,9 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             super(view2);
             this.d = view2;
             this.e = str;
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f0914b9);
-            this.b = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0914b8);
-            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0914ba);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f0914bc);
+            this.b = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0914bb);
+            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0914bd);
             a();
         }
 
@@ -60,17 +60,17 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             Resources resources;
             TextView textView = this.c;
             if (textView != null) {
-                vb0.k(textView, 1, 12.0f, 0, 0, 12, null);
+                wb0.k(textView, 1, 12.0f, 0, 0, 12, null);
             }
             View view2 = this.a;
             if (view2 != null && (context = view2.getContext()) != null && (resources = context.getResources()) != null) {
-                drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f080d8a);
+                drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f080d77);
             } else {
                 drawable = null;
             }
             ImageView imageView = this.b;
             if (imageView != null) {
-                imageView.setImageDrawable(vb0.b(drawable, 0, 0, 6, null));
+                imageView.setImageDrawable(wb0.b(drawable, 0, 0, 6, null));
             }
         }
 
@@ -108,28 +108,28 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             if (i2 == i) {
                 View view2 = this.a;
                 if (view2 != null) {
-                    o90 o90Var = o90.a;
+                    p90 p90Var = p90.a;
                     Context context = this.d.getContext();
                     Intrinsics.checkExpressionValueIsNotNull(context, "view.context");
-                    view2.setBackgroundDrawable(o90Var.e(context, this.e));
+                    view2.setBackgroundDrawable(p90Var.e(context, this.e));
                 }
                 TextView textView4 = this.c;
                 if (textView4 != null) {
-                    textView4.setTextColor(zb0.f().a(this.d.getContext(), this.e, "color_FF33551"));
+                    textView4.setTextColor(ac0.f().a(this.d.getContext(), this.e, "color_FF33551"));
                     return;
                 }
                 return;
             }
             View view3 = this.a;
             if (view3 != null) {
-                o90 o90Var2 = o90.a;
+                p90 p90Var2 = p90.a;
                 Context context2 = this.d.getContext();
                 Intrinsics.checkExpressionValueIsNotNull(context2, "view.context");
-                view3.setBackgroundDrawable(o90Var2.b(context2, this.e));
+                view3.setBackgroundDrawable(p90Var2.b(context2, this.e));
             }
             TextView textView5 = this.c;
             if (textView5 != null) {
-                textView5.setTextColor(zb0.f().a(this.d.getContext(), this.e, "color_525252"));
+                textView5.setTextColor(ac0.f().a(this.d.getContext(), this.e, "color_525252"));
             }
         }
     }
@@ -156,11 +156,11 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             if (aVar2 == null) {
                 return;
             }
-            LiveTabEntity f = LiveExpandTabAdapter.this.f(this.b);
-            if (f == null) {
-                f = new LiveTabEntity();
+            LiveTabEntity m = LiveExpandTabAdapter.this.m(this.b);
+            if (m == null) {
+                m = new LiveTabEntity();
             }
-            aVar2.a(f);
+            aVar2.a(m);
         }
     }
 
@@ -168,7 +168,7 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
         this.d = str;
     }
 
-    public final LiveTabEntity f(int i) {
+    public final LiveTabEntity m(int i) {
         if (i == 3) {
             return null;
         }
@@ -186,11 +186,11 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
         return list2.get(i - 1);
     }
 
-    public final void i(a aVar) {
+    public final void p(a aVar) {
         this.b = aVar;
     }
 
-    public final void j(int i) {
+    public final void q(int i) {
         if (i >= 3) {
             i++;
         }
@@ -199,24 +199,24 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: g */
+    /* renamed from: n */
     public void onBindViewHolder(ExpandTabViewHolder expandTabViewHolder, int i) {
-        expandTabViewHolder.b(i, this.c, f(i));
+        expandTabViewHolder.b(i, this.c, m(i));
         expandTabViewHolder.itemView.setOnClickListener(new b(i));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: h */
+    /* renamed from: o */
     public ExpandTabViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d057c, viewGroup, false);
+        View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d057a, viewGroup, false);
         Intrinsics.checkExpressionValueIsNotNull(inflate, "LayoutInflater.from(pare…rent, false\n            )");
         return new ExpandTabViewHolder(inflate, this.d);
     }
 
-    public final void k(List<? extends LiveTabEntity> list, int i) {
+    public final void r(List<? extends LiveTabEntity> list, int i) {
         this.a = list;
-        j(i);
+        q(i);
         notifyDataSetChanged();
     }
 

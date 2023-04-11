@@ -1,35 +1,83 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.KuangFloatingViewController;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface gq9 {
-    void a();
+public class gq9 extends CustomMessageListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
 
-    void b(long j);
+    /* loaded from: classes4.dex */
+    public class a implements kv4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void c(double d);
+        public a(gq9 gq9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gq9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    void d(int i);
+        @Override // com.baidu.tieba.kv4
+        public void onPermissionResult(boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
+                KuangFloatingViewController.getInstance().showFloatingView();
+                TiebaStatic.log(new StatisticItem("c12264").param("obj_type", 3));
+            }
+        }
+    }
 
-    void e(int i, int i2);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gq9(MainTabActivity mainTabActivity, jo9 jo9Var) {
+        super(2921380);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, jo9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = mainTabActivity;
+    }
 
-    void f(int i, int i2);
-
-    void g(int i, int i2, int i3);
-
-    void h();
-
-    void i();
-
-    void j(int i, iq9 iq9Var);
-
-    void k();
-
-    void l(double d);
-
-    void m();
-
-    void n(long j, long j2);
-
-    void o(long j, long j2);
-
-    void onClick();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && !hi.isEmpty((String) customResponsedMessage.getData())) {
+            String str = (String) customResponsedMessage.getData();
+            if (KuangFloatingViewController.getInstance().init()) {
+                KuangFloatingViewController.getInstance().setInfo(str);
+                this.a.getPageContext().getOrignalPage().grantWindowPermission(new a(this), false);
+            }
+        }
+    }
 }

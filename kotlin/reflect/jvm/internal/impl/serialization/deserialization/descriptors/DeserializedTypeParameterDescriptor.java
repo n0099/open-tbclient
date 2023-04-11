@@ -68,7 +68,7 @@ public final class DeserializedTypeParameterDescriptor extends AbstractLazyTypeP
     /* JADX DEBUG: Possible override for method kotlin.reflect.jvm.internal.impl.descriptors.impl.AbstractTypeParameterDescriptor.reportSupertypeLoopError(Lkotlin/reflect/jvm/internal/impl/types/KotlinType;)V */
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.impl.AbstractTypeParameterDescriptor
     /* renamed from: reportSupertypeLoopError */
-    public Void mo2026reportSupertypeLoopError(KotlinType kotlinType) {
+    public Void mo2028reportSupertypeLoopError(KotlinType kotlinType) {
         throw new IllegalStateException("There should be no cycles for deserialized type parameters, but found for: " + this);
     }
 

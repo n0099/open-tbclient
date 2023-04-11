@@ -6,7 +6,7 @@ import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.zma;
+import com.baidu.tieba.qwa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,10 +96,10 @@ public class v0 {
             } else {
                 String a3 = a(a2, i);
                 if (!TextUtils.isEmpty(a3)) {
-                    if (str2.equals(zma.b(a2))) {
+                    if (str2.equals(qwa.b(a2))) {
                         return true;
                     }
-                    if (str2.equals(zma.b(a3))) {
+                    if (str2.equals(qwa.b(a3))) {
                         try {
                             String substring = a2.substring(0, a2.length() - a3.length());
                             if (substring.endsWith(".")) {

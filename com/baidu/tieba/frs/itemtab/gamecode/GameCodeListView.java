@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.v47;
-import com.baidu.tieba.zn5;
+import com.baidu.tieba.fp5;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.q25;
+import com.baidu.tieba.qd7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes4.dex */
-public class GameCodeListView extends ConstraintLayout implements zn5 {
+public class GameCodeListView extends ConstraintLayout implements fp5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -58,13 +58,13 @@ public class GameCodeListView extends ConstraintLayout implements zn5 {
                 return;
             }
         }
-        f = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds48);
-        g = hi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
-        h = hi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-        i = hi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        j = hi.g(TbadkCoreApplication.getInst(), R.dimen.T_X08);
-        k = hi.g(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-        l = hi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        f = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds48);
+        g = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X007);
+        h = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        i = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        j = ii.g(TbadkCoreApplication.getInst(), R.dimen.T_X08);
+        k = ii.g(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+        l = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,11 +89,11 @@ public class GameCodeListView extends ConstraintLayout implements zn5 {
         a(context);
     }
 
-    @Override // com.baidu.tieba.zn5
+    @Override // com.baidu.tieba.fp5
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            n15 d = n15.d(this);
+            q25 d = q25.d(this);
             d.o(R.string.J_X14);
             d.f(R.color.CAM_X0212);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
@@ -174,7 +174,7 @@ public class GameCodeListView extends ConstraintLayout implements zn5 {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d034a, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d034b, this);
             EMTextView eMTextView = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d6c);
             this.a = eMTextView;
             eMTextView.setTextSize(0, j);
@@ -192,7 +192,7 @@ public class GameCodeListView extends ConstraintLayout implements zn5 {
             EMTextView eMTextView3 = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d6a);
             this.d = eMTextView3;
             eMTextView3.setTextSize(0, k);
-            this.d.setText(R.string.obfuscated_res_0x7f0f038e);
+            this.d.setText(R.string.obfuscated_res_0x7f0f038d);
             ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) this.d.getLayoutParams();
             ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = l;
             this.d.setLayoutParams(layoutParams);
@@ -202,10 +202,10 @@ public class GameCodeListView extends ConstraintLayout implements zn5 {
         }
     }
 
-    public void b(v47 v47Var) {
+    public void c(qd7 qd7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v47Var) == null) {
-            this.c.g(v47Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qd7Var) == null) {
+            this.c.n(qd7Var);
         }
     }
 
@@ -219,7 +219,7 @@ public class GameCodeListView extends ConstraintLayout implements zn5 {
     public void setData(List<GameCodeList> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.c.f(list);
+            this.c.m(list);
             this.c.notifyDataSetChanged();
         }
     }

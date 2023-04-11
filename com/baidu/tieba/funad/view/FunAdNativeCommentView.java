@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ga7;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.oa7;
-import com.baidu.tieba.zb9;
+import com.baidu.tieba.dk7;
+import com.baidu.tieba.lk7;
+import com.baidu.tieba.q25;
+import com.baidu.tieba.ql9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.layout.obfuscated_res_0x7f0d037b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.layout.obfuscated_res_0x7f0d037c : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -84,7 +84,7 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     public final void l(TbImageView tbImageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, tbImageView) == null) {
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080770);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080765);
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             tbImageView.setIsLongPic(false);
             tbImageView.setIsSmartCrop(false);
@@ -204,25 +204,25 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public void f(@NonNull zb9 zb9Var, @NonNull Activity activity) {
+    public void f(@NonNull ql9 ql9Var, @NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, zb9Var, activity) == null) {
-            super.f(zb9Var, activity);
-            if (zb9Var.e() == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, ql9Var, activity) == null) {
+            super.f(ql9Var, activity);
+            if (ql9Var.e() == null) {
                 return;
             }
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) zb9Var.e();
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) ql9Var.e();
             this.w.setText(this.c);
-            this.u.M(oa7.j(funNativeAd2), 10, false);
-            if (oa7.m(funNativeAd2) != null) {
-                boolean B = oa7.B(funNativeAd2);
-                oa7.I(this.k, B);
-                oa7.G(this.h, B);
+            this.u.N(lk7.j(funNativeAd2), 10, false);
+            if (lk7.m(funNativeAd2) != null) {
+                boolean B = lk7.B(funNativeAd2);
+                lk7.I(this.k, B);
+                lk7.G(this.h, B);
                 return;
             }
-            boolean A = oa7.A(funNativeAd2, oa7.k(funNativeAd2));
-            oa7.I(this.k, A);
-            oa7.G(this.h, A);
+            boolean A = lk7.A(funNativeAd2, lk7.k(funNativeAd2));
+            lk7.I(this.k, A);
+            lk7.G(this.h, A);
         }
     }
 
@@ -232,10 +232,10 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             super.g(context);
             this.t = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d42);
-            this.u = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f092473);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092474);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f092472);
-            this.x = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913e3);
+            this.u = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f092468);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092469);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f092467);
+            this.x = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913e7);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f090d4c);
             this.A = findViewById;
             findViewById.setAlpha(0.5f);
@@ -274,7 +274,7 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public ga7.g getLogItem() {
+    public dk7.g getLogItem() {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
@@ -284,9 +284,9 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
             } else {
                 str = "0";
             }
-            return ga7.b("pb", str);
+            return dk7.b("pb", str);
         }
-        return (ga7.g) invokeV.objValue;
+        return (dk7.g) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -304,12 +304,12 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.h();
-            n15.d(this).f(R.color.CAM_X0205);
-            n15 d = n15.d(this);
+            q25.d(this).f(R.color.CAM_X0205);
+            q25 d = q25.d(this);
             d.o(R.string.J_X06);
             d.j(R.color.CAM_X0205, R.color.CAM_X0206);
-            n15.d(this.v).w(R.color.CAM_X0109);
-            n15.d(this.w).w(R.color.CAM_X0107);
+            q25.d(this.v).w(R.color.CAM_X0109);
+            q25.d(this.w).w(R.color.CAM_X0107);
             WebPManager.setPureDrawable(this.y, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             this.u.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             SkinManager.setBackgroundColor(this.z, R.color.CAM_X0203);

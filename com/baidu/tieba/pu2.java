@@ -11,13 +11,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pu2 implements sx2 {
+public class pu2 implements tx2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<mu2> a;
+    public ArrayList<nu2> a;
     public int b;
-    public float c;
-    public boolean d;
+    public int c;
+    public int d;
+    public int e;
 
     public pu2() {
         Interceptable interceptable = $ic;
@@ -32,18 +33,19 @@ public class pu2 implements sx2 {
                 return;
             }
         }
-        this.b = 0;
-        this.c = 0.0f;
-        this.d = false;
+        this.b = 1;
+        this.c = -16777216;
+        this.d = 0;
+        this.e = 0;
     }
 
-    @Override // com.baidu.tieba.sx2
+    @Override // com.baidu.tieba.tx2
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<mu2> arrayList = this.a;
-            if (arrayList != null && arrayList.size() > 0) {
+            ArrayList<nu2> arrayList = this.a;
+            if (arrayList != null && !arrayList.isEmpty()) {
                 return true;
             }
             return false;
@@ -51,7 +53,7 @@ public class pu2 implements sx2 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.sx2
+    @Override // com.baidu.tieba.tx2
     public void a(JSONObject jSONObject) throws JSONException {
         int length;
         Interceptable interceptable = $ic;
@@ -69,23 +71,20 @@ public class pu2 implements sx2 {
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    mu2 mu2Var = new mu2();
-                    mu2Var.a(optJSONObject);
-                    if (mu2Var.isValid()) {
-                        this.a.add(mu2Var);
+                    nu2 nu2Var = new nu2();
+                    nu2Var.a(optJSONObject);
+                    if (nu2Var.isValid()) {
+                        this.a.add(nu2Var);
                     }
                 }
             }
         }
-        ArrayList<mu2> arrayList = this.a;
+        ArrayList<nu2> arrayList = this.a;
         if (arrayList != null && arrayList.size() > 0) {
-            this.b = gu2.a(jSONObject.optString("color"), 0);
-            this.c = Math.abs(gu2.b(jSONObject.optDouble("width", 0.0d)));
-            this.d = jSONObject.optBoolean("dottedLine", false);
-            jSONObject.optBoolean("arrowLine", false);
-            jSONObject.optString("arrowIconPath");
-            gu2.a(jSONObject.optString("borderColor"), 0);
-            Math.abs(gu2.b(jSONObject.optDouble("borderWidth", 0.0d)));
+            this.b = (int) Math.abs(hu2.b(jSONObject.optInt("strokeWidth", 1)));
+            this.c = hu2.a(jSONObject.optString("strokeColor"), -16777216);
+            this.d = hu2.a(jSONObject.optString("fillColor"), 0);
+            this.e = jSONObject.optInt("zIndex", 0);
         }
     }
 }

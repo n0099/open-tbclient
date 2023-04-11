@@ -1,205 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qka;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.DataBuffer;
-import com.hihonor.push.framework.aidl.IMessageEntity;
-import com.hihonor.push.framework.aidl.IPushInvoke;
-import com.hihonor.push.framework.aidl.MessageCodec;
-import com.hihonor.push.framework.aidl.entity.RequestHeader;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import com.hihonor.push.sdk.ipc.HonorApiAvailability;
-import com.huawei.hms.api.IPCTransport;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes5.dex */
-public class mka implements Handler.Callback {
+public class mka {
     public static /* synthetic */ Interceptable $ic;
-    public static final mka c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Handler a;
-    public final Map<hka, a> b;
-
-    /* loaded from: classes5.dex */
-    public class a implements qka.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Queue<xka<?>> a;
-        public final Queue<xka<?>> b;
-        public final qka c;
-        public HonorPushErrorEnum d;
-        public final hka e;
-        public final /* synthetic */ mka f;
-
-        public a(mka mkaVar, hka hkaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mkaVar, hkaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = mkaVar;
-            this.a = new LinkedList();
-            this.b = new LinkedList();
-            this.c = new tka(this);
-            this.d = null;
-            this.e = hkaVar;
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                uja.g(this.f.a);
-                tka tkaVar = (tka) this.c;
-                int i = tkaVar.a.get();
-                Log.i("PushConnectionClient", "enter disconnect, connection Status: " + i);
-                if (i != 3) {
-                    if (i == 5) {
-                        tkaVar.a.set(4);
-                        return;
-                    }
-                    return;
-                }
-                wka wkaVar = tkaVar.d;
-                if (wkaVar != null) {
-                    wkaVar.c();
-                }
-                tkaVar.a.set(1);
-            }
-        }
-
-        public final synchronized void b(HonorPushErrorEnum honorPushErrorEnum) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, honorPushErrorEnum) == null) {
-                synchronized (this) {
-                    Log.i("HonorApiManager", "onConnectionFailed");
-                    uja.g(this.f.a);
-                    for (xka<?> xkaVar : this.a) {
-                        xkaVar.b(honorPushErrorEnum.toApiException(), null);
-                    }
-                    this.a.clear();
-                    this.d = honorPushErrorEnum;
-                    a();
-                    this.f.b.remove(this.e);
-                }
-            }
-        }
-
-        public final synchronized void c(xka<?> xkaVar) {
-            Class cls;
-            Type type;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xkaVar) == null) {
-                synchronized (this) {
-                    this.b.add(xkaVar);
-                    qka qkaVar = this.c;
-                    b bVar = new b(xkaVar);
-                    xkaVar.getClass();
-                    Object obj = null;
-                    try {
-                        Type genericSuperclass = xkaVar.getClass().getGenericSuperclass();
-                        if (genericSuperclass != null && (type = ((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]) != null) {
-                            cls = (Class) type;
-                        } else {
-                            cls = null;
-                        }
-                        if (cls != null && !cls.isPrimitive()) {
-                            obj = cls.newInstance();
-                        }
-                    } catch (Exception e) {
-                        wja.a("In newResponseInstance, instancing exception." + e.getMessage());
-                    }
-                    com.hihonor.push.sdk.r rVar = new com.hihonor.push.sdk.r(obj, bVar);
-                    Log.i(IPCTransport.TAG, "start transport parse. " + xkaVar.a);
-                    IPushInvoke iPushInvoke = ((tka) qkaVar).b;
-                    String str = xkaVar.a;
-                    RequestHeader requestHeader = xkaVar.d;
-                    IMessageEntity iMessageEntity = xkaVar.b;
-                    Bundle bundle = new Bundle();
-                    Bundle bundle2 = new Bundle();
-                    MessageCodec.formMessageEntity(requestHeader, bundle);
-                    MessageCodec.formMessageEntity(iMessageEntity, bundle2);
-                    DataBuffer dataBuffer = new DataBuffer(str, bundle, bundle2);
-                    if (iPushInvoke != null) {
-                        try {
-                            iPushInvoke.call(dataBuffer, rVar);
-                        } catch (Exception e2) {
-                            String str2 = "transport remote error. " + e2;
-                        }
-                    }
-                    Log.i(IPCTransport.TAG, "end transport parse.");
-                }
-            }
-        }
-
-        public final synchronized void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                synchronized (this) {
-                    Log.i("HonorApiManager", "onConnected");
-                    uja.g(this.f.a);
-                    this.d = null;
-                    for (xka<?> xkaVar : this.a) {
-                        c(xkaVar);
-                    }
-                    this.a.clear();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements ala {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public xka<?> a;
-
-        public b(xka<?> xkaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xkaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xkaVar;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -214,154 +34,291 @@ public class mka implements Handler.Callback {
                 return;
             }
         }
-        c = new mka();
+        a = AppConfig.isDebug();
     }
 
-    public mka() {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0049 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x004b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00b4 */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x008a, code lost:
+        if (com.baidu.tieba.mka.a == false) goto L49;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x008c, code lost:
+        r5.printStackTrace();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x00b0, code lost:
+        if (com.baidu.tieba.mka.a == false) goto L49;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x00b7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x00bf A[Catch: IOException -> 0x00bb, TryCatch #12 {IOException -> 0x00bb, blocks: (B:81:0x00b7, B:85:0x00bf, B:87:0x00c4), top: B:102:0x00b7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x00c4 A[Catch: IOException -> 0x00bb, TRY_LEAVE, TryCatch #12 {IOException -> 0x00bb, blocks: (B:81:0x00b7, B:85:0x00bf, B:87:0x00c4), top: B:102:0x00b7 }] */
+    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r2v10 */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v4 */
+    /* JADX WARN: Type inference failed for: r2v5 */
+    /* JADX WARN: Type inference failed for: r2v6, types: [java.io.FileInputStream] */
+    /* JADX WARN: Type inference failed for: r2v7, types: [java.io.FileInputStream] */
+    /* JADX WARN: Type inference failed for: r2v8, types: [java.io.FileInputStream] */
+    /* JADX WARN: Type inference failed for: r2v9, types: [java.io.FileInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r3v0 */
+    /* JADX WARN: Type inference failed for: r3v12 */
+    /* JADX WARN: Type inference failed for: r3v2 */
+    /* JADX WARN: Type inference failed for: r3v5 */
+    /* JADX WARN: Type inference failed for: r3v6, types: [java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r3v9 */
+    /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.Object, java.io.File] */
+    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.BufferedInputStream] */
+    /* JADX WARN: Type inference failed for: r5v14 */
+    /* JADX WARN: Type inference failed for: r5v15 */
+    /* JADX WARN: Type inference failed for: r5v16, types: [java.io.BufferedInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r5v2 */
+    /* JADX WARN: Type inference failed for: r5v3 */
+    /* JADX WARN: Type inference failed for: r5v5 */
+    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.BufferedInputStream] */
+    /* JADX WARN: Type inference failed for: r5v8, types: [java.io.BufferedInputStream] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(File file) {
+        ?? r2;
+        ?? r3;
+        BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            r2 = interceptable;
+            r3 = 65537;
+            InterceptResult invokeL = r2.invokeL(65537, null, file);
+            if (invokeL != null) {
+                return (String) invokeL.objValue;
             }
         }
-        this.b = new ConcurrentHashMap(5, 0.75f, 1);
-        HandlerThread handlerThread = new HandlerThread("HonorApiManager");
-        handlerThread.start();
-        this.a = new Handler(handlerThread.getLooper(), this);
-    }
-
-    public <TResult> nka<TResult> a(xka<TResult> xkaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xkaVar)) == null) {
-            fla<TResult> flaVar = new fla<>();
-            xkaVar.e = flaVar;
-            Log.i("HonorApiManager", "sendRequest start");
-            Handler handler = this.a;
-            handler.sendMessage(handler.obtainMessage(1, xkaVar));
-            return flaVar.a;
+        if (file == 0 || !file.exists()) {
+            return null;
         }
-        return (nka) invokeL.objValue;
-    }
-
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        InterceptResult invokeL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message)) == null) {
-            int i = message.what;
-            boolean z = false;
-            if (i == 1) {
-                xka<?> xkaVar = (xka) message.obj;
-                hka hkaVar = xkaVar.c;
-                a aVar2 = this.b.get(hkaVar);
-                if (aVar2 == null) {
-                    Log.i("HonorApiManager", "connect and send request, create new connection manager.");
-                    aVar2 = new a(this, hkaVar);
-                    this.b.put(hkaVar, aVar2);
-                }
-                synchronized (aVar2) {
-                    uja.g(aVar2.f.a);
-                    String str = "sendRequest " + xkaVar.a;
-                    if (((tka) aVar2.c).b()) {
-                        aVar2.c(xkaVar);
-                    } else {
-                        aVar2.a.add(xkaVar);
-                        HonorPushErrorEnum honorPushErrorEnum = aVar2.d;
-                        if (honorPushErrorEnum != null && honorPushErrorEnum.getErrorCode() != 0) {
-                            aVar2.b(aVar2.d);
-                        } else {
-                            synchronized (aVar2) {
-                                uja.g(aVar2.f.a);
-                                if (((tka) aVar2.c).b()) {
-                                    Log.i("HonorApiManager", "client is connected");
-                                } else {
-                                    if (((tka) aVar2.c).a.get() == 5) {
-                                        z = true;
-                                    }
-                                    if (z) {
-                                        Log.i("HonorApiManager", "client is isConnecting");
-                                    } else {
-                                        tka tkaVar = (tka) aVar2.c;
-                                        tkaVar.getClass();
-                                        Log.i("PushConnectionClient", "  ====  PUSHSDK VERSION 70001103 ====");
-                                        int i2 = tkaVar.a.get();
-                                        Log.i("PushConnectionClient", "enter connect, connection Status: " + i2);
-                                        if (i2 != 3 && i2 != 5 && i2 != 4) {
-                                            bka bkaVar = bka.e;
-                                            int b2 = HonorApiAvailability.b(bkaVar.a());
-                                            if (b2 == HonorPushErrorEnum.SUCCESS.getErrorCode()) {
-                                                tkaVar.a.set(5);
-                                                xja a2 = HonorApiAvailability.a(bkaVar.a());
-                                                Log.i("PushConnectionClient", "enter bindCoreService.");
-                                                wka wkaVar = new wka(a2);
-                                                tkaVar.d = wkaVar;
-                                                wkaVar.b = new ska(tkaVar);
-                                                if (!a2.a()) {
-                                                    String str2 = "bind core is null : " + wkaVar.a;
-                                                    wkaVar.b(8002004);
-                                                } else {
-                                                    Intent intent = new Intent();
-                                                    String c2 = wkaVar.a.c();
-                                                    String b3 = wkaVar.a.b();
-                                                    String d = wkaVar.a.d();
-                                                    if (!TextUtils.isEmpty(d)) {
-                                                        intent.setComponent(new ComponentName(c2, d));
-                                                    } else {
-                                                        intent.setAction(b3);
-                                                        intent.setPackage(c2);
-                                                    }
-                                                    synchronized (wka.e) {
-                                                        if (bkaVar.a().bindService(intent, wkaVar, 1)) {
-                                                            Handler handler = wkaVar.c;
-                                                            if (handler != null) {
-                                                                handler.removeMessages(1001);
-                                                            } else {
-                                                                wkaVar.c = new Handler(Looper.getMainLooper(), new vka(wkaVar));
-                                                            }
-                                                            wkaVar.c.sendEmptyMessageDelayed(1001, 10000L);
-                                                        } else {
-                                                            wkaVar.d = true;
-                                                            wkaVar.b(8002001);
-                                                        }
-                                                    }
-                                                }
-                                            } else {
-                                                tkaVar.a(b2);
-                                            }
-                                        }
-                                    }
-                                }
+        StringBuilder sb = new StringBuilder();
+        try {
+            try {
+                r2 = new FileInputStream((File) file);
+            } catch (Throwable th) {
+                th = th;
+            }
+        } catch (FileNotFoundException e) {
+            e = e;
+            file = 0;
+            r2 = 0;
+            bufferedReader = null;
+        } catch (IOException e2) {
+            e = e2;
+            file = 0;
+            r2 = 0;
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+            r2 = 0;
+            r3 = 0;
+        }
+        try {
+            file = new BufferedInputStream(r2);
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(file));
+                while (true) {
+                    try {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        sb.append(readLine);
+                    } catch (FileNotFoundException e3) {
+                        e = e3;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException e4) {
+                                e = e4;
                             }
                         }
+                        if (file != 0) {
+                            file.close();
+                        }
+                        if (r2 != 0) {
+                            r2.close();
+                        }
+                        return null;
+                    } catch (IOException e5) {
+                        e = e5;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException e6) {
+                                e = e6;
+                            }
+                        }
+                        if (file != 0) {
+                            file.close();
+                        }
+                        if (r2 != 0) {
+                            r2.close();
+                        }
+                        return null;
+                    }
+                }
+                String sb2 = sb.toString();
+                try {
+                    bufferedReader.close();
+                    file.close();
+                    r2.close();
+                } catch (IOException e7) {
+                    if (a) {
+                        e7.printStackTrace();
+                    }
+                }
+                return sb2;
+            } catch (FileNotFoundException e8) {
+                e = e8;
+                bufferedReader = null;
+            } catch (IOException e9) {
+                e = e9;
+                bufferedReader = null;
+            } catch (Throwable th3) {
+                r3 = 0;
+                th = th3;
+                if (r3 != 0) {
+                    try {
+                        r3.close();
+                    } catch (IOException e10) {
+                        if (a) {
+                            e10.printStackTrace();
+                        }
+                        throw th;
+                    }
+                }
+                if (file != 0) {
+                    file.close();
+                }
+                if (r2 != 0) {
+                    r2.close();
+                }
+                throw th;
+            }
+        } catch (FileNotFoundException e11) {
+            e = e11;
+            file = 0;
+            bufferedReader = null;
+        } catch (IOException e12) {
+            e = e12;
+            file = 0;
+            bufferedReader = null;
+        } catch (Throwable th4) {
+            th = th4;
+            r3 = 0;
+            r2 = r2;
+            th = th;
+            file = r3;
+            if (r3 != 0) {
+            }
+            if (file != 0) {
+            }
+            if (r2 != 0) {
+            }
+            throw th;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x004d, code lost:
+        if (com.baidu.tieba.mka.a == false) goto L32;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x004f, code lost:
+        r4.printStackTrace();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x0064, code lost:
+        if (com.baidu.tieba.mka.a == false) goto L32;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean b(String str, File file) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, file)) == null) {
+            if (TextUtils.isEmpty(str) || !file.exists()) {
+                return false;
+            }
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+            } catch (IOException e2) {
+                e = e2;
+            }
+            try {
+                fileOutputStream.write(str.getBytes());
+                fileOutputStream.flush();
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e3) {
+                    if (a) {
+                        e3.printStackTrace();
                     }
                 }
                 return true;
-            } else if (i != 2) {
+            } catch (FileNotFoundException e4) {
+                e = e4;
+                fileOutputStream2 = fileOutputStream;
+                if (a) {
+                    e.printStackTrace();
+                }
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException e5) {
+                        e = e5;
+                    }
+                }
                 return false;
-            } else {
-                xka xkaVar2 = (xka) message.obj;
-                hka hkaVar2 = xkaVar2.c;
-                if (hkaVar2 != null && this.b.containsKey(hkaVar2) && (aVar = this.b.get(hkaVar2)) != null) {
-                    synchronized (aVar) {
-                        String str3 = "resolveResult apiCall " + xkaVar2.a;
-                        aVar.b.remove(xkaVar2);
-                        if (aVar.a.peek() == null || aVar.b.peek() == null) {
-                            aVar.a();
-                            aVar.f.b.remove(aVar.e);
+            } catch (IOException e6) {
+                e = e6;
+                fileOutputStream2 = fileOutputStream;
+                if (a) {
+                    e.printStackTrace();
+                }
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException e7) {
+                        e = e7;
+                    }
+                }
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException e8) {
+                        if (a) {
+                            e8.printStackTrace();
                         }
                     }
                 }
-                return true;
+                throw th;
             }
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 }

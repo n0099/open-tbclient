@@ -39,14 +39,14 @@ public class ManitoMemberItemViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.f = 3;
-        GodHeadImageView godHeadImageView = (GodHeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09110e);
+        GodHeadImageView godHeadImageView = (GodHeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091112);
         this.a = godHeadImageView;
         godHeadImageView.setShapeType(0);
         this.a.setShowType(1);
         this.a.setRadius(14);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09111c);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09111b);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09111a);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0908c1);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091120);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09111f);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09111e);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0908c3);
     }
 }

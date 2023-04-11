@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.GameData;
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface ov5 {
-    GameData i1();
+    void a(View view2);
 }

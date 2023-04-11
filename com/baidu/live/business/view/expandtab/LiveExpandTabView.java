@@ -13,8 +13,8 @@ import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.business.view.expandtab.LiveExpandTabAdapter;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i90;
-import com.baidu.tieba.o90;
+import com.baidu.tieba.j90;
+import com.baidu.tieba.p90;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.List;
 import kotlin.Metadata;
@@ -81,7 +81,7 @@ public final class LiveExpandTabView extends ConstraintLayout {
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
-            LiveExpandTabView.this.b();
+            LiveExpandTabView.this.c();
         }
     }
 
@@ -110,11 +110,11 @@ public final class LiveExpandTabView extends ConstraintLayout {
     @JvmOverloads
     public LiveExpandTabView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d057d, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d057b, (ViewGroup) this, true);
         setClickable(true);
         setDescendantFocusability(393216);
-        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0914bb);
-        setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06063a));
+        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0914be);
+        setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060639));
         setOnClickListener(new a());
     }
 
@@ -122,13 +122,13 @@ public final class LiveExpandTabView extends ConstraintLayout {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public final void d(String str) {
+    public final void e(String str) {
         RecyclerView recyclerView = this.a;
         if (recyclerView != null) {
-            o90 o90Var = o90.a;
+            p90 p90Var = p90.a;
             Context context = getContext();
             Intrinsics.checkExpressionValueIsNotNull(context, "context");
-            recyclerView.setBackgroundDrawable(o90Var.c(context, this.d));
+            recyclerView.setBackgroundDrawable(p90Var.c(context, this.d));
         }
     }
 
@@ -136,7 +136,7 @@ public final class LiveExpandTabView extends ConstraintLayout {
         this.c = bVar;
     }
 
-    public final void b() {
+    public final void c() {
         setVisibility(8);
         b bVar = this.c;
         if (bVar != null) {
@@ -144,25 +144,25 @@ public final class LiveExpandTabView extends ConstraintLayout {
         }
     }
 
-    public final void e() {
+    public final void h() {
         LiveExpandTabAdapter liveExpandTabAdapter = this.b;
         if (liveExpandTabAdapter != null) {
             liveExpandTabAdapter.notifyDataSetChanged();
         }
     }
 
-    public final void c(String str) {
+    public final void d(String str) {
         this.d = str;
         RecyclerView recyclerView = this.a;
         if (recyclerView != null) {
-            o90 o90Var = o90.a;
+            p90 p90Var = p90.a;
             Context context = recyclerView.getContext();
             Intrinsics.checkExpressionValueIsNotNull(context, "context");
-            recyclerView.setBackgroundDrawable(o90Var.c(context, str));
+            recyclerView.setBackgroundDrawable(p90Var.c(context, str));
             recyclerView.setLayoutManager(new GridLayoutManager(recyclerView.getContext(), 4));
-            recyclerView.addItemDecoration(new LiveExpandTabItemDecoration(i90.b(recyclerView.getContext(), 14.0f)));
+            recyclerView.addItemDecoration(new LiveExpandTabItemDecoration(j90.b(recyclerView.getContext(), 14.0f)));
             LiveExpandTabAdapter liveExpandTabAdapter = new LiveExpandTabAdapter(str);
-            liveExpandTabAdapter.i(new c(str));
+            liveExpandTabAdapter.p(new c(str));
             this.b = liveExpandTabAdapter;
             recyclerView.setAdapter(liveExpandTabAdapter);
         }
@@ -171,7 +171,7 @@ public final class LiveExpandTabView extends ConstraintLayout {
     public final void setTabs(List<? extends LiveTabEntity> list, int i) {
         LiveExpandTabAdapter liveExpandTabAdapter = this.b;
         if (liveExpandTabAdapter != null) {
-            liveExpandTabAdapter.k(list, i);
+            liveExpandTabAdapter.r(list, i);
         }
     }
 }

@@ -8,17 +8,19 @@ import androidx.core.util.Pair;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.ab6;
-import com.baidu.tieba.bc6;
-import com.baidu.tieba.mc6;
-import com.baidu.tieba.pc6;
-import com.baidu.tieba.pd6;
-import com.baidu.tieba.vc6;
-import com.baidu.tieba.vd6;
-import com.baidu.tieba.wc6;
-import com.baidu.tieba.xc6;
-import com.baidu.tieba.yd6;
-import com.baidu.tieba.zd6;
+import com.baidu.tieba.bd6;
+import com.baidu.tieba.cd6;
+import com.baidu.tieba.de6;
+import com.baidu.tieba.df6;
+import com.baidu.tieba.ee6;
+import com.baidu.tieba.fe6;
+import com.baidu.tieba.gc6;
+import com.baidu.tieba.id6;
+import com.baidu.tieba.if6;
+import com.baidu.tieba.jf6;
+import com.baidu.tieba.td6;
+import com.baidu.tieba.wd6;
+import com.baidu.tieba.xe6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,24 +37,24 @@ public class FetchDynamicResourceManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Set<xc6> a(Uri uri) {
+    public static Set<fe6> a(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uri)) == null) {
-            vc6 e = pc6.b().e(uri.getPath());
+            de6 f = wd6.d().f(uri);
             HashSet hashSet = null;
-            if (e == null) {
+            if (f == null) {
                 return null;
             }
-            String i = mc6.h().i(e.c);
-            if (!TextUtils.isEmpty(e.c) && !TextUtils.isEmpty(e.d) && !TextUtils.isEmpty(i)) {
-                if (vd6.a(e.a)) {
+            String n = td6.l().n(f.c);
+            if (!TextUtils.isEmpty(f.c) && !TextUtils.isEmpty(f.d) && !TextUtils.isEmpty(n)) {
+                if (df6.a(f.a)) {
                     return null;
                 }
                 hashSet = new HashSet();
-                for (xc6 xc6Var : e.a) {
-                    if (xc6Var != null && yd6.a(xc6Var.c(), TbConfig.getVersion())) {
-                        hashSet.add(xc6Var);
+                for (fe6 fe6Var : f.a) {
+                    if (fe6Var != null && if6.a(fe6Var.c(), TbConfig.getVersion())) {
+                        hashSet.add(fe6Var);
                     }
                 }
             }
@@ -61,67 +63,66 @@ public class FetchDynamicResourceManager {
         return (Set) invokeL.objValue;
     }
 
-    public static Set<xc6> b(String str) {
+    public static List<Pair<String, Long>> c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            vc6 d = wc6.c().d(zd6.c(str));
-            if (d == null || vd6.a(d.a)) {
-                return null;
-            }
-            HashSet hashSet = new HashSet();
-            for (xc6 xc6Var : d.a) {
-                if (xc6Var != null && yd6.a(xc6Var.c(), TbConfig.getVersion())) {
-                    hashSet.add(xc6Var);
-                }
-            }
-            return hashSet;
-        }
-        return (Set) invokeL.objValue;
-    }
-
-    public static List<Pair<String, Long>> c(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             if (!URLUtil.isNetworkUrl(str)) {
                 return null;
             }
             try {
                 Uri parse = Uri.parse(str);
-                Set<xc6> a = a(parse);
-                if (vd6.a(a)) {
+                Set<fe6> a = a(parse);
+                if (df6.a(a)) {
                     a = b(str);
                 }
-                if (!vd6.a(a)) {
-                    return d(a, ab6.a(parse, map));
+                if (!df6.a(a)) {
+                    return d(a, gc6.a(parse));
                 }
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            pd6.b("lt-log", "fetch url 准备耗时：" + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+            xe6.b("lt-log", "fetch url 准备耗时：" + (System.currentTimeMillis() - currentTimeMillis) + " ms");
             return null;
         }
-        return (List) invokeLL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public static List<Pair<String, Long>> d(@NonNull Set<xc6> set, @NonNull Map<String, String> map) {
+    public static Set<fe6> b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            de6 d = ee6.c().d(jf6.c(str));
+            if (d == null || df6.a(d.a)) {
+                return null;
+            }
+            HashSet hashSet = new HashSet();
+            for (fe6 fe6Var : d.a) {
+                if (fe6Var != null && if6.a(fe6Var.c(), TbConfig.getVersion())) {
+                    hashSet.add(fe6Var);
+                }
+            }
+            return hashSet;
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    public static List<Pair<String, Long>> d(@NonNull Set<fe6> set, @NonNull Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, set, map)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (xc6 xc6Var : set) {
-                if (xc6Var.e()) {
-                    String d = xc6Var.d();
+            for (fe6 fe6Var : set) {
+                if (fe6Var.e()) {
+                    String d = fe6Var.d();
                     Uri parse = Uri.parse(d);
                     for (String str : parse.getQueryParameterNames()) {
                         String queryParameter = parse.getQueryParameter(str);
                         if (!TextUtils.isEmpty(queryParameter) && queryParameter.startsWith("{") && queryParameter.endsWith("}")) {
-                            d = d.replace(queryParameter, ab6.c(map, queryParameter));
+                            d = d.replace(queryParameter, gc6.c(map, queryParameter));
                         }
                     }
-                    pd6.b("lt-log", "fetch request:" + d);
                     HashMap<String, String> hashMap = new HashMap<String, String>() { // from class: com.baidu.tieba.browser.core.cache.prefetch.FetchDynamicResourceManager.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -142,13 +143,16 @@ public class FetchDynamicResourceManager {
                             put("tieba-response-via", PrefetchEvent.MODULE);
                         }
                     };
-                    Map<String, String> b = xc6Var.b();
-                    if (!vd6.b(b)) {
+                    Map<String, String> b = fe6Var.b();
+                    if (!df6.b(b)) {
                         for (String str2 : b.keySet()) {
-                            hashMap.put(str2, ab6.d(map, b.get(str2)));
+                            hashMap.put(str2, gc6.d(map, b.get(str2)));
                         }
                     }
-                    bc6.g().f(d, hashMap);
+                    if (!bd6.a().contains(d) && !cd6.b().c(d)) {
+                        xe6.b("lt-log", "fetch request:" + d);
+                        id6.g().f(d, hashMap);
+                    }
                     arrayList.add(Pair.create(parse.getPath(), Long.valueOf(System.currentTimeMillis())));
                 }
             }

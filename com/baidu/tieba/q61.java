@@ -1,381 +1,314 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.nadcore.webpanel.PanelScrollView;
 import com.baidu.nadcore.webpanel.model.AdData;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class q61 extends r61 {
+public class q61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final String d;
-    public final Object e;
-    public n61 f;
-    public j61 g;
-    public p61 h;
-    public boolean i;
-    public final s61 j;
+    public String a;
+    public double b;
+    public int c;
+    public String d;
+    public AdData e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public boolean j;
+    public boolean k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public boolean q;
+    public boolean r;
+    public boolean s;
+    public boolean t;
+    public boolean u;
 
-    /* loaded from: classes5.dex */
-    public static final class a extends ql0<r51> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q61 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(q61 q61Var, Class cls) {
-            super(cls);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q61Var, cls};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Class) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = q61Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ql0
-        public void onEvent(r51 event) {
-            AbsNadBrowserView m;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
-                Intrinsics.checkNotNullParameter(event, "event");
-                if (!TextUtils.isEmpty(event.a()) && (m = this.b.j.m()) != null) {
-                    AbsNadBrowserView.B(m, event.a(), null, 2, null);
-                }
-            }
-        }
-    }
-
-    public q61(s61 container) {
+    public q61(String str, double d, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {container};
+            Object[] objArr = {str, Double.valueOf(d), Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(container, "container");
-        this.j = container;
-        this.a = "bdmedialive://bdmedialive/common/closeWebview";
-        this.b = "bdmedialive://bdmedialive/common/panelSwitchHalfScreen";
-        this.c = "bdmedialive://bdmedialive/common/panelSwitchFullScreen";
-        this.d = "nadcorevendor://vendor/ad/webPanelControl";
-        this.e = new Object();
+        this.j = false;
+        this.k = true;
+        this.l = false;
+        this.m = false;
+        this.n = true;
+        this.o = false;
+        this.p = false;
+        this.q = false;
+        this.r = false;
+        this.s = false;
+        this.t = false;
+        this.u = false;
+        this.a = str;
+        this.b = d;
+        this.c = i;
+        this.d = str2;
     }
 
-    public final void l(int i) {
-        LinearLayout e;
+    public void A(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (e = this.j.e()) != null) {
-            ViewGroup.LayoutParams layoutParams = e.getLayoutParams();
-            layoutParams.height = i;
-            e.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.n = z;
         }
     }
 
-    public final void n(boolean z) {
+    public void B(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.i = z;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.q = z;
         }
     }
 
-    public final void o(j61 helper) {
+    public void C(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, helper) == null) {
-            Intrinsics.checkNotNullParameter(helper, "helper");
-            this.g = helper;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.p = z;
         }
     }
 
-    public final void p(n61 n61Var) {
+    public void v(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, n61Var) == null) {
-            this.f = n61Var;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            this.h = str;
         }
     }
 
-    public final void q(p61 p61Var) {
+    public void w(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, p61Var) == null) {
-            this.h = p61Var;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            this.s = z;
         }
     }
 
-    @Override // com.baidu.tieba.r61
-    public boolean c(t61 container, String url) {
-        InterceptResult invokeLL;
+    public void x(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, container, url)) == null) {
-            Intrinsics.checkNotNullParameter(container, "container");
-            Intrinsics.checkNotNullParameter(url, "url");
-            if (TextUtils.isEmpty(url)) {
-                return false;
-            }
-            if (TextUtils.equals(this.a, url)) {
-                g();
-                return true;
-            } else if (TextUtils.equals(this.b, url)) {
-                s();
-                return true;
-            } else if (TextUtils.equals(this.c, url)) {
-                r();
-                return true;
-            } else if (!StringsKt__StringsJVMKt.startsWith$default(url, this.d, false, 2, null)) {
-                return false;
-            } else {
-                return f(new vh0(url));
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void i(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            AbsNadBrowserView m = this.j.m();
-            if (z) {
-                if (i == 1) {
-                    if (m != null) {
-                        AbsNadBrowserView.B(m, "javascript:window.onDxdInvoke({'key':'1','value':'start'})", null, 2, null);
-                    }
-                } else if (i == 2 && m != null) {
-                    AbsNadBrowserView.B(m, "javascript:window.onDxdInvoke({'key':'2','value':'start'})", null, 2, null);
-                }
-            } else if (i == 1) {
-                if (m != null) {
-                    AbsNadBrowserView.B(m, "javascript:window.onDxdInvoke({'key':'1','value':'end'})", null, 2, null);
-                }
-            } else if (i == 2) {
-                e61.a.a(true);
-                if (m != null) {
-                    AbsNadBrowserView.B(m, "javascript:window.onDxdInvoke({'key':'2','value':'end'})", null, 2, null);
-                }
-            }
+        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+            this.t = z;
         }
     }
 
-    @Override // com.baidu.tieba.r61
-    public void d(t61 container, String url) {
+    public void y(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container, url) == null) {
-            Intrinsics.checkNotNullParameter(container, "container");
-            Intrinsics.checkNotNullParameter(url, "url");
-            AbsNadBrowserView m = container.m();
-            if (m != null) {
-                AbsNadBrowserView.B(m, "javascript:window.onDxdInvoke({'key':'0'})", null, 2, null);
-            }
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+            this.u = z;
         }
     }
 
-    public final boolean f(vh0 vh0Var) {
-        InterceptResult invokeL;
-        boolean z;
-        j61 j61Var;
-        j61 j61Var2;
-        j61 j61Var3;
-        j61 j61Var4;
+    public void z(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vh0Var)) == null) {
-            HashMap<String, String> d = vh0Var.d();
-            Intrinsics.checkNotNullExpressionValue(d, "model.params");
-            String str = (String) w01.b(d, "params");
-            if (TextUtils.isEmpty(str)) {
-                return true;
-            }
-            JSONObject c = v01.c(str);
-            Intrinsics.checkNotNullExpressionValue(c, "JSONUtils.newJSONObject(paramsJson)");
-            String optString = c.optString("type");
-            if (c.optInt(PackageTable.DISABLE, 0) == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (optString != null) {
-                switch (optString.hashCode()) {
-                    case -2119262164:
-                        if (optString.equals("slideUp") && (j61Var = this.g) != null) {
-                            j61Var.j(z);
-                            break;
-                        }
-                        break;
-                    case -796944909:
-                        if (optString.equals("slideDown") && (j61Var2 = this.g) != null) {
-                            j61Var2.i(z);
-                            break;
-                        }
-                        break;
-                    case -102095252:
-                        if (optString.equals("slideControl") && (j61Var3 = this.g) != null) {
-                            j61Var3.h(z);
-                            break;
-                        }
-                        break;
-                    case 1538155302:
-                        if (optString.equals("topAreaClick") && (j61Var4 = this.g) != null) {
-                            j61Var4.k(z);
-                            break;
-                        }
-                        break;
-                }
-            }
-            String str2 = (String) w01.b(d, WebChromeClient.KEY_ARG_CALLBACK);
-            if (!TextUtils.isEmpty(str2)) {
-                Map<String, String> v = ei0.v(optString, c.optInt(PackageTable.DISABLE, 0));
-                w01.e(v, WebChromeClient.KEY_ARG_CALLBACK, str2);
-                AbsNadBrowserView m = this.j.m();
-                if (m != null) {
-                    AbsNadBrowserView.B(m, ei0.p(v), null, 2, null);
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void g() {
-        n61 n61Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (n61Var = this.f) != null) {
-            n61Var.a(1);
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.b = d;
         }
     }
 
-    public final boolean h() {
+    public AdData a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (AdData) invokeV.objValue;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public double e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.k;
         }
         return invokeV.booleanValue;
     }
 
-    public final void j() {
-        AbsNadBrowserView m;
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (m = this.j.m()) != null) {
-            AbsNadBrowserView.B(m, "javascript:window.onDxdInvoke({'key':'3'})", null, 2, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.m;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void k() {
+    public boolean l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ml0.a().c(this.e, 1, new a(this, r51.class));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.s;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void t() {
+    public boolean m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            ml0.a().unregister(this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.t;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void m(int i) {
-        LinearLayout e;
+    public boolean n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (e = this.j.e()) != null && (e.getLayoutParams() instanceof FrameLayout.LayoutParams)) {
-            ViewGroup.LayoutParams layoutParams = e.getLayoutParams();
-            if (layoutParams != null) {
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-                layoutParams2.topMargin = i;
-                e.setLayoutParams(layoutParams2);
-                return;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type android.widget.FrameLayout.LayoutParams");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.u;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void r() {
-        AdData adData;
+    public boolean o() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            j61 j61Var = this.g;
-            if (j61Var != null) {
-                l(j61Var.f() + PanelScrollView.A);
-                m(0);
-                ol0 a2 = ml0.a();
-                p61 p61Var = this.h;
-                if (p61Var != null) {
-                    adData = p61Var.a();
-                } else {
-                    adData = null;
-                }
-                a2.a(new k61(3, adData));
-                this.i = true;
-            }
-            p61 p61Var2 = this.h;
-            if (p61Var2 != null) {
-                v61.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, p61Var2.c());
-            }
-            e61.a.a(true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.l;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void s() {
-        AdData adData;
+    public boolean p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            j61 j61Var = this.g;
-            if (j61Var != null) {
-                l((j61Var.f() - j61Var.e()) + PanelScrollView.A);
-                m(j61Var.e());
-                ol0 a2 = ml0.a();
-                p61 p61Var = this.h;
-                if (p61Var != null) {
-                    adData = p61Var.a();
-                } else {
-                    adData = null;
-                }
-                a2.a(new k61(4, adData));
-                this.i = true;
-            }
-            p61 p61Var2 = this.h;
-            if (p61Var2 != null) {
-                v61.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", "down", p61Var2.c());
-            }
-            e61.a.a(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return this.n;
         }
+        return invokeV.booleanValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return this.q;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return this.r;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.p;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return this.o;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.j;
+        }
+        return invokeV.booleanValue;
     }
 }

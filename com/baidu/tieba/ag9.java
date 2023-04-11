@@ -1,58 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ag9 extends CustomMessageListener {
+public class ag9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile zf9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag9(MainTabActivity mainTabActivity, se9 se9Var) {
-        super(2921666);
+    public static synchronized zf9 a() {
+        InterceptResult invokeV;
+        zf9 zf9Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, se9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ag9.class) {
+                if (a == null) {
+                    a = new zf9();
+                }
+                zf9Var = a;
             }
+            return zf9Var;
         }
-        this.a = mainTabActivity;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            TbSingleton.isAppInBackground = booleanValue;
-            if (booleanValue) {
-                MainTabActivity mainTabActivity = this.a;
-                mainTabActivity.J = 0;
-                mainTabActivity.K = System.currentTimeMillis();
-                TbSingleton.getInstance();
-                TbSingleton.setExceptInsertAdDiaShow(false);
-                z18.o = false;
-                z18.p = false;
-                return;
-            }
-            lq5.a(2);
-        }
+        return (zf9) invokeV.objValue;
     }
 }

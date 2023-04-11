@@ -1,183 +1,278 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.annotation.Nullable;
+import android.graphics.SurfaceTexture;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.oga;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigKs;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsAdSDK;
-import com.kwad.sdk.api.KsFullScreenVideoAd;
-import com.kwad.sdk.api.KsLoadManager;
-import com.kwad.sdk.api.KsScene;
-import java.util.List;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class kga extends gga<KsFullScreenVideoAd> {
+public class kga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public float e;
+    public float f;
+    public oga g;
+    public oga.f h;
+    public oga.b i;
+    public oga.e j;
+    public uga k;
+    public String l;
+    public int m;
+    public SurfaceTexture n;
+    public int o;
+    public int p;
+    public vga q;
+    public boolean r;
+    public boolean s;
+    public int t;
+    public int u;
+    public boolean v;
 
-    /* loaded from: classes5.dex */
-    public class a implements KsLoadManager.FullScreenVideoAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kga a;
-
-        public a(kga kgaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kgaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kgaVar;
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
-        public void onFullScreenVideoAdLoad(@Nullable List<KsFullScreenVideoAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.d();
-                if (list == null || list.isEmpty()) {
-                    LogPrinter.e("onNativeAdLoad error: adList is null or empty", new Object[0]);
-                    this.a.onError(0, "NoFill");
-                    return;
-                }
-                this.a.onAdLoaded((kga) list.get(0));
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
-        public void onFullScreenVideoResult(@Nullable List<KsFullScreenVideoAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-                LogPrinter.d();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kga(Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.FULL_SCREEN), pid, moduleConfigKs);
+    public kga() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid, moduleConfigKs};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigKs) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = RecordConstants.VIDEO_CONSTANT_WIDTH;
+        this.b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+        this.c = RecordConstants.DEFAULT_BIT_RATE_GTE_API18;
+        this.d = 1;
+        this.e = 1.0f;
+        this.f = 0.0f;
+        this.p = -100;
+        this.s = false;
+        this.t = 10000;
+        this.u = 30;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new dha(pid) : (AdRipper) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            oga ogaVar = this.g;
+            if (ogaVar != null) {
+                ogaVar.c();
+                this.g.l(null);
+            }
+            return this.l;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
+    public void b(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            KsFullScreenVideoAd ksFullScreenVideoAd = (KsFullScreenVideoAd) obj;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            this.f = f;
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, funAdSlot) == null) {
-            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(1).build();
-            onLoadStart(funAdSlot);
-            KsAdSDK.getLoadManager().loadFullScreenVideoAd(build, new a(this));
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.o = i;
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
-        InterceptResult invokeL;
+    public void d(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            return ((KsFullScreenVideoAd) obj).getECPM() / 100.0d;
+        if (!(interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) || i <= 0 || i2 <= 0) {
+            return;
         }
-        return invokeL.doubleValue;
+        if (this.o <= 0) {
+            this.o = RecordConstants.VIDEO_CONSTANT_WIDTH;
+        }
+        this.a = i;
+        this.b = i2;
+        if (i2 > i) {
+            int i3 = this.o;
+            i2 = ((i2 * i3) / i) - (((i3 * i2) / i) % 16);
+            i = i3;
+        } else if (i2 < i) {
+            int i4 = this.o;
+            i = ((i * i4) / i2) - (((i4 * i) / i2) % 16);
+            i2 = i4;
+        }
+        this.a = i;
+        this.b = i2;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean isAdAvailable(Object obj) {
-        InterceptResult invokeL;
+    public void e(SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            KsFullScreenVideoAd ksFullScreenVideoAd = (KsFullScreenVideoAd) obj;
-            if (ksFullScreenVideoAd != null && ksFullScreenVideoAd.isAdEnable()) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048580, this, surfaceTexture) == null) {
+            this.n = surfaceTexture;
+        }
+    }
+
+    public void f(oga.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.i = bVar;
+        }
+    }
+
+    public void g(oga.e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
+            this.j = eVar;
+        }
+    }
+
+    public void h(uga ugaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ugaVar) == null) {
+            this.k = ugaVar;
+        }
+    }
+
+    public void i(vga vgaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vgaVar) == null) {
+            this.q = vgaVar;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.l = str;
+            try {
+                oga ogaVar = new oga();
+                this.g = ogaVar;
+                ogaVar.d(this.e);
+                this.g.B(this.p);
+                if (this.f != 0.0f) {
+                    this.g.A(this.f);
+                }
+                this.g.l(this.h);
+                this.g.i(this.i);
+                this.g.k(this.j);
+                this.g.r(this.q);
+                this.g.E(this.r);
+                this.g.I(this.s);
+                this.g.s(this.v);
+            } catch (Throwable th) {
+                dha.c("VideoRecorder", th.toString());
+            }
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.v = z;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.r = z;
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.m++;
+            try {
+                if (this.g != null && this.g.u(2)) {
+                    File file = new File(this.l);
+                    if (!file.getParentFile().exists()) {
+                        file.getParentFile().mkdirs();
+                    }
+                    if (this.f == 90.0f || this.f == 270.0f) {
+                        int i = this.a;
+                        this.a = this.b;
+                        this.b = i;
+                    }
+                    this.g.j(new oga.d(file, this.a, this.b, this.c, this.u, null, this.n.getTimestamp(), this.t));
+                }
+                if (this.g == null || this.m % this.d != 0 || this.k == null) {
+                    return;
+                }
+                this.k.a(this.g, this.n);
+            } catch (Throwable th) {
+                dha.c("VideoRecorder", th.toString());
+            }
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.u = i;
+        }
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.s = z;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.t = i;
+        }
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            oga ogaVar = this.g;
+            if (ogaVar != null) {
+                return ogaVar.u(1);
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
+    public void s(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            KsFullScreenVideoAd ksFullScreenVideoAd = (KsFullScreenVideoAd) obj;
-            if (z) {
-                ksFullScreenVideoAd.setBidEcpm((int) (d2 * 100.0d));
-            }
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.p = i;
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public void t(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, activity, viewGroup, str, obj)) == null) {
-            KsFullScreenVideoAd ksFullScreenVideoAd = (KsFullScreenVideoAd) obj;
-            if (!ksFullScreenVideoAd.isAdEnable()) {
-                LogPrinter.e("Ad isn't ready now.", new Object[0]);
-                return false;
+        if (interceptable == null || interceptable.invokeF(1048595, this, f) == null) {
+            this.e = f;
+            if (Math.abs(f - 3.0f) < 0.01f) {
+                this.d = 2;
+                return;
             }
-            onShowStart(ksFullScreenVideoAd);
-            ksFullScreenVideoAd.setFullScreenVideoAdInteractionListener(new lga(this, ksFullScreenVideoAd));
-            ksFullScreenVideoAd.showFullScreenVideoAd(activity, e());
-            return true;
+            int i = (Math.abs(this.e - 2.0f) > 0.01f ? 1 : (Math.abs(this.e - 2.0f) == 0.01f ? 0 : -1));
+            this.d = 1;
         }
-        return invokeLLLL.booleanValue;
     }
 }

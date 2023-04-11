@@ -10,10 +10,10 @@ import com.baidu.tbadk.img.UploadedImageInfo;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.faceshop.CollectEmotionData;
 import com.baidu.tieba.faceshop.DiyEmotionData;
-import com.baidu.tieba.ne5;
-import com.baidu.tieba.oe8;
-import com.baidu.tieba.oi;
-import com.baidu.tieba.re8;
+import com.baidu.tieba.fp8;
+import com.baidu.tieba.ip8;
+import com.baidu.tieba.pi;
+import com.baidu.tieba.rf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,11 +63,11 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
-                oe8.a("【表情云同步】：2 - 开始：解析请求返回数据");
+                fp8.a("【表情云同步】：2 - 开始：解析请求返回数据");
                 parseData(jSONObject.optJSONObject("data"));
                 return;
             }
-            oe8.a("【表情云同步】：2 - 失败：返回数据异常，网络异常");
+            fp8.a("【表情云同步】：2 - 失败：返回数据异常，网络异常");
         }
     }
 
@@ -129,10 +129,10 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, jSONArray) == null) {
             if (jSONArray == null) {
-                oe8.a("【表情云同步】：2 - 开始：解析收藏表情数据为null");
+                fp8.a("【表情云同步】：2 - 开始：解析收藏表情数据为null");
                 return;
             }
-            oe8.a("【表情云同步】：2 - 开始：解析收藏表情");
+            fp8.a("【表情云同步】：2 - 开始：解析收藏表情");
             this.mCollectEmotionList = new ArrayList();
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
@@ -146,7 +146,7 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
                         collectEmotionData.thumbnail = jSONObject.optString("thumbnail");
                         collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
                         collectEmotionData.pkgId = jSONObject.optString("pck_id");
-                        StringBuilder sb = new StringBuilder(ne5.h);
+                        StringBuilder sb = new StringBuilder(rf5.h);
                         if (TextUtils.isEmpty(collectEmotionData.pkgId)) {
                             sb.append(collectEmotionData.pkgId);
                             sb.append(",");
@@ -160,9 +160,9 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
                         sb.append(",");
                         sb.append(collectEmotionData.height);
                         sb.append(",");
-                        String lowerCase = oi.c(sb.toString().replace("collect_", "") + UploadedImageInfo.MD5_KEY).toLowerCase();
+                        String lowerCase = pi.c(sb.toString().replace("collect_", "") + UploadedImageInfo.MD5_KEY).toLowerCase();
                         collectEmotionData.setSharpText(SmallTailInfo.EMOTION_PREFIX + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX);
-                        oe8.a("【表情云同步】：2 - 开始：解析收藏表情：" + i + "-" + collectEmotionData.picUrl);
+                        fp8.a("【表情云同步】：2 - 开始：解析收藏表情：" + i + "-" + collectEmotionData.picUrl);
                         this.mCollectEmotionList.add(collectEmotionData);
                     }
                 } catch (JSONException e) {
@@ -176,27 +176,27 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
             if (jSONObject == null) {
-                oe8.a("【表情云同步】：2 - 失败：返回数据异常，数据为null");
+                fp8.a("【表情云同步】：2 - 失败：返回数据异常，数据为null");
                 return;
             }
             this.mCollectUpdateTime = jSONObject.optLong("pic_update_time");
             this.mDiyUpdateTime = jSONObject.optLong("diy_pic_update_time");
-            if (re8.l() < this.mCollectUpdateTime) {
+            if (ip8.l() < this.mCollectUpdateTime) {
                 parseCollectData(jSONObject.optJSONArray("pic_ids"));
             } else {
-                oe8.a("【表情云同步】：2 - 开始：不需要解析收藏表情，" + this.mCollectUpdateTime);
+                fp8.a("【表情云同步】：2 - 开始：不需要解析收藏表情，" + this.mCollectUpdateTime);
             }
-            if (re8.m() < this.mDiyUpdateTime) {
+            if (ip8.m() < this.mDiyUpdateTime) {
                 parseDiyData(jSONObject.optJSONArray("diy_pic_ids"));
             } else {
-                oe8.a("【表情云同步】：2 - 开始：不需要解析diy表情，" + this.mCollectUpdateTime);
+                fp8.a("【表情云同步】：2 - 开始：不需要解析diy表情，" + this.mCollectUpdateTime);
             }
             this.mFaceGroupUpdateTime = jSONObject.optLong("pkg_update_time");
-            if (re8.n() < this.mFaceGroupUpdateTime) {
+            if (ip8.n() < this.mFaceGroupUpdateTime) {
                 parseFaceGroupData(jSONObject.optString("package_ids"));
                 return;
             }
-            oe8.a("【表情云同步】：2 - 开始：不需要解析表情包组，" + this.mFaceGroupUpdateTime);
+            fp8.a("【表情云同步】：2 - 开始：不需要解析表情包组，" + this.mFaceGroupUpdateTime);
         }
     }
 
@@ -204,10 +204,10 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jSONArray) == null) {
             if (jSONArray == null) {
-                oe8.a("【表情云同步】：2 - 开始：解析DIY表情数据为null");
+                fp8.a("【表情云同步】：2 - 开始：解析DIY表情数据为null");
                 return;
             }
-            oe8.a("【表情云同步】：2 - 开始：解析DIY表情");
+            fp8.a("【表情云同步】：2 - 开始：解析DIY表情");
             this.mDiyEmotionList = new ArrayList();
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
@@ -235,9 +235,9 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
                         sb.append(",");
                         sb.append(diyEmotionData.getHeight());
                         sb.append(",");
-                        String lowerCase = oi.c(sb.toString().replace("diy_", "") + UploadedImageInfo.MD5_KEY).toLowerCase();
+                        String lowerCase = pi.c(sb.toString().replace("diy_", "") + UploadedImageInfo.MD5_KEY).toLowerCase();
                         diyEmotionData.setSharpText(SmallTailInfo.EMOTION_PREFIX + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX);
-                        oe8.a("【表情云同步】：2 - 开始：解析DIY表情：" + i + "-" + diyEmotionData.getPicUrl());
+                        fp8.a("【表情云同步】：2 - 开始：解析DIY表情：" + i + "-" + diyEmotionData.getPicUrl());
                         this.mDiyEmotionList.add(diyEmotionData);
                     }
                 } catch (JSONException e) {
@@ -250,7 +250,7 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
     public void parseFaceGroupData(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            oe8.a("【表情云同步】：2 - 开始：解析表情包组，" + str);
+            fp8.a("【表情云同步】：2 - 开始：解析表情包组，" + str);
             this.mFaceGroupData = Arrays.asList(str.split("_"));
         }
     }

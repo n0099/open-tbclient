@@ -1,75 +1,69 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.common.util.CommonParam;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Singleton
-@Service
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class o16 implements jt3 {
+public class o16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public o16() {
+    public static String a(Context context, AdInfo adInfo) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, adInfo)) == null) {
+            if (adInfo != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("placeId", adInfo.placeId);
+                    jSONObject.put(com.heytap.mcssdk.constant.b.C, "1.1.4");
+                    jSONObject.put("adType", adInfo.adShowType.getValue());
+                    if (TextUtils.isEmpty(adInfo.redirectUrl)) {
+                        jSONObject.put("landingPage", adInfo.downLoadUrl);
+                    } else {
+                        jSONObject.put("landingPage", adInfo.redirectUrl);
+                    }
+                    jSONObject.put("showStamp", String.valueOf(System.currentTimeMillis()));
+                    jSONObject.put("packageName", adInfo.packageName);
+                    jSONObject.put("finalPrice", adInfo.finalPrice);
+                    jSONObject.put("chargingMode", adInfo.chargingMode);
+                    jSONObject.put("token", adInfo.token);
+                    jSONObject.put("adpUserId", adInfo.adpUserId);
+                    jSONObject.put("bdId", CommonParam.getCUID(context));
+                    jSONObject.put("unitId", adInfo.unitId);
+                    jSONObject.put("planId", adInfo.planId);
+                    jSONObject.put("ideaId", adInfo.ideaId);
+                    jSONObject.put("ideaType", adInfo.sourceType);
+                    jSONObject.put("s", "0");
+                    return jSONObject.toString();
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    return "";
+                }
+            }
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.e(e);
+                return null;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.lt3
-    public void a(q83 q83Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, q83Var) == null) && q83Var != null) {
-            q83Var.b(new q16(q83Var));
-            q83Var.b(new j16(q83Var));
-            q83Var.b(new jp3(q83Var));
-            q83Var.b(new lp3(q83Var));
-            q83Var.b(new np3(q83Var));
-            q83Var.b(new ha3(q83Var));
-            q83Var.b(new ia3(q83Var));
-            q83Var.b(new ic3(q83Var));
-            q83Var.b(new op3(q83Var));
-            q83Var.b(new lu1(q83Var));
-            q83Var.b(new n16(q83Var));
-        }
-    }
-
-    @Override // com.baidu.tieba.lt3
-    @Nullable
-    public Map<String, Object> b(@NonNull uv1 uv1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uv1Var)) == null) {
-            return SwanApi$$ModulesProvider.getV8ApiModules(uv1Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lt3
-    @Nullable
-    public Map<String, Object> c(@NonNull uv1 uv1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uv1Var)) == null) {
-            return SwanApi$$ModulesProvider.getWebviewApiModules(uv1Var);
-        }
-        return (Map) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

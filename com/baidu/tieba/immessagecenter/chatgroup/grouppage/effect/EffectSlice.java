@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.dialog.yun.YunTask;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.FallingData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a15;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatEggRainData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.sv7;
-import com.baidu.tieba.x05;
+import com.baidu.tieba.o58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class EffectSlice extends Slice {
     @NonNull
     public final FallingSlice j;
     @NonNull
-    public final x05 k;
+    public final a15 k;
     public b l;
     @Nullable
     public ChatRoomDetail m;
@@ -76,7 +76,7 @@ public class EffectSlice extends Slice {
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.i.j.Q(this.i.L(this.e, this.f), this.g, this.h, this);
+                this.i.j.X(this.i.U(this.e, this.f), this.g, this.h, this);
             }
         }
     }
@@ -114,7 +114,7 @@ public class EffectSlice extends Slice {
     }
 
     /* loaded from: classes4.dex */
-    public static abstract class c extends YunTask implements sv7 {
+    public static abstract class c extends YunTask implements o58 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -132,7 +132,7 @@ public class EffectSlice extends Slice {
             }
         }
 
-        @Override // com.baidu.tieba.sv7
+        @Override // com.baidu.tieba.o58
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -160,49 +160,60 @@ public class EffectSlice extends Slice {
                 return;
             }
         }
-        this.k = new x05(YunDialogDataManager.j().l());
+        this.k = new a15(YunDialogDataManager.j().l());
         this.j = new FallingSlice(tbPageContext);
     }
 
-    public void Q(ChatRoomDetail chatRoomDetail) {
+    public void X(ChatRoomDetail chatRoomDetail) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, chatRoomDetail) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, chatRoomDetail) == null) {
             this.m = chatRoomDetail;
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void E(@Nullable View view2, @Nullable Bundle bundle) {
+    @Nullable
+    public View I(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, bundle) == null) {
-            super.E(view2, bundle);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0834, viewGroup, false);
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.immessagecenter.slice.Slice
+    public void P(@Nullable View view2, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
+            super.P(view2, bundle);
             if (view2 != null) {
                 this.l = b.a(view2);
             }
-            J();
+            T();
         }
     }
 
     @NonNull
-    public FallingData L(ChatEggRainData.EggRain eggRain, int i) {
+    public FallingData U(ChatEggRainData.EggRain eggRain, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, eggRain, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, eggRain, i)) == null) {
             return new FallingData(eggRain.getPic(), eggRain.getPicClick(), eggRain.getJumpLink(), eggRain.getTitle(), i, eggRain.getAffectContent());
         }
         return (FallingData) invokeLI.objValue;
     }
 
-    public final void J() {
+    public final void T() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            e((ViewGroup) this.l.a, this.j);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            t((ViewGroup) this.l.a, this.j);
         }
     }
 
-    public void O(@NonNull ChatEggRainData.EggRain eggRain, int i, long j, boolean z) {
+    public void V(@NonNull ChatEggRainData.EggRain eggRain, int i, long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{eggRain, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{eggRain, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             a aVar = new a(this, eggRain, i, j, z);
             aVar.j(eggRain.getAffectContent());
             aVar.k(eggRain.getWeight());
@@ -211,30 +222,19 @@ public class EffectSlice extends Slice {
         }
     }
 
-    public void P(@NonNull String str, long j, boolean z) {
+    public void W(@NonNull String str, long j, boolean z) {
         ChatRoomDetail chatRoomDetail;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j), Boolean.valueOf(z)}) == null) && (chatRoomDetail = this.m) != null && chatRoomDetail.getGroupChatResource() != null && this.m.getGroupChatResource().getEggRainData() != null && this.m.getGroupChatResource().getEggRainData().getEggRainList() != null && this.m.getChatConf() != null && !ListUtils.isEmpty(this.m.getGroupChatResource().getEggRainData().getEggRainList())) {
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), Boolean.valueOf(z)}) == null) && (chatRoomDetail = this.m) != null && chatRoomDetail.getGroupChatResource() != null && this.m.getGroupChatResource().getEggRainData() != null && this.m.getGroupChatResource().getEggRainData().getEggRainList() != null && this.m.getChatConf() != null && !ListUtils.isEmpty(this.m.getGroupChatResource().getEggRainData().getEggRainList())) {
             int resourceMaxTimeDelay = this.m.getChatConf().getResourceMaxTimeDelay() * 1000;
             List<ChatEggRainData.EggRain> eggRainList = this.m.getGroupChatResource().getEggRainData().getEggRainList();
             for (int i = 0; i < eggRainList.size(); i++) {
                 ChatEggRainData.EggRain eggRain = eggRainList.get(i);
                 if (eggRain != null && !StringUtils.isNull(eggRain.getAffectContent()) && !StringUtils.isNull(eggRain.getPic()) && str.contains(eggRain.getAffectContent()) && eggRain.getCanUse()) {
-                    O(eggRain, resourceMaxTimeDelay, j, z);
+                    V(eggRain, resourceMaxTimeDelay, j, z);
                     return;
                 }
             }
         }
-    }
-
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    @Nullable
-    public View u(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d083b, viewGroup, false);
-        }
-        return (View) invokeLLL.objValue;
     }
 }

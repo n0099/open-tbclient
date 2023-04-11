@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TtlController {
     public static final int ACTIVE_THRESHOLD = 5;
     public static final int ENABLE_EXPIRED_THRESHOLD = 7;

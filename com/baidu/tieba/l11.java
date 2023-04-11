@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.nadcore.net.request.Headers;
+import com.baidu.nadcore.net.request.BodyStyle;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
@@ -14,23 +14,18 @@ public class l11 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a extends ir0<String> {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m11 a;
+        public final /* synthetic */ r11 a;
+        public final /* synthetic */ ir0 b;
 
-        public String f(Headers headers, String str, int i) throws Exception {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
-        }
-
-        public a(m11 m11Var) {
+        public a(r11 r11Var, ir0 ir0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m11Var};
+                Object[] objArr = {r11Var, ir0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,68 +35,64 @@ public class l11 {
                     return;
                 }
             }
-            this.a = m11Var;
+            this.a = r11Var;
+            this.b = ir0Var;
         }
 
-        @Override // com.baidu.tieba.gr0
-        public void a(Exception exc, int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && this.a.c()) {
-                k11.b(this.a.a(i, exc.getMessage()));
-            }
-        }
-
-        @Override // com.baidu.tieba.hr0
-        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
-            f(headers, str, i);
-            return str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hr0
-        /* renamed from: e */
-        public void b(Headers headers, String str, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) && this.a.c()) {
-                k11.b(this.a.a(i, "success"));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                l11.d(this.a, this.b);
             }
         }
     }
 
-    public static void a(@Nullable m11 m11Var) {
-        l31 l31Var;
+    public static <T> void c(@NonNull r11 r11Var, @Nullable ir0<T> ir0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, m11Var) == null) && m11Var != null && !TextUtils.isEmpty(m11Var.d())) {
-            pr0 pr0Var = new pr0();
-            pr0Var.l(m11Var.d());
-            pr0Var.g(3000);
-            pr0Var.c();
-            if (!TextUtils.isEmpty(m11Var.e)) {
-                pr0Var.d("User-Agent", m11Var.e);
+        if (interceptable == null || interceptable.invokeLL(65538, null, r11Var, ir0Var) == null) {
+            r11Var.a();
+            m21.c(new a(r11Var, ir0Var), "als_async_executor", 2);
+        }
+    }
+
+    public static void b(@NonNull r11 r11Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, r11Var) == null) {
+            c(r11Var, null);
+        }
+    }
+
+    public static <T> void d(r11 r11Var, @Nullable ir0<T> ir0Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, r11Var, ir0Var) == null) && r11Var != null && r11Var.isValid()) {
+            String r11Var2 = r11Var.toString();
+            if (r11Var instanceof ClogBuilder) {
+                if (tf0.a) {
+                    str = "http://x1250658afd00.als.nativeads-afd.otp.baidu.com/clog/clog";
+                } else {
+                    str = "https://als.baidu.com/clog/clog";
+                }
+            } else if (r11Var instanceof s11) {
+                if (tf0.a) {
+                    str = "http://x1250658afd00.als.nativeads-afd.otp.baidu.com/elog/plog";
+                } else {
+                    str = "https://als.baidu.com/elog/plog";
+                }
+            } else if (r11Var instanceof p11) {
+                str = "https://afd.baidu.com/afd/close";
             } else {
-                pr0Var.d("User-Agent", hi0.e());
+                return;
             }
-            wq0.b().a().a(pr0Var, new a(m11Var));
-            if (f31.a && (l31Var = (l31) e31.a().a(l31.class)) != null) {
-                l31Var.b(new g31("计费", "", "并行计费"));
-            }
-        }
-    }
-
-    public static void b(@Nullable String str) {
-        l31 l31Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        pr0 pr0Var = new pr0();
-        pr0Var.l(str);
-        pr0Var.g(3000);
-        pr0Var.d("User-Agent", hi0.e());
-        pr0Var.c();
-        wq0.b().a().a(pr0Var, null);
-        if (f31.a && (l31Var = (l31) e31.a().a(l31.class)) != null) {
-            l31Var.b(new g31("计费", "", "并行计费"));
+            pr0 pr0Var = new pr0();
+            pr0Var.h(r11Var2);
+            pr0Var.k(BodyStyle.STRING);
+            pr0Var.i("application/x-www-form-urlencoded");
+            qr0 qr0Var = new qr0();
+            qr0Var.l(str);
+            qr0Var.f(pr0Var);
+            xq0.b().a().a(qr0Var, ir0Var);
         }
     }
 }

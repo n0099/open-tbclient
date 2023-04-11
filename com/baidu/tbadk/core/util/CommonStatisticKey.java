@@ -220,6 +220,7 @@ public class CommonStatisticKey {
     public static final String KEY_TOAST_DOWNLOAD_MANAGER_CLICK = "c14362";
     public static final String KEY_UEG_POST_CLICKED = "c14048";
     public static final String KEY_URL_NULL_REPORT = "c12619";
+    public static final String KEY_USER_GROWTH_TASK_FINISH_TOAST_SHOW = "c15244";
     public static final String KEY_VIDEO_AD_PLAY_SWITCH = "c14625";
     public static final String KEY_VIDEO_EASTER_EGG_REPLAY = "c13044";
     public static final String KEY_VIDEO_EASTER_EGG_SHARE = "c13045";

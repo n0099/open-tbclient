@@ -1,108 +1,55 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.tieba.qs2;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class r04 {
+public class r04 extends we3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String k;
 
-    public static void a(String str, String str2, long j) {
+    public r04() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            q04 q04Var = new q04();
-            q04Var.b = str;
-            q04Var.e = str2;
-            if (t73.M() != null && t73.M().Y() != null) {
-                qs2.a Y = t73.M().Y();
-                q04Var.a = me3.n(Y.G());
-                q04Var.f = Y.H();
-                q04Var.c = Y.T();
-                q04Var.a("play_time", Long.valueOf(j));
-            }
-            me3.y("916", "68", q04Var);
-        }
-    }
-
-    public static void b(String str, String str2) {
-        String str3;
-        qs2.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (t73.M() != null && t73.M().Y() != null) {
-                aVar = t73.M().Y();
-                str3 = me3.n(aVar.G());
-            } else {
-                str3 = "";
-                aVar = null;
-            }
-            if (aVar != null && TextUtils.equals(str3, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME)) {
-                q04 q04Var = new q04();
-                q04Var.b = str;
-                q04Var.e = str2;
-                q04Var.a = str3;
-                q04Var.f = aVar.H();
-                q04Var.c = aVar.T();
-                me3.y("916", "68", q04Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.k = "";
     }
 
-    public static void c(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            q04 q04Var = new q04();
-            q04Var.b = str;
-            q04Var.e = str2;
-            if (t73.M() != null && t73.M().Y() != null) {
-                qs2.a Y = t73.M().Y();
-                q04Var.a = me3.n(Y.G());
-                q04Var.f = Y.H();
-                q04Var.c = Y.T();
-            }
-            q04Var.k = str3;
-            me3.y("916", "68", q04Var);
-        }
-    }
-
-    public static void d(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            q04 q04Var = new q04();
-            q04Var.b = str;
-            q04Var.e = "show";
-            if (t73.M() != null && t73.M().Y() != null) {
-                qs2.a Y = t73.M().Y();
-                q04Var.a = me3.n(Y.G());
-                q04Var.f = Y.H();
-                q04Var.c = Y.T();
-            }
-            if (e()) {
-                str2 = "0";
-            } else {
-                str2 = "1";
-            }
-            q04Var.a("early", str2);
-            me3.y("916", "68", q04Var);
-        }
-    }
-
-    public static boolean e() {
+    @Override // com.baidu.tieba.we3
+    public JSONObject f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (q84.c() > 0 && d44.c() && System.currentTimeMillis() - q84.c() > LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
             }
-            return false;
+            try {
+                this.h.put("error_code", this.k);
+            } catch (JSONException e) {
+                if (we3.j) {
+                    e.printStackTrace();
+                }
+            }
+            if (we3.j) {
+                Log.d("SwanGameAdEvent", "SwanGameAdEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
+            }
+            return super.f();
         }
-        return invokeV.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

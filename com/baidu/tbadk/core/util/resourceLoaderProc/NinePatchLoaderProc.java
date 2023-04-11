@@ -7,7 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tieba.rm;
+import com.baidu.tieba.sm;
 import com.baidu.tieba.xb;
 import com.baidu.tieba.yb;
 import com.baidu.tieba.zf;
@@ -109,7 +109,7 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public rm createImageFromDiskPicOperate(yb ybVar, String str, int i, int i2) {
+    public sm createImageFromDiskPicOperate(yb ybVar, String str, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, ybVar, str, i, i2)) == null) {
@@ -122,15 +122,15 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
             if (bitmap == null) {
                 return null;
             }
-            return new rm(bitmap, false, str, xbVar.g());
+            return new sm(bitmap, false, str, xbVar.g());
         }
-        return (rm) invokeLLII.objValue;
+        return (sm) invokeLLII.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     /* renamed from: decodeToResource */
-    public rm mo46decodeToResource(byte[] bArr, Object... objArr) {
+    public sm mo46decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) {
@@ -141,9 +141,9 @@ public class NinePatchLoaderProc extends AbstractImageLoaderProc {
                 z = true;
             }
             zf.c(z, System.currentTimeMillis() - currentTimeMillis);
-            return new rm(Bytes2NineBitmap);
+            return new sm(Bytes2NineBitmap);
         }
-        return (rm) invokeLL.objValue;
+        return (sm) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc

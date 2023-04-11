@@ -1,14 +1,14 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.pia;
+import com.baidu.tieba.gsa;
 import java.util.Locale;
 /* loaded from: classes8.dex */
 public class Pose {
-    public final pia a;
+    public final gsa a;
     public final float[] b;
 
     static {
-        pia piaVar = pia.e;
+        gsa gsaVar = gsa.e;
     }
 
     public String toString() {

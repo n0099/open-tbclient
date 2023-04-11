@@ -38,8 +38,8 @@ public class YYProtocolActivity extends Activity implements NoProguard {
     }
 
     private void b() {
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09115e);
-        WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092869);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091163);
+        WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092857);
         this.b = webView;
         webView.setWebChromeClient(new WebChromeClient());
         this.b.setWebViewClient(new WebViewClient());
@@ -122,7 +122,7 @@ public class YYProtocolActivity extends Activity implements NoProguard {
         }
         getWindow().addFlags(128);
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d04f4);
+        setContentView(R.layout.obfuscated_res_0x7f0d04f5);
         b();
         a();
         newLoginStatusBarTint(this);

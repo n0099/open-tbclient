@@ -17,12 +17,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bg;
 import com.baidu.tieba.cg;
-import com.baidu.tieba.gi;
+import com.baidu.tieba.cg5;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.me5;
-import com.baidu.tieba.pe5;
-import com.baidu.tieba.rm;
-import com.baidu.tieba.ye5;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.qf5;
+import com.baidu.tieba.sm;
+import com.baidu.tieba.tf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,7 +85,7 @@ public class RichImageItem extends FrameLayout {
                 z = true;
             }
             if (!z) {
-                hi.M(this.a.getContext(), R.string.editor_mutiiamge_image_error);
+                ii.M(this.a.getContext(), R.string.editor_mutiiamge_image_error);
             } else if (this.a.c != null) {
                 this.a.c.b(imageFileInfo, this.a);
             }
@@ -126,7 +126,7 @@ public class RichImageItem extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements me5 {
+    public class c implements qf5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RichImageItem a;
@@ -149,13 +149,13 @@ public class RichImageItem extends FrameLayout {
             this.a = richImageItem;
         }
 
-        @Override // com.baidu.tieba.me5
-        public void a(rm rmVar, String str, boolean z) {
+        @Override // com.baidu.tieba.qf5
+        public void a(sm smVar, String str, boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLLZ(1048576, this, rmVar, str, z) != null) || rmVar == null) {
+            if ((interceptable != null && interceptable.invokeLLZ(1048576, this, smVar, str, z) != null) || smVar == null) {
                 return;
             }
-            this.a.i(rmVar);
+            this.a.i(smVar);
             this.a.a.invalidate();
         }
     }
@@ -164,15 +164,15 @@ public class RichImageItem extends FrameLayout {
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rm a;
+        public final /* synthetic */ sm a;
         public final /* synthetic */ RichImageItem b;
 
-        public d(RichImageItem richImageItem, rm rmVar) {
+        public d(RichImageItem richImageItem, sm smVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {richImageItem, rmVar};
+                Object[] objArr = {richImageItem, smVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -183,7 +183,7 @@ public class RichImageItem extends FrameLayout {
                 }
             }
             this.b = richImageItem;
-            this.a = rmVar;
+            this.a = smVar;
         }
 
         @Override // java.lang.Runnable
@@ -198,7 +198,7 @@ public class RichImageItem extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class e extends bg<rm> {
+    public class e extends bg<sm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RichImageItem a;
@@ -223,12 +223,12 @@ public class RichImageItem extends FrameLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.bg
-        public void onLoaded(rm rmVar, String str, int i) {
+        public void onLoaded(sm smVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLLI(1048576, this, rmVar, str, i) != null) || rmVar == null) {
+            if ((interceptable != null && interceptable.invokeLLI(1048576, this, smVar, str, i) != null) || smVar == null) {
                 return;
             }
-            this.a.i(rmVar);
+            this.a.i(smVar);
             this.a.a.invalidate();
         }
     }
@@ -297,10 +297,10 @@ public class RichImageItem extends FrameLayout {
         e();
     }
 
-    public final void i(rm rmVar) {
+    public final void i(sm smVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, rmVar) == null) && rmVar != null && rmVar.r() > 0 && rmVar.m() > 0) {
-            h(rmVar.r(), rmVar.m());
+        if ((interceptable == null || interceptable.invokeL(1048581, this, smVar) == null) && smVar != null && smVar.r() > 0 && smVar.m() > 0) {
+            h(smVar.r(), smVar.m());
         }
     }
 
@@ -322,26 +322,26 @@ public class RichImageItem extends FrameLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07ed, this);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091150);
+            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07e6, this);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091155);
             this.a = tbImageView;
-            tbImageView.setTagTextSize(hi.g(getContext(), R.dimen.T_X10));
+            tbImageView.setTagTextSize(ii.g(getContext(), R.dimen.T_X10));
             this.a.setDrawBorder(true);
             this.a.setDrawCorner(true);
             this.a.setAutoChangeStyle(true);
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090838);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090831);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09083b);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090834);
             this.a.setVisibility(0);
             findViewById.setVisibility(0);
             this.a.setGifIconSupport(true);
             this.a.setLongIconSupport(true);
-            this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f0565));
+            this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f0563));
             setOnClickListener(new a(this));
             findViewById.setOnClickListener(new b(this));
             f();
-            this.e = hi.l(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
+            this.e = ii.l(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
         }
     }
 
@@ -367,19 +367,19 @@ public class RichImageItem extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.setIsLongPic(this.d.isLong());
             int i = this.e;
-            ImageOperation g = ye5.g(i, i * 2);
+            ImageOperation g = cg5.g(i, i * 2);
             this.d.clearPageActions();
             this.d.addPageAction(g);
             if (this.d.getImageType() == 0) {
                 this.a.setTag(this.d.toCachedKey(true));
-                rm d2 = new pe5().d(this.d, new c(this), true);
+                sm d2 = new tf5().d(this.d, new c(this), true);
                 if (d2 != null && d2.r() > 0 && d2.m() > 0) {
                     post(new d(this, d2));
                 }
-                this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f0565));
+                this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f0563));
             } else if (this.d.getImageType() == 1) {
                 String filePath = this.d.getFilePath();
-                if (!gi.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
+                if (!hi.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
                     this.a.setTag(cg.h().g(filePath, 20));
                     cg.h().k(filePath, 20, new e(this), 0, 0, null, null, filePath, Boolean.FALSE, null);
                 }

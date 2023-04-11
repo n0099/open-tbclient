@@ -12,13 +12,15 @@ import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.aq5;
-import com.baidu.tieba.i15;
+import com.baidu.tieba.b05;
+import com.baidu.tieba.cr5;
+import com.baidu.tieba.fq5;
+import com.baidu.tieba.gr5;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.jg;
+import com.baidu.tieba.l25;
 import com.baidu.tieba.me;
-import com.baidu.tieba.w58;
-import com.baidu.tieba.wp5;
-import com.baidu.tieba.yz4;
-import com.baidu.tieba.zo5;
+import com.baidu.tieba.ng8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +51,7 @@ public class YunDialogDataManager {
     public final Set<String> c;
 
     /* loaded from: classes3.dex */
-    public interface c {
+    public interface d {
         void a(List<DialogStrategiesData> list);
     }
 
@@ -85,12 +87,47 @@ public class YunDialogDataManager {
     }
 
     /* loaded from: classes3.dex */
-    public class a extends wp5<List<DialogStrategiesData>> {
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ YunDialogDataManager b;
+
+        public a(YunDialogDataManager yunDialogDataManager, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yunDialogDataManager, list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = yunDialogDataManager;
+            this.a = list;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.q(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b extends cr5<List<DialogStrategiesData>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ YunDialogDataManager a;
 
-        public a(YunDialogDataManager yunDialogDataManager) {
+        public b(YunDialogDataManager yunDialogDataManager) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,32 +146,32 @@ public class YunDialogDataManager {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wp5
+        @Override // com.baidu.tieba.cr5
         /* renamed from: a */
         public List<DialogStrategiesData> doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a.n();
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return (List) invokeV.objValue;
             }
-            return (List) invokeV.objValue;
+            return this.a.n();
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements zo5<List<DialogStrategiesData>> {
+    public class c implements fq5<List<DialogStrategiesData>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
+        public final /* synthetic */ d a;
         public final /* synthetic */ String b;
         public final /* synthetic */ YunDialogDataManager c;
 
-        public b(YunDialogDataManager yunDialogDataManager, c cVar, String str) {
+        public c(YunDialogDataManager yunDialogDataManager, d dVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yunDialogDataManager, cVar, str};
+                Object[] objArr = {yunDialogDataManager, dVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -145,26 +182,25 @@ public class YunDialogDataManager {
                 }
             }
             this.c = yunDialogDataManager;
-            this.a = cVar;
+            this.a = dVar;
             this.b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zo5
+        @Override // com.baidu.tieba.fq5
         /* renamed from: a */
         public void onReturnDataInUI(List<DialogStrategiesData> list) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, list) != null) {
-                return;
-            }
-            this.c.q(list);
-            if (this.a != null) {
-                List<DialogStrategiesData> list2 = (List) this.c.a.get(this.b);
-                c cVar = this.a;
-                if (ListUtils.isEmpty(list2)) {
-                    list2 = YunDialogDataManager.d;
+            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+                this.c.q(list);
+                if (this.a != null) {
+                    List<DialogStrategiesData> list2 = (List) this.c.a.get(this.b);
+                    d dVar = this.a;
+                    if (ListUtils.isEmpty(list2)) {
+                        list2 = YunDialogDataManager.d;
+                    }
+                    dVar.a(list2);
                 }
-                cVar.a(list2);
             }
         }
     }
@@ -236,6 +272,20 @@ public class YunDialogDataManager {
         return invokeV.intValue;
     }
 
+    public void f(@NonNull String str, d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
+            e(h(str), dVar);
+        }
+    }
+
+    public void g(@NonNull String str, d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, dVar) == null) {
+            e(i(str), dVar);
+        }
+    }
+
     public final String h(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -254,34 +304,20 @@ public class YunDialogDataManager {
         return (String) invokeL.objValue;
     }
 
-    public void f(@NonNull String str, c cVar) {
+    public final void e(@NonNull String str, @Nullable d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            e(h(str), cVar);
-        }
-    }
-
-    public void g(@NonNull String str, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, cVar) == null) {
-            e(i(str), cVar);
-        }
-    }
-
-    public final void e(@NonNull String str, @Nullable c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, dVar) == null) {
             if (this.a == null) {
                 this.a = new LinkedHashMap();
             }
             List<DialogStrategiesData> list = this.a.get(str);
             if (list == null && this.a.isEmpty()) {
-                aq5.b(new a(this), new b(this, cVar, str));
-            } else if (cVar != null) {
+                gr5.b(new b(this), new c(this, dVar, str));
+            } else if (dVar != null) {
                 if (ListUtils.isEmpty(list)) {
                     list = d;
                 }
-                cVar.a(list);
+                dVar.a(list);
             }
         }
     }
@@ -309,7 +345,7 @@ public class YunDialogDataManager {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            me<String> g = yz4.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k());
+            me<String> g = b05.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k());
             if (g != null) {
                 str = g.get(k());
             } else {
@@ -320,7 +356,7 @@ public class YunDialogDataManager {
             }
             try {
                 JSONArray jSONArray = new JSONArray(str);
-                w58 yunDialogLog = YunDialogLog.getInstance();
+                ng8 yunDialogLog = YunDialogLog.getInstance();
                 yunDialogLog.c("YunDialogManager", "加载本地云弹窗配置: " + jSONArray);
                 return DataExt.toEntityList(jSONArray.toString(), DialogStrategiesData.class);
             } catch (Exception e2) {
@@ -334,17 +370,17 @@ public class YunDialogDataManager {
     public void o(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONArray) == null) {
-            w58 yunDialogLog = YunDialogLog.getInstance();
+            ng8 yunDialogLog = YunDialogLog.getInstance();
             yunDialogLog.c("YunDialogManager", "sync更新本地云弹窗配置，配置为：" + jSONArray);
-            me<String> g = yz4.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k());
+            me<String> g = b05.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k());
             if (g == null) {
                 YunDialogLog.getInstance().c("YunDialogManager", "读取数据库失败，写入云弹窗配置失败！");
             } else if (jSONArray != null && jSONArray.length() > 0) {
-                i15.a.a(jSONArray.toString());
+                l25.a.a(jSONArray.toString());
                 try {
                     q(DataExt.toEntityList(jSONArray.toString(), DialogStrategiesData.class));
                 } catch (Exception e2) {
-                    w58 yunDialogLog2 = YunDialogLog.getInstance();
+                    ng8 yunDialogLog2 = YunDialogLog.getInstance();
                     yunDialogLog2.c("YunDialogManager", "云弹窗配置解析失败，更新失败！下发配置：" + jSONArray);
                     BdLog.e(e2);
                 }
@@ -356,22 +392,13 @@ public class YunDialogDataManager {
         }
     }
 
-    public void p(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
-            try {
-                w58 yunDialogLog = YunDialogLog.getInstance();
-                yunDialogLog.c("YunDialogManager", "updateManagerConfig:" + jSONObject);
-                this.b = ((ConfigData) DataExt.toEntity(jSONObject.toString(), ConfigData.class)).getMaxSize();
-            } catch (Exception e2) {
-                BdLog.e(e2);
-            }
-        }
-    }
-
     public final void q(List<DialogStrategiesData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
+            if (!ii.E()) {
+                jg.a().postAtFrontOfQueue(new a(this, list));
+                return;
+            }
             try {
                 if (!ListUtils.isEmpty(list)) {
                     if (this.a == null) {
@@ -396,6 +423,19 @@ public class YunDialogDataManager {
                 this.c.clear();
             } catch (Exception e2) {
                 YunDialogLog.getInstance().c("YunDialogManager", "更新本地云弹窗配置失败！");
+                BdLog.e(e2);
+            }
+        }
+    }
+
+    public void p(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            try {
+                ng8 yunDialogLog = YunDialogLog.getInstance();
+                yunDialogLog.c("YunDialogManager", "updateManagerConfig:" + jSONObject);
+                this.b = ((ConfigData) DataExt.toEntity(jSONObject.toString(), ConfigData.class)).getMaxSize();
+            } catch (Exception e2) {
                 BdLog.e(e2);
             }
         }

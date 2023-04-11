@@ -86,78 +86,91 @@ public class a implements b {
         return (SSLSocketFactory) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:144:0x0086 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:150:0x00cf */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:66:0x01d1 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:74:0x01dc */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:148:0x0083 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:150:0x00cc */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:66:0x01ce */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:74:0x01d9 */
     /* JADX WARN: Can't wrap try/catch for region: R(35:1|(2:145|(1:147))|3|(2:4|5)|(2:137|(29:139|10|(1:12)(1:136)|13|14|(3:16|(5:19|20|21|22|17)|74)|76|(1:(1:83)(1:84))|85|(1:87)|88|89|(3:91|93|94)(1:131)|95|96|97|98|99|100|(2:101|(1:103)(1:104))|105|106|(1:108)|109|(1:111)(1:120)|112|(2:118|119)|48|49))|9|10|(0)(0)|13|14|(0)|76|(2:78|(0)(0))|85|(0)|88|89|(0)(0)|95|96|97|98|99|100|(3:101|(0)(0)|103)|105|106|(0)|109|(0)(0)|112|(1:114)|118|119|(1:(0))) */
-    /* JADX WARN: Code restructure failed: missing block: B:105:0x0257, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(36:1|(2:145|(1:147))|3|4|5|(2:137|(29:139|10|(1:12)(1:136)|13|14|(3:16|(5:19|20|21|22|17)|74)|76|(1:(1:83)(1:84))|85|(1:87)|88|89|(3:91|93|94)(1:131)|95|96|97|98|99|100|(2:101|(1:103)(1:104))|105|106|(1:108)|109|(1:111)(1:120)|112|(2:118|119)|48|49))|9|10|(0)(0)|13|14|(0)|76|(2:78|(0)(0))|85|(0)|88|89|(0)(0)|95|96|97|98|99|100|(3:101|(0)(0)|103)|105|106|(0)|109|(0)(0)|112|(1:114)|118|119|(1:(0))) */
+    /* JADX WARN: Code restructure failed: missing block: B:105:0x0253, code lost:
         r12.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:108:0x027a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:108:0x0276, code lost:
         r6 = r18;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:109:0x027d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:109:0x0279, code lost:
         r6 = r10.toString();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x01d1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:122:0x02a9, code lost:
+        r12.disconnect();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:125:0x02cc, code lost:
+        r6 = r18;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:126:0x02cf, code lost:
+        r6 = r10.toString();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:133:0x02e9, code lost:
+        r22.a(com.cmic.sso.sdk.c.d.a.a(r15));
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x01ce, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x01d3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x01d0, code lost:
         r0 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:69:0x01d4, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x01d1, code lost:
         r13 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:70:0x01d7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x01d4, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:71:0x01d8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x01d5, code lost:
         r13 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:80:0x01e2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:80:0x01df, code lost:
         r0 = th;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:81:0x01e3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x01e0, code lost:
         r18 = r6;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x01e7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x01e4, code lost:
         r0 = e;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:84:0x01e8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:84:0x01e5, code lost:
         r18 = r6;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:94:0x0225, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:94:0x0221, code lost:
         r15 = 200050;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:95:0x022c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:95:0x0228, code lost:
         r15 = 102102;
      */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:105:0x0257  */
-    /* JADX WARN: Removed duplicated region for block: B:108:0x027a  */
-    /* JADX WARN: Removed duplicated region for block: B:109:0x027d  */
-    /* JADX WARN: Removed duplicated region for block: B:112:0x028f  */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x02ad  */
-    /* JADX WARN: Removed duplicated region for block: B:125:0x02d0  */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x02d3  */
-    /* JADX WARN: Removed duplicated region for block: B:129:0x02e5  */
-    /* JADX WARN: Removed duplicated region for block: B:151:0x0175 A[EDGE_INSN: B:151:0x0175->B:50:0x0175 ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0069 A[Catch: all -> 0x01ec, Exception -> 0x01f5, TryCatch #8 {Exception -> 0x01f5, all -> 0x01ec, blocks: (B:5:0x0034, B:7:0x0049, B:13:0x0063, B:15:0x0069, B:16:0x007a, B:9:0x004d, B:11:0x0057), top: B:139:0x0034 }] */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x007a A[Catch: all -> 0x01ec, Exception -> 0x01f5, TRY_LEAVE, TryCatch #8 {Exception -> 0x01f5, all -> 0x01ec, blocks: (B:5:0x0034, B:7:0x0049, B:13:0x0063, B:15:0x0069, B:16:0x007a, B:9:0x004d, B:11:0x0057), top: B:139:0x0034 }] */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x00a5 A[Catch: all -> 0x01e2, Exception -> 0x01e7, TryCatch #11 {Exception -> 0x01e7, all -> 0x01e2, blocks: (B:17:0x0086, B:19:0x00a5, B:20:0x00ad, B:22:0x00b3), top: B:144:0x0086 }] */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00df A[Catch: all -> 0x01de, Exception -> 0x01e0, TryCatch #12 {Exception -> 0x01e0, all -> 0x01de, blocks: (B:24:0x00b9, B:25:0x00cf, B:27:0x00d5, B:29:0x00d9, B:32:0x00df, B:33:0x0102, B:34:0x010c, B:36:0x012e, B:37:0x0137, B:40:0x0141), top: B:142:0x00b9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0102 A[Catch: all -> 0x01de, Exception -> 0x01e0, TryCatch #12 {Exception -> 0x01e0, all -> 0x01de, blocks: (B:24:0x00b9, B:25:0x00cf, B:27:0x00d5, B:29:0x00d9, B:32:0x00df, B:33:0x0102, B:34:0x010c, B:36:0x012e, B:37:0x0137, B:40:0x0141), top: B:142:0x00b9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x012e A[Catch: all -> 0x01de, Exception -> 0x01e0, TryCatch #12 {Exception -> 0x01e0, all -> 0x01de, blocks: (B:24:0x00b9, B:25:0x00cf, B:27:0x00d5, B:29:0x00d9, B:32:0x00df, B:33:0x0102, B:34:0x010c, B:36:0x012e, B:37:0x0137, B:40:0x0141), top: B:142:0x00b9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0141 A[Catch: all -> 0x01de, Exception -> 0x01e0, TRY_ENTER, TRY_LEAVE, TryCatch #12 {Exception -> 0x01e0, all -> 0x01de, blocks: (B:24:0x00b9, B:25:0x00cf, B:27:0x00d5, B:29:0x00d9, B:32:0x00df, B:33:0x0102, B:34:0x010c, B:36:0x012e, B:37:0x0137, B:40:0x0141), top: B:142:0x00b9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0154  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0167 A[Catch: Exception -> 0x01d1, all -> 0x02a4, LOOP:1: B:47:0x0161->B:49:0x0167, LOOP_END, TryCatch #4 {all -> 0x02a4, blocks: (B:92:0x01fc, B:96:0x0232, B:98:0x0236, B:100:0x023e, B:102:0x0246, B:46:0x015f, B:47:0x0161, B:49:0x0167, B:50:0x0175), top: B:139:0x0034 }] */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x018a  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x01ad  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x01b0  */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x0225  */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x022c  */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x0236 A[Catch: all -> 0x02a4, TryCatch #4 {all -> 0x02a4, blocks: (B:92:0x01fc, B:96:0x0232, B:98:0x0236, B:100:0x023e, B:102:0x0246, B:46:0x015f, B:47:0x0161, B:49:0x0167, B:50:0x0175), top: B:139:0x0034 }] */
+    /* JADX WARN: Removed duplicated region for block: B:105:0x0253  */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x0276  */
+    /* JADX WARN: Removed duplicated region for block: B:109:0x0279  */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x028b  */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x02a9  */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x02cc  */
+    /* JADX WARN: Removed duplicated region for block: B:126:0x02cf  */
+    /* JADX WARN: Removed duplicated region for block: B:129:0x02e1  */
+    /* JADX WARN: Removed duplicated region for block: B:151:0x0172 A[EDGE_INSN: B:151:0x0172->B:50:0x0172 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0068 A[Catch: all -> 0x01e9, Exception -> 0x01f2, TryCatch #9 {Exception -> 0x01f2, all -> 0x01e9, blocks: (B:5:0x0033, B:7:0x0048, B:13:0x0062, B:15:0x0068, B:16:0x0078, B:9:0x004c, B:11:0x0056), top: B:139:0x0033 }] */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0078 A[Catch: all -> 0x01e9, Exception -> 0x01f2, TRY_LEAVE, TryCatch #9 {Exception -> 0x01f2, all -> 0x01e9, blocks: (B:5:0x0033, B:7:0x0048, B:13:0x0062, B:15:0x0068, B:16:0x0078, B:9:0x004c, B:11:0x0056), top: B:139:0x0033 }] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x00a2 A[Catch: all -> 0x01df, Exception -> 0x01e4, TryCatch #8 {Exception -> 0x01e4, all -> 0x01df, blocks: (B:17:0x0083, B:19:0x00a2, B:20:0x00aa, B:22:0x00b0), top: B:148:0x0083 }] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00dc A[Catch: all -> 0x01db, Exception -> 0x01dd, TryCatch #11 {Exception -> 0x01dd, all -> 0x01db, blocks: (B:24:0x00b6, B:25:0x00cc, B:27:0x00d2, B:29:0x00d6, B:32:0x00dc, B:33:0x00ff, B:34:0x0109, B:36:0x012b, B:37:0x0134, B:40:0x013e), top: B:144:0x00b6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00ff A[Catch: all -> 0x01db, Exception -> 0x01dd, TryCatch #11 {Exception -> 0x01dd, all -> 0x01db, blocks: (B:24:0x00b6, B:25:0x00cc, B:27:0x00d2, B:29:0x00d6, B:32:0x00dc, B:33:0x00ff, B:34:0x0109, B:36:0x012b, B:37:0x0134, B:40:0x013e), top: B:144:0x00b6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x012b A[Catch: all -> 0x01db, Exception -> 0x01dd, TryCatch #11 {Exception -> 0x01dd, all -> 0x01db, blocks: (B:24:0x00b6, B:25:0x00cc, B:27:0x00d2, B:29:0x00d6, B:32:0x00dc, B:33:0x00ff, B:34:0x0109, B:36:0x012b, B:37:0x0134, B:40:0x013e), top: B:144:0x00b6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x013e A[Catch: all -> 0x01db, Exception -> 0x01dd, TRY_ENTER, TRY_LEAVE, TryCatch #11 {Exception -> 0x01dd, all -> 0x01db, blocks: (B:24:0x00b6, B:25:0x00cc, B:27:0x00d2, B:29:0x00d6, B:32:0x00dc, B:33:0x00ff, B:34:0x0109, B:36:0x012b, B:37:0x0134, B:40:0x013e), top: B:144:0x00b6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0151  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0164 A[Catch: Exception -> 0x01ce, all -> 0x02a0, LOOP:1: B:47:0x015e->B:49:0x0164, LOOP_END, TryCatch #1 {all -> 0x02a0, blocks: (B:92:0x01f9, B:96:0x022e, B:98:0x0232, B:100:0x023a, B:102:0x0242, B:46:0x015c, B:47:0x015e, B:49:0x0164, B:50:0x0172), top: B:139:0x0033 }] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0187  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x01aa  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x01ad  */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x0221  */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x0228  */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x0232 A[Catch: all -> 0x02a0, TryCatch #1 {all -> 0x02a0, blocks: (B:92:0x01f9, B:96:0x022e, B:98:0x0232, B:100:0x023a, B:102:0x0242, B:46:0x015c, B:47:0x015e, B:49:0x0164, B:50:0x0172), top: B:139:0x0033 }] */
     /* JADX WARN: Type inference failed for: r20v0, types: [com.cmic.sso.sdk.c.a.a, java.lang.Object] */
     /* JADX WARN: Type inference failed for: r2v26, types: [java.lang.StringBuilder] */
     /* JADX WARN: Type inference failed for: r2v3, types: [java.lang.StringBuilder] */
@@ -283,23 +296,17 @@ public class a implements b {
                             a(outputStream);
                             a(closeable);
                             if (httpURLConnection != null) {
-                                httpURLConnection.disconnect();
                             }
                             com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "responseCode: " + i);
                             ?? sb4 = new StringBuilder();
                             sb4.append("responseResult: ");
                             if (TextUtils.isEmpty(sb2)) {
-                                str2 = str;
-                            } else {
-                                str2 = sb2.toString();
                             }
                             sb4.append(str2);
                             com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", sb4.toString());
-                            if (i == 200 && i != 301 && i != 302) {
-                                cVar2.a(com.cmic.sso.sdk.c.d.a.a(i));
-                            } else {
-                                cVar2.a((com.cmic.sso.sdk.c.d.b) null);
+                            if (i != 200) {
                             }
+                            cVar2.a((com.cmic.sso.sdk.c.d.b) null);
                             throw th;
                         }
                     }
@@ -405,7 +412,7 @@ public class a implements b {
                         }
                         sb42.append(str2);
                         com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", sb42.toString());
-                        if (i == 200) {
+                        if (i != 200) {
                         }
                         cVar2.a((com.cmic.sso.sdk.c.d.b) null);
                         throw th;

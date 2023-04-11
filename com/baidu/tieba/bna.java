@@ -1,123 +1,96 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.xma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes3.dex */
-public class bna {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "BaseKeyUtil";
+public class bna extends FunNativeAd2Bridger<kna, com.fun.module.csj.g0> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TTNativeAd.AdInteractionListener b;
+    public final /* synthetic */ xma c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947652116, "Lcom/baidu/tieba/bna;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bna(xma xmaVar, ReporterPidLoader reporterPidLoader, kna knaVar) {
+        super(reporterPidLoader);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947652116, "Lcom/baidu/tieba/bna;");
-        }
-    }
-
-    public static int a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) {
-            if (i2 < i) {
-                i = i2;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xmaVar, reporterPidLoader, knaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return i3 < i ? i3 : i;
         }
-        return invokeIII.intValue;
+        this.c = xmaVar;
+        this.b = new xma.b(xmaVar, knaVar);
     }
 
-    public static boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 16 : invokeI.booleanValue;
-    }
-
-    public static boolean c(int i, byte[] bArr) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, bArr)) == null) {
-            return b(i) & d(bArr);
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public static boolean d(byte[] bArr) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.csj.g0, android.view.View] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public com.fun.module.csj.g0 createExpressView(kna knaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            if (bArr.length >= 16) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, knaVar)) == null) {
+            return yma.a((TTNativeAd) knaVar.a);
         }
-        return invokeL.booleanValue;
+        return (View) invokeL.objValue;
     }
 
-    public static byte[] e(String str, String str2, String str3, String str4, int i, boolean z) {
-        InterceptResult invokeCommon;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, kna knaVar, BaseNativeAd2<kna, com.fun.module.csj.g0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return g(str, str2, str3, dna.b(str4), i, z);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, knaVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.c.g(activity, knaVar, str, customInflater.inflate(), customInflater.getClickViews(), customInflater.getCreativeViews(), this.b, funAdInteractionListener);
         }
-        return (byte[]) invokeCommon.objValue;
     }
 
-    @SuppressLint({"NewApi"})
-    public static byte[] g(String str, String str2, String str3, byte[] bArr, int i, boolean z) {
-        InterceptResult invokeCommon;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, kna knaVar, BaseNativeAd2<kna, com.fun.module.csj.g0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return f(str, str2, str3, bArr, 10000, i, z);
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public static byte[] f(String str, String str2, String str3, byte[] bArr, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            byte[] b = dna.b(str);
-            byte[] b2 = dna.b(str2);
-            byte[] b3 = dna.b(str3);
-            int a2 = a(b.length, b2.length, b3.length);
-            if (c(a2, bArr)) {
-                char[] cArr = new char[a2];
-                for (int i3 = 0; i3 < a2; i3++) {
-                    cArr[i3] = (char) ((b[i3] ^ b2[i3]) ^ b3[i3]);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, knaVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            kna knaVar2 = knaVar;
+            xma xmaVar = this.c;
+            FunNativeAdListenerHelper<kna, TTNativeAd.AdInteractionListener> funNativeAdListenerHelper = xmaVar.f;
+            pid = xmaVar.mPid;
+            funNativeAdListenerHelper.startShow(knaVar2, str, pid, this.b, funAdInteractionListener);
+            com.fun.module.csj.g0 expressView = baseNativeAd2.getExpressView();
+            if (expressView == null) {
+                if (!FunAdSdk.isLogEnabled()) {
+                    LogPrinter.e("The image mode of ad is not support!", new Object[0]);
+                    return;
                 }
-                if (!z) {
-                    gna.d(a, "exportRootKey: sha1");
-                    return yma.b(cArr, bArr, i, i2 * 8);
-                }
-                gna.d(a, "exportRootKey: sha256");
-                return yma.c(cArr, bArr, i, i2 * 8);
+                throw new RuntimeException("The image mode of ad is not support!");
             }
-            throw new IllegalArgumentException("key length must be more than 128bit.");
+            this.c.f(activity, knaVar2, expressInflater.inflate(), expressView, this.b);
         }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    @SuppressLint({"NewApi"})
-    public static byte[] h(String str, String str2, String str3, byte[] bArr, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, bArr, Boolean.valueOf(z)})) == null) {
-            return g(str, str2, str3, bArr, 16, z);
-        }
-        return (byte[]) invokeCommon.objValue;
     }
 }

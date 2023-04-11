@@ -1,49 +1,17 @@
 package com.baidu.tieba;
-
-import android.webkit.WebView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jb6 extends ib6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface jb6 {
+    int a();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jb6(WebView webView) {
-        super(webView);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((WebView) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    void b(int i);
 
-    public static void d(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
-            webView.setHorizontalScrollBarEnabled(false);
-            webView.setHorizontalScrollbarOverlay(false);
-            new jb6(webView).a();
-        }
-    }
+    void c(int i, int i2);
 
-    @Override // com.baidu.tieba.ib6
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-        }
-    }
+    void d(int i);
+
+    float e();
+
+    float getRatio();
+
+    void reset();
 }

@@ -1,52 +1,47 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.utils.CommonUtils;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import tv.athena.revenue.RevenueManager;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class rza {
+public final class rza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public byte[] a;
+    public int[] b;
 
-    public static hza a(int i, PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeIL;
-        MiddleRevenueConfig middleRevenueConfig;
+    public rza() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, payUIKitConfig)) == null) {
-            ProductInfo productInfo = new ProductInfo();
-            productInfo.cid = 0;
-            productInfo.productId = "";
-            productInfo.srcCurrencySymbol = "";
-            productInfo.srcAmount = i / 100.0d;
-            if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null && middleRevenueConfig.getCurrencyType() == 4) {
-                productInfo.destAmount = i;
-                return new hza(productInfo, 4);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            productInfo.destAmount = i;
-            return new hza(productInfo);
         }
-        return (hza) invokeIL.objValue;
     }
 
-    public static IAppPayService b(int i, int i2) {
-        InterceptResult invokeII;
+    public static void a(rza rzaVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error(CommonUtils.TAG, "getAppPayService null iRevenue", new Object[0]);
-                return null;
+        if (interceptable == null || interceptable.invokeLI(65537, null, rzaVar, i) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                int[] iArr = rzaVar.b;
+                byte[] bArr = rzaVar.a;
+                int i3 = i2 * 4;
+                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
             }
-            return revenue.getAppPayService();
         }
-        return (IAppPayService) invokeII.objValue;
+    }
+
+    public static void b(rza rzaVar, byte[] bArr, int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, rzaVar, bArr, iArr) == null) {
+            rzaVar.a = bArr;
+            rzaVar.b = iArr;
+        }
     }
 }

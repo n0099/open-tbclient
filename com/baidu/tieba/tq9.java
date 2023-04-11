@@ -1,130 +1,103 @@
 package com.baidu.tieba;
 
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
 public class tq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public zq9 a;
+    public w05 b;
+    public yq9 c;
+    public xq9 d;
+    public vq9 e;
+    public wq9 f;
+    public uq9 g;
+    public MainTabActivity h;
+    public boolean i;
 
-    public static long[] a(int i, long j) {
-        InterceptResult invokeCommon;
+    public tq9(@NonNull MainTabActivity mainTabActivity, @NonNull jo9 jo9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            if (i < 0) {
-                i = 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, jo9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            float[] fArr = new float[i];
-            if (i > 1) {
-                float f = 1.0f / i;
-                int i2 = 0;
-                while (i2 < i) {
-                    int i3 = i2 + 1;
-                    if (i3 == i) {
-                        int i4 = i2 - 1;
-                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
-                    } else {
-                        fArr[i2] = i3 * f;
-                    }
-                    i2 = i3;
-                }
-            } else if (i == 1) {
-                fArr[0] = 0.5f;
-            }
-            long[] jArr = new long[i];
-            for (int i5 = 0; i5 < i; i5++) {
-                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
-            }
-            return jArr;
         }
-        return (long[]) invokeCommon.objValue;
+        this.i = false;
+        this.h = mainTabActivity;
+        this.a = new zq9(mainTabActivity.getPageContext(), jo9Var, mainTabActivity, false);
+        this.b = new w05(mainTabActivity.getPageContext());
+        this.c = new yq9(mainTabActivity, jo9Var);
+        this.d = new xq9(mainTabActivity, jo9Var);
+        this.f = new wq9(mainTabActivity, jo9Var);
+        this.g = new uq9(mainTabActivity, jo9Var);
+        this.e = new vq9(mainTabActivity, jo9Var);
     }
 
-    public static wq9 b(yq9 yq9Var, oq9 oq9Var) {
-        InterceptResult invokeLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, yq9Var, oq9Var)) == null) {
-            if (yq9Var == null || oq9Var == null || yq9Var.e == null) {
-                return null;
-            }
-            long[] a = a(yq9Var.b, yq9Var.a);
-            MultiMediaData multiMediaData = yq9Var.e;
-            wq9 wq9Var = new wq9();
-            wq9Var.e = new ArrayList();
-            wq9Var.a = multiMediaData.path;
-            wq9Var.c = yq9Var.c;
-            wq9Var.d = yq9Var.d;
-            wq9Var.b = multiMediaData.rotation;
-            for (int i = 0; i < yq9Var.b; i++) {
-                long j = multiMediaData.start + a[i];
-                qq9 qq9Var = new qq9();
-                qq9Var.a = jq9.b(multiMediaData.path, j, multiMediaData.type);
-                qq9Var.b = multiMediaData.path;
-                qq9Var.f = i;
-                qq9Var.g = multiMediaData.type;
-                qq9Var.h = yq9Var.c;
-                qq9Var.i = yq9Var.d;
-                qq9Var.j = oq9Var;
-                qq9Var.d = j;
-                qq9Var.c = multiMediaData.rotation;
-                wq9Var.e.add(qq9Var);
-            }
-            return wq9Var;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || LooperBlockSwitch.getIsOn() || !this.i) {
+            return;
         }
-        return (wq9) invokeLL.objValue;
+        LinkedList linkedList = new LinkedList();
+        linkedList.add(this.g);
+        linkedList.add(this.c);
+        linkedList.add(this.d);
+        linkedList.add(this.e);
+        t05.g(linkedList);
     }
 
-    public static List<wq9> c(xq9 xq9Var, oq9 oq9Var) {
-        InterceptResult invokeLL;
-        List<qq9> list;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, xq9Var, oq9Var)) == null) {
-            MultiMediaData multiMediaData = null;
-            if (xq9Var == null || oq9Var == null || xq9Var.b <= 0 || r7a.e(xq9Var.e) || r7a.e(xq9Var.f)) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (LooperBlockSwitch.getIsOn()) {
+                LinkedList linkedList = new LinkedList();
+                linkedList.add(this.a);
+                t05.g(linkedList);
+            } else if (!this.i) {
+            } else {
+                qc8.m = false;
+                LinkedList linkedList2 = new LinkedList();
+                linkedList2.add(this.g);
+                linkedList2.add(this.a);
+                t05.g(linkedList2);
             }
-            long[] a = a(xq9Var.b, xq9Var.a);
-            ArrayList arrayList = new ArrayList();
-            wq9 wq9Var = null;
-            for (int i = 0; i < xq9Var.b; i++) {
-                long j = ((float) a[i]) / 1000.0f;
-                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(xq9Var.e, j);
-                MultiMediaData multiMediaData2 = (MultiMediaData) r7a.c(xq9Var.f, findInputIndexInSegments);
-                if (multiMediaData2 != null) {
-                    if (multiMediaData2 != multiMediaData) {
-                        wq9Var = new wq9();
-                        wq9Var.e = new ArrayList();
-                        wq9Var.a = multiMediaData2.path;
-                        wq9Var.c = xq9Var.c;
-                        wq9Var.d = xq9Var.d;
-                        wq9Var.b = multiMediaData2.rotation;
-                        arrayList.add(wq9Var);
-                    }
-                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) r7a.c(xq9Var.e, findInputIndexInSegments), j) * 1000;
-                    qq9 qq9Var = new qq9();
-                    qq9Var.a = jq9.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
-                    qq9Var.b = multiMediaData2.path;
-                    qq9Var.f = i;
-                    qq9Var.g = multiMediaData2.type;
-                    qq9Var.h = xq9Var.c;
-                    qq9Var.i = xq9Var.d;
-                    qq9Var.d = multiMediaDataSeekTime;
-                    qq9Var.j = oq9Var;
-                    qq9Var.c = multiMediaData2.rotation;
-                    if (wq9Var != null && (list = wq9Var.e) != null) {
-                        list.add(qq9Var);
-                    }
-                    multiMediaData = multiMediaData2;
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeLL.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (LooperBlockSwitch.getIsOn()) {
+                LinkedList linkedList = new LinkedList();
+                linkedList.add(this.a);
+                t05.g(linkedList);
+                return;
+            }
+            LinkedList linkedList2 = new LinkedList();
+            linkedList2.add(this.a);
+            linkedList2.add(this.c);
+            linkedList2.add(this.d);
+            linkedList2.add(this.g);
+            linkedList2.add(this.b);
+            linkedList2.add(this.f);
+            t05.g(linkedList2);
+            this.i = true;
+        }
     }
 }

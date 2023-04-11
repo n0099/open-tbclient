@@ -24,7 +24,7 @@ public class b extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo219a() {
+    public String mo221a() {
         return "22";
     }
 
@@ -37,7 +37,7 @@ public class b extends aj.a {
         }
         this.a.a(bd.a());
         this.a.a(false);
-        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m558a());
+        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m560a());
         try {
             String c = this.a.c();
             xMPushService.a(c, ir.a(ah.a(c, this.a.b(), this.a, hh.Notification)), this.f921a);

@@ -1,7 +1,7 @@
 package com.baidu.tieba.faceshop;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cq6;
+import com.baidu.tieba.ft6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
-public class EmotionData implements Serializable, cq6 {
+public class EmotionData implements Serializable, ft6 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,7 +17,7 @@ public class EmotionData implements Serializable, cq6 {
     public int orderId;
     public String sharpText;
 
-    @Override // com.baidu.tieba.cq6
+    @Override // com.baidu.tieba.ft6
     public boolean IsValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class EmotionData implements Serializable, cq6 {
         }
     }
 
-    @Override // com.baidu.tieba.cq6
+    @Override // com.baidu.tieba.ft6
     public String getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

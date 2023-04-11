@@ -1,101 +1,33 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tieba.yc3;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.swan.apps.impl.nalib.encrypt.EncryptConstant;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tieba.ce3;
+import com.baidu.tieba.jq3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.BaseHiidoContent;
-import java.util.HashSet;
-import java.util.Set;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class lq3 extends q93 {
+public class lq3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-
-    /* loaded from: classes5.dex */
-    public class a implements mm3<wc3<yc3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ lq3 h;
-
-        public a(lq3 lq3Var, CallbackHandler callbackHandler, Context context, String str, String str2, String str3, String str4, String str5) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lq3Var, callbackHandler, context, str, str2, str3, str4, str5};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = lq3Var;
-            this.a = callbackHandler;
-            this.b = context;
-            this.c = str;
-            this.d = str2;
-            this.e = str3;
-            this.f = str4;
-            this.g = str5;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mm3
-        /* renamed from: b */
-        public void a(wc3<yc3.e> wc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wc3Var) == null) {
-                if (!rc3.h(wc3Var)) {
-                    rc3.q(wc3Var, this.a, this.h.c);
-                    return;
-                }
-                mj3 a = ar2.F().a(this.b, this.c, this.d, this.e, this.f, this.g);
-                if (a != null) {
-                    if (a.h() != 0) {
-                        t42.c("PageTransitionAction", a.g().toString());
-                        CallbackHandler callbackHandler = this.a;
-                        String str = this.h.c;
-                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, a.a() + ":" + a.g().toString()).toString());
-                        return;
-                    }
-                    t42.c("PageTransitionAction", "page transition fail");
-                    this.a.handleSchemeDispatchCallback(this.h.c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
-                    return;
-                }
-                t42.i("PageTransitionAction", "page transition success");
-                this.a.handleSchemeDispatchCallback(this.h.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -110,118 +42,173 @@ public class lq3 extends q93 {
                 return;
             }
         }
-        HashSet hashSet = new HashSet();
-        d = hashSet;
-        hashSet.add("easybrowse");
-        d.add("live");
-        d.add("appTab");
-        d.add("browser");
-        d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_COMIC);
-        d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL);
-        d.add("imChatHN");
+        a = eo1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lq3(q83 q83Var) {
-        super(q83Var, "/swanAPI/pageTransition");
+    @Nullable
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {q83Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.q93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, t73 t73Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, t73Var)) == null) {
-            if (t73Var == null) {
-                t42.c("PageTransitionAction", "runtime exception");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "null swanApp");
-                return false;
-            } else if (t73Var.n0()) {
-                if (q93.b) {
-                    Log.d("PageTransitionAction", "PageTransitionAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                return false;
-            } else {
-                String param = unitedSchemeEntity.getParam("params");
-                if (TextUtils.isEmpty(param)) {
-                    t42.c("PageTransitionAction", "params is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
-                    return false;
-                }
-                JSONObject d2 = tk3.d(param);
-                String optString = d2.optString("cb");
-                this.c = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    t42.c("PageTransitionAction", "callback is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                String optString2 = d2.optString("authority");
-                String optString3 = d2.optString("path");
-                String optString4 = d2.optString("module");
-                String optString5 = d2.optString("action");
-                String optString6 = d2.optString("scheme");
-                k(t73Var, optString4);
-                if (ar2.E().a(d2)) {
-                    t73Var.e0().g(context, "mapp_i_baiduapp_page_trans", new a(this, callbackHandler, context, optString2, optString3, optString4, optString5, optString6));
-                } else {
-                    mj3 a2 = ar2.F().a(context, optString2, optString3, optString4, optString5, optString6);
-                    if (a2 != null) {
-                        if (a2.h() != 0) {
-                            t42.c("PageTransitionAction", a2.g().toString());
-                            String str = this.c;
-                            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, a2.a() + ":" + a2.g().toString()).toString());
-                        } else {
-                            t42.c("PageTransitionAction", "page transition fail");
-                            callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
-                        }
-                    } else {
-                        t42.i("PageTransitionAction", "page transition success");
-                        callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), "AES"), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
+                return Base64.encodeToString(cipher.doFinal(str.getBytes(IMAudioTransRequest.CHARSET)), 2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("info", "encrypt request param fail with exception : " + e.getMessage());
+                } catch (JSONException e2) {
+                    if (a) {
+                        e2.printStackTrace();
                     }
                 }
-                t42.i("PageTransitionAction", "callback success");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
+                f(jSONObject.toString());
+                return null;
             }
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void k(@NonNull t73 t73Var, @NonNull String str) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static void b(jq3 jq3Var, kq3 kq3Var) {
+        String str;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t73Var, str) == null) {
-            ve3 ve3Var = new ve3();
-            ve3Var.c = t73Var.W().T();
-            ve3Var.a = "swan";
-            if (nl3.G()) {
-                if (d.contains(str)) {
-                    ve3Var.b = str.toLowerCase();
-                } else {
-                    ve3Var.b = ImageViewerConfig.FROM_OTHER;
-                }
+        if ((interceptable == null || interceptable.invokeLL(65538, null, jq3Var, kq3Var) == null) && jq3Var != null && kq3Var != null) {
+            if (TextUtils.isEmpty(kq3Var.a)) {
+                str = "unknown";
             } else {
-                ve3Var.b = ImageViewerConfig.FROM_OTHER;
+                str = kq3Var.a;
             }
-            ve3Var.a(BaseHiidoContent.HOSTID, ar2.n().a());
-            ve3Var.a("appid", t73Var.getAppId());
-            me3.x("1895", ve3Var);
+            int i = 0;
+            switch (str.hashCode()) {
+                case -1395470197:
+                    if (str.equals("bd09ll")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3017163:
+                    if (str.equals("bd09")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 98175376:
+                    if (str.equals("gcj02")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 113079775:
+                    if (str.equals("wgs84")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            i = -1;
+                        } else {
+                            i = 3;
+                        }
+                    } else {
+                        i = 2;
+                    }
+                } else {
+                    i = 1;
+                }
+            }
+            jq3.c cVar = jq3Var.c;
+            cVar.a = i;
+            cVar.b = kq3Var.b;
+            cVar.c = kq3Var.c;
         }
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String e = SwanAppNetworkUtils.e();
+            if ("wifi".equals(e)) {
+                return 1;
+            }
+            if ("2g".equals(e)) {
+                return 2;
+            }
+            if ("3g".equals(e)) {
+                return 3;
+            }
+            if ("4g".equals(e)) {
+                return 4;
+            }
+            if ("5g".equals(e)) {
+                return 5;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int d(Context context) {
+        InterceptResult invokeL;
+        TelephonyManager telephonyManager;
+        String simOperator;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (context == null || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (simOperator = telephonyManager.getSimOperator()) == null) {
+                return 0;
+            }
+            if (!"46000".equals(simOperator) && !"46002".equals(simOperator) && !"46007".equals(simOperator)) {
+                if ("46001".equals(simOperator)) {
+                    return 3;
+                }
+                if (!"46003".equals(simOperator)) {
+                    return 0;
+                }
+                return 2;
+            }
+            return 1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (a) {
+            Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
+        }
+        ce3.b bVar = new ce3.b(10003);
+        bVar.i(str);
+        bVar.h(u73.g0());
+        bVar.m();
+    }
+
+    public static boolean e(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if ((context.getResources().getConfiguration().screenLayout & 15) >= 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

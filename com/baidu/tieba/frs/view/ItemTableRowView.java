@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,13 +65,13 @@ public class ItemTableRowView extends View {
                 return;
             }
         }
-        t = hi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
-        u = hi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-        v = hi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds644);
-        w = hi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        x = hi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
-        y = hi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
-        z = hi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds6);
+        t = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
+        u = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+        v = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds644);
+        w = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        x = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+        y = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
+        z = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds6);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

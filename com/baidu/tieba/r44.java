@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,18 +26,10 @@ public class r44 implements i54 {
     }
 
     @Override // com.baidu.tieba.i54
-    public void a(h84 h84Var, g84 g84Var) {
+    public void a(@NonNull Activity activity, h44 h44Var, l54 l54Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, h84Var, g84Var) == null) && g84Var != null) {
-            g84Var.a(h84Var, "Method 'shareVideo' is not implemented.");
-        }
-    }
-
-    @Override // com.baidu.tieba.i54
-    public void b(y74 y74Var, x74 x74Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y74Var, x74Var) == null) && x74Var != null) {
-            x74Var.a(y74Var, "Method 'clipVideo' is not implemented.");
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, h44Var, l54Var) == null) {
+            l54Var.a();
         }
     }
 }

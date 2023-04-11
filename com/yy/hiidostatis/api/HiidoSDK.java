@@ -34,7 +34,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HiidoSDK {
     public static volatile String HIIDO_HOST = "mlog.bigda.com";
     public static final String SDK_DURATION_COUNTER_NAME = "SDK_DUR";
@@ -51,12 +51,12 @@ public class HiidoSDK {
     public Options mOptions = new Options();
     public boolean isInited = false;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface HdidReceiver {
         void onHdidReceived(String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum PageActionReportOption {
         REPORT_ON_FUTURE_RESUME,
         DO_NOT_REPORT_ON_FUTURE_RESUME
@@ -114,7 +114,7 @@ public class HiidoSDK {
         return this.api.getStatisOption();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Options {
         public static final int BEHAVIOR_SEND_THRESHOLD_DEFAULT = 10;
         public static final int BEHAVIOR_SEND_THRESHOLD_MAX = 100;

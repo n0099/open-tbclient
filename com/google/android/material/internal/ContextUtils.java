@@ -6,7 +6,7 @@ import android.content.ContextWrapper;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ContextUtils {
     @Nullable
     public static Activity getActivity(Context context) {

@@ -78,10 +78,10 @@ public abstract class GivenFunctionsMemberScope extends MemberScopeImpl {
         final ArrayList arrayList = new ArrayList(3);
         TypeConstructor typeConstructor = this.containingClass.getTypeConstructor();
         Intrinsics.checkExpressionValueIsNotNull(typeConstructor, "containingClass.typeConstructor");
-        Collection<KotlinType> mo2024getSupertypes = typeConstructor.mo2024getSupertypes();
-        Intrinsics.checkExpressionValueIsNotNull(mo2024getSupertypes, "containingClass.typeConstructor.supertypes");
+        Collection<KotlinType> mo2026getSupertypes = typeConstructor.mo2026getSupertypes();
+        Intrinsics.checkExpressionValueIsNotNull(mo2026getSupertypes, "containingClass.typeConstructor.supertypes");
         ArrayList arrayList2 = new ArrayList();
-        for (KotlinType kotlinType : mo2024getSupertypes) {
+        for (KotlinType kotlinType : mo2026getSupertypes) {
             CollectionsKt__MutableCollectionsKt.addAll(arrayList2, ResolutionScope.DefaultImpls.getContributedDescriptors$default(kotlinType.getMemberScope(), null, null, 3, null));
         }
         ArrayList arrayList3 = new ArrayList();

@@ -54,7 +54,7 @@ public class StretchTextureView extends TextureView {
         this.mVideoHeight = i2;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x00e1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x00e2, code lost:
         r1 = (int) ((r1 * r0) / r2);
         r0 = r2;
      */

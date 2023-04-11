@@ -1,223 +1,131 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.ListAdapter;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.ChatRoomInfoData;
+import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
+import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfoMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNewMessage;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class q48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Animation a;
-    public Animation b;
-    public View c;
-    public ViewGroup d;
-    public c e;
-    public p48 f;
-    public boolean g;
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a();
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ q48 b;
-
-        public a(q48 q48Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q48Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = q48Var;
-            this.a = context;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                n48 item = this.b.f.getItem(i);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016448));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, item));
-                this.b.f(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends ig {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q48 a;
-
-        public b(q48 q48Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q48Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q48Var;
-        }
-
-        @Override // com.baidu.tieba.ig, android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.g = false;
-                if (this.a.e != null) {
-                    this.a.e.a();
-                }
-                this.a.d.removeView(this.a.c);
-            }
-        }
-    }
-
-    public q48(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.g = false;
-        this.d = viewGroup;
-    }
-
-    public void f(Context context) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && (view2 = this.c) != null) {
-            view2.startAnimation(i(context));
-        }
-    }
-
-    public final Animation h(Context context) {
+    public static AtInfo a(@NonNull ChatRoomInfoData.AtInfoData atInfoData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (this.a == null) {
-                this.a = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
-            }
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, atInfoData)) == null) {
+            AtInfo atInfo = new AtInfo();
+            atInfo.setAtCountAll(atInfoData.getAtCountAll());
+            atInfo.setAtAllMsgCount(atInfoData.getAtAllMsgCount());
+            atInfo.setAtSingleMsgCount(atInfoData.getAtSingleMsgCount());
+            atInfo.setAllMsgList(b(atInfoData.getAllMsgList()));
+            atInfo.setSingleMsgList(b(atInfoData.getAllSingleList()));
+            return atInfo;
         }
-        return (Animation) invokeL.objValue;
+        return (AtInfo) invokeL.objValue;
     }
 
-    public final Animation i(Context context) {
+    public static List<AtInfoMsg> b(List<ChatRoomInfoData.AtMsgBaseData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            if (this.b == null) {
-                this.b = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return Collections.emptyList();
             }
-            this.b.setAnimationListener(new b(this));
-            return this.b;
+            ArrayList arrayList = new ArrayList();
+            for (ChatRoomInfoData.AtMsgBaseData atMsgBaseData : list) {
+                if (atMsgBaseData != null) {
+                    AtInfoMsg atInfoMsg = new AtInfoMsg();
+                    atInfoMsg.setMsgId(atMsgBaseData.getMsgId());
+                    atInfoMsg.setMsgKey(atMsgBaseData.getMsgKey());
+                    arrayList.add(atInfoMsg);
+                }
+            }
+            return arrayList;
         }
-        return (Animation) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public void k(int i) {
+    @NonNull
+    public static List<ChatRoomInfo> c(List<ChatRoomInfoData> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
-            p48 p48Var = this.f;
-            if (p48Var != null) {
-                p48Var.notifyDataSetChanged();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return Collections.emptyList();
+            }
+            ArrayList arrayList = new ArrayList();
+            for (ChatRoomInfoData chatRoomInfoData : list) {
+                if (chatRoomInfoData != null) {
+                    ChatRoomInfo chatRoomInfo = new ChatRoomInfo();
+                    chatRoomInfo.setRoomId(chatRoomInfoData.getRoomId());
+                    ChatRoomInfoData.ChatroomInfoBasicData chatroomInfoBasicData = chatRoomInfoData.getChatroomInfoBasicData();
+                    if (chatroomInfoBasicData != null) {
+                        chatRoomInfo.setForumId(String.valueOf(chatroomInfoBasicData.getForumId()));
+                        chatRoomInfo.setForumName(chatroomInfoBasicData.getForumName());
+                        chatRoomInfo.setName(chatroomInfoBasicData.getName());
+                        chatRoomInfo.setAvatar(chatroomInfoBasicData.getAvatar());
+                        chatRoomInfo.setUnreadNum(gg.e(chatroomInfoBasicData.getUnreadNum(), 0));
+                    }
+                    chatRoomInfo.setJumpUrl(chatRoomInfoData.getJumpUrl());
+                    if (chatRoomInfoData.getAtInfoData() != null) {
+                        chatRoomInfo.setAtInfo(a(chatRoomInfoData.getAtInfoData()));
+                    }
+                    arrayList.add(chatRoomInfo);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static void d(@NonNull ChatRoomInfo chatRoomInfo, @NonNull ChatRoomInfoData chatRoomInfoData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, chatRoomInfo, chatRoomInfoData) == null) {
+            ChatRoomInfoData.ChatroomInfoBasicData chatroomInfoBasicData = chatRoomInfoData.getChatroomInfoBasicData();
+            if (chatroomInfoBasicData != null) {
+                chatroomInfoBasicData.setUnreadNum(String.valueOf(chatRoomInfo.getUnreadNum()));
+            }
+            ChatRoomInfoData.ChatroomMEMsgInfoData chatroomMEMsgInfoData = chatRoomInfoData.getChatroomMEMsgInfoData();
+            ChatNewMessage newMessage = chatRoomInfo.getNewMessage();
+            if (chatroomMEMsgInfoData != null && newMessage != null) {
+                chatroomMEMsgInfoData.setFromUid(gg.g(newMessage.getFromUid(), 0L));
+                chatroomMEMsgInfoData.setFromName(newMessage.getFromName());
+                chatroomMEMsgInfoData.setContent(newMessage.getContent());
+                chatroomMEMsgInfoData.setMsgId(newMessage.getMsgId());
+                if (chatRoomInfo.getAtInfo() != null && chatRoomInfo.getAtInfo().getCountAll() > 0) {
+                    chatroomMEMsgInfoData.setSpecialMsg("[有人@我]");
+                } else {
+                    chatroomMEMsgInfoData.setSpecialMsg("");
+                }
             }
         }
     }
 
-    public void l(c cVar) {
+    public static String e(@NonNull TbPageContext<?> tbPageContext, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.e = cVar;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, str, str2)) == null) {
+            String str3 = "";
+            if (!StringUtils.isNull(str)) {
+                str3 = "" + str + tbPageContext.getString(R.string.obfuscated_res_0x7f0f03ca);
+            }
+            if (!StringUtils.isNull(str2)) {
+                return str3 + str2;
+            }
+            return str3;
         }
-    }
-
-    public final View g(Context context, List<n48> list, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, list, i)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d055f, (ViewGroup) null);
-            GridView gridView = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f091f92);
-            gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
-            p48 p48Var = new p48(context, i);
-            this.f = p48Var;
-            p48Var.b(list);
-            gridView.setAdapter((ListAdapter) this.f);
-            gridView.setOnItemClickListener(new a(this, context));
-            return inflate;
-        }
-        return (View) invokeLLI.objValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m(Context context, List<n48> list, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(1048583, this, context, list, i) != null) || this.g) {
-            return;
-        }
-        this.g = true;
-        View g = g(context, list, i);
-        this.c = g;
-        this.d.addView(g);
-        SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
-        this.c.startAnimation(h(context));
+        return (String) invokeLLL.objValue;
     }
 }

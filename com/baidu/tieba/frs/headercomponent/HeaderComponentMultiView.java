@@ -13,9 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.t37;
-import com.baidu.tieba.u37;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.oc7;
+import com.baidu.tieba.pc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes4.dex */
-public class HeaderComponentMultiView extends FrameLayout implements u37 {
+public class HeaderComponentMultiView extends FrameLayout implements pc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -33,7 +33,7 @@ public class HeaderComponentMultiView extends FrameLayout implements u37 {
     public List<LiveFuseForumData> c;
     public HeaderComponentMultiAdapter d;
 
-    @Override // com.baidu.tieba.u37
+    @Override // com.baidu.tieba.pc7
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -108,35 +108,35 @@ public class HeaderComponentMultiView extends FrameLayout implements u37 {
         c();
     }
 
-    @Override // com.baidu.tieba.u37
-    public void a() {
-        HeaderComponentMultiAdapter headerComponentMultiAdapter;
+    @Override // com.baidu.tieba.pc7
+    public void a(List<LiveFuseForumData> list, oc7 oc7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (headerComponentMultiAdapter = this.d) != null) {
-            headerComponentMultiAdapter.e();
-        }
-    }
-
-    @Override // com.baidu.tieba.u37
-    public void b(List<LiveFuseForumData> list, t37 t37Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, t37Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, oc7Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.d.g(t37Var);
+        this.d.m(oc7Var);
         this.c.clear();
         this.c.addAll(list);
         this.d.notifyDataSetChanged();
     }
 
+    @Override // com.baidu.tieba.pc7
+    public void b() {
+        HeaderComponentMultiAdapter headerComponentMultiAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (headerComponentMultiAdapter = this.d) != null) {
+            headerComponentMultiAdapter.b();
+        }
+    }
+
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int l = hi.l(getContext());
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0337, (ViewGroup) null);
+            int l = ii.l(getContext());
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0338, (ViewGroup) null);
             this.a = inflate;
             addView(inflate);
-            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09074c);
+            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f090750);
             this.b = recyclerView;
             recyclerView.getLayoutParams().width = l;
             this.b.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));

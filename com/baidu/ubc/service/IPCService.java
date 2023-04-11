@@ -8,9 +8,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.ej1;
-import com.baidu.tieba.i1a;
-import com.baidu.tieba.t0a;
+import com.baidu.tieba.fj1;
+import com.baidu.tieba.kaa;
+import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class IPCService implements i1a {
+public class IPCService implements zaa {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class IPCService implements i1a {
                 return;
             }
         }
-        a = t0a.m();
+        a = kaa.m();
     }
 
     public IPCService() {
@@ -60,7 +60,7 @@ public class IPCService implements i1a {
         }
     }
 
-    @Override // com.baidu.tieba.i1a
+    @Override // com.baidu.tieba.zaa
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -131,7 +131,7 @@ public class IPCService implements i1a {
                     if (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(1048585, this, str, str2, i)) == null) {
                         Flow beginFlow = ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i);
                         if (IPCService.a && beginFlow != null) {
-                            Log.d("UBCIPCService", " process name " + ej1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
+                            Log.d("UBCIPCService", " process name " + fj1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
                         }
                         return beginFlow;
                     }
@@ -218,7 +218,7 @@ public class IPCService implements i1a {
                     if (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(1048586, this, str, str2, i, str3)) == null) {
                         Flow beginFlow = ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i);
                         if (IPCService.a && beginFlow != null) {
-                            Log.d("UBCIPCService", " process name " + ej1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
+                            Log.d("UBCIPCService", " process name " + fj1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
                         }
                         return beginFlow;
                     }
@@ -253,7 +253,7 @@ public class IPCService implements i1a {
         }
     }
 
-    @Override // com.baidu.tieba.i1a
+    @Override // com.baidu.tieba.zaa
     public IBinder a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -1,33 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.SimpleForum;
-import tbclient.ThemeColorInfo;
+import tbclient.SeniorLottery;
 /* loaded from: classes5.dex */
 public class iz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public int e;
-    public nx4 f;
-    public int g;
-    public int h;
-    public String i;
-    public String j;
-    public List<String> k;
+    public fy4 a;
+    public List<tw4> b;
+    public List<uw4> c;
+    public List<ey4> d;
 
     public iz4() {
         Interceptable interceptable = $ic;
@@ -43,141 +30,36 @@ public class iz4 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(SeniorLottery seniorLottery) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public List<String> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.k;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, seniorLottery) != null) || seniorLottery == null) {
             return;
         }
-        this.a = String.valueOf(jSONObject.optLong("id", 0L));
-        this.b = jSONObject.optString("name");
-        this.c = jSONObject.optString("avatar");
-        this.e = jSONObject.optInt("level_id");
-        this.j = jSONObject.optString("recommend_tip");
-        JSONObject optJSONObject = jSONObject.optJSONObject("multi_forum_perm");
-        if (optJSONObject != null) {
-            nx4 nx4Var = new nx4();
-            this.f = nx4Var;
-            nx4Var.a(optJSONObject);
+        fy4 fy4Var = new fy4();
+        this.a = fy4Var;
+        fy4Var.a(seniorLottery.theme);
+        this.b = new ArrayList();
+        int size = seniorLottery.award_info.size();
+        for (int i = 0; i < size; i++) {
+            tw4 tw4Var = new tw4();
+            tw4Var.a(seniorLottery.award_info.get(i));
+            this.b.add(tw4Var);
         }
-        int optInt = jSONObject.optInt("memberNum", 0);
-        this.h = optInt;
-        if (optInt == 0) {
-            this.h = jSONObject.optInt("member_num", 0);
+        String str = seniorLottery.myaward;
+        this.c = new ArrayList();
+        int size2 = seniorLottery.luck_users.size();
+        for (int i2 = 0; i2 < size2; i2++) {
+            uw4 uw4Var = new uw4();
+            uw4Var.a(seniorLottery.luck_users.get(i2));
+            this.c.add(uw4Var);
         }
-        this.g = jSONObject.optInt("post_num", 0);
-        JSONArray optJSONArray = jSONObject.optJSONArray("pendants");
-        if (optJSONArray != null) {
-            this.k = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                this.k.add(optJSONArray.optString(i));
-            }
-        }
-    }
-
-    public void i(SimpleForum simpleForum) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, simpleForum) != null) || simpleForum == null) {
-            return;
-        }
-        this.a = String.valueOf(simpleForum.id);
-        this.b = simpleForum.name;
-        this.c = simpleForum.avatar;
-        if (simpleForum.is_liked.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.d = z;
-        this.e = simpleForum.level_id.intValue();
-        this.j = simpleForum.recommend_tip;
-        if (simpleForum.multi_forum_perm != null) {
-            nx4 nx4Var = new nx4();
-            this.f = nx4Var;
-            nx4Var.b(simpleForum.multi_forum_perm);
-        }
-        simpleForum.is_brand_forum.intValue();
-        this.h = simpleForum.member_num.intValue();
-        this.g = simpleForum.post_num.intValue();
-        this.i = simpleForum.first_class;
-        ThemeColorInfo themeColorInfo = simpleForum.theme_color;
-        this.k = simpleForum.pendants;
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.d = z;
+        String str2 = seniorLottery.act_desc;
+        this.d = new ArrayList();
+        int size3 = seniorLottery.act_regular.size();
+        for (int i3 = 0; i3 < size3; i3++) {
+            ey4 ey4Var = new ey4();
+            ey4Var.a(seniorLottery.act_regular.get(i3));
+            this.d.add(ey4Var);
         }
     }
 }

@@ -133,7 +133,7 @@ public class ActionBarContainer extends FrameLayout {
         this.mBackground = obtainStyledAttributes.getDrawable(0);
         this.mStackedBackground = obtainStyledAttributes.getDrawable(2);
         this.mHeight = obtainStyledAttributes.getDimensionPixelSize(13, -1);
-        if (getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f09210a) {
+        if (getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f0920f9) {
             this.mIsSplit = true;
             this.mSplitBackground = obtainStyledAttributes.getDrawable(1);
         }

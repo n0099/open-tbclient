@@ -97,7 +97,7 @@ public final class DispatchedContinuation<T> extends DispatchedTask<T> implement
         if (this.dispatcher.isDispatchNeeded(context)) {
             this._state = state;
             this.resumeMode = 0;
-            this.dispatcher.mo2237dispatch(context, this);
+            this.dispatcher.mo2239dispatch(context, this);
             return;
         }
         EventLoop eventLoop$kotlinx_coroutines_core = ThreadLocalEventLoop.INSTANCE.getEventLoop$kotlinx_coroutines_core();
@@ -155,7 +155,7 @@ public final class DispatchedContinuation<T> extends DispatchedTask<T> implement
         if (job != null && !job.isActive()) {
             CancellationException cancellationException = job.getCancellationException();
             Result.Companion companion = Result.Companion;
-            resumeWith(Result.m768constructorimpl(ResultKt.createFailure(cancellationException)));
+            resumeWith(Result.m770constructorimpl(ResultKt.createFailure(cancellationException)));
             return true;
         }
         return false;
@@ -230,7 +230,7 @@ public final class DispatchedContinuation<T> extends DispatchedTask<T> implement
         if (this.dispatcher.isDispatchNeeded(getContext())) {
             this._state = state;
             this.resumeMode = 1;
-            this.dispatcher.mo2237dispatch(getContext(), this);
+            this.dispatcher.mo2239dispatch(getContext(), this);
             return;
         }
         EventLoop eventLoop$kotlinx_coroutines_core = ThreadLocalEventLoop.INSTANCE.getEventLoop$kotlinx_coroutines_core();
@@ -246,7 +246,7 @@ public final class DispatchedContinuation<T> extends DispatchedTask<T> implement
             if (job != null && !job.isActive()) {
                 CancellationException cancellationException = job.getCancellationException();
                 Result.Companion companion = Result.Companion;
-                resumeWith(Result.m768constructorimpl(ResultKt.createFailure(cancellationException)));
+                resumeWith(Result.m770constructorimpl(ResultKt.createFailure(cancellationException)));
                 z = true;
             } else {
                 z = false;

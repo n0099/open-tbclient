@@ -2,7 +2,7 @@ package com.baidu.tbadk.img;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.qe5;
+import com.baidu.tieba.uf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<qe5> mEmotionList;
+    public List<uf5> mEmotionList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetEmotionInfosResponseMessage(int i) {
@@ -48,7 +48,7 @@ public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
         this.mEmotionList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
             try {
-                this.mEmotionList.add(qe5.a(jSONArray.getJSONObject(i)));
+                this.mEmotionList.add(uf5.a(jSONArray.getJSONObject(i)));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -67,7 +67,7 @@ public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List<qe5> getEmotionList() {
+    public List<uf5> getEmotionList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

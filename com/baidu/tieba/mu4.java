@@ -1,319 +1,97 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tieba.d09;
+import android.content.Intent;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class mu4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile mu4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, JSONObject> a;
 
-    public static boolean a(File file) {
-        InterceptResult invokeL;
+    public mu4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            if (file.exists() && file.isFile() && file.canRead()) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        this.a = new HashMap<>();
     }
 
-    public static d09.g b(String str, String str2) {
-        InterceptResult invokeLL;
-        FileInputStream fileInputStream;
+    public static mu4 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            File file = new File(d09.g + "bdtbNWCache");
-            FileInputStream fileInputStream2 = null;
-            if (TextUtils.isEmpty(str2) || !file.exists()) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (mu4.class) {
+                    if (b == null) {
+                        b = new mu4();
+                    }
+                }
             }
-            d09.g gVar = new d09.g();
-            File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
-            gVar.a = file.getAbsolutePath();
-            gVar.c = str2;
-            File file3 = new File(file2, "router.json");
+            return b;
+        }
+        return (mu4) invokeV.objValue;
+    }
+
+    public void a(String str, String str2, String str3, String str4) {
+        HashMap<String, JSONObject> hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) && StringUtils.isNotNull(str) && (hashMap = this.a) != null && hashMap.get(str) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                if (!file3.exists()) {
-                    return null;
-                }
-                try {
-                    fileInputStream = new FileInputStream(file3);
-                } catch (FileNotFoundException e) {
-                    e = e;
-                }
-                try {
-                    gVar.b = f(fileInputStream);
-                    ii.e(fileInputStream);
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                    fileInputStream2 = fileInputStream;
-                    e.printStackTrace();
-                    ii.e(fileInputStream2);
-                    return gVar;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    ii.e(fileInputStream2);
-                    throw th;
-                }
-                return gVar;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return (d09.g) invokeLL.objValue;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00b7  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        File file;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (QuickWebViewSwitch.getInOn() && !d09.s(str)) {
-                try {
-                    f09 d = e09.a().d(new URL(str).getPath());
-                    if (d != null && d.e) {
-                        String p = d09.n().p(d.b);
-                        if (!TextUtils.isEmpty(d.b) && !TextUtils.isEmpty(d.c) && !TextUtils.isEmpty(p)) {
-                            String str2 = d09.n().m() + "/" + d.b + "/" + p + "/";
-                            if (!d.c.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
-                                file = new File(str2, d.c + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION);
-                            } else {
-                                file = new File(str2, d.c);
-                            }
-                            if (!a(file)) {
-                                return false;
-                            }
-                            ArrayList<String> arrayList = d.d;
-                            if (ListUtils.isEmpty(arrayList)) {
-                                return false;
-                            }
-                            for (String str3 : arrayList) {
-                                if (TextUtils.isEmpty(str3) || !a(new File(str2, str3))) {
-                                    return false;
-                                }
-                                while (r6.hasNext()) {
-                                }
-                            }
-                            return true;
-                        }
-                    }
-                } catch (MalformedURLException | Exception unused) {
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(Set<String> set) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, set) == null) && !vd6.a(set)) {
-            d09.f fVar = new d09.f();
-            fVar.a = new HashMap();
-            fVar.b = new HashMap<>();
-            for (String str : set) {
-                d09.g b = b(str, d09.n().p(str));
-                if (b != null && !TextUtils.isEmpty(b.a) && !vd6.b(b.b)) {
-                    fVar.a.put(str, b);
-                    fVar.b.putAll(b.b);
-                }
-            }
-            if (!vd6.b(fVar.b)) {
-                e09.a().i(fVar.b);
+                jSONObject.put("apkName", str2);
+                jSONObject.put("source", str3 + "");
+                jSONObject.put("apkUrl", str4);
+                this.a.put(str, jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public static HashMap<String, f09> f(InputStream inputStream) {
-        InterceptResult invokeL;
-        InputStreamReader inputStreamReader;
-        Throwable th;
-        BufferedReader bufferedReader;
-        HashMap<String, f09> hashMap;
+    public void b(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
-            InputStreamReader inputStreamReader2 = null;
-            if (inputStream == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) {
+            StatisticItem param = new StatisticItem(str).param("obj_source", str2).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", str3);
+            if (StringUtils.isNotNull(str4)) {
+                param.param(TiebaStatic.Params.OBJ_URL, str4);
             }
-            try {
-                StringBuffer stringBuffer = new StringBuffer();
-                inputStreamReader = new InputStreamReader(inputStream);
-                try {
-                    bufferedReader = new BufferedReader(inputStreamReader);
-                    try {
-                        try {
-                            for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
-                                stringBuffer.append(readLine);
-                            }
-                            bufferedReader.close();
-                            hashMap = new HashMap<>();
-                        } catch (Exception e) {
-                            e = e;
-                            hashMap = null;
-                        }
-                        try {
-                            JSONObject jSONObject = new JSONObject(stringBuffer.toString());
-                            e(jSONObject.optJSONObject("proxyConfig"), hashMap);
-                            e(jSONObject.optJSONObject("config"), hashMap);
-                            ii.g(inputStreamReader);
-                        } catch (Exception e2) {
-                            e = e2;
-                            inputStreamReader2 = inputStreamReader;
-                            try {
-                                e.printStackTrace();
-                                ii.g(inputStreamReader2);
-                                ii.g(bufferedReader);
-                                return hashMap;
-                            } catch (Throwable th2) {
-                                inputStreamReader = inputStreamReader2;
-                                th = th2;
-                                ii.g(inputStreamReader);
-                                ii.g(bufferedReader);
-                                throw th;
-                            }
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        ii.g(inputStreamReader);
-                        ii.g(bufferedReader);
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    bufferedReader = null;
-                    hashMap = null;
-                } catch (Throwable th4) {
-                    th = th4;
-                    bufferedReader = null;
-                }
-            } catch (Exception e4) {
-                e = e4;
-                bufferedReader = null;
-                hashMap = null;
-            } catch (Throwable th5) {
-                inputStreamReader = null;
-                th = th5;
-                bufferedReader = null;
-            }
-            ii.g(bufferedReader);
-            return hashMap;
+            TiebaStatic.log(param);
         }
-        return (HashMap) invokeL.objValue;
     }
 
-    public static void e(JSONObject jSONObject, HashMap<String, f09> hashMap) {
-        String str;
-        String str2;
-        String str3;
-        boolean z;
-        JSONArray optJSONArray;
-        JSONArray optJSONArray2;
+    public void d(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject, hashMap) == null) {
-            JSONObject jSONObject2 = jSONObject;
-            String str4 = "source";
-            String str5 = "path";
-            if (jSONObject2 != null && hashMap != null) {
-                try {
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (!hashMap.containsKey(next)) {
-                            JSONObject jSONObject3 = jSONObject2.getJSONObject(next);
-                            ArrayList<String> arrayList = new ArrayList<>();
-                            if (jSONObject3.has("data_urls") && (optJSONArray2 = jSONObject3.optJSONArray("data_urls")) != null) {
-                                for (int i = 0; i < optJSONArray2.length(); i++) {
-                                    arrayList.add(optJSONArray2.optString(i));
-                                }
-                            }
-                            if (!jSONObject3.has("module")) {
-                                str = "";
-                            } else {
-                                str = jSONObject3.optString("module");
-                            }
-                            if (!jSONObject3.has(str5)) {
-                                str2 = "";
-                            } else {
-                                str2 = jSONObject3.optString(str5);
-                            }
-                            ArrayList<String> arrayList2 = new ArrayList<>();
-                            if (jSONObject3.has(str4) && (optJSONArray = jSONObject3.optJSONArray(str4)) != null) {
-                                str3 = str4;
-                                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                    arrayList2.add(optJSONArray.optString(i2));
-                                }
-                            } else {
-                                str3 = str4;
-                            }
-                            String optString = jSONObject3.optString("staticPrePath", "");
-                            int optInt = jSONObject3.optInt("proxyMode");
-                            e09.a().j(next, next);
-                            e09.a().k(next, str2);
-                            Iterator<String> it = arrayList2.iterator();
-                            while (it.hasNext()) {
-                                String next2 = it.next();
-                                if (!TextUtils.isEmpty(next2)) {
-                                    e09 a = e09.a();
-                                    String str6 = str5;
-                                    a.j(optString + "/" + next2, next);
-                                    e09 a2 = e09.a();
-                                    a2.k(optString + "/" + next2, next2);
-                                    str5 = str6;
-                                }
-                            }
-                            String str7 = str5;
-                            f09 f09Var = new f09();
-                            f09Var.a = arrayList;
-                            f09Var.b = str;
-                            f09Var.c = str2;
-                            f09Var.d = arrayList2;
-                            if (optInt == 1) {
-                                z = true;
-                            } else {
-                                z = false;
-                            }
-                            f09Var.f = z;
-                            f09Var.e = true;
-                            hashMap.put(next, f09Var);
-                            jSONObject2 = jSONObject;
-                            str4 = str3;
-                            str5 = str7;
-                        }
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
+            String g = gg5.g(intent);
+            HashMap<String, JSONObject> hashMap = this.a;
+            if (hashMap != null && hashMap.get(g) != null) {
+                JSONObject jSONObject = this.a.get(g);
+                if (jSONObject != null) {
+                    b(TbadkCoreStatisticKey.INSTALL_APK_COMPLETION, jSONObject.optString("source"), jSONObject.optString("apkName"), jSONObject.optString("apkUrl"));
                 }
+                this.a.remove(g);
             }
         }
     }

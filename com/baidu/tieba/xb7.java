@@ -1,36 +1,28 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
+import com.baidu.tbadk.data.FeatureCardGod;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import tbclient.ActivityPage.ActivityPageResIdl;
-import tbclient.ActivityPage.DataRes;
-import tbclient.ActivityPage.HotTopic;
-import tbclient.ActivityPage.RecommendForumList;
-import tbclient.ActivityPage.RecommendUserList;
-import tbclient.ActivityPage.SpecialColumnList;
-import tbclient.BannerImage;
-import tbclient.Error;
 /* loaded from: classes6.dex */
-public class xb7 extends an5<ActivityPageResIdl> {
+public class xb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xm5 c;
-    public List<ThreadData> d;
-    public List<hw4> e;
-    public vw4 f;
-    public ux4 g;
+    public List<hn> a;
+    public List<ThreadData> b;
+    public Object[] c;
 
     public xb7() {
         Interceptable interceptable = $ic;
@@ -45,151 +37,186 @@ public class xb7 extends an5<ActivityPageResIdl> {
                 return;
             }
         }
-        this.c = new xm5();
+        this.a = new ArrayList();
+        this.b = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.an5
-    public List<hw4> e() {
+    public List<hn> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.an5
-    public List<ThreadData> f() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.an5, com.baidu.tieba.dn5
-    public xm5 getPageInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (xm5) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.dn5
-    public final void a(int i, byte[] bArr) throws Exception {
-        DataRes dataRes;
-        String str;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
-            ActivityPageResIdl activityPageResIdl = (ActivityPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ActivityPageResIdl.class);
-            Error error = activityPageResIdl.error;
-            if (error != null && (num = error.errorno) != null) {
-                b(num.intValue());
-                c(activityPageResIdl.error.errmsg);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i = 0; i < this.b.size(); i++) {
+                ThreadData threadData = this.b.get(i);
+                if (threadData != null) {
+                    if (i % 4 == 0) {
+                        on6 on6Var = new on6();
+                        on6Var.c(threadData);
+                        this.a.add(on6Var);
+                    } else {
+                        pn6 pn6Var = new pn6();
+                        pn6Var.c(threadData);
+                        this.a.add(pn6Var);
+                    }
+                }
             }
-            Error error2 = activityPageResIdl.error;
-            if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
-                b(activityPageResIdl.error.errorno.intValue());
-                c(activityPageResIdl.error.errmsg);
-            }
-            if (getErrorCode() != 0 || (dataRes = activityPageResIdl.data) == null) {
-                return;
-            }
-            j(dataRes);
         }
     }
 
-    @Override // com.baidu.tieba.an5
-    public List<gn> i(List<? extends gn> list) {
-        InterceptResult invokeL;
+    public void c(int i, vb7 vb7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
-            return tn5.a(list);
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, vb7Var) != null) || vb7Var == null) {
+            return;
         }
-        return (List) invokeL.objValue;
+        if (1 == i) {
+            this.a.clear();
+            this.b.clear();
+            this.c = new Object[vb7Var.b + 10];
+        }
+        if (!ListUtils.isEmpty(vb7Var.c)) {
+            ArrayList arrayList = new ArrayList(vb7Var.c.size());
+            for (ThreadData threadData : vb7Var.c) {
+                if (threadData != null) {
+                    arrayList.add(threadData);
+                }
+            }
+            this.b.addAll(arrayList);
+        }
+        if (1 == i) {
+            e(vb7Var);
+        }
+        this.a.clear();
+        b();
+        g();
+        f(vb7Var);
     }
 
-    public final void j(DataRes dataRes) {
+    public final void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, dataRes) == null) {
-            m(dataRes);
-            n(dataRes);
-            l(dataRes);
-            k(dataRes);
-        }
-    }
-
-    public final void m(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dataRes) == null) {
-            this.c.a(dataRes.page_info);
-        }
-    }
-
-    public final void n(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, dataRes) == null) {
-            this.d = tn5.c(dataRes.thread_list);
-        }
-    }
-
-    public final void k(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
-            ArrayList arrayList = new ArrayList();
-            RecommendForumList recommendForumList = dataRes.recommend_forum;
-            if (recommendForumList != null && ListUtils.getCount(recommendForumList.forum_list) >= 5) {
-                xy4 xy4Var = new xy4();
-                xy4Var.h(recommendForumList.forum_list);
-                xy4Var.f = recommendForumList.class_name;
-                xy4Var.floorPosition = recommendForumList.floor_position.intValue();
-                xy4Var.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1081);
-                xy4Var.e = R.color.CAM_X0108;
-                arrayList.add(xy4Var);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            Object[] objArr = this.c;
+            if (i >= objArr.length) {
+                this.c = Arrays.copyOf(objArr, i + 1);
             }
-            RecommendUserList recommendUserList = dataRes.recommend_user;
-            if (recommendUserList != null && ListUtils.getCount(recommendUserList.user_list) >= 4) {
-                bz4 bz4Var = new bz4();
-                bz4Var.f(recommendUserList.user_list);
-                bz4Var.floorPosition = recommendUserList.floor_position.intValue();
-                bz4Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1098);
-                bz4Var.b = R.color.CAM_X0108;
-                arrayList.add(bz4Var);
-            }
-            HotTopic hotTopic = dataRes.hot_topic;
-            if (hotTopic != null && ListUtils.getCount(hotTopic.topic_list) >= 4) {
-                bk7 bk7Var = new bk7();
-                bk7Var.g(hotTopic);
-                arrayList.add(bk7Var);
-            }
-            SpecialColumnList specialColumnList = dataRes.special_column;
-            if (specialColumnList != null && ListUtils.getCount(specialColumnList.item_list) >= 3) {
-                SpecialColumnListData specialColumnListData = new SpecialColumnListData();
-                specialColumnListData.parserProtobuf(specialColumnList);
-                arrayList.add(specialColumnListData);
-            }
-            this.e = arrayList;
         }
     }
 
-    public final void l(DataRes dataRes) {
+    public final void f(vb7 vb7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, dataRes) == null) {
-            List<BannerImage> list = dataRes.banner_image;
-            if (!ListUtils.isEmpty(list)) {
-                vw4 vw4Var = new vw4();
-                this.f = vw4Var;
-                vw4Var.parserProtobuf(list);
+        if (interceptable == null || interceptable.invokeL(1048581, this, vb7Var) == null) {
+            un6 un6Var = new un6();
+            un6Var.d(vb7Var.d);
+            this.a.add(0, un6Var);
+        }
+    }
+
+    public final void e(vb7 vb7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, vb7Var) == null) {
+            if (!ListUtils.isEmpty(vb7Var.e)) {
+                for (FeatureCardHot featureCardHot : vb7Var.e) {
+                    if (featureCardHot != null && featureCardHot.isValid()) {
+                        d(featureCardHot.floor.intValue());
+                        this.c[featureCardHot.floor.intValue()] = featureCardHot;
+                    }
+                }
             }
-            List<BannerImage> list2 = dataRes.grid;
-            if (ListUtils.getCount(list2) >= 4) {
-                ux4 ux4Var = new ux4();
-                this.g = ux4Var;
-                ux4Var.parserProtobuf(list2);
+            if (!ListUtils.isEmpty(vb7Var.f)) {
+                for (FeatureCardTopic featureCardTopic : vb7Var.f) {
+                    if (featureCardTopic != null && featureCardTopic.isValid()) {
+                        d(featureCardTopic.floor.intValue());
+                        this.c[featureCardTopic.floor.intValue()] = featureCardTopic;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(vb7Var.g)) {
+                for (wb7 wb7Var : vb7Var.g) {
+                    if (wb7Var != null && wb7Var.a()) {
+                        d(wb7Var.c.intValue());
+                        this.c[wb7Var.c.intValue()] = wb7Var;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(vb7Var.h)) {
+                for (FeatureCardCompetition featureCardCompetition : vb7Var.h) {
+                    if (featureCardCompetition != null && featureCardCompetition.isValid()) {
+                        d(featureCardCompetition.floor.intValue());
+                        this.c[featureCardCompetition.floor.intValue()] = featureCardCompetition;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(vb7Var.i)) {
+                for (FeatureCardGod featureCardGod : vb7Var.i) {
+                    if (featureCardGod != null && featureCardGod.isValid()) {
+                        d(featureCardGod.floor.intValue());
+                        this.c[featureCardGod.floor.intValue()] = featureCardGod;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(vb7Var.j)) {
+                for (FeatureCardGame featureCardGame : vb7Var.j) {
+                    if (featureCardGame != null && featureCardGame.isValid()) {
+                        d(featureCardGame.floor.intValue());
+                        this.c[featureCardGame.floor.intValue()] = featureCardGame;
+                    }
+                }
+            }
+        }
+    }
+
+    public final void g() {
+        Object[] objArr;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (objArr = this.c) != null && objArr.length > 0) {
+            int i = 0;
+            while (true) {
+                Object[] objArr2 = this.c;
+                if (i < objArr2.length) {
+                    Object obj = objArr2[i];
+                    if (obj != null) {
+                        int i2 = i - 1;
+                        if (i2 < 0) {
+                            i2 = 0;
+                        } else if (i2 >= this.a.size()) {
+                            i2 = this.a.size();
+                        }
+                        if (obj instanceof FeatureCardHot) {
+                            sn6 sn6Var = new sn6();
+                            sn6Var.d((FeatureCardHot) obj);
+                            this.a.add(i2, sn6Var);
+                        } else if (obj instanceof FeatureCardTopic) {
+                            vn6 vn6Var = new vn6();
+                            vn6Var.b((FeatureCardTopic) obj);
+                            this.a.add(i2, vn6Var);
+                        } else if (obj instanceof wb7) {
+                            rn6 rn6Var = new rn6();
+                            rn6Var.d((wb7) obj);
+                            this.a.add(i2, rn6Var);
+                        } else if (obj instanceof FeatureCardCompetition) {
+                            qn6 qn6Var = new qn6();
+                            qn6Var.b((FeatureCardCompetition) obj);
+                            this.a.add(i2, qn6Var);
+                        } else if (obj instanceof FeatureCardGod) {
+                            l57 l57Var = new l57();
+                            l57Var.e((FeatureCardGod) obj);
+                            this.a.add(i2, l57Var);
+                        } else if (obj instanceof FeatureCardGame) {
+                            tn6 tn6Var = new tn6();
+                            tn6Var.b((FeatureCardGame) obj);
+                            this.a.add(i2, tn6Var);
+                        }
+                    }
+                    i++;
+                } else {
+                    return;
+                }
             }
         }
     }

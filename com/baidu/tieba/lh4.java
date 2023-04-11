@@ -1,69 +1,142 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
 /* loaded from: classes5.dex */
-public class lh4 implements ph4 {
+public class lh4 extends jh4<wh4> implements sh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Response a;
+    public volatile wh4 b;
 
-    public lh4(@NonNull Response response) {
+    public lh4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {response};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = response;
     }
 
-    @Override // com.baidu.tieba.ph4
-    @Nullable
-    public oh4 body() {
+    public synchronized wh4 g() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ResponseBody body = this.a.body();
-            if (body == null) {
-                return null;
-            }
-            return new mh4(body);
-        }
-        return (oh4) invokeV.objValue;
-    }
-
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.close();
-        }
-    }
-
-    @Override // com.baidu.tieba.ph4
-    public int code() {
-        InterceptResult invokeV;
+        wh4 wh4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.code();
+            synchronized (this) {
+                wh4Var = (wh4) super.c();
+            }
+            return wh4Var;
         }
-        return invokeV.intValue;
+        return (wh4) invokeV.objValue;
+    }
+
+    public synchronized wh4 i() {
+        InterceptResult invokeV;
+        wh4 wh4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                wh4Var = (wh4) super.d();
+            }
+            return wh4Var;
+        }
+        return (wh4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sh4
+    public <T> void a(wh4<T> wh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, wh4Var) == null) {
+            this.b = wh4Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.sh4
+    public <T> void b(wh4<T> wh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wh4Var) == null) {
+            if (this.b == wh4Var) {
+                this.b = null;
+            }
+            k(wh4Var);
+        }
+    }
+
+    public final void k(wh4 wh4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, wh4Var) != null) || !wh4Var.k()) {
+            return;
+        }
+        wh4Var.r(true);
+        this.a.add(0, wh4Var);
+    }
+
+    public synchronized void h(wh4 wh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, wh4Var) == null) {
+            synchronized (this) {
+                if (wh4Var == null) {
+                    return;
+                }
+                if (this.b != null && this.b.d(wh4Var)) {
+                    wh4Var.e().f(wh4Var.f());
+                    return;
+                }
+                wh4 e = e(wh4Var);
+                if (e != null) {
+                    wh4Var.e().f(wh4Var.f());
+                    if (wh4Var.g() <= e.g()) {
+                        return;
+                    }
+                }
+                int g = wh4Var.g();
+                if (g != 200) {
+                    if (g != 300) {
+                        if (e == null) {
+                            this.a.add(wh4Var);
+                        }
+                    } else {
+                        j(wh4Var);
+                        if (e != null) {
+                            this.a.remove(e);
+                            this.a.add(0, e);
+                        } else {
+                            this.a.add(0, wh4Var);
+                        }
+                    }
+                } else if (e != null) {
+                    this.a.remove(e);
+                    this.a.add(0, e);
+                } else {
+                    this.a.add(0, wh4Var);
+                }
+                notifyAll();
+            }
+        }
+    }
+
+    public final void j(wh4 wh4Var) {
+        wh4 wh4Var2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, wh4Var) != null) || wh4Var.g() != 300 || (wh4Var2 = this.b) == null || wh4Var2.g() == 300) {
+            return;
+        }
+        wh4Var2.o();
+        for (int i = 0; i < 500 && this.b != null; i++) {
+            try {
+                Thread.sleep(10L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

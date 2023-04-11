@@ -1,76 +1,182 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.graphics.Rect;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class jj3 extends q93 {
+public class jj3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
+    public static hj3 g;
+    public static volatile jj3 h;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public ViewTreeObserver.OnGlobalLayoutListener d;
+    public String e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jj3(q83 q83Var) {
-        super(q83Var, "/swanAPI/closeTextarea");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {q83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ jj3 b;
+
+        public a(jj3 jj3Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jj3Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = jj3Var;
+            this.a = view2;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (jj3.g != null) {
+                    jj3.g.c(this.b.e);
+                }
+                Rect rect = new Rect();
+                this.a.getWindowVisibleDisplayFrame(rect);
+                int height = rect.height();
+                if (this.b.c != this.b.a) {
+                    if (this.b.c == height) {
+                        return;
+                    }
+                    if (this.b.c - height > this.b.b) {
+                        if (jj3.g != null) {
+                            jj3.g.b(this.b.e, this.b.c - height);
+                            if (jj3.f) {
+                                Log.d("SoftKeyboardHelper", "onKeyBoardShow: mRootViewVisibleHeight " + this.b.c + " visibleHeight " + height);
+                            }
+                        }
+                        this.b.c = height;
+                        return;
+                    } else if (height - this.b.c > this.b.b) {
+                        if (jj3.g != null) {
+                            jj3.g.a(this.b.e, height - this.b.c);
+                        }
+                        if (jj3.f) {
+                            Log.d("SoftKeyboardHelper", "onKeyBoardHide: mRootViewVisibleHeight " + this.b.c + " visibleHeight " + height);
+                        }
+                        this.b.c = height;
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                this.b.c = height;
             }
         }
     }
 
-    @Override // com.baidu.tieba.q93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, t73 t73Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, t73Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947885174, "Lcom/baidu/tieba/jj3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            t42.i("CloseTextAreaAction", "closeTextAreaAction paramsJson: " + optParamsAsJo);
-            f42 f42Var = new f42();
-            try {
-                f42Var.a(optParamsAsJo);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                t42.d("CloseTextAreaAction", "model parse exception:", e);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947885174, "Lcom/baidu/tieba/jj3;");
+                return;
             }
-            e42 e42Var = (e42) g42.a(f42Var);
-            if (e42Var == null) {
-                String str = "can't find textarea component:#" + f42Var.b;
-                t42.c("CloseTextAreaAction", str);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
-                return false;
-            }
-            k32 B = e42Var.B();
-            if (!B.a()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
         }
-        return invokeLLLL.booleanValue;
+        f = eo1.a;
+    }
+
+    public jj3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        this.b = 200;
+    }
+
+    public static jj3 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (h == null) {
+                synchronized (jj3.class) {
+                    if (h == null) {
+                        h = new jj3();
+                    }
+                }
+            }
+            return h;
+        }
+        return (jj3) invokeV.objValue;
+    }
+
+    public static void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            g = null;
+            h = null;
+        }
+    }
+
+    public final void h(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            if (this.d == null) {
+                this.d = new a(this, view2);
+            }
+            view2.getViewTreeObserver().addOnGlobalLayoutListener(this.d);
+        }
+    }
+
+    public void k(@NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            view2.getViewTreeObserver().removeOnGlobalLayoutListener(this.d);
+            this.e = "";
+            g = null;
+            this.c = 0;
+        }
+    }
+
+    public void l(View view2, String str, hj3 hj3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view2, str, hj3Var) == null) {
+            h(view2);
+            this.e = str;
+            g = hj3Var;
+            this.c = 0;
+        }
     }
 }

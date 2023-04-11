@@ -1,143 +1,240 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.ListAdapter;
-import android.widget.ProgressBar;
+import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleRegistry;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
-import com.baidu.tieba.memberCenter.bubble.BubbleListData;
+import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class o98 extends y8<BubbleChooseActivity> {
+public final class o98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NavigationBar a;
-    public ViewGroup b;
-    public GridView c;
-    public View d;
-    public n98 e;
-    public BubbleChooseActivity f;
-    public ProgressBar g;
+    public final Slice a;
+    public final LifecycleRegistry b;
+    public final Map<Slice, a> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o98(TbPageContext<BubbleChooseActivity> tbPageContext) {
-        super(tbPageContext);
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Slice a;
+        public boolean b;
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj instanceof a) {
+                    a aVar = (a) obj;
+                    return Intrinsics.areEqual(this.a, aVar.a) && this.b == aVar.b;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
+        /* JADX WARN: Multi-variable type inference failed */
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                int hashCode = this.a.hashCode() * 31;
+                boolean z = this.b;
+                int i = z;
+                if (z != 0) {
+                    i = 1;
+                }
+                return hashCode + i;
+            }
+            return invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return "SliceRecord(slice=" + this.a + ", isShowing=" + this.b + ')';
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public a(Slice slice, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {slice, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(slice, "slice");
+            this.a = slice;
+            this.b = z;
+        }
+    }
+
+    public o98(Slice owner) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {owner};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
-        this.f = orignalPage;
-        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d0176);
-        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.lay_title_bar);
-        this.a = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.setTitleText(R.string.editor_privilege);
-        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0177, this.f);
-        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f09076e);
-        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090e5f);
-        n98 n98Var = new n98(tbPageContext);
-        this.e = n98Var;
-        this.c.setAdapter((ListAdapter) n98Var);
-        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f0904e6);
+        Intrinsics.checkNotNullParameter(owner, "owner");
+        this.a = owner;
+        this.b = new LifecycleRegistry(owner);
+        this.c = new LinkedHashMap();
     }
 
-    public n98 i() {
-        InterceptResult invokeV;
+    public final void k(Bundle outState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeL(1048586, this, outState) == null) {
+            Intrinsics.checkNotNullParameter(outState, "outState");
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().N(outState);
+            }
         }
-        return (n98) invokeV.objValue;
     }
 
-    public View l() {
+    public void a(ViewGroup container, Slice child) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, container, child) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
+            Intrinsics.checkNotNullParameter(child, "child");
+            s98.a.a();
+            this.b.addObserver(child);
+            this.c.put(child, new a(child, true));
+        }
+    }
+
+    public final LifecycleRegistry b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return this.b;
         }
-        return (View) invokeV.objValue;
+        return (LifecycleRegistry) invokeV.objValue;
     }
 
-    public GridView m() {
-        InterceptResult invokeV;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (GridView) invokeV.objValue;
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.g.setVisibility(8);
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.g.setVisibility(0);
-        }
-    }
-
-    public BubbleListData.BubbleData n(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            n98 n98Var = this.e;
-            if (n98Var == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().E();
             }
-            return n98Var.getItem(i);
         }
-        return (BubbleListData.BubbleData) invokeI.objValue;
     }
 
-    public void onChangeSkinType(int i) {
-        boolean z;
+    public final void c(Lifecycle.Event event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            this.b.handleLifecycleEvent(event);
+        }
+    }
+
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().G(z);
+            }
+        }
+    }
+
+    public final void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.a.onChangeSkinType((TbPageContext) getPageContext(), i);
-            fv4 layoutMode = this.f.getLayoutMode();
-            if (i == 4) {
-                z = true;
-            } else {
-                z = false;
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().H(i);
             }
-            layoutMode.l(z);
-            this.f.getLayoutMode().k(this.b);
         }
     }
 
-    public void p(List<BubbleListData.BubbleData> list, boolean z) {
-        n98 n98Var;
+    public final void i(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048582, this, list, z) == null) && (n98Var = this.e) != null) {
-            n98Var.d(z);
-            this.e.c(list);
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().K(z);
+            }
+        }
+    }
+
+    public final void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().O(z);
+            }
+        }
+    }
+
+    public final void d(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().F(i, i2, intent);
+            }
+        }
+    }
+
+    public final boolean h(int i, KeyEvent event) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, event)) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            Map<Slice, a> map = this.c;
+            if (map.isEmpty()) {
+                return false;
+            }
+            for (Map.Entry<Slice, a> entry : map.entrySet()) {
+                if (entry.getKey().onKeyDown(i, event)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public final void j(int i, String[] permissions, int[] grantResults) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048585, this, i, permissions, grantResults) == null) {
+            Intrinsics.checkNotNullParameter(permissions, "permissions");
+            Intrinsics.checkNotNullParameter(grantResults, "grantResults");
+            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
+                entry.getKey().M(i, permissions, grantResults);
+            }
         }
     }
 }

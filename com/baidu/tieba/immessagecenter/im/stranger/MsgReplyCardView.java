@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.ny7;
-import com.baidu.tieba.pn7;
+import com.baidu.tieba.l88;
+import com.baidu.tieba.mx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class MsgReplyCardView extends pn7 {
+/* loaded from: classes5.dex */
+public class MsgReplyCardView extends mx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout G;
@@ -27,7 +27,7 @@ public class MsgReplyCardView extends pn7 {
     public TextView J;
     public TextView K;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,14 +55,14 @@ public class MsgReplyCardView extends pn7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.b.C(view2, 14, this.a.f, 0L);
+                this.a.b.D(view2, 14, this.a.f, 0L);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgReplyCardView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05e9);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05e7);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,20 +79,20 @@ public class MsgReplyCardView extends pn7 {
                 return;
             }
         }
-        e0();
+        p0();
     }
 
-    public final String d0(int i) {
+    public final String o0(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             if (i == 1) {
-                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f08e6);
+                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f08e3);
             }
             if (i == 2) {
-                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f125e);
+                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1254);
             }
-            return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f143e);
+            return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1435);
         }
         return (String) invokeI.objValue;
     }
@@ -100,7 +100,7 @@ public class MsgReplyCardView extends pn7 {
     private String getType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
             if (i == 1) {
                 return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f00c8);
             }
@@ -109,22 +109,22 @@ public class MsgReplyCardView extends pn7 {
         return (String) invokeI.objValue;
     }
 
-    public final String b0(ny7.a aVar, String str) {
+    public final String m0(l88.a aVar, String str) {
         InterceptResult invokeLL;
-        String d0;
+        String o0;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, str)) == null) {
             StringBuilder sb = new StringBuilder();
             if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                d0 = this.mContext.getString(R.string.obfuscated_res_0x7f0f0b75);
+                o0 = this.mContext.getString(R.string.obfuscated_res_0x7f0f0b71);
             } else {
-                d0 = d0(aVar.a);
+                o0 = o0(aVar.a);
             }
             if (aVar.h == 1) {
-                sb.append(String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00c5), d0));
+                sb.append(String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00c5), o0));
                 sb.append(aVar.c);
             } else {
-                sb.append(String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00c6), d0));
+                sb.append(String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00c6), o0));
                 sb.append(aVar.g);
             }
             return sb.toString();
@@ -132,47 +132,47 @@ public class MsgReplyCardView extends pn7 {
         return (String) invokeLL.objValue;
     }
 
-    public final String c0(ny7.a aVar, String str) {
+    public final String n0(l88.a aVar, String str) {
         InterceptResult invokeLL;
         String string;
-        String d0;
+        String o0;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str)) == null) {
             if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                string = d0(aVar.a);
-                d0 = this.mContext.getString(R.string.obfuscated_res_0x7f0f174e);
+                string = o0(aVar.a);
+                o0 = this.mContext.getString(R.string.obfuscated_res_0x7f0f1744);
             } else {
-                string = this.mContext.getString(R.string.obfuscated_res_0x7f0f174e);
-                d0 = d0(aVar.a);
+                string = this.mContext.getString(R.string.obfuscated_res_0x7f0f1744);
+                o0 = o0(aVar.a);
             }
-            return String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00c7), string, getType(aVar.h), d0);
+            return String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00c7), string, getType(aVar.h), o0);
         }
         return (String) invokeLL.objValue;
     }
 
-    public final void e0() {
+    public final void p0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.G = (LinearLayout) i(R.id.obfuscated_res_0x7f091d91);
-            this.H = (TextView) i(R.id.obfuscated_res_0x7f091da6);
-            this.I = (TextView) i(R.id.obfuscated_res_0x7f091d94);
-            this.J = (TextView) i(R.id.obfuscated_res_0x7f091da3);
-            this.K = (TextView) i(R.id.obfuscated_res_0x7f091d97);
+            this.G = (LinearLayout) u(R.id.obfuscated_res_0x7f091d80);
+            this.H = (TextView) u(R.id.obfuscated_res_0x7f091d95);
+            this.I = (TextView) u(R.id.obfuscated_res_0x7f091d83);
+            this.J = (TextView) u(R.id.obfuscated_res_0x7f091d92);
+            this.K = (TextView) u(R.id.obfuscated_res_0x7f091d86);
             this.G.setOnClickListener(new a(this));
         }
     }
 
-    public void g0(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view2) {
+    public void q0(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(1048580, this, tbPageContext, chatMessage, view2) != null) || chatMessage == null) {
             return;
         }
-        ny7.a a2 = ny7.a(chatMessage.getContent());
+        l88.a a2 = l88.a(chatMessage.getContent());
         String valueOf = String.valueOf(chatMessage.getUserId());
-        this.H.setText(c0(a2, valueOf));
+        this.H.setText(n0(a2, valueOf));
         this.I.setText(a2.b);
-        this.J.setText(b0(a2, valueOf));
+        this.J.setText(m0(a2, valueOf));
         TextView textView = this.K;
-        textView.setText(a2.d + this.mContext.getString(R.string.obfuscated_res_0x7f0f06bd));
+        textView.setText(a2.d + this.mContext.getString(R.string.obfuscated_res_0x7f0f06b5));
     }
 }

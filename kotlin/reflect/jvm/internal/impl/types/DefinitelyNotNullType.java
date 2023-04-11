@@ -98,7 +98,7 @@ public final class DefinitelyNotNullType extends DelegatingSimpleType implements
 
     @Override // kotlin.reflect.jvm.internal.impl.types.CustomTypeVariable
     public boolean isTypeVariable() {
-        if (!(getDelegate().getConstructor() instanceof NewTypeVariableConstructor) && !(getDelegate().getConstructor().mo2023getDeclarationDescriptor() instanceof TypeParameterDescriptor)) {
+        if (!(getDelegate().getConstructor() instanceof NewTypeVariableConstructor) && !(getDelegate().getConstructor().mo2025getDeclarationDescriptor() instanceof TypeParameterDescriptor)) {
             return false;
         }
         return true;

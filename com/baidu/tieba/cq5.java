@@ -1,60 +1,145 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.service.AsyncService;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.performance.speed.SpeedStats;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.core.util.EnterForePvThread;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.PvThread;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.mutiprocess.event.AppBackgroundSwitchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.List;
-import java.util.regex.Matcher;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.Regex;
-import kotlin.text.StringsKt__StringsJVMKt;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
-public final class cq5 {
+public class cq5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static cq5 j;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947683426, "Lcom/baidu/tieba/cq5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947683426, "Lcom/baidu/tieba/cq5;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
+    public int a;
+    public long b;
+    public long c;
+    public long d;
+    public int e;
+    public AtomicBoolean f;
+    public boolean g;
+    public Handler h;
+    public Runnable i;
 
     /* loaded from: classes3.dex */
-    public static final class a {
+    public class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cq5 a;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
+        public a(cq5 cq5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cq5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cq5Var;
+        }
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                if (message.what == 5) {
+                    if (!Boolean.TRUE.equals(message.obj)) {
+                        this.a.n();
+                        return false;
+                    }
+                    this.a.q();
+                    this.a.m();
+                    return false;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cq5 a;
+
+        public b(cq5 cq5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cq5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cq5Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                cq5 cq5Var = this.a;
+                if (cq5Var.f == null) {
+                    cq5Var.f = new AtomicBoolean(false);
+                }
+                if (this.a.f.get()) {
+                    return;
+                }
+                this.a.f.set(true);
+                if (this.a.l(true)) {
+                    TbadkCoreApplication.getInst().fixOppoTimeout();
+                    MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.TRUE));
+                    bj5.i(new AppBackgroundSwitchEvent(true));
+                    TiebaStaticHelper.setCurrentActivity(null);
+                    TiebaStatic.save();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(cq5 cq5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cq5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -65,215 +150,255 @@ public final class cq5 {
             }
         }
 
-        public final String a(String str, int i, String str2) {
-            InterceptResult invokeLIL;
-            boolean z;
-            boolean z2;
-            int i2;
-            String str3;
-            int i3;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, str, i, str2)) == null) {
-                String str4 = str;
-                String str5 = "";
-                if (str4 == null || i <= 0) {
-                    return "";
-                }
-                int d = d(str);
-                if (d <= i) {
-                    return str4;
-                }
-                int b = zp6.b(str);
-                if (b == 0) {
-                    String cutChineseAndEnglishWithEmoji = StringHelper.cutChineseAndEnglishWithEmoji(str, i, str2);
-                    Intrinsics.checkNotNullExpressionValue(cutChineseAndEnglishWithEmoji, "cutChineseAndEnglishWithEmoji(string, length, end)");
-                    return cutChineseAndEnglishWithEmoji;
-                }
-                Object[] array = new Regex("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)").split(str4, 0).toArray(new String[0]);
-                if (array != null) {
-                    String[] strArr = (String[]) array;
-                    if (strArr.length == 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (z) {
-                        if (i < 2) {
-                            if (str2 == null) {
-                                return "";
-                            }
-                            return str2;
-                        }
-                        return str4;
-                    }
-                    String[] b2 = b(str4, strArr, b);
-                    int length = b2.length;
-                    int i4 = 0;
-                    int i5 = 0;
-                    int i6 = 0;
-                    int i7 = 0;
-                    while (i4 < length) {
-                        String str6 = b2[i4];
-                        Intrinsics.checkNotNull(str6);
-                        if (StringsKt__StringsJVMKt.startsWith$default(str6, "2", false, 2, null)) {
-                            String substring = str6.substring(1);
-                            Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String).substring(startIndex)");
-                            b2[i4] = substring;
-                            i7 = -1;
-                            i5 += 2;
-                            if (i5 > i) {
-                                break;
-                            }
-                        } else {
-                            String substring2 = str6.substring(1);
-                            Intrinsics.checkNotNullExpressionValue(substring2, "this as java.lang.String).substring(startIndex)");
-                            b2[i4] = substring2;
-                            String str7 = b2[i4];
-                            Intrinsics.checkNotNull(str7);
-                            int length2 = str7.length();
-                            int i8 = 0;
-                            while (i8 < length2) {
-                                if (gi.isChinese(str7.charAt(i8))) {
-                                    i3 = 2;
-                                } else {
-                                    i3 = 1;
-                                }
-                                i5 += i3;
-                                if (i5 > i) {
-                                    break;
-                                }
-                                i8++;
-                            }
-                            i7 = i8;
-                        }
-                        if (i5 > i) {
-                            break;
-                        }
-                        i4++;
-                        i6 = i5;
-                    }
-                    if (i6 + i7 + 1 <= d) {
-                        StringBuilder sb = new StringBuilder();
-                        for (int i9 = 0; i9 < i4; i9++) {
-                            sb.append(b2[i9]);
-                        }
-                        if (i4 < length && (str3 = b2[i4]) != null) {
-                            str5 = str3;
-                        }
-                        if (str5.length() > 0) {
-                            z2 = true;
-                        } else {
-                            z2 = false;
-                        }
-                        if (z2 && (i2 = i7 + 1) > 0 && i2 < str5.length()) {
-                            String substring3 = str5.substring(0, str5.offsetByCodePoints(0, str5.codePointCount(0, i2)));
-                            Intrinsics.checkNotNullExpressionValue(substring3, "this as java.lang.String…ing(startIndex, endIndex)");
-                            sb.append(substring3);
-                        }
-                        if (!Intrinsics.areEqual(str4, sb.toString())) {
-                            str4 = sb.toString() + str2;
-                        }
-                        Intrinsics.checkNotNullExpressionValue(str4, "{\n                val re…          }\n            }");
-                    }
-                    return str4;
-                }
-                throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T of kotlin.collections.ArraysKt__ArraysJVMKt.toTypedArray>");
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                iw4.c().b();
             }
-            return (String) invokeLIL.objValue;
         }
+    }
 
-        public final String[] b(String str, String[] strArr, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, strArr, i)) == null) {
-                String[] strArr2 = new String[strArr.length + i];
-                Matcher matcher = zp6.a.matcher(str);
-                int i2 = 0;
-                int i3 = 0;
-                while (matcher.find()) {
-                    if (i2 < strArr.length) {
-                        strArr2[i3] = '1' + strArr[i2];
-                        i3++;
-                        i2++;
-                    }
-                    String group = matcher.group();
-                    if (MessageManager.getInstance().findTask(2004608) != null) {
-                        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004608, Boolean.TYPE, group);
-                        if (runTask != null && runTask.getData() != null) {
-                            Object data = runTask.getData();
-                            Intrinsics.checkNotNull(data);
-                            if (((Boolean) data).booleanValue()) {
-                                strArr2[i3] = '2' + group;
-                                i3++;
-                            }
-                        }
-                        strArr2[i3] = '1' + group;
-                        i3++;
-                    }
-                }
-                if (i2 < strArr.length) {
-                    strArr2[i3] = '1' + strArr[i2];
-                }
-                return strArr2;
+    public cq5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return (String[]) invokeLLI.objValue;
         }
+        this.a = 0;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0;
+        this.f = null;
+        this.g = false;
+        this.h = new Handler(Looper.getMainLooper(), new a(this));
+        this.i = new b(this);
+    }
 
-        public final int c(List<? extends AtSelectData> atInfoList) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, atInfoList)) == null) {
-                Intrinsics.checkNotNullParameter(atInfoList, "atInfoList");
-                int i = 0;
-                if (ListUtils.isEmpty(atInfoList)) {
-                    return 0;
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (l(false)) {
+                if (!this.g) {
+                    return true;
                 }
-                for (AtSelectData atSelectData : atInfoList) {
-                    if (atSelectData != null) {
-                        i += d('@' + atSelectData.getNameShow() + WebvttCueParser.CHAR_SPACE);
-                    }
-                }
-                return i;
+                Intent intent = new Intent("com.tieba.baidu.notifyprocess");
+                intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
+                intent.putExtra("message", true);
+                TbadkCoreApplication.getInst().sendBroadcast(intent);
+                return false;
             }
-            return invokeL.intValue;
+            Intent intent2 = new Intent("com.tieba.baidu.notifyprocess");
+            intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
+            intent2.putExtra("message", false);
+            TbadkCoreApplication.getInst().sendBroadcast(intent2);
+            return false;
         }
+        return invokeV.booleanValue;
+    }
 
-        public final int d(String str) {
-            InterceptResult invokeL;
-            int chineseAndEnglishLength;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                if (str == null) {
-                    return 0;
-                }
-                Matcher matcher = zp6.a.matcher(str);
-                int i = 0;
-                while (matcher.find()) {
-                    String group = matcher.group();
-                    if (MessageManager.getInstance().findTask(2004608) != null) {
-                        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004608, Boolean.TYPE, group);
-                        if (runTask != null && runTask.getData() != null) {
-                            Object data = runTask.getData();
-                            Intrinsics.checkNotNull(data);
-                            if (((Boolean) data).booleanValue()) {
-                                chineseAndEnglishLength = 2;
-                                i += chineseAndEnglishLength;
-                            }
-                        }
-                        chineseAndEnglishLength = StringHelper.getChineseAndEnglishLength(group);
-                        i += chineseAndEnglishLength;
+    public boolean l(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+            return TbadkCoreApplication.getInst().isMainProcess(z);
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.g = !z;
+        }
+    }
+
+    public static cq5 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (j == null) {
+                synchronized (cq5.class) {
+                    if (j == null) {
+                        j = new cq5();
                     }
                 }
-                Object[] array = new Regex("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)").split(str, 0).toArray(new String[0]);
-                if (array != null) {
-                    for (String str2 : (String[]) array) {
-                        i += StringHelper.getChineseAndEnglishLength(str2);
-                    }
-                    return i;
-                }
-                throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T of kotlin.collections.ArraysKt__ArraysJVMKt.toTypedArray>");
             }
-            return invokeL.intValue;
+            return j;
+        }
+        return (cq5) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e++;
+            p();
+            qb.b().a("CornerManager", new c(this));
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e--;
+            p();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a = 0;
+        }
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            AtomicBoolean atomicBoolean = this.f;
+            if (atomicBoolean == null) {
+                return true;
+            }
+            return atomicBoolean.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            AtomicBoolean atomicBoolean = this.f;
+            if (atomicBoolean == null) {
+                return false;
+            }
+            return atomicBoolean.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            AsyncService.INSTANCE.sendRunnable(this.i);
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            Handler handler = this.h;
+            handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.TRUE), 1000L);
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.b = System.currentTimeMillis();
+            new EnterForePvThread().start();
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            AsyncService.INSTANCE.removeRunnable(this.i);
+            if (this.f == null) {
+                this.f = new AtomicBoolean(true);
+            }
+            if (!this.f.get()) {
+                return;
+            }
+            this.f.set(false);
+            this.a++;
+            if (l(true)) {
+                long currentTimeMillis = System.currentTimeMillis();
+                long j2 = this.b;
+                if ((currentTimeMillis - j2 > 3600000 || j2 == 0) && PermissionUtil.isAgreePrivacyPolicy()) {
+                    s();
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.FALSE));
+                bj5.i(new AppBackgroundSwitchEvent(false));
+            }
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (this.e < 0) {
+                this.e = 0;
+            }
+            if (l(true) && this.c == 0 && this.e > 0) {
+                this.c = System.nanoTime();
+                this.d = System.currentTimeMillis();
+            }
+            this.h.removeMessages(5);
+            if (this.e == 0) {
+                SpeedStats.getInstance().onAppBackground();
+                r();
+                return;
+            }
+            AtomicBoolean atomicBoolean = this.f;
+            if (atomicBoolean == null || atomicBoolean.get()) {
+                SpeedStats.getInstance().onAppForeground();
+                Handler handler = this.h;
+                handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.FALSE), 1000L);
+            }
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.e == 0 && this.c > 0) {
+            long nanoTime = ((System.nanoTime() - this.c) / 1000000) / 1000;
+            if (nanoTime >= TbadkCoreApplication.getInst().getUseTimeInterval()) {
+                if (PermissionUtil.isAgreePrivacyPolicy()) {
+                    new PvThread("use", String.valueOf(nanoTime)).start();
+                }
+                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "use", null, 1, "st_param", String.valueOf(nanoTime));
+            }
+            this.c = 0L;
+            this.d = 0L;
         }
     }
 }

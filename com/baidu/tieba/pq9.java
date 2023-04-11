@@ -1,110 +1,53 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes5.dex */
-public class pq9 {
+public class pq9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public uq9 b;
-    public kq9 c;
+    public final MainTabActivity a;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public boolean b;
-        public int c;
-        public uq9 d;
-        public kq9 e;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.b = true;
-            this.c = 0;
-            this.d = null;
-            this.e = null;
-        }
-
-        public pq9 d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                e();
-                return new pq9(this, null);
-            }
-            return (pq9) invokeV.objValue;
-        }
-
-        public final void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (TextUtils.isEmpty(this.a)) {
-                    this.a = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
-                }
-                if (this.c <= 0) {
-                    this.c = ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8;
-                }
-                if (this.d == null) {
-                    this.d = new uq9(this.c);
-                }
-                if (this.e == null) {
-                    this.e = new kq9(this.a);
-                }
-            }
-        }
-    }
-
-    public pq9(b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pq9(MainTabActivity mainTabActivity, jo9 jo9Var) {
+        super(2016493);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {mainTabActivity, jo9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        String unused = bVar.a;
-        this.a = bVar.b;
-        int unused2 = bVar.c;
-        this.b = bVar.d;
-        this.c = bVar.e;
+        this.a = mainTabActivity;
     }
 
-    public /* synthetic */ pq9(b bVar, a aVar) {
-        this(bVar);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ac5 ac5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ac5) && (ac5Var = (ac5) customResponsedMessage.getData()) != null && !StringUtils.isNull(ac5Var.a)) {
+            eq5.h(ac5Var);
+            if (StringUtils.isNull(ac5Var.c)) {
+                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{ac5Var.a});
+            } else {
+                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{ac5Var.a, ac5Var.c});
+            }
+        }
     }
 }

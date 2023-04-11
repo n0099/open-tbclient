@@ -112,12 +112,12 @@ public class l3 implements r6 {
 
         /* renamed from: com.baidu.tieba.l3$c$c  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0316c implements o<q> {
+        public class C0331c implements o<q> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String[] a;
 
-            public C0316c(c cVar, String[] strArr) {
+            public C0331c(c cVar, String[] strArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -727,7 +727,7 @@ public class l3 implements r6 {
                 g7Var2.i("offset", new n(this, strArr));
                 g7Var2.i("orig", new a(this, strArr));
                 g7Var2.i(SevenZipUtils.LZMA_META_KEY_OFFSET, new b(this, strArr));
-                g7Var2.i("rotate", new C0316c(this, strArr));
+                g7Var2.i("rotate", new C0331c(this, strArr));
                 g7Var2.i("index", new d(this, strArr, zArr));
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(t2Var.m()), 1024);
                 try {
@@ -813,12 +813,12 @@ public class l3 implements r6 {
                         if (zArr[0]) {
                             this.b.sort(new e(this));
                         }
-                    } catch (Throwable th) {
-                        s7.a(bufferedReader);
-                        throw th;
+                    } catch (Exception e2) {
+                        throw new GdxRuntimeException("Error reading texture atlas file: " + t2Var, e2);
                     }
-                } catch (Exception e2) {
-                    throw new GdxRuntimeException("Error reading texture atlas file: " + t2Var, e2);
+                } catch (Throwable th) {
+                    s7.a(bufferedReader);
+                    throw th;
                 }
             }
         }

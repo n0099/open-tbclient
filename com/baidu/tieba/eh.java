@@ -40,7 +40,7 @@ public class eh {
     public BdStatSwitchData f;
     public fh g;
     public b h;
-    public mi i;
+    public ni i;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -260,9 +260,9 @@ public class eh {
     }
 
     public void p() {
-        mi miVar;
+        ni niVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (miVar = this.i) != null && miVar.isAgreePrivacyPolicy()) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (niVar = this.i) != null && niVar.isAgreePrivacyPolicy()) {
             d dVar = new d(this, null);
             dVar.setPriority(4);
             dVar.execute(new Object[0]);
@@ -318,10 +318,10 @@ public class eh {
         return (String) invokeV.objValue;
     }
 
-    public void A(mi miVar) {
+    public void A(ni niVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, miVar) == null) {
-            this.i = miVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, niVar) == null) {
+            this.i = niVar;
         }
     }
 

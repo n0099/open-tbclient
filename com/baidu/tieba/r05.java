@@ -1,24 +1,28 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tieba.h95;
-import com.baidu.tieba.p05;
+import com.baidu.tbadk.BdToken.BdTokenController;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.data.UserData;
+import com.baidu.tieba.s05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class r05 extends p05 {
+public class r05 extends s05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HotEventData c;
-    public e85 d;
+    public final TbPageContext c;
+    public final UserData d;
+    public final BdTokenController.m e;
+    public vq4 f;
 
     /* loaded from: classes6.dex */
-    public class a implements h95.d {
+    public class a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ r05 a;
@@ -41,23 +45,23 @@ public class r05 extends p05 {
             this.a = r05Var;
         }
 
-        @Override // com.baidu.tieba.h95.d
-        public void onDismiss() {
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
                 this.a.c();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r05(Activity activity, HotEventData hotEventData) {
+    public r05(TbPageContext tbPageContext, Activity activity, UserData userData, BdTokenController.m mVar) {
         super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, hotEventData};
+            Object[] objArr = {tbPageContext, activity, userData, mVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,31 +72,37 @@ public class r05 extends p05 {
                 return;
             }
         }
-        this.c = hotEventData;
+        this.c = tbPageContext;
+        this.d = userData;
+        this.e = mVar;
     }
 
-    @Override // com.baidu.tieba.p05
+    @Override // com.baidu.tieba.s05
     public void b() {
-        e85 e85Var;
+        vq4 vq4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (e85Var = this.d) != null) {
-            e85Var.m();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (vq4Var = this.f) != null) {
+            vq4Var.b();
         }
     }
 
-    @Override // com.baidu.tieba.p05
+    @Override // com.baidu.tieba.s05
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.d = h95.h(this.c, new a(this));
+            vq4 c = vq4.c();
+            this.f = c;
+            c.b();
+            this.f.d(new a(this));
+            this.f.e(this.c, this.b, this.d, this.e);
         }
     }
 
-    @Override // com.baidu.tieba.p05
-    public void d(@NonNull p05.a aVar) {
+    @Override // com.baidu.tieba.s05
+    public void d(@NonNull s05.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (w05.i()) {
+            if (z05.i()) {
                 aVar.a(false);
             } else {
                 aVar.a(true);

@@ -1,27 +1,37 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
 import java.util.ArrayList;
-import tbclient.GeneralResource;
-import tbclient.HotUserRankEntry;
-import tbclient.Tabfeedlist.DataRes;
-import tbclient.ThreadInfo;
+import java.util.List;
+import org.json.JSONObject;
+import tbclient.ItemManage.DataRes;
+import tbclient.ManageInfo;
 /* loaded from: classes5.dex */
-public class lo6 {
+public class lo6 implements kk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<gn> a;
-    public ArrayList<dz4> b;
-    public xy4 c;
-    public no6 d;
-    public boolean e;
+    public List<co6> a;
+    public List<co6> b;
+    public Integer c;
+
+    @Override // com.baidu.tieba.kk5
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.kk5
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
+        }
+    }
 
     public lo6() {
         Interceptable interceptable = $ic;
@@ -33,107 +43,33 @@ public class lo6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public lo6 clone() {
-        InterceptResult invokeV;
+    public void a(lo6 lo6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            lo6 lo6Var = new lo6();
-            lo6Var.a = this.a;
-            lo6Var.b = this.b;
-            lo6Var.c = this.c;
-            lo6Var.d = this.d;
-            lo6Var.e = this.e;
-            return lo6Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, lo6Var) == null) {
+            this.a.addAll(lo6Var.a);
+            this.b = lo6Var.b;
+            this.c = lo6Var.c;
         }
-        return (lo6) invokeV.objValue;
     }
 
-    public no6 b() {
-        InterceptResult invokeV;
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (no6) invokeV.objValue;
-    }
-
-    public xy4 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (xy4) invokeV.objValue;
-    }
-
-    public ArrayList<dz4> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public ArrayList<gn> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        this.a = new ArrayList<>(ListUtils.getCount(dataRes.thread_list));
-        for (ThreadInfo threadInfo : dataRes.thread_list) {
-            ThreadData threadData = new ThreadData();
-            threadData.parserProtobuf(threadInfo);
-            threadData.insertItemToTitleOrAbstractText();
-            this.a.add(threadData);
-        }
-        this.b = new ArrayList<>();
-        if (!ListUtils.isEmpty(dataRes.resource_list)) {
-            for (GeneralResource generalResource : dataRes.resource_list) {
-                dz4 dz4Var = new dz4();
-                dz4Var.c(generalResource);
-                this.b.add(dz4Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
+            for (ManageInfo manageInfo : dataRes.manage_list) {
+                this.a.add(co6.c(manageInfo));
             }
+            for (ManageInfo manageInfo2 : dataRes.manage_recomm_list) {
+                this.b.add(co6.c(manageInfo2));
+            }
+            this.c = dataRes.has_more;
         }
-        xy4 xy4Var = new xy4();
-        this.c = xy4Var;
-        xy4Var.h(dataRes.recommend_forum_info);
-        if (dataRes.hot_userrank_entry != null) {
-            no6 no6Var = new no6();
-            this.d = no6Var;
-            HotUserRankEntry hotUserRankEntry = dataRes.hot_userrank_entry;
-            no6Var.a = hotUserRankEntry.hot_user;
-            no6Var.b = hotUserRankEntry.module_name;
-            no6Var.c = hotUserRankEntry.module_icon;
-        }
-        boolean z = true;
-        if (dataRes.is_new_url.intValue() != 1) {
-            z = false;
-        }
-        this.e = z;
     }
 }

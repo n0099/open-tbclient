@@ -1,419 +1,615 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.os.Build;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.TbErrInfo;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.ImageUploadResult;
-import com.baidu.tbadk.img.UploadedImageInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishImageStatData;
-import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishImagesStatData;
-import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishStatData;
-import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishVideoStatData;
-import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishVoiceStatData;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tbadk.util.BdListViewHelper;
+import com.baidu.tieba.n05;
+import com.baidu.tieba.setting.more.MoreActivity;
+import com.baidu.tieba.setting.more.SettingTextImageView;
+import com.baidu.tieba.setting.more.SettingTextNormalImageView;
+import com.baidu.tieba.setting.more.SettingTextRedDotView;
+import com.baidu.tieba.setting.more.SettingTextVersionView;
+import com.baidu.tieba.setting.more.TbSettingTextNewDotView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubc.UBCManager;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class wd9 {
+public class wd9 extends y8<MoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View A;
+    public View B;
+    public RelativeLayout C;
+    public BdSwitchView D;
+    public RelativeLayout E;
+    public BdSwitchView F;
+    public MoreActivity a;
+    public vd9 b;
+    public NavigationBar c;
+    public l05 d;
+    public n05 e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public SettingTextNormalImageView i;
+    public SettingTextImageView j;
+    public TbSettingTextTipView k;
+    public TbSettingTextTipView l;
+    public TbSettingTextTipView m;
+    public TbSettingTextTipView n;
+    public TbSettingTextTipView o;
+    public SettingTextRedDotView p;
+    public SettingTextVersionView q;
+    public TbSettingTextTipView r;
+    public TbSettingTextNewDotView s;
+    public TextView t;
+    public RelativeLayout u;
+    public View v;
+    public View w;
+    public View x;
+    public View y;
+    public View z;
 
-    public static float a(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (j <= 0 || j2 <= 0) {
-                return -1.0f;
+    /* loaded from: classes6.dex */
+    public class a implements n05.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j05 a;
+        public final /* synthetic */ wd9 b;
+
+        public a(wd9 wd9Var, j05 j05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wd9Var, j05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return (((float) j2) / 1024.0f) / (((float) j) / 1000.0f);
+            this.b = wd9Var;
+            this.a = j05Var;
         }
-        return invokeCommon.floatValue;
+
+        @Override // com.baidu.tieba.n05.f
+        public void M0(n05 n05Var, int i, View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, n05Var, i, view2) == null) && i == this.a.f()) {
+                this.b.N();
+                this.b.b.a(12);
+            }
+        }
     }
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+    /* loaded from: classes6.dex */
+    public class b implements n05.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wd9 a;
+
+        public b(wd9 wd9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wd9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wd9Var;
+        }
+
+        @Override // com.baidu.tieba.n05.c
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.N();
+            }
         }
     }
 
-    public static void c(WriteData writeData, ErrorData errorData) {
+    /* loaded from: classes6.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wd9 a;
+
+        public c(wd9 wd9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wd9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wd9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2 == this.a.w) {
+                    this.a.b.a(0);
+                } else if (view2 == this.a.j) {
+                    this.a.b.a(1);
+                } else if (view2 == this.a.k) {
+                    this.a.b.a(15);
+                } else if (view2 == this.a.l) {
+                    this.a.b.a(2);
+                } else if (view2 == this.a.m) {
+                    this.a.b.a(3);
+                } else if (view2 == this.a.o) {
+                    this.a.b.a(4);
+                } else if (view2 == this.a.p) {
+                    p45.m().z("setting_private_red_dot", 0);
+                    this.a.p.i();
+                    this.a.b.a(9);
+                } else if (view2 == this.a.q) {
+                    this.a.b.a(6);
+                } else if (view2 == this.a.r) {
+                    this.a.b.a(7);
+                } else if (view2 == this.a.s) {
+                    this.a.b.a(5);
+                } else if (view2 == this.a.t) {
+                    this.a.b.a(10);
+                } else if (view2 == this.a.i) {
+                    this.a.b.a(13);
+                } else if (view2 == this.a.n) {
+                    this.a.b.a(16);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wd9(MoreActivity moreActivity, vd9 vd9Var) {
+        super(moreActivity.getPageContext());
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, writeData, errorData) == null) && writeData != null && writeData.getAsyncPublishStatData() != null) {
-            if (errorData != null && errorData.getError_code() == 5) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {moreActivity, vd9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((a9) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
-            long currentTimeMillis = System.currentTimeMillis();
-            asyncPublishStatData.endTime = currentTimeMillis;
-            asyncPublishStatData.sendThreadDuration = currentTimeMillis - asyncPublishStatData.startTime;
-            if (errorData != null && errorData.getError_code() == 0) {
-                asyncPublishStatData.errorCode = 0;
-            } else if (errorData != null) {
-                asyncPublishStatData.errorCode = errorData.error_code;
-                asyncPublishStatData.errorMessage = errorData.error_msg;
+        }
+        this.x = null;
+        this.y = null;
+        this.z = null;
+        this.A = null;
+        this.B = null;
+        this.C = null;
+        this.D = null;
+        this.E = null;
+        this.F = null;
+        this.a = moreActivity;
+        this.b = vd9Var;
+        moreActivity.setContentView(R.layout.obfuscated_res_0x7f0d05d6);
+        T();
+        d0();
+    }
+
+    public void Y(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048589, this, i) != null) || TbadkCoreApplication.getInst().getSkinType() == i) {
+            return;
+        }
+        onChangeSkinType(i);
+        TbadkCoreApplication.getInst().setSkinType(i);
+        BitmapHelper.clearCashBitmap();
+    }
+
+    public final void K() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            n05 n05Var = new n05(getPageContext().getPageActivity());
+            this.e = n05Var;
+            n05Var.s(getPageContext().getString(R.string.obfuscated_res_0x7f0f1054));
+            ArrayList arrayList = new ArrayList();
+            j05 j05Var = new j05(getPageContext().getString(R.string.obfuscated_res_0x7f0f1056), this.e);
+            j05Var.q(R.color.CAM_X0301);
+            arrayList.add(j05Var);
+            hv4 layoutMode = this.a.getLayoutMode();
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                z = true;
             } else {
-                asyncPublishStatData.errorCode = -17;
-                asyncPublishStatData.errorMessage = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0d1f);
+                z = false;
             }
-            f(asyncPublishStatData);
-            b("上传结束（endAsyncPublish）: id =" + asyncPublishStatData.startTime + "    endTime = " + asyncPublishStatData.endTime);
+            layoutMode.l(z);
+            this.a.getLayoutMode().k(this.e.f());
+            a aVar = new a(this, j05Var);
+            b bVar = new b(this);
+            this.e.k(arrayList);
+            this.e.p(aVar);
+            this.e.n(bVar);
+            l05 l05Var = new l05(this.mContext);
+            this.d = l05Var;
+            l05Var.setCanceledOnTouchOutside(true);
+            this.d.h(this.e);
         }
     }
 
-    public static void g(WriteData writeData, VideoFinishResult videoFinishResult) {
+    public final boolean M() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, writeData, videoFinishResult) == null) && writeData != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().videoData != null) {
-            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
-            AsyncPublishVideoStatData asyncPublishVideoStatData = asyncPublishStatData.videoData;
-            asyncPublishVideoStatData.endTime = System.currentTimeMillis();
-            asyncPublishStatData.haveVideo = 1;
-            if (videoFinishResult == null) {
-                asyncPublishVideoStatData.errorCode = -53;
-            } else if (videoFinishResult.isSuccess()) {
-                asyncPublishVideoStatData.errorCode = 0;
-                asyncPublishVideoStatData.md5 = videoFinishResult.getVideoMd5();
-                asyncPublishVideoStatData.url = videoFinishResult.getVideoUrl();
-            } else {
-                asyncPublishVideoStatData.errorCode = videoFinishResult.getErrorNo();
-                asyncPublishVideoStatData.errorMessage = videoFinishResult.getUserMessage();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001281, String.class);
+            if (runTask != null && !StringUtils.isNull((String) runTask.getData())) {
+                return true;
             }
-            asyncPublishStatData.videoErrorCode = asyncPublishVideoStatData.errorCode;
-            asyncPublishStatData.videoErrorMessage = asyncPublishVideoStatData.errorMessage;
-            long j = asyncPublishVideoStatData.endTime - asyncPublishVideoStatData.startTime;
-            asyncPublishStatData.videoUploadDuration = j;
-            long j2 = asyncPublishVideoStatData.size;
-            asyncPublishStatData.videoSize = j2;
-            asyncPublishStatData.videoUploadRate = a(j, j2);
-            b("上传视频结束（endAsyncPublishVideo）: id =" + asyncPublishVideoStatData.startTime + "    endTime = " + asyncPublishVideoStatData.endTime);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void N() {
+        l05 l05Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (l05Var = this.d) != null) {
+            l05Var.dismiss();
         }
     }
 
-    public static void h(WriteData writeData, ImageUploadResult imageUploadResult) {
-        ImageUploadResult.PicDetailedInfo picDetailedInfo;
+    public final boolean O() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, null, writeData, imageUploadResult) == null) && writeData != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().videoFirstFrame != null) {
-            AsyncPublishImageStatData asyncPublishImageStatData = writeData.getAsyncPublishStatData().videoFirstFrame;
-            asyncPublishImageStatData.endTime = System.currentTimeMillis();
-            if (imageUploadResult == null) {
-                asyncPublishImageStatData.errorCode = -53;
-            } else {
-                ImageUploadResult.picInfo picinfo = imageUploadResult.picInfo;
-                if (picinfo != null && (picDetailedInfo = picinfo.bigPic) != null && !StringUtils.isNull(picDetailedInfo.picUrl)) {
-                    asyncPublishImageStatData.errorCode = 0;
-                    asyncPublishImageStatData.picId = imageUploadResult.picInfo.bigPic.picUrl;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!M()) {
+                return false;
+            }
+            if (Build.VERSION.SDK_INT >= 29) {
+                return true;
+            }
+            return p45.m().i("key_is_dark_mode_notify_shown", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public BdSwitchView P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.D;
+        }
+        return (BdSwitchView) invokeV.objValue;
+    }
+
+    public final View.OnClickListener Q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new c(this);
+        }
+        return (View.OnClickListener) invokeV.objValue;
+    }
+
+    public BdSwitchView R() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.F;
+        }
+        return (BdSwitchView) invokeV.objValue;
+    }
+
+    public void V() {
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            boolean areNotificationsEnabled = NotificationManagerCompat.from(this.a).areNotificationsEnabled();
+            TbSettingTextTipView tbSettingTextTipView = this.o;
+            if (tbSettingTextTipView != null) {
+                if (areNotificationsEnabled) {
+                    string = "";
                 } else {
-                    asyncPublishImageStatData.errorCode = imageUploadResult.error_code;
-                    asyncPublishImageStatData.errorMessage = imageUploadResult.error_msg;
+                    string = this.a.getString(R.string.obfuscated_res_0x7f0f0b6f);
                 }
+                tbSettingTextTipView.setTip(string);
             }
-            long j = asyncPublishImageStatData.endTime - asyncPublishImageStatData.startTime;
-            asyncPublishImageStatData.uploadDuration = j;
-            asyncPublishImageStatData.uploadRate = a(j, asyncPublishImageStatData.originSize);
-            b("上传视频首帧结束（endAsyncPublishVideoFirstFrame）: id =" + asyncPublishImageStatData.startTime + "    endTime = " + asyncPublishImageStatData.endTime);
         }
     }
 
-    public static void d(WriteData writeData, ImageFileInfo imageFileInfo, ImageUploadResult imageUploadResult) {
-        AsyncPublishImageStatData asyncPublishImageStatData;
+    public void X() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, writeData, imageFileInfo, imageUploadResult) == null) && writeData != null && imageFileInfo != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().imagesData != null && (asyncPublishImageStatData = writeData.getAsyncPublishStatData().imagesData.imageInfo.get(Long.valueOf(imageFileInfo.startUploadTime))) != null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            asyncPublishImageStatData.endTime = currentTimeMillis;
-            long j = currentTimeMillis - asyncPublishImageStatData.endCompressTime;
-            asyncPublishImageStatData.uploadDuration = j;
-            if (j <= 0) {
-                asyncPublishImageStatData.uploadDuration = 1L;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            SettingTextVersionView settingTextVersionView = this.q;
+            if (settingTextVersionView != null) {
+                settingTextVersionView.i();
             }
-            asyncPublishImageStatData.uploadRate = (((float) asyncPublishImageStatData.compressSize) / 1024.0f) / (((float) asyncPublishImageStatData.uploadDuration) / 1000.0f);
-            if (imageUploadResult != null) {
-                UploadedImageInfo uploadedPicInfo = imageUploadResult.getUploadedPicInfo();
-                if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
-                    asyncPublishImageStatData.errorCode = 0;
-                    asyncPublishImageStatData.picId = uploadedPicInfo.toPostString();
+            TbSettingTextNewDotView tbSettingTextNewDotView = this.s;
+            if (tbSettingTextNewDotView != null) {
+                tbSettingTextNewDotView.i();
+            }
+        }
+    }
+
+    public void Z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            if (this.d == null) {
+                K();
+            }
+            this.d.k();
+        }
+    }
+
+    public void a0() {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (textView = this.t) != null && textView.getVisibility() != 0) {
+            this.t.setVisibility(0);
+        }
+    }
+
+    public void c0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
+                this.j.setVisibility(0);
+            } else {
+                this.j.setVisibility(8);
+            }
+        }
+    }
+
+    public void d0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                this.D.k();
+            } else {
+                this.D.h();
+            }
+        }
+    }
+
+    public final void S(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
+            this.i.setOnClickListener(onClickListener);
+            this.w.setOnClickListener(onClickListener);
+            this.j.setOnClickListener(onClickListener);
+            this.k.setOnClickListener(onClickListener);
+            this.l.setOnClickListener(onClickListener);
+            this.m.setOnClickListener(onClickListener);
+            this.n.setOnClickListener(onClickListener);
+            this.o.setOnClickListener(onClickListener);
+            this.p.setOnClickListener(onClickListener);
+            this.q.setOnClickListener(onClickListener);
+            this.r.setOnClickListener(onClickListener);
+            this.s.setOnClickListener(onClickListener);
+            this.t.setOnClickListener(onClickListener);
+            this.D.setOnSwitchStateChangeListener(this.a);
+            this.F.setOnSwitchStateChangeListener(this.a);
+        }
+    }
+
+    public final void T() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            View.OnClickListener Q = Q();
+            this.u = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091922);
+            this.v = this.a.findViewById(R.id.obfuscated_res_0x7f091f7a);
+            this.a.findViewById(R.id.obfuscated_res_0x7f090e8c).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
+            this.c = navigationBar;
+            this.w = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.c.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1204));
+            this.c.showBottomLine();
+            this.i = (SettingTextNormalImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090057);
+            this.j = (SettingTextImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091a52);
+            this.k = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0910bb);
+            this.l = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090056);
+            this.m = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09046d);
+            this.n = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090087);
+            this.o = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091690);
+            SettingTextRedDotView settingTextRedDotView = (SettingTextRedDotView) this.a.findViewById(R.id.obfuscated_res_0x7f091fe4);
+            this.p = settingTextRedDotView;
+            settingTextRedDotView.i();
+            this.q = (SettingTextVersionView) this.a.findViewById(R.id.obfuscated_res_0x7f0926f5);
+            this.r = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090a94);
+            this.s = (TbSettingTextNewDotView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d7);
+            this.t = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091cd3);
+            int i = 8;
+            if (!TbadkCoreApplication.isLogin()) {
+                this.t.setVisibility(8);
+            }
+            if (this.a.getIntent() != null && this.a.getIntent().getBooleanExtra("not_need_account", false)) {
+                this.v.setVisibility(8);
+                LinearLayout linearLayout = new LinearLayout(this.a);
+                linearLayout.setOrientation(1);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
+                layoutParams.addRule(3, R.id.view_navigation_bar);
+                linearLayout.setLayoutParams(layoutParams);
+                TbSettingTextTipView tbSettingTextTipView = new TbSettingTextTipView(this.a);
+                tbSettingTextTipView.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f102b));
+                tbSettingTextTipView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+                linearLayout.addView(tbSettingTextTipView);
+                this.u.addView(linearLayout);
+                this.o = tbSettingTextTipView;
+            }
+            this.C = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090a5c);
+            this.D = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f09113f);
+            ii.b(this.a.getPageContext().getPageActivity(), this.D, 10, 10, 10, 10);
+            this.E = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090b2b);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b2c);
+            this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091123);
+            this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b2e);
+            this.F = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f090b2d);
+            ii.b(this.a.getPageContext().getPageActivity(), this.F, 10, 10, 10, 10);
+            this.x = this.a.findViewById(R.id.obfuscated_res_0x7f0908ac);
+            this.y = this.a.findViewById(R.id.obfuscated_res_0x7f0908ab);
+            this.z = this.a.findViewById(R.id.obfuscated_res_0x7f0908ad);
+            this.A = this.a.findViewById(R.id.obfuscated_res_0x7f0908ae);
+            this.B = this.a.findViewById(R.id.obfuscated_res_0x7f0908af);
+            X();
+            c0();
+            this.j.b();
+            b0(TbadkCoreApplication.getInst().getSkinType());
+            this.y.setVisibility(0);
+            this.z.setVisibility(0);
+            this.A.setVisibility(0);
+            this.B.setVisibility(0);
+            S(Q);
+            if (!M()) {
+                this.m.setTip(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0355));
+                this.x.setVisibility(8);
+                this.C.setVisibility(8);
+            } else {
+                this.x.setVisibility(0);
+                this.C.setVisibility(0);
+            }
+            RelativeLayout relativeLayout = this.E;
+            if (O()) {
+                i = 0;
+            }
+            relativeLayout.setVisibility(i);
+            if (p45.m().i("key_is_follow_system_mode", false)) {
+                this.F.m();
+            } else {
+                this.F.j();
+            }
+        }
+    }
+
+    public void U(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, str, z) == null) {
+            if (str != null && str.length() > 0) {
+                this.j.a();
+                this.j.setIcon(str, z);
+                return;
+            }
+            SettingTextImageView settingTextImageView = this.j;
+            if (settingTextImageView != null) {
+                settingTextImageView.b();
+            }
+        }
+    }
+
+    public void W() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.j.e();
+            this.k.g();
+            this.l.g();
+            this.m.g();
+            this.o.g();
+            this.p.g();
+            this.q.g();
+            this.r.g();
+        }
+    }
+
+    public void b0(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            SkinManager.setBackgroundColor(this.u, R.color.CAM_X0201);
+            this.c.onChangeSkinType(getPageContext(), i);
+            hv4 layoutMode = this.a.getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            layoutMode.l(z);
+            this.a.getLayoutMode().k(this.u);
+            this.c.onChangeSkinType(getPageContext(), i);
+            X();
+            this.D.b();
+            this.F.b();
+            SkinManager.setBackgroundColor(this.v, R.color.CAM_X0204);
+            this.i.setLocalIcon(SkinManager.getResourceId(R.drawable.icon_mine_list_baidu));
+            n05 n05Var = this.e;
+            if (n05Var != null) {
+                n05Var.j();
+            }
+            this.i.c(i);
+            this.j.f(i);
+            this.k.f(i);
+            this.l.f(i);
+            this.m.f(i);
+            this.n.f(i);
+            this.o.f(i);
+            this.p.f(i);
+            this.q.f(i);
+            this.r.f(i);
+            this.s.f(i);
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            b0(i);
+            if (this.e != null) {
+                hv4 layoutMode = this.a.getLayoutMode();
+                if (i == 4) {
+                    z = true;
                 } else {
-                    asyncPublishImageStatData.errorCode = imageUploadResult.error_code;
-                    asyncPublishImageStatData.errorMessage = imageUploadResult.error_msg;
+                    z = false;
                 }
+                layoutMode.l(z);
+                this.a.getLayoutMode().k(this.e.f());
+            }
+            if (i == 4) {
+                this.D.m();
             } else {
-                asyncPublishImageStatData.errorCode = -52;
-                asyncPublishImageStatData.errorMessage = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d1f);
+                this.D.j();
             }
-            b("结束单张上传图片（endAsyncPublishImage）: path =" + imageFileInfo.getFilePath());
-            b("结束单张上传图片（网络耗时）: time = " + (asyncPublishImageStatData.endTime - asyncPublishImageStatData.endCompressTime));
-        }
-    }
-
-    public static void e(WriteData writeData, ErrorData errorData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, writeData, errorData) == null) && writeData != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().imagesData != null) {
-            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
-            AsyncPublishImagesStatData asyncPublishImagesStatData = asyncPublishStatData.imagesData;
-            asyncPublishImagesStatData.endTime = System.currentTimeMillis();
-            asyncPublishStatData.haveImage = 1;
-            asyncPublishStatData.imageCount = asyncPublishImagesStatData.imageInfo.size();
-            long j = 0;
-            for (AsyncPublishImageStatData asyncPublishImageStatData : asyncPublishImagesStatData.imageInfo.values()) {
-                j += asyncPublishImageStatData.compressSize;
-            }
-            asyncPublishStatData.imageSize = j;
-            long j2 = asyncPublishImagesStatData.endTime - asyncPublishImagesStatData.startTime;
-            asyncPublishStatData.imageUploadDuration = j2;
-            asyncPublishStatData.imageUploadRate = a(j2, j);
-            if (errorData == null) {
-                asyncPublishImagesStatData.errorCode = 0;
-            } else {
-                asyncPublishImagesStatData.errorCode = errorData.error_code;
-                asyncPublishImagesStatData.errorMessage = errorData.error_msg;
-            }
-            asyncPublishStatData.imageErrorCode = asyncPublishImagesStatData.errorCode;
-            asyncPublishStatData.imageErrorMessage = asyncPublishImagesStatData.errorMessage;
-            b("结束上传多张图片（endAsyncPublishImages）: id =" + asyncPublishImagesStatData.startTime + "    endTime = " + asyncPublishImagesStatData.endTime);
-            StringBuilder sb = new StringBuilder();
-            sb.append("结束上传多张图片（整体耗时）: time = ");
-            sb.append(asyncPublishImagesStatData.endTime - asyncPublishImagesStatData.startTime);
-            b(sb.toString());
-        }
-    }
-
-    public static void i(WriteData writeData, x65 x65Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, writeData, x65Var) == null) && writeData != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().voiceData != null) {
-            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
-            AsyncPublishVoiceStatData asyncPublishVoiceStatData = asyncPublishStatData.voiceData;
-            asyncPublishVoiceStatData.endTime = System.currentTimeMillis();
-            asyncPublishStatData.haveVoice = 1;
-            if (x65Var != null && x65Var.d()) {
-                w65 a = x65Var.a();
-                if (a != null) {
-                    asyncPublishVoiceStatData.errorCode = 0;
-                    asyncPublishVoiceStatData.md5 = a.b();
-                } else {
-                    asyncPublishVoiceStatData.errorCode = x65Var.b();
-                    asyncPublishVoiceStatData.errorMessage = x65Var.c();
-                }
-            } else if (x65Var != null) {
-                asyncPublishVoiceStatData.errorCode = x65Var.b();
-                asyncPublishVoiceStatData.errorMessage = x65Var.c();
-            } else {
-                asyncPublishVoiceStatData.errorCode = TbErrInfo.ERR_VOI_SEND;
-            }
-            asyncPublishStatData.voiceErrorCode = asyncPublishVoiceStatData.errorCode;
-            asyncPublishStatData.voiceErrorMessage = asyncPublishVoiceStatData.errorMessage;
-            long j = asyncPublishVoiceStatData.endTime - asyncPublishVoiceStatData.startTime;
-            asyncPublishStatData.voiceUploadDuration = j;
-            long j2 = asyncPublishVoiceStatData.size;
-            asyncPublishStatData.voiceSize = j2;
-            asyncPublishStatData.voiceUploadRate = a(j, j2);
-            b("上传声音结束（endAsyncPublishVoice）: id =" + asyncPublishVoiceStatData.startTime + "    endTime = " + asyncPublishVoiceStatData.endTime);
-        }
-    }
-
-    public static void f(@NonNull AsyncPublishStatData asyncPublishStatData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, asyncPublishStatData) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", asyncPublishStatData.toEndStatJson());
-                uBCManager.onEvent("4259", jSONObject);
-                b("【打点】-【结束】endAsyncPublishStat: id = " + asyncPublishStatData.id);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            k(asyncPublishStatData);
-        }
-    }
-
-    public static void l(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, writeData) == null) && writeData != null && writeData.startPublishTime() > 0) {
-            AsyncPublishStatData asyncPublishStatData = new AsyncPublishStatData(writeData);
-            writeData.setAsyncPublishStatData(asyncPublishStatData);
-            b("开始后台上传（startAsyncPublish） id = " + asyncPublishStatData.id + "  parentId = " + asyncPublishStatData.parentId);
-            o(asyncPublishStatData);
-        }
-    }
-
-    public static void n(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, null, writeData) == null) && writeData != null && writeData.getAsyncPublishStatData() != null) {
-            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
-            asyncPublishStatData.imagesData = new AsyncPublishImagesStatData();
-            WriteImagesInfo writeImagesInfo = writeData.getWriteImagesInfo();
-            if (writeImagesInfo != null) {
-                asyncPublishStatData.needImageParallel = writeImagesInfo.needImageParallel ? 1 : 0;
-                asyncPublishStatData.imageChunkSize = writeImagesInfo.imageChunkSize;
-                asyncPublishStatData.imageUploadConcurrency = writeImagesInfo.imageUploadConcurrency;
-                asyncPublishStatData.imageChunkRetry = writeImagesInfo.imageChunkRetry;
-            }
-            b("多张图片开始上传（startAsyncPublishImages）: startTime = " + asyncPublishStatData.imagesData.startTime);
-        }
-    }
-
-    public static void o(@NonNull AsyncPublishStatData asyncPublishStatData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, asyncPublishStatData) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", asyncPublishStatData.toClickStatJson());
-                uBCManager.onEvent("4260", jSONObject);
-                b("【打点】-【点击】startAsyncPublishStat: id = " + asyncPublishStatData.id);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            t(asyncPublishStatData);
-        }
-    }
-
-    public static void t(@NonNull AsyncPublishStatData asyncPublishStatData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, asyncPublishStatData) == null) {
-            og statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-            statsItem.b("action", "async_publish_start");
-            statsItem.c("extId", Long.valueOf(asyncPublishStatData.id));
-            statsItem.c("parentId", Long.valueOf(asyncPublishStatData.parentId));
-            statsItem.c("startTime", Long.valueOf(asyncPublishStatData.startTime));
-            BdStatisticsManager.getInstance().performance("thread", statsItem);
-        }
-    }
-
-    public static void j(WriteData writeData, ImageFileInfo imageFileInfo, String str, int[] iArr, long j) {
-        AsyncPublishImageStatData asyncPublishImageStatData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{writeData, imageFileInfo, str, iArr, Long.valueOf(j)}) == null) && writeData != null && imageFileInfo != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().imagesData != null && (asyncPublishImageStatData = writeData.getAsyncPublishStatData().imagesData.imageInfo.get(Long.valueOf(imageFileInfo.startUploadTime))) != null) {
-            asyncPublishImageStatData.endCompressTime = System.currentTimeMillis();
-            asyncPublishImageStatData.compressTempPath = str;
-            asyncPublishImageStatData.compressWidth = iArr[0];
-            asyncPublishImageStatData.compressHeight = iArr[1];
-            asyncPublishImageStatData.compressSize = j;
-            b("压缩结束（endCompressImage）: path =" + str + "\n   w =" + iArr[0] + " h =" + iArr[1] + "  size =" + (((float) j) / 1048576.0f) + "MB");
-        }
-    }
-
-    public static void k(@NonNull AsyncPublishStatData asyncPublishStatData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, asyncPublishStatData) == null) {
-            try {
-                og statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-                statsItem.b("action", "async_publish_end");
-                statsItem.c("extId", Long.valueOf(asyncPublishStatData.id));
-                statsItem.c("parentId", Long.valueOf(asyncPublishStatData.parentId));
-                statsItem.c("startTime", Long.valueOf(asyncPublishStatData.startTime));
-                statsItem.c("endTime", Long.valueOf(asyncPublishStatData.endTime));
-                statsItem.c("errorCode", Integer.valueOf(asyncPublishStatData.errorCode));
-                statsItem.b("errorMessage", asyncPublishStatData.errorMessage);
-                statsItem.c("sendThreadDuration", Long.valueOf(asyncPublishStatData.sendThreadDuration));
-                statsItem.c("haveImage", Integer.valueOf(asyncPublishStatData.haveImage));
-                statsItem.c("haveVideo", Integer.valueOf(asyncPublishStatData.haveVideo));
-                statsItem.c("haveVoice", Integer.valueOf(asyncPublishStatData.haveVoice));
-                if (asyncPublishStatData.imagesData != null) {
-                    statsItem.b("imagesData", asyncPublishStatData.imagesData.toJson().toString());
-                    statsItem.c("imageErrorCode", Integer.valueOf(asyncPublishStatData.imageErrorCode));
-                    statsItem.b("imageErrorMessage", asyncPublishStatData.imageErrorMessage);
-                    statsItem.c("imageUploadRate", Float.valueOf(asyncPublishStatData.imageUploadRate));
-                    statsItem.c("imageUploadDuration", Long.valueOf(asyncPublishStatData.imageUploadDuration));
-                    statsItem.c("imageCount", Integer.valueOf(asyncPublishStatData.imageCount));
-                    statsItem.c("imageSize", Long.valueOf(asyncPublishStatData.imageSize));
-                    statsItem.c("needImageParallel", Integer.valueOf(asyncPublishStatData.needImageParallel));
-                    statsItem.c("imageChunkSize", Integer.valueOf(asyncPublishStatData.imageChunkSize));
-                    statsItem.c("imageUploadConcurrency", Integer.valueOf(asyncPublishStatData.imageUploadConcurrency));
-                    statsItem.c("imageChunkRetry", Integer.valueOf(asyncPublishStatData.imageChunkRetry));
-                }
-                if (asyncPublishStatData.voiceData != null) {
-                    statsItem.b("voiceData", asyncPublishStatData.voiceData.toJson().toString());
-                    statsItem.c("voiceErrorCode", Integer.valueOf(asyncPublishStatData.voiceErrorCode));
-                    statsItem.b("voiceErrorMessage", asyncPublishStatData.voiceErrorMessage);
-                    statsItem.c("voiceUploadDuration", Long.valueOf(asyncPublishStatData.voiceUploadDuration));
-                    statsItem.c("voiceUploadRate", Float.valueOf(asyncPublishStatData.voiceUploadRate));
-                }
-                if (asyncPublishStatData.videoData != null) {
-                    statsItem.b("videoData", asyncPublishStatData.videoData.toJson().toString());
-                    statsItem.c("videoErrorCode", Integer.valueOf(asyncPublishStatData.videoErrorCode));
-                    statsItem.b("videoErrorMessage", asyncPublishStatData.videoErrorMessage);
-                    statsItem.c("videoUploadRate", Float.valueOf(asyncPublishStatData.videoUploadRate));
-                    statsItem.c("videoUploadDuration", Long.valueOf(asyncPublishStatData.videoUploadDuration));
-                }
-                if (asyncPublishStatData.videoFirstFrame != null) {
-                    statsItem.b("videoFirstFrame", asyncPublishStatData.videoFirstFrame.toJson().toString());
-                }
-                BdStatisticsManager.getInstance().performance("thread", statsItem);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void m(WriteData writeData, ImageFileInfo imageFileInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65548, null, writeData, imageFileInfo) == null) && writeData != null && imageFileInfo != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().imagesData != null) {
-            writeData.getAsyncPublishStatData().imagesData.imageInfo.put(Long.valueOf(imageFileInfo.startUploadTime), new AsyncPublishImageStatData(imageFileInfo));
-            b("多张图片开始上传(startAsyncPublishImage): path =" + imageFileInfo.getFilePath());
-        }
-    }
-
-    public static void p(WriteData writeData, VideoInfo videoInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65551, null, writeData, videoInfo) == null) && writeData != null && videoInfo != null && writeData.getAsyncPublishStatData() != null) {
-            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
-            AsyncPublishVideoStatData asyncPublishVideoStatData = new AsyncPublishVideoStatData(videoInfo);
-            asyncPublishStatData.videoData = asyncPublishVideoStatData;
-            asyncPublishVideoStatData.size = FileHelper.getFileSize(videoInfo.getVideoPath());
-            b("开始上传视频（startAsyncPublishVideo）: id =" + videoInfo.getVideoPath());
-        }
-    }
-
-    public static void q(WriteData writeData, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65552, null, writeData, str) == null) && writeData != null && !TextUtils.isEmpty(str) && writeData.getAsyncPublishStatData() != null) {
-            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
-            AsyncPublishImageStatData asyncPublishImageStatData = new AsyncPublishImageStatData(str);
-            asyncPublishStatData.videoFirstFrame = asyncPublishImageStatData;
-            asyncPublishImageStatData.originSize = FileHelper.getFileSize(str);
-            b("开始上传视频首帧（startAsyncPublishVideoFirstFrame): path =" + asyncPublishStatData.videoFirstFrame.originPath);
-        }
-    }
-
-    public static void r(WriteData writeData, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(65553, null, writeData, j) == null) && writeData != null && writeData.getAsyncPublishStatData() != null && !TextUtils.isEmpty(writeData.getVoice())) {
-            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
-            AsyncPublishVoiceStatData asyncPublishVoiceStatData = new AsyncPublishVoiceStatData(writeData.getVoice());
-            asyncPublishVoiceStatData.size = j;
-            asyncPublishStatData.voiceData = asyncPublishVoiceStatData;
-            b("开始上传声音（startAsyncPublishVoice）: id =" + asyncPublishVoiceStatData.id);
-        }
-    }
-
-    public static void s(WriteData writeData, ImageFileInfo imageFileInfo, String str, int[] iArr, long j, boolean z, boolean z2, boolean z3, String str2) {
-        AsyncPublishImageStatData asyncPublishImageStatData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{writeData, imageFileInfo, str, iArr, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str2}) == null) && writeData != null && imageFileInfo != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().imagesData != null && (asyncPublishImageStatData = writeData.getAsyncPublishStatData().imagesData.imageInfo.get(Long.valueOf(imageFileInfo.startUploadTime))) != null) {
-            asyncPublishImageStatData.startCompressTime = System.currentTimeMillis();
-            asyncPublishImageStatData.originPath = str;
-            asyncPublishImageStatData.originWidth = iArr[0];
-            asyncPublishImageStatData.originHeight = iArr[1];
-            asyncPublishImageStatData.originSize = j;
-            asyncPublishImageStatData.isLongImage = z;
-            asyncPublishImageStatData.isHeifImage = z2;
-            asyncPublishImageStatData.hasActionsWithoutResize = z3;
-            asyncPublishImageStatData.uploadImageType = str2;
-            b("开始压缩（startCompressImage）: path =" + str + "\n   w =" + iArr[0] + " h =" + iArr[1] + "  size =" + (((float) j) / 1048576.0f) + "MB\n   isLongImage =" + z + "  isHeifImage =" + z2 + " resize =" + z3 + " uploadStrategy =" + str2);
+            q25.d(this.f).w(R.color.CAM_X0105);
+            q25.d(this.g).w(R.color.CAM_X0105);
+            q25.d(this.h).w(R.color.CAM_X0109);
+            q25 d = q25.d(this.t);
+            d.w(R.color.CAM_X0301);
+            d.f(R.color.CAM_X0205);
         }
     }
 }

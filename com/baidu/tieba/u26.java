@@ -1,75 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.view.StageLiveViewHolder;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class u26 extends tm<a36, StageLiveViewHolder> {
+public class u26 implements kt3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public c46 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u26(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), a36.b);
+    public u26() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm
-    /* renamed from: s */
-    public StageLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.mt3
+    public void a(r83 r83Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, r83Var) == null) && r83Var != null) {
+            r83Var.b(new w26(r83Var));
+            r83Var.b(new p26(r83Var));
+            r83Var.b(new kp3(r83Var));
+            r83Var.b(new mp3(r83Var));
+            r83Var.b(new op3(r83Var));
+            r83Var.b(new ia3(r83Var));
+            r83Var.b(new ja3(r83Var));
+            r83Var.b(new jc3(r83Var));
+            r83Var.b(new pp3(r83Var));
+            r83Var.b(new mu1(r83Var));
+            r83Var.b(new t26(r83Var));
+        }
+    }
+
+    @Override // com.baidu.tieba.mt3
+    @Nullable
+    public Map<String, Object> b(@NonNull vv1 vv1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new c46(this.a, viewGroup);
-            return new StageLiveViewHolder(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vv1Var)) == null) {
+            return SwanApi$$ModulesProvider.getV8ApiModules(vv1Var);
         }
-        return (StageLiveViewHolder) invokeL.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a36 a36Var, StageLiveViewHolder stageLiveViewHolder) {
-        InterceptResult invokeCommon;
-        c46 c46Var;
+    @Override // com.baidu.tieba.mt3
+    @Nullable
+    public Map<String, Object> c(@NonNull vv1 vv1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a36Var, stageLiveViewHolder})) == null) {
-            if (stageLiveViewHolder != null && (c46Var = stageLiveViewHolder.a) != null) {
-                c46Var.l(a36Var);
-                stageLiveViewHolder.a.m(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return stageLiveViewHolder.getView();
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vv1Var)) == null) {
+            return SwanApi$$ModulesProvider.getWebviewApiModules(vv1Var);
         }
-        return (View) invokeCommon.objValue;
+        return (Map) invokeL.objValue;
     }
 }

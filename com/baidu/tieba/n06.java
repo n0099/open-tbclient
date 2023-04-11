@@ -1,77 +1,57 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class n06 {
+public class n06 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, String str3, Integer num) {
-        InterceptResult invokeLLLL;
+    public n06() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, num)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append("tiebaclient://");
-            if (num.intValue() > 0) {
-                sb.append("swangame/");
-            } else {
-                sb.append("swan/");
-            }
-            sb.append(str);
-            if (!TextUtils.isEmpty(str2)) {
-                if (!str2.startsWith("/")) {
-                    sb.append("/");
-                }
-                sb.append(str2);
-            } else {
-                sb.append("/");
-            }
-            if (!TextUtils.isEmpty(Uri.parse(sb.toString()).getQuery())) {
-                sb.append("&");
-            } else {
-                if (!sb.toString().endsWith("/")) {
-                    sb.append("/");
-                }
-                sb.append("?");
-            }
-            sb.append("_baiduboxapp=");
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", str3);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            sb.append(URLEncoder.encode(jSONObject.toString()));
-            sb.append("&callback=_bdbox_js_275&upgrade=0");
-            return sb.toString();
         }
-        return (String) invokeLLLL.objValue;
     }
 
-    public static final boolean b(String str, String str2, String str3, Integer num) {
-        InterceptResult invokeLLLL;
-        String a;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        boolean d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, num)) == null) {
-            if (TextUtils.isEmpty(str) || (a = a(str, str2, str3, num)) == null || !a.startsWith("tiebaclient://")) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null) {
+                return null;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, a));
-            return true;
+            int cmd = customMessage.getCmd();
+            if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
+                z95 z95Var = (z95) customMessage.getData();
+                if (cmd == 2001179) {
+                    d = p06.f().a(z95Var);
+                } else {
+                    d = p06.f().d(z95Var.d());
+                }
+                if (!d) {
+                    p45 m = p45.m();
+                    m.w("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
+                }
+            }
+            return null;
         }
-        return invokeLLLL.booleanValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

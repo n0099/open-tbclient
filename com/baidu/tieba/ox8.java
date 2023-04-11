@@ -1,21 +1,64 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.text.TextUtils;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 /* loaded from: classes5.dex */
-public interface ox8 {
-    int getCurrentPosition();
+public class ox8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String getPlayUrl();
+    public static boolean a(BdTypeRecyclerView bdTypeRecyclerView) {
+        InterceptResult invokeL;
+        List<hn> data;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bdTypeRecyclerView)) == null) {
+            if (bdTypeRecyclerView != null && (data = bdTypeRecyclerView.getData()) != null && data.size() > 0) {
+                for (int i = 0; i < data.size(); i++) {
+                    hn hnVar = data.get(i);
+                    if ((hnVar instanceof sl9) && hnVar.getType() == sl9.R0) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 
-    View getVideoContainer();
+    public static int b(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bdTypeRecyclerView, str)) == null) {
+            if (bdTypeRecyclerView != null && !TextUtils.isEmpty(str)) {
+                List<hn> data = bdTypeRecyclerView.getData();
+                int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
+                if (data != null && data.size() > 0) {
+                    int size = data.size();
+                    for (int i = 0; i < size; i++) {
+                        hn hnVar = data.get(i);
+                        if ((hnVar instanceof sl9) && hnVar.getType() == sl9.R0 && str.equals(((sl9) hnVar).O())) {
+                            return i + headerViewsCount;
+                        }
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeLL.intValue;
+    }
 
-    boolean isFullScreen();
-
-    boolean isPlayStarted();
-
-    boolean isPlaying();
-
-    void startPlay();
-
-    void stopPlay();
+    public static void c(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, bdTypeRecyclerView, str) != null) || bdTypeRecyclerView == null) {
+            return;
+        }
+        int b = b(bdTypeRecyclerView, str);
+        if (bdTypeRecyclerView.getLayoutManager() != null) {
+            bdTypeRecyclerView.getLayoutManager().scrollToPosition(b);
+        }
+    }
 }

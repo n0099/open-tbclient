@@ -1,217 +1,48 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.ArrayMap;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public abstract class ag2 implements cg2 {
+public class ag2 implements kf2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public class a extends ResponseCallback<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(ag2 ag2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ag2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && ag2.a) {
-                Log.e("AbsDefaultPurger", "onFail: " + exc);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) && ag2.a) {
-                Log.e("AbsDefaultPurger", "onSuccess: ");
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (ag2.a) {
-                    Log.d("AbsDefaultPurger", "parseResponse");
-                }
-                if (response == null || response.body() == null) {
-                    return null;
-                }
-                String string = response.body().string();
-                if (TextUtils.isEmpty(string)) {
-                    return null;
-                }
-                return new JSONObject(string);
-            }
-            return (JSONObject) invokeLI.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947614141, "Lcom/baidu/tieba/ag2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947614141, "Lcom/baidu/tieba/ag2;");
-                return;
-            }
-        }
-        a = do1.a;
-    }
 
     public ag2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @NonNull
-    public final ResponseCallback<JSONObject> c() {
+    @Override // com.baidu.tieba.kf2
+    public String getUserAgent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return tj3.a();
         }
-        return (ResponseCallback) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void d(String str) {
+    @Override // com.baidu.tieba.kf2
+    public cf2 a(String str, zf2 zf2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            qf4.i().c(str);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, zf2Var, v8ThreadDelegatePolicy)) == null) {
+            return new gf2(str, zf2Var, v8ThreadDelegatePolicy);
         }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            qf4.i().h(str);
-            qf4.i().e(sg4.class, str);
-        }
-    }
-
-    public void e(List<String> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && !list.isEmpty()) {
-            if (a) {
-                Log.d("AbsDefaultPurger", "clearData");
-            }
-            Set<String> d = eg2.d(list);
-            HashSet<String> hashSet = new HashSet(list);
-            if (d != null) {
-                hashSet.removeAll(d);
-            }
-            lg3.j().g("aiapp_setting_", hashSet, false);
-            lg3.j().g("aiapp_", hashSet, false);
-            for (String str : hashSet) {
-                if (a) {
-                    Log.d("AbsDefaultPurger", "clear storage files: " + str);
-                }
-                String v = bf3.v(str);
-                if (!TextUtils.isEmpty(v)) {
-                    xn4.M(v);
-                }
-                String x = bf3.x(str);
-                if (!TextUtils.isEmpty(x)) {
-                    xn4.M(x);
-                }
-            }
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void g(@Nullable List<String> list) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && list != null && !list.isEmpty()) {
-            if (a) {
-                Log.d("AbsDefaultPurger", "resetAccredit");
-            }
-            ArrayMap arrayMap = new ArrayMap();
-            arrayMap.put("ma_ids", list);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                vc3 a2 = ar2.q().a();
-                jSONObject.put("accredit", new JSONObject(arrayMap));
-                String v = ar2.o().v();
-                ke4 b = le4.b();
-                if (b == null) {
-                    if (!a) {
-                        t42.c("AbsDefaultPurger", "get network obj failed on resetAccredit");
-                    } else {
-                        throw new RuntimeException("SwanNetworkRuntime.getSwanNetwork return null , check inject");
-                    }
-                }
-                xe4 g = xe4.g();
-                if (!g.c()) {
-                    b = null;
-                }
-                PostFormRequest.PostFormRequestBuilder addParam = ((PostFormRequest.PostFormRequestBuilder) g.postFormRequest().url(v)).addParam("data", jSONObject.toString());
-                if (b != null) {
-                    str = b.getUserAgent();
-                } else {
-                    str = "";
-                }
-                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) addParam.userAgent(str)).cookieManager(a2)).build().executeAsyncOnUIBack(c());
-            } catch (JSONException e) {
-                e.printStackTrace();
-                if (a) {
-                    Log.d("AbsDefaultPurger", "resetAccredit with JSONException: ", e);
-                }
-            }
-        }
+        return (cf2) invokeLLL.objValue;
     }
 }

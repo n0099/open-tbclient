@@ -44,12 +44,12 @@ public class j {
     }
 
     public bg.b a(fk fkVar) {
-        Collection<bg.b> m712a = bg.a().m712a(Integer.toString(fkVar.a()));
-        if (m712a.isEmpty()) {
+        Collection<bg.b> m714a = bg.a().m714a(Integer.toString(fkVar.a()));
+        if (m714a.isEmpty()) {
             return null;
         }
-        Iterator<bg.b> it = m712a.iterator();
-        if (m712a.size() == 1) {
+        Iterator<bg.b> it = m714a.iterator();
+        if (m714a.size() == 1) {
             return it.next();
         }
         String g = fkVar.g();
@@ -67,12 +67,12 @@ public class j {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public bg.b a(gm gmVar) {
-        Collection<bg.b> m712a = bg.a().m712a(gmVar.k());
-        if (m712a.isEmpty()) {
+        Collection<bg.b> m714a = bg.a().m714a(gmVar.k());
+        if (m714a.isEmpty()) {
             return null;
         }
-        Iterator<bg.b> it = m712a.iterator();
-        if (m712a.size() == 1) {
+        Iterator<bg.b> it = m714a.iterator();
+        if (m714a.size() == 1) {
             return it.next();
         }
         String m = gmVar.m();
@@ -92,10 +92,10 @@ public class j {
     public void a(Context context) {
         Intent intent = new Intent();
         intent.setAction("com.xiaomi.push.service_started");
-        if (com.xiaomi.push.j.m634c()) {
+        if (com.xiaomi.push.j.m636c()) {
             intent.addFlags(16777216);
         }
-        com.xiaomi.channel.commonutils.logger.b.m99a("[Bcst] send ***.push.service_started broadcast to inform push service has started.");
+        com.xiaomi.channel.commonutils.logger.b.m101a("[Bcst] send ***.push.service_started broadcast to inform push service has started.");
         context.sendBroadcast(intent);
     }
 
@@ -112,7 +112,7 @@ public class j {
         intent.putExtra(bk.q, bVar.f938b);
         intent.putExtra(bk.F, bVar.i);
         if (bVar.f929a == null || !"9".equals(bVar.g)) {
-            com.xiaomi.channel.commonutils.logger.b.m99a(String.format("[Bcst] notify channel closed. %s,%s,%d", bVar.g, bVar.f935a, Integer.valueOf(i)));
+            com.xiaomi.channel.commonutils.logger.b.m101a(String.format("[Bcst] notify channel closed. %s,%s,%d", bVar.g, bVar.f935a, Integer.valueOf(i)));
             a(context, intent, bVar);
             return;
         }
@@ -124,7 +124,7 @@ public class j {
             sb.append("peer may died: ");
             String str = bVar.f938b;
             sb.append(str.substring(str.lastIndexOf(64)));
-            com.xiaomi.channel.commonutils.logger.b.m99a(sb.toString());
+            com.xiaomi.channel.commonutils.logger.b.m101a(sb.toString());
         }
     }
 
@@ -142,7 +142,7 @@ public class j {
             intent.putExtra("ext_chid", bVar.g);
             intent.putExtra(bk.q, bVar.f938b);
             intent.putExtra(bk.F, bVar.i);
-            com.xiaomi.channel.commonutils.logger.b.m99a(String.format("[Bcst] notify packet(blob) arrival. %s,%s,%s", bVar.g, bVar.f935a, str2));
+            com.xiaomi.channel.commonutils.logger.b.m101a(String.format("[Bcst] notify packet(blob) arrival. %s,%s,%s", bVar.g, bVar.f935a, str2));
             a(context, intent, bVar);
         }
     }
@@ -166,7 +166,7 @@ public class j {
         intent.putExtra("ext_chid", bVar.g);
         intent.putExtra(bk.q, bVar.f938b);
         intent.putExtra(bk.F, bVar.i);
-        com.xiaomi.channel.commonutils.logger.b.m99a(String.format("[Bcst] notify channel open result. %s,%s,%b,%d", bVar.g, bVar.f935a, Boolean.valueOf(z), Integer.valueOf(i)));
+        com.xiaomi.channel.commonutils.logger.b.m101a(String.format("[Bcst] notify channel open result. %s,%s,%b,%d", bVar.g, bVar.f935a, Boolean.valueOf(z), Integer.valueOf(i)));
         a(context, intent, bVar);
     }
 
@@ -184,13 +184,13 @@ public class j {
             intent.setPackage(str2);
             intent.putExtra("ext_rcv_timestamp", SystemClock.elapsedRealtime());
             intent.putExtra("ext_chid", str);
-            intent.putExtra("ext_raw_packet", fkVar.m406a(a.h));
+            intent.putExtra("ext_raw_packet", fkVar.m408a(a.h));
             intent.putExtra(bk.F, a.i);
             intent.putExtra(bk.x, a.h);
             if (a.f929a != null) {
                 try {
                     a.f929a.send(Message.obtain(null, 17, intent));
-                    com.xiaomi.channel.commonutils.logger.b.m99a("message was sent by messenger for chid=" + str);
+                    com.xiaomi.channel.commonutils.logger.b.m101a("message was sent by messenger for chid=" + str);
                     return;
                 } catch (RemoteException unused) {
                     a.f929a = null;
@@ -198,13 +198,13 @@ public class j {
                     sb.append("peer may died: ");
                     String str3 = a.f938b;
                     sb.append(str3.substring(str3.lastIndexOf(64)));
-                    com.xiaomi.channel.commonutils.logger.b.m99a(sb.toString());
+                    com.xiaomi.channel.commonutils.logger.b.m101a(sb.toString());
                 }
             }
             if ("com.xiaomi.xmsf".equals(str2)) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m99a(String.format("[Bcst] notify packet(blob) arrival. %s,%s,%s", a.g, a.f935a, fkVar.e()));
+            com.xiaomi.channel.commonutils.logger.b.m101a(String.format("[Bcst] notify packet(blob) arrival. %s,%s,%s", a.g, a.f935a, fkVar.e()));
             a(xMPushService, intent, a);
             if (!"10".equals(str) || (anVar = fkVar.f375a) == null) {
                 return;
@@ -240,7 +240,7 @@ public class j {
             intent.putExtra("ext_packet", gmVar.a());
             intent.putExtra(bk.F, a.i);
             intent.putExtra(bk.x, a.h);
-            com.xiaomi.channel.commonutils.logger.b.m99a(String.format("[Bcst] notify packet arrival. %s,%s,%s", a.g, a.f935a, gmVar.j()));
+            com.xiaomi.channel.commonutils.logger.b.m101a(String.format("[Bcst] notify packet arrival. %s,%s,%s", a.g, a.f935a, gmVar.j()));
             a(xMPushService, intent, a);
             return;
         }

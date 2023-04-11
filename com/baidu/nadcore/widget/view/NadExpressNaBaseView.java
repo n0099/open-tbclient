@@ -11,19 +11,19 @@ import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.feed.AdFeedBaseView;
 import com.baidu.nadcore.widget.uitemplate.NadExpressBottomView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ec1;
 import com.baidu.tieba.fc1;
-import com.baidu.tieba.vb1;
+import com.baidu.tieba.gc1;
 import com.baidu.tieba.wb1;
-import com.baidu.tieba.xp0;
+import com.baidu.tieba.xb1;
+import com.baidu.tieba.yp0;
 /* loaded from: classes2.dex */
 public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     @NonNull
-    public final fc1 i;
+    public final gc1 i;
     @Nullable
     public TextView j;
     @Nullable
-    public ec1 k;
+    public fc1 k;
     @Nullable
     public NadExpressBottomView l;
 
@@ -32,7 +32,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
         return this;
     }
 
-    public abstract void j(LayoutInflater layoutInflater, xp0 xp0Var);
+    public abstract void j(LayoutInflater layoutInflater, yp0 yp0Var);
 
     public abstract void k(Context context);
 
@@ -51,19 +51,19 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     }
 
     public void l(AdBaseModel adBaseModel) {
-        ec1 c = this.i.c(adBaseModel);
+        fc1 c = this.i.c(adBaseModel);
         this.k = c;
         if (c != null) {
             c.i(0);
             this.k.update(adBaseModel, this);
             this.k.j();
-            vb1 vb1Var = this.c;
-            if (vb1Var != null) {
-                this.k.h(vb1Var);
-            }
-            wb1 wb1Var = this.a;
+            wb1 wb1Var = this.c;
             if (wb1Var != null) {
-                this.k.f(wb1Var);
+                this.k.h(wb1Var);
+            }
+            xb1 xb1Var = this.a;
+            if (xb1Var != null) {
+                this.k.f(xb1Var);
             }
         }
     }
@@ -71,8 +71,8 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     public void o(AdBaseModel adBaseModel) {
         int i;
         if (adBaseModel != null && this.j != null) {
-            xp0 xp0Var = adBaseModel.p;
-            if (xp0Var != null && !xp0Var.l) {
+            yp0 yp0Var = adBaseModel.p;
+            if (yp0Var != null && !yp0Var.l) {
                 return;
             }
             if (adBaseModel.b) {
@@ -115,20 +115,20 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
-    public void setViewDownloadListener(vb1 vb1Var) {
-        super.setViewDownloadListener(vb1Var);
-        ec1 ec1Var = this.k;
-        if (ec1Var != null) {
-            ec1Var.h(vb1Var);
+    public void setViewDownloadListener(wb1 wb1Var) {
+        super.setViewDownloadListener(wb1Var);
+        fc1 fc1Var = this.k;
+        if (fc1Var != null) {
+            fc1Var.h(wb1Var);
         }
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
-    public void setViewStatChangeListener(wb1 wb1Var) {
-        super.setViewStatChangeListener(wb1Var);
-        ec1 ec1Var = this.k;
-        if (ec1Var != null) {
-            ec1Var.f(wb1Var);
+    public void setViewStatChangeListener(xb1 xb1Var) {
+        super.setViewStatChangeListener(xb1Var);
+        fc1 fc1Var = this.k;
+        if (fc1Var != null) {
+            fc1Var.f(xb1Var);
         }
     }
 
@@ -164,23 +164,23 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
         this(context, attributeSet, i, null);
     }
 
-    public NadExpressNaBaseView(Context context, AttributeSet attributeSet, int i, @Nullable xp0 xp0Var) {
+    public NadExpressNaBaseView(Context context, AttributeSet attributeSet, int i, @Nullable yp0 yp0Var) {
         super(context, attributeSet, i);
-        j(LayoutInflater.from(context), xp0Var);
+        j(LayoutInflater.from(context), yp0Var);
         i(context);
-        this.i = new fc1(this);
+        this.i = new gc1(this);
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
     public void c() {
         super.c();
-        ec1 ec1Var = this.k;
-        if (ec1Var != null) {
-            ec1Var.e();
+        fc1 fc1Var = this.k;
+        if (fc1Var != null) {
+            fc1Var.e();
         }
     }
 
-    public ec1 getOperateBar() {
+    public fc1 getOperateBar() {
         return this.k;
     }
 }

@@ -41,37 +41,48 @@ public final class MixTypeRepository {
             @Override // com.baidu.searchbox.live.model.net.MixNetCallback
             public void onNetResponse(NetResponse netResponse, LiveTypeData liveTypeData) {
                 Integer num;
+                Integer num2;
                 long j;
                 MixTypeRepository.this.isRequestIng = false;
                 MediaLivePluginLogger.Companion.getInstance().logGetLiveTypeNetEndAndStartParse();
                 if (netResponse != null && netResponse.isSuccessful() && liveTypeData != null) {
-                    MixResultStatData mixResultStatData = new MixResultStatData();
-                    NetStatData netStatData = netResponse.statData;
-                    long j2 = 0;
-                    if (netStatData != null) {
-                        j = netStatData.requestTimestamp;
-                    } else {
-                        j = 0;
+                    if (liveTypeData.getErrno() == 0) {
+                        MixResultStatData mixResultStatData = new MixResultStatData();
+                        NetStatData netStatData = netResponse.statData;
+                        long j2 = 0;
+                        if (netStatData != null) {
+                            j = netStatData.requestTimestamp;
+                        } else {
+                            j = 0;
+                        }
+                        mixResultStatData.requestTime = j;
+                        NetStatData netStatData2 = netResponse.statData;
+                        if (netStatData2 != null) {
+                            j2 = netStatData2.responseTimestamp;
+                        }
+                        mixResultStatData.responseTime = j2;
+                        onMixDataLoaded.onMixDataLoaded(new MixResult.MixSuccess(liveTypeData, mixResultStatData));
+                        return;
                     }
-                    mixResultStatData.requestTime = j;
-                    NetStatData netStatData2 = netResponse.statData;
-                    if (netStatData2 != null) {
-                        j2 = netStatData2.responseTimestamp;
-                    }
-                    mixResultStatData.responseTime = j2;
-                    onMixDataLoaded.onMixDataLoaded(new MixResult.MixSuccess(liveTypeData, mixResultStatData));
+                    onMixDataLoaded.onMixDataLoaded(new MixResult.MixError(new Exception("fetchRoomTypeInfo Invalid, code = " + netResponse.responseCode + ", logid: " + liveTypeData.getLogId()), Integer.valueOf(liveTypeData.getErrno()), null, 4, null));
                     return;
                 }
                 OnMixDataLoaded onMixDataLoaded2 = onMixDataLoaded;
                 StringBuilder sb = new StringBuilder();
-                sb.append("fetchGoodsListInfo Invalid, code = ");
+                sb.append("fetchRoomTypeInfo Invalid, code = ");
                 if (netResponse != null) {
                     num = Integer.valueOf(netResponse.responseCode);
                 } else {
                     num = null;
                 }
                 sb.append(num);
-                onMixDataLoaded2.onMixDataLoaded(new MixResult.MixError(new Exception(sb.toString()), null, null, 6, null));
+                Exception exc = new Exception(sb.toString());
+                if (netResponse != null) {
+                    num2 = Integer.valueOf(netResponse.netErrorCode);
+                } else {
+                    num2 = null;
+                }
+                onMixDataLoaded2.onMixDataLoaded(new MixResult.MixError(exc, num2, null, 4, null));
             }
 
             /* JADX DEBUG: Method merged with bridge method */

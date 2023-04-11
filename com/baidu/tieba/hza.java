@@ -1,156 +1,165 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 /* loaded from: classes4.dex */
-public class hza {
+public final class hza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ProductInfo a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public String f;
 
-    public hza(ProductInfo productInfo) {
+    public static int a(String str, String str2) {
+        InterceptResult invokeLL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {productInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            if (str == null && str2 == null) {
+                return 0;
             }
-        }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.a = productInfo;
-    }
-
-    public hza(ProductInfo productInfo, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {productInfo, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            if (str != null && str2 == null) {
+                return 1;
             }
-        }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.a = productInfo;
-        this.b = i;
-    }
-
-    public hza(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+            if (str == null) {
+                return -1;
             }
-        }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.c = z;
-    }
-
-    public double a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                return productInfo.destAmount / 100.0d;
+            if (str.equals(str2)) {
+                return 0;
             }
-            return 0.0d;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public double c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                return productInfo.srcAmount;
+            if (str.startsWith(str2)) {
+                return 1;
             }
-            return 0.0d;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        double d;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("PayAmount{currencyType=");
-            sb.append(this.b);
-            sb.append("splitDetailId=");
-            sb.append(this.f);
-            sb.append(", srcAmount=");
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                d = productInfo.srcAmount;
+            if (str2.startsWith(str)) {
+                return -1;
+            }
+            String[] split = str.split("\\.|-");
+            String[] split2 = str2.split("\\.|-");
+            if (split.length <= split2.length) {
+                length = split.length;
             } else {
-                d = 0.0d;
+                length = split2.length;
             }
-            sb.append(d);
-            sb.append(", dstAmount=");
-            ProductInfo productInfo2 = this.a;
-            if (productInfo2 != null) {
-                j = productInfo2.destAmount;
-            } else {
-                j = 0;
+            for (int i = 0; i < length; i++) {
+                try {
+                    int parseInt = Integer.parseInt(split[i]);
+                    int parseInt2 = Integer.parseInt(split2[i]);
+                    Integer.parseInt(split[i]);
+                    Integer.parseInt(split2[i]);
+                    if (parseInt > parseInt2) {
+                        return 1;
+                    }
+                    if (parseInt < parseInt2) {
+                        return -1;
+                    }
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
             }
-            sb.append(j);
-            sb.append('}');
-            return sb.toString();
+            if (split.length > length) {
+                return 1;
+            }
+            if (split2.length > length) {
+                return -1;
+            }
+            return str.compareTo(str2);
         }
-        return (String) invokeV.objValue;
+        return invokeLL.intValue;
+    }
+
+    public static String b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            if (context != null && str != null) {
+                try {
+                    PackageManager packageManager = context.getPackageManager();
+                    return packageManager.getApplicationLabel(packageManager.getApplicationInfo(str, 128)).toString();
+                } catch (Exception unused) {
+                }
+            }
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean d(Context context, Class<? extends Activity> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, cls)) == null) {
+            if (context != null && cls != null) {
+                try {
+                    context.getPackageManager().getActivityInfo(new ComponentName(context.getPackageName(), cls.getName()), 0);
+                    return true;
+                } catch (Exception unused) {
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /*  JADX ERROR: NullPointerException in pass: RegionMakerVisitor
+        java.lang.NullPointerException: Cannot read field "wordsInUse" because "set" is null
+        	at java.base/java.util.BitSet.or(BitSet.java:943)
+        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:732)
+        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:811)
+        	at jadx.core.dex.visitors.regions.IfMakerHelper.restructureIf(IfMakerHelper.java:88)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:706)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:730)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:735)
+        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
+        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
+        	at jadx.core.dex.visitors.regions.RegionMakerVisitor.visit(RegionMakerVisitor.java:52)
+        */
+    public static boolean e(android.content.Context r4, android.content.Intent r5) {
+        /*
+            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.hza.$ic
+            if (r0 != 0) goto L1a
+        L4:
+            r0 = 0
+            if (r4 == 0) goto L19
+            if (r5 != 0) goto La
+            goto L19
+        La:
+            android.content.pm.PackageManager r4 = r4.getPackageManager()     // Catch: java.lang.Exception -> L19
+            java.util.List r4 = r4.queryIntentActivities(r5, r0)     // Catch: java.lang.Exception -> L19
+            int r4 = r4.size()     // Catch: java.lang.Exception -> L19
+            if (r4 <= 0) goto L19
+            r0 = 1
+        L19:
+            return r0
+        L1a:
+            r1 = r0
+            r2 = 65540(0x10004, float:9.1841E-41)
+            r3 = 0
+            com.baidu.titan.sdk.runtime.InterceptResult r0 = r1.invokeLL(r2, r3, r4, r5)
+            if (r0 == 0) goto L4
+            boolean r1 = r0.booleanValue
+            return r1
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.hza.e(android.content.Context, android.content.Intent):boolean");
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                return packageInfo.packageName + "(" + packageInfo.versionName + SmallTailInfo.EMOTION_SUFFIX;
+            } catch (Throwable unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

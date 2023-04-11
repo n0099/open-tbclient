@@ -1,80 +1,149 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.n05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class yr6 {
+public class yr6 extends l05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final String b;
-    public final String c;
+    public TbPageContext k;
+    public Context l;
+    public ViewEventCenter m;
+    public final n05 n;
+    public tp6 o;
+    public final List<j05> p;
+    public final n05.f q;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+    /* loaded from: classes7.dex */
+    public class a implements n05.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yr6 a;
+
+        public a(yr6 yr6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yr6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (obj instanceof yr6) {
-                yr6 yr6Var = (yr6) obj;
-                return this.a == yr6Var.a && Intrinsics.areEqual(this.b, yr6Var.b) && Intrinsics.areEqual(this.c, yr6Var.c);
+            this.a = yr6Var;
+        }
+
+        @Override // com.baidu.tieba.n05.f
+        public void M0(n05 n05Var, int i, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, n05Var, i, view2) == null) {
+                this.a.dismiss();
+                if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                    ii.P(this.a.l, R.string.network_not_available);
+                } else if (i == 2) {
+                    this.a.m.dispatchMvcEvent(new nk5(4, this.a.o, null, null));
+                } else if (i == 1) {
+                    this.a.m.dispatchMvcEvent(new nk5(13, this.a.o, null, null));
+                }
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yr6(TbPageContext tbPageContext, ViewEventCenter viewEventCenter) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = this.a * 31;
-            String str = this.b;
-            int hashCode = (i + (str == null ? 0 : str.hashCode())) * 31;
-            String str2 = this.c;
-            return hashCode + (str2 != null ? str2.hashCode() : 0);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, viewEventCenter};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((a9) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeV.intValue;
+        this.q = new a(this);
+        this.k = tbPageContext;
+        this.l = tbPageContext.getPageActivity();
+        this.m = viewEventCenter;
+        this.p = new ArrayList();
+        n05 n05Var = new n05(this.l);
+        this.n = n05Var;
+        n05Var.p(this.q);
+        h(this.n);
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public void r(tp6 tp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ColorData(type=" + this.a + ", day=" + this.b + ", dark=" + this.c + ')';
+        if (interceptable == null || interceptable.invokeL(1048579, this, tp6Var) == null) {
+            this.o = tp6Var;
+            o();
         }
-        return (String) invokeV.objValue;
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    public final void o() {
+        List<j05> list;
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.o != null && (list = this.p) != null && this.n != null) {
+            list.clear();
+            if (this.o.h() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                i = R.string.cancel_top;
+            } else {
+                i = R.string.obfuscated_res_0x7f0f152f;
+            }
+            this.p.add(new j05(1, p(i, new Object[0]), this.n));
+            this.p.add(new j05(2, p(R.string.obfuscated_res_0x7f0f04d9, new Object[0]), this.n));
+            this.n.k(this.p);
         }
-        return (String) invokeV.objValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public final String p(int i, Object... objArr) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, objArr)) == null) {
+            Context context = this.l;
+            if (context == null) {
+                return null;
+            }
+            return context.getString(i, objArr);
         }
-        return (String) invokeV.objValue;
+        return (String) invokeIL.objValue;
     }
 
-    public final int getType() {
-        InterceptResult invokeV;
+    public void q() {
+        n05 n05Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (n05Var = this.n) != null) {
+            n05Var.j();
         }
-        return invokeV.intValue;
     }
 }

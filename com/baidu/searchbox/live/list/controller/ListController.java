@@ -20,7 +20,6 @@ import com.baidu.live.arch.utils.MiniPluginUtils;
 import com.baidu.live.arch.utils.MiniUiThreadUtil;
 import com.baidu.live.arch.utils.MiniUniqueId;
 import com.baidu.live.arch.utils.MixUriUtilKt;
-import com.baidu.pass.biometrics.face.liveness.b.a;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.live.action.AbstractEvent;
@@ -36,6 +35,7 @@ import com.baidu.searchbox.live.eventbus.MixEventBus;
 import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.searchbox.live.frame.ListInfo;
 import com.baidu.searchbox.live.frame.PageInfo;
+import com.baidu.searchbox.live.interfaces.context.PluginContextUtil;
 import com.baidu.searchbox.live.interfaces.mix.IMixActivityInterface;
 import com.baidu.searchbox.live.interfaces.mix.MixInvokeAbility;
 import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
@@ -83,7 +83,6 @@ import kotlin.Metadata;
 import kotlin.Pair;
 import kotlin.Result;
 import kotlin.ResultKt;
-import kotlin.TypeCastException;
 import kotlin.Unit;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.functions.Function0;
@@ -98,7 +97,7 @@ import kotlin.text.StringsKt__StringsKt;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000´\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010$\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u0016\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0002¥\u0001\u0018\u0000 Ú\u00012\u00020\u00012\u00020\u00022\u00020\u0003:\u0002Ú\u0001B%\u0012\u0006\u0010g\u001a\u00020f\u0012\b\u0010¾\u0001\u001a\u00030½\u0001\u0012\b\u0010»\u0001\u001a\u00030º\u0001¢\u0006\u0006\bØ\u0001\u0010Ù\u0001J!\u0010\t\u001a\u00020\b2\b\u0010\u0005\u001a\u0004\u0018\u00010\u00042\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\r\u001a\u00020\b2\u0006\u0010\f\u001a\u00020\u000bH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u0019\u0010\u0011\u001a\u00020\b2\b\u0010\u0010\u001a\u0004\u0018\u00010\u000fH\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u000f\u0010\u0013\u001a\u00020\bH\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\r\u0010\u0016\u001a\u00020\u0015¢\u0006\u0004\b\u0016\u0010\u0017J+\u0010\u001b\u001a\u00020\b2\f\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u00040\u00182\f\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u00040\u0018H\u0002¢\u0006\u0004\b\u001b\u0010\u001cJ\u0015\u0010\u001f\u001a\u00020\b2\u0006\u0010\u001e\u001a\u00020\u001d¢\u0006\u0004\b\u001f\u0010 J\r\u0010!\u001a\u00020\b¢\u0006\u0004\b!\u0010\u0014JI\u0010*\u001a\u00020\b2\u0006\u0010\"\u001a\u00020\u00062\u0006\u0010#\u001a\u00020\u00062\u0006\u0010$\u001a\u00020\u00062\u0006\u0010%\u001a\u00020\u00062\u0006\u0010'\u001a\u00020&2\u0006\u0010(\u001a\u00020\u00062\b\b\u0002\u0010)\u001a\u00020\u0006H\u0002¢\u0006\u0004\b*\u0010+J\u000f\u0010,\u001a\u00020\bH\u0002¢\u0006\u0004\b,\u0010\u0014J\u000f\u0010-\u001a\u00020\bH\u0002¢\u0006\u0004\b-\u0010\u0014J)\u00102\u001a\u00020\b2\u0006\u0010.\u001a\u00020\u001d2\u0006\u0010/\u001a\u00020\u001d2\b\u00101\u001a\u0004\u0018\u000100H\u0016¢\u0006\u0004\b2\u00103J\u0017\u00104\u001a\u00020\b2\u0006\u0010\u001e\u001a\u00020\u001dH\u0016¢\u0006\u0004\b4\u0010 J\u0017\u00105\u001a\u00020\b2\u0006\u0010\u001e\u001a\u00020\u001dH\u0016¢\u0006\u0004\b5\u0010 J\u0017\u00108\u001a\u00020\b2\u0006\u00107\u001a\u000206H\u0016¢\u0006\u0004\b8\u00109J\r\u0010:\u001a\u00020\b¢\u0006\u0004\b:\u0010\u0014J\r\u0010;\u001a\u00020\b¢\u0006\u0004\b;\u0010\u0014J\u001f\u0010?\u001a\u00020>2\u0006\u0010<\u001a\u00020\u001d2\u0006\u0010\u0010\u001a\u00020=H\u0016¢\u0006\u0004\b?\u0010@J\u0017\u0010B\u001a\u00020\b2\u0006\u0010A\u001a\u000200H\u0016¢\u0006\u0004\bB\u0010CJ\u001d\u0010F\u001a\u00020\b2\f\u00101\u001a\b\u0012\u0004\u0012\u00020E0DH\u0002¢\u0006\u0004\bF\u0010GJ/\u0010L\u001a\u00020\b2\u0006\u0010.\u001a\u00020\u001d2\u000e\u0010I\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00060H2\u0006\u0010K\u001a\u00020JH\u0016¢\u0006\u0004\bL\u0010MJ'\u0010Q\u001a\u0012\u0012\u0004\u0012\u00020\u0006\u0012\u0006\u0012\u0004\u0018\u00010\u0006\u0018\u00010P2\u0006\u0010O\u001a\u00020NH\u0002¢\u0006\u0004\bQ\u0010RJ!\u0010U\u001a\u00020\u00062\u0006\u0010$\u001a\u00020\u00062\b\u0010T\u001a\u0004\u0018\u00010SH\u0002¢\u0006\u0004\bU\u0010VJ\u000f\u0010W\u001a\u00020\bH\u0002¢\u0006\u0004\bW\u0010\u0014J\u000f\u0010X\u001a\u00020\bH\u0002¢\u0006\u0004\bX\u0010\u0014J\u000f\u0010Y\u001a\u00020\bH\u0002¢\u0006\u0004\bY\u0010\u0014J\u000f\u0010Z\u001a\u00020\bH\u0002¢\u0006\u0004\bZ\u0010\u0014J\u000f\u0010[\u001a\u00020\bH\u0002¢\u0006\u0004\b[\u0010\u0014J-\u0010^\u001a\u00020\b2\u0006\u0010\\\u001a\u00020\u00062\u0006\u0010]\u001a\u00020\u001d2\f\u00101\u001a\b\u0012\u0004\u0012\u00020\u00040\u0018H\u0002¢\u0006\u0004\b^\u0010_J\u0017\u0010b\u001a\u00020\b2\u0006\u0010a\u001a\u00020`H\u0002¢\u0006\u0004\bb\u0010cJ\u000f\u0010d\u001a\u00020\bH\u0002¢\u0006\u0004\bd\u0010\u0014J\u000f\u0010e\u001a\u00020\bH\u0002¢\u0006\u0004\be\u0010\u0014R\u0019\u0010g\u001a\u00020f8\u0006@\u0006¢\u0006\f\n\u0004\bg\u0010h\u001a\u0004\bi\u0010jR$\u0010k\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bk\u0010l\u001a\u0004\bm\u0010n\"\u0004\bo\u0010pR\"\u0010q\u001a\u00020\u001d8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bq\u0010r\u001a\u0004\bs\u0010t\"\u0004\bu\u0010 R$\u0010w\u001a\u0004\u0018\u00010v8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bw\u0010x\u001a\u0004\by\u0010z\"\u0004\b{\u0010|R%\u0010}\u001a\u00020>8\u0006@\u0006X\u0086\u000e¢\u0006\u0015\n\u0004\b}\u0010~\u001a\u0005\b\u007f\u0010\u0080\u0001\"\u0006\b\u0081\u0001\u0010\u0082\u0001R(\u0010\u0083\u0001\u001a\u00020>8\u0006@\u0006X\u0086\u000e¢\u0006\u0017\n\u0005\b\u0083\u0001\u0010~\u001a\u0006\b\u0084\u0001\u0010\u0080\u0001\"\u0006\b\u0085\u0001\u0010\u0082\u0001R(\u0010\u0086\u0001\u001a\u00020>8\u0006@\u0006X\u0086\u000e¢\u0006\u0017\n\u0005\b\u0086\u0001\u0010~\u001a\u0006\b\u0086\u0001\u0010\u0080\u0001\"\u0006\b\u0087\u0001\u0010\u0082\u0001R\u0018\u0010\u0088\u0001\u001a\u00020>8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u0088\u0001\u0010~R$\u0010\u0089\u0001\u001a\b\u0012\u0004\u0012\u00020\u00040\u00188\u0006@\u0006¢\u0006\u0010\n\u0006\b\u0089\u0001\u0010\u008a\u0001\u001a\u0006\b\u008b\u0001\u0010\u008c\u0001R#\u0010\u0092\u0001\u001a\u00030\u008d\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\b\u008e\u0001\u0010\u008f\u0001\u001a\u0006\b\u0090\u0001\u0010\u0091\u0001R\u0019\u0010\u0093\u0001\u001a\u00020&8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0093\u0001\u0010\u0094\u0001R\u0019\u0010\u0095\u0001\u001a\u00020&8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0095\u0001\u0010\u0094\u0001R$\u0010\u0098\u0001\u001a\r \u0097\u0001*\u0005\u0018\u00010\u0096\u00010\u0096\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b\u0098\u0001\u0010\u0099\u0001R\u0018\u0010\u009a\u0001\u001a\u00020\u001d8\u0002@\u0002X\u0082D¢\u0006\u0007\n\u0005\b\u009a\u0001\u0010rR\u0018\u0010\u009b\u0001\u001a\u00020>8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u009b\u0001\u0010~R\u001c\u0010\u009d\u0001\u001a\u0005\u0018\u00010\u009c\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u009d\u0001\u0010\u009e\u0001R\u001c\u0010 \u0001\u001a\u0005\u0018\u00010\u009f\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b \u0001\u0010¡\u0001R\u001c\u0010£\u0001\u001a\u0005\u0018\u00010¢\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b£\u0001\u0010¤\u0001R#\u0010©\u0001\u001a\u00030¥\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\b¦\u0001\u0010\u008f\u0001\u001a\u0006\b§\u0001\u0010¨\u0001R\u001c\u0010«\u0001\u001a\u0005\u0018\u00010ª\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b«\u0001\u0010¬\u0001R,\u0010®\u0001\u001a\u0005\u0018\u00010\u00ad\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\b®\u0001\u0010¯\u0001\u001a\u0006\b°\u0001\u0010±\u0001\"\u0006\b²\u0001\u0010³\u0001R\u001c\u0010µ\u0001\u001a\u0005\u0018\u00010´\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\bµ\u0001\u0010¶\u0001R\u001c\u0010¸\u0001\u001a\u0005\u0018\u00010·\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¸\u0001\u0010¹\u0001R\u001a\u0010»\u0001\u001a\u00030º\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b»\u0001\u0010¼\u0001R\u001a\u0010¾\u0001\u001a\u00030½\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b¾\u0001\u0010¿\u0001R\u001b\u0010À\u0001\u001a\u0004\u0018\u00010S8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\bÀ\u0001\u0010Á\u0001R+\u0010Â\u0001\u001a\u0004\u0018\u00010E8\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\bÂ\u0001\u0010Ã\u0001\u001a\u0006\bÄ\u0001\u0010Å\u0001\"\u0006\bÆ\u0001\u0010Ç\u0001R,\u0010É\u0001\u001a\u0005\u0018\u00010È\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\bÉ\u0001\u0010Ê\u0001\u001a\u0006\bË\u0001\u0010Ì\u0001\"\u0006\bÍ\u0001\u0010Î\u0001R\u0018\u0010Ï\u0001\u001a\u00020>8\u0002@\u0002X\u0082\u0004¢\u0006\u0007\n\u0005\bÏ\u0001\u0010~R\u0018\u0010Ð\u0001\u001a\u00020>8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\bÐ\u0001\u0010~R,\u0010Ó\u0001\u001a\u0010\u0012\f\u0012\n\u0012\u0005\u0012\u00030Ò\u00010Ñ\u00010\u00188\u0006@\u0006¢\u0006\u0010\n\u0006\bÓ\u0001\u0010\u008a\u0001\u001a\u0006\bÔ\u0001\u0010\u008c\u0001R\u001a\u0010Ö\u0001\u001a\u00030Õ\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\bÖ\u0001\u0010×\u0001¨\u0006Û\u0001"}, d2 = {"Lcom/baidu/searchbox/live/list/controller/ListController;", "Lcom/baidu/live/arch/api/IExtLifecycle;", "Lcom/baidu/searchbox/live/eventbus/EventAction;", "Lcom/baidu/searchbox/live/list/controller/IListListener;", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "model", "", "id", "", "bindHLReplayInfo", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;Ljava/lang/String;)V", "Lorg/json/JSONArray;", "roomIdJSONArray", "cacheCloseRoomIdList", "(Lorg/json/JSONArray;)V", "Lcom/baidu/searchbox/live/action/AbstractEvent;", "event", NotificationCompat.CATEGORY_CALL, "(Lcom/baidu/searchbox/live/action/AbstractEvent;)V", "changeScrollState", "()V", "Landroid/view/View;", "createView", "()Landroid/view/View;", "", "origin", "addition", "distinct", "(Ljava/util/List;Ljava/util/List;)V", "", CriusAttrConstants.POSITION, "fetchMoreLiveIfNeed", "(I)V", "finish", "roomId", AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, "scheme", "from", "", "clickTime", "clickFrom", "playUrl", "jumpToNewLiveRoom", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)V", "loadLiveRoom", "logEventOnReach", "requestCode", "resultCode", "Landroid/content/Intent;", "data", "onActivityResult", "(IILandroid/content/Intent;)V", "onAfterSelect", "onBeforeSelect", "Landroid/content/res/Configuration;", "newConfig", "onConfigurationChanged", "(Landroid/content/res/Configuration;)V", "onCreate", MissionEvent.MESSAGE_DESTROY, "keyCode", "Landroid/view/KeyEvent;", "", "onKeyDown", "(ILandroid/view/KeyEvent;)Z", "intent", "onNewIntent", "(Landroid/content/Intent;)V", "Lcom/baidu/searchbox/live/model/res/MixResult;", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "onPreRoomEnterDataLoaded", "(Lcom/baidu/searchbox/live/model/res/MixResult;)V", "", "permissions", "", "grantResults", "onRequestPermissionsResult", "(I[Ljava/lang/String;[I)V", "Lorg/json/JSONObject;", "input", "", "paramsJsonToMap", "(Lorg/json/JSONObject;)Ljava/util/Map;", "Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;", "sourceInfo", "parseClickTime", "(Ljava/lang/String;Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;)Ljava/lang/String;", "preReqRoomEnter", "queryLiveList", "registerMixRequestService", "registerYYLifeCyclePlugin", "reloadLiveRoom", "pageSession", "hasMore", "slideListSuccess", "(Ljava/lang/String;ILjava/util/List;)V", "Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;", "itemLiveType", "templateIdSuccess", "(Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;)V", "unBindHLReplayInfo", "unregisterMixRequestService", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "curRoomModel", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "getCurRoomModel", "()Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "setCurRoomModel", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;)V", "currentPosition", "I", "getCurrentPosition", "()I", "setCurrentPosition", "Landroid/os/Handler;", "handler", "Landroid/os/Handler;", "getHandler", "()Landroid/os/Handler;", "setHandler", "(Landroid/os/Handler;)V", "hasReqEnd", "Z", "getHasReqEnd", "()Z", "setHasReqEnd", "(Z)V", "hasReqStart", "getHasReqStart", "setHasReqStart", "isFromForward", "setFromForward", "isRegistYYActivityLifeCyclePlugin", "itemData", "Ljava/util/List;", "getItemData", "()Ljava/util/List;", "Lcom/baidu/searchbox/live/list/controller/IListManager;", "listManager$delegate", "Lkotlin/Lazy;", "getListManager", "()Lcom/baidu/searchbox/live/list/controller/IListManager;", "listManager", "listRequestDuration", "J", "listRequestTime", "Lcom/baidu/searchbox/live/interfaces/service/LiveSessionService;", "kotlin.jvm.PlatformType", "liveSessionService", "Lcom/baidu/searchbox/live/interfaces/service/LiveSessionService;", "loadMoreFraction", "localSwitchCanScroll", "Lcom/baidu/searchbox/live/frame/IntentData;", "mIntentData", "Lcom/baidu/searchbox/live/frame/IntentData;", "Lcom/baidu/searchbox/live/frame/ListInfo;", "mListInfo", "Lcom/baidu/searchbox/live/frame/ListInfo;", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin;", "mLiveRoomInfoStatPlugin", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin;", "com/baidu/searchbox/live/list/controller/ListController$mMixEventDispatcher$2$1", "mMixEventDispatcher$delegate", "getMMixEventDispatcher", "()Lcom/baidu/searchbox/live/list/controller/ListController$mMixEventDispatcher$2$1;", "mMixEventDispatcher", "Lcom/baidu/searchbox/live/model/MixModel;", "mNetModel", "Lcom/baidu/searchbox/live/model/MixModel;", "Lcom/baidu/searchbox/live/frame/PageInfo;", "mPageInfo", "Lcom/baidu/searchbox/live/frame/PageInfo;", "getMPageInfo", "()Lcom/baidu/searchbox/live/frame/PageInfo;", "setMPageInfo", "(Lcom/baidu/searchbox/live/frame/PageInfo;)V", "Lcom/baidu/searchbox/live/list/plugin/YYActivityLifeCyclePlugin;", "mYYLifeCyclePlugin", "Lcom/baidu/searchbox/live/list/plugin/YYActivityLifeCyclePlugin;", "Lcom/baidu/searchbox/live/list/plugin/YYLoadPluginPlugin;", "mYYLoadPluginPlugin", "Lcom/baidu/searchbox/live/list/plugin/YYLoadPluginPlugin;", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "mixActivity", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "playSource", "Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;", "preReqRoomEnterData", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "getPreReqRoomEnterData", "()Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "setPreReqRoomEnterData", "(Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;)V", "Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "preReqStatData", "Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "getPreReqStatData", "()Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "setPreReqStatData", "(Lcom/baidu/searchbox/live/model/res/MixResultStatData;)V", "prefetchEnterSwitch", "serverSwitchCanScroll", "Ljava/lang/ref/WeakReference;", "Lcom/baidu/searchbox/live/shell/list/basic/AbstractMixFakeShell;", "shellList", "getShellList", "Lcom/baidu/ubc/UBCManager;", "ubcManager", "Lcom/baidu/ubc/UBCManager;", "<init>", "(Landroid/content/Context;Lcom/baidu/live/arch/utils/MiniUniqueId;Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;)V", "Companion", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000´\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0015\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010$\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0002\b\u0016\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0002©\u0001\u0018\u0000 Þ\u00012\u00020\u00012\u00020\u00022\u00020\u0003:\u0002Þ\u0001B%\u0012\u0006\u0010g\u001a\u00020f\u0012\b\u0010Â\u0001\u001a\u00030Á\u0001\u0012\b\u0010¿\u0001\u001a\u00030¾\u0001¢\u0006\u0006\bÜ\u0001\u0010Ý\u0001J!\u0010\t\u001a\u00020\b2\b\u0010\u0005\u001a\u0004\u0018\u00010\u00042\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\t\u0010\nJ\u0017\u0010\r\u001a\u00020\b2\u0006\u0010\f\u001a\u00020\u000bH\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u0019\u0010\u0011\u001a\u00020\b2\b\u0010\u0010\u001a\u0004\u0018\u00010\u000fH\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u000f\u0010\u0013\u001a\u00020\bH\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\r\u0010\u0016\u001a\u00020\u0015¢\u0006\u0004\b\u0016\u0010\u0017J+\u0010\u001b\u001a\u00020\b2\f\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u00040\u00182\f\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u00040\u0018H\u0002¢\u0006\u0004\b\u001b\u0010\u001cJ\u0015\u0010\u001f\u001a\u00020\b2\u0006\u0010\u001e\u001a\u00020\u001d¢\u0006\u0004\b\u001f\u0010 J\r\u0010!\u001a\u00020\b¢\u0006\u0004\b!\u0010\u0014JI\u0010*\u001a\u00020\b2\u0006\u0010\"\u001a\u00020\u00062\u0006\u0010#\u001a\u00020\u00062\u0006\u0010$\u001a\u00020\u00062\u0006\u0010%\u001a\u00020\u00062\u0006\u0010'\u001a\u00020&2\u0006\u0010(\u001a\u00020\u00062\b\b\u0002\u0010)\u001a\u00020\u0006H\u0002¢\u0006\u0004\b*\u0010+J\u000f\u0010,\u001a\u00020\bH\u0002¢\u0006\u0004\b,\u0010\u0014J\u000f\u0010-\u001a\u00020\bH\u0002¢\u0006\u0004\b-\u0010\u0014J)\u00102\u001a\u00020\b2\u0006\u0010.\u001a\u00020\u001d2\u0006\u0010/\u001a\u00020\u001d2\b\u00101\u001a\u0004\u0018\u000100H\u0016¢\u0006\u0004\b2\u00103J\u0017\u00104\u001a\u00020\b2\u0006\u0010\u001e\u001a\u00020\u001dH\u0016¢\u0006\u0004\b4\u0010 J\u0017\u00105\u001a\u00020\b2\u0006\u0010\u001e\u001a\u00020\u001dH\u0016¢\u0006\u0004\b5\u0010 J\u0017\u00108\u001a\u00020\b2\u0006\u00107\u001a\u000206H\u0016¢\u0006\u0004\b8\u00109J\r\u0010:\u001a\u00020\b¢\u0006\u0004\b:\u0010\u0014J\r\u0010;\u001a\u00020\b¢\u0006\u0004\b;\u0010\u0014J\u001f\u0010?\u001a\u00020>2\u0006\u0010<\u001a\u00020\u001d2\u0006\u0010\u0010\u001a\u00020=H\u0016¢\u0006\u0004\b?\u0010@J\u0017\u0010B\u001a\u00020\b2\u0006\u0010A\u001a\u000200H\u0016¢\u0006\u0004\bB\u0010CJ\u001d\u0010F\u001a\u00020\b2\f\u00101\u001a\b\u0012\u0004\u0012\u00020E0DH\u0002¢\u0006\u0004\bF\u0010GJ/\u0010L\u001a\u00020\b2\u0006\u0010.\u001a\u00020\u001d2\u000e\u0010I\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u00060H2\u0006\u0010K\u001a\u00020JH\u0016¢\u0006\u0004\bL\u0010MJ'\u0010Q\u001a\u0012\u0012\u0004\u0012\u00020\u0006\u0012\u0006\u0012\u0004\u0018\u00010\u0006\u0018\u00010P2\u0006\u0010O\u001a\u00020NH\u0002¢\u0006\u0004\bQ\u0010RJ!\u0010U\u001a\u00020\u00062\u0006\u0010$\u001a\u00020\u00062\b\u0010T\u001a\u0004\u0018\u00010SH\u0002¢\u0006\u0004\bU\u0010VJ\u000f\u0010W\u001a\u00020\bH\u0002¢\u0006\u0004\bW\u0010\u0014J\u000f\u0010X\u001a\u00020\bH\u0002¢\u0006\u0004\bX\u0010\u0014J\u000f\u0010Y\u001a\u00020\bH\u0002¢\u0006\u0004\bY\u0010\u0014J\u000f\u0010Z\u001a\u00020\bH\u0002¢\u0006\u0004\bZ\u0010\u0014J\u000f\u0010[\u001a\u00020\bH\u0002¢\u0006\u0004\b[\u0010\u0014J-\u0010^\u001a\u00020\b2\u0006\u0010\\\u001a\u00020\u00062\u0006\u0010]\u001a\u00020\u001d2\f\u00101\u001a\b\u0012\u0004\u0012\u00020\u00040\u0018H\u0002¢\u0006\u0004\b^\u0010_J\u0017\u0010b\u001a\u00020\b2\u0006\u0010a\u001a\u00020`H\u0002¢\u0006\u0004\bb\u0010cJ\u000f\u0010d\u001a\u00020\bH\u0002¢\u0006\u0004\bd\u0010\u0014J\u000f\u0010e\u001a\u00020\bH\u0002¢\u0006\u0004\be\u0010\u0014R\u0019\u0010g\u001a\u00020f8\u0006@\u0006¢\u0006\f\n\u0004\bg\u0010h\u001a\u0004\bi\u0010jR$\u0010k\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bk\u0010l\u001a\u0004\bm\u0010n\"\u0004\bo\u0010pR\"\u0010q\u001a\u00020\u001d8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bq\u0010r\u001a\u0004\bs\u0010t\"\u0004\bu\u0010 R$\u0010w\u001a\u0004\u0018\u00010v8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bw\u0010x\u001a\u0004\by\u0010z\"\u0004\b{\u0010|R%\u0010}\u001a\u00020>8\u0006@\u0006X\u0086\u000e¢\u0006\u0015\n\u0004\b}\u0010~\u001a\u0005\b\u007f\u0010\u0080\u0001\"\u0006\b\u0081\u0001\u0010\u0082\u0001R(\u0010\u0083\u0001\u001a\u00020>8\u0006@\u0006X\u0086\u000e¢\u0006\u0017\n\u0005\b\u0083\u0001\u0010~\u001a\u0006\b\u0084\u0001\u0010\u0080\u0001\"\u0006\b\u0085\u0001\u0010\u0082\u0001R(\u0010\u0086\u0001\u001a\u00020>8\u0006@\u0006X\u0086\u000e¢\u0006\u0017\n\u0005\b\u0086\u0001\u0010~\u001a\u0006\b\u0086\u0001\u0010\u0080\u0001\"\u0006\b\u0087\u0001\u0010\u0082\u0001R\u0018\u0010\u0088\u0001\u001a\u00020>8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u0088\u0001\u0010~R$\u0010\u0089\u0001\u001a\b\u0012\u0004\u0012\u00020\u00040\u00188\u0006@\u0006¢\u0006\u0010\n\u0006\b\u0089\u0001\u0010\u008a\u0001\u001a\u0006\b\u008b\u0001\u0010\u008c\u0001R#\u0010\u0092\u0001\u001a\u00030\u008d\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\b\u008e\u0001\u0010\u008f\u0001\u001a\u0006\b\u0090\u0001\u0010\u0091\u0001R\u0019\u0010\u0093\u0001\u001a\u00020&8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0093\u0001\u0010\u0094\u0001R\u0019\u0010\u0095\u0001\u001a\u00020&8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b\u0095\u0001\u0010\u0094\u0001R$\u0010\u0098\u0001\u001a\r \u0097\u0001*\u0005\u0018\u00010\u0096\u00010\u0096\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b\u0098\u0001\u0010\u0099\u0001R\u0018\u0010\u009a\u0001\u001a\u00020\u001d8\u0002@\u0002X\u0082D¢\u0006\u0007\n\u0005\b\u009a\u0001\u0010rR\u0018\u0010\u009b\u0001\u001a\u00020>8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\b\u009b\u0001\u0010~R,\u0010\u009d\u0001\u001a\u0005\u0018\u00010\u009c\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\b\u009d\u0001\u0010\u009e\u0001\u001a\u0006\b\u009f\u0001\u0010 \u0001\"\u0006\b¡\u0001\u0010¢\u0001R\u001c\u0010¤\u0001\u001a\u0005\u0018\u00010£\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¤\u0001\u0010¥\u0001R\u001c\u0010§\u0001\u001a\u0005\u0018\u00010¦\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b§\u0001\u0010¨\u0001R#\u0010\u00ad\u0001\u001a\u00030©\u00018B@\u0002X\u0082\u0084\u0002¢\u0006\u0010\n\u0006\bª\u0001\u0010\u008f\u0001\u001a\u0006\b«\u0001\u0010¬\u0001R\u001c\u0010¯\u0001\u001a\u0005\u0018\u00010®\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¯\u0001\u0010°\u0001R,\u0010²\u0001\u001a\u0005\u0018\u00010±\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\b²\u0001\u0010³\u0001\u001a\u0006\b´\u0001\u0010µ\u0001\"\u0006\b¶\u0001\u0010·\u0001R\u001c\u0010¹\u0001\u001a\u0005\u0018\u00010¸\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¹\u0001\u0010º\u0001R\u001c\u0010¼\u0001\u001a\u0005\u0018\u00010»\u00018\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\b¼\u0001\u0010½\u0001R\u001a\u0010¿\u0001\u001a\u00030¾\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\b¿\u0001\u0010À\u0001R\u001a\u0010Â\u0001\u001a\u00030Á\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\bÂ\u0001\u0010Ã\u0001R\u001b\u0010Ä\u0001\u001a\u0004\u0018\u00010S8\u0002@\u0002X\u0082\u000e¢\u0006\b\n\u0006\bÄ\u0001\u0010Å\u0001R+\u0010Æ\u0001\u001a\u0004\u0018\u00010E8\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\bÆ\u0001\u0010Ç\u0001\u001a\u0006\bÈ\u0001\u0010É\u0001\"\u0006\bÊ\u0001\u0010Ë\u0001R,\u0010Í\u0001\u001a\u0005\u0018\u00010Ì\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0018\n\u0006\bÍ\u0001\u0010Î\u0001\u001a\u0006\bÏ\u0001\u0010Ð\u0001\"\u0006\bÑ\u0001\u0010Ò\u0001R\u0018\u0010Ó\u0001\u001a\u00020>8\u0002@\u0002X\u0082\u0004¢\u0006\u0007\n\u0005\bÓ\u0001\u0010~R\u0018\u0010Ô\u0001\u001a\u00020>8\u0002@\u0002X\u0082\u000e¢\u0006\u0007\n\u0005\bÔ\u0001\u0010~R,\u0010×\u0001\u001a\u0010\u0012\f\u0012\n\u0012\u0005\u0012\u00030Ö\u00010Õ\u00010\u00188\u0006@\u0006¢\u0006\u0010\n\u0006\b×\u0001\u0010\u008a\u0001\u001a\u0006\bØ\u0001\u0010\u008c\u0001R\u001a\u0010Ú\u0001\u001a\u00030Ù\u00018\u0002@\u0002X\u0082\u0004¢\u0006\b\n\u0006\bÚ\u0001\u0010Û\u0001¨\u0006ß\u0001"}, d2 = {"Lcom/baidu/searchbox/live/list/controller/ListController;", "Lcom/baidu/live/arch/api/IExtLifecycle;", "Lcom/baidu/searchbox/live/eventbus/EventAction;", "Lcom/baidu/searchbox/live/list/controller/IListListener;", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "model", "", "id", "", "bindHLReplayInfo", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;Ljava/lang/String;)V", "Lorg/json/JSONArray;", "roomIdJSONArray", "cacheCloseRoomIdList", "(Lorg/json/JSONArray;)V", "Lcom/baidu/searchbox/live/action/AbstractEvent;", "event", NotificationCompat.CATEGORY_CALL, "(Lcom/baidu/searchbox/live/action/AbstractEvent;)V", "changeScrollState", "()V", "Landroid/view/View;", "createView", "()Landroid/view/View;", "", "origin", "addition", "distinct", "(Ljava/util/List;Ljava/util/List;)V", "", CriusAttrConstants.POSITION, "fetchMoreLiveIfNeed", "(I)V", "finish", "roomId", AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, "scheme", "from", "", "clickTime", "clickFrom", "playUrl", "jumpToNewLiveRoom", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Ljava/lang/String;)V", "loadLiveRoom", "logEventOnReach", "requestCode", "resultCode", "Landroid/content/Intent;", "data", "onActivityResult", "(IILandroid/content/Intent;)V", "onAfterSelect", "onBeforeSelect", "Landroid/content/res/Configuration;", "newConfig", "onConfigurationChanged", "(Landroid/content/res/Configuration;)V", "onCreate", MissionEvent.MESSAGE_DESTROY, "keyCode", "Landroid/view/KeyEvent;", "", "onKeyDown", "(ILandroid/view/KeyEvent;)Z", "intent", "onNewIntent", "(Landroid/content/Intent;)V", "Lcom/baidu/searchbox/live/model/res/MixResult;", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "onPreRoomEnterDataLoaded", "(Lcom/baidu/searchbox/live/model/res/MixResult;)V", "", "permissions", "", "grantResults", "onRequestPermissionsResult", "(I[Ljava/lang/String;[I)V", "Lorg/json/JSONObject;", "input", "", "paramsJsonToMap", "(Lorg/json/JSONObject;)Ljava/util/Map;", "Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;", "sourceInfo", "parseClickTime", "(Ljava/lang/String;Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;)Ljava/lang/String;", "preReqRoomEnter", "queryLiveList", "registerMixRequestService", "registerYYLifeCyclePlugin", "reloadLiveRoom", "pageSession", "hasMore", "slideListSuccess", "(Ljava/lang/String;ILjava/util/List;)V", "Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;", "itemLiveType", "templateIdSuccess", "(Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;)V", "unBindHLReplayInfo", "unregisterMixRequestService", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "curRoomModel", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "getCurRoomModel", "()Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "setCurRoomModel", "(Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;)V", "currentPosition", "I", "getCurrentPosition", "()I", "setCurrentPosition", "Landroid/os/Handler;", "handler", "Landroid/os/Handler;", "getHandler", "()Landroid/os/Handler;", "setHandler", "(Landroid/os/Handler;)V", "hasReqEnd", "Z", "getHasReqEnd", "()Z", "setHasReqEnd", "(Z)V", "hasReqStart", "getHasReqStart", "setHasReqStart", "isFromForward", "setFromForward", "isRegistYYActivityLifeCyclePlugin", "itemData", "Ljava/util/List;", "getItemData", "()Ljava/util/List;", "Lcom/baidu/searchbox/live/list/controller/IListManager;", "listManager$delegate", "Lkotlin/Lazy;", "getListManager", "()Lcom/baidu/searchbox/live/list/controller/IListManager;", "listManager", "listRequestDuration", "J", "listRequestTime", "Lcom/baidu/searchbox/live/interfaces/service/LiveSessionService;", "kotlin.jvm.PlatformType", "liveSessionService", "Lcom/baidu/searchbox/live/interfaces/service/LiveSessionService;", "loadMoreFraction", "localSwitchCanScroll", "Lcom/baidu/searchbox/live/frame/IntentData;", "mIntentData", "Lcom/baidu/searchbox/live/frame/IntentData;", "getMIntentData", "()Lcom/baidu/searchbox/live/frame/IntentData;", "setMIntentData", "(Lcom/baidu/searchbox/live/frame/IntentData;)V", "Lcom/baidu/searchbox/live/frame/ListInfo;", "mListInfo", "Lcom/baidu/searchbox/live/frame/ListInfo;", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin;", "mLiveRoomInfoStatPlugin", "Lcom/baidu/searchbox/live/list/plugin/LiveRoomInfoStatPlugin;", "com/baidu/searchbox/live/list/controller/ListController$mMixEventDispatcher$2$1", "mMixEventDispatcher$delegate", "getMMixEventDispatcher", "()Lcom/baidu/searchbox/live/list/controller/ListController$mMixEventDispatcher$2$1;", "mMixEventDispatcher", "Lcom/baidu/searchbox/live/model/MixModel;", "mNetModel", "Lcom/baidu/searchbox/live/model/MixModel;", "Lcom/baidu/searchbox/live/frame/PageInfo;", "mPageInfo", "Lcom/baidu/searchbox/live/frame/PageInfo;", "getMPageInfo", "()Lcom/baidu/searchbox/live/frame/PageInfo;", "setMPageInfo", "(Lcom/baidu/searchbox/live/frame/PageInfo;)V", "Lcom/baidu/searchbox/live/list/plugin/YYActivityLifeCyclePlugin;", "mYYLifeCyclePlugin", "Lcom/baidu/searchbox/live/list/plugin/YYActivityLifeCyclePlugin;", "Lcom/baidu/searchbox/live/list/plugin/YYLoadPluginPlugin;", "mYYLoadPluginPlugin", "Lcom/baidu/searchbox/live/list/plugin/YYLoadPluginPlugin;", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "mixActivity", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "playSource", "Lcom/baidu/searchbox/live/widget/LiveContainer$PlaySourceInfo;", "preReqRoomEnterData", "Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "getPreReqRoomEnterData", "()Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;", "setPreReqRoomEnterData", "(Lcom/baidu/searchbox/live/data/resp/LiveRoomEnterRespData;)V", "Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "preReqStatData", "Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "getPreReqStatData", "()Lcom/baidu/searchbox/live/model/res/MixResultStatData;", "setPreReqStatData", "(Lcom/baidu/searchbox/live/model/res/MixResultStatData;)V", "prefetchEnterSwitch", "serverSwitchCanScroll", "Ljava/lang/ref/WeakReference;", "Lcom/baidu/searchbox/live/shell/list/basic/AbstractMixFakeShell;", "shellList", "getShellList", "Lcom/baidu/ubc/UBCManager;", "ubcManager", "Lcom/baidu/ubc/UBCManager;", "<init>", "(Landroid/content/Context;Lcom/baidu/live/arch/utils/MiniUniqueId;Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;)V", "Companion", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public final class ListController implements IExtLifecycle, EventAction<AbstractEvent>, IListListener {
     public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(ListController.class), "listManager", "getListManager()Lcom/baidu/searchbox/live/list/controller/IListManager;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(ListController.class), "mMixEventDispatcher", "getMMixEventDispatcher()Lcom/baidu/searchbox/live/list/controller/ListController$mMixEventDispatcher$2$1;"))};
@@ -229,7 +228,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
             @Override // kotlin.jvm.functions.Function0
             public final AnonymousClass1 invoke() {
                 return new MixInvokeAbility() { // from class: com.baidu.searchbox.live.list.controller.ListController$mMixEventDispatcher$2.1
-                    /* JADX WARN: Code restructure failed: missing block: B:34:0x006c, code lost:
+                    /* JADX WARN: Code restructure failed: missing block: B:34:0x006d, code lost:
                         if (android.text.TextUtils.isEmpty(r4) != false) goto L32;
                      */
                     @Override // com.baidu.searchbox.live.interfaces.mix.MixInvokeAbility
@@ -237,10 +236,8 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                         Code decompiled incorrectly, please refer to instructions dump.
                     */
                     public void onCommonEvent(String str, Object obj) {
-                        IntentData intentData;
                         IntentData.SchemeModel schemeModel;
                         String str2;
-                        IntentData intentData2;
                         MixModel mixModel;
                         String str3;
                         String str4;
@@ -252,50 +249,49 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                             Boolean bool = (Boolean) obj;
                             if (bool != null && bool.booleanValue()) {
                                 boolean z3 = true;
-                                if (ListController.this.getItemData().size() > 1) {
-                                    return;
-                                }
-                                intentData = ListController.this.mIntentData;
-                                if (intentData != null) {
-                                    schemeModel = intentData.getModel();
-                                } else {
-                                    schemeModel = null;
-                                }
-                                if (schemeModel != null) {
-                                    str2 = schemeModel.getRoomType();
-                                } else {
-                                    str2 = null;
-                                }
-                                if (!TextUtils.isEmpty(str2)) {
-                                    if (schemeModel != null) {
-                                        str3 = schemeModel.getRoomType();
+                                if (ListController.this.getItemData().size() <= 1) {
+                                    IntentData mIntentData = ListController.this.getMIntentData();
+                                    if (mIntentData != null) {
+                                        schemeModel = mIntentData.getModel();
                                     } else {
-                                        str3 = null;
+                                        schemeModel = null;
                                     }
-                                    if (Intrinsics.areEqual("0", str3)) {
+                                    if (schemeModel != null) {
+                                        str2 = schemeModel.getRoomType();
+                                    } else {
+                                        str2 = null;
+                                    }
+                                    if (!TextUtils.isEmpty(str2)) {
                                         if (schemeModel != null) {
-                                            str4 = schemeModel.getTemplateId();
+                                            str3 = schemeModel.getRoomType();
                                         } else {
-                                            str4 = null;
+                                            str3 = null;
                                         }
+                                        if (Intrinsics.areEqual("0", str3)) {
+                                            if (schemeModel != null) {
+                                                str4 = schemeModel.getTemplateId();
+                                            } else {
+                                                str4 = null;
+                                            }
+                                        }
+                                        z3 = false;
                                     }
-                                    z3 = false;
-                                }
-                                if (ListController.this.getItemData().size() == 0) {
-                                    intentData2 = ListController.this.mIntentData;
-                                    if (intentData2 != null) {
-                                        str5 = intentData2.getId();
-                                    }
-                                    if (!TextUtils.isEmpty(str5) && z3) {
-                                        mixModel = ListController.this.mNetModel;
-                                        if (mixModel != null) {
-                                            mixModel.reqLiveType();
+                                    if (ListController.this.getItemData().size() == 0) {
+                                        IntentData mIntentData2 = ListController.this.getMIntentData();
+                                        if (mIntentData2 != null) {
+                                            str5 = mIntentData2.getId();
+                                        }
+                                        if (!TextUtils.isEmpty(str5) && z3) {
+                                            mixModel = ListController.this.mNetModel;
+                                            if (mixModel != null) {
+                                                mixModel.reqLiveType();
+                                                return;
+                                            }
                                             return;
                                         }
-                                        return;
                                     }
+                                    ListController.this.queryLiveList();
                                 }
-                                ListController.this.queryLiveList();
                             }
                         }
                     }
@@ -421,6 +417,10 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         this.hasReqStart = z;
     }
 
+    public final void setMIntentData(IntentData intentData) {
+        this.mIntentData = intentData;
+    }
+
     public final void setMPageInfo(PageInfo pageInfo) {
         this.mPageInfo = pageInfo;
     }
@@ -464,7 +464,6 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
             @Override // com.baidu.searchbox.live.service.MixRequestService
             public void requestRoomEnter(RoomEnterParams roomEnterParams, boolean z, OnMixDataLoaded<MixResult<LiveRoomEnterRespData>> onMixDataLoaded) {
                 MixModel mixModel;
-                IntentData intentData;
                 JSONObject jSONObject;
                 String str;
                 long j;
@@ -507,9 +506,9 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                     }
                     MediaLiveEnterRoomRate mediaLiveEnterRoomRate = MediaLiveEnterRoomRate.INSTANCE;
                     String id = roomEnterParams.getId();
-                    intentData = ListController.this.mIntentData;
-                    if (intentData != null) {
-                        str2 = intentData.getSource();
+                    IntentData mIntentData = ListController.this.getMIntentData();
+                    if (mIntentData != null) {
+                        str2 = mIntentData.getSource();
                     }
                     mediaLiveEnterRoomRate.doEnterUbcByRequestEnter(id, "req_end_cache_invalid", str2);
                 }
@@ -610,6 +609,10 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
 
     public final List<LiveContainer.LiveItemModel> getItemData() {
         return this.itemData;
+    }
+
+    public final IntentData getMIntentData() {
+        return this.mIntentData;
     }
 
     public final PageInfo getMPageInfo() {
@@ -719,11 +722,11 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                             if (intentData3 != null) {
                                 intentData3.setModel(parseSchemeData);
                             }
-                            Result.m768constructorimpl(Unit.INSTANCE);
+                            Result.m770constructorimpl(Unit.INSTANCE);
                         } catch (Throwable th2) {
                             th = th2;
                             Result.Companion companion2 = Result.Companion;
-                            Result.m768constructorimpl(ResultKt.createFailure(th));
+                            Result.m770constructorimpl(ResultKt.createFailure(th));
                             str10 = str7;
                             str11 = str8;
                             str12 = str9;
@@ -747,7 +750,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                         th = th3;
                         str9 = "";
                         Result.Companion companion22 = Result.Companion;
-                        Result.m768constructorimpl(ResultKt.createFailure(th));
+                        Result.m770constructorimpl(ResultKt.createFailure(th));
                         str10 = str7;
                         str11 = str8;
                         str12 = str9;
@@ -772,7 +775,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                     str8 = "";
                     str9 = str8;
                     Result.Companion companion222 = Result.Companion;
-                    Result.m768constructorimpl(ResultKt.createFailure(th));
+                    Result.m770constructorimpl(ResultKt.createFailure(th));
                     str10 = str7;
                     str11 = str8;
                     str12 = str9;
@@ -952,7 +955,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         str7 = "";
         str8 = str7;
         str9 = str8;
-        Result.m768constructorimpl(Unit.INSTANCE);
+        Result.m770constructorimpl(Unit.INSTANCE);
         str10 = str7;
         str11 = str8;
         str12 = str9;
@@ -1014,7 +1017,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:49:0x0168  */
     /* JADX WARN: Removed duplicated region for block: B:53:0x01bf  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0284  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x028f  */
     /* JADX WARN: Removed duplicated region for block: B:73:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1123,6 +1126,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                                     liveItemModel.setFromIntent(intentData.getModel().getFromIntent());
                                     liveItemModel.setVrParams(intentData.getModel().getVrParams());
                                     liveItemModel.setPlayRateSetting(intentData.getModel().getPlayRateSetting());
+                                    liveItemModel.setInterventions(intentData.getModel().getInterventions());
                                     this.itemData.add(liveItemModel);
                                     if (this.itemData.indexOf(liveItemModel) < 0) {
                                     }
@@ -1173,6 +1177,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                 liveItemModel.setFromIntent(intentData.getModel().getFromIntent());
                 liveItemModel.setVrParams(intentData.getModel().getVrParams());
                 liveItemModel.setPlayRateSetting(intentData.getModel().getPlayRateSetting());
+                liveItemModel.setInterventions(intentData.getModel().getInterventions());
                 this.itemData.add(liveItemModel);
                 if (this.itemData.indexOf(liveItemModel) < 0) {
                     this.curRoomModel = liveItemModel;
@@ -1272,101 +1277,93 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         Intent intent;
         this.mixActivity.setMixInvokeAbility(getMMixEventDispatcher());
         MediaLivePluginLogger.Companion.getInstance().logListOnCreateStart();
-        Context context = this.context;
-        if (context != null) {
-            Activity activity = (Activity) context;
-            if (activity != null && (intent = activity.getIntent()) != null) {
-                intentData = ListExtKt.parseLiveData(intent);
-            } else {
-                intentData = null;
+        Activity activity = PluginContextUtil.INSTANCE.getActivity(this.context);
+        if (activity != null && (intent = activity.getIntent()) != null) {
+            intentData = ListExtKt.parseLiveData(intent);
+        } else {
+            intentData = null;
+        }
+        this.mIntentData = intentData;
+        ServiceLocator.Companion.registerGlobalServices(ILiveListState.class, new ILiveListState() { // from class: com.baidu.searchbox.live.list.controller.ListController$onCreate$1
+            @Override // com.baidu.searchbox.live.service.ILiveListState
+            public IntentData getIntent() {
+                return ListController.this.getMIntentData();
             }
-            this.mIntentData = intentData;
-            ServiceLocator.Companion.registerGlobalServices(ILiveListState.class, new ILiveListState() { // from class: com.baidu.searchbox.live.list.controller.ListController$onCreate$1
-                @Override // com.baidu.searchbox.live.service.ILiveListState
-                public IntentData getIntent() {
-                    IntentData intentData2;
-                    intentData2 = ListController.this.mIntentData;
-                    return intentData2;
-                }
 
-                @Override // com.baidu.searchbox.live.service.ILiveListState
-                public ListInfo getListInfo() {
-                    ListInfo listInfo;
-                    listInfo = ListController.this.mListInfo;
-                    return listInfo;
-                }
+            @Override // com.baidu.searchbox.live.service.ILiveListState
+            public ListInfo getListInfo() {
+                ListInfo listInfo;
+                listInfo = ListController.this.mListInfo;
+                return listInfo;
+            }
 
-                @Override // com.baidu.searchbox.live.service.ILiveListState
-                public PageInfo getPageInfo() {
-                    return ListController.this.getMPageInfo();
-                }
-            });
-            ServiceLocator.Companion.registerGlobalServices(LiveItemModelListService.class, new LiveItemModelListService() { // from class: com.baidu.searchbox.live.list.controller.ListController$onCreate$2
-                @Override // com.baidu.searchbox.live.component.service.LiveItemModelListService
-                public int getCurrentPosition() {
-                    return ListController.this.getCurrentPosition();
-                }
+            @Override // com.baidu.searchbox.live.service.ILiveListState
+            public PageInfo getPageInfo() {
+                return ListController.this.getMPageInfo();
+            }
+        });
+        ServiceLocator.Companion.registerGlobalServices(LiveItemModelListService.class, new LiveItemModelListService() { // from class: com.baidu.searchbox.live.list.controller.ListController$onCreate$2
+            @Override // com.baidu.searchbox.live.component.service.LiveItemModelListService
+            public int getCurrentPosition() {
+                return ListController.this.getCurrentPosition();
+            }
 
-                @Override // com.baidu.searchbox.live.component.service.LiveItemModelListService
-                public List<LiveContainer.LiveItemModel> getLiveItemModels() {
-                    return ListController.this.getItemData();
-                }
-            });
-            ServiceLocator.Companion.registerGlobalServices(MixListOperatorInterface.class, new MixListOperatorInterface() { // from class: com.baidu.searchbox.live.list.controller.ListController$onCreate$3
-                @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
-                public void insertRoom(int i, JSONObject jSONObject) {
-                }
+            @Override // com.baidu.searchbox.live.component.service.LiveItemModelListService
+            public List<LiveContainer.LiveItemModel> getLiveItemModels() {
+                return ListController.this.getItemData();
+            }
+        });
+        ServiceLocator.Companion.registerGlobalServices(MixListOperatorInterface.class, new MixListOperatorInterface() { // from class: com.baidu.searchbox.live.list.controller.ListController$onCreate$3
+            @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+            public void insertRoom(int i, JSONObject jSONObject) {
+            }
 
-                @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
-                public void reloadLiveRoom(Object obj) {
-                    ListController.this.reloadLiveRoom();
-                }
+            @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+            public void reloadLiveRoom(Object obj) {
+                ListController.this.reloadLiveRoom();
+            }
 
-                @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
-                public void reloadSlideList(Object obj) {
-                    ListController listController = ListController.this;
-                    listController.fetchMoreLiveIfNeed(listController.getCurrentPosition());
-                }
+            @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+            public void reloadSlideList(Object obj) {
+                ListController listController = ListController.this;
+                listController.fetchMoreLiveIfNeed(listController.getCurrentPosition());
+            }
 
-                @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
-                public void removeRoom(JSONObject jSONObject) {
-                    jSONObject.optString("source");
-                    JSONArray roomIdJSONArray = jSONObject.optJSONArray("room_ids");
-                    ListController listController = ListController.this;
-                    Intrinsics.checkExpressionValueIsNotNull(roomIdJSONArray, "roomIdJSONArray");
-                    listController.cacheCloseRoomIdList(roomIdJSONArray);
-                }
+            @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+            public void removeRoom(JSONObject jSONObject) {
+                jSONObject.optString("source");
+                JSONArray roomIdJSONArray = jSONObject.optJSONArray("room_ids");
+                ListController listController = ListController.this;
+                Intrinsics.checkExpressionValueIsNotNull(roomIdJSONArray, "roomIdJSONArray");
+                listController.cacheCloseRoomIdList(roomIdJSONArray);
+            }
 
-                @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
-                public void commonEvent(String str, Object obj) {
-                    IntentData intentData2;
-                    IntentData intentData3;
-                    if (str.hashCode() == -500901780 && str.equals(MixConstants.KEY_ROOM_INFO_RES_SUCCESS)) {
-                        String str2 = null;
-                        if (!(obj instanceof JSONObject)) {
-                            obj = null;
-                        }
-                        JSONObject jSONObject = (JSONObject) obj;
-                        if (jSONObject != null) {
-                            String optString = jSONObject.optString("templateId");
-                            int optInt = jSONObject.optInt("roomType");
-                            String optString2 = jSONObject.optString("roomId");
-                            if (ListController.this.getCurrentPosition() >= 0 && ListController.this.getCurrentPosition() < ListController.this.getItemData().size()) {
-                                LiveContainer.LiveItemModel liveItemModel = ListController.this.getItemData().get(ListController.this.getCurrentPosition());
-                                ListLogKt.log("MixLiveCell_fake_list", "item model : roomId = " + liveItemModel.getRoomId() + ", roomType= " + liveItemModel.getLiveType() + ", templateId=" + liveItemModel.getTemplateId() + ", response : roomId = " + optString2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "roomType=" + optInt + ", templateId=" + optString);
-                                MediaLiveEnterRoomRate mediaLiveEnterRoomRate = MediaLiveEnterRoomRate.INSTANCE;
-                                intentData2 = ListController.this.mIntentData;
-                                if (intentData2 != null) {
-                                    str2 = intentData2.getSource();
-                                }
-                                mediaLiveEnterRoomRate.doEnterFirstSegmentTemplateNotMatchError(optString2, "", "", str2);
-                                if (!Intrinsics.areEqual(optString2, liveItemModel.getRoomId())) {
-                                    return;
-                                }
-                                intentData3 = ListController.this.mIntentData;
-                                if (intentData3 != null) {
-                                    intentData3.getModel().setRoomType(String.valueOf(optInt));
-                                    intentData3.getModel().setTemplateId(optString);
+            @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+            public void commonEvent(String str, Object obj) {
+                if (str.hashCode() == -500901780 && str.equals(MixConstants.KEY_ROOM_INFO_RES_SUCCESS)) {
+                    String str2 = null;
+                    if (!(obj instanceof JSONObject)) {
+                        obj = null;
+                    }
+                    JSONObject jSONObject = (JSONObject) obj;
+                    if (jSONObject != null) {
+                        String optString = jSONObject.optString("templateId");
+                        int optInt = jSONObject.optInt("roomType");
+                        String optString2 = jSONObject.optString("roomId");
+                        if (ListController.this.getCurrentPosition() >= 0 && ListController.this.getCurrentPosition() < ListController.this.getItemData().size()) {
+                            LiveContainer.LiveItemModel liveItemModel = ListController.this.getItemData().get(ListController.this.getCurrentPosition());
+                            ListLogKt.log("MixLiveCell_fake_list", "item model : roomId = " + liveItemModel.getRoomId() + ", roomType= " + liveItemModel.getLiveType() + ", templateId=" + liveItemModel.getTemplateId() + ", response : roomId = " + optString2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + "roomType=" + optInt + ", templateId=" + optString);
+                            MediaLiveEnterRoomRate mediaLiveEnterRoomRate = MediaLiveEnterRoomRate.INSTANCE;
+                            IntentData mIntentData = ListController.this.getMIntentData();
+                            if (mIntentData != null) {
+                                str2 = mIntentData.getSource();
+                            }
+                            mediaLiveEnterRoomRate.doEnterFirstSegmentTemplateNotMatchError(optString2, "", "", str2);
+                            if (Intrinsics.areEqual(optString2, liveItemModel.getRoomId())) {
+                                IntentData mIntentData2 = ListController.this.getMIntentData();
+                                if (mIntentData2 != null) {
+                                    mIntentData2.getModel().setRoomType(String.valueOf(optInt));
+                                    mIntentData2.getModel().setTemplateId(optString);
                                 }
                                 liveItemModel.setLiveType(String.valueOf(optInt));
                                 liveItemModel.setTemplateId(optString);
@@ -1374,147 +1371,147 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                         }
                     }
                 }
+            }
 
-                @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
-                public void doJumpNewLiveRoom(JSONObject jSONObject) {
-                    IntentData intentData2;
-                    intentData2 = ListController.this.mIntentData;
-                    if (intentData2 != null && intentData2.isHLReplay()) {
-                        ListController.this.unBindHLReplayInfo();
-                    }
-                    if (jSONObject != null) {
-                        ListController listController = ListController.this;
-                        String optString = jSONObject.optString("roomId", "");
-                        Intrinsics.checkExpressionValueIsNotNull(optString, "it.optString(\"roomId\", \"\")");
-                        String optString2 = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, "");
-                        Intrinsics.checkExpressionValueIsNotNull(optString2, "it.optString(\"cover\", \"\")");
-                        String optString3 = jSONObject.optString("scheme", "");
-                        Intrinsics.checkExpressionValueIsNotNull(optString3, "it.optString(\"scheme\", \"\")");
-                        String optString4 = jSONObject.optString("from", "");
-                        Intrinsics.checkExpressionValueIsNotNull(optString4, "it.optString(\"from\", \"\")");
-                        long optLong = jSONObject.optLong("clickTime", 0L);
-                        String optString5 = jSONObject.optString("clickFrom", "");
-                        Intrinsics.checkExpressionValueIsNotNull(optString5, "it.optString(\"clickFrom\", \"\")");
-                        String optString6 = jSONObject.optString("playUrl", "");
-                        Intrinsics.checkExpressionValueIsNotNull(optString6, "it.optString(\"playUrl\", \"\")");
-                        listController.jumpToNewLiveRoom(optString, optString2, optString3, optString4, optLong, optString5, optString6);
-                    }
+            @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+            public void doJumpNewLiveRoom(JSONObject jSONObject) {
+                IntentData mIntentData = ListController.this.getMIntentData();
+                if (mIntentData != null && mIntentData.isHLReplay()) {
+                    ListController.this.unBindHLReplayInfo();
                 }
-
-                @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
-                public List<LiveContainer.LiveItemModel> getListData() {
-                    return ListController.this.getItemData();
+                if (jSONObject != null) {
+                    ListController listController = ListController.this;
+                    String optString = jSONObject.optString("roomId", "");
+                    Intrinsics.checkExpressionValueIsNotNull(optString, "it.optString(\"roomId\", \"\")");
+                    String optString2 = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, "");
+                    Intrinsics.checkExpressionValueIsNotNull(optString2, "it.optString(\"cover\", \"\")");
+                    String optString3 = jSONObject.optString("scheme", "");
+                    Intrinsics.checkExpressionValueIsNotNull(optString3, "it.optString(\"scheme\", \"\")");
+                    String optString4 = jSONObject.optString("from", "");
+                    Intrinsics.checkExpressionValueIsNotNull(optString4, "it.optString(\"from\", \"\")");
+                    long optLong = jSONObject.optLong("clickTime", 0L);
+                    String optString5 = jSONObject.optString("clickFrom", "");
+                    Intrinsics.checkExpressionValueIsNotNull(optString5, "it.optString(\"clickFrom\", \"\")");
+                    String optString6 = jSONObject.optString("playUrl", "");
+                    Intrinsics.checkExpressionValueIsNotNull(optString6, "it.optString(\"playUrl\", \"\")");
+                    listController.jumpToNewLiveRoom(optString, optString2, optString3, optString4, optLong, optString5, optString6);
                 }
+            }
 
-                @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
-                public void scrollToNextLiveRoom() {
-                    IListManager listManager;
-                    listManager = ListController.this.getListManager();
-                    listManager.scrollToNextLiveRoom();
-                }
+            @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+            public List<LiveContainer.LiveItemModel> getListData() {
+                return ListController.this.getItemData();
+            }
 
-                @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
-                public void scrollToPreLiveRoom() {
-                    IListManager listManager;
-                    listManager = ListController.this.getListManager();
-                    listManager.scrollToPreLiveRoom();
-                }
+            @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+            public void scrollToNextLiveRoom() {
+                IListManager listManager;
+                listManager = ListController.this.getListManager();
+                listManager.scrollToNextLiveRoom();
+            }
 
-                @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
-                public void switchLiveListScrollable(boolean z, boolean z2) {
-                    IListManager listManager;
-                    if (z2) {
-                        ListController.this.serverSwitchCanScroll = z;
-                        ListController.this.changeScrollState();
-                        return;
-                    }
-                    listManager = ListController.this.getListManager();
-                    listManager.setIsScrollable(z);
-                    ListController.this.localSwitchCanScroll = z;
+            @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+            public void scrollToPreLiveRoom() {
+                IListManager listManager;
+                listManager = ListController.this.getListManager();
+                listManager.scrollToPreLiveRoom();
+            }
+
+            @Override // com.baidu.searchbox.live.service.MixListOperatorInterface
+            public void switchLiveListScrollable(boolean z, boolean z2) {
+                IListManager listManager;
+                if (z2) {
+                    ListController.this.serverSwitchCanScroll = z;
                     ListController.this.changeScrollState();
+                    return;
                 }
-            });
-            registerMixRequestService();
-            MixModel mixModel = new MixModel(this.mixUniqueId);
-            mixModel.setOnMixDataLoadedCallBack(new MixModel.OnMixDataLoadedCallBack() { // from class: com.baidu.searchbox.live.list.controller.ListController$onCreate$$inlined$apply$lambda$1
-                @Override // com.baidu.searchbox.live.model.MixModel.OnMixDataLoadedCallBack
-                public void onTemplateIdSuccess(LiveTypeData liveTypeData) {
-                    ListController.this.templateIdSuccess(liveTypeData);
-                }
-
-                @Override // com.baidu.searchbox.live.model.MixModel.OnMixDataLoadedCallBack
-                public void onSlideListFail(Exception exc, Integer num) {
-                    String str;
-                    IntentData intentData2;
-                    MediaLiveEnterRoomRate mediaLiveEnterRoomRate = MediaLiveEnterRoomRate.INSTANCE;
-                    String str2 = null;
-                    if (num != null) {
-                        str = String.valueOf(num.intValue());
-                    } else {
-                        str = null;
-                    }
-                    intentData2 = ListController.this.mIntentData;
-                    if (intentData2 != null) {
-                        str2 = intentData2.getSource();
-                    }
-                    mediaLiveEnterRoomRate.doEnterFirstSegmentApiError("", str, a.g0, str2, null, "slide_list");
-                }
-
-                @Override // com.baidu.searchbox.live.model.MixModel.OnMixDataLoadedCallBack
-                public void onTemplateIdFail(Exception exc, Integer num) {
-                    String str;
-                    IntentData intentData2;
-                    MediaLiveEnterRoomRate mediaLiveEnterRoomRate = MediaLiveEnterRoomRate.INSTANCE;
-                    String str2 = null;
-                    if (num != null) {
-                        str = String.valueOf(num.intValue());
-                    } else {
-                        str = null;
-                    }
-                    intentData2 = ListController.this.mIntentData;
-                    if (intentData2 != null) {
-                        str2 = intentData2.getSource();
-                    }
-                    mediaLiveEnterRoomRate.doEnterFirstSegmentApiError("", str, a.g0, str2, null, "template_id");
-                }
-
-                @Override // com.baidu.searchbox.live.model.MixModel.OnMixDataLoadedCallBack
-                public void onSlideListSuccess(String str, int i, List<LiveContainer.LiveItemModel> list) {
-                    IMixActivityInterface iMixActivityInterface;
-                    LiveRoomInfoStatPlugin liveRoomInfoStatPlugin;
-                    ListController.this.mListInfo = new ListInfo(str, i);
-                    iMixActivityInterface = ListController.this.mixActivity;
-                    if (iMixActivityInterface != null) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("pageSession", str);
-                        jSONObject.put("hasMore", i);
-                        iMixActivityInterface.setMixEventDispatcher(MixConstants.KEY_LIST_INFO, jSONObject);
-                    }
-                    liveRoomInfoStatPlugin = ListController.this.mLiveRoomInfoStatPlugin;
-                    if (liveRoomInfoStatPlugin != null) {
-                        liveRoomInfoStatPlugin.dispatchListResult(str, i, list);
-                    }
-                    ListController.this.slideListSuccess(str, i, list);
-                }
-            });
-            this.mNetModel = mixModel;
-            MediaLivePluginLogger.Companion.getInstance().logListOnCreateEndAndNextToLoadRoom();
-            loadLiveRoom();
-            MixEventBus.getInstance().register(this, YYPluginEvent.StartLoadYYPluginEvent.class, this);
-            MixEventBus.getInstance().register(this, YYPluginEvent.LoadYYPluginRes.class, this);
-            MixEventBus.getInstance().register(this, MixMediaEvent.YYGoBackPopUp.class, this);
-            if (MiniPluginManager.INSTANCE.isYYPluginAvailable()) {
-                registerYYLifeCyclePlugin();
+                listManager = ListController.this.getListManager();
+                listManager.setIsScrollable(z);
+                ListController.this.localSwitchCanScroll = z;
+                ListController.this.changeScrollState();
             }
-            LiveRoomInfoStatPlugin liveRoomInfoStatPlugin = new LiveRoomInfoStatPlugin(this.context, this.mixUniqueId);
-            this.mLiveRoomInfoStatPlugin = liveRoomInfoStatPlugin;
-            if (liveRoomInfoStatPlugin != null) {
-                liveRoomInfoStatPlugin.onCreate();
-                return;
+        });
+        registerMixRequestService();
+        MixModel mixModel = new MixModel(this.mixUniqueId);
+        mixModel.setOnMixDataLoadedCallBack(new MixModel.OnMixDataLoadedCallBack() { // from class: com.baidu.searchbox.live.list.controller.ListController$onCreate$$inlined$apply$lambda$1
+            @Override // com.baidu.searchbox.live.model.MixModel.OnMixDataLoadedCallBack
+            public void onTemplateIdSuccess(LiveTypeData liveTypeData) {
+                ListController.this.templateIdSuccess(liveTypeData);
             }
-            return;
+
+            @Override // com.baidu.searchbox.live.model.MixModel.OnMixDataLoadedCallBack
+            public void onSlideListFail(Exception exc, Integer num, String str) {
+                String str2;
+                String str3;
+                MediaLiveEnterRoomRate mediaLiveEnterRoomRate = MediaLiveEnterRoomRate.INSTANCE;
+                if (num != null) {
+                    str2 = String.valueOf(num.intValue());
+                } else {
+                    str2 = null;
+                }
+                String message = exc.getMessage();
+                IntentData mIntentData = ListController.this.getMIntentData();
+                if (mIntentData != null) {
+                    str3 = mIntentData.getSource();
+                } else {
+                    str3 = null;
+                }
+                mediaLiveEnterRoomRate.doEnterFirstSegmentApiError("", str2, message, str3, str, "slide_list");
+            }
+
+            @Override // com.baidu.searchbox.live.model.MixModel.OnMixDataLoadedCallBack
+            public void onTemplateIdFail(Exception exc, Integer num, String str) {
+                String str2;
+                String str3;
+                MediaLiveEnterRoomRate mediaLiveEnterRoomRate = MediaLiveEnterRoomRate.INSTANCE;
+                if (num != null) {
+                    str2 = String.valueOf(num.intValue());
+                } else {
+                    str2 = null;
+                }
+                String message = exc.getMessage();
+                IntentData mIntentData = ListController.this.getMIntentData();
+                if (mIntentData != null) {
+                    str3 = mIntentData.getSource();
+                } else {
+                    str3 = null;
+                }
+                mediaLiveEnterRoomRate.doEnterFirstSegmentApiError("", str2, message, str3, str, "template_id");
+            }
+
+            @Override // com.baidu.searchbox.live.model.MixModel.OnMixDataLoadedCallBack
+            public void onSlideListSuccess(String str, int i, List<LiveContainer.LiveItemModel> list) {
+                IMixActivityInterface iMixActivityInterface;
+                LiveRoomInfoStatPlugin liveRoomInfoStatPlugin;
+                ListController.this.mListInfo = new ListInfo(str, i);
+                iMixActivityInterface = ListController.this.mixActivity;
+                if (iMixActivityInterface != null) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("pageSession", str);
+                    jSONObject.put("hasMore", i);
+                    iMixActivityInterface.setMixEventDispatcher(MixConstants.KEY_LIST_INFO, jSONObject);
+                }
+                liveRoomInfoStatPlugin = ListController.this.mLiveRoomInfoStatPlugin;
+                if (liveRoomInfoStatPlugin != null) {
+                    liveRoomInfoStatPlugin.dispatchListResult(str, i, list);
+                }
+                ListController.this.slideListSuccess(str, i, list);
+            }
+        });
+        this.mNetModel = mixModel;
+        MediaLivePluginLogger.Companion.getInstance().logListOnCreateEndAndNextToLoadRoom();
+        loadLiveRoom();
+        MixEventBus.getInstance().register(this, YYPluginEvent.StartLoadYYPluginEvent.class, this);
+        MixEventBus.getInstance().register(this, YYPluginEvent.LoadYYPluginRes.class, this);
+        MixEventBus.getInstance().register(this, MixMediaEvent.YYGoBackPopUp.class, this);
+        if (MiniPluginManager.INSTANCE.isYYPluginAvailable()) {
+            registerYYLifeCyclePlugin();
         }
-        throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+        LiveRoomInfoStatPlugin liveRoomInfoStatPlugin = new LiveRoomInfoStatPlugin(this.context, this.mixUniqueId);
+        this.mLiveRoomInfoStatPlugin = liveRoomInfoStatPlugin;
+        if (liveRoomInfoStatPlugin != null) {
+            liveRoomInfoStatPlugin.onCreate();
+        }
     }
 
     private final Map<String, String> paramsJsonToMap(JSONObject jSONObject) {
@@ -1665,7 +1662,9 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
     private final void preReqRoomEnter() {
         String str;
         String str2;
+        String str3;
         String jSONObject;
+        String jSONObject2;
         IntentData intentData = this.mIntentData;
         if (intentData != null) {
             String id = intentData.getId();
@@ -1677,17 +1676,24 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                 str = null;
             }
             JSONObject hlReplyIntoLive = intentData.getModel().getHlReplyIntoLive();
-            String str3 = "";
+            String str4 = "";
             if (hlReplyIntoLive != null) {
                 str2 = hlReplyIntoLive.optString("nid", "");
             } else {
                 str2 = null;
             }
             JSONObject ext = intentData.getModel().getExt();
-            if (ext != null && (jSONObject = ext.toString()) != null) {
-                str3 = jSONObject;
+            if (ext == null || (jSONObject2 = ext.toString()) == null) {
+                str3 = "";
+            } else {
+                str3 = jSONObject2;
             }
             RoomEnterParams roomEnterParams = new RoomEnterParams(id, source, str, str2, str3, false, 32, null);
+            JSONObject extLog = intentData.getModel().getExtLog();
+            if (extLog != null && (jSONObject = extLog.toString()) != null) {
+                str4 = jSONObject;
+            }
+            roomEnterParams.setExtLog(str4);
             roomEnterParams.setAudio(Boolean.valueOf(Intrinsics.areEqual(intentData.getModel().getTemplateId(), "5")));
             MixModel mixModel = this.mNetModel;
             if (mixModel != 0) {
@@ -1721,7 +1727,6 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                 long j2;
                 IListManager listManager2;
                 String str2;
-                IntentData intentData;
                 String str3;
                 MediaLivePluginLogger.Companion.getInstance().logListSlideEndAndAddItem();
                 listManager = ListController.this.getListManager();
@@ -1743,9 +1748,9 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                     } else {
                         str2 = null;
                     }
-                    intentData = ListController.this.mIntentData;
-                    if (intentData != null) {
-                        str3 = intentData.getSource();
+                    IntentData mIntentData = ListController.this.getMIntentData();
+                    if (mIntentData != null) {
+                        str3 = mIntentData.getSource();
                     } else {
                         str3 = null;
                     }
@@ -1820,6 +1825,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
             liveItemModel.setShareTaskInfo(intentData.getModel().getShareTaskInfo());
             liveItemModel.setCommonShareInfo(intentData.getModel().getCommonShareInfo());
             liveItemModel.setVrParams(intentData.getModel().getVrParams());
+            liveItemModel.setInterventions(intentData.getModel().getInterventions());
             if (intentData.isHLReplay()) {
                 IntentData intentData2 = this.mIntentData;
                 if (intentData2 != null && (nidFromHLReplay = intentData2.getNidFromHLReplay()) != null) {
@@ -1921,41 +1927,49 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         String str3;
         String str4;
         String str5;
-        String templateId;
         String str6;
+        String templateId;
         String str7;
+        String str8;
         String roomId;
         LiveContainer.LiveItemModel liveItemModel;
+        String str9;
+        String templateId2;
         LiveContainer.LiveItemModel liveItemModel2 = this.curRoomModel;
-        String str8 = "";
+        String str10 = "";
         if (liveItemModel2 != null && (roomId = liveItemModel2.getRoomId()) != null) {
             LiveContainer.LiveItemModel liveItemModel3 = this.curRoomModel;
             if (liveItemModel3 != null && !liveItemModel3.isYYLive() && (liveItemModel = this.curRoomModel) != null && !liveItemModel.isAudioLive()) {
                 LiveComponentLoadLogger companion = LiveComponentLoadLogger.Companion.getInstance();
                 LiveContainer.LiveItemModel liveItemModel4 = this.curRoomModel;
-                companion.launchMediaCompLoadFlow(roomId, (liveItemModel4 == null || (r4 = liveItemModel4.getTemplateId()) == null) ? "" : "", !this.isFromForward);
+                if (liveItemModel4 == null || (templateId2 = liveItemModel4.getTemplateId()) == null) {
+                    str9 = "";
+                } else {
+                    str9 = templateId2;
+                }
+                LiveComponentLoadLogger.launchMediaCompLoadFlow$default(companion, roomId, str9, !this.isFromForward, null, 8, null);
             } else {
                 LiveComponentLoadLogger.Companion.getInstance().cancelCurrentComponentFlow(roomId);
             }
         }
         if (this.isFromForward) {
             LiveContainer.LiveItemModel liveItemModel5 = this.curRoomModel;
-            String str9 = null;
+            String str11 = null;
             if (liveItemModel5 != null && liveItemModel5.isMediaBusiness()) {
                 MediaLiveEnterRoomRate mediaLiveEnterRoomRate = MediaLiveEnterRoomRate.INSTANCE;
                 LiveContainer.LiveItemModel liveItemModel6 = this.curRoomModel;
                 if (liveItemModel6 != null) {
-                    str6 = liveItemModel6.getRoomId();
-                } else {
-                    str6 = null;
-                }
-                IntentData intentData = this.mIntentData;
-                if (intentData != null) {
-                    str7 = intentData.getSource();
+                    str7 = liveItemModel6.getRoomId();
                 } else {
                     str7 = null;
                 }
-                mediaLiveEnterRoomRate.doEnterSecondSegmentInit(str6, "", "", str7);
+                IntentData intentData = this.mIntentData;
+                if (intentData != null) {
+                    str8 = intentData.getSource();
+                } else {
+                    str8 = null;
+                }
+                mediaLiveEnterRoomRate.doEnterSecondSegmentInit(str7, "", "", str8);
             } else {
                 MediaLiveEnterRoomRate mediaLiveEnterRoomRate2 = MediaLiveEnterRoomRate.INSTANCE;
                 LiveContainer.LiveItemModel liveItemModel7 = this.curRoomModel;
@@ -1985,23 +1999,30 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
             } else {
                 str4 = null;
             }
-            companion2.updateStartPageInfoIntentRoomInfo(str3, str4, this.isFromForward);
-            LiveComponentLoadLogger companion3 = LiveComponentLoadLogger.Companion.getInstance();
+            boolean z = this.isFromForward;
             LiveContainer.LiveItemModel liveItemModel10 = this.curRoomModel;
             if (liveItemModel10 != null) {
                 str5 = liveItemModel10.getRoomId();
             } else {
                 str5 = null;
             }
+            companion2.updateStartPageInfoIntentRoomInfo(str3, str4, z, str5);
+            LiveComponentLoadLogger companion3 = LiveComponentLoadLogger.Companion.getInstance();
+            LiveContainer.LiveItemModel liveItemModel11 = this.curRoomModel;
+            if (liveItemModel11 != null) {
+                str6 = liveItemModel11.getRoomId();
+            } else {
+                str6 = null;
+            }
             IntentData intentData3 = this.mIntentData;
             if (intentData3 != null) {
-                str9 = intentData3.getSource();
+                str11 = intentData3.getSource();
             }
-            LiveContainer.LiveItemModel liveItemModel11 = this.curRoomModel;
-            if (liveItemModel11 != null && (templateId = liveItemModel11.getTemplateId()) != null) {
-                str8 = templateId;
+            LiveContainer.LiveItemModel liveItemModel12 = this.curRoomModel;
+            if (liveItemModel12 != null && (templateId = liveItemModel12.getTemplateId()) != null) {
+                str10 = templateId;
             }
-            companion3.bindRoomIdToExternalEnterFlow(str5, str9, str8);
+            companion3.bindRoomIdToExternalEnterFlow(str6, str11, str10);
         }
         this.mPageInfo = new PageInfo(true, i, this.isFromForward, this.listRequestDuration);
     }

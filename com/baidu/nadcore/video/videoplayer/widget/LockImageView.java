@@ -8,10 +8,10 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o51;
+import com.baidu.tieba.p51;
 /* loaded from: classes2.dex */
 public class LockImageView extends ImageView {
-    public o51 a;
+    public p51 a;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
@@ -32,7 +32,7 @@ public class LockImageView extends ImageView {
     }
 
     public final void d(Context context) {
-        this.a = new o51(c(getResources(), R.drawable.nad_videoplayer_player_lock_header), c(getResources(), R.drawable.nad_videoplayer_player_lock_body));
+        this.a = new p51(c(getResources(), R.drawable.nad_videoplayer_player_lock_header), c(getResources(), R.drawable.nad_videoplayer_player_lock_body));
     }
 
     public void e(int i) {

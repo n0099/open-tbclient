@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.fy4;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.hw4;
+import com.baidu.tieba.hy4;
+import com.baidu.tieba.jw4;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -48,7 +48,7 @@ import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.Voice;
 /* loaded from: classes3.dex */
-public class CardPersonDynamicThreadData extends hw4 {
+public class CardPersonDynamicThreadData extends jw4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId I;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,14 +101,14 @@ public class CardPersonDynamicThreadData extends hw4 {
         return invokeIII.intValue;
     }
 
-    @Override // com.baidu.tieba.hw4
-    public fy4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.jw4
+    public hy4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (fy4) invokeV.objValue;
+        return (hy4) invokeV.objValue;
     }
 
     /* loaded from: classes3.dex */
@@ -620,7 +620,7 @@ public class CardPersonDynamicThreadData extends hw4 {
                     }
                 }
             }
-            CardPersonDynamicThreadData.i(this.labelList, this.showExpressionViewIndex);
+            CardPersonDynamicThreadData.h(this.labelList, this.showExpressionViewIndex);
         }
     }
 
@@ -640,21 +640,21 @@ public class CardPersonDynamicThreadData extends hw4 {
         I = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.hw4
+    @Override // com.baidu.tieba.jw4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.p;
         }
         return (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.gn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return I;
         }
         return (BdUniqueId) invokeV.objValue;
@@ -686,7 +686,7 @@ public class CardPersonDynamicThreadData extends hw4 {
         this.F = true;
     }
 
-    public static int f(int i, int i2) {
+    public static int d(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
@@ -699,7 +699,7 @@ public class CardPersonDynamicThreadData extends hw4 {
         return invokeII.intValue;
     }
 
-    public static void i(LabelInfo[] labelInfoArr, ArrayList<Integer> arrayList) {
+    public static void h(LabelInfo[] labelInfoArr, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, labelInfoArr, arrayList) != null) || labelInfoArr == null) {
             return;
@@ -709,22 +709,22 @@ public class CardPersonDynamicThreadData extends hw4 {
         int i2 = -1;
         for (int i3 = 0; i3 < length && i3 < 3; i3++) {
             if (labelInfoArr[i3] != null) {
-                int f = f(3, -1);
-                if (f == i || f == i2) {
-                    f = c(length, i, i2);
+                int d = d(3, -1);
+                if (d == i || d == i2) {
+                    d = c(length, i, i2);
                 }
                 if (i3 == 0) {
-                    i = f;
+                    i = d;
                 }
                 if (i3 == 1) {
-                    i2 = f;
+                    i2 = d;
                 }
-                arrayList.add(Integer.valueOf(f));
+                arrayList.add(Integer.valueOf(d));
             }
         }
     }
 
-    public void g(User user, @Nullable MetaData metaData, PostInfoList postInfoList, int i) {
+    public void e(User user, @Nullable MetaData metaData, PostInfoList postInfoList, int i) {
         long j;
         long j2;
         Interceptable interceptable = $ic;
@@ -951,11 +951,11 @@ public class CardPersonDynamicThreadData extends hw4 {
         this.p.processExtensionInfoForPersonCenter();
     }
 
-    public void h(User user, ThreadInfo threadInfo, int i, long j) {
+    public void f(User user, ThreadInfo threadInfo, int i, long j) {
         long j2;
         long j3;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{user, threadInfo, Integer.valueOf(i), Long.valueOf(j)}) != null) || threadInfo == null) {
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{user, threadInfo, Integer.valueOf(i), Long.valueOf(j)}) != null) || threadInfo == null) {
             return;
         }
         this.a = String.valueOf(threadInfo.fid);

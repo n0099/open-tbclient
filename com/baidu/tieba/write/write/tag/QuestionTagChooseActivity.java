@@ -6,8 +6,8 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.cx9;
-import com.baidu.tieba.vl5;
+import com.baidu.tieba.bn5;
+import com.baidu.tieba.t6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class QuestionTagChooseActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cx9 k;
+    public t6a k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     public void B1() {
@@ -78,9 +78,9 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            cx9 cx9Var = this.k;
-            if (cx9Var != null) {
-                cx9Var.onDestroy();
+            t6a t6aVar = this.k;
+            if (t6aVar != null) {
+                t6aVar.onDestroy();
             }
         }
     }
@@ -96,7 +96,7 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public vl5 s1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public bn5 s1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, linearLayout, navigationBar)) == null) {
@@ -109,10 +109,10 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
                 if (str == null) {
                     str = "";
                 }
-                this.k = new cx9(linearLayout, navigationBar, this, str);
+                this.k = new t6a(linearLayout, navigationBar, this, str);
             }
             return this.k;
         }
-        return (vl5) invokeLL.objValue;
+        return (bn5) invokeLL.objValue;
     }
 }

@@ -123,25 +123,25 @@ public class q3 implements r6 {
             p3 p3Var = new p3();
             p3Var.d = modelMaterial.a;
             if (modelMaterial.b != null) {
-                p3Var.i(new s3(s3.g, modelMaterial.b));
+                p3Var.h(new s3(s3.g, modelMaterial.b));
             }
             if (modelMaterial.c != null) {
-                p3Var.i(new s3(s3.e, modelMaterial.c));
+                p3Var.h(new s3(s3.e, modelMaterial.c));
             }
             if (modelMaterial.d != null) {
-                p3Var.i(new s3(s3.f, modelMaterial.d));
+                p3Var.h(new s3(s3.f, modelMaterial.d));
             }
             if (modelMaterial.e != null) {
-                p3Var.i(new s3(s3.h, modelMaterial.e));
+                p3Var.h(new s3(s3.h, modelMaterial.e));
             }
             if (modelMaterial.f != null) {
-                p3Var.i(new s3(s3.i, modelMaterial.f));
+                p3Var.h(new s3(s3.i, modelMaterial.f));
             }
             if (modelMaterial.g > 0.0f) {
-                p3Var.i(new t3(t3.e, modelMaterial.g));
+                p3Var.h(new t3(t3.e, modelMaterial.g));
             }
             if (modelMaterial.h != 1.0f) {
-                p3Var.i(new r3(770, 771, modelMaterial.h));
+                p3Var.h(new r3(770, 771, modelMaterial.h));
             }
             g7 g7Var = new g7();
             k6<m4> k6Var = modelMaterial.i;
@@ -193,25 +193,25 @@ public class q3 implements r6 {
                                     if (i != 7) {
                                         if (i != 8) {
                                             if (i == 10) {
-                                                p3Var.i(new u3(u3.p, x4Var, f, f2, f3, f4));
+                                                p3Var.h(new u3(u3.p, x4Var, f, f2, f3, f4));
                                             }
                                         } else {
-                                            p3Var.i(new u3(u3.l, x4Var, f, f2, f3, f4));
+                                            p3Var.h(new u3(u3.l, x4Var, f, f2, f3, f4));
                                         }
                                     } else {
-                                        p3Var.i(new u3(u3.m, x4Var, f, f2, f3, f4));
+                                        p3Var.h(new u3(u3.m, x4Var, f, f2, f3, f4));
                                     }
                                 } else {
-                                    p3Var.i(new u3(u3.k, x4Var, f, f2, f3, f4));
+                                    p3Var.h(new u3(u3.k, x4Var, f, f2, f3, f4));
                                 }
                             } else {
-                                p3Var.i(new u3(u3.n, x4Var, f, f2, f3, f4));
+                                p3Var.h(new u3(u3.n, x4Var, f, f2, f3, f4));
                             }
                         } else {
-                            p3Var.i(new u3(u3.o, x4Var, f, f2, f3, f4));
+                            p3Var.h(new u3(u3.o, x4Var, f, f2, f3, f4));
                         }
                     } else {
-                        p3Var.i(new u3(u3.j, x4Var, f, f2, f3, f4));
+                        p3Var.h(new u3(u3.j, x4Var, f, f2, f3, f4));
                     }
                 }
             }

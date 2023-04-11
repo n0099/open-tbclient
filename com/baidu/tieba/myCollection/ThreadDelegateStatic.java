@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cv4;
-import com.baidu.tieba.qf5;
-import com.baidu.tieba.rf5;
+import com.baidu.tieba.ev4;
+import com.baidu.tieba.ug5;
+import com.baidu.tieba.vg5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ThreadDelegateStatic extends qf5 {
+public class ThreadDelegateStatic extends ug5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.qf5
+    @Override // com.baidu.tieba.ug5
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -64,15 +64,15 @@ public class ThreadDelegateStatic extends qf5 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            rf5 b;
+            vg5 b;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016207 || !(customResponsedMessage.getData() instanceof cv4)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016207 || !(customResponsedMessage.getData() instanceof ev4)) {
                 return;
             }
-            cv4 cv4Var = (cv4) customResponsedMessage.getData();
+            ev4 ev4Var = (ev4) customResponsedMessage.getData();
             ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-            cv4Var.a(threadDelegateStatic);
-            if (cv4Var.getContext() == null || (b = threadDelegateStatic.b()) == null) {
+            ev4Var.a(threadDelegateStatic);
+            if (ev4Var.getContext() == null || (b = threadDelegateStatic.b()) == null) {
                 return;
             }
             b.a.setArguments(new Bundle());
@@ -111,21 +111,21 @@ public class ThreadDelegateStatic extends qf5 {
         }
     }
 
-    @Override // com.baidu.tieba.qf5
-    public rf5 a() {
+    @Override // com.baidu.tieba.ug5
+    public vg5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            rf5 rf5Var = new rf5();
-            rf5Var.a = ThreadFragment.S1();
-            rf5Var.e = 1;
-            rf5Var.b = R.string.obfuscated_res_0x7f0f042b;
-            return rf5Var;
+            vg5 vg5Var = new vg5();
+            vg5Var.a = ThreadFragment.S1();
+            vg5Var.e = 1;
+            vg5Var.b = R.string.obfuscated_res_0x7f0f042a;
+            return vg5Var;
         }
-        return (rf5) invokeV.objValue;
+        return (vg5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qf5
+    @Override // com.baidu.tieba.ug5
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

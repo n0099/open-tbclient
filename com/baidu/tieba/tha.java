@@ -1,21 +1,24 @@
 package com.baidu.tieba;
 
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface tha {
-    void onAdClicked(Ssp.Pid pid);
+public class tha {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onAdClose(Ssp.Pid pid);
-
-    void onAdLoad(Ssp.Pid pid);
-
-    void onAdLoadError(Ssp.Pid pid, int i, String str);
-
-    void onAdLoaded(Ssp.Pid pid);
-
-    void onAdShow(Ssp.Pid pid);
-
-    void onAdShowError(Ssp.Pid pid, int i, String str);
-
-    void onRewardedVideo(Ssp.Pid pid, boolean z, int i);
+    public static Object a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                return Class.forName(str).newInstance();
+            } catch (Exception e) {
+                e.printStackTrace(System.out);
+                return null;
+            }
+        }
+        return invokeL.objValue;
+    }
 }

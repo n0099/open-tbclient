@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.VpnService;
+import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,35 +14,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class c1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final c1a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-939782216, "Lcom/baidu/tieba/c1a$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-939782216, "Lcom/baidu/tieba/c1a$b;");
-                    return;
-                }
-            }
-            a = new c1a(null);
-        }
-    }
+    public Fragment a;
+    public Activity b;
+    public b1a c;
 
     public c1a() {
         Interceptable interceptable = $ic;
@@ -56,55 +32,69 @@ public class c1a {
         }
     }
 
-    public static c1a a() {
-        InterceptResult invokeV;
+    public static c1a c(Fragment fragment) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
+            c1a c1aVar = new c1a();
+            c1aVar.a = fragment;
+            return c1aVar;
         }
-        return (c1a) invokeV.objValue;
+        return (c1a) invokeL.objValue;
     }
 
-    public /* synthetic */ c1a(a aVar) {
-        this();
-    }
-
-    public int b(String str, int i) {
-        InterceptResult invokeLI;
+    public void a(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            return t0a.f(str, i);
+        if ((interceptable != null && interceptable.invokeIIL(1048576, this, i, i2, intent) != null) || i != 25069) {
+            return;
         }
-        return invokeLI.intValue;
-    }
-
-    public long c(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
-            return t0a.g(str, j);
+        if (i2 == -1) {
+            b1a b1aVar = this.c;
+            if (b1aVar != null) {
+                b1aVar.a();
+                return;
+            }
+            return;
         }
-        return invokeLJ.longValue;
-    }
-
-    public void d(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            t0a.n(str, i);
+        b1a b1aVar2 = this.c;
+        if (b1aVar2 != null) {
+            b1aVar2.b();
         }
     }
 
-    public void e(String str, long j) {
+    public void b(b1a b1aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
-            t0a.o(str, j);
-        }
-    }
-
-    public void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            t0a.p(str, str2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b1aVar) == null) {
+            this.c = b1aVar;
+            Fragment fragment = this.a;
+            if (fragment != null) {
+                Intent prepare = VpnService.prepare(fragment.getContext());
+                if (prepare != null) {
+                    this.a.startActivityForResult(prepare, 25069);
+                    return;
+                }
+                b1a b1aVar2 = this.c;
+                if (b1aVar2 != null) {
+                    b1aVar2.a();
+                    return;
+                }
+                return;
+            }
+            Activity activity = this.b;
+            if (activity != null) {
+                Intent prepare2 = VpnService.prepare(activity);
+                if (prepare2 != null) {
+                    this.b.startActivityForResult(prepare2, 25069);
+                    return;
+                }
+                b1a b1aVar3 = this.c;
+                if (b1aVar3 != null) {
+                    b1aVar3.a();
+                    return;
+                }
+                return;
+            }
+            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
         }
     }
 }

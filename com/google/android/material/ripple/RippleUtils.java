@@ -13,7 +13,7 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.graphics.ColorUtils;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RippleUtils {
     public static final int[] ENABLED_PRESSED_STATE_SET;
     public static final int[] FOCUSED_STATE_SET;

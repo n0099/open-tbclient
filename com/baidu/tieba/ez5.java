@@ -1,115 +1,118 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.ad.asyncpv.NadAsyncRequester;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.lang.ref.WeakReference;
+import java.util.Iterator;
 import java.util.List;
-import tbclient.GetAddressList.DataRes;
-import tbclient.GetAddressList.listData;
-import tbclient.GetAddressList.robotsList;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class ez5 {
+public class ez5 implements NadAsyncRequester.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<iz5> a;
-    public List<iz5> b;
+    public PlaceId a;
+    public String b;
+    public int c;
+    public boolean d;
+    public NadAsyncRequester e;
+    public long f;
+    public final WeakReference<IAdBaseAsyncController.a> g;
 
-    public ez5() {
+    public void c(List<AdvertAppInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+        }
+    }
+
+    public ez5(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {placeId, str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = false;
+        this.f = 0L;
+        this.a = placeId;
+        this.b = str;
+        this.g = new WeakReference<>(aVar);
+        this.e = new NadAsyncRequester(this, this.a);
+    }
+
+    @Override // com.baidu.tieba.ad.asyncpv.NadAsyncRequester.b
+    public final void a(boolean z, List<AdvertAppInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
+            IAdBaseAsyncController.a aVar = this.g.get();
+            if (z && !me8.e(list)) {
+                f(list);
+                c(list);
+                if (aVar != null) {
+                    aVar.b(list);
+                }
+            } else if (aVar != null) {
+                aVar.b(null);
             }
         }
     }
 
-    public List<iz5> a() {
-        InterceptResult invokeV;
+    public void d(int i, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
-            }
-            return this.a;
+        if ((interceptable != null && interceptable.invokeIL(1048579, this, i, map) != null) || System.currentTimeMillis() - this.f < this.c * ca9.a) {
+            return;
         }
-        return (List) invokeV.objValue;
+        this.e.i(map, i);
+        this.f = System.currentTimeMillis();
     }
 
-    public final boolean b(List<iz5> list, v85 v85Var) {
-        InterceptResult invokeLL;
-        List<v85> a;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, v85Var)) == null) {
-            if (list != null && v85Var != null) {
-                for (iz5 iz5Var : list) {
-                    if (iz5Var != null && (a = iz5Var.a()) != null) {
-                        for (v85 v85Var2 : a) {
-                            if (v85Var2 != null && v85Var2.d() == v85Var.d()) {
-                                return true;
-                            }
-                        }
-                        continue;
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e.h();
         }
-        return invokeLL.booleanValue;
     }
 
-    public boolean c(DataRes dataRes) {
-        InterceptResult invokeL;
-        boolean z;
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes)) == null) {
-            if (dataRes != null && dataRes.robots_list != null) {
-                this.b = new ArrayList();
-                z = false;
-                for (robotsList robotslist : dataRes.robots_list) {
-                    if (TextUtils.isEmpty(robotslist.key)) {
-                        z = true;
-                    } else {
-                        iz5 iz5Var = new iz5();
-                        iz5Var.d(robotslist);
-                        this.b.add(iz5Var);
-                    }
-                }
-            } else {
-                z = false;
-            }
-            if (dataRes != null && dataRes.address_list != null) {
-                this.a = new ArrayList();
-                for (listData listdata : dataRes.address_list) {
-                    if (TextUtils.isEmpty(listdata.key)) {
-                        z = true;
-                    } else {
-                        iz5 iz5Var2 = new iz5();
-                        iz5Var2.c(listdata);
-                        if (iz5Var2.a() != null) {
-                            for (v85 v85Var : iz5Var2.a()) {
-                                if (b(this.b, v85Var)) {
-                                    v85Var.q(1);
-                                } else {
-                                    v85Var.q(0);
-                                }
-                            }
-                        }
-                        this.a.add(iz5Var2);
-                    }
-                }
-            }
-            return z;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.d = z;
         }
-        return invokeL.booleanValue;
+    }
+
+    public void f(List<AdvertAppInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            Iterator<AdvertAppInfo> it = list.iterator();
+            while (it.hasNext()) {
+                AdvertAppInfo next = it.next();
+                next.j = this.b;
+                if (z99.l(next) && this.d) {
+                    it.remove();
+                } else {
+                    int i = next.i();
+                    if (i != 0) {
+                        jc9.h(next, 0, i);
+                        it.remove();
+                    }
+                }
+            }
+        }
     }
 }

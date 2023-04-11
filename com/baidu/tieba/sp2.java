@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.view.Surface;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class sp2 extends nl2<eq2> {
+public class sp2 extends ol2<fq2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.nl2
+    @Override // com.baidu.tieba.ol2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setUseFreeFlow" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
     }
 
     public sp2() {
@@ -36,17 +37,16 @@ public class sp2 extends nl2<eq2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nl2
+    @Override // com.baidu.tieba.ol2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull eq2 eq2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull fq2 fq2Var) {
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, eq2Var) == null) {
-            boolean z = true;
-            if (command.arg1 != 1) {
-                z = false;
-            }
-            eq2Var.B(z);
-            d(eq2Var, command.what, null, false);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, fq2Var) != null) || (obj = command.obj) == null) {
+            return;
         }
+        fq2Var.setSurface((Surface) obj);
+        String str = command.what;
+        d(fq2Var, str, "Surface:" + command.obj.hashCode(), false);
     }
 }

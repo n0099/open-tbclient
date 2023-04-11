@@ -1,113 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes4.dex */
 public class dd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile int a;
-    public volatile int b;
-    public volatile HashMap<Long, Integer> c;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public String k;
+    public long l;
+    public long m;
+    public boolean n;
+    public boolean o;
+    public int p;
+    public String q;
+    public String r;
+    public long s;
+    public long t;
 
-    public dd9(int i) {
+    public dd9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new HashMap<>();
-        this.a = 0;
-        this.b = i;
+        this.k = "";
     }
 
-    public void a(String str) {
+    public dd9(MsgContent msgContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                Long valueOf = Long.valueOf(Long.parseLong(str));
-                synchronized (this) {
-                    if (this.c.size() >= this.b) {
-                        c();
-                    }
-                    this.a++;
-                    this.c.put(valueOf, Integer.valueOf(this.a));
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {msgContent};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.k = "";
+        this.d = msgContent.title;
+        this.q = msgContent.url;
+        this.f = msgContent.src;
+        this.e = msgContent.text;
+        a(this);
     }
 
-    public boolean d(String str) {
-        InterceptResult invokeL;
+    public static void a(dd9 dd9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                Long valueOf = Long.valueOf(Long.parseLong(str));
-                synchronized (this) {
-                    if (this.c.get(valueOf) == null) {
-                        return false;
-                    }
-                    return true;
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                return this.c.containsKey(Long.valueOf(Long.parseLong(str)));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                Long l = null;
-                int i = 134217727;
-                for (Map.Entry<Long, Integer> entry : this.c.entrySet()) {
-                    if (entry.getValue().intValue() < i) {
-                        int intValue = entry.getValue().intValue();
-                        i = intValue;
-                        l = entry.getKey();
-                    }
-                }
-                if (l != null) {
-                    this.c.remove(l);
-                } else {
-                    this.c.clear();
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(65538, null, dd9Var) == null) {
+            dd9Var.i = 0;
+            dd9Var.g = 4;
+            dd9Var.h = 4;
+            dd9Var.l = System.currentTimeMillis();
+            dd9Var.n = true;
         }
     }
 }

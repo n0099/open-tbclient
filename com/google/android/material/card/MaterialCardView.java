@@ -27,7 +27,7 @@ import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public static final String ACCESSIBILITY_CLASS_NAME = "androidx.cardview.widget.CardView";
     public static final int DEF_STYLE_RES = 2131755874;

@@ -1,199 +1,124 @@
 package com.baidu.tieba;
 
-import android.graphics.Path;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import java.util.StringTokenizer;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import kotlin.text.StringsKt__StringsKt;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes5.dex */
-public final class moa {
+public class moa implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public Path b;
 
-    public moa(String str) {
+    public moa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
-    }
-
-    public final void a(Path path) {
-        boolean z;
-        Set set;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, path) == null) {
-            Path path2 = this.b;
-            if (path2 != null) {
-                path.set(path2);
-                return;
-            }
-            Path path3 = new Path();
-            StringTokenizer stringTokenizer = new StringTokenizer(this.a, "MLHVCSQRAZmlhvcsqraz", true);
-            String str = "";
-            while (stringTokenizer.hasMoreTokens()) {
-                String segment = stringTokenizer.nextToken();
-                Intrinsics.checkExpressionValueIsNotNull(segment, "segment");
-                if (segment.length() == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    set = noa.a;
-                    if (set.contains(segment)) {
-                        if (Intrinsics.areEqual(segment, "Z") || Intrinsics.areEqual(segment, "z")) {
-                            b(path3, segment, new StringTokenizer("", ""));
-                        }
-                        str = segment;
-                    } else {
-                        b(path3, str, new StringTokenizer(segment, " "));
-                    }
-                }
-            }
-            this.b = path3;
-            path.set(path3);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0097  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x009b  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00ae  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00b8  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00d1  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x00d5  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00e8  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x00f0  */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0103  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x010b  */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x011e  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0122  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void b(Path path, String str, StringTokenizer stringTokenizer) {
-        soa soaVar;
-        boolean z;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    public PidLoader create(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, path, str, stringTokenizer) == null) {
-            float f = 0.0f;
-            float f2 = 0.0f;
-            float f3 = 0.0f;
-            float f4 = 0.0f;
-            float f5 = 0.0f;
-            float f6 = 0.0f;
-            int i = 0;
-            while (stringTokenizer.hasMoreTokens()) {
-                try {
-                    String s = stringTokenizer.nextToken();
-                    Intrinsics.checkExpressionValueIsNotNull(s, "s");
-                    if (s.length() == 0) {
-                        z = true;
-                    } else {
-                        z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            String str = pid.type;
+            str.hashCode();
+            switch (str.hashCode()) {
+                case -1303381232:
+                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS2)) {
+                        c = 0;
+                        break;
                     }
-                    if (!z) {
-                        if (i == 0) {
-                            f = Float.parseFloat(s);
-                        }
-                        if (i == 1) {
-                            f2 = Float.parseFloat(s);
-                        }
-                        if (i == 2) {
-                            f3 = Float.parseFloat(s);
-                        }
-                        if (i == 3) {
-                            f4 = Float.parseFloat(s);
-                        }
-                        if (i == 4) {
-                            f5 = Float.parseFloat(s);
-                        }
-                        if (i == 5) {
-                            f6 = Float.parseFloat(s);
-                        }
-                        i++;
+                    c = 65535;
+                    break;
+                case -942661506:
+                    if (str.equals(FunAdType.GDT_SPLASH)) {
+                        c = 1;
+                        break;
                     }
-                } catch (Exception unused) {
-                }
+                    c = 65535;
+                    break;
+                case -596233886:
+                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 114133351:
+                    if (str.equals(FunAdType.GDT_UNIFIED_BANNER)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 125016359:
+                    if (str.equals(FunAdType.GDT_UNIFIED_INTERSTITIAL)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 425812868:
+                    if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 543046357:
+                    if (str.equals(FunAdType.GDT_REWARD_VIDEO)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1990506825:
+                    if (str.equals(FunAdType.GDT_FULLSCREEN_VIDEO)) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            float f7 = f;
-            float f8 = f2;
-            float f9 = f3;
-            float f10 = f4;
-            soa soaVar2 = new soa(0.0f, 0.0f, 0.0f);
-            if (Intrinsics.areEqual(str, "M")) {
-                path.moveTo(f7, f8);
-                soaVar2 = new soa(f7, f8, 0.0f);
-            } else if (Intrinsics.areEqual(str, "m")) {
-                path.rMoveTo(f7, f8);
-                soaVar = new soa(soaVar2.a() + f7, soaVar2.b() + f8, 0.0f);
-                if (!Intrinsics.areEqual(str, "L")) {
-                    path.lineTo(f7, f8);
-                } else if (Intrinsics.areEqual(str, "l")) {
-                    path.rLineTo(f7, f8);
-                }
-                if (!Intrinsics.areEqual(str, "C")) {
-                    path.cubicTo(f7, f8, f9, f10, f5, f6);
-                } else if (Intrinsics.areEqual(str, "c")) {
-                    path.rCubicTo(f7, f8, f9, f10, f5, f6);
-                }
-                if (!Intrinsics.areEqual(str, "Q")) {
-                    path.quadTo(f7, f8, f9, f10);
-                } else if (Intrinsics.areEqual(str, "q")) {
-                    path.rQuadTo(f7, f8, f9, f10);
-                }
-                if (!Intrinsics.areEqual(str, "H")) {
-                    path.lineTo(f7, soaVar.b());
-                } else if (Intrinsics.areEqual(str, "h")) {
-                    path.rLineTo(f7, 0.0f);
-                }
-                if (!Intrinsics.areEqual(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
-                    path.lineTo(soaVar.a(), f7);
-                } else if (Intrinsics.areEqual(str, "v")) {
-                    path.rLineTo(0.0f, f7);
-                }
-                if (!Intrinsics.areEqual(str, "Z")) {
-                    path.close();
-                    return;
-                } else if (Intrinsics.areEqual(str, "z")) {
-                    path.close();
-                    return;
-                } else {
-                    return;
-                }
-            }
-            soaVar = soaVar2;
-            if (!Intrinsics.areEqual(str, "L")) {
-            }
-            if (!Intrinsics.areEqual(str, "C")) {
-            }
-            if (!Intrinsics.areEqual(str, "Q")) {
-            }
-            if (!Intrinsics.areEqual(str, "H")) {
-            }
-            if (!Intrinsics.areEqual(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
-            }
-            if (!Intrinsics.areEqual(str, "Z")) {
+            switch (c) {
+                case 0:
+                    return new roa(pid);
+                case 1:
+                    return new apa(pid);
+                case 2:
+                    return new uoa(pid);
+                case 3:
+                    return new bpa(pid);
+                case 4:
+                    return new cpa(pid);
+                case 5:
+                    return new woa(pid);
+                case 6:
+                    return new zoa(pid);
+                case 7:
+                    return new qoa(pid);
+                default:
+                    return null;
             }
         }
+        return (PidLoader) invokeL.objValue;
     }
 }

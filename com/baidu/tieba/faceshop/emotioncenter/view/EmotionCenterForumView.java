@@ -107,7 +107,7 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d026b, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d026d, this);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090bb9);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b95);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b44);
@@ -120,7 +120,7 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, i);
             SkinManager.setViewTextColor(this.c, R.color.cp_cont_r, i);
-            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f0804f4, i);
+            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f0804ef, i);
         }
     }
 

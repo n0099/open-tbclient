@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import java.util.List;
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface lg5 {
-    boolean a(int i, long j, @NonNull List<ChatMsg> list);
+    void a(View view2, View view3, boolean z);
 }

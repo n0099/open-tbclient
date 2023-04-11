@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar2;
+import com.baidu.tieba.br2;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.AbstractDraweeController;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
@@ -33,9 +33,9 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
 
         public a(SwanAppThumbnailAdapter swanAppThumbnailAdapter, View view2) {
             super(view2);
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09090a);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f09026f);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f09026e);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09090c);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090268);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090267);
         }
     }
 
@@ -43,7 +43,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706ea);
     }
 
-    public MediaModel d(int i) {
+    public MediaModel k(int i) {
         ArrayList<MediaModel> arrayList = this.a;
         if (arrayList != null && i >= 0 && i < arrayList.size()) {
             return this.a.get(i);
@@ -51,16 +51,12 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         return null;
     }
 
-    public void i(ArrayList<MediaModel> arrayList) {
+    public void p(ArrayList<MediaModel> arrayList) {
         this.a = arrayList;
         if (arrayList != null && arrayList.size() == 1) {
             this.b = arrayList.get(0);
         }
         notifyDataSetChanged();
-    }
-
-    public ArrayList<MediaModel> e() {
-        return this.a;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -72,9 +68,13 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         return arrayList.size();
     }
 
+    public ArrayList<MediaModel> l() {
+        return this.a;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: f */
+    /* renamed from: m */
     public void onBindViewHolder(a aVar, int i) {
         int i2;
         ArrayList<MediaModel> arrayList = this.a;
@@ -104,18 +104,18 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         aVar.a.setController(build);
         DraweeHierarchy hierarchy = build.getHierarchy();
         if (hierarchy instanceof GenericDraweeHierarchy) {
-            ar2.C().c((GenericDraweeHierarchy) hierarchy, false);
+            br2.C().c((GenericDraweeHierarchy) hierarchy, false);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: g */
+    /* renamed from: n */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08a5, viewGroup, false));
+        return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08a0, viewGroup, false));
     }
 
-    public int h(MediaModel mediaModel) {
+    public int o(MediaModel mediaModel) {
         ArrayList<MediaModel> arrayList = this.a;
         if (arrayList == null) {
             return 0;

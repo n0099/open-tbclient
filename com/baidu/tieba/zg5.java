@@ -1,45 +1,123 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.ColorRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.url.UrlUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.PbContent;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class zg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public ThreadData a;
-    @NonNull
-    public PbContent b;
+    public BdUniqueId a;
+    public String b;
     public boolean c;
-    public int d;
-    public int e;
-    @Nullable
-    public bc9 f;
-    @NonNull
-    public HotTopicStat.Locate g;
-    @Nullable
-    public String h;
+    public String d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
     public boolean i;
+    public ah5 j;
+    public bh5 k;
+    public bg<sm> l;
 
-    public zg5(@NonNull ThreadData threadData, @NonNull PbContent pbContent) {
+    public int s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 45;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends bg<sm> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zg5 a;
+
+        public a(zg5 zg5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zg5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zg5Var;
+        }
+
+        @Override // com.baidu.tieba.bg
+        public void onCancelled(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                super.onCancelled(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.bg
+        public void onProgressUpdate(Object... objArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
+                super.onProgressUpdate(objArr);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bg
+        public void onLoaded(sm smVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, smVar, str, i) == null) {
+                if (smVar != null && str != null) {
+                    if (this.a.w()) {
+                        if (str.equals(this.a.j.b())) {
+                            this.a.f = true;
+                        }
+                        if (str.equals(this.a.j.c())) {
+                            this.a.g = true;
+                        }
+                        if (str.equals(this.a.j.a())) {
+                            this.a.h = true;
+                        }
+                        if (this.a.f && this.a.g && this.a.h) {
+                            this.a.i = true;
+                        }
+                    } else {
+                        if (str.equals(this.a.b)) {
+                            this.a.c = true;
+                        }
+                        if (str.equals(this.a.d)) {
+                            this.a.e = true;
+                        }
+                        if (this.a.c && this.a.e) {
+                            this.a.i = true;
+                        }
+                    }
+                }
+                if (this.a.k != null && this.a.i) {
+                    this.a.k.a();
+                }
+            }
+        }
+    }
+
+    public zg5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadData, pbContent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,187 +127,99 @@ public class zg5 {
                 return;
             }
         }
-        this.g = HotTopicStat.Locate.UNDEFINED;
-        this.a = threadData;
-        this.b = pbContent;
-        this.c = TextUtils.equals(UrlUtils.getParamValue(pbContent.link, "is_video_topic"), "1");
+        this.l = new a(this);
     }
 
-    @NonNull
-    public static zg5 f(@NonNull ThreadData threadData, @NonNull PbContent pbContent) {
-        InterceptResult invokeLL;
+    public ah5 r() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, threadData, pbContent)) == null) {
-            return new zg5(threadData, pbContent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.j;
         }
-        return (zg5) invokeLL.objValue;
+        return (ah5) invokeV.objValue;
     }
 
-    @NonNull
-    public zg5 a(boolean z) {
-        InterceptResult invokeZ;
+    public String t() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.i = z;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
-        return (zg5) invokeZ.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @NonNull
-    public zg5 b(@NonNull HotTopicStat.Locate locate) {
-        InterceptResult invokeL;
+    public String u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
-            this.g = locate;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
         }
-        return (zg5) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @NonNull
-    public zg5 c(@Nullable bc9 bc9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bc9Var)) == null) {
-            this.f = bc9Var;
-            return this;
-        }
-        return (zg5) invokeL.objValue;
-    }
-
-    @NonNull
-    public zg5 d(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            this.d = i;
-            return this;
-        }
-        return (zg5) invokeI.objValue;
-    }
-
-    @NonNull
-    public zg5 e(@ColorRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.e = i;
-            return this;
-        }
-        return (zg5) invokeI.objValue;
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    @NonNull
-    public String g() {
+    public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return String.valueOf(this.a.getFid());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.h == null) {
-                this.h = UrlUtils.appendParam(this.b.link, "locate", i().toString());
-            }
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public HotTopicStat.Locate i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
-        }
-        return (HotTopicStat.Locate) invokeV.objValue;
-    }
-
-    @NonNull
-    public PbContent j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return (PbContent) invokeV.objValue;
-    }
-
-    @Nullable
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            bc9 bc9Var = this.f;
-            if (bc9Var == null) {
-                return null;
-            }
-            return bc9Var.O();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public ThreadData l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @ColorRes
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (o()) {
-                int i = this.e;
-                if (i != 0) {
-                    return i;
-                }
-            } else {
-                int i2 = this.d;
-                if (i2 != 0) {
-                    return i2;
-                }
-            }
-            return R.color.CAM_X0304;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.i;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean o() {
+    public void A(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
+            this.a = bdUniqueId;
+        }
+    }
+
+    public void y(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
+            this.b = jSONObject.optString("pic_before");
+            this.d = jSONObject.optString("pic_after");
+            ah5 ah5Var = new ah5();
+            this.j = ah5Var;
+            ah5Var.h(jSONObject);
+        }
+    }
+
+    public void z(bh5 bh5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bh5Var) == null) {
+            this.k = bh5Var;
+        }
+    }
+
+    public final boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            ah5 ah5Var = this.j;
+            if (ah5Var != null && StringUtils.isNotNull(ah5Var.b()) && StringUtils.isNotNull(this.j.c()) && StringUtils.isNotNull(this.j.a())) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            String str = this.b;
+            if (str != null && !hi.isEmpty(str)) {
+                cg.h().k(this.b, s(), this.l, 0, 0, this.a, new Object[0]);
+            }
+            String str2 = this.d;
+            if (str2 != null && !hi.isEmpty(str2)) {
+                cg.h().k(this.d, s(), this.l, 0, 0, this.a, new Object[0]);
+            }
+            if (w()) {
+                cg.h().k(this.j.b(), s(), this.l, 0, 0, this.a, new Object[0]);
+                cg.h().k(this.j.c(), s(), this.l, 0, 0, this.a, new Object[0]);
+                cg.h().k(this.j.a(), s(), this.l, 0, 0, this.a, new Object[0]);
+            }
+        }
     }
 }

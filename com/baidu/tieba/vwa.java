@@ -1,104 +1,91 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.RevenueConfig;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.IMiddlePayService;
 /* loaded from: classes6.dex */
-public final class vwa implements IMiddleRevenue {
-    public static /* synthetic */ Interceptable $ic;
+public class vwa {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String b = "RootKeyUtil";
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final uwa b;
-    public final IRevenue c;
+    public byte[] a;
 
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IPayEventStatistics getPayEventStatistic() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948256585, "Lcom/baidu/tieba/vwa;")) == null) {
+            return;
         }
-        return (IPayEventStatistics) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948256585, "Lcom/baidu/tieba/vwa;");
+        }
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IPayServiceStatistics getPayServiceStatistics() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (IPayServiceStatistics) invokeV.objValue;
-    }
-
-    public vwa(MiddleRevenueConfig middleRevenueConfig, IRevenue iRevenue) {
+    public vwa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {middleRevenueConfig, iRevenue};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = iRevenue;
-        this.a = "MiddleRevenue";
-        IAppPayService appPayService = this.c.getAppPayService();
-        Intrinsics.checkExpressionValueIsNotNull(appPayService, "revenue.appPayService");
-        this.b = new uwa(middleRevenueConfig, appPayService);
+        this.a = null;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IAppPayService getAppPayService() {
+    public byte[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (byte[]) this.a.clone();
         }
-        return (IAppPayService) invokeV.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    @Override // tv.athena.revenue.api.IMiddleRevenue
-    public IMiddlePayService getMiddlePayService() {
-        InterceptResult invokeV;
+    public static vwa d(String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, str, str2, str3, str4)) == null) {
+            vwa vwaVar = new vwa();
+            vwaVar.a(str, str2, str3, str4);
+            return vwaVar;
         }
-        return (IMiddlePayService) invokeV.objValue;
+        return (vwa) invokeLLLL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final void a(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a + hashCode() + " :{revenue:" + this.c + '}';
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
+            b(str, str2, str3, uwa.b(str4));
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public void updateConfig(RevenueConfig revenueConfig) {
+    @SuppressLint({"NewApi"})
+    public final void b(String str, String str2, String str3, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, revenueConfig) == null) {
-            this.c.updateConfig(revenueConfig);
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, bArr) == null) {
+            if (Build.VERSION.SDK_INT < 26) {
+                xwa.d(b, "initRootKey: sha1");
+                this.a = swa.h(str, str2, str3, bArr, false);
+                return;
+            }
+            xwa.d(b, "initRootKey: sha256");
+            this.a = swa.h(str, str2, str3, bArr, true);
         }
     }
 }

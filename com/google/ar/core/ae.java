@@ -1,11 +1,11 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.qia;
+import com.baidu.tieba.hsa;
 import com.google.ar.core.Session;
 /* loaded from: classes8.dex */
 public enum ae extends Session.c {
     @Override // com.google.ar.core.Session.c
-    public final qia a(long j, Session session) {
+    public final hsa a(long j, Session session) {
         return null;
     }
 

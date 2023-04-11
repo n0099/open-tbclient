@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hq3 extends fq3 {
+public class hq3 extends gq3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,34 +26,34 @@ public class hq3 extends fq3 {
                 return;
             }
         }
-        boolean z = do1.a;
+        boolean z = eo1.a;
     }
 
-    @Override // com.baidu.tieba.fq3
+    @Override // com.baidu.tieba.gq3
     @NonNull
     public String r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return tn3.b();
+            return un3.a();
         }
         return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hq3(q83 q83Var) {
-        super(q83Var, "/swanAPI/recommendSimilarProducts");
+    public hq3(r83 r83Var) {
+        super(r83Var, "/swanAPI/recommendProducts");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {q83Var};
+            Object[] objArr = {r83Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((q83) objArr2[0], (String) objArr2[1]);
+                super((r83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

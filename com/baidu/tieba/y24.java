@@ -3,7 +3,6 @@ package com.baidu.tieba;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
@@ -11,9 +10,7 @@ public class y24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public String packageName;
-    @V8JavascriptField
-    public int statusCode;
+    public int progress;
 
     public y24() {
         Interceptable interceptable = $ic;
@@ -27,14 +24,5 @@ public class y24 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "DownloadResponseData{statusCode=" + this.statusCode + ", packageName='" + this.packageName + "'}";
-        }
-        return (String) invokeV.objValue;
     }
 }

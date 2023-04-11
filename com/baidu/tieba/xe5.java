@@ -1,212 +1,258 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AtListActivityConfig;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class xe5 {
+public class xe5 extends rc5 {
     public static /* synthetic */ Interceptable $ic;
-    public static xe5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Class<? extends we5>> a;
+    public boolean a;
+    public String b;
+    public boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948297505, "Lcom/baidu/tieba/xe5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements qc5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ we5 a;
+        public final /* synthetic */ EditorTools b;
+        public final /* synthetic */ xe5 c;
+
+        public a(xe5 xe5Var, we5 we5Var, EditorTools editorTools) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xe5Var, we5Var, editorTools};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948297505, "Lcom/baidu/tieba/xe5;");
+            this.c = xe5Var;
+            this.a = we5Var;
+            this.b = editorTools;
+        }
+
+        @Override // com.baidu.tieba.qc5
+        public void C(pc5 pc5Var) {
+            ad5 p;
+            bd5 bd5Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, pc5Var) != null) || pc5Var == null) {
                 return;
             }
+            int i = pc5Var.a;
+            if (i != 4) {
+                if (i != 16) {
+                    if (i != 7) {
+                        if (i != 8) {
+                            if (i != 10) {
+                                if (i == 11) {
+                                    this.a.e0(null);
+                                    EditorTools editorTools = this.b;
+                                    if (editorTools != null && (p = editorTools.p(6)) != null && (bd5Var = p.m) != null) {
+                                        bd5Var.C(new pc5(52, 0, null));
+                                        return;
+                                    }
+                                    return;
+                                }
+                                return;
+                            }
+                            Object obj = pc5Var.c;
+                            if (obj instanceof VoiceData.VoiceModel) {
+                                this.a.e0((VoiceData.VoiceModel) obj);
+                                this.a.w(null);
+                                return;
+                            }
+                            return;
+                        } else if (!this.c.h(this.a.getContext(), 11001)) {
+                            return;
+                        } else {
+                            this.a.G();
+                            TiebaStatic.log(TbadkCoreStatisticKey.SUBPB_CLICK_SEND);
+                            return;
+                        }
+                    }
+                    this.a.getContext().showToast((int) R.string.over_limit_tip);
+                    this.c.a = true;
+                    return;
+                }
+                if (this.c.a) {
+                    this.a.getContext().showToast((int) R.string.over_limit_tip);
+                }
+                if (!this.c.h(this.a.getContext(), 11025)) {
+                    return;
+                }
+                AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.getContext().getPageActivity(), 12005, true);
+                if (this.a.v() != null) {
+                    atListActivityConfig.setSelectedAtList(this.a.v().w());
+                }
+                EditorTools editorTools2 = this.b;
+                if (editorTools2 != null) {
+                    atListActivityConfig.setFromTid(editorTools2.getTid());
+                    atListActivityConfig.setFromFid(String.valueOf(this.b.getFid()));
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig));
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
+                statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+                EditorTools editorTools3 = this.b;
+                if (editorTools3 != null) {
+                    statisticItem.addParam("tid", editorTools3.getTid());
+                    statisticItem.addParam("fid", this.b.getFid());
+                }
+                TiebaStatic.log(statisticItem);
+                return;
+            }
+            Object obj2 = pc5Var.c;
+            if (obj2 instanceof ye5) {
+                this.a.a0((ye5) obj2);
+                this.a.Z(((ye5) pc5Var.c).c);
+            } else if (obj2 instanceof String) {
+                this.a.T((String) obj2);
+            } else if (obj2 instanceof SpanGroupManager) {
+                this.a.T(obj2.toString());
+                this.a.Z((SpanGroupManager) pc5Var.c);
+            }
+            this.c.a = false;
         }
-        b = new xe5();
     }
 
-    public static xe5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (xe5) invokeV.objValue;
-    }
-
-    public xe5() {
+    public xe5(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        f(ye5.class);
-        f(af5.class);
-        f(ve5.class);
-        f(ze5.class);
-        f(bf5.class);
+        this.a = false;
+        this.c = false;
+        this.c = z;
     }
 
-    public we5 a(ImageOperation imageOperation) {
-        InterceptResult invokeL;
-        we5 e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageOperation)) == null) {
-            Class<? extends we5> cls = this.a.get(imageOperation.actionName);
-            if (cls == null || (e = e(cls)) == null) {
-                return null;
-            }
-            e.d(imageOperation.actionParam);
-            return e;
-        }
-        return (we5) invokeL.objValue;
-    }
-
-    public final we5 e(Class<? extends we5> cls) {
+    @Override // com.baidu.tieba.rc5
+    public tc5 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) {
-            try {
-                return cls.newInstance();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setIsFromPb(true);
+            int i = 5;
+            editorTools.setBarMaxLauCount(5);
+            editorTools.setBackgroundColorId(0);
+            if (!this.c) {
+                i = 2;
             }
+            editorTools.setBarLauncherType(i);
+            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
+            editorTools.F(false);
+            we5 we5Var = new we5(editorTools);
+            we5Var.s = this.c;
+            return we5Var;
         }
-        return (we5) invokeL.objValue;
+        return (tc5) invokeL.objValue;
     }
 
-    public final void f(Class<? extends we5> cls) {
-        we5 e;
+    @Override // com.baidu.tieba.rc5
+    public void c(tc5 tc5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, cls) == null) && (e = e(cls)) != null) {
-            this.a.put(e.a(), cls);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tc5Var) != null) || tc5Var == null) {
+            return;
+        }
+        EditorTools b = tc5Var.b();
+        a aVar = new a(this, (we5) tc5Var, b);
+        b.setActionListener(4, aVar);
+        b.setActionListener(7, aVar);
+        b.setActionListener(16, aVar);
+        b.setActionListener(8, aVar);
+        b.setActionListener(10, aVar);
+        b.setActionListener(11, aVar);
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
         }
     }
 
-    public Bitmap b(Bitmap bitmap, boolean z, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
-        InterceptResult invokeCommon;
-        Bitmap bitmap2;
+    @Override // com.baidu.tieba.rc5
+    public void d(tc5 tc5Var) {
+        CustomResponsedMessage runTask;
+        ad5 ad5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bitmap, Boolean.valueOf(z), list, imageFileInfo})) == null) {
-            if (bitmap == null) {
-                return bitmap;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tc5Var) == null) {
+            EditorTools b = tc5Var.b();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            b.h(arrayList);
+            ad5 p = b.p(5);
+            if (p != null) {
+                p.e(false);
+                p.f(false);
+                p.l = 1;
             }
-            if (ListUtils.isEmpty(list)) {
-                return bitmap;
-            }
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                we5 a = a(list.get(i));
-                if ((a instanceof bf5) && imageFileInfo != null) {
-                    ((bf5) a).e(imageFileInfo.getFilePath());
-                    return a.b(bitmap, z);
+            if (!this.c) {
+                if (mn9.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), ad5.class)) != null && (ad5Var = (ad5) runTask.getData()) != null) {
+                    ad5Var.l = 2;
+                    b.d(ad5Var);
                 }
+                b.d(new cd5(b.getContext(), 4));
             }
-            ye5 ye5Var = null;
-            int i2 = 0;
-            while (i2 < size) {
-                ImageOperation imageOperation = list.get(i2);
-                if ("resize".equals(imageOperation.actionName)) {
-                    ye5 ye5Var2 = (ye5) a(imageOperation);
-                    if (ye5Var == null || ye5Var2.f() <= ye5Var.f() || ye5Var2.e() <= ye5Var.e()) {
-                        ye5Var = ye5Var2;
-                    }
-                    list.remove(i2);
-                    i2--;
-                }
-                i2++;
+            te5 te5Var = new te5(b.getContext(), this.c, false, 12005);
+            if (!hi.isEmpty(this.b)) {
+                te5Var.m(this.b);
             }
-            if (ye5Var != null) {
-                bitmap2 = ye5Var.b(bitmap, z);
-            } else {
-                bitmap2 = null;
-            }
-            if (list != null) {
-                for (int i3 = 0; i3 < size; i3++) {
-                    we5 a2 = a(list.get(i3));
-                    if (a2 != null) {
-                        if (bitmap2 == null) {
-                            return null;
-                        }
-                        bitmap2 = a2.b(bitmap, z);
-                    }
-                }
-            }
-            return bitmap2;
+            b.d(te5Var);
+            b.f();
+            b.C(new pc5(35, 5, Boolean.FALSE));
+            b.s();
         }
-        return (Bitmap) invokeCommon.objValue;
     }
 
-    public Bitmap c(String str, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
-        InterceptResult invokeLLL;
+    public final boolean h(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, list, imageFileInfo)) == null) {
-            Bitmap bitmap = null;
-            if (ListUtils.isEmpty(list)) {
-                return null;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, tbPageContext, i)) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
+                return true;
             }
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                we5 a = a(list.get(i));
-                if ((a instanceof bf5) && imageFileInfo != null) {
-                    return a.c(imageFileInfo.getFilePath());
-                }
-            }
-            ye5 ye5Var = null;
-            int i2 = 0;
-            while (i2 < list.size()) {
-                ImageOperation imageOperation = list.get(i2);
-                if ("resize".equals(imageOperation.actionName)) {
-                    ye5 ye5Var2 = (ye5) a(imageOperation);
-                    if (ye5Var == null || ye5Var2.f() <= ye5Var.f() || ye5Var2.e() <= ye5Var.e()) {
-                        ye5Var = ye5Var2;
-                    }
-                    list.remove(i2);
-                    i2--;
-                }
-                i2++;
-            }
-            if (ye5Var != null) {
-                bitmap = ye5Var.c(str);
-            }
-            if (list != null) {
-                for (int i3 = 0; i3 < list.size(); i3++) {
-                    we5 a2 = a(list.get(i3));
-                    if (a2 != null) {
-                        if (bitmap == null) {
-                            bitmap = a2.c(str);
-                        } else {
-                            bitmap = a2.b(bitmap, true);
-                        }
-                    }
-                }
-            }
-            return bitmap;
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
+            return false;
         }
-        return (Bitmap) invokeLLL.objValue;
+        return invokeLI.booleanValue;
     }
 }

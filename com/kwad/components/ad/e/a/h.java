@@ -18,7 +18,7 @@ public final class h extends com.kwad.components.ad.e.kwai.a implements View.OnC
     }
 
     private void et() {
-        com.kwad.components.core.c.a.a.a(new a.C0593a(this.ke.getContext()).L(this.jL.mAdTemplate).ae(2).a(new a.b() { // from class: com.kwad.components.ad.e.a.h.2
+        com.kwad.components.core.c.a.a.a(new a.C0594a(this.ke.getContext()).L(this.jL.mAdTemplate).ae(2).a(new a.b() { // from class: com.kwad.components.ad.e.a.h.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 com.kwad.sdk.core.report.a.a(h.this.jL.mAdTemplate, 2, h.this.jL.jK.getTouchCoords());
@@ -53,7 +53,7 @@ public final class h extends com.kwad.components.ad.e.kwai.a implements View.OnC
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.ke = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09137b);
-        this.kf = (TextView) findViewById(R.id.obfuscated_res_0x7f091224);
+        this.ke = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09137f);
+        this.kf = (TextView) findViewById(R.id.obfuscated_res_0x7f091228);
     }
 }

@@ -3,14 +3,14 @@ package com.baidu.swan.facade.provider.processor;
 import com.baidu.tieba.au3;
 import com.baidu.tieba.bu3;
 import com.baidu.tieba.cu3;
-import com.baidu.tieba.zt3;
+import com.baidu.tieba.du3;
 /* loaded from: classes3.dex */
 public enum ProcessorInfo {
-    PARAMS(cu3.class, "params"),
-    FAVORITE(au3.class, "favorite"),
-    HISTORY(bu3.class, "history");
+    PARAMS(du3.class, "params"),
+    FAVORITE(bu3.class, "favorite"),
+    HISTORY(cu3.class, "history");
     
-    public Class<? extends zt3> mClass;
+    public Class<? extends au3> mClass;
     public int mMatcherCode = ordinal();
     public String mPath;
 
@@ -19,7 +19,7 @@ public enum ProcessorInfo {
         this.mPath = str;
     }
 
-    private Class<? extends zt3> getProcessorClass() {
+    private Class<? extends au3> getProcessorClass() {
         return this.mClass;
     }
 
@@ -31,7 +31,7 @@ public enum ProcessorInfo {
         return this.mPath;
     }
 
-    public static Class<? extends zt3> getProcessorClass(int i) {
+    public static Class<? extends au3> getProcessorClass(int i) {
         ProcessorInfo[] values;
         for (ProcessorInfo processorInfo : values()) {
             if (processorInfo != null && processorInfo.getMatcherCode() == i) {

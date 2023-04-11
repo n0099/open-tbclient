@@ -1,240 +1,159 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.KeyEvent;
-import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleRegistry;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import tbclient.BroadcastInfo;
+import tbclient.RecommendForumInfo;
+import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
-public final class qz7 {
+public class qz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Slice a;
-    public final LifecycleRegistry b;
-    public final Map<Slice, a> c;
+    public String a;
+    public String b;
+    public String c;
+    public long d;
+    public int e;
+    public long f;
+    public int g;
+    public String h;
+    public int i;
+    public RecommendForumInfo j;
+    public ThreadInfo k;
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Slice a;
-        public boolean b;
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj instanceof a) {
-                    a aVar = (a) obj;
-                    return Intrinsics.areEqual(this.a, aVar.a) && this.b == aVar.b;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
-        /* JADX WARN: Multi-variable type inference failed */
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int hashCode = this.a.hashCode() * 31;
-                boolean z = this.b;
-                int i = z;
-                if (z != 0) {
-                    i = 1;
-                }
-                return hashCode + i;
-            }
-            return invokeV.intValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "SliceRecord(slice=" + this.a + ", isShowing=" + this.b + ')';
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public a(Slice slice, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {slice, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            Intrinsics.checkNotNullParameter(slice, "slice");
-            this.a = slice;
-            this.b = z;
-        }
-    }
-
-    public qz7(Slice owner) {
+    public qz7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {owner};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(owner, "owner");
-        this.a = owner;
-        this.b = new LifecycleRegistry(owner);
-        this.c = new LinkedHashMap();
-    }
-
-    public final void k(Bundle outState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, outState) == null) {
-            Intrinsics.checkNotNullParameter(outState, "outState");
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().C(outState);
             }
         }
     }
 
-    public void a(ViewGroup container, Slice child) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, container, child) == null) {
-            Intrinsics.checkNotNullParameter(container, "container");
-            Intrinsics.checkNotNullParameter(child, "child");
-            uz7.a.a();
-            this.b.addObserver(child);
-            this.c.put(child, new a(child, true));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.i;
         }
+        return invokeV.intValue;
     }
 
-    public final LifecycleRegistry b() {
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return invokeV.longValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (LifecycleRegistry) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void g() {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().m();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void c(Lifecycle.Event event) {
+    public RecommendForumInfo e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            this.b.handleLifecycleEvent(event);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.j;
         }
+        return (RecommendForumInfo) invokeV.objValue;
     }
 
-    public final void e(boolean z) {
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().o(z);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void f(int i) {
+    public long g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().q(i);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
         }
+        return invokeV.longValue;
     }
 
-    public final void i(boolean z) {
+    public int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().A(z);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
         }
+        return invokeV.intValue;
     }
 
-    public final void l(boolean z) {
+    public int i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().D(z);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
         }
+        return invokeV.intValue;
     }
 
-    public final void d(int i, int i2, Intent intent) {
+    public ThreadInfo j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().n(i, i2, intent);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.k;
         }
+        return (ThreadInfo) invokeV.objValue;
     }
 
-    public final boolean h(int i, KeyEvent event) {
-        InterceptResult invokeIL;
+    public String k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, event)) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            Map<Slice, a> map = this.c;
-            if (map.isEmpty()) {
-                return false;
-            }
-            for (Map.Entry<Slice, a> entry : map.entrySet()) {
-                if (entry.getKey().onKeyDown(i, event)) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a;
         }
-        return invokeIL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void j(int i, String[] permissions, int[] grantResults) {
+    public void l(BroadcastInfo broadcastInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048585, this, i, permissions, grantResults) == null) {
-            Intrinsics.checkNotNullParameter(permissions, "permissions");
-            Intrinsics.checkNotNullParameter(grantResults, "grantResults");
-            for (Map.Entry<Slice, a> entry : this.c.entrySet()) {
-                entry.getKey().B(i, permissions, grantResults);
-            }
+        if ((interceptable != null && interceptable.invokeL(1048587, this, broadcastInfo) != null) || broadcastInfo == null) {
+            return;
         }
+        this.f = broadcastInfo.bcast_id.longValue();
+        this.a = broadcastInfo.title;
+        this.b = broadcastInfo.content;
+        this.c = broadcastInfo.pic_url;
+        this.d = broadcastInfo.publish_time.intValue();
+        this.e = broadcastInfo.pushuser_cnt.intValue();
+        this.j = broadcastInfo.forum_info;
+        this.k = broadcastInfo.thread_infos;
+        this.h = broadcastInfo.ctr;
+        this.g = broadcastInfo.pv.intValue();
+        this.i = broadcastInfo.audit_status.intValue();
     }
 }

@@ -1,78 +1,290 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes3.dex */
-public class c16 extends ActivityDelegation implements fo1 {
+public class c16 extends qj1<ni0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public f16 b;
-    public Activity c;
-    public Map<String, String> d;
-    public CustomMessageListener e;
 
     /* loaded from: classes3.dex */
-    public class a extends CustomMessageListener {
+    public class a implements ni0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c16 a;
+        public final /* synthetic */ c16 c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(c16 c16Var, int i) {
-            super(i);
+        /* renamed from: com.baidu.tieba.c16$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class C0230a implements pi0 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a f;
+
+            @Override // com.baidu.tieba.pi0
+            public boolean A() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return true;
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String p() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? "" : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String r() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? "tieba" : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String s() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? "2" : (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String z() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? "Tieba" : (String) invokeV.objValue;
+            }
+
+            public C0230a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f = aVar;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String a() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return d16.h().a();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String b() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    return d16.h().l();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String c() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                    return this.f.c.c();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String d() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                    return d16.h().j();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String e() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                    return d16.h().g();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String f() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                    return d16.h().i();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String g() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                    return d16.h().d();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String h() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                    return d16.h().q();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String i() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                    return d16.h().o();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String l() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                    return d16.h().f();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public boolean n() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                    return PermissionUtil.isAgreePrivacyPolicy();
+                }
+                return invokeV.booleanValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String o() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                    return d16.h().b();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String packageName() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                    return d16.h().m();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String q() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                    return d16.h().n();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String t() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                    return d16.h().p();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            @NonNull
+            public String v() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                    return d16.h().e();
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.tieba.pi0
+            public String w() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+                    return d16.h().c();
+                }
+                return (String) invokeV.objValue;
+            }
+        }
+
+        public a(c16 c16Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c16Var, Integer.valueOf(i)};
+                Object[] objArr = {c16Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = c16Var;
+            this.c = c16Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.tieba.ni0
+        @NonNull
+        public pi0 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                Object data = customResponsedMessage.getData();
-                if (!(data instanceof rk5)) {
-                    return;
-                }
-                rk5 rk5Var = (rk5) data;
-                if (getTag() != rk5Var.a && !rk5Var.g) {
-                    return;
-                }
-                this.a.mResult.putInt("result_code", rk5Var.b);
-                this.a.mResult.putString("result_msg", rk5Var.c);
-                if (this.a.b != null) {
-                    this.a.b.a(this.a.mResult);
-                }
-                this.a.finish();
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new C0230a(this);
             }
+            return (pi0) invokeV.objValue;
         }
     }
 
@@ -86,85 +298,53 @@ public class c16 extends ActivityDelegation implements fo1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = BdUniqueId.gen();
-        this.e = new a(this, 2921393);
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = null;
-            MessageManager.getInstance().unRegisterListener(this.e);
-            super.finish();
-        }
-    }
-
-    public void d(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.c = activity;
-        }
-    }
-
-    public void e(f16 f16Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f16Var) == null) {
-            this.b = f16Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.fo1
-    public void onResult(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.mResult.putInt("result_code", i);
-            this.mResult.putString("result_msg", "");
-            finish();
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qj1
+    /* renamed from: b */
+    public ni0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.e.setTag(this.a);
-            MessageManager.getInstance().registerListener(this.e);
-            int i = this.mParams.getInt("type");
-            String string = this.mParams.getString("orderInfo");
-            rk5 rk5Var = new rk5();
-            rk5Var.a = this.a;
-            rk5Var.b = i;
-            rk5Var.c = string;
-            rk5Var.e = (Map) this.mParams.getSerializable("params");
-            rk5Var.f = this.d;
-            if (getAgent() != null) {
-                rk5Var.d = getAgent();
-            } else {
-                Activity activity = this.c;
-                if (activity != null) {
-                    rk5Var.d = activity;
-                } else {
-                    rk5Var.d = TbadkCoreApplication.getInst().getCurrentActivity();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (ni0) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        byte[] b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = "";
+            String s = p45.m().s("key_last_cached_real_oid", "");
+            if (!StringUtils.isNull(s)) {
+                return s;
+            }
+            String k = d16.h().k();
+            if (StringUtils.isNull(k)) {
+                return "";
+            }
+            String[] split = k.split("-");
+            if (split != null && split.length > 1) {
+                String str2 = split[1];
+                if (StringUtils.isNull(str2) || (b = new h40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+                    return "";
+                }
+                try {
+                    str = new String(b, "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                if (!StringUtils.isNull(str)) {
+                    p45.m().B("key_last_cached_real_oid", str);
                 }
             }
-            CustomMessage customMessage = new CustomMessage(2921393, rk5Var);
-            customMessage.setTag(this.a);
-            boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
-            Bundle bundle = this.mResult;
-            int i2 = 1;
-            if (sendMessage) {
-                i2 = 0;
-            }
-            bundle.putInt("result_code", i2);
-            Bundle bundle2 = this.mResult;
-            bundle2.putString("result_msg", "" + sendMessage);
-            return false;
+            return str;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

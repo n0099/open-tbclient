@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.util.AttributeSet;
-import android.view.View;
+import com.baidu.tieba.bt6;
+import com.baidu.tieba.external.sticker.data.QmStickerItem;
 /* loaded from: classes3.dex */
-public interface at6 extends ct6 {
-    void f(int i, int i2);
+public interface at6 {
+    String a(String str);
 
-    void g(Canvas canvas);
+    boolean b(QmStickerItem qmStickerItem);
 
-    void k(Canvas canvas);
+    void c(bt6.b bVar);
 
-    void m(Context context, AttributeSet attributeSet, View view2);
+    void d(QmStickerItem qmStickerItem);
+
+    void e();
+
+    void reset();
 }

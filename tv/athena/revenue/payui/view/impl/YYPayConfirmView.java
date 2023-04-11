@@ -14,11 +14,11 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a0b;
-import com.baidu.tieba.i0b;
-import com.baidu.tieba.n0b;
-import com.baidu.tieba.nza;
-import com.baidu.tieba.r0b;
+import com.baidu.tieba.e9b;
+import com.baidu.tieba.eab;
+import com.baidu.tieba.iab;
+import com.baidu.tieba.r9b;
+import com.baidu.tieba.z9b;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
@@ -27,30 +27,30 @@ import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes9.dex */
-public class YYPayConfirmView extends LinearLayout implements n0b {
+public class YYPayConfirmView extends LinearLayout implements eab {
     public int a;
     public int b;
-    public n0b.a c;
+    public eab.a c;
     public GridView d;
     public TextView e;
     public View f;
     public Button g;
     public TextView h;
     public PayUIKitConfig i;
-    public r0b j;
+    public iab j;
     public GiftBagsInfo k;
     public List<GiftBagItemInfo> l;
 
-    @Override // com.baidu.tieba.l0b
+    @Override // com.baidu.tieba.cab
     public void attachWindow(Window window) {
     }
 
-    @Override // com.baidu.tieba.l0b
+    @Override // com.baidu.tieba.cab
     public View getContentView() {
         return this;
     }
 
-    @Override // com.baidu.tieba.l0b
+    @Override // com.baidu.tieba.cab
     public void refreshWindow(WindowParams windowParams) {
     }
 
@@ -72,15 +72,15 @@ public class YYPayConfirmView extends LinearLayout implements n0b {
         this.b = i2;
         this.i = payUIKitConfig;
         e(context);
-        nza.d(this.a, this.b, "15", "", "", "");
+        e9b.d(this.a, this.b, "15", "", "", "");
     }
 
-    @Override // com.baidu.tieba.n0b
-    public void setCallback(n0b.a aVar) {
+    @Override // com.baidu.tieba.eab
+    public void setCallback(eab.a aVar) {
         this.c = aVar;
     }
 
-    @Override // com.baidu.tieba.n0b
+    @Override // com.baidu.tieba.eab
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         RLog.info("YYPayConfirmView", "setGiftBagsInfo giftBagsInfo:" + giftBagsInfo);
         this.k = giftBagsInfo;
@@ -96,11 +96,11 @@ public class YYPayConfirmView extends LinearLayout implements n0b {
 
     public final void f() {
         RLog.info("YYPayConfirmView", "onContinueBtnClick");
-        n0b.a aVar = this.c;
+        eab.a aVar = this.c;
         if (aVar != null) {
             aVar.a();
         }
-        nza.d(this.a, this.b, "16", "", "", "");
+        e9b.d(this.a, this.b, "16", "", "", "");
     }
 
     public final void g() {
@@ -128,7 +128,7 @@ public class YYPayConfirmView extends LinearLayout implements n0b {
     }
 
     public final void e(Context context) {
-        LayoutInflater.from(new ContextThemeWrapper(context, i0b.a.a(this.i))).inflate(R.layout.pay_ui_layout_pay_confirm_giveup_view, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(context, z9b.a.a(this.i))).inflate(R.layout.pay_ui_layout_pay_confirm_giveup_view, (ViewGroup) this, true);
         Button button = (Button) findViewById(R.id.btn_continue);
         this.g = button;
         button.setOnClickListener(new a());
@@ -136,9 +136,9 @@ public class YYPayConfirmView extends LinearLayout implements n0b {
         this.d = gridView;
         int i = 0;
         gridView.setSelector(new ColorDrawable(0));
-        r0b r0bVar = new r0b(context, this.l, this.i);
-        this.j = r0bVar;
-        this.d.setAdapter((ListAdapter) r0bVar);
+        iab iabVar = new iab(context, this.l, this.i);
+        this.j = iabVar;
+        this.d.setAdapter((ListAdapter) iabVar);
         GridView gridView2 = this.d;
         if (!c()) {
             i = 8;
@@ -149,7 +149,7 @@ public class YYPayConfirmView extends LinearLayout implements n0b {
         this.h = (TextView) findViewById(R.id.tv_title);
     }
 
-    @Override // com.baidu.tieba.l0b
+    @Override // com.baidu.tieba.cab
     public void refreshView() {
         RLog.info("YYPayConfirmView", "refreshView mGiftBagsInfo:" + this.k);
         if (!c()) {
@@ -166,7 +166,7 @@ public class YYPayConfirmView extends LinearLayout implements n0b {
             this.l.clear();
             this.l.addAll(this.k.giftbag);
             this.j.notifyDataSetChanged();
-            a0b.a(this.l.size(), this.f, this.d);
+            r9b.a(this.l.size(), this.f, this.d);
             i();
             h();
             g();

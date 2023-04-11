@@ -15,10 +15,11 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ey5;
-import com.baidu.tieba.wj0;
+import com.baidu.tieba.kz5;
+import com.baidu.tieba.xj0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,32 +37,31 @@ import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
-@Metadata(d1 = {"\u0000\u008c\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B'\b\u0007\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u00108\u001a\u0002092\u0006\u0010:\u001a\u00020;H\u0016J\u0012\u0010<\u001a\u0002092\b\u0010=\u001a\u0004\u0018\u00010>H\u0002J\u0012\u0010?\u001a\u0002092\b\u0010=\u001a\u0004\u0018\u00010>H\u0002J\b\u0010@\u001a\u00020\u0001H\u0016J \u0010A\u001a\u0002062\u0006\u0010B\u001a\u00020\b2\u0006\u0010C\u001a\u0002062\u0006\u0010D\u001a\u00020EH\u0002J\b\u0010F\u001a\u00020\u0001H\u0016J\b\u0010G\u001a\u000209H\u0002J\u0010\u0010H\u001a\u0002092\u0006\u0010I\u001a\u00020\bH\u0016J\u0012\u0010J\u001a\u00020E2\b\u0010K\u001a\u0004\u0018\u00010\u0001H\u0016J\u0012\u0010L\u001a\u0002092\b\u0010=\u001a\u0004\u0018\u00010>H\u0014J\u0018\u0010M\u001a\u0002092\u0006\u0010N\u001a\u00020\b2\u0006\u0010O\u001a\u00020\bH\u0014J\u0012\u0010P\u001a\u0002092\b\u0010Q\u001a\u0004\u0018\u00010\u000fH\u0016J\u001a\u0010R\u001a\u0002092\b\u0010S\u001a\u0004\u0018\u00010\r2\u0006\u0010T\u001a\u00020UH\u0016R\u000e\u0010\n\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0011\u001a\u00020\u00128FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u0015\u0010\u0016\u001a\u0004\b\u0013\u0010\u0014R\u001b\u0010\u0017\u001a\u00020\u00188FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u001b\u0010\u0016\u001a\u0004\b\u0019\u0010\u001aR\u000e\u0010\u001c\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001e\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\u001f\u001a\u00020 8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b#\u0010\u0016\u001a\u0004\b!\u0010\"R\u001b\u0010$\u001a\u00020\u00128BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b&\u0010\u0016\u001a\u0004\b%\u0010\u0014R\u0010\u0010'\u001a\u0004\u0018\u00010(X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010*\u001a\u00020+X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010,\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010-\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010.\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010/\u001a\u0002008BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b3\u0010\u0016\u001a\u0004\b1\u00102R\u0010\u00104\u001a\u0004\u0018\u00010(X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00105\u001a\u000206X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00107\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006V"}, d2 = {"Lcom/baidu/tieba/recapp/widget/NadProgressButton;", "Landroid/view/View;", "Lcom/baidu/tieba/ad/download/mvp/IDownloadView;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "buttonBgColor", "buttonBgColorRes", "buttonText", "", "clickInterceptListener", "Lcom/baidu/tieba/ad/download/mvp/IDownloadView$OnClickInterceptListener;", "horizontalDistance", "measurePaint", "Landroid/graphics/Paint;", "getMeasurePaint", "()Landroid/graphics/Paint;", "measurePaint$delegate", "Lkotlin/Lazy;", "measureRec", "Landroid/graphics/Rect;", "getMeasureRec", "()Landroid/graphics/Rect;", "measureRec$delegate", "progress", "progressBgColor", "progressBgColorRes", "progressOval", "Landroid/graphics/RectF;", "getProgressOval", "()Landroid/graphics/RectF;", "progressOval$delegate", "progressPaint", "getProgressPaint", "progressPaint$delegate", "progressShader", "Landroid/graphics/Shader;", "radius", "status", "Lcom/baidu/nadcore/download/consts/AdDownloadStatus;", "strokeWidth", "textColorInProgress", "textColorInProgressRes", "textPaint", "Landroid/text/TextPaint;", "getTextPaint", "()Landroid/text/TextPaint;", "textPaint$delegate", "textShader", "textSize", "", "verticalDistance", "bind", "", "p0", "Landroid/view/ViewGroup;", "drawProgress", "canvas", "Landroid/graphics/Canvas;", "drawText", "getActionBar", "getMeasuredSizeBySpec", "measureSpec", "originSize", "isWidth", "", "getRealView", "initPaint", "onChangeSkinType", "type", "onClickIntercept", NativeConstants.TYPE_VIEW, "onDraw", "onMeasure", "widthMeasureSpec", "heightMeasureSpec", "setOnClickInterceptListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, StickerDataChangeType.UPDATE, "text", "adDownloadBean", "Lcom/baidu/nadcore/download/model/AdDownloadBean;", "recApp_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000\u008c\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B'\b\u0007\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u00106\u001a\u0002072\u0006\u00108\u001a\u000209H\u0016J\u0012\u0010:\u001a\u0002072\b\u0010;\u001a\u0004\u0018\u00010<H\u0002J\u0012\u0010=\u001a\u0002072\b\u0010;\u001a\u0004\u0018\u00010<H\u0002J\b\u0010>\u001a\u00020\u0001H\u0016J \u0010?\u001a\u0002042\u0006\u0010@\u001a\u00020\b2\u0006\u0010A\u001a\u0002042\u0006\u0010B\u001a\u00020CH\u0002J\b\u0010D\u001a\u00020\u0001H\u0016J\b\u0010E\u001a\u000207H\u0002J\u0010\u0010F\u001a\u0002072\u0006\u0010G\u001a\u00020\bH\u0016J\u0012\u0010H\u001a\u00020C2\b\u0010I\u001a\u0004\u0018\u00010\u0001H\u0016J\u0012\u0010J\u001a\u0002072\b\u0010;\u001a\u0004\u0018\u00010<H\u0014J\u0018\u0010K\u001a\u0002072\u0006\u0010L\u001a\u00020\b2\u0006\u0010M\u001a\u00020\bH\u0014J\u0012\u0010N\u001a\u0002072\b\u0010O\u001a\u0004\u0018\u00010\rH\u0016J\u001a\u0010P\u001a\u0002072\b\u0010Q\u001a\u0004\u0018\u00010\u000b2\u0006\u0010R\u001a\u00020SH\u0016R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u000f\u001a\u00020\u00108FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u0013\u0010\u0014\u001a\u0004\b\u0011\u0010\u0012R\u001b\u0010\u0015\u001a\u00020\u00168FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u0019\u0010\u0014\u001a\u0004\b\u0017\u0010\u0018R\u000e\u0010\u001a\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\u001d\u001a\u00020\u001e8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b!\u0010\u0014\u001a\u0004\b\u001f\u0010 R\u001b\u0010\"\u001a\u00020\u00108BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b$\u0010\u0014\u001a\u0004\b#\u0010\u0012R\u0010\u0010%\u001a\u0004\u0018\u00010&X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010'\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020)X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010*\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010+\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010,\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010-\u001a\u00020.8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b1\u0010\u0014\u001a\u0004\b/\u00100R\u0010\u00102\u001a\u0004\u0018\u00010&X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00103\u001a\u000204X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00105\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006T"}, d2 = {"Lcom/baidu/tieba/recapp/widget/NadProgressButton;", "Landroid/view/View;", "Lcom/baidu/tieba/ad/download/mvp/IDownloadView;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "buttonText", "", "clickInterceptListener", "Lcom/baidu/tieba/ad/download/mvp/IDownloadView$OnClickInterceptListener;", "horizontalDistance", "measurePaint", "Landroid/graphics/Paint;", "getMeasurePaint", "()Landroid/graphics/Paint;", "measurePaint$delegate", "Lkotlin/Lazy;", "measureRec", "Landroid/graphics/Rect;", "getMeasureRec", "()Landroid/graphics/Rect;", "measureRec$delegate", "progress", "progressBgColor", "progressBgColorRes", "progressOval", "Landroid/graphics/RectF;", "getProgressOval", "()Landroid/graphics/RectF;", "progressOval$delegate", "progressPaint", "getProgressPaint", "progressPaint$delegate", "progressShader", "Landroid/graphics/Shader;", "radius", "status", "Lcom/baidu/nadcore/download/consts/AdDownloadStatus;", "strokeWidth", "textColorInProgress", "textColorInProgressRes", "textPaint", "Landroid/text/TextPaint;", "getTextPaint", "()Landroid/text/TextPaint;", "textPaint$delegate", "textShader", "textSize", "", "verticalDistance", "bind", "", "p0", "Landroid/view/ViewGroup;", "drawProgress", "canvas", "Landroid/graphics/Canvas;", "drawText", "getActionBar", "getMeasuredSizeBySpec", "measureSpec", "originSize", "isWidth", "", "getRealView", "initPaint", "onChangeSkinType", "type", "onClickIntercept", NativeConstants.TYPE_VIEW, "onDraw", "onMeasure", "widthMeasureSpec", "heightMeasureSpec", "setOnClickInterceptListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, StickerDataChangeType.UPDATE, "text", "adDownloadBean", "Lcom/baidu/nadcore/download/model/AdDownloadBean;", "recApp_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class NadProgressButton extends View implements ey5 {
+public final class NadProgressButton extends View implements kz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
     public final int b;
-    public final int c;
+    public int c;
     public int d;
     public int e;
-    public int f;
-    public AdDownloadStatus g;
-    public String h;
-    public float i;
-    public ey5.a j;
-    public int k;
+    public AdDownloadStatus f;
+    public String g;
+    public float h;
+    public kz5.a i;
+    public int j;
+    public final Lazy k;
     public final Lazy l;
     public final Lazy m;
-    public final Lazy n;
+    public Shader n;
     public Shader o;
-    public Shader p;
+    public int p;
     public int q;
-    public int r;
-    public final int s;
+    public final int r;
+    public final Lazy s;
     public final Lazy t;
-    public final Lazy u;
 
     /* loaded from: classes6.dex */
     public /* synthetic */ class a {
@@ -137,7 +137,7 @@ public final class NadProgressButton extends View implements ey5 {
         }
     }
 
-    @Override // com.baidu.tieba.pk0
+    @Override // com.baidu.tieba.qk0
     public void b(ViewGroup p0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p0) == null) {
@@ -151,7 +151,7 @@ public final class NadProgressButton extends View implements ey5 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pk0
+    @Override // com.baidu.tieba.qk0
     public View getRealView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -181,22 +181,21 @@ public final class NadProgressButton extends View implements ey5 {
         new LinkedHashMap();
         this.a = R.color.CAM_X0101;
         this.b = R.color.CAM_X0302;
-        this.c = R.color.CAM_X0905;
-        this.d = SkinManager.getColor(R.color.CAM_X0101);
-        this.e = SkinManager.getColor(this.b);
-        SkinManager.getColor(this.c);
-        this.g = AdDownloadStatus.NONE;
-        this.h = "";
-        this.i = getResources().getDimensionPixelSize(R.dimen.T_X08);
-        this.k = getResources().getDimensionPixelSize(R.dimen.tbds42);
-        this.l = LazyKt__LazyJVMKt.lazy(NadProgressButton$progressOval$2.INSTANCE);
-        this.m = LazyKt__LazyJVMKt.lazy(NadProgressButton$progressPaint$2.INSTANCE);
-        this.n = LazyKt__LazyJVMKt.lazy(NadProgressButton$textPaint$2.INSTANCE);
-        this.q = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
-        this.r = getResources().getDimensionPixelSize(R.dimen.M_H_X003);
-        this.s = getResources().getDimensionPixelSize(R.dimen.L_X01);
-        this.t = LazyKt__LazyJVMKt.lazy(NadProgressButton$measureRec$2.INSTANCE);
-        this.u = LazyKt__LazyJVMKt.lazy(NadProgressButton$measurePaint$2.INSTANCE);
+        this.c = SkinManager.getColor(R.color.CAM_X0101);
+        this.d = SkinManager.getColor(this.b);
+        this.f = AdDownloadStatus.NONE;
+        this.g = "";
+        this.h = getResources().getDimensionPixelSize(R.dimen.T_X08);
+        this.j = getResources().getDimensionPixelSize(R.dimen.tbds42);
+        this.k = LazyKt__LazyJVMKt.lazy(NadProgressButton$progressOval$2.INSTANCE);
+        this.l = LazyKt__LazyJVMKt.lazy(NadProgressButton$progressPaint$2.INSTANCE);
+        this.m = LazyKt__LazyJVMKt.lazy(NadProgressButton$textPaint$2.INSTANCE);
+        this.p = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
+        this.q = getResources().getDimensionPixelSize(R.dimen.M_H_X003);
+        this.r = getResources().getDimensionPixelSize(R.dimen.L_X01);
+        this.s = LazyKt__LazyJVMKt.lazy(NadProgressButton$measureRec$2.INSTANCE);
+        this.t = LazyKt__LazyJVMKt.lazy(NadProgressButton$measurePaint$2.INSTANCE);
+        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         f();
     }
 
@@ -208,7 +207,7 @@ public final class NadProgressButton extends View implements ey5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            return (RectF) this.l.getValue();
+            return (RectF) this.k.getValue();
         }
         return (RectF) invokeV.objValue;
     }
@@ -217,7 +216,7 @@ public final class NadProgressButton extends View implements ey5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            return (Paint) this.m.getValue();
+            return (Paint) this.l.getValue();
         }
         return (Paint) invokeV.objValue;
     }
@@ -226,7 +225,7 @@ public final class NadProgressButton extends View implements ey5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            return (TextPaint) this.n.getValue();
+            return (TextPaint) this.m.getValue();
         }
         return (TextPaint) invokeV.objValue;
     }
@@ -236,7 +235,7 @@ public final class NadProgressButton extends View implements ey5 {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             getProgressPaint().setAntiAlias(true);
             getProgressPaint().setStyle(Paint.Style.FILL);
-            getProgressPaint().setColor(this.e);
+            getProgressPaint().setColor(this.d);
         }
     }
 
@@ -244,7 +243,7 @@ public final class NadProgressButton extends View implements ey5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return (Paint) this.u.getValue();
+            return (Paint) this.t.getValue();
         }
         return (Paint) invokeV.objValue;
     }
@@ -253,17 +252,17 @@ public final class NadProgressButton extends View implements ey5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return (Rect) this.t.getValue();
+            return (Rect) this.s.getValue();
         }
         return (Rect) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ey5
+    @Override // com.baidu.tieba.kz5
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            ey5.a aVar = this.j;
+            kz5.a aVar = this.i;
             if (aVar != null) {
                 return aVar.a(view2);
             }
@@ -272,14 +271,13 @@ public final class NadProgressButton extends View implements ey5 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ey5
+    @Override // com.baidu.tieba.kz5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             SkinManager.setBackgroundResource(this, R.drawable.obfuscated_res_0x7f0800c1);
-            this.d = SkinManager.getColor(this.a);
-            this.e = SkinManager.getColor(this.b);
-            SkinManager.getColor(this.c);
+            this.c = SkinManager.getColor(this.a);
+            this.d = SkinManager.getColor(this.b);
             postInvalidate();
         }
     }
@@ -294,39 +292,39 @@ public final class NadProgressButton extends View implements ey5 {
         }
     }
 
-    @Override // com.baidu.tieba.ey5
-    public void setOnClickInterceptListener(ey5.a aVar) {
+    @Override // com.baidu.tieba.kz5
+    public void setOnClickInterceptListener(kz5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
-            this.j = aVar;
+            this.i = aVar;
         }
     }
 
     public final void c(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            getProgressOval().left = this.s;
-            getProgressOval().top = this.s;
-            getProgressOval().right = getMeasuredWidth() - this.s;
-            getProgressOval().bottom = getMeasuredHeight() - this.s;
-            float f = this.f / 100.0f;
-            switch (a.$EnumSwitchMapping$0[this.g.ordinal()]) {
+            getProgressOval().left = this.r;
+            getProgressOval().top = this.r;
+            getProgressOval().right = getMeasuredWidth() - this.r;
+            getProgressOval().bottom = getMeasuredHeight() - this.r;
+            float f = this.e / 100.0f;
+            switch (a.$EnumSwitchMapping$0[this.f.ordinal()]) {
                 case 1:
                 case 2:
                 case 3:
                 case 4:
                     getProgressPaint().setShader(null);
-                    getProgressPaint().setColor(this.e);
+                    getProgressPaint().setColor(this.d);
                     break;
                 case 5:
                 case 6:
-                    this.o = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.e, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
-                    getProgressPaint().setShader(this.o);
+                    this.n = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.d, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
+                    getProgressPaint().setShader(this.n);
                     break;
             }
             if (canvas != null) {
                 RectF progressOval = getProgressOval();
-                int i = this.k;
+                int i = this.j;
                 canvas.drawRoundRect(progressOval, i, i, getProgressPaint());
             }
         }
@@ -337,27 +335,27 @@ public final class NadProgressButton extends View implements ey5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             getTextPaint().setAntiAlias(true);
-            getTextPaint().setTextSize(this.i);
-            float measureText = getTextPaint().measureText(this.h);
+            getTextPaint().setTextSize(this.h);
+            float measureText = getTextPaint().measureText(this.g);
             float f = 2;
             float f2 = measureText / f;
             float measuredWidth = (getMeasuredWidth() / 2) - f2;
             float measuredWidth2 = (getMeasuredWidth() / 2) + f2;
-            float measuredWidth3 = getMeasuredWidth() * (this.f / 100.0f);
+            float measuredWidth3 = getMeasuredWidth() * (this.e / 100.0f);
             float f3 = (measuredWidth3 - measuredWidth) / measureText;
-            switch (a.$EnumSwitchMapping$0[this.g.ordinal()]) {
+            switch (a.$EnumSwitchMapping$0[this.f.ordinal()]) {
                 case 1:
                 case 2:
                 case 3:
                 case 4:
                     getTextPaint().setShader(null);
-                    getTextPaint().setColor(this.d);
+                    getTextPaint().setColor(this.c);
                     break;
                 case 5:
                 case 6:
                     if (measuredWidth3 <= measuredWidth) {
                         getTextPaint().setShader(null);
-                        getTextPaint().setColor(this.e);
+                        getTextPaint().setColor(this.d);
                         break;
                     } else {
                         if (measuredWidth <= measuredWidth3 && measuredWidth3 <= measuredWidth2) {
@@ -366,13 +364,13 @@ public final class NadProgressButton extends View implements ey5 {
                             z = false;
                         }
                         if (z) {
-                            this.p = new LinearGradient(measuredWidth, 0.0f, measuredWidth2, 0.0f, new int[]{this.d, this.e}, new float[]{f3, f3 + 0.001f}, Shader.TileMode.CLAMP);
-                            getTextPaint().setShader(this.p);
-                            getTextPaint().setColor(this.e);
+                            this.o = new LinearGradient(measuredWidth, 0.0f, measuredWidth2, 0.0f, new int[]{this.c, this.d}, new float[]{f3, f3 + 0.001f}, Shader.TileMode.CLAMP);
+                            getTextPaint().setShader(this.o);
+                            getTextPaint().setColor(this.d);
                             break;
                         } else {
                             getTextPaint().setShader(null);
-                            getTextPaint().setColor(this.d);
+                            getTextPaint().setColor(this.c);
                             break;
                         }
                     }
@@ -383,7 +381,7 @@ public final class NadProgressButton extends View implements ey5 {
             float f4 = fontMetrics.descent;
             float height = ((getHeight() / 2) - f4) + ((f4 - fontMetrics.ascent) / f);
             if (canvas != null) {
-                canvas.drawText(this.h, measuredWidth, height, getTextPaint());
+                canvas.drawText(this.g, measuredWidth, height, getTextPaint());
             }
         }
     }
@@ -412,31 +410,31 @@ public final class NadProgressButton extends View implements ey5 {
         if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
             getMeasurePaint().setAntiAlias(true);
             getMeasurePaint().setStyle(Paint.Style.FILL);
-            getMeasurePaint().setTextSize(this.i);
+            getMeasurePaint().setTextSize(this.h);
             getMeasurePaint().setTextAlign(Paint.Align.CENTER);
             String string = getResources().getString(R.string.install_app);
             Intrinsics.checkNotNullExpressionValue(string, "resources.getString(R.string.install_app)");
             getMeasurePaint().getTextBounds(string, 0, string.length(), getMeasureRec());
-            float height = (this.r * 2) + getMeasureRec().height();
-            setMeasuredDimension((int) e(i, (this.q * 2) + getMeasureRec().width(), true), (int) e(i2, height, false));
+            float height = (this.q * 2) + getMeasureRec().height();
+            setMeasuredDimension((int) e(i, (this.p * 2) + getMeasureRec().width(), true), (int) e(i2, height, false));
         }
     }
 
-    @Override // com.baidu.tieba.pk0
-    public void update(String str, wj0 adDownloadBean) {
+    @Override // com.baidu.tieba.qk0
+    public void update(String str, xj0 adDownloadBean) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, str, adDownloadBean) == null) {
             Intrinsics.checkNotNullParameter(adDownloadBean, "adDownloadBean");
             AdDownloadStatus adDownloadStatus = adDownloadBean.c;
             Intrinsics.checkNotNullExpressionValue(adDownloadStatus, "adDownloadBean.status");
-            this.g = adDownloadStatus;
+            this.f = adDownloadStatus;
             if (str == null) {
                 str = getResources().getString(R.string.install_app);
                 Intrinsics.checkNotNullExpressionValue(str, "resources.getString(R.string.install_app)");
             }
-            this.h = str;
+            this.g = str;
             float f = 100;
-            this.f = (int) RangesKt___RangesKt.coerceAtLeast(adDownloadBean.i * f, adDownloadBean.j * f);
+            this.e = (int) RangesKt___RangesKt.coerceAtLeast(adDownloadBean.i * f, adDownloadBean.j * f);
             postInvalidate();
         }
     }

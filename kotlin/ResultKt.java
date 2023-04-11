@@ -33,10 +33,10 @@ public final class ResultKt {
         Intrinsics.checkNotNullParameter(block, "block");
         try {
             Result.Companion companion = Result.Companion;
-            return Result.m768constructorimpl(block.invoke());
+            return Result.m770constructorimpl(block.invoke());
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            return Result.m768constructorimpl(createFailure(th));
+            return Result.m770constructorimpl(createFailure(th));
         }
     }
 
@@ -54,11 +54,11 @@ public final class ResultKt {
     public static final <R, T> R fold(Object obj, Function1<? super T, ? extends R> onSuccess, Function1<? super Throwable, ? extends R> onFailure) {
         Intrinsics.checkNotNullParameter(onSuccess, "onSuccess");
         Intrinsics.checkNotNullParameter(onFailure, "onFailure");
-        Throwable m771exceptionOrNullimpl = Result.m771exceptionOrNullimpl(obj);
-        if (m771exceptionOrNullimpl == null) {
+        Throwable m773exceptionOrNullimpl = Result.m773exceptionOrNullimpl(obj);
+        if (m773exceptionOrNullimpl == null) {
             return onSuccess.invoke(obj);
         }
-        return onFailure.invoke(m771exceptionOrNullimpl);
+        return onFailure.invoke(m773exceptionOrNullimpl);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
@@ -66,7 +66,7 @@ public final class ResultKt {
     @SinceKotlin(version = "1.3")
     @InlineOnly
     public static final <R, T extends R> R getOrDefault(Object obj, R r) {
-        if (Result.m774isFailureimpl(obj)) {
+        if (Result.m776isFailureimpl(obj)) {
             return r;
         }
         return obj;
@@ -78,9 +78,9 @@ public final class ResultKt {
     @InlineOnly
     public static final <R, T extends R> R getOrElse(Object obj, Function1<? super Throwable, ? extends R> onFailure) {
         Intrinsics.checkNotNullParameter(onFailure, "onFailure");
-        Throwable m771exceptionOrNullimpl = Result.m771exceptionOrNullimpl(obj);
-        if (m771exceptionOrNullimpl != null) {
-            return onFailure.invoke(m771exceptionOrNullimpl);
+        Throwable m773exceptionOrNullimpl = Result.m773exceptionOrNullimpl(obj);
+        if (m773exceptionOrNullimpl != null) {
+            return onFailure.invoke(m773exceptionOrNullimpl);
         }
         return obj;
     }
@@ -89,36 +89,36 @@ public final class ResultKt {
     @InlineOnly
     public static final <R, T> Object map(Object obj, Function1<? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(transform, "transform");
-        if (Result.m775isSuccessimpl(obj)) {
+        if (Result.m777isSuccessimpl(obj)) {
             Result.Companion companion = Result.Companion;
-            return Result.m768constructorimpl(transform.invoke(obj));
+            return Result.m770constructorimpl(transform.invoke(obj));
         }
-        return Result.m768constructorimpl(obj);
+        return Result.m770constructorimpl(obj);
     }
 
     @SinceKotlin(version = "1.3")
     @InlineOnly
     public static final <R, T> Object mapCatching(Object obj, Function1<? super T, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(transform, "transform");
-        if (Result.m775isSuccessimpl(obj)) {
+        if (Result.m777isSuccessimpl(obj)) {
             try {
                 Result.Companion companion = Result.Companion;
-                return Result.m768constructorimpl(transform.invoke(obj));
+                return Result.m770constructorimpl(transform.invoke(obj));
             } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                return Result.m768constructorimpl(createFailure(th));
+                return Result.m770constructorimpl(createFailure(th));
             }
         }
-        return Result.m768constructorimpl(obj);
+        return Result.m770constructorimpl(obj);
     }
 
     @SinceKotlin(version = "1.3")
     @InlineOnly
     public static final <T> Object onFailure(Object obj, Function1<? super Throwable, Unit> action) {
         Intrinsics.checkNotNullParameter(action, "action");
-        Throwable m771exceptionOrNullimpl = Result.m771exceptionOrNullimpl(obj);
-        if (m771exceptionOrNullimpl != null) {
-            action.invoke(m771exceptionOrNullimpl);
+        Throwable m773exceptionOrNullimpl = Result.m773exceptionOrNullimpl(obj);
+        if (m773exceptionOrNullimpl != null) {
+            action.invoke(m773exceptionOrNullimpl);
         }
         return obj;
     }
@@ -127,7 +127,7 @@ public final class ResultKt {
     @InlineOnly
     public static final <T> Object onSuccess(Object obj, Function1<? super T, Unit> action) {
         Intrinsics.checkNotNullParameter(action, "action");
-        if (Result.m775isSuccessimpl(obj)) {
+        if (Result.m777isSuccessimpl(obj)) {
             action.invoke(obj);
         }
         return obj;
@@ -137,10 +137,10 @@ public final class ResultKt {
     @InlineOnly
     public static final <R, T extends R> Object recover(Object obj, Function1<? super Throwable, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(transform, "transform");
-        Throwable m771exceptionOrNullimpl = Result.m771exceptionOrNullimpl(obj);
-        if (m771exceptionOrNullimpl != null) {
+        Throwable m773exceptionOrNullimpl = Result.m773exceptionOrNullimpl(obj);
+        if (m773exceptionOrNullimpl != null) {
             Result.Companion companion = Result.Companion;
-            return Result.m768constructorimpl(transform.invoke(m771exceptionOrNullimpl));
+            return Result.m770constructorimpl(transform.invoke(m773exceptionOrNullimpl));
         }
         return obj;
     }
@@ -149,14 +149,14 @@ public final class ResultKt {
     @InlineOnly
     public static final <R, T extends R> Object recoverCatching(Object obj, Function1<? super Throwable, ? extends R> transform) {
         Intrinsics.checkNotNullParameter(transform, "transform");
-        Throwable m771exceptionOrNullimpl = Result.m771exceptionOrNullimpl(obj);
-        if (m771exceptionOrNullimpl != null) {
+        Throwable m773exceptionOrNullimpl = Result.m773exceptionOrNullimpl(obj);
+        if (m773exceptionOrNullimpl != null) {
             try {
                 Result.Companion companion = Result.Companion;
-                return Result.m768constructorimpl(transform.invoke(m771exceptionOrNullimpl));
+                return Result.m770constructorimpl(transform.invoke(m773exceptionOrNullimpl));
             } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                return Result.m768constructorimpl(createFailure(th));
+                return Result.m770constructorimpl(createFailure(th));
             }
         }
         return obj;
@@ -168,10 +168,10 @@ public final class ResultKt {
         Intrinsics.checkNotNullParameter(block, "block");
         try {
             Result.Companion companion = Result.Companion;
-            return Result.m768constructorimpl(block.invoke(t));
+            return Result.m770constructorimpl(block.invoke(t));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            return Result.m768constructorimpl(createFailure(th));
+            return Result.m770constructorimpl(createFailure(th));
         }
     }
 }

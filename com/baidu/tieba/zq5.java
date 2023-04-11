@@ -1,125 +1,243 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class zq5 extends ImageSpan {
+public class zq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Drawable> a;
-    public int b;
-    public int c;
+    @NonNull
+    public final Handler a;
+    public final int b;
+    public final long c;
+    public int d;
+    @Nullable
+    public Runnable e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zq5(Drawable drawable, int i) {
-        super(drawable);
+    /* loaded from: classes7.dex */
+    public interface c<T> {
+        void call(boolean z, T t);
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements c<Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ zq5 b;
+
+        /* loaded from: classes7.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    b bVar = this.a;
+                    bVar.b.k(bVar.a);
+                }
+            }
+        }
+
+        public b(zq5 zq5Var, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zq5Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = zq5Var;
+            this.a = cVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zq5.c
+        public void call(boolean z, Void r6) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, r6) == null) && !z) {
+                this.b.e = new a(this);
+                this.b.a.postDelayed(this.b.e, this.b.c);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Callable a;
+        public final /* synthetic */ zq5 b;
+
+        public a(zq5 zq5Var, Callable callable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zq5Var, callable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = zq5Var;
+            this.a = callable;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.l(this.a);
+            }
+        }
+    }
+
+    public zq5(int i, int i2, @NonNull TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), timeUnit};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Drawable) newInitContext.callArgs[0]);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 0;
-        this.c = 1;
-        this.c = i;
+        this.a = new Handler(Looper.getMainLooper());
+        this.b = i;
+        this.c = timeUnit.toMillis(i2);
     }
 
-    public final Drawable a() {
+    public void i(@NonNull c<c<Void>> cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            h();
+            k(cVar);
+        }
+    }
+
+    public void j(@NonNull Callable<Boolean> callable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callable) == null) {
+            h();
+            l(callable);
+        }
+    }
+
+    @NonNull
+    public static zq5 g() {
         InterceptResult invokeV;
-        Drawable drawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.a;
-            if (weakReference != null) {
-                drawable = weakReference.get();
-            } else {
-                drawable = null;
-            }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.a = new WeakReference<>(drawable2);
-                return drawable2;
-            }
-            return drawable;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new zq5(10, 1000, TimeUnit.MILLISECONDS);
         }
-        return (Drawable) invokeV.objValue;
+        return (zq5) invokeV.objValue;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable a;
-        float f2;
+    public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) != null) || (a = a()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Runnable runnable = this.e;
+            if (runnable != null) {
+                this.a.removeCallbacks(runnable);
+                this.e = null;
+            }
+            this.d = 0;
         }
-        int i6 = this.c;
-        float f3 = 0.0f;
-        if (i6 != 0) {
-            if (i6 != 1) {
-                if (i6 != 2) {
-                    f2 = 0.0f;
-                } else {
-                    f2 = 0.2f;
+    }
+
+    public final void k(@NonNull c<c<Void>> cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            try {
+                if (this.d < this.b) {
+                    boolean z = true;
+                    int i = this.d + 1;
+                    this.d = i;
+                    if (i < this.b) {
+                        z = false;
+                    }
+                    cVar.call(z, new b(this, cVar));
                 }
-            } else {
-                f2 = 0.15f;
+            } catch (Exception e) {
+                BdLog.e(e);
+                Runnable runnable = this.e;
+                if (runnable != null) {
+                    this.a.removeCallbacks(runnable);
+                    this.e = null;
+                }
             }
-        } else {
-            f2 = 0.1f;
         }
-        if (f2 != 0.0f) {
-            f3 = ((i4 - i5) + (a.getBounds().height() * f2)) - this.b;
-        }
-        canvas.save();
-        canvas.translate(a.getBounds().width() * 0.15f, f3);
-        super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
-        canvas.restore();
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public final void l(@NonNull Callable<Boolean> callable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Drawable a = a();
-            if (a == null) {
-                return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+        if (interceptable == null || interceptable.invokeL(1048580, this, callable) == null) {
+            try {
+                if (this.d < this.b) {
+                    this.d++;
+                    if (!callable.call().booleanValue()) {
+                        a aVar = new a(this, callable);
+                        this.e = aVar;
+                        this.a.postDelayed(aVar, this.c);
+                    }
+                }
+            } catch (Exception e) {
+                BdLog.e(e);
+                Runnable runnable = this.e;
+                if (runnable != null) {
+                    this.a.removeCallbacks(runnable);
+                    this.e = null;
+                }
             }
-            Rect bounds = a.getBounds();
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
-            }
-            return bounds.right;
         }
-        return invokeCommon.intValue;
     }
 }

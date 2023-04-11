@@ -1,307 +1,132 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.ArrayMap;
-import android.util.Log;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.tieba.x63;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.rs2;
+import com.baidu.tieba.zd2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a13 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static a13 f;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, JSONArray> a;
-    public String[] b;
-    public String c;
-    public Map<String, String> d;
-
-    /* loaded from: classes3.dex */
-    public static abstract class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public abstract void c(String str);
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final void b(int i) {
-            Application c;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (c = ar2.c()) != null) {
-                c(c.getString(i));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends ResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public AtomicInteger a;
-        public boolean b;
-        public int c;
-        public a d;
-        public final /* synthetic */ a13 e;
-
-        public b(a13 a13Var, int i, a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a13Var, Integer.valueOf(i), aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = a13Var;
-            this.a = new AtomicInteger(0);
-            this.c = i;
-            this.d = aVar;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            a aVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && !this.b && this.a.incrementAndGet() >= this.c && (aVar = this.d) != null) {
-                aVar.b(R.string.obfuscated_res_0x7f0f014d);
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-                this.b = true;
-                this.e.a = new ArrayMap();
-                a aVar = this.d;
-                if (aVar != null) {
-                    aVar.b(R.string.obfuscated_res_0x7f0f0151);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                if (response != null && response.body() != null && response.isSuccessful()) {
-                    try {
-                        return response.body().string();
-                    } catch (IOException e) {
-                        if (a13.e) {
-                            Log.d("TraceDataManager", "Trace Data publish fail for IOException", e);
-                        }
-                    }
-                }
-                return null;
-            }
-            return invokeLI.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947562278, "Lcom/baidu/tieba/a13;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947562278, "Lcom/baidu/tieba/a13;");
-                return;
-            }
-        }
-        e = do1.a;
-    }
-
-    public static a13 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f == null) {
-                synchronized (a13.class) {
-                    if (f == null) {
-                        f = new a13();
-                    }
-                }
-            }
-            return f;
-        }
-        return (a13) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String[] strArr = this.b;
-            if (strArr != null && strArr.length > 0 && !TextUtils.isEmpty(this.c)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public a13() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayMap();
-        this.c = "";
-        this.d = new HashMap();
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && this.a != null && jSONObject != null) {
-            String T = gt2.U().T();
-            JSONArray jSONArray = this.a.get(T);
-            if (jSONArray == null) {
-                jSONArray = new JSONArray();
-                this.a.put(T, jSONArray);
-            }
-            jSONArray.put(jSONObject);
-        }
-    }
-
-    public final String d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (f() && i < this.b.length) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("http://");
-                sb.append(this.b[i]);
-                sb.append(":");
-                sb.append(this.c);
-                sb.append("/uploadTraceData");
-                sb.append("?");
-                for (Map.Entry<String, String> entry : this.d.entrySet()) {
-                    sb.append(entry.getKey());
-                    sb.append("=");
-                    sb.append(entry.getValue());
-                }
-                return sb.toString();
-            }
-            return "";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void h(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, bundle) != null) || bundle == null) {
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947562278, "Lcom/baidu/tieba/a13;")) == null) {
             return;
         }
-        String string = bundle.getString("tool_ip");
-        String string2 = bundle.getString("tool_port");
-        String string3 = bundle.getString("projectId");
-        if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
-            if (e) {
-                Log.d("TraceDataManager", "IP : " + string);
-                Log.d("TraceDataManager", "Port : " + string2);
-                Log.d("TraceDataManager", "Project ID : " + string3);
-            }
-            this.b = string.split("_");
-            this.c = string2;
-            this.d.put("projectId", string3);
-        } else if (e) {
-            Log.d("TraceDataManager", "Trace Data Params is invalid");
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947562278, "Lcom/baidu/tieba/a13;");
         }
     }
 
-    public void g(a aVar) {
+    public static void a(String str, @Nullable ux2 ux2Var) {
+        u73 M;
+        rs2.a Y;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (!f()) {
-                l73.f(s73.K().w(), R.string.obfuscated_res_0x7f0f014e).G();
+        if ((interceptable != null && interceptable.invokeLL(65537, null, str, ux2Var) != null) || (M = u73.M()) == null || (Y = M.Y()) == null) {
+            return;
+        }
+        HybridUbcFlow q = z03.q("route", str);
+        q.D("appid", Y.H());
+        q.D("swan", zg3.i(Y.j0(), Y.G()));
+        q.D("net", SwanAppNetworkUtils.f().type);
+        q.D("appversion", Y.v1());
+        q.D("thirdversion", Y.w1());
+        q.D("mobile", kk3.c());
+        q.D("scheme", Y.W());
+        q.D("launchid", Y.V());
+        q.E("from", "swan");
+        q.D("web_widget_state", "0");
+        q.A();
+        if (ux2Var != null) {
+            q.E("na_multi_jump_dst_path", ux2Var.a());
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            hy2.j(true);
+            z03.s("route", str);
+            HybridUbcFlow q = z03.q("route", str);
+            q.F(new UbcFlowEvent("na_first_receive_action"));
+            q.D("sub_state", "0");
+            a = System.currentTimeMillis();
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && TextUtils.equals(z03.q("route", str).h("sub_state"), "1")) {
+            z03.q("route", str).F(new UbcFlowEvent("na_end_sub_package_download"));
+        }
+    }
+
+    public static void c(int i, String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) {
+            zp2.c(i);
+            HybridUbcFlow q = z03.q("route", str);
+            if (i != 6 && i != 4 && i != 1) {
+                q.I(HybridUbcFlow.SubmitStrategy.ROUTE);
+            } else {
+                q.I(HybridUbcFlow.SubmitStrategy.ROUTE_NA);
+            }
+            q.E("type", Integer.valueOf(i));
+            c72 H = ht2.U().H();
+            if (H != null) {
+                str2 = H.p3().a();
+            } else {
+                str2 = "";
+            }
+            q.E("na_multi_jump_src_path", str2);
+        }
+    }
+
+    public static void e(zd2.e eVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, eVar, str) == null) {
+            z03.q("route", str).F(new UbcFlowEvent("na_pre_load_slave_ok"));
+            if (eVar == null) {
                 return;
             }
-            Map<String, JSONArray> map = this.a;
-            if (map != null && map.size() > 0) {
-                JSONArray jSONArray = new JSONArray();
-                try {
-                    for (Map.Entry<String, JSONArray> entry : this.a.entrySet()) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.putOpt("path", entry.getKey());
-                        jSONObject.putOpt("data", entry.getValue().toString());
-                        jSONArray.put(jSONObject);
-                    }
-                } catch (JSONException e2) {
-                    if (e) {
-                        Log.e("TraceDataManager", "Maybe the format of the Trace data is incorrect", e2);
-                    }
-                }
-                re4 postRequest = xe4.g().postRequest();
-                postRequest.requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONArray.toString()));
-                postRequest.connectionTimeout(3000);
-                int min = Math.min(this.b.length, 4);
-                b bVar = new b(this, min, aVar);
-                for (int i = 0; i < min; i++) {
-                    postRequest.url(d(i));
-                    postRequest.build().executeAsync(bVar);
-                }
-                return;
+            au1 au1Var = eVar.a;
+            if (au1Var != null) {
+                au1Var.x(str);
             }
-            x63.a aVar2 = new x63.a(s73.K().w());
-            aVar2.U(R.string.obfuscated_res_0x7f0f0150);
-            aVar2.v(R.string.obfuscated_res_0x7f0f014f);
-            aVar2.n(new bn3());
-            aVar2.O(R.string.obfuscated_res_0x7f0f011c, null);
-            aVar2.X();
+            HybridUbcFlow q = z03.q("route", str);
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_pre_load_slave_start");
+            ubcFlowEvent.h(eVar.d);
+            q.F(ubcFlowEvent);
+            UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_pre_load_slave_end");
+            ubcFlowEvent2.h(eVar.e);
+            q.F(ubcFlowEvent2);
+        }
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            HybridUbcFlow q = z03.q("route", str);
+            q.F(new UbcFlowEvent("web_widget_first_screen_finish"));
+            q.D("web_widget_state", "1");
+            q.T();
         }
     }
 }

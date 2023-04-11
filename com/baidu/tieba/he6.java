@@ -1,47 +1,49 @@
 package com.baidu.tieba;
 
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.content.ContextWrapper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class he6 extends de6 {
+public final class he6 {
     public static /* synthetic */ Interceptable $ic;
+    public static Application a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final pa6<qa6> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public he6(pa6<qa6> pa6Var) {
-        super(null);
+    public static Activity a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pa6Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((WebChromeClient) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context instanceof Activity) {
+                return (Activity) context;
             }
+            while (context instanceof ContextWrapper) {
+                if (context instanceof Activity) {
+                    return (Activity) context;
+                }
+                context = ((ContextWrapper) context).getBaseContext();
+            }
+            return null;
         }
-        this.b = pa6Var;
+        return (Activity) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.de6, android.webkit.WebChromeClient
-    public void onProgressChanged(WebView webView, int i) {
+    public static void b(Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i) == null) {
-            super.onProgressChanged(webView, i);
-            qa6 call = this.b.call();
-            if (call != null) {
-                call.a(webView, i);
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
+            a = application;
         }
+    }
+
+    public static Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
+        }
+        return (Context) invokeV.objValue;
     }
 }

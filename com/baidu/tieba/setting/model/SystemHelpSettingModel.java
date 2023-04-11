@@ -20,7 +20,7 @@ import com.baidu.tieba.a9;
 import com.baidu.tieba.sb;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
-import com.baidu.tieba.v55;
+import com.baidu.tieba.y65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -97,7 +97,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
-                v55.a();
+                y65.a();
                 try {
                     FileHelper.clearCacheDir("image");
                     FileHelper.clearCacheDir("images");
@@ -178,7 +178,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 long j2 = directorySize + directorySize3 + fileSize + directorySize2 + j;
                 float f = ((float) j2) + 0.0f;
                 if (j2 >= 10485.76d && this.a.get() != null) {
-                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.get().getString(R.string.obfuscated_res_0x7f0f0b76);
+                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.get().getString(R.string.obfuscated_res_0x7f0f0b72);
                 }
                 return "";
             }
@@ -224,21 +224,21 @@ public class SystemHelpSettingModel extends BdBaseModel {
         this.c = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void X(boolean z) {
+    public void W(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             TbadkCoreApplication.getInst().setHeadsetModeOn(z);
         }
     }
 
-    public void Y(BaseActivity.LoadDataCallBack loadDataCallBack) {
+    public void X(BaseActivity.LoadDataCallBack loadDataCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, loadDataCallBack) == null) {
             this.d = loadDataCallBack;
         }
     }
 
-    public void U() {
+    public void T() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a == null) {
             b bVar = new b(this, null);
@@ -247,7 +247,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         }
     }
 
-    public void V() {
+    public void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -257,7 +257,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         }
     }
 
-    public void W() {
+    public void V() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b == null) {
             c cVar = new c(this, this.c);

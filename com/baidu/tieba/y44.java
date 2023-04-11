@@ -2,19 +2,16 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.http.HttpManager;
+import com.baidu.tieba.k44;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Callback;
-import okhttp3.Request;
-@Singleton
+import java.io.File;
 @Service
 /* loaded from: classes7.dex */
-public class y44 implements gp1 {
+public class y44 implements cp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,21 +29,33 @@ public class y44 implements gp1 {
         }
     }
 
-    @Override // com.baidu.tieba.gp1
-    public HttpManager a() {
+    @Override // com.baidu.tieba.cp1
+    public File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a64.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return k44.d();
         }
-        return (HttpManager) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gp1
-    public void call(HttpManager httpManager, Request request, Callback callback) {
+    @Override // com.baidu.tieba.cp1
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpManager, request, callback) == null) && httpManager != null && (httpManager instanceof a64)) {
-            ((a64) httpManager).call(request, callback);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return k44.d.g().getPath();
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cp1
+    public File a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            return k44.d.h(str, str2);
+        }
+        return (File) invokeLL.objValue;
     }
 }

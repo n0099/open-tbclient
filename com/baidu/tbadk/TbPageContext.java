@@ -11,14 +11,14 @@ import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.fv4;
+import com.baidu.tieba.hv4;
 import com.baidu.tieba.za;
 /* loaded from: classes3.dex */
 public interface TbPageContext<T> extends a9<T> {
     @Override // com.baidu.tieba.a9
     /* synthetic */ Context getContext();
 
-    fv4 getLayoutMode();
+    hv4 getLayoutMode();
 
     @Override // com.baidu.tieba.a9
     /* synthetic */ T getOrignalPage();

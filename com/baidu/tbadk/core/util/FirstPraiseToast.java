@@ -125,7 +125,7 @@ public class FirstPraiseToast {
             spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)), 4, spannableString.length(), 33);
             BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableString);
             b.f(R.drawable.icon_mask_frs_firstlike40);
-            b.k();
+            b.o();
         }
     }
 }

@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.tieba.lego.card.model.WebViewCard;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -240,8 +240,8 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         }
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.e48
-    public void c(BdUniqueId bdUniqueId) {
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.ve8
+    public void f(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, bdUniqueId) != null) || bdUniqueId == null) {
             return;
@@ -275,7 +275,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
             this.o.setWebChromeClient(new a(this));
             this.o.setOnTouchListener(new b(this));
             this.o.setOnLoadUrlListener(new c(this));
-            c(this.i.getUniqueId());
+            f(this.i.getUniqueId());
             this.n.addView(this.o);
         }
     }
@@ -322,14 +322,14 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         if (webViewCard.getHeight() > 0) {
             setWebviewHeight(webViewCard.getHeight());
         } else if (webViewCard.getContainer() > 0) {
-            int j = hi.j(getContext());
+            int j = ii.j(getContext());
             int container = webViewCard.getContainer();
             if (container != 1) {
                 if (container == 2) {
-                    setWebviewHeight(j - hi.g(getContext(), R.dimen.obfuscated_res_0x7f07029f));
+                    setWebviewHeight(j - ii.g(getContext(), R.dimen.obfuscated_res_0x7f07029f));
                 }
             } else {
-                setWebviewHeight(j - hi.g(getContext(), R.dimen.obfuscated_res_0x7f070283));
+                setWebviewHeight(j - ii.g(getContext(), R.dimen.obfuscated_res_0x7f070283));
             }
         }
         if (!TextUtils.isEmpty(webViewCard.getPageUrl())) {

@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.apa;
-import com.baidu.tieba.epa;
-import com.baidu.tieba.zoa;
+import com.baidu.tieba.qya;
+import com.baidu.tieba.rya;
+import com.baidu.tieba.vya;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                     return;
                 }
             }
-            this.frames = epa.i();
+            this.frames = vya.i();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,7 +69,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-                epa.a(list);
+                vya.a(list);
                 this.frames = list;
                 return this;
             }
@@ -114,27 +114,27 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public SpriteEntity decode(zoa zoaVar) throws IOException {
+        public SpriteEntity decode(qya qyaVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zoaVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qyaVar)) == null) {
                 Builder builder = new Builder();
-                long c = zoaVar.c();
+                long c = qyaVar.c();
                 while (true) {
-                    int f = zoaVar.f();
+                    int f = qyaVar.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
-                                FieldEncoding g = zoaVar.g();
-                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(zoaVar));
+                                FieldEncoding g = qyaVar.g();
+                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(qyaVar));
                             } else {
-                                builder.frames.add(FrameEntity.ADAPTER.decode(zoaVar));
+                                builder.frames.add(FrameEntity.ADAPTER.decode(qyaVar));
                             }
                         } else {
-                            builder.imageKey(ProtoAdapter.STRING.decode(zoaVar));
+                            builder.imageKey(ProtoAdapter.STRING.decode(qyaVar));
                         }
                     } else {
-                        zoaVar.d(c);
+                        qyaVar.d(c);
                         return builder.build();
                     }
                 }
@@ -151,7 +151,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, spriteEntity)) == null) {
                 ?? newBuilder2 = spriteEntity.newBuilder2();
-                epa.k(newBuilder2.frames, FrameEntity.ADAPTER);
+                vya.k(newBuilder2.frames, FrameEntity.ADAPTER);
                 newBuilder2.clearUnknownFields();
                 return newBuilder2.build();
             }
@@ -160,15 +160,15 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(apa apaVar, SpriteEntity spriteEntity) throws IOException {
+        public void encode(rya ryaVar, SpriteEntity spriteEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, apaVar, spriteEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ryaVar, spriteEntity) == null) {
                 String str = spriteEntity.imageKey;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(apaVar, 1, str);
+                    ProtoAdapter.STRING.encodeWithTag(ryaVar, 1, str);
                 }
-                FrameEntity.ADAPTER.asRepeated().encodeWithTag(apaVar, 2, spriteEntity.frames);
-                apaVar.k(spriteEntity.unknownFields());
+                FrameEntity.ADAPTER.asRepeated().encodeWithTag(ryaVar, 2, spriteEntity.frames);
+                ryaVar.k(spriteEntity.unknownFields());
             }
         }
 
@@ -217,7 +217,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Builder builder = new Builder();
             builder.imageKey = this.imageKey;
-            builder.frames = epa.c("frames", this.frames);
+            builder.frames = vya.c("frames", this.frames);
             builder.addUnknownFields(unknownFields());
             return builder;
         }
@@ -265,7 +265,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
             }
         }
         this.imageKey = str;
-        this.frames = epa.g("frames", list);
+        this.frames = vya.g("frames", list);
     }
 
     public boolean equals(Object obj) {
@@ -279,7 +279,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                 return false;
             }
             SpriteEntity spriteEntity = (SpriteEntity) obj;
-            if (unknownFields().equals(spriteEntity.unknownFields()) && epa.f(this.imageKey, spriteEntity.imageKey) && this.frames.equals(spriteEntity.frames)) {
+            if (unknownFields().equals(spriteEntity.unknownFields()) && vya.f(this.imageKey, spriteEntity.imageKey) && this.frames.equals(spriteEntity.frames)) {
                 return true;
             }
             return false;

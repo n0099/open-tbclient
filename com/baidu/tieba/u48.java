@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import com.squareup.wire.Message;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 /* loaded from: classes6.dex */
 public interface u48 {
-    void a(boolean z, Message message, boolean z2, long j, String str, int i);
-
-    void b(long j, String str, String str2, int i);
-
-    void c(long j, String str, Message message, boolean z);
+    void a(BaseMsg baseMsg, int i, int i2);
 }

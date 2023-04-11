@@ -1,79 +1,61 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import androidx.media2.session.MediaUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.j7a;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.atomData.BaseWriteConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.httpNet.WebClient;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tbadk.util.InsertGalleryAsyncTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.editvideo.muxer.VLogMultiAudioMixer;
-import com.baidu.ugc.utils.FileUtils;
-import com.google.android.exoplayer2.extractor.ogg.OpusReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.ByteOrder;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b6a {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static byte[] f(short s, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Short.valueOf(s), Boolean.valueOf(z)})) == null) {
-            byte[] bArr = new byte[2];
-            if (z) {
-                bArr[1] = (byte) (s & 255);
-                bArr[0] = (byte) (((short) (s >> 8)) & 255);
-            } else {
-                bArr[0] = (byte) (s & 255);
-                bArr[1] = (byte) (((short) (s >> 8)) & 255);
-            }
-            return bArr;
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public static short h(byte b2, byte b3, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3), Boolean.valueOf(z)})) == null) {
-            return (short) (z ? ((short) (((short) ((b2 & 255) | 0)) << 8)) | (b3 & 255) : (b2 & 255) | ((short) (((short) ((b3 & 255) | 0)) << 8)));
-        }
-        return invokeCommon.shortValue;
-    }
+    @NonNull
+    public final TbPageContext<?> a;
+    public final List<o4a> b;
+    public WriteImagesInfo c;
 
     /* loaded from: classes3.dex */
-    public static class a implements j7a.a {
+    public class a extends InsertGalleryAsyncTask.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j7a.a a;
-        public final /* synthetic */ j7a b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
+        public final /* synthetic */ b6a a;
 
-        public a(j7a.a aVar, j7a j7aVar, String str, String str2) {
+        @Override // com.baidu.tbadk.util.InsertGalleryAsyncTask.a
+        public void a(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            }
+        }
+
+        public a(b6a b6aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, j7aVar, str, str2};
+                Object[] objArr = {b6aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -83,102 +65,37 @@ public class b6a {
                     return;
                 }
             }
-            this.a = aVar;
-            this.b = j7aVar;
-            this.c = str;
-            this.d = str2;
+            this.a = b6aVar;
         }
 
-        @Override // com.baidu.tieba.j7a.a
-        public void onCompletion() {
+        @Override // com.baidu.tbadk.util.InsertGalleryAsyncTask.a
+        public void b(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                m7a.e("FFmpegCmdExecutor-modifyAudioProperty", "onCompletion:src:" + this.c + ",:dest:" + this.d);
-                j7a.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onCompletion();
-                }
-                m7a.e("FFmpegCmdExecutor-modifyAudioProperty", "release");
-                this.b.release();
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && new File(str).exists()) {
+                this.a.g().clear();
+                ImageFileInfo imageFileInfo = new ImageFileInfo();
+                imageFileInfo.setFilePath(str);
+                imageFileInfo.isFromMoreForum = true;
+                this.a.g().addChooseFile(imageFileInfo);
+                this.a.g().setMaxImagesAllowed(1);
+                b6a b6aVar = this.a;
+                b6aVar.l(b6aVar.g().toJsonString());
             }
-        }
-
-        @Override // com.baidu.tieba.j7a.a
-        public boolean onError(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("onError i = ");
-                sb.append(i);
-                sb.append(" i1 = ");
-                sb.append(i2);
-                sb.append(" o ");
-                if (obj != null) {
-                    str = obj.toString();
-                } else {
-                    str = " null ";
-                }
-                sb.append(str);
-                m7a.e("FFmpegCmdExecutor-modifyAudioProperty", sb.toString());
-                j7a.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onError(i, i2, obj);
-                }
-                m7a.e("FFmpegCmdExecutor-modifyAudioProperty", "release");
-                this.b.release();
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.j7a.a
-        public boolean onInfo(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("onInfo i = ");
-                sb.append(i);
-                sb.append(" i1 = ");
-                sb.append(i2);
-                sb.append(" o ");
-                if (obj != null) {
-                    str = obj.toString();
-                } else {
-                    str = " null ";
-                }
-                sb.append(str);
-                m7a.j("FFmpegCmdExecutor-modifyAudioProperty", sb.toString());
-                j7a.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onInfo(i, i2, obj);
-                    return false;
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements j7a.a {
+    public class b extends cr5<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j7a.a a;
-        public final /* synthetic */ j7a b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
+        public final /* synthetic */ WriteData a;
 
-        public b(j7a.a aVar, j7a j7aVar, String str, String str2, String str3) {
+        public b(b6a b6aVar, WriteData writeData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, j7aVar, str, str2, str3};
+                Object[] objArr = {b6aVar, writeData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -188,944 +105,282 @@ public class b6a {
                     return;
                 }
             }
-            this.a = aVar;
-            this.b = j7aVar;
-            this.c = str;
-            this.d = str2;
-            this.e = str3;
+            this.a = writeData;
         }
 
-        @Override // com.baidu.tieba.j7a.a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                m7a.e("FFmpegCmdExecutor-mixAudio", "onCompletion:src:" + this.c + "," + this.d + ",:dest:" + this.e);
-                j7a.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onCompletion();
-                }
-                m7a.e("FFmpegCmdExecutor-mixAudio", "release");
-                this.b.release();
-            }
-        }
-
-        @Override // com.baidu.tieba.j7a.a
-        public boolean onError(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("onError i = ");
-                sb.append(i);
-                sb.append(" i1 = ");
-                sb.append(i2);
-                sb.append(" o ");
-                if (obj != null) {
-                    str = obj.toString();
-                } else {
-                    str = " null ";
-                }
-                sb.append(str);
-                m7a.e("FFmpegCmdExecutor-mixAudio", sb.toString());
-                j7a.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onError(i, i2, obj);
-                }
-                m7a.e("FFmpegCmdExecutor-mixAudio", "release");
-                this.b.release();
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.j7a.a
-        public boolean onInfo(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("onInfo i = ");
-                sb.append(i);
-                sb.append(" i1 = ");
-                sb.append(i2);
-                sb.append(" o ");
-                if (obj != null) {
-                    str = obj.toString();
-                } else {
-                    str = " null ";
-                }
-                sb.append(str);
-                m7a.e("FFmpegCmdExecutor-mixAudio", sb.toString());
-                j7a.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onInfo(i, i2, obj);
-                    return false;
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c implements j7a.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j7a.a a;
-        public final /* synthetic */ j7a b;
-
-        public c(j7a.a aVar, j7a j7aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, j7aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-            this.b = j7aVar;
-        }
-
-        @Override // com.baidu.tieba.j7a.a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                j7a.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onCompletion();
-                }
-                this.b.release();
-            }
-        }
-
-        @Override // com.baidu.tieba.j7a.a
-        public boolean onError(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("onError i = ");
-                sb.append(i);
-                sb.append(" i1 = ");
-                sb.append(i2);
-                sb.append(" o ");
-                if (obj != null) {
-                    str = obj.toString();
-                } else {
-                    str = " null ";
-                }
-                sb.append(str);
-                m7a.e("FFmpegCmdExecutor-mixAudio", sb.toString());
-                j7a.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onError(i, i2, obj);
-                }
-                this.b.release();
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.j7a.a
-        public boolean onInfo(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("onInfo i = ");
-                sb.append(i);
-                sb.append(" i1 = ");
-                sb.append(i2);
-                sb.append(" o ");
-                if (obj != null) {
-                    str = obj.toString();
-                } else {
-                    str = " null ";
-                }
-                sb.append(str);
-                m7a.j("FFmpegCmdExecutor-mixAudio", sb.toString());
-                j7a.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onInfo(i, i2, obj);
-                    return false;
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class d implements j7a.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j7a.a a;
-        public final /* synthetic */ j7a b;
-        public final /* synthetic */ List c;
-        public final /* synthetic */ String d;
-
-        public d(j7a.a aVar, j7a j7aVar, List list, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, j7aVar, list, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-            this.b = j7aVar;
-            this.c = list;
-            this.d = str;
-        }
-
-        @Override // com.baidu.tieba.j7a.a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                m7a.j("FFmpegCmdExecutor-concat", "onCompletion:inputsize:" + this.c.size() + ",dest:" + this.d);
-                j7a.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onCompletion();
-                }
-                this.b.release();
-            }
-        }
-
-        @Override // com.baidu.tieba.j7a.a
-        public boolean onError(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("onError i = ");
-                sb.append(i);
-                sb.append(" i1 = ");
-                sb.append(i2);
-                sb.append(" o ");
-                if (obj != null) {
-                    str = obj.toString();
-                } else {
-                    str = " null ";
-                }
-                sb.append(str);
-                m7a.j("FFmpegCmdExecutor-concat", sb.toString());
-                j7a.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onError(i, i2, obj);
-                }
-                this.b.release();
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.j7a.a
-        public boolean onInfo(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("onInfo i = ");
-                sb.append(i);
-                sb.append(" i1 = ");
-                sb.append(i2);
-                sb.append(" o ");
-                if (obj != null) {
-                    str = obj.toString();
-                } else {
-                    str = " null ";
-                }
-                sb.append(str);
-                m7a.j("FFmpegCmdExecutor-concat", sb.toString());
-                j7a.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onInfo(i, i2, obj);
-                    return false;
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class e implements j7a.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j7a.a a;
-        public final /* synthetic */ j7a b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-
-        public e(j7a.a aVar, j7a j7aVar, String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, j7aVar, str, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-            this.b = j7aVar;
-            this.c = str;
-            this.d = str2;
-            this.e = str3;
-        }
-
-        @Override // com.baidu.tieba.j7a.a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                m7a.e("FFmpegCmdExecutor-muxAudioVideo", "onCompletion:video:" + this.c + ",audio" + this.d + ",:dest:" + this.e);
-                j7a.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onCompletion();
-                }
-                m7a.e("FFmpegCmdExecutor-muxAudioVideo", "release");
-                this.b.release();
-            }
-        }
-
-        @Override // com.baidu.tieba.j7a.a
-        public boolean onError(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("onError i = ");
-                sb.append(i);
-                sb.append(" i1 = ");
-                sb.append(i2);
-                sb.append(" o ");
-                if (obj != null) {
-                    str = obj.toString();
-                } else {
-                    str = " null ";
-                }
-                sb.append(str);
-                m7a.e("FFmpegCmdExecutor-muxAudioVideo", sb.toString());
-                j7a.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onError(i, i2, obj);
-                }
-                m7a.e("FFmpegCmdExecutor-muxAudioVideo", "release");
-                this.b.release();
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.j7a.a
-        public boolean onInfo(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("onInfo i = ");
-                sb.append(i);
-                sb.append(" i1 = ");
-                sb.append(i2);
-                sb.append(" o ");
-                if (obj != null) {
-                    str = obj.toString();
-                } else {
-                    str = " null ";
-                }
-                sb.append(str);
-                m7a.e("FFmpegCmdExecutor-muxAudioVideo", sb.toString());
-                j7a.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.onInfo(i, i2, obj);
-                    return false;
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public String d;
-        public int e;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = OpusReader.SAMPLE_RATE;
-            this.b = 1;
-            this.c = 16;
-            this.e = 0;
-        }
-
-        public boolean a() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cr5
+        public String doInBackground() {
             InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.e;
-                if (i != 5 && i != 6 && i != 8 && i != 9) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean b() {
-            InterceptResult invokeV;
+            byte[] downloadImageBytes;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i = this.e;
-                if (i != 3 && i != 4 && i != 8 && i != 9) {
-                    return false;
-                }
-                return true;
+                String str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/imageCache" + pi.d(downloadImageBytes);
+                FileHelper.saveFileByAbsolutePath(str, new WebClient().downloadImageBytes(this.a.getNetImgUrl()));
+                return str;
             }
-            return invokeV.booleanValue;
+            return (String) invokeV.objValue;
         }
+    }
 
-        public boolean c() {
-            InterceptResult invokeV;
+    /* loaded from: classes3.dex */
+    public class c implements fq5<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b6a a;
+
+        public c(b6a b6aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i = this.e;
-                if (i == 1 || i == 4 || i == 6 || i == 9) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947598300, "Lcom/baidu/tieba/b6a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947598300, "Lcom/baidu/tieba/b6a;");
-                return;
-            }
-        }
-        if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
-            a = true;
-        } else {
-            a = false;
-        }
-    }
-
-    public static byte[] a(byte b2, byte b3, byte b4, byte b5, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3), Byte.valueOf(b4), Byte.valueOf(b5), Boolean.valueOf(z)})) == null) {
-            return f((short) ((h(b2, b3, z) / 2) + (h(b4, b5, z) / 2)), z);
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public static void b(List<String> list, String str, String str2, j7a.a aVar, boolean z, boolean z2) {
-        File file;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{list, str, str2, aVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            j7a j7aVar = (j7a) c8a.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
-            if (r7a.e(list)) {
-                if (aVar != null) {
-                    aVar.onError(-1, -1, "input list null");
-                }
-            } else if (j7aVar == null) {
-                if (aVar != null) {
-                    aVar.onError(-1, -1, "can not find MFFmpegCmdExecutor");
-                }
-            } else {
-                j7aVar.setListener(new d(aVar, j7aVar, list, str));
-                if (TextUtils.isEmpty(str2)) {
-                    file = new File(FileUtils.removeExtention(str) + System.currentTimeMillis() + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION);
-                } else {
-                    String fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
-                    file = new File(str2 + fileNameWithOutExtention + System.currentTimeMillis() + "concat.txt");
-                }
-                m7a.j("FFmpegCmdExecutor-concat", "inputfilename:" + file.getPath());
-                StringBuilder sb = new StringBuilder();
-                for (String str3 : list) {
-                    sb.append("file '");
-                    sb.append(str3);
-                    sb.append("'\n");
-                }
-                FileUtils.writeFile(file, sb.toString(), false);
-                ArrayList<String> arrayList = new ArrayList<>();
-                arrayList.add("-f");
-                arrayList.add("concat");
-                arrayList.add("-safe");
-                arrayList.add("0");
-                arrayList.add("-i");
-                arrayList.add(file.getPath());
-                if (!z) {
-                    arrayList.add("-vn");
-                }
-                arrayList.add("-c");
-                if (z2) {
-                    arrayList.add("aac");
-                } else {
-                    arrayList.add("copy");
-                }
-                arrayList.add(str);
-                j7aVar.setSource(arrayList);
-                m7a.e("FFmpegCmdExecutor-mixAudio", "start");
-                j7aVar.start();
-            }
-        }
-    }
-
-    public static byte[] c(int i, int i2, byte[] bArr) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65539, null, i, i2, bArr)) == null) {
-            m7a.b("convertByteWidth sourceByteWidth = " + i + " outputByteWidth = " + i2);
-            if (i == i2) {
-                return bArr;
-            }
-            int length = bArr.length;
-            if (i != 1) {
-                if (i == 2 && i2 == 1) {
-                    int i3 = length / 2;
-                    byte[] bArr2 = new byte[i3];
-                    for (int i4 = 0; i4 < i3; i4++) {
-                        int i5 = i4 * 2;
-                        bArr2[i4] = (byte) (h(bArr[i5], bArr[i5 + 1], a) / 256);
-                    }
-                    return bArr2;
-                }
-            } else if (i2 == 2) {
-                byte[] bArr3 = new byte[length * 2];
-                for (int i6 = 0; i6 < length; i6++) {
-                    byte[] f2 = f((short) (bArr[i6] * 256), a);
-                    int i7 = i6 * 2;
-                    bArr3[i7] = f2[0];
-                    bArr3[i7 + 1] = f2[1];
-                }
-                return bArr3;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeIIL.objValue;
-    }
-
-    public static byte[] d(int i, int i2, int i3, byte[] bArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bArr})) == null) {
-            m7a.b("convertChannelCount sourceChannelCount = " + i + " outputChannelCount = " + i2);
-            if (i == i2) {
-                return bArr;
-            }
-            if (i3 != 1 && i3 != 2) {
-                return bArr;
-            }
-            int length = bArr.length;
-            int i4 = 0;
-            if (i != 1) {
-                if (i == 2 && i2 == 1) {
-                    int i5 = length / 2;
-                    byte[] bArr2 = new byte[i5];
-                    if (i3 != 1) {
-                        if (i3 == 2) {
-                            for (int i6 = 0; i6 < i5; i6 += 2) {
-                                int i7 = i6 * 2;
-                                byte[] a2 = a(bArr[i7], bArr[i7 + 1], bArr[i7 + 2], bArr[i7 + 3], a);
-                                bArr2[i6] = a2[0];
-                                bArr2[i6 + 1] = a2[1];
-                            }
-                        }
-                    } else {
-                        while (i4 < i5) {
-                            int i8 = i4 * 2;
-                            bArr2[i4] = (byte) (((short) (bArr[i8] + bArr[i8 + 1])) >> 1);
-                            i4 += 2;
-                        }
-                    }
-                    return bArr2;
-                }
-            } else if (i2 == 2) {
-                byte[] bArr3 = new byte[length * 2];
-                if (i3 != 1) {
-                    if (i3 == 2) {
-                        while (i4 < length) {
-                            byte b2 = bArr[i4];
-                            byte b3 = bArr[i4 + 1];
-                            int i9 = i4 * 2;
-                            bArr3[i9] = b2;
-                            bArr3[i9 + 1] = b3;
-                            bArr3[i9 + 2] = b2;
-                            bArr3[i9 + 3] = b3;
-                            i4 += 2;
-                        }
-                    }
-                } else {
-                    while (i4 < length) {
-                        byte b4 = bArr[i4];
-                        int i10 = i4 * 2;
-                        bArr3[i10] = b4;
-                        bArr3[i10 + 1] = b4;
-                        i4++;
-                    }
-                }
-                return bArr3;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public static void k(List<String> list, String str, int i, j7a.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65547, null, list, str, i, aVar) == null) {
-            if (r7a.b(list) == 2) {
-                j(list.get(0), list.get(1), str, i, aVar);
-                return;
-            }
-            j7a j7aVar = (j7a) c8a.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
-            if (j7aVar == null) {
-                if (aVar != null) {
-                    aVar.onError(-1, -1, "can not find MFFmpegCmdExecutor");
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b6aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                return;
             }
-            j7aVar.setListener(new c(aVar, j7aVar));
-            ArrayList<String> arrayList = new ArrayList<>();
-            StringBuilder sb = new StringBuilder();
-            StringBuilder sb2 = new StringBuilder();
-            int i2 = 0;
-            for (String str2 : list) {
-                arrayList.add("-i");
-                arrayList.add(str2);
-                sb.append(PreferencesUtil.LEFT_MOUNT);
-                sb.append(i2);
-                sb.append(":a]volume=1");
-                sb.append(PreferencesUtil.LEFT_MOUNT);
-                sb.append("a");
-                i2++;
-                sb.append(i2);
-                sb.append("];");
-                sb2.append(PreferencesUtil.LEFT_MOUNT);
-                sb2.append("a");
-                sb2.append(i2);
-                sb2.append(PreferencesUtil.RIGHT_MOUNT);
+            this.a = b6aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fq5
+        /* renamed from: a */
+        public void onReturnDataInUI(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+                this.a.g().clear();
+                ImageFileInfo imageFileInfo = new ImageFileInfo();
+                imageFileInfo.setFilePath(str);
+                this.a.g().addChooseFile(imageFileInfo);
+                b6a b6aVar = this.a;
+                b6aVar.l(b6aVar.g().toJsonString());
             }
-            arrayList.add("-filter_complex");
-            arrayList.add(String.format("%s%samix=inputs=%s[aout]", sb.toString(), sb2.toString(), Integer.valueOf(list.size())));
-            arrayList.add("-map");
-            arrayList.add("[aout]");
-            if (i > 0) {
-                arrayList.add("-ac");
-                arrayList.add(String.valueOf(i));
-            }
-            arrayList.add(str);
-            j7aVar.setSource(arrayList);
-            j7aVar.start();
         }
     }
 
-    public static void m(String str, String str2, String str3, j7a.a aVar) {
+    public b6a(@NonNull TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65549, null, str, str2, str3, aVar) == null) {
-            j7a j7aVar = (j7a) c8a.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
-            if (j7aVar == null) {
-                if (aVar != null) {
-                    aVar.onError(-1, -1, "can not find MFFmpegCmdExecutor");
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            j7aVar.setListener(new e(aVar, j7aVar, str, str2, str3));
-            long b2 = h8a.b(str2);
-            long f2 = h8a.f(str);
-            m7a.j("VideoMuxer", "muxAudioVideo,audioduration:" + b2 + ",videoDuration:" + f2);
-            ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add("-i");
-            arrayList.add(str);
-            arrayList.add("-i");
-            arrayList.add(str2);
-            if (Math.abs(f2 - b2) >= 100 && b2 <= f2) {
-                arrayList.add("-filter_complex");
-                arrayList.add("[1:a]aloop=loop=-1:size=2e+09[aout]");
-                arrayList.add("-map");
-                arrayList.add("0:v");
-                arrayList.add("-map");
-                arrayList.add("[aout]");
-                arrayList.add("-c:v");
-                arrayList.add("copy");
-            } else {
-                arrayList.add("-c");
-                arrayList.add("copy");
-                arrayList.add("-map");
-                arrayList.add("0:v");
-                arrayList.add("-map");
-                arrayList.add("1:a");
-            }
-            arrayList.add("-shortest");
-            arrayList.add(str3);
-            j7aVar.setSource(arrayList);
-            m7a.e("FFmpegCmdExecutor-muxAudioVideo", "start");
-            j7aVar.start();
         }
+        this.b = new ArrayList();
+        WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
+        this.c = writeImagesInfo;
+        this.a = tbPageContext;
+        writeImagesInfo.setMaxImagesAllowed(9);
     }
 
-    @TargetApi(16)
-    public static f e(String str) {
-        InterceptResult invokeL;
-        MediaFormat mediaFormat;
-        int i;
-        int i2;
-        int i3;
+    public void d(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            MediaExtractor mediaExtractor = new MediaExtractor();
-            try {
-                mediaExtractor.setDataSource(str);
-                int i4 = 0;
-                while (true) {
-                    if (i4 < mediaExtractor.getTrackCount()) {
-                        mediaFormat = mediaExtractor.getTrackFormat(i4);
-                        if (mediaFormat.getString("mime").startsWith("audio/")) {
-                            mediaExtractor.selectTrack(i4);
-                            break;
-                        }
-                        i4++;
-                    } else {
-                        mediaFormat = null;
-                        break;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
+            writeData.setWriteImagesInfo(this.c);
+            WriteImagesInfo writeImagesInfo = this.c;
+            if (writeImagesInfo != null && writeImagesInfo.size() > 0) {
+                Iterator<ImageFileInfo> it = this.c.getChosedFiles().iterator();
+                int i = 0;
+                while (it.hasNext()) {
+                    ImageFileInfo next = it.next();
+                    if (next != null && next.isFromCamera()) {
+                        i++;
                     }
                 }
-                if (mediaFormat == null) {
-                    mediaExtractor.release();
-                    return null;
-                }
-                f fVar = new f();
-                fVar.d = mediaFormat.getString("mime");
-                if (mediaFormat.containsKey("sample-rate")) {
-                    i = mediaFormat.getInteger("sample-rate");
-                } else {
-                    i = OpusReader.SAMPLE_RATE;
-                }
-                fVar.a = i;
-                if (mediaFormat.containsKey("channel-count")) {
-                    i2 = mediaFormat.getInteger("channel-count");
-                } else {
-                    i2 = 1;
-                }
-                fVar.b = i2;
-                if (mediaFormat.containsKey("bit-width")) {
-                    i3 = mediaFormat.getInteger("bit-width");
-                } else {
-                    i3 = 16;
-                }
-                fVar.c = i3;
-                mediaExtractor.release();
-                return fVar;
-            } catch (IOException e2) {
-                e2.printStackTrace();
+                writeData.setTakePhotoNum(i);
+            }
+        }
+    }
+
+    public void f(@NonNull s4a s4aVar, @NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, s4aVar, writeData) != null) || this.a.getPageActivity() == null || StringUtils.isNull(writeData.getNetImgUrl())) {
+            return;
+        }
+        gr5.b(new b(this, writeData), new c(this));
+    }
+
+    public ImageFileInfo b(@NonNull s4a s4aVar, @NonNull e85 e85Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, s4aVar, e85Var)) == null) {
+            PermissionJudgePolicy t = s4aVar.t();
+            t.clearRequestPermissionList();
+            t.appendRequestPermission(this.a.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+            if (t.startRequestPermission(this.a.getPageActivity())) {
                 return null;
             }
+            if (this.c.size() >= this.c.getMaxImagesAllowed()) {
+                this.a.showToast(String.format(this.a.getString(R.string.max_choose_image_count), Integer.valueOf(this.c.getMaxImagesAllowed())));
+                return null;
+            }
+            ImageFileInfo imageFileInfo = new ImageFileInfo();
+            imageFileInfo.setImageType(1);
+            imageFileInfo.setFilePath(e85Var.d());
+            imageFileInfo.width = e85Var.h();
+            imageFileInfo.height = e85Var.b();
+            this.c.addChooseFile(imageFileInfo);
+            this.c.updateQuality();
+            return imageFileInfo;
         }
-        return (f) invokeL.objValue;
+        return (ImageFileInfo) invokeLL.objValue;
     }
 
-    public static int g(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
+    public void e(@NonNull s4a s4aVar, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, mediaFormat)) == null) {
-            String string = mediaFormat.getString("mime");
-            if (string.startsWith(com.sina.weibo.sdk.utils.FileUtils.VIDEO_FILE_START)) {
-                return 1;
-            }
-            if (string.startsWith("audio/")) {
-                return 2;
-            }
-            return 0;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, s4aVar, writeData) != null) || this.a.getPageActivity() == null || !WriteActivityConfig.FROM_FORUM_SHARE.equals(writeData.getFrom()) || StringUtils.isNull(writeData.getMoreForumImg())) {
+            return;
         }
-        return invokeL.intValue;
+        s4aVar.t().clearRequestPermissionList();
+        s4aVar.t().appendRequestPermission(this.a.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+        if (s4aVar.t().startRequestPermission(this.a.getPageActivity())) {
+            return;
+        }
+        InsertGalleryAsyncTask insertGalleryAsyncTask = new InsertGalleryAsyncTask(this.a.getPageActivity(), writeData.getMoreForumImg(), new a(this));
+        insertGalleryAsyncTask.setFrom(1);
+        insertGalleryAsyncTask.execute(new String[0]);
     }
 
-    public static boolean i(f... fVarArr) {
-        InterceptResult invokeL;
-        f fVar;
+    public void c(o4a o4aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, fVarArr)) == null) {
-            if (fVarArr == null || fVarArr.length < 2 || (fVar = fVarArr[0]) == null) {
-                return false;
-            }
-            boolean z = true;
-            for (int i = 1; i < fVarArr.length; i++) {
-                if (fVar.a != fVarArr[i].a) {
-                    fVarArr[i].e++;
-                    z = false;
-                }
-                if (fVar.b != fVarArr[i].b) {
-                    fVarArr[i].e += 3;
-                    z = false;
-                }
-                if (fVar.c != fVarArr[i].c) {
-                    fVarArr[i].e += 5;
-                    z = false;
-                }
-            }
-            return z;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o4aVar) != null) || this.b.contains(o4aVar)) {
+            return;
         }
-        return invokeL.booleanValue;
+        this.b.add(o4aVar);
     }
 
-    public static void j(String str, String str2, String str3, int i, j7a.a aVar) {
+    public final void i(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, str2, str3, Integer.valueOf(i), aVar}) == null) {
-            j7a j7aVar = (j7a) c8a.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
-            if (j7aVar == null) {
-                if (aVar != null) {
-                    aVar.onError(-1, -1, "can not find MFFmpegCmdExecutor");
-                    return;
-                }
+        if ((interceptable != null && interceptable.invokeL(1048583, this, intent) != null) || intent == null) {
+            return;
+        }
+        String stringExtra = intent.getStringExtra(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING);
+        for (o4a o4aVar : this.b) {
+            o4aVar.v(stringExtra);
+        }
+    }
+
+    public final void j(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) != null) || intent == null) {
+            return;
+        }
+        String stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT);
+        for (o4a o4aVar : this.b) {
+            o4aVar.u(stringExtra);
+        }
+    }
+
+    public final void k(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, intent) != null) || intent == null) {
+            return;
+        }
+        String stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT);
+        for (o4a o4aVar : this.b) {
+            o4aVar.k(stringExtra);
+        }
+    }
+
+    public final void l(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        for (o4a o4aVar : this.b) {
+            o4aVar.i(str);
+        }
+    }
+
+    public void n(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048588, this, intent) != null) || intent == null) {
+            return;
+        }
+        i(intent);
+    }
+
+    public void o(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048589, this, bundle) != null) || bundle == null) {
+            return;
+        }
+        bundle.putString(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING, this.c.toJsonString());
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && !StringUtils.isNull(str)) {
+            this.c.parseJson(str);
+            this.c.updateQuality();
+        }
+    }
+
+    public void q(o4a o4aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, o4aVar) == null) {
+            this.b.remove(o4aVar);
+        }
+    }
+
+    public void r(@NonNull WriteImagesInfo writeImagesInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, writeImagesInfo) == null) {
+            this.c = writeImagesInfo;
+        }
+    }
+
+    @NonNull
+    public WriteImagesInfo g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (WriteImagesInfo) invokeV.objValue;
+    }
+
+    public void h(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
+        WriteData writeData2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, bundle, intent, writeData) == null) {
+            if (writeData.isFromErrorDialog() && (writeData2 = qn9.f) != null) {
+                this.c = writeData2.getWriteImagesInfo();
                 return;
             }
-            m7a.e("FFmpegCmdExecutor-mixAudio", "new mixAudio");
-            j7aVar.setListener(new b(aVar, j7aVar, str, str2, str3));
-            ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add("-i");
-            arrayList.add(str);
-            arrayList.add("-i");
-            arrayList.add(str2);
-            arrayList.add("-filter_complex");
-            arrayList.add("[0:a] [1:a]amerge=inputs=2[aout]");
-            arrayList.add("-map");
-            arrayList.add("[aout]");
-            if (i > 0) {
-                arrayList.add("-ac");
-                arrayList.add(String.valueOf(i));
+            String str = null;
+            if (bundle != null) {
+                str = bundle.getString(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING);
+            } else if (intent != null) {
+                str = intent.getStringExtra(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING);
+                intent.putExtra(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING, "");
             }
-            arrayList.add(str3);
-            j7aVar.setSource(arrayList);
-            j7aVar.start();
+            p(str);
+            writeData.setWriteImagesInfo(g());
         }
     }
 
-    public static void l(String str, String str2, int i, int i2, float f2, int i3, float f3, float f4, boolean z, j7a.a aVar) {
+    public void m(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z), aVar}) == null) {
-            float f5 = f3 * 1000.0f;
-            if (r9 < (f4 * 1000.0f) + f5 || f4 <= 0.0f) {
-                f4 = (r9 - f5) / 1000.0f;
-            }
-            m7a.c(VLogMultiAudioMixer.TAG, "modifyAudioProperty - duration" + f4);
-            j7a j7aVar = (j7a) c8a.a("com.baidu.ugc.api.ffmpeg.MFFmpegCmdExecutor");
-            m7a.e("FFmpegCmdExecutor-modifyAudioProperty", "MFFmpegCmdExecutor modifyAudioProperty new");
-            if (j7aVar == null) {
-                if (aVar != null) {
-                    aVar.onError(-1, -1, "can not find MFFmpegCmdExecutor");
-                    return;
-                }
-                return;
-            }
-            j7aVar.setListener(new a(aVar, j7aVar, str, str2));
-            ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add("-i");
-            arrayList.add(str);
-            if (f4 > 0.0f) {
-                arrayList.add("-ss");
-                arrayList.add(String.valueOf(f3));
-                arrayList.add("-t");
-                arrayList.add(String.valueOf(f4));
-            }
-            if (i > 0) {
-                arrayList.add("-ar");
-                arrayList.add(String.valueOf(i));
-            }
-            if (i2 > 0) {
-                arrayList.add("-ac");
-                arrayList.add(String.valueOf(i2));
-            }
-            if (f2 >= 0.0f) {
-                arrayList.add("-af");
-                arrayList.add("volume=" + f2);
-            }
-            arrayList.add("-acodec");
-            arrayList.add("aac");
-            arrayList.add(str2);
-            j7aVar.setSource(arrayList);
-            m7a.e("FFmpegCmdExecutor-modifyAudioProperty", "start");
-            j7aVar.start();
+        if ((interceptable != null && interceptable.invokeIIL(1048587, this, i, i2, intent) != null) || intent == null || i2 != -1) {
+            return;
         }
-    }
-
-    public static boolean n(String str, String str2, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65550, null, str, str2, i, i2)) == null) {
-            if (i2 == i) {
-                return false;
-            }
-            File file = new File(str);
-            File file2 = new File(str2);
-            try {
-                FileInputStream fileInputStream = new FileInputStream(file);
-                FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                new d6a(fileInputStream, fileOutputStream, i, i2, 2, 2, 1, Integer.MAX_VALUE, 0.0d, 0, true);
-                fileInputStream.close();
-                fileOutputStream.close();
-                return true;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                m7a.e(MediaUtils.TAG, "resamplefail:" + e2.getMessage());
-                return false;
-            }
+        if (i == 12002) {
+            j(intent);
+        } else if (i == 12012) {
+            k(intent);
         }
-        return invokeLLII.booleanValue;
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.gi;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 /* loaded from: classes3.dex */
-public class StringHelper extends gi {
+public class StringHelper extends hi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_CARD_DAY_BEFORE;
     public static final String ALA_CARD_HOUR_BEFORE;
@@ -75,7 +75,7 @@ public class StringHelper extends gi {
     public static String getNegativeInfinity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65605, null)) == null) ? "-∞" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65606, null)) == null) ? "-∞" : (String) invokeV.objValue;
     }
 
     static {
@@ -94,11 +94,11 @@ public class StringHelper extends gi {
         HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour_before);
         MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_min_before);
         SEC_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_sec_before);
-        TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04ba);
+        TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04b8);
         TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour);
         TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_minute);
         TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
-        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0ba2);
+        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0b9e);
         TIME_MINUTE_SINGLE = string;
         TIME_STR = new String[]{TIME_DAY, TIME_HOUR, string, TIME_SECOND};
         ALA_CARD_DAY_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_day);
@@ -117,16 +117,16 @@ public class StringHelper extends gi {
         date = new Date();
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
         if (timeZone != null) {
-            gi.FORMATE_DATE_ALL.setTimeZone(timeZone);
-            gi.FORMATE_DATE_YEAR.setTimeZone(timeZone);
-            gi.FORMATE_DATE_TIME.setTimeZone(timeZone);
-            gi.FORMATE_DATE_MOUTH.setTimeZone(timeZone);
-            gi.FORMATE_DATE_MOUTH_TIME.setTimeZone(timeZone);
-            gi.FORMATE_DATE_DAY.setTimeZone(timeZone);
-            gi.FORMATE_DATE_DAY_WEEK.setTimeZone(timeZone);
-            gi.FORMATE_DATE_DAY_1.setTimeZone(timeZone);
-            gi.FORMATE_DATE_MS.setTimeZone(timeZone);
-            gi.FORMATE_DATE_DAY_NO_YEAR.setTimeZone(timeZone);
+            hi.FORMATE_DATE_ALL.setTimeZone(timeZone);
+            hi.FORMATE_DATE_YEAR.setTimeZone(timeZone);
+            hi.FORMATE_DATE_TIME.setTimeZone(timeZone);
+            hi.FORMATE_DATE_MOUTH.setTimeZone(timeZone);
+            hi.FORMATE_DATE_MOUTH_TIME.setTimeZone(timeZone);
+            hi.FORMATE_DATE_DAY.setTimeZone(timeZone);
+            hi.FORMATE_DATE_DAY_WEEK.setTimeZone(timeZone);
+            hi.FORMATE_DATE_DAY_1.setTimeZone(timeZone);
+            hi.FORMATE_DATE_MS.setTimeZone(timeZone);
+            hi.FORMATE_DATE_DAY_NO_YEAR.setTimeZone(timeZone);
         }
     }
 
@@ -150,8 +150,8 @@ public class StringHelper extends gi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
             Date date2 = new Date();
-            synchronized (gi.FORMATE_DATE_MS) {
-                format = gi.FORMATE_DATE_MS.format(date2);
+            synchronized (hi.FORMATE_DATE_MS) {
+                format = hi.FORMATE_DATE_MS.format(date2);
             }
             return format;
         }
@@ -164,8 +164,8 @@ public class StringHelper extends gi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
             Date date2 = new Date();
-            synchronized (gi.FORMATE_DATE_DAY) {
-                format = gi.FORMATE_DATE_DAY.format(date2);
+            synchronized (hi.FORMATE_DATE_DAY) {
+                format = hi.FORMATE_DATE_DAY.format(date2);
             }
             return format;
         }
@@ -189,7 +189,7 @@ public class StringHelper extends gi {
     public static int getyyyyMMddTimeForNow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65619, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65620, null)) == null) {
             Calendar calendar = Calendar.getInstance();
             return (calendar.get(1) * 10000) + 0 + ((calendar.get(2) + 1) * 100) + calendar.get(5);
         }
@@ -226,7 +226,7 @@ public class StringHelper extends gi {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            if (gi.isEmpty(str)) {
+            if (hi.isEmpty(str)) {
                 return "";
             }
             return "\u202d" + str + "\u202c";
@@ -247,10 +247,30 @@ public class StringHelper extends gi {
         return (String) invokeJ.objValue;
     }
 
+    public static String getFormatTimeForJustNowAndDate(long j) {
+        InterceptResult invokeJ;
+        boolean z;
+        String formatTimeForJustNow;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65601, null, j)) == null) {
+            synchronized (date) {
+                date.setTime(j);
+                if (date.getYear() == new Date().getYear()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                formatTimeForJustNow = getFormatTimeForJustNow(date, z);
+            }
+            return formatTimeForJustNow;
+        }
+        return (String) invokeJ.objValue;
+    }
+
     public static String getNameFromUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65604, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65605, null, str)) == null) {
             try {
                 int lastIndexOf = str.lastIndexOf("/");
                 int lastIndexOf2 = str.lastIndexOf(".");
@@ -272,14 +292,14 @@ public class StringHelper extends gi {
     public static int getRealSize(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65610, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65611, null, str)) == null) {
             if (str == null || str.length() <= 0) {
                 return 0;
             }
             int length = str.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                if (gi.isChinese(str.charAt(i2))) {
+                if (hi.isChinese(str.charAt(i2))) {
                     i += 2;
                 } else {
                     i++;
@@ -293,7 +313,7 @@ public class StringHelper extends gi {
     public static boolean isTaday(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65628, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65629, null, j)) == null) {
             Time time = new Time();
             time.set(j);
             int i = time.year;
@@ -311,7 +331,7 @@ public class StringHelper extends gi {
     public static boolean isThisYear(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65629, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65630, null, str)) == null) {
             if (str.length() != 10) {
                 return false;
             }
@@ -326,7 +346,7 @@ public class StringHelper extends gi {
     public static String longNumFormatOver10000wanAdd(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65634, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65635, null, j)) == null) {
             if (j > 9990000) {
                 return "999W+";
             }
@@ -341,7 +361,7 @@ public class StringHelper extends gi {
     public static String numOver1000(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65649, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65650, null, i)) == null) {
             if (i > 1000) {
                 return "999+";
             }
@@ -356,7 +376,7 @@ public class StringHelper extends gi {
     public static long[] parseVersion(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65659, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65660, null, str)) == null) {
             long[] jArr = new long[3];
             if (str != null) {
                 String[] split = str.replace(".", "#").split("#");
@@ -428,7 +448,7 @@ public class StringHelper extends gi {
     public static String getHighLightString(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65603, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65604, null, str, str2)) == null) {
             if (StringUtils.isNull(str)) {
                 return "";
             }
@@ -450,14 +470,14 @@ public class StringHelper extends gi {
     public static String subString(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65663, null, str, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65664, null, str, i)) == null) {
             if (str != null && i > 0) {
                 int length = str.length();
                 StringBuilder sb = new StringBuilder();
                 int i2 = 0;
                 for (int i3 = 0; i3 < length; i3++) {
                     char charAt = str.charAt(i3);
-                    if (gi.isChinese(charAt)) {
+                    if (hi.isChinese(charAt)) {
                         i2 += 2;
                     } else {
                         i2++;
@@ -485,7 +505,7 @@ public class StringHelper extends gi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (gi.isChinese(str.charAt(i2))) {
+                if (hi.isChinese(str.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -522,7 +542,7 @@ public class StringHelper extends gi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (gi.isChinese(str.charAt(i2))) {
+                if (hi.isChinese(str.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -560,7 +580,7 @@ public class StringHelper extends gi {
                 int i2 = 0;
                 int i3 = 0;
                 while (i2 < length) {
-                    if (gi.isChinese(replaceAll.charAt(i2))) {
+                    if (hi.isChinese(replaceAll.charAt(i2))) {
                         i3 += 2;
                     } else {
                         i3++;
@@ -638,7 +658,7 @@ public class StringHelper extends gi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (gi.isChinese(charSequence.charAt(i2))) {
+                if (hi.isChinese(charSequence.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -671,7 +691,7 @@ public class StringHelper extends gi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (gi.isChinese(str.charAt(i2))) {
+                if (hi.isChinese(str.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -721,7 +741,7 @@ public class StringHelper extends gi {
     public static int[] getSpecialTextIndex(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65612, null, str, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65613, null, str, i)) == null) {
             String string = TbadkCoreApplication.getInst().getString(i);
             int[] iArr = {str.indexOf(string), iArr[0] + string.length()};
             return iArr;
@@ -732,7 +752,7 @@ public class StringHelper extends gi {
     public static long string2long(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65661, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65662, null, str, str2)) == null) {
             try {
                 return new SimpleDateFormat(str2).parse(str).getTime();
             } catch (ParseException e) {
@@ -752,7 +772,7 @@ public class StringHelper extends gi {
                 int i2 = 0;
                 int i3 = 0;
                 while (i2 < length) {
-                    if (gi.isChinese(str.charAt(i2))) {
+                    if (hi.isChinese(str.charAt(i2))) {
                         i3 += 2;
                     } else {
                         i3++;
@@ -794,7 +814,7 @@ public class StringHelper extends gi {
             } else if (z) {
                 return getDateStringDayNoYear(date2);
             } else {
-                return gi.getDateStringDay(date2);
+                return hi.getDateStringDay(date2);
             }
         }
         return (String) invokeLZ.objValue;
@@ -805,7 +825,7 @@ public class StringHelper extends gi {
         byte[] bytes;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65664, null, str, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65665, null, str, i)) == null) {
             if (str == null || i < 0 || (bytes = str.getBytes()) == null) {
                 return null;
             }
@@ -1020,7 +1040,7 @@ public class StringHelper extends gi {
     public static String getNewMsgTimeInterval(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65606, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65607, null, j)) == null) {
             long time = new Date().getTime() - new Date(j / 1000).getTime();
             long j2 = time / 3600000;
             int i = (j2 > 24L ? 1 : (j2 == 24L ? 0 : -1));
@@ -1046,7 +1066,7 @@ public class StringHelper extends gi {
     public static String getPostTimeInterval(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65607, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65608, null, j)) == null) {
             long abs = Math.abs(System.currentTimeMillis() - (j * 1000));
             if (abs <= AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
                 return "刚刚";
@@ -1066,7 +1086,7 @@ public class StringHelper extends gi {
     public static String getTimeInterval(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65614, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65615, null, j)) == null) {
             long abs = Math.abs(System.currentTimeMillis() - (j * 1000));
             if (abs <= AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
                 return "刚刚";
@@ -1093,7 +1113,7 @@ public class StringHelper extends gi {
     public static String longNumFormatOver9999wan(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65635, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65636, null, j)) == null) {
             if (j < 0) {
                 return "0";
             }
@@ -1120,7 +1140,7 @@ public class StringHelper extends gi {
     public static String longNumFormatOver9999wanDoublePoint(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65636, null, new Object[]{Double.valueOf(d)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65637, null, new Object[]{Double.valueOf(d)})) == null) {
             if (d < 0.0d) {
                 return "0";
             }
@@ -1139,7 +1159,7 @@ public class StringHelper extends gi {
     public static String numFormatOverWan(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65645, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65646, null, j)) == null) {
             if (j > 99990000) {
                 return "9999W+";
             }
@@ -1164,7 +1184,7 @@ public class StringHelper extends gi {
     public static String numFormatOverWanNa(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65646, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65647, null, j)) == null) {
             if (j > 99990000) {
                 return "9999W+";
             }
@@ -1189,7 +1209,7 @@ public class StringHelper extends gi {
     public static String numberUniform(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65650, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65651, null, j)) == null) {
             if (j <= 0) {
                 return "0";
             }
@@ -1211,7 +1231,7 @@ public class StringHelper extends gi {
     public static String numberUniformOver1000Wan(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65658, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65659, null, j)) == null) {
             if (j <= 0) {
                 return "0";
             }
@@ -1233,7 +1253,7 @@ public class StringHelper extends gi {
     public static String stringForVideoTime(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65662, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65663, null, i)) == null) {
             if (i < 1000) {
                 i = 1000;
             }
@@ -1301,7 +1321,7 @@ public class StringHelper extends gi {
             int length = charSequence.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                if (gi.isChinese(charSequence.charAt(i2))) {
+                if (hi.isChinese(charSequence.charAt(i2))) {
                     i += 2;
                 } else {
                     i++;
@@ -1353,8 +1373,8 @@ public class StringHelper extends gi {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, date2)) == null) {
-            synchronized (gi.FORMATE_DATE_DAY_1) {
-                format = gi.FORMATE_DATE_DAY_1.format(date2);
+            synchronized (hi.FORMATE_DATE_DAY_1) {
+                format = hi.FORMATE_DATE_DAY_1.format(date2);
             }
             return format;
         }
@@ -1366,8 +1386,8 @@ public class StringHelper extends gi {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, date2)) == null) {
-            synchronized (gi.FORMATE_DATE_DAY_NO_YEAR) {
-                format = gi.FORMATE_DATE_DAY_NO_YEAR.format(date2);
+            synchronized (hi.FORMATE_DATE_DAY_NO_YEAR) {
+                format = hi.FORMATE_DATE_DAY_NO_YEAR.format(date2);
             }
             return format;
         }
@@ -1490,8 +1510,8 @@ public class StringHelper extends gi {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, date2)) == null) {
-            synchronized (gi.FORMATE_DATE_DAY_WEEK) {
-                format = gi.FORMATE_DATE_DAY_WEEK.format(date2);
+            synchronized (hi.FORMATE_DATE_DAY_WEEK) {
+                format = hi.FORMATE_DATE_DAY_WEEK.format(date2);
             }
             return format;
         }
@@ -1572,7 +1592,7 @@ public class StringHelper extends gi {
         InterceptResult invokeJ;
         String formatTime;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65602, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65603, null, j)) == null) {
             synchronized (date) {
                 date.setTime(j);
                 formatTime = getFormatTime(date, true);
@@ -1585,7 +1605,7 @@ public class StringHelper extends gi {
     public static String getPostTimeString(Date date2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65608, null, date2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65609, null, date2)) == null) {
             if (date2 == null) {
                 return "";
             }
@@ -1598,7 +1618,7 @@ public class StringHelper extends gi {
         InterceptResult invokeL;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65613, null, date2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65614, null, date2)) == null) {
             synchronized (FORMATE_DATE_SECOND) {
                 format = FORMATE_DATE_SECOND.format(date2);
             }
@@ -1610,7 +1630,7 @@ public class StringHelper extends gi {
     public static String getYearBytime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65618, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65619, null, j)) == null) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(j);
             return String.valueOf(calendar.get(1));
@@ -1621,7 +1641,7 @@ public class StringHelper extends gi {
     public static boolean isHttpUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65623, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65624, null, str)) == null) {
             if (str == null || str.length() <= 6 || !str.substring(0, 7).equalsIgnoreCase("http://")) {
                 return false;
             }
@@ -1633,7 +1653,7 @@ public class StringHelper extends gi {
     public static boolean isHttpsUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65624, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65625, null, str)) == null) {
             if (str == null || str.length() <= 7 || !str.substring(0, 8).equalsIgnoreCase("https://")) {
                 return false;
             }
@@ -1645,8 +1665,8 @@ public class StringHelper extends gi {
     public static boolean isJSONArray(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65625, null, str)) == null) {
-            if (!gi.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65626, null, str)) == null) {
+            if (!hi.isEmpty(str)) {
                 String trim = str.trim();
                 if (trim.startsWith(PreferencesUtil.LEFT_MOUNT) && trim.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
                     return true;
@@ -1660,8 +1680,8 @@ public class StringHelper extends gi {
     public static boolean isJSONObject(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65626, null, str)) == null) {
-            if (gi.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65627, null, str)) == null) {
+            if (hi.isEmpty(str)) {
                 return false;
             }
             try {
@@ -1682,7 +1702,7 @@ public class StringHelper extends gi {
     public static boolean isNetworkUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65627, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65628, null, str)) == null) {
             if (str == null || str.length() == 0) {
                 return false;
             }
@@ -1697,7 +1717,7 @@ public class StringHelper extends gi {
     public static String trim(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65665, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65666, null, str)) == null) {
             if (str != null) {
                 return str.trim();
             }
@@ -1723,7 +1743,7 @@ public class StringHelper extends gi {
         InterceptResult invokeL;
         byte[] bytes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65611, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65612, null, str)) == null) {
             int i = 0;
             if (str == null || (bytes = str.getBytes()) == null) {
                 return 0;
@@ -1760,14 +1780,14 @@ public class StringHelper extends gi {
     public static String getUserDescByGender(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65616, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65617, null, i)) == null) {
             if (i != 1) {
                 if (i != 2) {
-                    return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f08e6);
+                    return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f08e3);
                 }
-                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f125e);
+                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1254);
             }
-            return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f08e6);
+            return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f08e3);
         }
         return (String) invokeI.objValue;
     }
@@ -1775,7 +1795,7 @@ public class StringHelper extends gi {
     public static String longNumFormatOver(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65631, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65632, null, j)) == null) {
             if (j > 9999999) {
                 float f = ((float) j) / 10000.0f;
                 long round = Math.round(f);
@@ -1795,7 +1815,7 @@ public class StringHelper extends gi {
     public static String longNumFormatOver10000(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65632, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65633, null, j)) == null) {
             if (j > 9999) {
                 float f = ((float) j) / 10000.0f;
                 long round = Math.round(f);
@@ -1815,7 +1835,7 @@ public class StringHelper extends gi {
     public static String longNumFormatOver10000wan(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65633, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65634, null, j)) == null) {
             if (j > 9999999) {
                 float f = ((float) j) / 10000.0f;
                 long round = Math.round(f);
@@ -1835,7 +1855,7 @@ public class StringHelper extends gi {
     public static String longNumFormatOver9999wanOnePoint(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65637, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65638, null, j)) == null) {
             if (j < 0) {
                 return "0";
             }
@@ -1855,7 +1875,7 @@ public class StringHelper extends gi {
     public static String numFormat(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65638, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65639, null, i)) == null) {
             if (i > 9999) {
                 return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(i / 10000.0f));
             }
@@ -1870,7 +1890,7 @@ public class StringHelper extends gi {
     public static String numFormat9999W(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65639, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65640, null, j)) == null) {
             if (j > 9999999) {
                 float f = ((float) j) / 10000.0f;
                 long round = Math.round(f);
@@ -1893,7 +1913,7 @@ public class StringHelper extends gi {
     public static String numFormatOver10000(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65640, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65641, null, j)) == null) {
             if (j > 9999) {
                 return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(((float) j) / 10000.0f));
             }
@@ -1908,7 +1928,7 @@ public class StringHelper extends gi {
     public static String numFormatOver100000ReturnInt(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65641, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65642, null, j)) == null) {
             if (j > 99999) {
                 return ((int) (((float) j) / 10000.0f)) + ExifInterface.LONGITUDE_WEST;
             } else if (j < 0) {
@@ -1923,7 +1943,7 @@ public class StringHelper extends gi {
     public static String numFormatOver10000ReturnInt(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65642, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65643, null, j)) == null) {
             if (j > 9999) {
                 return ((int) (((float) j) / 10000.0f)) + ExifInterface.LONGITUDE_WEST;
             } else if (j < 0) {
@@ -1938,7 +1958,7 @@ public class StringHelper extends gi {
     public static String numFormatOver10000wan(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65643, null, f)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65644, null, f)) == null) {
             if (f > 9999999.0f) {
                 float f2 = f / 10000.0f;
                 long round = Math.round(f2);
@@ -2092,7 +2112,7 @@ public class StringHelper extends gi {
     public static String numberUniformFormatExtraWithRoundInt(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65656, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65657, null, j)) == null) {
             if (j <= 0) {
                 return "0";
             }
@@ -2186,7 +2206,7 @@ public class StringHelper extends gi {
             int length = str.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                if (gi.isChinese(str.charAt(i2))) {
+                if (hi.isChinese(str.charAt(i2))) {
                     i += 2;
                 } else {
                     i++;
@@ -2281,7 +2301,7 @@ public class StringHelper extends gi {
     public static String getFormatTimeHomeC(Date date2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65601, null, date2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65602, null, date2)) == null) {
             if (date2 == null) {
                 return "";
             }
@@ -2307,7 +2327,7 @@ public class StringHelper extends gi {
     public static String getTimeSpace(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65615, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65616, null, j)) == null) {
             if (j <= 0) {
                 return "1秒";
             }
@@ -2332,7 +2352,7 @@ public class StringHelper extends gi {
     public static String numFormatOverWanWithNegative(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65647, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65648, null, j)) == null) {
             if (j > 99990000) {
                 return "9999W+";
             }
@@ -2367,7 +2387,7 @@ public class StringHelper extends gi {
     public static String numFormatOverWanWithoutDecimals(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65648, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65649, null, j)) == null) {
             if (j <= 0) {
                 return "0";
             }
@@ -2395,7 +2415,7 @@ public class StringHelper extends gi {
     public static String numberUniformFormat(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65651, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65652, null, j)) == null) {
             if (j <= 0) {
                 return "0";
             }
@@ -2421,7 +2441,7 @@ public class StringHelper extends gi {
     public static String numberUniformFormatExtra(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65652, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65653, null, j)) == null) {
             if (j <= 0) {
                 return "0";
             }
@@ -2450,7 +2470,7 @@ public class StringHelper extends gi {
     public static String numberUniformFormatExtraWithCollect(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65653, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65654, null, j)) == null) {
             if (j <= 0) {
                 return "0";
             }
@@ -2479,7 +2499,7 @@ public class StringHelper extends gi {
     public static String numberUniformFormatExtraWithRound(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65654, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65655, null, j)) == null) {
             if (j <= 0) {
                 return "0";
             }
@@ -2504,7 +2524,7 @@ public class StringHelper extends gi {
     public static String numberUniformFormatExtraWithRoundFloat(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65655, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65656, null, j)) == null) {
             if (j <= 0) {
                 return "0";
             }
@@ -2534,7 +2554,7 @@ public class StringHelper extends gi {
     public static String numberUniformFormatExtraWithRoundVote(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65657, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65658, null, j)) == null) {
             if (j <= 0) {
                 return "0";
             }
@@ -2564,7 +2584,7 @@ public class StringHelper extends gi {
         InterceptResult invokeJ;
         String valueOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65660, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65661, null, j)) == null) {
             Date date2 = new Date(j);
             if (date2.getMinutes() < 10) {
                 valueOf = "0" + date2.getMinutes();
@@ -2600,7 +2620,7 @@ public class StringHelper extends gi {
                 if (time > -120000) {
                     return "刚刚";
                 }
-                return gi.getDateStringDay(date3);
+                return hi.getDateStringDay(date3);
             } else if (time < 30000) {
                 return "刚刚";
             } else {
@@ -2611,7 +2631,7 @@ public class StringHelper extends gi {
                     return String.valueOf((time * 60) / 3600000) + "分钟前";
                 } else if (time < 86400000) {
                     if (day == 0) {
-                        return gi.getDateStringHm(date3);
+                        return hi.getDateStringHm(date3);
                     }
                     return "1天前";
                 } else if (time < 2678400000L) {
@@ -2620,13 +2640,13 @@ public class StringHelper extends gi {
                     return "1个月前";
                 } else {
                     if (date2.getYear() == date3.getYear()) {
-                        synchronized (gi.FORMATE_DATE_DAY_NO_YEAR) {
-                            format2 = gi.FORMATE_DATE_DAY_NO_YEAR.format(date3);
+                        synchronized (hi.FORMATE_DATE_DAY_NO_YEAR) {
+                            format2 = hi.FORMATE_DATE_DAY_NO_YEAR.format(date3);
                         }
                         return format2;
                     }
-                    synchronized (gi.FORMATE_DATE_DAY) {
-                        format = gi.FORMATE_DATE_DAY.format(date3);
+                    synchronized (hi.FORMATE_DATE_DAY) {
+                        format = hi.FORMATE_DATE_DAY.format(date3);
                     }
                     return format;
                 }
@@ -2658,7 +2678,7 @@ public class StringHelper extends gi {
             } else if (z) {
                 return getDateStringDayNoYear(date2);
             } else {
-                return gi.getDateStringDay(date2);
+                return hi.getDateStringDay(date2);
             }
         }
         return (String) invokeLZ.objValue;
@@ -2667,7 +2687,7 @@ public class StringHelper extends gi {
     public static String getPostTimeString(Date date2, Date date3) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65609, null, date2, date3)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65610, null, date2, date3)) == null) {
             if (date3 == null) {
                 return "";
             }
@@ -2677,7 +2697,7 @@ public class StringHelper extends gi {
                 if (time > -120000) {
                     return "刚刚";
                 }
-                return gi.getDateStringDay(date3);
+                return hi.getDateStringDay(date3);
             } else if (time < 30000) {
                 return "刚刚";
             } else {
@@ -2688,7 +2708,7 @@ public class StringHelper extends gi {
                     return String.valueOf((time * 60) / 3600000) + "分钟前";
                 } else if (time < 86400000) {
                     if (day == 0) {
-                        return gi.getDateStringHm(date3);
+                        return hi.getDateStringHm(date3);
                     }
                     return "1天前";
                 } else if (time < 2678400000L) {
@@ -2696,7 +2716,7 @@ public class StringHelper extends gi {
                 } else if (time < 2764800000L) {
                     return "1个月前";
                 } else {
-                    return gi.getDateStringDay(date3);
+                    return hi.getDateStringDay(date3);
                 }
             }
         }
@@ -2706,7 +2726,7 @@ public class StringHelper extends gi {
     public static String getWeekString(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65617, null, i, i2, i3)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65618, null, i, i2, i3)) == null) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(1, i);
             calendar.set(2, i2);
@@ -2736,7 +2756,7 @@ public class StringHelper extends gi {
     public static SpannableString highLightText(String str, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65620, null, str, i, i2, i3)) == null) {
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65621, null, str, i, i2, i3)) == null) {
             if (!TextUtils.isEmpty(str) && i3 > 0) {
                 SpannableString spannableString = new SpannableString(str);
                 if (i < i2 && i < str.length() && str.length() >= i2) {
@@ -2752,7 +2772,7 @@ public class StringHelper extends gi {
     public static SpannableString highLightText(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65621, null, str, str2, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65622, null, str, str2, i)) == null) {
             return highLightText(str, str2, i, true);
         }
         return (SpannableString) invokeLLI.objValue;
@@ -2762,7 +2782,7 @@ public class StringHelper extends gi {
         InterceptResult invokeCommon;
         int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65622, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65623, null, new Object[]{str, str2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             if (!TextUtils.isEmpty(str) && i > 0) {
                 SpannableString spannableString = new SpannableString(str);
                 if (!TextUtils.isEmpty(str2) && str.contains(str2)) {
@@ -2784,7 +2804,7 @@ public class StringHelper extends gi {
         InterceptResult invokeJL;
         Date date2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65630, null, j, str)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65631, null, j, str)) == null) {
             if (String.valueOf(j).length() == 10) {
                 date2 = new Date(j * 1000);
             } else {
@@ -2798,7 +2818,7 @@ public class StringHelper extends gi {
     public static String numFormatOver10000wan(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65644, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65645, null, j)) == null) {
             if (j > 9999999) {
                 float f = ((float) j) / 10000.0f;
                 long round = Math.round(f);

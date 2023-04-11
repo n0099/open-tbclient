@@ -22,13 +22,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ai;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.tieba.bg;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.ca6;
 import com.baidu.tieba.cg;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.rm;
-import com.baidu.tieba.w86;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.sm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,13 +43,13 @@ public class AlaEffectPreviewView extends LinearLayout {
     public View c;
     public ImageView d;
     public TextView e;
-    public w86.c f;
+    public ca6.c f;
     public ObjectAnimator g;
     public LinearLayout h;
     public ImageView i;
 
     /* loaded from: classes3.dex */
-    public class a extends bg<rm> {
+    public class a extends bg<sm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEffectPreviewView a;
@@ -74,12 +74,12 @@ public class AlaEffectPreviewView extends LinearLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.bg
-        public void onLoaded(rm rmVar, String str, int i) {
+        public void onLoaded(sm smVar, String str, int i) {
             Bitmap p;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, rmVar, str, i) == null) {
-                super.onLoaded((a) rmVar, str, i);
-                if (rmVar == null || (p = rmVar.p()) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, smVar, str, i) == null) {
+                super.onLoaded((a) smVar, str, i);
+                if (smVar == null || (p = smVar.p()) == null) {
                     return;
                 }
                 try {
@@ -105,7 +105,7 @@ public class AlaEffectPreviewView extends LinearLayout {
                     return;
                 }
                 try {
-                    Bitmap f = ai.d().f(p, hi.l(this.a.getContext()), this.a.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
+                    Bitmap f = bi.d().f(p, ii.l(this.a.getContext()), this.a.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
                     if (f != p) {
                         p.recycle();
                     }
@@ -324,7 +324,7 @@ public class AlaEffectPreviewView extends LinearLayout {
         e();
     }
 
-    public void setAnimCompleteCallback(w86.c cVar) {
+    public void setAnimCompleteCallback(ca6.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.f = cVar;
@@ -334,11 +334,11 @@ public class AlaEffectPreviewView extends LinearLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d00f2, this);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901ea);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901e9);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0901d0);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901eb);
+            this.c = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d00f1, this);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901e8);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901e7);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0901ce);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901e9);
         }
     }
 
@@ -356,7 +356,7 @@ public class AlaEffectPreviewView extends LinearLayout {
             if (getMeasuredWidth() <= 0) {
                 measure(0, 0);
             }
-            int l = hi.l(getContext());
+            int l = ii.l(getContext());
             this.a = l;
             this.b = (l - getMeasuredWidth()) / 2;
             View view2 = this.c;

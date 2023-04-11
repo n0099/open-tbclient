@@ -1,17 +1,32 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ica;
+import com.baidu.tieba.lca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class kca implements AdRipper {
+public final class kca implements ica.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.ica.a
+    public final void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ica.a
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
     public kca() {
         Interceptable interceptable = $ic;
@@ -27,44 +42,23 @@ public class kca implements AdRipper {
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public void destroy(Object obj) {
+    @Override // com.baidu.tieba.ica.a
+    public final void a(Activity activity) {
+        lca lcaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            lcaVar = lca.a.a;
+            lcaVar.c(new WeakReference<>(activity));
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public RippedAd getRippedAd(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ica.a
+    public final void onActivityDestroyed(Activity activity) {
+        lca lcaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            return null;
-        }
-        return (RippedAd) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public RippedAd getRippedAd(Object obj, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, obj, z)) == null) {
-            return null;
-        }
-        return (RippedAd) invokeLZ.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public void preParseRippedAd(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
-    public void report(Object obj, String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, str, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            lcaVar = lca.a.a;
+            lcaVar.d(activity);
         }
     }
 }

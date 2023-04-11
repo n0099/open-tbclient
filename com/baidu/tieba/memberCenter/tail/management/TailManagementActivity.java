@@ -5,9 +5,9 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lb8;
-import com.baidu.tieba.ob8;
-import com.baidu.tieba.pb8;
+import com.baidu.tieba.cm8;
+import com.baidu.tieba.fm8;
+import com.baidu.tieba.gm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TailManagementActivity extends BaseActivity<TailManagementActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lb8 a;
-    public ob8 b;
-    public pb8 c;
-    public lb8.f d;
+    public cm8 a;
+    public fm8 b;
+    public gm8 c;
+    public cm8.f d;
     public View.OnClickListener e;
 
     /* loaded from: classes5.dex */
-    public class a implements lb8.f {
+    public class a implements cm8.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailManagementActivity a;
@@ -46,7 +46,7 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
             this.a = tailManagementActivity;
         }
 
-        @Override // com.baidu.tieba.lb8.f
+        @Override // com.baidu.tieba.cm8.f
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -57,11 +57,11 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                     this.a.b.l(g);
                 }
                 TailManagementActivity tailManagementActivity = this.a;
-                pb8 pb8Var = tailManagementActivity.c;
+                gm8 gm8Var = tailManagementActivity.c;
                 if (tailManagementActivity.b.h().size() != 0) {
                     z = false;
                 }
-                pb8Var.e(g, z);
+                gm8Var.e(g, z);
             }
         }
     }
@@ -101,11 +101,11 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                     boolean z2 = !this.a.b.g();
                     this.a.b.l(z2);
                     TailManagementActivity tailManagementActivity = this.a;
-                    pb8 pb8Var = tailManagementActivity.c;
+                    gm8 gm8Var = tailManagementActivity.c;
                     if (tailManagementActivity.b.h().size() != 0) {
                         z = false;
                     }
-                    pb8Var.e(z2, z);
+                    gm8Var.e(z2, z);
                     this.a.a.j();
                 }
             }
@@ -145,19 +145,19 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d08d1);
-            this.b = new ob8(getPageContext());
-            this.a = new lb8(getPageContext(), this.b, this.d);
-            pb8 pb8Var = new pb8(this, this.e);
-            this.c = pb8Var;
-            pb8Var.d(this.a);
-            pb8 pb8Var2 = this.c;
+            setContentView(R.layout.obfuscated_res_0x7f0d08cc);
+            this.b = new fm8(getPageContext());
+            this.a = new cm8(getPageContext(), this.b, this.d);
+            gm8 gm8Var = new gm8(this, this.e);
+            this.c = gm8Var;
+            gm8Var.d(this.a);
+            gm8 gm8Var2 = this.c;
             if (this.b.h().size() == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            pb8Var2.e(false, z);
+            gm8Var2.e(false, z);
             if (this.b.i(getIntent().getSerializableExtra("list"))) {
                 this.a.j();
             }

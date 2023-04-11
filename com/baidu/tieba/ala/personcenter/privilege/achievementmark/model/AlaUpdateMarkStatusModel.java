@@ -111,19 +111,19 @@ public class AlaUpdateMarkStatusModel extends BdBaseModel {
         }
         this.d = new a(this, AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
         this.b = context;
-        U();
         T();
+        S();
         this.a = BdUniqueId.gen();
     }
 
-    public void V(b bVar) {
+    public void U(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.c = bVar;
         }
     }
 
-    public final void T() {
+    public final void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MessageManager.getInstance().registerListener(this.d);
@@ -138,7 +138,7 @@ public class AlaUpdateMarkStatusModel extends BdBaseModel {
         }
     }
 
-    public final void U() {
+    public final void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_UPDATE_MARK_STATUS);
@@ -148,7 +148,7 @@ public class AlaUpdateMarkStatusModel extends BdBaseModel {
         }
     }
 
-    public void W(boolean z, int i) {
+    public void V(boolean z, int i) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {

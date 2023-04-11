@@ -15,7 +15,7 @@ import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gi;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,7 +103,7 @@ public class Game2GroupShareDialogView extends LinearLayout {
             if (editText == null) {
                 return null;
             }
-            return gi.charSequence2String(editText.getText(), null);
+            return hi.charSequence2String(editText.getText(), null);
         }
         return (String) invokeV.objValue;
     }
@@ -136,10 +136,10 @@ public class Game2GroupShareDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.f.setText(this.h.getTitle());
             this.c.setTag(this.h.getImageUrl());
-            this.c.M(this.h.getImageUrl(), 17, false);
+            this.c.N(this.h.getImageUrl(), 17, false);
             this.d.setVisibility(0);
             this.d.setTag(this.h.getShareSourceIcon());
-            this.d.M(this.h.getShareSourceIcon(), 17, false);
+            this.d.N(this.h.getShareSourceIcon(), 17, false);
             this.e.setText(this.h.getContent());
             TextView textView = this.g;
             textView.setText("来自" + this.h.getShareSource());
@@ -173,7 +173,7 @@ public class Game2GroupShareDialogView extends LinearLayout {
                 shareFromPBMsgData.setImageUrl("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
             }
             this.c.setTag(shareFromPBMsgData.getImageUrl());
-            this.c.M(shareFromPBMsgData.getImageUrl(), 17, false);
+            this.c.N(shareFromPBMsgData.getImageUrl(), 17, false);
             this.d.setVisibility(8);
             this.e.setText(shareFromPBMsgData.getContent());
         }

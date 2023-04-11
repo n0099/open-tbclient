@@ -129,7 +129,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
     }
 
     public TextView getTitleView(int i) {
-        return (TextView) this.mTabsContainer.getChildAt(i).findViewById(R.id.obfuscated_res_0x7f09260b);
+        return (TextView) this.mTabsContainer.getChildAt(i).findViewById(R.id.obfuscated_res_0x7f092600);
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -323,7 +323,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
 
     private void addTab(int i, String str, View view2) {
         LinearLayout.LayoutParams layoutParams;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09260b);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092600);
         if (textView != null && str != null) {
             textView.setText(str);
         }
@@ -361,7 +361,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
         float right = childAt.getRight();
         if (this.mIndicatorStyle == 0 && this.mIndicatorWidthEqualTitle) {
             this.mTextPaint.setTextSize(this.mTextsize);
-            this.margin = ((right - left) - this.mTextPaint.measureText(((TextView) childAt.findViewById(R.id.obfuscated_res_0x7f09260b)).getText().toString())) / 2.0f;
+            this.margin = ((right - left) - this.mTextPaint.measureText(((TextView) childAt.findViewById(R.id.obfuscated_res_0x7f092600)).getText().toString())) / 2.0f;
         }
         int i2 = this.mCurrentTab;
         if (i2 < this.mTabCount - 1) {
@@ -374,7 +374,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
             if (this.mIndicatorStyle == 0 && this.mIndicatorWidthEqualTitle) {
                 this.mTextPaint.setTextSize(this.mTextsize);
                 float f2 = this.margin;
-                this.margin = f2 + (this.mCurrentPositionOffset * ((((right2 - left2) - this.mTextPaint.measureText(((TextView) childAt2.findViewById(R.id.obfuscated_res_0x7f09260b)).getText().toString())) / 2.0f) - f2));
+                this.margin = f2 + (this.mCurrentPositionOffset * ((((right2 - left2) - this.mTextPaint.measureText(((TextView) childAt2.findViewById(R.id.obfuscated_res_0x7f092600)).getText().toString())) / 2.0f) - f2));
             }
         }
         Rect rect = this.mIndicatorRect;
@@ -502,7 +502,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
     private void updateTabStyles() {
         int i;
         for (int i2 = 0; i2 < this.mTabCount; i2++) {
-            TextView textView = (TextView) this.mTabsContainer.getChildAt(i2).findViewById(R.id.obfuscated_res_0x7f09260b);
+            TextView textView = (TextView) this.mTabsContainer.getChildAt(i2).findViewById(R.id.obfuscated_res_0x7f092600);
             if (textView != null) {
                 if (i2 == this.mCurrentTab) {
                     i = this.mTextSelectColor;
@@ -538,7 +538,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
         }
         this.mTabCount = size;
         for (int i = 0; i < this.mTabCount; i++) {
-            View inflate = View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0531, null);
+            View inflate = View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0530, null);
             List<String> list2 = this.mTitles;
             if (list2 == null) {
                 str = this.mViewPager.getAdapter().getPageTitle(i);
@@ -560,7 +560,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
             } else {
                 z = false;
             }
-            TextView textView = (TextView) childAt.findViewById(R.id.obfuscated_res_0x7f09260b);
+            TextView textView = (TextView) childAt.findViewById(R.id.obfuscated_res_0x7f092600);
             if (textView != null) {
                 if (z) {
                     i2 = this.mTextSelectColor;
@@ -578,7 +578,7 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
     public void addNewTab(String str) {
         String str2;
         int size;
-        View inflate = View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0531, null);
+        View inflate = View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0530, null);
         List<String> list = this.mTitles;
         if (list != null) {
             list.add(str);

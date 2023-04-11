@@ -4,8 +4,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.bn7;
-import com.baidu.tieba.yz4;
+import com.baidu.tieba.b05;
+import com.baidu.tieba.yw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,10 +19,10 @@ import tbclient.GetSugTopic.GetSugTopicResIdl;
 public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bn7 mBangTopic;
-    public bn7 mSugTopic;
-    public bn7 mUserHisTopic;
-    public bn7 mVideoTopic;
+    public yw7 mBangTopic;
+    public yw7 mSugTopic;
+    public yw7 mUserHisTopic;
+    public yw7 mVideoTopic;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotSelectHttpResponseMessage(int i) {
@@ -51,8 +51,8 @@ public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
             if (bArr != null && bArr.length > 0 && getError() == 0) {
-                yz4.d();
-                yz4.c("topic_select_space", TbadkCoreApplication.getCurrentAccount()).a("topic_select_user", bArr);
+                b05.d();
+                b05.c("topic_select_space", TbadkCoreApplication.getCurrentAccount()).a("topic_select_user", bArr);
             }
         }
     }
@@ -75,69 +75,69 @@ public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
             return;
         }
         if (dataRes.user_his_topic != null) {
-            bn7 bn7Var = new bn7();
-            bn7Var.d(getSugTopicResIdl.data.user_his_topic);
-            bn7Var.f(0);
-            this.mUserHisTopic = bn7Var;
+            yw7 yw7Var = new yw7();
+            yw7Var.d(getSugTopicResIdl.data.user_his_topic);
+            yw7Var.f(0);
+            this.mUserHisTopic = yw7Var;
         }
         if (getSugTopicResIdl.data.bang_topic != null) {
-            bn7 bn7Var2 = new bn7();
-            bn7Var2.f(1);
-            bn7Var2.d(getSugTopicResIdl.data.bang_topic);
-            this.mBangTopic = bn7Var2;
+            yw7 yw7Var2 = new yw7();
+            yw7Var2.f(1);
+            yw7Var2.d(getSugTopicResIdl.data.bang_topic);
+            this.mBangTopic = yw7Var2;
         }
         if (getSugTopicResIdl.data.sug_topic != null) {
-            bn7 bn7Var3 = new bn7();
-            bn7Var3.d(getSugTopicResIdl.data.sug_topic);
-            this.mSugTopic = bn7Var3;
+            yw7 yw7Var3 = new yw7();
+            yw7Var3.d(getSugTopicResIdl.data.sug_topic);
+            this.mSugTopic = yw7Var3;
         }
         if (getSugTopicResIdl.data.video_topic != null) {
-            bn7 bn7Var4 = new bn7();
-            bn7Var4.d(getSugTopicResIdl.data.video_topic);
-            this.mVideoTopic = bn7Var4;
+            yw7 yw7Var4 = new yw7();
+            yw7Var4.d(getSugTopicResIdl.data.video_topic);
+            this.mVideoTopic = yw7Var4;
         }
     }
 
-    public bn7 getBangTopic() {
+    public yw7 getBangTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mBangTopic;
         }
-        return (bn7) invokeV.objValue;
+        return (yw7) invokeV.objValue;
     }
 
-    public bn7 getSugTopic() {
+    public yw7 getSugTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mSugTopic;
         }
-        return (bn7) invokeV.objValue;
+        return (yw7) invokeV.objValue;
     }
 
-    public bn7 getUserHisTopic() {
+    public yw7 getUserHisTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mUserHisTopic;
         }
-        return (bn7) invokeV.objValue;
+        return (yw7) invokeV.objValue;
     }
 
-    public bn7 getVideoTopic() {
+    public yw7 getVideoTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mVideoTopic;
         }
-        return (bn7) invokeV.objValue;
+        return (yw7) invokeV.objValue;
     }
 
-    public void setVideoTopic(bn7 bn7Var) {
+    public void setVideoTopic(yw7 yw7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bn7Var) == null) {
-            this.mVideoTopic = bn7Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yw7Var) == null) {
+            this.mVideoTopic = yw7Var;
         }
     }
 }

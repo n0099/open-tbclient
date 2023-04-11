@@ -2,7 +2,7 @@ package com.baidu.bdtask.service.cache.storage.serializer.raw;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.framework.utils.DebugTrace;
-import com.baidu.tieba.cu;
+import com.baidu.tieba.du;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,7 +65,7 @@ public final class a {
                 if (z) {
                     return MapsKt__MapsKt.emptyMap();
                 }
-                return cu.a(bArr);
+                return du.a(bArr);
             } catch (Throwable th) {
                 DebugTrace.a.c(new Function0<String>(th) { // from class: com.baidu.bdtask.service.cache.storage.serializer.raw.RawStorageSerializer$deserialize$1
                     public static /* synthetic */ Interceptable $ic;
@@ -115,7 +115,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
             try {
-                return cu.b(map);
+                return du.b(map);
             } catch (Throwable th) {
                 DebugTrace.a.c(new Function0<String>(th) { // from class: com.baidu.bdtask.service.cache.storage.serializer.raw.RawStorageSerializer$serialize$1
                     public static /* synthetic */ Interceptable $ic;

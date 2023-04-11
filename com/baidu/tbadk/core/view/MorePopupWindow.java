@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.view.KeyEventDealContainerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fv4;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.ii;
 import com.baidu.tieba.lg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -124,19 +124,19 @@ public class MorePopupWindow extends PopupWindow {
         this.mIsIntercepted = false;
     }
 
-    private void applaySkin(fv4 fv4Var, int i, Drawable drawable) {
+    private void applaySkin(hv4 hv4Var, int i, Drawable drawable) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65539, this, fv4Var, i, drawable) == null) && this.mContentView != null) {
+        if ((interceptable == null || interceptable.invokeLIL(65539, this, hv4Var, i, drawable) == null) && this.mContentView != null) {
             setBackgroundDrawable(drawable);
             if (i == 4) {
                 z = true;
             } else {
                 z = false;
             }
-            fv4Var.l(z);
+            hv4Var.l(z);
             try {
-                fv4Var.k(this.mContentView);
+                hv4Var.k(this.mContentView);
             } catch (IllegalArgumentException e) {
                 BdLog.e(e.toString());
             }
@@ -217,10 +217,10 @@ public class MorePopupWindow extends PopupWindow {
         }
     }
 
-    public void onChangeSkinType(fv4 fv4Var, int i, Drawable drawable) {
+    public void onChangeSkinType(hv4 hv4Var, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, fv4Var, i, drawable) == null) {
-            applaySkin(fv4Var, i, drawable);
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, hv4Var, i, drawable) == null) {
+            applaySkin(hv4Var, i, drawable);
         }
     }
 
@@ -235,7 +235,7 @@ public class MorePopupWindow extends PopupWindow {
             int dimension = measuredHeight + ((int) this.mActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224));
             this.mWindowHeight = dimension;
             setHeight(dimension);
-            int[] s = hi.s(this.mActivity);
+            int[] s = ii.s(this.mActivity);
             if (s != null && s.length > 1 && s[0] > measuredWidth) {
                 this.mShowRightTopXOff = s[0] - measuredWidth;
             }
@@ -254,7 +254,7 @@ public class MorePopupWindow extends PopupWindow {
     public void setWidthAsWidthOfDeviceScreen(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            int l = hi.l(context);
+            int l = ii.l(context);
             this.mContentView.getLayoutParams().width = l;
             setWidth(l);
         }

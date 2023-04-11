@@ -28,10 +28,10 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.es5;
-import com.baidu.tieba.fs5;
-import com.baidu.tieba.ik9;
-import com.baidu.tieba.vv6;
+import com.baidu.tieba.kt5;
+import com.baidu.tieba.lt5;
+import com.baidu.tieba.p47;
+import com.baidu.tieba.zt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -189,7 +189,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                                 return;
                             }
                             tbImage.setVisibility(0);
-                            es5 a = fs5.a.a();
+                            kt5 a = lt5.a.a();
                             Intrinsics.checkNotNullExpressionValue(iconUrl, "iconUrl");
                             a.a(iconUrl, tbImage);
                         }
@@ -305,7 +305,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                                 return;
                             }
                             tbImage.setVisibility(0);
-                            es5 a = fs5.a.a();
+                            kt5 a = lt5.a.a();
                             Intrinsics.checkNotNullExpressionValue(iconUrl, "iconUrl");
                             a.a(iconUrl, tbImage);
                         }
@@ -416,7 +416,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             FrsBannerHeaderData frsBannerHeaderData = this.j;
             if (frsBannerHeaderData != null && (iconUrl = frsBannerHeaderData.getIconUrl()) != null && (tbImageView = this.c) != null) {
-                tbImageView.M(iconUrl, 10, false);
+                tbImageView.N(iconUrl, 10, false);
             }
             FrsBannerHeaderData frsBannerHeaderData2 = this.j;
             String str6 = null;
@@ -550,8 +550,8 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                 themeColorInfo = null;
             }
             if (themeColorInfo != null) {
-                str2 = ik9.b(themeColorInfo);
-                str = ik9.c(themeColorInfo);
+                str2 = zt9.d(themeColorInfo);
+                str = zt9.e(themeColorInfo);
             } else {
                 str = null;
                 str2 = null;
@@ -639,7 +639,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
         TbImage tbImage2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0319, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d031a, (ViewGroup) this, true);
             this.b = inflate;
             ImageView imageView = null;
             if (inflate != null) {
@@ -735,7 +735,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                     Context context = getContext();
                     if (context != null) {
                         TbPageContext<?> pageContext = ((TbPageContextSupport) context).getPageContext();
-                        if (pageContext == null || vv6.f().i()) {
+                        if (pageContext == null || p47.f().i()) {
                             return;
                         }
                         UrlManager urlManager = UrlManager.getInstance();

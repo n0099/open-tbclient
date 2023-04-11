@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tieba.ag;
 import com.baidu.tieba.dg;
 import com.baidu.tieba.rb;
-import com.baidu.tieba.rm;
+import com.baidu.tieba.sm;
 import com.baidu.tieba.ub;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -66,15 +66,15 @@ public class EmotionShareLoaderProc implements dg<EmotionShare> {
     public static class EmotionShare {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public rm image;
+        public sm image;
         public String path;
 
-        public EmotionShare(rm rmVar, String str) {
+        public EmotionShare(sm smVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rmVar, str};
+                Object[] objArr = {smVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,7 +84,7 @@ public class EmotionShareLoaderProc implements dg<EmotionShare> {
                     return;
                 }
             }
-            this.image = rmVar;
+            this.image = smVar;
             this.path = str;
         }
     }
@@ -176,16 +176,16 @@ public class EmotionShareLoaderProc implements dg<EmotionShare> {
         return invokeV.intValue;
     }
 
-    private DiskFileOperate buildExtractToShareHubDiskOp(rm rmVar, String str) {
+    private DiskFileOperate buildExtractToShareHubDiskOp(sm smVar, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, rmVar, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, smVar, str)) == null) {
             DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.SHARE_HUB_DIR_NAME, TbMd5.getNameMd5FromUrl(str), DiskFileOperate.Action.WRITE_FORCE);
             diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
             diskFileOperate.setSubFolder(true);
             diskFileOperate.setSavedCache(true);
             diskFileOperate.setSdCard(true);
-            diskFileOperate.setData(rmVar.k());
+            diskFileOperate.setData(smVar.k());
             return diskFileOperate;
         }
         return (DiskFileOperate) invokeLL.objValue;
@@ -199,7 +199,7 @@ public class EmotionShareLoaderProc implements dg<EmotionShare> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), agVar, objArr})) == null) {
             clearShareHub();
-            rm fromLocal = this.impl.getFromLocal(str, str2, i, i2, agVar, objArr);
+            sm fromLocal = this.impl.getFromLocal(str, str2, i, i2, agVar, objArr);
             if (fromLocal != null && fromLocal.k() != null) {
                 DiskFileOperate buildExtractToShareHubDiskOp = buildExtractToShareHubDiskOp(fromLocal, str2);
                 if (ub.f().call(buildExtractToShareHubDiskOp) && buildExtractToShareHubDiskOp.getFileInfo() != null) {
@@ -220,7 +220,7 @@ public class EmotionShareLoaderProc implements dg<EmotionShare> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), agVar, objArr})) == null) {
             clearShareHub();
-            rm fromRemote = this.impl.getFromRemote(str, str2, i, i2, agVar, objArr);
+            sm fromRemote = this.impl.getFromRemote(str, str2, i, i2, agVar, objArr);
             if (fromRemote != null && fromRemote.k() != null) {
                 DiskFileOperate buildExtractToShareHubDiskOp = buildExtractToShareHubDiskOp(fromRemote, str2);
                 if (ub.f().call(buildExtractToShareHubDiskOp) && buildExtractToShareHubDiskOp.getFileInfo() != null) {

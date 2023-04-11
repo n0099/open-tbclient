@@ -7,7 +7,7 @@ public abstract class WebHistoryItem implements Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // 
     /* renamed from: clone */
-    public abstract WebHistoryItem mo80clone();
+    public abstract WebHistoryItem mo82clone();
 
     public abstract Bitmap getFavicon();
 

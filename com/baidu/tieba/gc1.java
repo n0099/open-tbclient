@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.nadcore.widget.uitemplate.SimpleFeedAdInfoView;
-import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
+import com.baidu.nadcore.model.AdOperator;
 import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
-import com.baidu.tieba.z31;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,173 +17,150 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gc1 extends ic1 {
+public class gc1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SimpleFeedAdInfoView j;
+    public final NadExpressNaBaseView a;
+    public final Context b;
 
     /* loaded from: classes4.dex */
-    public class a implements SimpleAdInfoView.c {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdBaseModel a;
-        public final /* synthetic */ gc1 b;
 
-        public a(gc1 gc1Var, AdBaseModel adBaseModel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gc1Var, adBaseModel};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-780519561, "Lcom/baidu/tieba/gc1$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-780519561, "Lcom/baidu/tieba/gc1$a;");
                     return;
                 }
             }
-            this.b = gc1Var;
-            this.a = adBaseModel;
-        }
-
-        @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView.c
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                gc1 gc1Var = this.b;
-                gc1Var.q(ClogBuilder.LogType.FREE_CLICK.type, gc1Var.c, str, this.a.f.d);
+            int[] iArr = new int[AdOperator.TYPE.values().length];
+            a = iArr;
+            try {
+                iArr[AdOperator.TYPE.DOWNLOAD.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AdOperator.TYPE.CHECK.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdBaseModel a;
-        public final /* synthetic */ gc1 b;
-
-        public b(gc1 gc1Var, AdBaseModel adBaseModel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gc1Var, adBaseModel};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gc1Var;
-            this.a = adBaseModel;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                wb1 wb1Var = this.b.d;
-                if (wb1Var != null) {
-                    wb1Var.a(this.a);
-                }
-                k11.b(new ClogBuilder().y(ClogBuilder.LogType.CLOSE).p(this.a.f.d));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947789012, "Lcom/baidu/tieba/gc1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947789012, "Lcom/baidu/tieba/gc1;");
-                return;
-            }
-        }
-        k = z31.c.a(hi0.b(), 15.0f);
-    }
-
-    private void m() {
-        SimpleFeedAdInfoView simpleFeedAdInfoView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (simpleFeedAdInfoView = this.j) != null) {
-            simpleFeedAdInfoView.c();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gc1(int i, View view2) {
-        super(i, view2);
+    public gc1(NadExpressNaBaseView nadExpressNaBaseView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), view2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (View) objArr2[1]);
+            Object[] objArr = {nadExpressNaBaseView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = (SimpleFeedAdInfoView) view2.findViewById(R.id.feed_ad_operate_app_info_view);
-        m();
+        this.a = nadExpressNaBaseView;
+        this.b = nadExpressNaBaseView.getContext();
     }
 
-    public final void q(String str, String str2, String str3, String str4) {
+    public final boolean a(AdBaseModel adBaseModel, int i) {
+        InterceptResult invokeLI;
+        AdOperator adOperator;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.z(str);
-            clogBuilder.v(str2);
-            clogBuilder.p(str4);
-            clogBuilder.j(str3);
-            k11.b(clogBuilder);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, adBaseModel, i)) == null) {
+            if (adBaseModel == null || (adOperator = adBaseModel.h) == null) {
+                return false;
+            }
+            int i2 = a.a[adOperator.a.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2 || i != 2) {
+                    return false;
+                }
+                return true;
+            }
+            zp0 zp0Var = adBaseModel.i;
+            if (zp0Var != null && zp0Var.k) {
+                if (i != 3) {
+                    return false;
+                }
+                return true;
+            } else if (i != 1) {
+                return false;
+            } else {
+                return true;
+            }
         }
+        return invokeLI.booleanValue;
     }
 
-    public final void r(AdBaseModel adBaseModel) {
-        SimpleFeedAdInfoView simpleFeedAdInfoView;
-        View findViewById;
+    public final void b(View view2, float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) != null) || adBaseModel == null || (simpleFeedAdInfoView = this.j) == null || (findViewById = simpleFeedAdInfoView.findViewById(R.id.nad_base_delete_id)) == null) {
+        if ((interceptable != null && interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, f) != null) || view2 == null) {
             return;
         }
-        va1.a(this.j, findViewById, k);
-        findViewById.setOnClickListener(new b(this, adBaseModel));
+        u41.a(view2.getContext(), view2, f);
     }
 
-    @Override // com.baidu.tieba.ic1, com.baidu.tieba.ec1
-    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
+    public fc1 c(AdBaseModel adBaseModel) {
+        InterceptResult invokeL;
+        AdOperator adOperator;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel, nadExpressNaBaseView) == null) {
-            super.update(adBaseModel, nadExpressNaBaseView);
-            m();
-            SimpleFeedAdInfoView simpleFeedAdInfoView = this.j;
-            if (simpleFeedAdInfoView != null) {
-                simpleFeedAdInfoView.update(adBaseModel);
-                xp0 xp0Var = adBaseModel.p;
-                if (xp0Var == null || xp0Var.k) {
-                    this.j.setBackground(getResources().getDrawable(R.drawable.nad_operate_download_bg));
-                }
-                this.j.setAfterListener(new a(this, adBaseModel));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel)) == null) {
+            fc1 operateBar = this.a.getOperateBar();
+            if (!fc1.d(adBaseModel) || (adOperator = adBaseModel.h) == null) {
+                return null;
             }
-            r(adBaseModel);
+            if (operateBar != null && a(adBaseModel, operateBar.a)) {
+                return operateBar;
+            }
+            RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(R.id.nad_feed_ad_operate_view);
+            relativeLayout.removeAllViews();
+            AdOperator.TYPE type = adOperator.a;
+            AdOperator.TYPE type2 = AdOperator.TYPE.DOWNLOAD;
+            if (type == type2) {
+                gp0 gp0Var = adBaseModel.l;
+                if (gp0Var == null || !gp0Var.e) {
+                    return null;
+                }
+                int i = R.layout.nad_operate_app_info_view;
+                yp0 yp0Var = adBaseModel.p;
+                if (yp0Var != null && yp0Var.b(type2) != 0) {
+                    i = adBaseModel.p.b(AdOperator.TYPE.DOWNLOAD);
+                }
+                zp0 zp0Var = adBaseModel.i;
+                if (zp0Var != null && zp0Var.k) {
+                    View inflate = LayoutInflater.from(this.b).inflate(i, (ViewGroup) relativeLayout, true);
+                    b(inflate.findViewById(R.id.nad_feed_ad_operate_progress_button), 6.0f);
+                    return new hc1(3, inflate);
+                }
+                View inflate2 = LayoutInflater.from(this.b).inflate(R.layout.nad_operate_download, (ViewGroup) relativeLayout, true);
+                b(inflate2.findViewById(R.id.nad_feed_ad_operate_progress_button), 6.0f);
+                return new jc1(1, inflate2);
+            }
+            AdOperator.TYPE type3 = AdOperator.TYPE.CHECK;
+            if (type != type3) {
+                return null;
+            }
+            int i2 = R.layout.nad_operate_command;
+            yp0 yp0Var2 = adBaseModel.p;
+            if (yp0Var2 != null && yp0Var2.b(type3) != 0) {
+                i2 = adBaseModel.p.b(AdOperator.TYPE.CHECK);
+            }
+            View inflate3 = LayoutInflater.from(this.b).inflate(i2, (ViewGroup) relativeLayout, true);
+            b(inflate3.findViewById(R.id.nad_feed_ad_operate_command_button), 6.0f);
+            return new ic1(2, inflate3);
         }
+        return (fc1) invokeL.objValue;
     }
 }

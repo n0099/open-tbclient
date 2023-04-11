@@ -14,7 +14,7 @@ public class DownloadUtils {
     public static final String PMS_DIR = "pms";
 
     public static File getPmsFileDir() {
-        File file = new File(AppRuntime.getAppContext().getFilesDir(), PMS_DIR);
+        File file = new File(AppRuntime.getAppContext().getFilesDir(), "pms");
         if (!file.exists()) {
             file.mkdirs();
         }

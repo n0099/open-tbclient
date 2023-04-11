@@ -92,37 +92,43 @@ public final class MixModel {
         return (MixRoomRepository) lazy.getValue();
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\bf\u0018\u00002\u00020\u0001J'\u0010\b\u001a\u00020\u00072\n\u0010\u0004\u001a\u00060\u0002j\u0002`\u00032\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0005H&¢\u0006\u0004\b\b\u0010\tJ-\u0010\u0010\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\f\u001a\u00020\u00052\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\u000e0\rH&¢\u0006\u0004\b\u0010\u0010\u0011J'\u0010\u0012\u001a\u00020\u00072\n\u0010\u0004\u001a\u00060\u0002j\u0002`\u00032\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0005H&¢\u0006\u0004\b\u0012\u0010\tJ\u0017\u0010\u0015\u001a\u00020\u00072\u0006\u0010\u0014\u001a\u00020\u0013H&¢\u0006\u0004\b\u0015\u0010\u0016¨\u0006\u0017"}, d2 = {"Lcom/baidu/searchbox/live/model/MixModel$OnMixDataLoadedCallBack;", "Lkotlin/Any;", "Ljava/lang/Exception;", "Lkotlin/Exception;", "exception", "", "errorno", "", "onSlideListFail", "(Ljava/lang/Exception;Ljava/lang/Integer;)V", "", "pageSession", "hasMore", "", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "data", "onSlideListSuccess", "(Ljava/lang/String;ILjava/util/List;)V", "onTemplateIdFail", "Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;", "liveType", "onTemplateIdSuccess", "(Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\bf\u0018\u00002\u00020\u0001J3\u0010\n\u001a\u00020\t2\n\u0010\u0004\u001a\u00060\u0002j\u0002`\u00032\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u0010\b\u001a\u0004\u0018\u00010\u0007H&¢\u0006\u0004\b\n\u0010\u000bJ-\u0010\u0011\u001a\u00020\t2\u0006\u0010\f\u001a\u00020\u00072\u0006\u0010\r\u001a\u00020\u00052\f\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u000f0\u000eH&¢\u0006\u0004\b\u0011\u0010\u0012J3\u0010\u0013\u001a\u00020\t2\n\u0010\u0004\u001a\u00060\u0002j\u0002`\u00032\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u0010\b\u001a\u0004\u0018\u00010\u0007H&¢\u0006\u0004\b\u0013\u0010\u000bJ\u0017\u0010\u0016\u001a\u00020\t2\u0006\u0010\u0015\u001a\u00020\u0014H&¢\u0006\u0004\b\u0016\u0010\u0017¨\u0006\u0018"}, d2 = {"Lcom/baidu/searchbox/live/model/MixModel$OnMixDataLoadedCallBack;", "Lkotlin/Any;", "Ljava/lang/Exception;", "Lkotlin/Exception;", "exception", "", "errorno", "", "traceId", "", "onSlideListFail", "(Ljava/lang/Exception;Ljava/lang/Integer;Ljava/lang/String;)V", "pageSession", "hasMore", "", "Lcom/baidu/searchbox/live/widget/LiveContainer$LiveItemModel;", "data", "onSlideListSuccess", "(Ljava/lang/String;ILjava/util/List;)V", "onTemplateIdFail", "Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;", "liveType", "onTemplateIdSuccess", "(Lcom/baidu/searchbox/live/data/pojo/LiveTypeData;)V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public interface OnMixDataLoadedCallBack {
-        void onSlideListFail(Exception exc, Integer num);
+        void onSlideListFail(Exception exc, Integer num, String str);
 
         void onSlideListSuccess(String str, int i, List<LiveContainer.LiveItemModel> list);
 
-        void onTemplateIdFail(Exception exc, Integer num);
+        void onTemplateIdFail(Exception exc, Integer num, String str);
 
         void onTemplateIdSuccess(LiveTypeData liveTypeData);
 
         @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
         /* loaded from: classes2.dex */
         public static final class DefaultImpls {
-            public static /* synthetic */ void onSlideListFail$default(OnMixDataLoadedCallBack onMixDataLoadedCallBack, Exception exc, Integer num, int i, Object obj) {
+            public static /* synthetic */ void onSlideListFail$default(OnMixDataLoadedCallBack onMixDataLoadedCallBack, Exception exc, Integer num, String str, int i, Object obj) {
                 if (obj == null) {
                     if ((i & 2) != 0) {
                         num = -1;
                     }
-                    onMixDataLoadedCallBack.onSlideListFail(exc, num);
+                    if ((i & 4) != 0) {
+                        str = null;
+                    }
+                    onMixDataLoadedCallBack.onSlideListFail(exc, num, str);
                     return;
                 }
                 throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: onSlideListFail");
             }
 
-            public static /* synthetic */ void onTemplateIdFail$default(OnMixDataLoadedCallBack onMixDataLoadedCallBack, Exception exc, Integer num, int i, Object obj) {
+            public static /* synthetic */ void onTemplateIdFail$default(OnMixDataLoadedCallBack onMixDataLoadedCallBack, Exception exc, Integer num, String str, int i, Object obj) {
                 if (obj == null) {
                     if ((i & 2) != 0) {
                         num = -1;
                     }
-                    onMixDataLoadedCallBack.onTemplateIdFail(exc, num);
+                    if ((i & 4) != 0) {
+                        str = null;
+                    }
+                    onMixDataLoadedCallBack.onTemplateIdFail(exc, num, str);
                     return;
                 }
                 throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: onTemplateIdFail");
@@ -304,7 +310,8 @@ public final class MixModel {
                     ListLogKt.log("MixLiveCell_fake_list", "queryLiveList fail");
                     onMixDataLoadedCallBack = MixModel.this.mOnMixDataLoadedCallBack;
                     if (onMixDataLoadedCallBack != null) {
-                        MixModel.OnMixDataLoadedCallBack.DefaultImpls.onSlideListFail$default(onMixDataLoadedCallBack, ((MixResult.MixError) mixResult).getException(), null, 2, null);
+                        MixResult.MixError mixError = (MixResult.MixError) mixResult;
+                        MixModel.OnMixDataLoadedCallBack.DefaultImpls.onSlideListFail$default(onMixDataLoadedCallBack, mixError.getException(), mixError.getErrorno(), null, 4, null);
                     }
                 }
             }
@@ -315,21 +322,70 @@ public final class MixModel {
     /* JADX WARN: Multi-variable type inference failed */
     public final void reqLiveType(final OnMixDataLoaded<MixResult<LiveRoomEnterRespData>> onMixDataLoaded) {
         IntentData intentData;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String str5;
+        IntentData.SchemeModel model;
+        JSONObject extLog;
+        String jSONObject;
+        IntentData.SchemeModel model2;
+        JSONObject ext;
+        String jSONObject2;
+        IntentData.SchemeModel model3;
+        JSONObject hlReplyIntoLive;
+        String optString;
+        IntentData.SchemeModel model4;
+        JSONObject searchIntoLiveJson;
+        String optString2;
+        String source;
+        String id;
         ILiveListState iLiveListState = (ILiveListState) ServiceLocator.Companion.getGlobalService(ILiveListState.class);
         if (iLiveListState != null) {
             intentData = iLiveListState.getIntent();
         } else {
             intentData = null;
         }
-        String str = (intentData == null || (r1 = intentData.getId()) == null) ? "" : "";
+        String str6 = "";
+        if (intentData == null || (id = intentData.getId()) == null) {
+            str = "";
+        } else {
+            str = id;
+        }
         if (this.prefetchEnterSupport && MixRequestServiceLocator.Companion.getGlobalService(MixRequestService.class) != null) {
             MediaLivePluginLogger.Companion.getInstance().logListGetLiveTypeStartToSendReqNet();
             MediaLivePlayLogger.Companion.getInstance().logLiveRoomStartGetLiveTypeTime();
+            if (intentData == null || (source = intentData.getSource()) == null) {
+                str2 = "";
+            } else {
+                str2 = source;
+            }
+            if (intentData == null || (model4 = intentData.getModel()) == null || (searchIntoLiveJson = model4.getSearchIntoLiveJson()) == null || (optString2 = searchIntoLiveJson.optString("question")) == null) {
+                str3 = "";
+            } else {
+                str3 = optString2;
+            }
+            if (intentData == null || (model3 = intentData.getModel()) == null || (hlReplyIntoLive = model3.getHlReplyIntoLive()) == null || (optString = hlReplyIntoLive.optString("nid", "")) == null) {
+                str4 = "";
+            } else {
+                str4 = optString;
+            }
+            if (intentData == null || (model2 = intentData.getModel()) == null || (ext = model2.getExt()) == null || (jSONObject2 = ext.toString()) == null) {
+                str5 = "";
+            } else {
+                str5 = jSONObject2;
+            }
+            RoomEnterParams roomEnterParams = new RoomEnterParams(str, str2, str3, str4, str5, false, 32, null);
+            if (intentData != null && (model = intentData.getModel()) != null && (extLog = model.getExtLog()) != null && (jSONObject = extLog.toString()) != null) {
+                str6 = jSONObject;
+            }
+            roomEnterParams.setExtLog(str6);
             MixRequestService mixRequestService = (MixRequestService) MixRequestServiceLocator.Companion.getGlobalService(MixRequestService.class);
             if (mixRequestService != 0) {
-                mixRequestService.requestRoomEnter(new RoomEnterParams(str, "", null, null, "", false, 44, null), true, new OnMixDataLoaded<MixResult<? extends LiveRoomEnterRespData>>() { // from class: com.baidu.searchbox.live.model.MixModel$reqLiveType$1
+                mixRequestService.requestRoomEnter(roomEnterParams, true, new OnMixDataLoaded<MixResult<? extends LiveRoomEnterRespData>>() { // from class: com.baidu.searchbox.live.model.MixModel$reqLiveType$1
                     /* JADX WARN: Code restructure failed: missing block: B:42:0x009e, code lost:
-                        r0 = r6.this$0.mOnMixDataLoadedCallBack;
+                        r1 = r7.this$0.mOnMixDataLoadedCallBack;
                      */
                     /* renamed from: onMixDataLoaded  reason: avoid collision after fix types in other method */
                     /*
@@ -337,12 +393,12 @@ public final class MixModel {
                     */
                     public void onMixDataLoaded2(MixResult<LiveRoomEnterRespData> mixResult) {
                         MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack;
-                        JSONObject jSONObject;
-                        JSONObject jSONObject2;
-                        String str2;
-                        String str3;
-                        String str4;
                         JSONObject jSONObject3;
+                        JSONObject jSONObject4;
+                        String str7;
+                        String str8;
+                        String str9;
+                        JSONObject jSONObject5;
                         MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack2;
                         MediaLivePluginLogger.Companion.getInstance().logGetLiveTypeNetEndAndStartParse();
                         if (mixResult instanceof MixResult.MixSuccess) {
@@ -351,59 +407,59 @@ public final class MixModel {
                                 onMixDataLoaded2.onMixDataLoaded(mixResult);
                             }
                             JSONObject respJsonObj = ((LiveRoomEnterRespData) ((MixResult.MixSuccess) mixResult).getData()).getRespJsonObj();
-                            String str5 = null;
+                            String str10 = null;
                             if (respJsonObj != null) {
-                                jSONObject = respJsonObj.optJSONObject("data");
+                                jSONObject3 = respJsonObj.optJSONObject("data");
                             } else {
-                                jSONObject = null;
+                                jSONObject3 = null;
                             }
-                            if (jSONObject != null) {
-                                jSONObject2 = jSONObject.optJSONObject("room");
+                            if (jSONObject3 != null) {
+                                jSONObject4 = jSONObject3.optJSONObject("room");
                             } else {
-                                jSONObject2 = null;
+                                jSONObject4 = null;
                             }
-                            if (jSONObject2 != null) {
-                                str2 = jSONObject2.optString("room_id");
+                            if (jSONObject4 != null) {
+                                str7 = jSONObject4.optString("room_id");
                             } else {
-                                str2 = null;
+                                str7 = null;
                             }
-                            if (jSONObject2 != null) {
-                                str3 = jSONObject2.optString("template_id");
+                            if (jSONObject4 != null) {
+                                str8 = jSONObject4.optString("template_id");
                             } else {
-                                str3 = null;
+                                str8 = null;
                             }
-                            if (jSONObject2 != null) {
-                                str4 = jSONObject2.optString("room_type");
+                            if (jSONObject4 != null) {
+                                str9 = jSONObject4.optString("room_type");
                             } else {
-                                str4 = null;
+                                str9 = null;
                             }
-                            if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
-                                if (jSONObject != null) {
-                                    jSONObject3 = jSONObject.optJSONObject("room_template_info");
-                                } else {
-                                    jSONObject3 = null;
-                                }
+                            if (TextUtils.isEmpty(str8) || TextUtils.isEmpty(str9)) {
                                 if (jSONObject3 != null) {
-                                    str3 = jSONObject3.optString("template_id");
+                                    jSONObject5 = jSONObject3.optJSONObject("room_template_info");
                                 } else {
-                                    str3 = null;
+                                    jSONObject5 = null;
                                 }
-                                if (jSONObject3 != null) {
-                                    str5 = jSONObject3.optString("live_type");
+                                if (jSONObject5 != null) {
+                                    str8 = jSONObject5.optString("template_id");
+                                } else {
+                                    str8 = null;
                                 }
-                                str4 = str5;
+                                if (jSONObject5 != null) {
+                                    str10 = jSONObject5.optString("live_type");
+                                }
+                                str9 = str10;
                             }
                             LiveTypeData liveTypeData = new LiveTypeData();
-                            liveTypeData.setRoomId(str2);
-                            liveTypeData.setTemplateId(str3);
-                            liveTypeData.setLiveType(str4);
+                            liveTypeData.setRoomId(str7);
+                            liveTypeData.setTemplateId(str8);
+                            liveTypeData.setLiveType(str9);
                             onMixDataLoadedCallBack2 = MixModel.this.mOnMixDataLoadedCallBack;
                             if (onMixDataLoadedCallBack2 != null) {
                                 onMixDataLoadedCallBack2.onTemplateIdSuccess(liveTypeData);
                             }
                         } else if ((mixResult instanceof MixResult.MixError) && onMixDataLoadedCallBack != null) {
                             MixResult.MixError mixError = (MixResult.MixError) mixResult;
-                            onMixDataLoadedCallBack.onTemplateIdFail(mixError.getException(), mixError.getErrorno());
+                            MixModel.OnMixDataLoadedCallBack.DefaultImpls.onTemplateIdFail$default(onMixDataLoadedCallBack, mixError.getException(), mixError.getErrorno(), null, 4, null);
                         }
                     }
 
@@ -418,8 +474,14 @@ public final class MixModel {
             return;
         }
         getLiveTypeApi().fetchLiveType(str, new OnMixDataLoaded<MixResult<? extends LiveTypeData>>() { // from class: com.baidu.searchbox.live.model.MixModel$reqLiveType$2
+            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+            @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
+            public /* bridge */ /* synthetic */ void onMixDataLoaded(MixResult<? extends LiveTypeData> mixResult) {
+                onMixDataLoaded2((MixResult<LiveTypeData>) mixResult);
+            }
+
             /* JADX WARN: Code restructure failed: missing block: B:9:0x001c, code lost:
-                r0 = r2.this$0.mOnMixDataLoadedCallBack;
+                r1 = r7.this$0.mOnMixDataLoadedCallBack;
              */
             /* renamed from: onMixDataLoaded  reason: avoid collision after fix types in other method */
             /*
@@ -428,24 +490,15 @@ public final class MixModel {
             public void onMixDataLoaded2(MixResult<LiveTypeData> mixResult) {
                 MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack;
                 MixModel.OnMixDataLoadedCallBack onMixDataLoadedCallBack2;
-                if (!(mixResult instanceof MixResult.MixSuccess)) {
-                    if ((mixResult instanceof MixResult.MixError) && onMixDataLoadedCallBack != null) {
-                        MixResult.MixError mixError = (MixResult.MixError) mixResult;
-                        onMixDataLoadedCallBack.onTemplateIdFail(mixError.getException(), mixError.getErrorno());
-                        return;
+                if (mixResult instanceof MixResult.MixSuccess) {
+                    onMixDataLoadedCallBack2 = MixModel.this.mOnMixDataLoadedCallBack;
+                    if (onMixDataLoadedCallBack2 != null) {
+                        onMixDataLoadedCallBack2.onTemplateIdSuccess((LiveTypeData) ((MixResult.MixSuccess) mixResult).getData());
                     }
-                    return;
+                } else if ((mixResult instanceof MixResult.MixError) && onMixDataLoadedCallBack != null) {
+                    MixResult.MixError mixError = (MixResult.MixError) mixResult;
+                    MixModel.OnMixDataLoadedCallBack.DefaultImpls.onTemplateIdFail$default(onMixDataLoadedCallBack, mixError.getException(), mixError.getErrorno(), null, 4, null);
                 }
-                onMixDataLoadedCallBack2 = MixModel.this.mOnMixDataLoadedCallBack;
-                if (onMixDataLoadedCallBack2 != null) {
-                    onMixDataLoadedCallBack2.onTemplateIdSuccess((LiveTypeData) ((MixResult.MixSuccess) mixResult).getData());
-                }
-            }
-
-            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-            @Override // com.baidu.searchbox.live.model.res.OnMixDataLoaded
-            public /* bridge */ /* synthetic */ void onMixDataLoaded(MixResult<? extends LiveTypeData> mixResult) {
-                onMixDataLoaded2((MixResult<LiveTypeData>) mixResult);
             }
         });
     }

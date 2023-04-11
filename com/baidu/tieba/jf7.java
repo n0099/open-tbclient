@@ -1,17 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: NavBarLogic.java */
 /* loaded from: classes5.dex */
-public interface jf7 {
-    public static final BdUniqueId a;
-    public static final BdUniqueId b;
+public final /* synthetic */ class jf7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        BdUniqueId.gen();
-        BdUniqueId.gen();
-        a = BdUniqueId.gen();
-        b = BdUniqueId.gen();
-        BdUniqueId.gen();
-        BdUniqueId.gen();
+    @NonNull
+    public static kf7 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new lf7();
+        }
+        return (kf7) invokeV.objValue;
     }
 }

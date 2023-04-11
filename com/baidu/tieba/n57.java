@@ -1,27 +1,88 @@
 package com.baidu.tieba;
 
-import android.os.MessageQueue;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tieba.frs.mc.FrsModelController;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.module.frs.Frs$From;
+import com.baidu.tieba.frs.voiceroom.VoiceRoomListActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class n57 implements MessageQueue.IdleHandler {
+public final class n57 extends qj1<yh5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<FrsModelController> a;
-    public MvcHttpResponsedMessage<qa9> b;
-    public MvcHttpMessage<FrsRequestData, qa9> c;
-    public MvcNetMessage<FrsRequestData, qa9> d;
-    public xa9 e;
+
+    /* loaded from: classes5.dex */
+    public static final class a implements yh5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.yh5
+        public void a(TbPageContext<?> tbPageContext, long j, Map<String, String> extParams) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), extParams}) == null) {
+                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+                Intrinsics.checkNotNullParameter(extParams, "extParams");
+                StringBuilder sb = new StringBuilder();
+                sb.append("bdtiebalive://video/mixlive?room_id=" + j);
+                for (Map.Entry<String, String> entry : extParams.entrySet()) {
+                    if (!Intrinsics.areEqual(entry.getKey(), "room_id")) {
+                        sb.append('&' + entry.getKey() + '=' + entry.getValue());
+                    }
+                }
+                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{sb.toString()});
+            }
+        }
+
+        @Override // com.baidu.tieba.yh5
+        public void b(TbPageContext<?> tbPageContext, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, j) == null) {
+                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+                d(tbPageContext, "bdtiebalive://video/mixlive?room_id=" + j);
+            }
+        }
+
+        @Override // com.baidu.tieba.yh5
+        public void d(TbPageContext<?> tbPageContext, String scheme) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, scheme) == null) {
+                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+                Intrinsics.checkNotNullParameter(scheme, "scheme");
+                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{scheme});
+            }
+        }
+
+        @Override // com.baidu.tieba.yh5
+        public void c(Context context, Frs$From from, Long l, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, from, l, str) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                Intrinsics.checkNotNullParameter(from, "from");
+                VoiceRoomListActivity.a.a(context, from, l, str);
+            }
+        }
+    }
 
     public n57() {
         Interceptable interceptable = $ic;
@@ -37,57 +98,15 @@ public class n57 implements MessageQueue.IdleHandler {
         }
     }
 
-    @Override // android.os.MessageQueue.IdleHandler
-    public boolean queueIdle() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qj1
+    /* renamed from: a */
+    public yh5 createService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            FrsModelController frsModelController = this.a.get();
-            if (frsModelController == null) {
-                return false;
-            }
-            frsModelController.V0(this.b, this.c, this.d);
-            xa9 xa9Var = this.e;
-            if (xa9Var != null) {
-                xa9Var.b();
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a();
         }
-        return invokeV.booleanValue;
-    }
-
-    public void a(FrsModelController frsModelController) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
-            this.a = new WeakReference<>(frsModelController);
-        }
-    }
-
-    public void b(xa9 xa9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xa9Var) == null) {
-            this.e = xa9Var;
-        }
-    }
-
-    public void c(MvcHttpMessage<FrsRequestData, qa9> mvcHttpMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcHttpMessage) == null) {
-            this.c = mvcHttpMessage;
-        }
-    }
-
-    public void d(MvcNetMessage<FrsRequestData, qa9> mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
-            this.d = mvcNetMessage;
-        }
-    }
-
-    public void e(MvcHttpResponsedMessage<qa9> mvcHttpResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mvcHttpResponsedMessage) == null) {
-            this.b = mvcHttpResponsedMessage;
-        }
+        return (yh5) invokeV.objValue;
     }
 }

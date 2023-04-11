@@ -1,165 +1,132 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.content.res.Resources;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.PopupWindow;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class w25 extends PopupWindow {
+public class w25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v25 a;
+    public int a;
     public int b;
     public int c;
     public int d;
-    public View e;
-    public View f;
-    public Activity g;
+    public int e;
+    public int f;
 
-    /* loaded from: classes6.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w25 a;
-
-        public a(w25 w25Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w25Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w25Var;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.e != null) {
-                this.a.e();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w25(Activity activity) {
-        super(activity);
+    public w25() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = activity;
-        View inflate = ((LayoutInflater) activity.getSystemService("layout_inflater")).inflate(R.layout.keyboard_height_popupwindow, (ViewGroup) null, false);
-        this.e = inflate;
-        setContentView(inflate);
-        GreyUtil.grey(this);
-        setSoftInputMode(21);
-        setInputMethodMode(1);
-        this.f = activity.findViewById(16908290);
-        setWidth(0);
-        setHeight(-1);
-        this.e.getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
     }
 
-    public void g(v25 v25Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, v25Var) == null) {
-            this.a = v25Var;
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            dismiss();
-        }
-    }
-
-    public final int d() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g.getResources().getConfiguration().orientation;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
         return invokeV.intValue;
     }
 
-    public void h() {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !isShowing() && this.f.getWindowToken() != null) {
-            setBackgroundDrawable(new ColorDrawable(0));
-            showAtLocation(this.f, 0, 0, 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
         }
     }
 
-    public final void e() {
+    public final void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Point point = new Point();
-            this.g.getWindowManager().getDefaultDisplay().getSize(point);
-            Rect rect = new Rect();
-            this.e.getWindowVisibleDisplayFrame(rect);
-            int d = d();
-            int i = point.y - rect.bottom;
-            if (i == 0) {
-                f(0, d);
-            } else if (d == 1) {
-                this.d = i;
-                f(i, d);
-            } else {
-                this.c = i;
-                f(i, d);
-            }
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
         }
     }
 
-    public final void f(int i, int i2) {
-        int i3;
+    public final void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            if (i <= 0) {
-                this.b = i;
-                i3 = 0;
-            } else {
-                i3 = i - this.b;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public final void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void i(IndicatorView indicatorView) {
+        Resources resources;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, indicatorView) != null) || indicatorView == null || (resources = indicatorView.getResources()) == null) {
+            return;
+        }
+        int i = this.d;
+        if (i > 0) {
+            indicatorView.setSpacing(resources.getDimensionPixelSize(i));
+        }
+        int i2 = this.b;
+        if (i2 > 0) {
+            indicatorView.setDrawable(resources.getDrawable(i2));
+        }
+        int i3 = this.c;
+        if (i3 > 0) {
+            indicatorView.setSelector(resources.getDrawable(i3));
+        }
+        ViewGroup.LayoutParams layoutParams = indicatorView.getLayoutParams();
+        if (layoutParams instanceof FrameLayout.LayoutParams) {
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
+            layoutParams2.gravity = this.a;
+            int i4 = this.e;
+            if (i4 > 0) {
+                layoutParams2.bottomMargin = resources.getDimensionPixelSize(i4);
             }
-            v25 v25Var = this.a;
-            if (v25Var != null) {
-                v25Var.onKeyboardHeightChanged(i3, i2);
+            int i5 = this.f;
+            if (i5 > 0) {
+                layoutParams2.rightMargin = resources.getDimensionPixelSize(i5);
             }
+            indicatorView.setLayoutParams(layoutParams);
         }
     }
 }

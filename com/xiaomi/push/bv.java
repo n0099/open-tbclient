@@ -41,14 +41,14 @@ public class bv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m223a(String str, String str2, long j) {
+    public synchronized void m225a(String str, String str2, long j) {
         SharedPreferences.Editor edit = this.f151a.getSharedPreferences(str, 4).edit();
         edit.putLong(str2, j);
         edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m224a(String str, String str2, String str3) {
+    public synchronized void m226a(String str, String str2, String str3) {
         SharedPreferences.Editor edit = this.f151a.getSharedPreferences(str, 4).edit();
         edit.putString(str2, str3);
         edit.commit();

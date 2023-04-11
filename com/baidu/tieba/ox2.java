@@ -1,42 +1,63 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
+import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ox2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
-    public static void a(Integer num, String str) {
+    public ox2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, num, str) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("level", String.valueOf(num));
-            hashMap.put("percentage", str + "%");
-            gt2.U().u(new uh2("text-size-adjust", hashMap));
-            dz1.d(num.intValue());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [org.json.JSONObject, T] */
-    public static void b(String str, String str2, String str3) {
+    public static ox2 a(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, str3) == null) {
-            zh2 zh2Var = new zh2();
-            ?? jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "text-size-adjust");
-                jSONObject.put("percentage", str3 + "%");
-                jSONObject.put("level", str2);
-            } catch (JSONException e) {
-                l33.b(Log.getStackTraceString(e));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONObject, str)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            zh2Var.c = jSONObject;
-            gt2.U().m(str, zh2Var);
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+            String optString = jSONObject.optString("error");
+            if (optJSONObject2 == null || !TextUtils.equals(optString, "0")) {
+                return null;
+            }
+            ox2 ox2Var = new ox2();
+            ox2Var.a = optJSONObject2.optString("ak");
+            ox2Var.b = optJSONObject2.optString("sk");
+            ox2Var.c = optJSONObject2.optString("token");
+            ox2Var.d = optJSONObject2.optString(ContentUtil.RESULT_KEY_BUCKET);
+            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("oname_list");
+            if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject(str)) != null) {
+                ox2Var.f = optJSONObject.optString("bosobject");
+                ox2Var.e = optJSONObject.optString("bosurl");
+            }
+            return ox2Var;
         }
+        return (ox2) invokeLL.objValue;
     }
 }

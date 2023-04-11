@@ -13,17 +13,17 @@ import androidx.core.content.ContextCompat;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi0;
-import com.baidu.tieba.np0;
-import com.baidu.tieba.t41;
-import com.baidu.tieba.u01;
-import com.baidu.tieba.xp0;
-import com.baidu.tieba.z31;
+import com.baidu.tieba.a41;
+import com.baidu.tieba.ii0;
+import com.baidu.tieba.op0;
+import com.baidu.tieba.u41;
+import com.baidu.tieba.v01;
+import com.baidu.tieba.yp0;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class NadExpressBottomView extends ViewGroup {
-    public static final int l = z31.c.a(hi0.b(), 3.0f);
-    public static final int m = z31.c.a(hi0.b(), 0.0f);
+    public static final int l = a41.c.a(ii0.b(), 3.0f);
+    public static final int m = a41.c.a(ii0.b(), 0.0f);
     public static final int n = e(R.dimen.NAD_F_M_W_X007);
     public static final int o = e(R.dimen.nad_label_source_max_width);
     public static final int p = e(R.dimen.nad_ad_label_source_max_width);
@@ -52,7 +52,7 @@ public class NadExpressBottomView extends ViewGroup {
         this.a.setImageDrawable(getResources().getDrawable(R.drawable.nad_unlike_btn_icon));
         this.a.setId(R.id.nad_base_delete_id);
         this.a.setContentDescription("不感兴趣");
-        t41.a(getContext(), this.a, 15.0f);
+        u41.a(getContext(), this.a, 15.0f);
         setWillNotDraw(false);
         TextPaint textPaint = new TextPaint();
         this.e = textPaint;
@@ -72,11 +72,11 @@ public class NadExpressBottomView extends ViewGroup {
     }
 
     public static int d(int i) {
-        return ContextCompat.getColor(hi0.b(), i);
+        return ContextCompat.getColor(ii0.b(), i);
     }
 
     public static int e(int i) {
-        return hi0.b().getResources().getDimensionPixelSize(i);
+        return ii0.b().getResources().getDimensionPixelSize(i);
     }
 
     public final float g(TextPaint textPaint) {
@@ -167,23 +167,23 @@ public class NadExpressBottomView extends ViewGroup {
             return;
         }
         while (i3 < this.g.size()) {
-            if (TextUtils.equals((CharSequence) u01.d(this.g, i3), this.c)) {
-                i = (int) (i + h((String) u01.d(this.g, i3), this.f) + n);
+            if (TextUtils.equals((CharSequence) v01.d(this.g, i3), this.c)) {
+                i = (int) (i + h((String) v01.d(this.g, i3), this.f) + n);
                 i2 = l * 2;
             } else {
-                if (!TextUtils.isEmpty(this.b) && TextUtils.equals((CharSequence) u01.d(this.g, i3), this.k)) {
+                if (!TextUtils.isEmpty(this.b) && TextUtils.equals((CharSequence) v01.d(this.g, i3), this.k)) {
                     i2 = this.i - i;
-                    float h2 = h((String) u01.d(this.g, i3), this.e) + n;
+                    float h2 = h((String) v01.d(this.g, i3), this.e) + n;
                     float f = i2;
                     if (f > h2) {
                         h = i + h2;
                     } else {
-                        String b = t41.b(this.d, this.b, f, this.e);
+                        String b = u41.b(this.d, this.b, f, this.e);
                         this.k = b;
-                        u01.a(this.g, b, i3);
+                        v01.a(this.g, b, i3);
                     }
                 } else {
-                    h = i + h((String) u01.d(this.g, i3), this.e) + n;
+                    h = i + h((String) v01.d(this.g, i3), this.e) + n;
                 }
                 i = (int) h;
                 if (i <= this.i) {
@@ -207,13 +207,13 @@ public class NadExpressBottomView extends ViewGroup {
         int i3 = 0;
         for (int i4 = 0; i4 < min; i4++) {
             int measuredHeight = getMeasuredHeight();
-            if (TextUtils.equals((CharSequence) u01.d(this.g, i4), this.c)) {
+            if (TextUtils.equals((CharSequence) v01.d(this.g, i4), this.c)) {
                 canvas.drawText(this.c, l + i3, ((((measuredHeight - i2) / 2.0f) + (t / 2.0f)) - ((this.f.getFontMetrics().top + this.f.getFontMetrics().bottom) / 2.0f)) - 1.0f, this.f);
                 f = i3;
                 h = h(this.c, this.f) + l;
                 i = n;
             } else {
-                String str = (String) u01.d(this.g, i4);
+                String str = (String) v01.d(this.g, i4);
                 if (!TextUtils.isEmpty(str)) {
                     f = i3;
                     canvas.drawText(str, f, f(this.e, measuredHeight), this.e);
@@ -230,23 +230,23 @@ public class NadExpressBottomView extends ViewGroup {
         if (!TextUtils.isEmpty(this.c)) {
             String a = a(this.c, q, this.f);
             this.c = a;
-            u01.b(this.g, a);
+            v01.b(this.g, a);
         }
         if (!TextUtils.isEmpty(this.b)) {
-            String b = t41.b(this.d, this.b, p, this.e);
+            String b = u41.b(this.d, this.b, p, this.e);
             this.k = b;
-            u01.b(this.g, b);
+            v01.b(this.g, b);
         } else if (!TextUtils.isEmpty(this.d)) {
             String a2 = a(this.d, o, this.e);
             this.d = a2;
-            u01.b(this.g, a2);
+            v01.b(this.g, a2);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        t41.a(getContext(), this.a, 15.0f);
+        u41.a(getContext(), this.a, 15.0f);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -263,19 +263,19 @@ public class NadExpressBottomView extends ViewGroup {
     }
 
     public void update(AdBaseModel adBaseModel) {
-        xp0.a aVar;
+        yp0.a aVar;
         if (adBaseModel == null) {
             return;
         }
-        np0 np0Var = adBaseModel.f;
-        this.b = np0Var.h;
-        this.d = np0Var.e;
-        this.c = np0Var.i;
+        op0 op0Var = adBaseModel.f;
+        this.b = op0Var.h;
+        this.d = op0Var.e;
+        this.c = op0Var.i;
         setNeedShowUnlikeIcon(true);
         j();
         this.j = s;
-        xp0 xp0Var = adBaseModel.p;
-        if (xp0Var != null && (aVar = xp0Var.j) != null) {
+        yp0 yp0Var = adBaseModel.p;
+        if (yp0Var != null && (aVar = yp0Var.j) != null) {
             int i = aVar.f;
             int i2 = aVar.g;
             int i3 = aVar.i;

@@ -11,8 +11,8 @@ import com.baidu.tbadk.data.LevePopData;
 import com.baidu.tbadk.data.LiveRemindData;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
-import com.baidu.tieba.ja5;
-import com.baidu.tieba.x25;
+import com.baidu.tieba.a45;
+import com.baidu.tieba.nb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import tbclient.Loop.LevelRes;
 import tbclient.Loop.LiveRes;
 import tbclient.Loop.LoopResIdl;
 /* loaded from: classes3.dex */
-public class PollingSocketResMessage extends SocketResponsedMessage implements x25 {
+public class PollingSocketResMessage extends SocketResponsedMessage implements a45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ChatRoomEntranceData chatEntranceData;
@@ -38,7 +38,8 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements x
     public List<AlaLiveInfo> liveFollowSecondFloor;
     public List<AlaLiveInfo> liveIndexSecondFloor;
     public final List<AlaLiveInfo> livePicSecondFloor;
-    public ja5 mFestivalConfigData;
+    public MemberBroadcastData mActivityBroadcastData;
+    public nb5 mFestivalConfigData;
     public IconPopData mIconPopData;
     public LevePopData mLevePopData;
     public LiveRemindData mLiveRemindData;
@@ -65,7 +66,7 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements x
         }
         this.mLevePopData = new LevePopData();
         this.mIconPopData = new IconPopData();
-        this.mFestivalConfigData = new ja5();
+        this.mFestivalConfigData = new nb5();
         this.mLiveRemindData = new LiveRemindData();
         this.groupUnreadMsgData = new SubscribeGroupUnreadMsgData();
         this.liveFollowSecondFloor = new ArrayList();
@@ -136,6 +137,11 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements x
                         this.mMemberBroadcastData = memberBroadcastData;
                         memberBroadcastData.parseProtobuf(loopResIdl.data.member_broadcast);
                     }
+                    if (loopResIdl.data.activity_broadcast != null) {
+                        MemberBroadcastData memberBroadcastData2 = new MemberBroadcastData();
+                        this.mActivityBroadcastData = memberBroadcastData2;
+                        memberBroadcastData2.parseProtobuf(loopResIdl.data.activity_broadcast);
+                    }
                     this.uniqueId = loopResIdl.data.uniq_id;
                 }
             }
@@ -144,111 +150,121 @@ public class PollingSocketResMessage extends SocketResponsedMessage implements x
         return invokeIL.objValue;
     }
 
-    @Override // com.baidu.tieba.x25
-    public ChatRoomEntranceData getChatRoomEntranceData() {
+    @Override // com.baidu.tieba.a45
+    public MemberBroadcastData getActivityBroadcastData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mActivityBroadcastData;
+        }
+        return (MemberBroadcastData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.a45
+    public ChatRoomEntranceData getChatRoomEntranceData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.chatEntranceData;
         }
         return (ChatRoomEntranceData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x25
-    public ja5 getFestivalConfigData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mFestivalConfigData;
-        }
-        return (ja5) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x25
-    public IconPopData getIconPopData() {
+    @Override // com.baidu.tieba.a45
+    public nb5 getFestivalConfigData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.mFestivalConfigData;
+        }
+        return (nb5) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.a45
+    public IconPopData getIconPopData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mIconPopData;
         }
         return (IconPopData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.a45
     public LevePopData getLevePopData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mLevePopData;
         }
         return (LevePopData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.a45
     public List<AlaLiveInfo> getLiveFollowSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.liveFollowSecondFloor;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.a45
     public List<AlaLiveInfo> getLiveIndexSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.liveIndexSecondFloor;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.a45
     public List<AlaLiveInfo> getLivePicSecondFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.livePicSecondFloor;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.a45
     public LiveRemindData getLiveRemindData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.mLiveRemindData;
         }
         return (LiveRemindData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.a45
     public MemberBroadcastData getMemberBroadcastData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.mMemberBroadcastData;
         }
         return (MemberBroadcastData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.a45
     public SubscribeGroupUnreadMsgData getSubscribeChatHaveUnReadMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.groupUnreadMsgData;
         }
         return (SubscribeGroupUnreadMsgData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x25
+    @Override // com.baidu.tieba.a45
     public String getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.uniqueId;
         }
         return (String) invokeV.objValue;

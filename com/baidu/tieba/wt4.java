@@ -1,172 +1,35 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Build;
 import android.webkit.JsPromptResult;
 import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.chatmessage.messages.AdvisoryMsgBusinessExtra;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.browser.SearchJsBridge;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.browser.UegTbJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.tbadkCore.util.MercatorModel;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.util.Base64Encoder;
-import java.util.HashMap;
-import java.util.List;
-import org.json.JSONArray;
+import com.yy.hiidostatis.inner.BaseStatisContent;
 import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.BlockPopInfo;
 /* loaded from: classes6.dex */
-public class wt4 implements jd6 {
+public class wt4 implements re6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jd6
+    @Override // com.baidu.tieba.re6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        id6.a(this, webView, str, jSONObject);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends wp5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(wt4 wt4Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wt4Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wp5
-        public String doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                ad9.h(this.a);
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements zo5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(wt4 wt4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wt4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zo5
-        /* renamed from: a */
-        public void onReturnDataInUI(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921557, str));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends wp5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(wt4 wt4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wt4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.wp5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ad9.b();
-                return null;
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements zo5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(wt4 wt4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wt4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.zo5
-        public void onReturnDataInUI(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921558));
-                nu4.c().a();
-            }
-        }
+        qe6.a(this, webView, str, jSONObject);
     }
 
     public wt4() {
@@ -183,174 +46,249 @@ public class wt4 implements jd6 {
         }
     }
 
-    @Override // com.baidu.tieba.jd6
+    @Override // com.baidu.tieba.re6
     public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!"CommonJSBridge".equals(str)) {
-                return false;
-            }
-            if (SearchJsBridge.METHOD_GET_SEARCH_HISTORY.equals(str2)) {
+            if (CommonTbJsBridge.GET_ZID.equals(str2)) {
                 jsPromptResult.confirm(g(webView).a());
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
                 return true;
-            } else if (SearchJsBridge.METHOD_DELETE_SEARCH_HISTORY.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(e(webView, new JSONObject(str3).optString("query")).a());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                return true;
-            } else if (SearchJsBridge.METHOD_DELETE_ALL_SEARCH_HISTORY.equals(str2)) {
-                jsPromptResult.confirm(d(webView).a());
-                return true;
-            } else if (SearchJsBridge.METHOD_OPEN_SEACH_PAGE.equals(str2)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str3);
-                    jsPromptResult.confirm(i(webView, jSONObject.optString("query"), jSONObject.optInt("sub_type")).a());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-                return true;
-            } else if (!SearchJsBridge.GET_SEARCH_AD_COOKIE.equals(str2)) {
-                return false;
-            } else {
+            } else if ("getSupplementInfo".equals(str2)) {
                 jsPromptResult.confirm(f(webView).a());
                 return true;
+            } else if (CommonTbJsBridge.GET_DEVICE_INFO.equals(str2)) {
+                jsPromptResult.confirm(d(webView).a());
+                return true;
+            } else if (UegTbJsBridge.METHOD_SET_BLOCK_POP_INFO.equals(str2)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str3);
+                    h(webView, jSONObject.optInt("can_post"), jSONObject.optString("block_info"), jSONObject.optString("ahead_info"), jSONObject.optString("ahead_url"), jSONObject.optString("ok_info"), jSONObject.optInt("ahead_type"));
+                    jsPromptResult.confirm("1");
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+                return true;
+            } else if (UegTbJsBridge.METHOD_COPY_TO_CLIPBOARD.equals(str2)) {
+                c(str3);
+                jsPromptResult.confirm("1");
+                return true;
+            } else {
+                return false;
             }
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final void c(JSONObject jSONObject, String str, String str2) throws JSONException {
+    public final void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, str2) == null) {
-            jSONObject.put(str, str2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            try {
+                yh.a(new JSONObject(str).optString("content"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public tc9 d(WebView webView) {
+    public km9 d(WebView webView) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, webView)) == null) {
-            tc9 tc9Var = new tc9();
-            aq5.b(new c(this), new d(this));
-            return tc9Var;
+            km9 km9Var = new km9();
+            StringBuilder sb = new StringBuilder(1024);
+            String imei = TbadkCoreApplication.getInst().getImei();
+            sb.append("imei=");
+            sb.append(imei);
+            String androidId = TbadkCoreApplication.getInst().getAndroidId();
+            sb.append("androidId=");
+            sb.append(androidId);
+            String iMsi = TbadkCoreApplication.getInst().getIMsi();
+            if (iMsi == null) {
+                iMsi = "";
+            }
+            sb.append("imsi=");
+            sb.append(iMsi);
+            String g = ki.g();
+            sb.append("model=");
+            sb.append(ki.g());
+            String str2 = Build.BRAND;
+            sb.append("brand=");
+            sb.append(str2);
+            sb.append("platform=");
+            sb.append("Android");
+            String packageName = TbadkCoreApplication.getInst().getPackageName();
+            sb.append("pkgName=");
+            sb.append(packageName);
+            String str3 = "" + BdNetTypeUtil.netType();
+            sb.append("network=");
+            sb.append(str3);
+            String str4 = "" + BdNetTypeUtil.curOperatorType();
+            sb.append("carrier=");
+            sb.append(str4);
+            String devicesManufacturer = DeviceInfoUtil.getDevicesManufacturer();
+            sb.append("manufacturer=");
+            sb.append(devicesManufacturer);
+            String str5 = Build.HARDWARE;
+            sb.append("hardware=");
+            sb.append(str5);
+            String str6 = Build.BOARD;
+            sb.append("board=");
+            sb.append(str6);
+            if (DeviceInfoUtil.isSupportGyroScope(TbadkCoreApplication.getInst())) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            sb.append("imu=");
+            sb.append(str);
+            sb.append("tiebaclient!!!");
+            String c = pi.c(sb.toString());
+            try {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("imei", imei);
+                    jSONObject.put("androidId", androidId);
+                    jSONObject.put(BaseStatisContent.IMSI, iMsi);
+                    jSONObject.put("model", g);
+                    jSONObject.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, str2);
+                    jSONObject.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "Android");
+                    jSONObject.put("pkgName", packageName);
+                    jSONObject.put("network", str3);
+                    jSONObject.put("carrier", str4);
+                    jSONObject.put(HttpConstants.HTTP_MANUFACTURER, devicesManufacturer);
+                    jSONObject.put(HttpConstants.HTTP_HARDWARE, str5);
+                    jSONObject.put(HttpConstants.HTTP_BOARD, str6);
+                    jSONObject.put(ARPScriptEnvironment.KEY_DATA_PIP_IMU, str);
+                    jSONObject.put("sign", c);
+                    km9Var = km9Var;
+                    km9Var.o(jSONObject.toString());
+                    return km9Var;
+                } catch (JSONException e) {
+                    e = e;
+                    km9Var = km9Var;
+                    BdLog.e(e);
+                    km9Var.o("");
+                    return km9Var;
+                }
+            } catch (JSONException e2) {
+                e = e2;
+            }
+        } else {
+            return (km9) invokeL.objValue;
         }
-        return (tc9) invokeL.objValue;
     }
 
-    public tc9 f(WebView webView) {
+    public km9 e(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, webView)) == null) {
-            tc9 tc9Var = new tc9();
-            tc9Var.o(h());
-            return tc9Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, webView)) == null) {
+            km9 km9Var = new km9();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", 1);
+                jSONObject.put("hdid", TbadkCoreApplication.getInst().getHdid());
+                km9Var.o(jSONObject.toString());
+                return km9Var;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return km9Var;
+            }
         }
-        return (tc9) invokeL.objValue;
+        return (km9) invokeL.objValue;
     }
 
-    public tc9 e(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            tc9 tc9Var = new tc9();
-            aq5.b(new a(this, str), new b(this));
-            return tc9Var;
-        }
-        return (tc9) invokeLL.objValue;
-    }
-
-    public tc9 g(WebView webView) {
+    public km9 g(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, webView)) == null) {
-            tc9 tc9Var = new tc9();
-            List<String> b2 = nu4.c().b();
-            int count = ListUtils.getCount(b2);
-            if (count == 0) {
-                tc9Var.o("");
-            }
-            JSONArray jSONArray = new JSONArray();
-            for (int i = 0; i < count; i++) {
-                jSONArray.put(b2.get(i));
-            }
-            tc9Var.o(jSONArray.toString());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-            return tc9Var;
-        }
-        return (tc9) invokeL.objValue;
-    }
-
-    public final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                MercatorModel.MercatorData e = MercatorModel.d().e();
-                if (e != null) {
-                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_LAT, e.U());
-                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_LON, e.V());
-                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_CITY, String.valueOf(e.R()));
-                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_RADIUS, e.X());
-                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_TIME, String.valueOf(e.Y()));
-                }
-                c(jSONObject, SearchJsBridge.COOKIE_MOD, ji.g());
-                c(jSONObject, "ov", ji.k());
-                c(jSONObject, "os_type", String.valueOf(2));
-                c(jSONObject, "net_type", String.valueOf(BdNetTypeUtil.netType()));
-                c(jSONObject, "imei", TbadkCoreApplication.getInst().getImei());
-                c(jSONObject, "from", TbConfig.getFrom());
-                c(jSONObject, "cfrom", TbConfig.getCurrentFrom());
-                c(jSONObject, "_client_version", TbConfig.getVersion());
-                c(jSONObject, "CUID", TbadkCoreApplication.getInst().getCuid());
-                String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-                c(jSONObject, "shoubai_cuid", cuidGalaxy2);
-                c(jSONObject, "cuid_galaxy2", cuidGalaxy2);
-                if (!TextUtils.isEmpty(cuidGalaxy2)) {
-                    c(jSONObject, "baiduid", new String(Base64Encoder.B64Encode(cuidGalaxy2.getBytes())));
-                }
-            } catch (JSONException e2) {
-                BdLog.e(e2);
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public tc9 i(WebView webView, String str, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, str, i)) == null) {
-            tc9 tc9Var = new tc9();
+            km9 km9Var = new km9();
+            String zid = TbadkCoreApplication.getInst().getZid();
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("query", str);
-                jSONObject.put(AdvisoryMsgBusinessExtra.SUBTYPE_KEY, i);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921559, jSONObject.toString()));
+                jSONObject.put("resultCode", 1);
+                jSONObject.put("zid", zid);
+                km9Var.o(jSONObject.toString());
+                return km9Var;
             } catch (JSONException e) {
-                e.printStackTrace();
+                BdLog.e(e);
+                return km9Var;
             }
-            return tc9Var;
         }
-        return (tc9) invokeLLI.objValue;
+        return (km9) invokeL.objValue;
     }
 
-    public tc9 j(WebView webView, HashMap hashMap) {
-        InterceptResult invokeLL;
+    public km9 f(WebView webView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, webView, hashMap)) == null) {
-            tc9 tc9Var = new tc9();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, webView)) == null) {
+            km9 km9Var = new km9();
+            StringBuilder sb = new StringBuilder(1024);
+            String imei = TbadkCoreApplication.getInst().getImei();
+            sb.append("imei=");
+            sb.append(imei);
+            String cuid = TbadkCoreApplication.getInst().getCuid();
+            sb.append("cuid=");
+            sb.append(cuid);
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            sb.append("shoubai_cuid=");
+            sb.append(cuidGalaxy2);
+            String str = Build.BRAND;
+            sb.append("brand=");
+            sb.append(str);
+            sb.append("client_type=");
+            sb.append("Android");
+            String version = TbConfig.getVersion();
+            sb.append("client_version=");
+            sb.append(version);
+            String zid = TbadkCoreApplication.getInst().getZid();
+            sb.append("zid=");
+            sb.append(zid);
+            sb.append("tiebaclient!!!");
+            String c = pi.c(sb.toString());
             try {
-                tc9Var.o(new JSONArray(hashMap.get("data").toString()).toString());
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("imei", imei);
+                jSONObject.put("cuid", cuid);
+                jSONObject.put("shoubai_cuid", cuidGalaxy2);
+                jSONObject.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, str);
+                jSONObject.put("client_type", "Android");
+                jSONObject.put("client_version", version);
+                jSONObject.put("zid", zid);
+                jSONObject.put("sign", c);
+                km9Var.o(jSONObject.toString());
+                return km9Var;
             } catch (JSONException e) {
+                BdLog.e(e);
+                km9Var.o("");
+                return km9Var;
+            }
+        }
+        return (km9) invokeL.objValue;
+    }
+
+    public km9 h(WebView webView, int i, String str, String str2, String str3, String str4, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{webView, Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
+            km9 km9Var = new km9();
+            try {
+                BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
+                builder.can_post = Integer.valueOf(i);
+                builder.block_info = str;
+                builder.ahead_info = str2;
+                builder.ahead_url = str3;
+                builder.ok_info = str4;
+                builder.ahead_type = Integer.valueOf(i2);
+                BlockPopInfo build = builder.build(false);
+                us9.h(build);
+                us9.g(build);
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            return tc9Var;
+            return km9Var;
         }
-        return (tc9) invokeLL.objValue;
+        return (km9) invokeCommon.objValue;
     }
 }

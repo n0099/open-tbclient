@@ -74,7 +74,7 @@ public class ga {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                di.a(byteArrayInputStream, byteArrayOutputStream);
+                ei.a(byteArrayInputStream, byteArrayOutputStream);
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {
@@ -92,7 +92,7 @@ public class ga {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                di.c(byteArrayInputStream, byteArrayOutputStream);
+                ei.c(byteArrayInputStream, byteArrayOutputStream);
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {
@@ -177,7 +177,7 @@ public class ga {
                 if (faVar.d() && haVar.d > 0) {
                     if (ia.a().b() != null) {
                         try {
-                            byte[] a2 = pi.a(ia.a().b(), haVar.b, haVar.c, haVar.d);
+                            byte[] a2 = qi.a(ia.a().b(), haVar.b, haVar.c, haVar.d);
                             haVar.b = a2;
                             haVar.c = 0;
                             haVar.d = a2.length;
@@ -233,7 +233,7 @@ public class ga {
                 encodeInBackGround = a(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
-                encodeInBackGround = pi.c(ia.a().b(), encodeInBackGround);
+                encodeInBackGround = qi.c(ia.a().b(), encodeInBackGround);
             }
             return fa.i(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
         }

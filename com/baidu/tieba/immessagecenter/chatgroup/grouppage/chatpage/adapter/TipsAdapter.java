@@ -14,8 +14,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TipsSysMsg;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.nx7;
+import com.baidu.tieba.k78;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,8 +26,8 @@ import java.util.List;
 public class TipsAdapter extends BaseSysAdapter<TipsSysMsg, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long g;
     public long h;
+    public long i;
 
     /* loaded from: classes4.dex */
     public static class Holder extends BaseViewHolder {
@@ -54,8 +54,8 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysMsg, Holder> {
                     return;
                 }
             }
-            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923fa);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09160f);
+            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923ee);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091612);
         }
     }
 
@@ -83,47 +83,47 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysMsg, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: I */
-    public Holder D(@NonNull ViewGroup viewGroup) {
+    /* renamed from: J */
+    public Holder E(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ae, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03b0, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
 
-    public void L(long j) {
+    public void M(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.g = j;
+            this.h = j;
         }
     }
 
-    public void M(long j) {
+    public void N(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.h = j;
+            this.i = j;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: J */
-    public View F(int i, @NonNull ViewGroup viewGroup, @NonNull TipsSysMsg tipsSysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: K */
+    public View G(int i, @NonNull ViewGroup viewGroup, @NonNull TipsSysMsg tipsSysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, tipsSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
-            n15 d = n15.d(holder.b);
+            q25 d = q25.d(holder.b);
             d.o(R.string.J_X04);
             d.f(R.color.CAM_X0625);
-            n15 d2 = n15.d(holder.a);
+            q25 d2 = q25.d(holder.a);
             d2.w(R.color.CAM_X0101);
-            d2.A(R.dimen.T_X09);
+            d2.B(R.dimen.T_X09);
             holder.a.setText(tipsSysMsg.getTips());
             if (-7014 == tipsSysMsg.getSysMsgType()) {
-                nx7.a("c15095", 1, this.g, this.h, TbadkCoreApplication.getCurrentAccount());
+                k78.a("c15095", 1, this.h, this.i, TbadkCoreApplication.getCurrentAccount());
             }
             return holder.getView();
         }

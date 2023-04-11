@@ -21,11 +21,11 @@ public class gu {
     public static XmlPullParser a;
 
     public static gj a(String str, String str2, XmlPullParser xmlPullParser) {
-        Object m455a = gt.a().m455a("all", "xm:chat");
-        if (m455a == null || !(m455a instanceof com.xiaomi.push.service.k)) {
+        Object m457a = gt.a().m457a("all", "xm:chat");
+        if (m457a == null || !(m457a instanceof com.xiaomi.push.service.k)) {
             return null;
         }
-        return ((com.xiaomi.push.service.k) m455a).b(xmlPullParser);
+        return ((com.xiaomi.push.service.k) m457a).b(xmlPullParser);
     }
 
     public static gk a(XmlPullParser xmlPullParser, fv fvVar) {
@@ -48,7 +48,7 @@ public class gu {
                 String name = xmlPullParser.getName();
                 String namespace = xmlPullParser.getNamespace();
                 if (name.equals("error")) {
-                    gqVar = m459a(xmlPullParser);
+                    gqVar = m461a(xmlPullParser);
                 } else {
                     gkVar = new gk();
                     gkVar.a(a(name, namespace, xmlPullParser));
@@ -117,7 +117,7 @@ public class gu {
                             glVar.k(attributeValue2);
                             glVar.f(attributeValue5);
                             gj gjVar = new gj("s", null, null, null);
-                            gjVar.m446a(text);
+                            gjVar.m448a(text);
                             glVar.a(gjVar);
                             return glVar;
                         }
@@ -196,21 +196,21 @@ public class gu {
                 }
                 if (name.equals(MailTo.SUBJECT)) {
                     b(xmlPullParser);
-                    glVar2.g(m460a(xmlPullParser));
+                    glVar2.g(m462a(xmlPullParser));
                 } else if (name.equals("body")) {
                     String attributeValue11 = xmlPullParser.getAttributeValue("", HttpClientWrap.c);
-                    String m460a = m460a(xmlPullParser);
+                    String m462a = m462a(xmlPullParser);
                     if (TextUtils.isEmpty(attributeValue11)) {
-                        glVar2.h(m460a);
+                        glVar2.h(m462a);
                     } else {
-                        glVar2.a(m460a, attributeValue11);
+                        glVar2.a(m462a, attributeValue11);
                     }
                 } else if (name.equals("thread")) {
                     if (str2 == null) {
                         str2 = xmlPullParser.nextText();
                     }
                 } else if (name.equals("error")) {
-                    glVar2.a(m459a(xmlPullParser));
+                    glVar2.a(m461a(xmlPullParser));
                 } else {
                     glVar2.a(a(name, namespace, xmlPullParser));
                 }
@@ -223,7 +223,7 @@ public class gu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static go m457a(XmlPullParser xmlPullParser) {
+    public static go m459a(XmlPullParser xmlPullParser) {
         go.b bVar = go.b.available;
         String attributeValue = xmlPullParser.getAttributeValue("", "type");
         if (attributeValue != null && !attributeValue.equals("")) {
@@ -267,7 +267,7 @@ public class gu {
                         printStream2.println("Found invalid presence mode " + nextText);
                     }
                 } else if (name.equals("error")) {
-                    goVar.a(m459a(xmlPullParser));
+                    goVar.a(m461a(xmlPullParser));
                 } else {
                     goVar.a(a(name, namespace, xmlPullParser));
                 }
@@ -279,7 +279,7 @@ public class gu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gp m458a(XmlPullParser xmlPullParser) {
+    public static gp m460a(XmlPullParser xmlPullParser) {
         gp gpVar = null;
         boolean z = false;
         while (!z) {
@@ -294,7 +294,7 @@ public class gu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gq m459a(XmlPullParser xmlPullParser) {
+    public static gq m461a(XmlPullParser xmlPullParser) {
         ArrayList arrayList = new ArrayList();
         boolean z = false;
         String str = "-1";
@@ -339,7 +339,7 @@ public class gu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m460a(XmlPullParser xmlPullParser) {
+    public static String m462a(XmlPullParser xmlPullParser) {
         int depth = xmlPullParser.getDepth();
         String str = "";
         while (true) {

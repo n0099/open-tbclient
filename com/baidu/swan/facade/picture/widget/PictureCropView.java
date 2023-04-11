@@ -16,10 +16,10 @@ import android.view.MotionEvent;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouchBase;
 import com.baidu.swan.facade.picture.widget.ZoomImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.do1;
+import com.baidu.tieba.eo1;
 /* loaded from: classes3.dex */
 public class PictureCropView extends PictureView {
-    public static final boolean o = do1.a;
+    public static final boolean o = eo1.a;
     public Drawable j;
     public final Rect k;
     public int l;
@@ -161,7 +161,7 @@ public class PictureCropView extends PictureView {
     private void g(Context context) {
         this.m.setColor(this.l);
         this.m.setStyle(Paint.Style.FILL);
-        this.j = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081206);
+        this.j = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811f0);
         ZoomImageView zoomImageView = (ZoomImageView) getImageView();
         zoomImageView.setDoubleTapEnabled(true);
         zoomImageView.setCalcBaseMatrix(false);

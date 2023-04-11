@@ -1,61 +1,69 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import androidx.core.app.NotificationCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class jy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(BdVideoSeries bdVideoSeries) {
-        InterceptResult invokeL;
+    public jy0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bdVideoSeries)) == null) {
-            if (bdVideoSeries != null && bdVideoSeries.getSelectedVideo() != null) {
-                return xz0.c(bdVideoSeries.getSelectedVideo().getTotalLength());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void b(@Nullable BdVideoSeries bdVideoSeries, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65537, null, bdVideoSeries, i, i2) == null) && bdVideoSeries != null && bdVideoSeries.getSelectedVideo() != null) {
-            bdVideoSeries.setPositionMs(i);
-            bdVideoSeries.setDurationMs(i2);
-            BdVideo selectedVideo = bdVideoSeries.getSelectedVideo();
-            selectedVideo.setCurrentLength((i / 1000) + "");
-            BdVideo selectedVideo2 = bdVideoSeries.getSelectedVideo();
-            selectedVideo2.setTotalLength((i2 / 1000) + "");
         }
     }
 
-    @NonNull
-    public static String c(String str) {
+    public static jy0 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    int d = xz0.d(str, -1);
-                    if (d < 0) {
-                        return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject != null) {
+                jy0 jy0Var = new jy0();
+                jSONObject.optString("type_text");
+                jSONObject.optString("text");
+                jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
+                jSONObject.optString("cmd");
+                return jy0Var;
+            }
+            return null;
+        }
+        return (jy0) invokeL.objValue;
+    }
+
+    public static List<jy0> b(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        jy0 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONArray)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONArray != null && jSONArray.length() != 0) {
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null && (a = a(optJSONObject)) != null) {
+                        arrayList.add(a);
                     }
-                    return xz0.b(d, false);
-                } catch (Exception e) {
-                    b01.k("toTimeString(" + str + SmallTailInfo.EMOTION_SUFFIX, e);
                 }
+                return arrayList;
             }
-            return "";
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 }

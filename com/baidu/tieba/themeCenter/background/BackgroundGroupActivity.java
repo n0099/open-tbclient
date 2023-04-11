@@ -5,12 +5,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ik5;
-import com.baidu.tieba.ri9;
+import com.baidu.tieba.is9;
+import com.baidu.tieba.lr9;
+import com.baidu.tieba.mr9;
+import com.baidu.tieba.nr9;
+import com.baidu.tieba.ol5;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupModel;
-import com.baidu.tieba.uh9;
-import com.baidu.tieba.vh9;
-import com.baidu.tieba.wh9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,11 +23,11 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundGroupModel b;
-    public vh9 c;
-    public wh9 d;
+    public mr9 c;
+    public nr9 d;
     public BackgroundGroupModel.c e;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.fk5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ll5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,9 +59,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
-        public void a(int i, String str, ri9 ri9Var, List<uh9> list) {
+        public void a(int i, String str, is9 is9Var, List<lr9> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, ri9Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, is9Var, list}) == null) {
                 BackgroundGroupActivity backgroundGroupActivity = this.a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.c.d());
                 this.a.c.i();
@@ -70,7 +70,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                     this.a.c.j();
                     return;
                 }
-                this.a.c.k(ri9Var, list, this.a.b.a0());
+                this.a.c.k(is9Var, list, this.a.b.Z());
             }
         }
     }
@@ -91,7 +91,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         this.e = new a(this);
     }
 
-    public int B1() {
+    public int A1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -101,17 +101,17 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public ik5 getPageStayDurationItem() {
+    public ol5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ik5 pageStayDurationItem = super.getPageStayDurationItem();
+            ol5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (ik5) invokeV.objValue;
+        return (ol5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -124,10 +124,10 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        vh9 vh9Var;
+        mr9 mr9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.b != null && (vh9Var = this.c) != null) {
-            showLoadingView(vh9Var.d());
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.b != null && (mr9Var = this.c) != null) {
+            showLoadingView(mr9Var.d());
             this.b.loadData();
         }
     }
@@ -137,9 +137,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            vh9 vh9Var = this.c;
-            if (vh9Var != null) {
-                vh9Var.f();
+            mr9 mr9Var = this.c;
+            if (mr9Var != null) {
+                mr9Var.f();
             }
         }
     }
@@ -153,13 +153,13 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             this.a = getPageContext();
             BackgroundGroupModel backgroundGroupModel = new BackgroundGroupModel(this);
             this.b = backgroundGroupModel;
-            backgroundGroupModel.d0(this.e);
-            wh9 wh9Var = new wh9(this.a, this.b.getUniqueId());
-            this.d = wh9Var;
-            wh9Var.c(1);
-            vh9 vh9Var = new vh9(this, this.d);
-            this.c = vh9Var;
-            vh9Var.e();
+            backgroundGroupModel.c0(this.e);
+            nr9 nr9Var = new nr9(this.a, this.b.getUniqueId());
+            this.d = nr9Var;
+            nr9Var.c(1);
+            mr9 mr9Var = new mr9(this, this.d);
+            this.c = mr9Var;
+            mr9Var.e();
             showLoadingView(this.c.d());
             this.b.loadData();
         }

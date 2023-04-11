@@ -29,24 +29,24 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ee9;
+import com.baidu.tieba.c05;
+import com.baidu.tieba.e67;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.gy4;
-import com.baidu.tieba.hi;
 import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
 import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
 import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.iy4;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.kx6;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.tf5;
-import com.baidu.tieba.v05;
-import com.baidu.tieba.w05;
+import com.baidu.tieba.vn9;
+import com.baidu.tieba.xg5;
+import com.baidu.tieba.y05;
+import com.baidu.tieba.z05;
 import com.baidu.tieba.za;
-import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,11 +60,11 @@ import tbclient.GetMyPost.User_Info;
 import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes4.dex */
-public class ConcernFragment extends BaseFragment implements kx6 {
+public class ConcernFragment extends BaseFragment implements e67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcernPageView a;
-    public ConcernPageView.o b;
+    public ConcernPageView.r b;
     public ScrollFragmentTabHost c;
     public boolean d;
     public boolean e;
@@ -75,21 +75,21 @@ public class ConcernFragment extends BaseFragment implements kx6 {
     public final CustomMessageListener j;
     public final za k;
 
-    @Override // com.baidu.tieba.kx6
-    public void B() {
+    @Override // com.baidu.tieba.e67
+    public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.kx6
-    public void P() {
+    @Override // com.baidu.tieba.e67
+    public void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.fk5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ll5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -137,8 +137,8 @@ public class ConcernFragment extends BaseFragment implements kx6 {
                 int i;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    int l = hi.l(TbadkCoreApplication.getInst());
-                    int j = hi.j(TbadkCoreApplication.getInst());
+                    int l = ii.l(TbadkCoreApplication.getInst());
+                    int j = ii.j(TbadkCoreApplication.getInst());
                     float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                     if (TbImageHelper.getInstance().isShowBigImage()) {
                         i = 2;
@@ -182,15 +182,15 @@ public class ConcernFragment extends BaseFragment implements kx6 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData()) != null) {
                 long g = gg.g(postWriteCallBackData.getPostId(), 0L);
                 long g2 = gg.g(postWriteCallBackData.getThreadId(), 0L);
-                long g3 = gg.g(ee9.c(), 0L);
+                long g3 = gg.g(vn9.c(), 0L);
                 if (g != 0 && g2 != 0 && g3 != 0) {
                     jg.a().postDelayed(new a(this, g2, g, g3), 1000L);
                 } else if (!StringUtils.isNull(postWriteCallBackData.getVideoid())) {
                     WriteData writeData = postWriteCallBackData.writeDataForVideo;
-                    gy4 gy4Var = new gy4();
-                    gy4Var.parseFromWriteData(writeData);
-                    if (this.a.a != null && this.a.a.E()) {
-                        this.a.a.B(gy4Var);
+                    iy4 iy4Var = new iy4();
+                    iy4Var.parseFromWriteData(writeData);
+                    if (this.a.a != null && this.a.a.L()) {
+                        this.a.a.I(iy4Var);
                     }
                 }
             }
@@ -238,8 +238,8 @@ public class ConcernFragment extends BaseFragment implements kx6 {
                 int i;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    int l = hi.l(TbadkCoreApplication.getInst());
-                    int j = hi.j(TbadkCoreApplication.getInst());
+                    int l = ii.l(TbadkCoreApplication.getInst());
+                    int j = ii.j(TbadkCoreApplication.getInst());
                     float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                     if (TbImageHelper.getInstance().isShowBigImage()) {
                         i = 2;
@@ -283,15 +283,15 @@ public class ConcernFragment extends BaseFragment implements kx6 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData()) != null) {
                 long g = gg.g(postWriteCallBackData.getPostId(), 0L);
                 long g2 = gg.g(postWriteCallBackData.getThreadId(), 0L);
-                long g3 = gg.g(ee9.c(), 0L);
+                long g3 = gg.g(vn9.c(), 0L);
                 if (g != 0 && g2 != 0 && g3 != 0) {
                     jg.a().postDelayed(new a(this, g2, g, g3), 1000L);
                 } else if (!StringUtils.isNull(postWriteCallBackData.getVideoid())) {
                     WriteData writeData = postWriteCallBackData.writeDataForVideo;
-                    gy4 gy4Var = new gy4();
-                    gy4Var.parseFromWriteData(writeData);
-                    if (this.a.a != null && this.a.a.E()) {
-                        this.a.a.B(gy4Var);
+                    iy4 iy4Var = new iy4();
+                    iy4Var.parseFromWriteData(writeData);
+                    if (this.a.a != null && this.a.a.L()) {
+                        this.a.a.I(iy4Var);
                     }
                 }
             }
@@ -365,17 +365,17 @@ public class ConcernFragment extends BaseFragment implements kx6 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(zz4 zz4Var) {
+        public void onNavigationButtonClick(c05 c05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(zz4 zz4Var) {
+        public void onPositiveButtonClick(c05 c05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zz4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c05Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
@@ -412,8 +412,8 @@ public class ConcernFragment extends BaseFragment implements kx6 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.a != null && this.a.a.E()) {
-                this.a.a.Q();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.a != null && this.a.a.L()) {
+                this.a.a.Y();
             }
         }
     }
@@ -465,7 +465,7 @@ public class ConcernFragment extends BaseFragment implements kx6 {
                         if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
                             GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                             if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                                errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d1f);
+                                errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d1b);
                             } else {
                                 errorString2 = getMyPostHttpResponseMessage.getErrorString();
                             }
@@ -477,7 +477,7 @@ public class ConcernFragment extends BaseFragment implements kx6 {
                         } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                             GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                             if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d1f);
+                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d1b);
                             } else {
                                 errorString = getMyPostSocketResponseMessage.getErrorString();
                             }
@@ -548,11 +548,11 @@ public class ConcernFragment extends BaseFragment implements kx6 {
         SpeedStatsManager.getInstance().addStatsTimeStamp(5021);
     }
 
-    public void K1(ConcernPageView.o oVar) {
+    public void K1(ConcernPageView.r rVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, oVar) == null) {
-            this.b = oVar;
-            this.a.setCallback(oVar);
+        if (interceptable == null || interceptable.invokeL(1048580, this, rVar) == null) {
+            this.b = rVar;
+            this.a.setCallback(rVar);
         }
     }
 
@@ -561,7 +561,7 @@ public class ConcernFragment extends BaseFragment implements kx6 {
         if (interceptable == null || interceptable.invokeL(1048581, this, scrollFragmentTabHost) == null) {
             this.c = scrollFragmentTabHost;
             ConcernPageView concernPageView = this.a;
-            if (concernPageView != null && concernPageView.E()) {
+            if (concernPageView != null && concernPageView.L()) {
                 this.a.setScrollFragmentTabHost(scrollFragmentTabHost);
             }
         }
@@ -573,8 +573,8 @@ public class ConcernFragment extends BaseFragment implements kx6 {
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             super.onChangeSkinType(i);
             ConcernPageView concernPageView = this.a;
-            if (concernPageView != null && concernPageView.E()) {
-                this.a.K(i);
+            if (concernPageView != null && concernPageView.L()) {
+                this.a.S(i);
             }
         }
     }
@@ -582,27 +582,27 @@ public class ConcernFragment extends BaseFragment implements kx6 {
     public void H1() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (concernPageView = this.a) != null && concernPageView.E()) {
-            this.a.u();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (concernPageView = this.a) != null && concernPageView.L()) {
+            this.a.A();
         }
     }
 
     public void M1() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (concernPageView = this.a) != null && concernPageView.E()) {
-            this.a.T();
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (concernPageView = this.a) != null && concernPageView.L()) {
+            this.a.b0();
         }
     }
 
-    @Override // com.baidu.tieba.kx6
-    public void Z() {
+    @Override // com.baidu.tieba.e67
+    public void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             changeSkinType(TbadkCoreApplication.getInst().getSkinType());
             ConcernPageView concernPageView = this.a;
-            if (concernPageView != null && concernPageView.E()) {
-                this.a.K(TbadkCoreApplication.getInst().getSkinType());
+            if (concernPageView != null && concernPageView.L()) {
+                this.a.S(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }
@@ -612,7 +612,7 @@ public class ConcernFragment extends BaseFragment implements kx6 {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (concernPageView = this.a) != null) {
-            concernPageView.I();
+            concernPageView.Q();
         }
     }
 
@@ -620,7 +620,7 @@ public class ConcernFragment extends BaseFragment implements kx6 {
     public void onDestroyView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.a.N();
+            this.a.V();
             super.onDestroyView();
         }
     }
@@ -641,7 +641,7 @@ public class ConcernFragment extends BaseFragment implements kx6 {
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             super.onPause();
             this.a.setTabInForeBackgroundState(true);
-            w05.m(v05.j);
+            z05.m(y05.j);
         }
     }
 
@@ -653,18 +653,18 @@ public class ConcernFragment extends BaseFragment implements kx6 {
             super.onResume();
             ConcernPageView concernPageView = this.a;
             if (concernPageView != null) {
-                concernPageView.P();
+                concernPageView.X();
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(5025);
         }
     }
 
-    @Override // com.baidu.tieba.kx6
-    public void q() {
+    @Override // com.baidu.tieba.e67
+    public void u() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && this.e && (concernPageView = this.a) != null && concernPageView.E()) {
-            this.a.U();
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && this.e && (concernPageView = this.a) != null && concernPageView.L()) {
+            this.a.c0();
         }
     }
 
@@ -678,7 +678,7 @@ public class ConcernFragment extends BaseFragment implements kx6 {
             }
             DataRes dataRes = getMyPostResIdl.data;
             if (dataRes != null && dataRes.thread_info != null) {
-                gy4 gy4Var = new gy4();
+                iy4 iy4Var = new iy4();
                 ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
                 User.Builder builder2 = new User.Builder(builder.author);
                 J1(builder2, getMyPostResIdl.data.user_info);
@@ -690,10 +690,10 @@ public class ConcernFragment extends BaseFragment implements kx6 {
                 if (user2 != null && (user_Info = getMyPostResIdl.data.user_info) != null && user2.name.equals(user_Info.name)) {
                     builder.author = builder2.build(true);
                 }
-                builder.fname = ee9.d();
-                builder.fid = Long.valueOf(gg.g(ee9.d(), 0L));
-                gy4Var.parserProtobuf(builder.build(true));
-                this.a.C(gy4Var, true);
+                builder.fname = vn9.d();
+                builder.fid = Long.valueOf(gg.g(vn9.d(), 0L));
+                iy4Var.parserProtobuf(builder.build(true));
+                this.a.J(iy4Var, true);
             }
         }
     }
@@ -709,19 +709,19 @@ public class ConcernFragment extends BaseFragment implements kx6 {
             }
             if (this.a.getParent() instanceof ViewGroup) {
                 ((ViewGroup) this.a.getParent()).removeView(this.a);
-                ConcernPageView.o oVar = this.b;
-                if (oVar != null) {
-                    this.a.setCallback(oVar);
+                ConcernPageView.r rVar = this.b;
+                if (rVar != null) {
+                    this.a.setCallback(rVar);
                 }
             }
-            if (this.a.E()) {
+            if (this.a.L()) {
                 this.a.setPageUniqueId(getUniqueId());
                 if (this.d) {
-                    this.a.A();
+                    this.a.H();
                     this.d = false;
                 }
             }
-            this.a.L();
+            this.a.T();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.CONCERN_TAB_ON_CREATE_VIEW_END_STAMP_KEY);
             return this.a;
         }
@@ -756,18 +756,18 @@ public class ConcernFragment extends BaseFragment implements kx6 {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(1048583, this, dataRes, z) == null) && (concernPageView = this.a) != null) {
-            concernPageView.c0(dataRes, z);
+            concernPageView.k0(dataRes, z);
         }
     }
 
     public void O1(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i) == null) {
-            this.a.d0(str, i);
+            this.a.l0(str, i);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.fk5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ll5
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -794,11 +794,11 @@ public class ConcernFragment extends BaseFragment implements kx6 {
             MessageManager.getInstance().unRegisterListener(this.i);
             MessageManager.getInstance().unRegisterListener(this.j);
             ConcernPageView concernPageView = this.a;
-            if (concernPageView != null && concernPageView.E()) {
-                this.a.M();
+            if (concernPageView != null && concernPageView.L()) {
+                this.a.U();
             }
             this.d = true;
-            tf5.e().b();
+            xg5.e().b();
         }
     }
 
@@ -812,7 +812,7 @@ public class ConcernFragment extends BaseFragment implements kx6 {
             this.k.getHttpMessageListener().setSelfListener(true);
             this.k.getSocketMessageListener().setSelfListener(true);
             ConcernPageView concernPageView = this.a;
-            if (concernPageView != null && concernPageView.E()) {
+            if (concernPageView != null && concernPageView.L()) {
                 registerListener(this.i);
                 registerListener(this.k);
                 registerListener(this.j);
@@ -829,13 +829,13 @@ public class ConcernFragment extends BaseFragment implements kx6 {
                 if (!this.e) {
                     ConcernPageView concernPageView = this.a;
                     if (concernPageView != null) {
-                        if (!concernPageView.E()) {
-                            this.a.z(getContext());
+                        if (!concernPageView.L()) {
+                            this.a.G(getContext());
                             if (!UbsABTestHelper.isLaunchUpA()) {
                                 this.a.removeAllViews();
-                                this.a.b0();
+                                this.a.j0();
                             }
-                            this.a.A();
+                            this.a.H();
                             registerListener(this.f);
                             registerListener(this.h);
                             this.a.setScrollFragmentTabHost(this.c);
@@ -845,13 +845,13 @@ public class ConcernFragment extends BaseFragment implements kx6 {
                             registerListener(this.j);
                             this.a.setTabInForeBackgroundState(false);
                         }
-                        this.a.v();
+                        this.a.B();
                     }
                     this.e = true;
                 } else {
                     ConcernPageView concernPageView2 = this.a;
                     if (concernPageView2 != null) {
-                        concernPageView2.O();
+                        concernPageView2.W();
                     }
                 }
                 ConcernPageView concernPageView3 = this.a;
@@ -859,15 +859,15 @@ public class ConcernFragment extends BaseFragment implements kx6 {
                     concernPageView3.setViewForeground();
                 }
                 if (getContext() != null) {
-                    w05.n(getContext(), v05.j);
+                    z05.n(getContext(), y05.j);
                     return;
                 }
                 return;
             }
-            w05.m(v05.j);
+            z05.m(y05.j);
             ConcernPageView concernPageView4 = this.a;
             if (concernPageView4 != null) {
-                concernPageView4.R();
+                concernPageView4.Z();
             }
             H1();
         }

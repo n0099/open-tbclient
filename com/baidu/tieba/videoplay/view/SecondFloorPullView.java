@@ -27,16 +27,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class SecondFloorPullView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
-    public static final int h;
     public static final int i;
+    public static final int j;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
     public View c;
     public View d;
     public View e;
-    public g f;
-    public GestureDetectorCompat g;
+    public int f;
+    public g g;
+    public GestureDetectorCompat h;
 
     /* loaded from: classes6.dex */
     public interface g {
@@ -72,7 +73,7 @@ public class SecondFloorPullView extends FrameLayout {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                if (this.a.a == 5 && motionEvent.getY() >= SecondFloorPullView.h && motionEvent.getY() < SecondFloorPullView.i && this.a.i()) {
+                if (this.a.a == 5 && motionEvent.getY() >= SecondFloorPullView.i && motionEvent.getY() < SecondFloorPullView.j && this.a.k()) {
                     return true;
                 }
                 return super.onDown(motionEvent);
@@ -111,8 +112,8 @@ public class SecondFloorPullView extends FrameLayout {
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.m(7);
-            this.a.k();
+            this.a.o(7);
+            this.a.m();
         }
     }
 
@@ -179,7 +180,7 @@ public class SecondFloorPullView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                this.a.m(5);
+                this.a.o(5);
             }
         }
 
@@ -190,7 +191,7 @@ public class SecondFloorPullView extends FrameLayout {
                 super.onAnimationStart(animator);
                 this.a.e.setVisibility(8);
                 this.a.d.setVisibility(0);
-                this.a.m(3);
+                this.a.o(3);
             }
         }
     }
@@ -258,7 +259,7 @@ public class SecondFloorPullView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                 super.onAnimationStart(animator);
-                this.a.m(4);
+                this.a.o(4);
             }
         }
 
@@ -267,10 +268,14 @@ public class SecondFloorPullView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                this.a.e.setVisibility(0);
-                this.a.m(6);
+                if (this.a.j()) {
+                    this.a.e.setVisibility(0);
+                } else {
+                    this.a.e.setVisibility(8);
+                }
+                this.a.o(6);
                 this.a.d.setVisibility(8);
-                this.a.m(2);
+                this.a.o(2);
             }
         }
     }
@@ -288,11 +293,11 @@ public class SecondFloorPullView extends FrameLayout {
                 return;
             }
         }
-        h = UtilHelper.getDimenPixelSize(R.dimen.tbds507);
-        i = UtilHelper.getScreenHeight(TbadkCoreApplication.getInst());
+        i = UtilHelper.getDimenPixelSize(R.dimen.tbds507);
+        j = UtilHelper.getScreenHeight(TbadkCoreApplication.getInst());
     }
 
-    public void h() {
+    public void i() {
         View view2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a != 1 && (view2 = this.c) != null && this.e != null && this.d != null) {
@@ -300,34 +305,21 @@ public class SecondFloorPullView extends FrameLayout {
             view2.setTranslationY(0);
             this.e.setVisibility(8);
             this.d.setVisibility(8);
-            m(1);
+            o(1);
         }
     }
 
-    public void j() {
+    public void n() {
         int i2;
         View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (i2 = this.a) != 2 && i2 != 4 && i2 != 6 && (view2 = this.c) != null && this.e != null && this.d != null) {
-            this.b = 0;
-            view2.setTranslationY(0);
-            this.e.setVisibility(0);
-            this.d.setVisibility(8);
-            m(2);
-        }
-    }
-
-    public void l() {
-        int i2;
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (i2 = this.a) != 5 && i2 != 3 && this.c != null && (view2 = this.e) != null && this.d != null) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (i2 = this.a) != 5 && i2 != 3 && this.c != null && (view2 = this.e) != null && this.d != null) {
             view2.setVisibility(8);
             this.d.setVisibility(0);
-            int i3 = h;
+            int i3 = i;
             this.b = i3;
             this.c.setTranslationY(i3);
-            m(5);
+            o(5);
         }
     }
 
@@ -356,12 +348,12 @@ public class SecondFloorPullView extends FrameLayout {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
             if (motionEvent == null) {
                 return true;
             }
             int i2 = this.a;
-            if (i2 != 2 && i2 != 1 && motionEvent.getY() >= h && motionEvent.getY() < i) {
+            if (i2 != 2 && i2 != 1 && motionEvent.getY() >= i && motionEvent.getY() < j) {
                 return true;
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -373,13 +365,13 @@ public class SecondFloorPullView extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
             if (motionEvent == null) {
                 return true;
             }
             int i2 = this.a;
-            if (i2 != 2 && i2 != 1 && motionEvent.getY() >= h && motionEvent.getY() < i) {
-                return this.g.onTouchEvent(motionEvent);
+            if (i2 != 2 && i2 != 1 && motionEvent.getY() >= i && motionEvent.getY() < j) {
+                return this.h.onTouchEvent(motionEvent);
             }
             return super.onTouchEvent(motionEvent);
         }
@@ -448,23 +440,30 @@ public class SecondFloorPullView extends FrameLayout {
             }
         }
         this.a = 0;
-        this.g = new GestureDetectorCompat(getContext(), new a(this));
+        this.h = new GestureDetectorCompat(getContext(), new a(this));
     }
 
-    public final void m(int i2) {
+    public final void o(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             this.a = i2;
-            g gVar = this.f;
+            g gVar = this.g;
             if (gVar != null) {
                 gVar.a(i2);
             }
         }
     }
 
+    public void setAlaCount(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.f = i2;
+        }
+    }
+
     public void setHideButton(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
             this.e = view2;
             if (view2 == null) {
                 return;
@@ -475,21 +474,21 @@ public class SecondFloorPullView extends FrameLayout {
 
     public void setOnStatusChange(g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, gVar) == null) {
-            this.f = gVar;
+        if (interceptable == null || interceptable.invokeL(1048588, this, gVar) == null) {
+            this.g = gVar;
         }
     }
 
     public void setPullView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
             this.c = view2;
         }
     }
 
     public void setSecondFloorView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
             this.d = view2;
         }
     }
@@ -503,10 +502,22 @@ public class SecondFloorPullView extends FrameLayout {
         return invokeV.intValue;
     }
 
-    public boolean i() {
+    public final boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.f > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int i2 = this.a;
             if (i2 == 2 || i2 == 4 || i2 == 6 || this.c == null || this.e == null || this.d == null) {
                 return false;
@@ -520,11 +531,28 @@ public class SecondFloorPullView extends FrameLayout {
         return invokeV.booleanValue;
     }
 
-    public void k() {
+    public void l() {
+        int i2;
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (i2 = this.a) != 2 && i2 != 4 && i2 != 6 && (view2 = this.c) != null && this.e != null && this.d != null) {
+            this.b = 0;
+            view2.setTranslationY(0);
+            if (j()) {
+                this.e.setVisibility(0);
+            } else {
+                this.e.setVisibility(8);
+            }
+            this.d.setVisibility(8);
+            o(2);
+        }
+    }
+
+    public void m() {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (i2 = this.a) != 5 && i2 != 3 && this.c != null && this.e != null && this.d != null) {
-            ValueAnimator duration = ValueAnimator.ofInt(this.b, h).setDuration(500L);
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (i2 = this.a) != 5 && i2 != 3 && this.c != null && this.e != null && this.d != null) {
+            ValueAnimator duration = ValueAnimator.ofInt(this.b, i).setDuration(500L);
             duration.addUpdateListener(new c(this));
             duration.addListener(new d(this));
             duration.start();

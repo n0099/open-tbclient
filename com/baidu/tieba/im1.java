@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sdk.base.api.CallBack;
 /* loaded from: classes4.dex */
-public class im1 {
+public abstract class im1<T> implements CallBack<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jm1 a;
-    public Context b;
+    public final long a;
 
-    public im1(Context context, Handler handler) {
+    public im1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,19 +25,15 @@ public class im1 {
                 return;
             }
         }
-        this.a = new jm1(context, handler);
-        this.b = context;
+        this.a = System.currentTimeMillis();
     }
 
-    public String a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
-            if (str != null) {
-                return this.a.b(str, bArr, null);
-            }
-            throw new IllegalArgumentException("postToServerForm request null");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.longValue;
     }
 }

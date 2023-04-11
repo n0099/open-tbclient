@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jk5;
+import com.baidu.tieba.pl5;
 import com.baidu.tieba.te;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +14,8 @@ public class PageStayDurationSwitch extends te {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tieba.te
-    public String[] getCrashKeys() {
+    /* renamed from: getCrashKeys */
+    public String[] mo55getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -78,7 +79,7 @@ public class PageStayDurationSwitch extends te {
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            jk5 b = jk5.b();
+            pl5 b = pl5.b();
             boolean z = true;
             if (1 != i) {
                 z = false;

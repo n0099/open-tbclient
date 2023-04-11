@@ -4,23 +4,23 @@ import android.app.Activity;
 import android.content.Context;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.aya;
-import com.baidu.tieba.b0b;
-import com.baidu.tieba.bya;
-import com.baidu.tieba.cza;
-import com.baidu.tieba.dza;
-import com.baidu.tieba.gza;
-import com.baidu.tieba.iza;
-import com.baidu.tieba.kxa;
-import com.baidu.tieba.lxa;
-import com.baidu.tieba.mxa;
-import com.baidu.tieba.rza;
-import com.baidu.tieba.sya;
-import com.baidu.tieba.vxa;
-import com.baidu.tieba.xxa;
-import com.baidu.tieba.xya;
-import com.baidu.tieba.zwa;
-import com.baidu.tieba.zxa;
+import com.baidu.tieba.b7b;
+import com.baidu.tieba.c7b;
+import com.baidu.tieba.d7b;
+import com.baidu.tieba.i9b;
+import com.baidu.tieba.j8b;
+import com.baidu.tieba.m7b;
+import com.baidu.tieba.o7b;
+import com.baidu.tieba.o8b;
+import com.baidu.tieba.q6b;
+import com.baidu.tieba.q7b;
+import com.baidu.tieba.r7b;
+import com.baidu.tieba.s7b;
+import com.baidu.tieba.s9b;
+import com.baidu.tieba.t8b;
+import com.baidu.tieba.u8b;
+import com.baidu.tieba.x8b;
+import com.baidu.tieba.z8b;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
@@ -55,29 +55,29 @@ import tv.athena.revenue.payui.view.IYYPayWayView;
 import tv.athena.revenue.payui.view.WindowParams;
 @Keep
 /* loaded from: classes9.dex */
-public class YYPayUIKit extends kxa {
+public class YYPayUIKit extends b7b {
     public static final String TAG = "YYPayUiKit";
-    public static mxa mTestFunListenerr;
+    public static d7b mTestFunListenerr;
     public Context mAppContext;
     public int mAppId;
     public AppPayServiceListener mAppPayServiceListener;
-    public lxa mControllerPayResultListener;
-    public cza mPayFlowLifecycleManager;
-    public xya mPayFrequencyManager;
+    public c7b mControllerPayResultListener;
+    public t8b mPayFlowLifecycleManager;
+    public o8b mPayFrequencyManager;
     public PayUIKitConfig mPayUIKitConfig;
     public IThirdPartPayApi mThirdPartPayApi;
     public int mUserChannel;
-    public xxa mYYPayController;
+    public o7b mYYPayController;
     public List<IYYPayListener> mYYPayListener = new ArrayList();
     public static Map<String, YYPayUIKit> mPayUIKitMap = new HashMap();
     public static IFeedbackServiceProxy mFeedbackServiceProxy = null;
 
     /* loaded from: classes9.dex */
-    public class a implements lxa {
+    public class a implements c7b {
         public a() {
         }
 
-        @Override // com.baidu.tieba.lxa
+        @Override // com.baidu.tieba.c7b
         public void a(int i, String str, PayCallBackBean payCallBackBean) {
             YYPayUIKit.this.innerNotifyYYPayFailListener(i, str, payCallBackBean);
         }
@@ -96,13 +96,13 @@ public class YYPayUIKit extends kxa {
     }
 
     static {
-        H5PayManager.getInstance().setYYPayWebviewActClass(PayCommonWebActivity.class, new sya());
-        aya.a(new bya());
+        H5PayManager.getInstance().setYYPayWebviewActClass(PayCommonWebActivity.class, new j8b());
+        r7b.a(new s7b());
     }
 
-    private xxa getOrCreatePayController() {
+    private o7b getOrCreatePayController() {
         if (this.mYYPayController == null) {
-            this.mYYPayController = new dza(this.mAppContext, this.mAppId, this.mUserChannel, this.mControllerPayResultListener, this.mPayUIKitConfig);
+            this.mYYPayController = new u8b(this.mAppContext, this.mAppId, this.mUserChannel, this.mControllerPayResultListener, this.mPayUIKitConfig);
         }
         return this.mYYPayController;
     }
@@ -113,7 +113,7 @@ public class YYPayUIKit extends kxa {
     }
 
     private void registerPayServiceListener() {
-        IAppPayService b2 = rza.b(this.mAppId, this.mUserChannel);
+        IAppPayService b2 = i9b.b(this.mAppId, this.mUserChannel);
         if (b2 == null) {
             RLog.error(TAG, "registerPayServiceListener error null appPayService", new Object[0]);
             return;
@@ -125,7 +125,7 @@ public class YYPayUIKit extends kxa {
 
     private void unregisterPayServiceListener() {
         if (this.mAppPayServiceListener != null) {
-            IAppPayService b2 = rza.b(this.mAppId, this.mUserChannel);
+            IAppPayService b2 = i9b.b(this.mAppId, this.mUserChannel);
             if (b2 != null) {
                 b2.removePayListener(this.mAppPayServiceListener);
             }
@@ -133,9 +133,9 @@ public class YYPayUIKit extends kxa {
         }
     }
 
-    @Override // com.baidu.tieba.kxa
+    @Override // com.baidu.tieba.b7b
     public void cancelAllRequest() {
-        IAppPayService b2 = rza.b(this.mAppId, this.mUserChannel);
+        IAppPayService b2 = i9b.b(this.mAppId, this.mUserChannel);
         if (b2 != null) {
             RLog.info(TAG, "cancelAllRequest");
             b2.cancelAllRequest();
@@ -144,8 +144,8 @@ public class YYPayUIKit extends kxa {
         RLog.error(TAG, "onPayFlowFinish error appPayService null ", new Object[0]);
     }
 
-    @Override // com.baidu.tieba.kxa
-    public xxa getCurPayController() {
+    @Override // com.baidu.tieba.b7b
+    public o7b getCurPayController() {
         return this.mYYPayController;
     }
 
@@ -156,7 +156,7 @@ public class YYPayUIKit extends kxa {
 
     public IThirdPartPayApi getOrCreateThirdPartPayApi() {
         if (this.mThirdPartPayApi == null) {
-            this.mThirdPartPayApi = (IThirdPartPayApi) zwa.a.a(IThirdPartPayApi.class, this.mAppId, this.mUserChannel, this.mAppContext, this.mPayUIKitConfig, this);
+            this.mThirdPartPayApi = (IThirdPartPayApi) q6b.a.a(IThirdPartPayApi.class, this.mAppId, this.mUserChannel, this.mAppContext, this.mPayUIKitConfig, this);
         }
         return this.mThirdPartPayApi;
     }
@@ -165,7 +165,7 @@ public class YYPayUIKit extends kxa {
         return this.mPayUIKitConfig;
     }
 
-    public zxa getViewLifecycle() {
+    public q7b getViewLifecycle() {
         return this.mPayFlowLifecycleManager.e();
     }
 
@@ -183,8 +183,8 @@ public class YYPayUIKit extends kxa {
     public YYPayUIKit(String str) {
         RLog.info(TAG, "create YYPayUiKit mapKey:" + str);
         preparePayResultListener();
-        this.mPayFlowLifecycleManager = new cza(this);
-        this.mPayFrequencyManager = new xya();
+        this.mPayFlowLifecycleManager = new t8b(this);
+        this.mPayFrequencyManager = new o8b();
     }
 
     public static synchronized void addLogDelegate(IRLogDelegate iRLogDelegate) {
@@ -204,8 +204,8 @@ public class YYPayUIKit extends kxa {
         PayMethodProxyFactory.instance().addPayServiceProxyMap(PayType.DXM_PAY, iDxmSdkServiceProxy);
     }
 
-    public static void setTestFunListener(mxa mxaVar) {
-        mTestFunListenerr = mxaVar;
+    public static void setTestFunListener(d7b d7bVar) {
+        mTestFunListenerr = d7bVar;
     }
 
     public static void setWechatSdkProxy(IWechatSdkServiceProxy iWechatSdkServiceProxy) {
@@ -223,17 +223,17 @@ public class YYPayUIKit extends kxa {
     }
 
     public PayFlowModel getPayFlowModel(PayFlowType payFlowType) {
-        xxa xxaVar = this.mYYPayController;
-        if (xxaVar != null) {
-            return xxaVar.h(payFlowType);
+        o7b o7bVar = this.mYYPayController;
+        if (o7bVar != null) {
+            return o7bVar.h(payFlowType);
         }
         return null;
     }
 
     public void refreshWindowParams(WindowParams windowParams) {
-        xxa xxaVar = this.mYYPayController;
-        if (xxaVar != null) {
-            xxaVar.refreshWindow(windowParams);
+        o7b o7bVar = this.mYYPayController;
+        if (o7bVar != null) {
+            o7bVar.refreshWindow(windowParams);
         }
         RLog.info(TAG, "refreshWindowParams params:" + windowParams + " mYYPayController:" + this.mYYPayController);
     }
@@ -277,7 +277,7 @@ public class YYPayUIKit extends kxa {
     }
 
     public boolean isSupported(@NonNull Activity activity, @NonNull PayType payType) {
-        IAppPayService b2 = rza.b(this.mAppId, this.mUserChannel);
+        IAppPayService b2 = i9b.b(this.mAppId, this.mUserChannel);
         if (b2 == null) {
             RLog.error(TAG, "isSupported error payService null", new Object[0]);
             return false;
@@ -285,28 +285,28 @@ public class YYPayUIKit extends kxa {
         return b2.isSupported(activity, payType);
     }
 
-    public void startThirdPartDialogPay(ThirdPartPayDialogParams thirdPartPayDialogParams, vxa vxaVar) {
+    public void startThirdPartDialogPay(ThirdPartPayDialogParams thirdPartPayDialogParams, m7b m7bVar) {
         IThirdPartPayApi orCreateThirdPartPayApi = getOrCreateThirdPartPayApi();
         if (orCreateThirdPartPayApi != null) {
-            orCreateThirdPartPayApi.startPayDialog(thirdPartPayDialogParams, vxaVar);
+            orCreateThirdPartPayApi.startPayDialog(thirdPartPayDialogParams, m7bVar);
         } else {
             RLog.error(TAG, "startThirdPartDialogPay error payApi null", new Object[0]);
         }
     }
 
-    public void startThirdPartDialogPayV2(ThirdPartPayDialogParams thirdPartPayDialogParams, vxa vxaVar) {
+    public void startThirdPartDialogPayV2(ThirdPartPayDialogParams thirdPartPayDialogParams, m7b m7bVar) {
         IThirdPartPayApi orCreateThirdPartPayApi = getOrCreateThirdPartPayApi();
         if (orCreateThirdPartPayApi != null) {
-            orCreateThirdPartPayApi.startPayDialogV2(thirdPartPayDialogParams, vxaVar);
+            orCreateThirdPartPayApi.startPayDialogV2(thirdPartPayDialogParams, m7bVar);
         } else {
             RLog.error(TAG, "startThirdPartDialogPayV2 error payApi null", new Object[0]);
         }
     }
 
-    public void startThirdPartPay(ThirdPartPayParams thirdPartPayParams, vxa vxaVar) {
+    public void startThirdPartPay(ThirdPartPayParams thirdPartPayParams, m7b m7bVar) {
         IThirdPartPayApi orCreateThirdPartPayApi = getOrCreateThirdPartPayApi();
         if (orCreateThirdPartPayApi != null) {
-            orCreateThirdPartPayApi.startPlay(thirdPartPayParams, vxaVar);
+            orCreateThirdPartPayApi.startPlay(thirdPartPayParams, m7bVar);
         } else {
             RLog.error(TAG, "startThirdPartPay error payApi null", new Object[0]);
         }
@@ -317,9 +317,9 @@ public class YYPayUIKit extends kxa {
         getOrCreatePayController().g(activity, viewParams);
     }
 
-    public void startPayChannelDialog(Activity activity, gza gzaVar, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    public void startPayChannelDialog(Activity activity, x8b x8bVar, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         RLog.info(TAG, "startPayChannelDialog");
-        getOrCreatePayController().b(activity, bVar, gzaVar, iPayCallback);
+        getOrCreatePayController().b(activity, bVar, x8bVar, iPayCallback);
     }
 
     public static synchronized YYPayUIKit createNewKitWithConfigure(int i, int i2, PayUIKitConfig payUIKitConfig) {
@@ -330,7 +330,7 @@ public class YYPayUIKit extends kxa {
                 return mPayUIKitMap.get(uIKitMapKey);
             }
             if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                iza.g(payUIKitConfig.revenueConfig.isTestEnv());
+                z8b.g(payUIKitConfig.revenueConfig.isTestEnv());
                 YYPayUIKit yYPayUIKit = new YYPayUIKit(uIKitMapKey);
                 yYPayUIKit.initYYPayUIKit(i, i2, payUIKitConfig.revenueConfig);
                 yYPayUIKit.mPayUIKitConfig = payUIKitConfig;
@@ -353,7 +353,7 @@ public class YYPayUIKit extends kxa {
     }
 
     public void signPay(Activity activity, PaySignInfo paySignInfo, IPaySignCallback iPaySignCallback) {
-        IAppPayService b2 = rza.b(this.mAppId, this.mUserChannel);
+        IAppPayService b2 = i9b.b(this.mAppId, this.mUserChannel);
         if (b2 == null) {
             RLog.error(TAG, "isSupported error payService null", new Object[0]);
         } else {
@@ -403,17 +403,17 @@ public class YYPayUIKit extends kxa {
         }
     }
 
-    @Override // com.baidu.tieba.kxa
+    @Override // com.baidu.tieba.b7b
     public synchronized void releaseAllPayFlowView() {
         RLog.info(TAG, "releaseAllPayFlowView() mAppId:" + this.mAppId + " userChannel:" + this.mUserChannel);
         if (this.mAppContext != null) {
-            b0b.a(this.mAppContext);
+            s9b.a(this.mAppContext);
         } else {
             RLog.error(TAG, "releaseAllPayFlowView error mAppContext null", new Object[0]);
         }
     }
 
-    @Override // com.baidu.tieba.kxa
+    @Override // com.baidu.tieba.b7b
     public synchronized void releasePayController() {
         RLog.info(TAG, "releasePayController mAppId:" + this.mAppId + " userChannel:" + this.mUserChannel + " mYYPayController:" + this.mYYPayController);
         if (this.mYYPayController != null) {
@@ -444,7 +444,7 @@ public class YYPayUIKit extends kxa {
             RLog.error(TAG, "onQQPayResult error appid is 0", new Object[0]);
             return;
         }
-        IAppPayService b2 = rza.b(i2, this.mUserChannel);
+        IAppPayService b2 = i9b.b(i2, this.mUserChannel);
         if (b2 == null) {
             RLog.error(TAG, "onQQPayResult error payService is null", new Object[0]);
         } else {
@@ -459,7 +459,7 @@ public class YYPayUIKit extends kxa {
             RLog.error(TAG, "onWxPayResult error appid is 0", new Object[0]);
             return;
         }
-        IAppPayService b2 = rza.b(i2, this.mUserChannel);
+        IAppPayService b2 = i9b.b(i2, this.mUserChannel);
         if (b2 == null) {
             RLog.error(TAG, "onWxPayResult error payService is null", new Object[0]);
         } else {

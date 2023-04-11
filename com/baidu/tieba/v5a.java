@@ -1,245 +1,168 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.switchs.RepostToDynamicDefaultSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.FileUtils;
-import java.io.IOException;
-import java.util.List;
-@TargetApi(18)
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class v5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public String b;
-    public MediaMuxer c;
-    public int d;
-    public int e;
-    public MediaFormat f;
-    public MediaFormat g;
-    public l6a h;
 
-    public v5a(List<String> list, String str, l6a l6aVar) {
+    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull qc5 qc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, str, l6aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLL(65536, null, tbPageContext, editorTools, qc5Var) == null) {
+            editorTools.d(new cd5(tbPageContext.getPageActivity(), 7));
+            editorTools.setActionListener(16, qc5Var);
         }
-        m7a.e("VideoComposer", list.size() + " composer to " + str);
-        this.a = list;
-        this.b = str;
-        this.h = l6aVar;
     }
 
-    public final long a(long j, String str) throws IOException {
-        InterceptResult invokeJL;
-        boolean z;
-        int i;
-        int i2;
-        u5a u5aVar;
-        int i3;
-        u5a u5aVar2;
-        int i4;
-        u5a u5aVar3;
-        String str2;
+    public static void c(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull qc5 qc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, str)) == null) {
-            String str3 = "VideoComposer";
-            m7a.e("VideoComposer", j + " compose " + str);
-            u5a u5aVar4 = new u5a();
-            u5aVar4.m(str, FileUtils.VIDEO_FILE_START);
-            int d = u5aVar4.d();
-            u5a u5aVar5 = null;
-            if (d < 0) {
-                u5aVar4.j();
-                u5aVar4 = null;
-            } else {
-                u5aVar4.l(this.e);
-            }
-            u5a u5aVar6 = new u5a();
-            u5aVar6.m(str, "audio/");
-            int d2 = u5aVar6.d();
-            if (d2 < 0) {
-                u5aVar6.j();
-            } else {
-                u5aVar6.l(this.d);
-                u5aVar5 = u5aVar6;
-            }
-            boolean z2 = false;
-            if (u5aVar4 == null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (u5aVar5 == null) {
-                z2 = true;
-            }
-            long j2 = 0;
-            long j3 = 0;
-            while (true) {
-                if (z && z2) {
-                    break;
-                }
-                if (!z2 && (z || u5aVar5.e() - u5aVar4.e() <= 50000)) {
-                    i = this.d;
-                    i3 = d2;
-                    i2 = i3;
-                    u5aVar = u5aVar5;
-                } else {
-                    i = this.e;
-                    i2 = d2;
-                    u5aVar = u5aVar4;
-                    i3 = d;
-                }
-                MediaCodec.BufferInfo h = u5aVar.h();
-                if (h == null) {
-                    i4 = d;
-                    u5a u5aVar7 = u5aVar;
-                    if (u5aVar7 == u5aVar4) {
-                        j2 = u5aVar4.e();
-                        d2 = i2;
-                        d = i4;
-                        z = true;
-                    } else if (u5aVar7 == u5aVar5) {
-                        j3 = u5aVar5.e();
-                        d2 = i2;
-                        d = i4;
-                        z2 = true;
-                    } else {
-                        u5aVar2 = u5aVar4;
-                        u5aVar3 = u5aVar5;
-                        str2 = str3;
-                    }
-                } else {
-                    u5aVar2 = u5aVar4;
-                    i4 = d;
-                    u5a u5aVar8 = u5aVar;
-                    if (u5aVar8.f() != i3) {
-                        StringBuilder sb = new StringBuilder();
-                        u5aVar3 = u5aVar5;
-                        sb.append("WEIRD: got sample from track ");
-                        sb.append(u5aVar8.f());
-                        sb.append(", expected ");
-                        sb.append(i3);
-                        m7a.e(str3, sb.toString());
-                    } else {
-                        u5aVar3 = u5aVar5;
-                    }
-                    str2 = str3;
-                    h.presentationTimeUs += j;
-                    this.c.writeSampleData(i, u5aVar8.c(), h);
-                    u5aVar8.a();
-                }
-                str3 = str2;
-                d2 = i2;
-                d = i4;
-                u5aVar4 = u5aVar2;
-                u5aVar5 = u5aVar3;
-            }
-            long max = j + Math.max(j2, j3) + 10000;
-            l6a l6aVar = this.h;
-            if (l6aVar != null) {
-                l6aVar.b(max);
-            }
-            m7a.e(str3, "finish one file, ptsOffset " + max);
-            if (u5aVar4 != null) {
-                u5aVar4.j();
-            }
-            if (u5aVar5 != null) {
-                u5aVar5.j();
-            }
-            return max;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, tbPageContext, editorTools, qc5Var) == null) {
+            editorTools.d(new sc5(tbPageContext.getPageActivity(), 10));
+            editorTools.setActionListener(59, qc5Var);
         }
-        return invokeJL.longValue;
     }
 
-    public boolean b(StringBuilder sb) {
-        InterceptResult invokeL;
+    public static void e(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull qc5 qc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sb)) == null) {
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, editorTools, qc5Var) == null) {
+            editorTools.d(new id5(tbPageContext.getPageActivity(), 12));
+            editorTools.setActionListener(69, qc5Var);
+        }
+    }
+
+    public static void f(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull qc5 qc5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, tbPageContext, editorTools, qc5Var) == null) {
+            editorTools.d(new nd5(tbPageContext.getPageActivity(), 11));
+            editorTools.setActionListener(61, qc5Var);
+        }
+    }
+
+    public static od5 g(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull qc5 qc5Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, tbPageContext, editorTools, qc5Var)) == null) {
+            od5 od5Var = new od5(tbPageContext.getPageActivity(), 4);
+            editorTools.d(od5Var);
+            editorTools.setActionListener(21, qc5Var);
+            return od5Var;
+        }
+        return (od5) invokeLLL.objValue;
+    }
+
+    public static void j(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull qc5 qc5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, tbPageContext, editorTools, qc5Var) == null) {
+            editorTools.d(new bf5(tbPageContext.getPageActivity(), 2));
+            editorTools.setActionListener(60, qc5Var);
+        }
+    }
+
+    public static void l(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull qc5 qc5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65547, null, tbPageContext, editorTools, qc5Var) == null) {
+            editorTools.d(new df5(tbPageContext.getPageActivity(), 8));
+            editorTools.setActionListener(22, qc5Var);
+        }
+    }
+
+    public static void b(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull qc5 qc5Var) {
+        CustomResponsedMessage runTask;
+        ad5 ad5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, editorTools, qc5Var) == null) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, tbPageContext.getPageActivity()), ad5.class)) != null && (ad5Var = (ad5) runTask.getData()) != null) {
+            ad5Var.o = true;
+            ad5Var.l = 9;
+            editorTools.d(ad5Var);
+            editorTools.setActionListener(25, qc5Var);
+        }
+    }
+
+    public static void d(@NonNull EditorTools editorTools, @NonNull qc5 qc5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, editorTools, qc5Var) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            editorTools.h(arrayList);
+            ad5 p = editorTools.p(5);
+            if (p != null) {
+                p.l = 5;
+                p.d(true);
+            }
+            editorTools.setActionListener(24, qc5Var);
+            editorTools.setActionListener(3, qc5Var);
+        }
+    }
+
+    public static void i(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools) {
+        CustomResponsedMessage runTask;
+        ad5 ad5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65544, null, tbPageContext, editorTools) == null) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, tbPageContext.getPageActivity()), ad5.class)) != null && (ad5Var = (ad5) runTask.getData()) != null) {
+            ad5Var.o = true;
+            ad5Var.l = 10;
+            editorTools.d(ad5Var);
+        }
+    }
+
+    public static void h(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull qc5 qc5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, tbPageContext, editorTools, qc5Var) == null) {
+            editorTools.d(new ld5(tbPageContext.getPageActivity(), 1));
+            editorTools.setActionListener(14, qc5Var);
+            editorTools.setActionListener(12, qc5Var);
+            editorTools.setActionListener(13, qc5Var);
+            editorTools.setActionListener(15, qc5Var);
+            editorTools.setActionListener(48, qc5Var);
+            editorTools.setActionListener(46, qc5Var);
+            editorTools.setActionListener(49, qc5Var);
+            editorTools.setActionListener(47, qc5Var);
+        }
+    }
+
+    public static void k(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull qc5 qc5Var) {
+        ad5 ad5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65546, null, tbPageContext, editorTools, qc5Var) == null) && mn9.a()) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, tbPageContext.getPageActivity()), ad5.class);
+            if (runTask != null && (ad5Var = (ad5) runTask.getData()) != null) {
+                ad5Var.l = 3;
+                editorTools.d(ad5Var);
+            }
+            editorTools.setActionListener(10, qc5Var);
+            editorTools.setActionListener(11, qc5Var);
+        }
+    }
+
+    public static a2a m(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, String str, @NonNull qc5 qc5Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65548, null, tbPageContext, editorTools, str, qc5Var)) == null) {
+            a2a a2aVar = new a2a(tbPageContext.getPageActivity(), str);
             boolean z = false;
-            boolean z2 = false;
-            for (String str : this.a) {
-                try {
-                    u5a u5aVar = new u5a();
-                    try {
-                        u5aVar.m(str, FileUtils.VIDEO_FILE_START);
-                        if (!z) {
-                            MediaFormat mediaFormat = u5aVar.g().a;
-                            this.g = mediaFormat;
-                            if (mediaFormat == null) {
-                                m7a.e("VideoComposer", "No video track found in " + str);
-                            } else {
-                                z = true;
-                            }
-                        }
-                        if (!z2) {
-                            MediaFormat mediaFormat2 = u5aVar.b().a;
-                            this.f = mediaFormat2;
-                            if (mediaFormat2 == null) {
-                                m7a.e("VideoComposer", "No audio track found in " + str);
-                            } else {
-                                z2 = true;
-                            }
-                        }
-                    } catch (Exception e) {
-                        m7a.e("VideoComposer", e.getMessage());
-                        e.printStackTrace();
-                    }
-                    u5aVar.j();
-                    if (z && z2) {
-                        break;
-                    }
-                } catch (Exception e2) {
-                    if (sb != null) {
-                        sb.append("VideoSplicer codec 录制视频拼接过程中发生异常:" + e2.getMessage());
-                    }
-                    e2.printStackTrace();
-                    return false;
-                }
+            a2aVar.k(0);
+            if (SwitchManager.getInstance().findType(RepostToDynamicDefaultSwitch.KEY) == 1) {
+                z = true;
             }
-            MediaMuxer mediaMuxer = new MediaMuxer(this.b, 0);
-            this.c = mediaMuxer;
-            if (z) {
-                this.e = mediaMuxer.addTrack(this.g);
-            }
-            if (z2) {
-                this.d = this.c.addTrack(this.f);
-            }
-            this.c.start();
-            long j = 0;
-            for (String str2 : this.a) {
-                j = a(j, str2);
-            }
-            if (this.c != null) {
-                try {
-                    this.c.stop();
-                    this.c.release();
-                } catch (Exception unused) {
-                    m7a.e("VideoComposer", "Muxer close error. No data was written");
-                }
-                this.c = null;
-            }
-            m7a.j("VideoComposer", "video join finished");
-            return true;
+            a2aVar.l(z);
+            editorTools.d(a2aVar);
+            editorTools.setActionListener(43, qc5Var);
+            editorTools.setActionListener(55, qc5Var);
+            editorTools.setActionListener(66, qc5Var);
+            return a2aVar;
         }
-        return invokeL.booleanValue;
+        return (a2a) invokeLLLL.objValue;
     }
 }

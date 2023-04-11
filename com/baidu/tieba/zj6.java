@@ -1,42 +1,37 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.PointF;
-import android.graphics.RectF;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j7;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.MessageRedDotView;
+import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class zj6 implements j7.a {
+public class zj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ci6 a;
-    public yh6 b;
-    public PointF c;
-    public RectF d;
-    public Matrix e;
-    public float f;
-    public boolean g;
+    public Context a;
+    public View b;
+    public RelativeLayout c;
+    public ImageView d;
+    public MessageRedDotView e;
 
-    @Override // com.baidu.tieba.j7.a
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    public zj6(ci6 item, yh6 drawingCache, PointF position, RectF rect, Matrix transform) {
+    public zj6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {item, drawingCache, position, rect, transform};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,109 +41,77 @@ public final class zj6 implements j7.a {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(item, "item");
-        Intrinsics.checkNotNullParameter(drawingCache, "drawingCache");
-        Intrinsics.checkNotNullParameter(position, "position");
-        Intrinsics.checkNotNullParameter(rect, "rect");
-        Intrinsics.checkNotNullParameter(transform, "transform");
-        this.a = item;
-        this.b = drawingCache;
-        this.c = position;
-        this.d = rect;
-        this.e = transform;
-        this.f = 1.0f;
+        this.a = context;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (RelativeLayout) inflate.findViewById(R.id.message_view_layout);
+        this.d = (ImageView) this.b.findViewById(R.id.img_message);
+        MessageRedDotView messageRedDotView = (MessageRedDotView) this.b.findViewById(R.id.img_red_tip);
+        this.e = messageRedDotView;
+        messageRedDotView.setShadowEnabled(false);
     }
 
-    public final float a() {
+    public MessageRedDotView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+            return this.e;
         }
-        return invokeV.floatValue;
+        return (MessageRedDotView) invokeV.objValue;
     }
 
-    public final yh6 b() {
+    public ImageView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.d;
         }
-        return (yh6) invokeV.objValue;
+        return (ImageView) invokeV.objValue;
     }
 
-    public final boolean c() {
+    public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    public final ci6 d() {
-        InterceptResult invokeV;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (ci6) invokeV.objValue;
-    }
-
-    public final PointF e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (PointF) invokeV.objValue;
-    }
-
-    public final RectF f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (RectF) invokeV.objValue;
-    }
-
-    public final Matrix g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (Matrix) invokeV.objValue;
-    }
-
-    public final void h(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
-            this.f = f;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.e.e();
+            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 
-    public final void i(yh6 yh6Var) {
+    public void g(int i) {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yh6Var) == null) {
-            Intrinsics.checkNotNullParameter(yh6Var, "<set-?>");
-            this.b = yh6Var;
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (view2 = this.b) != null) {
+            view2.setVisibility(i);
         }
     }
 
-    public final void j(boolean z) {
+    public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.g = z;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            if (z) {
+                this.e.f(i);
+                this.e.setVisibility(0);
+                return;
+            }
+            this.e.setVisibility(8);
         }
     }
 
-    public final void k(ci6 ci6Var) {
+    public void f(NavigationBar.ControlAlign controlAlign, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ci6Var) == null) {
-            Intrinsics.checkNotNullParameter(ci6Var, "<set-?>");
-            this.a = ci6Var;
+        if ((interceptable == null || interceptable.invokeLZ(1048581, this, controlAlign, z) == null) && !z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
+            ((RelativeLayout.LayoutParams) this.d.getLayoutParams()).rightMargin = -ii.g(this.a, R.dimen.tbds10);
+            ((RelativeLayout.LayoutParams) this.e.getLayoutParams()).rightMargin = -ii.g(this.a, R.dimen.tbds10);
+            this.c.getLayoutParams().width = ii.g(this.a, R.dimen.obfuscated_res_0x7f070307);
         }
     }
 }

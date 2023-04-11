@@ -1,23 +1,33 @@
 package com.baidu.tieba;
 
-import android.util.ArrayMap;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.BdNetSwitch;
-import com.baidu.tbadk.switchs.PBCacheBlockSwitch;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GiftInfo;
+import tbclient.User;
 /* loaded from: classes5.dex */
-public class m59 {
+public class m59 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Long> a;
+    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
+    public List<hn> g;
 
     static {
         InterceptResult invokeClinit;
@@ -32,27 +42,72 @@ public class m59 {
                 return;
             }
         }
-        a = new ArrayMap();
+        h = BdUniqueId.gen();
     }
 
-    public static void a(String str, boolean z) {
-        Long remove;
+    public m59() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65537, null, str, z) != null) || (remove = a.remove(str)) == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        StatisticItem addParam = new StatisticItem("shoubai_http_net_test").addParam("obj_name", str).addParam("obj_type", BdNetTypeUtil.getNetType());
-        StatisticItem addParam2 = addParam.addParam("obj_source", BdNetSwitch.getIsOn() + " " + PBCacheBlockSwitch.getIsOn());
-        StringBuilder sb = new StringBuilder();
-        sb.append(z);
-        sb.append("");
-        TiebaStatic.log(addParam2.addParam("obj_param1", sb.toString()).addParam(TiebaStatic.Params.OBJ_PARAM2, SpeedStatsManager.getInstance().getDurationWithoutAD(remove.longValue(), System.currentTimeMillis())));
     }
 
-    public static void b(String str) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a.put(str, Long.valueOf(System.currentTimeMillis()));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return h;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return !ListUtils.isEmpty(this.g);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(User user) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, user) == null) && user != null && !ListUtils.isEmpty(user.gift_list)) {
+            this.c = String.valueOf(user.id);
+            this.d = user.name;
+            this.e = user.name_show;
+            this.f = user.sex.intValue();
+            String str = this.c;
+            if (str != null && str.equals(TbadkCoreApplication.getCurrentAccount())) {
+                this.a = true;
+            } else {
+                this.a = false;
+            }
+            if (user.sex.intValue() == 2) {
+                this.b = false;
+            } else {
+                this.b = true;
+            }
+            Integer num = user.gift_num;
+            if (num != null) {
+                num.intValue();
+            }
+            this.g = new ArrayList();
+            for (GiftInfo giftInfo : user.gift_list) {
+                if (giftInfo != null) {
+                    u59 u59Var = new u59();
+                    u59Var.c(giftInfo);
+                    this.g.add(u59Var);
+                }
+            }
         }
     }
 }

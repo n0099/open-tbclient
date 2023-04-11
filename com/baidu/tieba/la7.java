@@ -1,140 +1,124 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.ForumRule;
+import tbclient.PbContent;
 /* loaded from: classes5.dex */
-public class la7 {
+public class la7 implements hn {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile la7 b;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, FunAdSidConfigData> a;
+    public String a;
+    public List<PbContent> b;
+    public boolean c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947936231, "Lcom/baidu/tieba/la7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947936231, "Lcom/baidu/tieba/la7;");
+                return;
+            }
+        }
+        d = BdUniqueId.gen();
+    }
 
     public la7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        HashMap hashMap = new HashMap();
-        this.a = hashMap;
-        hashMap.clear();
-        this.a.putAll(c());
     }
 
-    public final Map<String, FunAdSidConfigData> c() {
+    public boolean a() {
         InterceptResult invokeV;
-        FunAdSidConfigData d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public List<PbContent> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap hashMap = new HashMap();
-            for (String str : ma7.e().c()) {
-                if (!TextUtils.isEmpty(str) && (d = d(str)) != null) {
-                    hashMap.put(str, d);
-                }
-            }
-            return hashMap;
+            return this.a;
         }
-        return (Map) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static la7 e() {
+    @Override // com.baidu.tieba.hn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (la7.class) {
-                    if (b == null) {
-                        b = new la7();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return d;
         }
-        return (la7) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public final FunAdSidConfigData a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void d(ForumRule forumRule) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, forumRule) == null) && forumRule != null) {
+            this.a = forumRule.title;
+            this.b = forumRule.content;
+            boolean z = true;
+            if (forumRule.status.intValue() != 1) {
+                z = false;
             }
-            FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
-            funAdSidConfigData.parserJson(jSONObject);
-            return funAdSidConfigData;
+            this.c = z;
         }
-        return (FunAdSidConfigData) invokeL.objValue;
     }
 
-    public FunAdSidConfigData b(String str) {
-        InterceptResult invokeL;
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a != null && !TextUtils.isEmpty(str) && this.a.containsKey(str)) {
-                return this.a.get(str);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
         }
-        return (FunAdSidConfigData) invokeL.objValue;
     }
 
-    public final FunAdSidConfigData d(String str) {
-        InterceptResult invokeL;
+    public void f(List<PbContent> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            JSONObject jSONObject = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String string = ma7.g().getString(str, "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            try {
-                jSONObject = new JSONObject(string);
-            } catch (JSONException e) {
-                BdLog.detailException(e);
-            }
-            return a(jSONObject);
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.b = list;
         }
-        return (FunAdSidConfigData) invokeL.objValue;
     }
 
-    public final void g(String str) {
-        FunAdSidConfigData funAdSidConfigData;
-        JSONObject json;
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (funAdSidConfigData = this.a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
-            return;
-        }
-        EditorHelper.putString(ma7.g(), str, json.toString());
-    }
-
-    public void f(String str, FunAdSidConfigData funAdSidConfigData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) && this.a != null && !TextUtils.isEmpty(str)) {
-            this.a.put(str, funAdSidConfigData);
-            g(str);
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.a = str;
         }
     }
 }

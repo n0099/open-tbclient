@@ -1,74 +1,107 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class sg7 extends tm<py5, CardViewHolder<ly5>> {
+public class sg7 implements z15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public ly5 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sg7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public sg7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = null;
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm
-    /* renamed from: s */
-    public CardViewHolder<ly5> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.z15
+    @NonNull
+    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
+            HashMap hashMap = new HashMap(map);
+            hashMap.put("dialogName", "frsShield");
+            hashMap.putAll(map);
+            hashMap.putAll(map2);
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.z15
+    public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new ly5(this.a);
-            return new CardViewHolder<>(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            boolean z4 = false;
+            if (!LooperBlockSwitch.getIsOn()) {
+                return false;
+            }
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (!(currentActivity instanceof FrsActivity)) {
+                YunDialogLog.getInstance().b("YunDialogManager", "吧内屏蔽弹窗策略校验失败：当前Activity非FrsActivity");
+                return false;
+            }
+            FrsFragment t1 = ((FrsActivity) currentActivity).t1();
+            if (t1 != null && !t1.g4() && TbSingleton.getInstance().getFrsResponseData() != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                ng8 yunDialogLog = YunDialogLog.getInstance();
+                StringBuilder sb = new StringBuilder();
+                sb.append("吧内屏蔽弹窗策略校验失败：FrsFragment为空->");
+                if (t1 == null) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                sb.append(z2);
+                sb.append("|");
+                sb.append("Frs是否展示过弹窗->");
+                if (t1 != null && t1.g4()) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                sb.append(z3);
+                sb.append("|");
+                sb.append("是否存在FRS数据->");
+                if (TbSingleton.getInstance().getFrsResponseData() != null) {
+                    z4 = true;
+                }
+                sb.append(z4);
+                yunDialogLog.b("YunDialogManager", sb.toString());
+            }
+            return z;
         }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.tm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, py5 py5Var, CardViewHolder<ly5> cardViewHolder) {
-        t(i, view2, viewGroup, py5Var, cardViewHolder);
-        return view2;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, py5 py5Var, CardViewHolder<ly5> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, py5Var, cardViewHolder})) == null) {
-            cardViewHolder.a().l(py5Var);
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -1,79 +1,83 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.content.Context;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.write.data.CreateTagResponseData;
-import com.baidu.tieba.write.write.message.QuestionTagCreateRequestMessage;
-import com.baidu.tieba.write.write.message.QuestionTagCreateResponseMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class ex9 {
+public class ex9 extends rc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public boolean b;
-    public final HttpMessageListener c;
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(CreateTagResponseData createTagResponseData);
-
-        void onFail(String str);
+        void a(String str);
     }
 
     /* loaded from: classes4.dex */
-    public class a extends HttpMessageListener {
+    public class a implements qc5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ex9 a;
+        public final /* synthetic */ dx9 a;
+        public final /* synthetic */ ex9 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ex9 ex9Var, int i) {
-            super(i);
+        public a(ex9 ex9Var, dx9 dx9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ex9Var, Integer.valueOf(i)};
+                Object[] objArr = {ex9Var, dx9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = ex9Var;
+            this.b = ex9Var;
+            this.a = dx9Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        @Override // com.baidu.tieba.qc5
+        public void C(pc5 pc5Var) {
+            dx9 dx9Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.a.b = false;
-                if (!(httpResponsedMessage instanceof QuestionTagCreateResponseMessage)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, pc5Var) != null) || (dx9Var = this.a) == null || dx9Var.b() == null || pc5Var == null) {
+                return;
+            }
+            int i = pc5Var.a;
+            if (i != 4) {
+                if (i != 7) {
+                    if (i == 8) {
+                        this.a.z();
+                        if (!this.b.h(this.a.getContext(), 25066)) {
+                            return;
+                        }
+                        this.a.p();
+                        if (this.b.a != null) {
+                            this.b.a.a(this.a.m());
+                            return;
+                        }
+                        return;
+                    }
                     return;
                 }
-                CreateTagResponseData createTagResponseData = ((QuestionTagCreateResponseMessage) httpResponsedMessage).data;
-                if (createTagResponseData != null && createTagResponseData.tagInfo != null) {
-                    if (this.a.a != null) {
-                        this.a.a.a(createTagResponseData);
-                    }
-                } else if (this.a.a != null) {
-                    this.a.a.onFail(httpResponsedMessage.getErrorString());
-                }
+                this.a.getContext().showToast((int) R.string.over_limit_tip);
+                return;
             }
+            this.a.v((String) pc5Var.c);
         }
     }
 
@@ -87,50 +91,79 @@ public class ex9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new a(this, CmdConfigHttp.CMD_QUESTION_THREAD_CREATE_TAG);
-        d();
     }
 
-    public void e() {
+    @Override // com.baidu.tieba.rc5
+    public tc5 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setHideBigEmotion(true);
+            editorTools.setBarLauncherType(4);
+            editorTools.setBackgroundColorId(R.color.CAM_X0207);
+            return new dx9(editorTools);
         }
+        return (tc5) invokeL.objValue;
     }
 
-    public void g() {
+    @Override // com.baidu.tieba.rc5
+    public void c(tc5 tc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.c);
-        }
-    }
-
-    public void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || this.b) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tc5Var) != null) || !(tc5Var instanceof dx9)) {
             return;
         }
-        this.b = true;
-        MessageManager.getInstance().sendMessage(new QuestionTagCreateRequestMessage().setForumId(str2).setName(str));
+        EditorTools b2 = tc5Var.b();
+        a aVar = new a(this, (dx9) tc5Var);
+        b2.setActionListener(4, aVar);
+        b2.setActionListener(7, aVar);
+        b2.setActionListener(8, aVar);
     }
 
-    public void f(b bVar) {
+    @Override // com.baidu.tieba.rc5
+    public void d(tc5 tc5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tc5Var) != null) || tc5Var == null) {
+            return;
+        }
+        EditorTools b2 = tc5Var.b();
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(5);
+        b2.h(arrayList);
+        ad5 p = b2.p(5);
+        if (p != null) {
+            p.e(false);
+            p.d = 0;
+        }
+        b2.d(new fx9(b2.getContext()));
+        b2.f();
+        b2.C(new pc5(35, 5, Boolean.FALSE));
+        b2.q();
+    }
+
+    public tc5 g(Context context, b bVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, bVar)) == null) {
             this.a = bVar;
+            return super.a(context);
         }
+        return (tc5) invokeLL.objValue;
     }
 
-    public final void d() {
+    public final boolean h(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_QUESTION_THREAD_CREATE_TAG, TbConfig.SERVER_ADDRESS + TbConfig.QUESTION_THREAD_CREATE_TAG);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            tbHttpMessageTask.setResponsedClass(QuestionTagCreateResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, tbPageContext, i)) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
+                return true;
+            }
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
+            return false;
         }
+        return invokeLI.booleanValue;
     }
 }

@@ -23,13 +23,13 @@ public class NotificationCompat {
     public static class DecoratedMediaCustomViewStyle extends MediaStyle {
         @Override // androidx.media.app.NotificationCompat.MediaStyle
         public int getBigContentViewLayoutResource(int i) {
-            return i <= 3 ? R.layout.obfuscated_res_0x7f0d06c8 : R.layout.obfuscated_res_0x7f0d06c6;
+            return i <= 3 ? R.layout.obfuscated_res_0x7f0d06c6 : R.layout.obfuscated_res_0x7f0d06c4;
         }
 
         @Override // androidx.media.app.NotificationCompat.MediaStyle
         public int getContentViewLayoutResource() {
             if (this.mBuilder.getContentView() != null) {
-                return R.layout.obfuscated_res_0x7f0d06cd;
+                return R.layout.obfuscated_res_0x7f0d06cb;
             }
             return super.getContentViewLayoutResource();
         }
@@ -39,9 +39,9 @@ public class NotificationCompat {
             if (this.mBuilder.getColor() != 0) {
                 color = this.mBuilder.getColor();
             } else {
-                color = this.mBuilder.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060772);
+                color = this.mBuilder.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060771);
             }
-            remoteViews.setInt(R.id.obfuscated_res_0x7f092166, "setBackgroundColor", color);
+            remoteViews.setInt(R.id.obfuscated_res_0x7f092153, "setBackgroundColor", color);
         }
 
         @Override // androidx.media.app.NotificationCompat.MediaStyle, androidx.core.app.NotificationCompat.Style
@@ -146,11 +146,11 @@ public class NotificationCompat {
         public MediaSessionCompat.Token mToken;
 
         public int getBigContentViewLayoutResource(int i) {
-            return i <= 3 ? R.layout.obfuscated_res_0x7f0d06c7 : R.layout.obfuscated_res_0x7f0d06c5;
+            return i <= 3 ? R.layout.obfuscated_res_0x7f0d06c5 : R.layout.obfuscated_res_0x7f0d06c3;
         }
 
         public int getContentViewLayoutResource() {
-            return R.layout.obfuscated_res_0x7f0d06cc;
+            return R.layout.obfuscated_res_0x7f0d06ca;
         }
 
         public MediaStyle() {
@@ -230,7 +230,7 @@ public class NotificationCompat {
             } else {
                 z = false;
             }
-            RemoteViews remoteViews = new RemoteViews(this.mBuilder.mContext.getPackageName(), (int) R.layout.obfuscated_res_0x7f0d06c3);
+            RemoteViews remoteViews = new RemoteViews(this.mBuilder.mContext.getPackageName(), (int) R.layout.obfuscated_res_0x7f0d06c1);
             remoteViews.setImageViewResource(R.id.obfuscated_res_0x7f09005e, action.getIcon());
             if (!z) {
                 remoteViews.setOnClickPendingIntent(R.id.obfuscated_res_0x7f09005e, action.getActionIntent());
@@ -268,18 +268,18 @@ public class NotificationCompat {
         public RemoteViews generateBigContentView() {
             int min = Math.min(this.mBuilder.mActions.size(), 5);
             RemoteViews applyStandardTemplate = applyStandardTemplate(false, getBigContentViewLayoutResource(min), false);
-            applyStandardTemplate.removeAllViews(R.id.obfuscated_res_0x7f091649);
+            applyStandardTemplate.removeAllViews(R.id.obfuscated_res_0x7f09164c);
             if (min > 0) {
                 for (int i = 0; i < min; i++) {
-                    applyStandardTemplate.addView(R.id.obfuscated_res_0x7f091649, generateMediaActionButton(this.mBuilder.mActions.get(i)));
+                    applyStandardTemplate.addView(R.id.obfuscated_res_0x7f09164c, generateMediaActionButton(this.mBuilder.mActions.get(i)));
                 }
             }
             if (this.mShowCancelButton) {
-                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f09050b, 0);
-                applyStandardTemplate.setInt(R.id.obfuscated_res_0x7f09050b, "setAlpha", this.mBuilder.mContext.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0008));
-                applyStandardTemplate.setOnClickPendingIntent(R.id.obfuscated_res_0x7f09050b, this.mCancelButtonIntent);
+                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f09050c, 0);
+                applyStandardTemplate.setInt(R.id.obfuscated_res_0x7f09050c, "setAlpha", this.mBuilder.mContext.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0008));
+                applyStandardTemplate.setOnClickPendingIntent(R.id.obfuscated_res_0x7f09050c, this.mCancelButtonIntent);
             } else {
-                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f09050b, 8);
+                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f09050c, 8);
             }
             return applyStandardTemplate;
         }
@@ -294,24 +294,24 @@ public class NotificationCompat {
             } else {
                 min = Math.min(iArr.length, 3);
             }
-            applyStandardTemplate.removeAllViews(R.id.obfuscated_res_0x7f091649);
+            applyStandardTemplate.removeAllViews(R.id.obfuscated_res_0x7f09164c);
             if (min > 0) {
                 for (int i = 0; i < min; i++) {
                     if (i < size) {
-                        applyStandardTemplate.addView(R.id.obfuscated_res_0x7f091649, generateMediaActionButton(this.mBuilder.mActions.get(this.mActionsToShowInCompact[i])));
+                        applyStandardTemplate.addView(R.id.obfuscated_res_0x7f09164c, generateMediaActionButton(this.mBuilder.mActions.get(this.mActionsToShowInCompact[i])));
                     } else {
                         throw new IllegalArgumentException(String.format("setShowActionsInCompactView: action %d out of bounds (max %d)", Integer.valueOf(i), Integer.valueOf(size - 1)));
                     }
                 }
             }
             if (this.mShowCancelButton) {
-                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f0909b4, 8);
-                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f09050b, 0);
-                applyStandardTemplate.setOnClickPendingIntent(R.id.obfuscated_res_0x7f09050b, this.mCancelButtonIntent);
-                applyStandardTemplate.setInt(R.id.obfuscated_res_0x7f09050b, "setAlpha", this.mBuilder.mContext.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0008));
+                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f0909b6, 8);
+                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f09050c, 0);
+                applyStandardTemplate.setOnClickPendingIntent(R.id.obfuscated_res_0x7f09050c, this.mCancelButtonIntent);
+                applyStandardTemplate.setInt(R.id.obfuscated_res_0x7f09050c, "setAlpha", this.mBuilder.mContext.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0008));
             } else {
-                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f0909b4, 0);
-                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f09050b, 8);
+                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f0909b6, 0);
+                applyStandardTemplate.setViewVisibility(R.id.obfuscated_res_0x7f09050c, 8);
             }
             return applyStandardTemplate;
         }

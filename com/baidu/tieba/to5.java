@@ -1,86 +1,97 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.template.state.ViewType;
+import com.baidu.tieba.ig5;
+import com.baidu.tieba.xo5;
+import com.baidu.tieba.xo5.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class to5 {
+public abstract class to5<T extends ig5, D extends xo5.e> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ViewGroup a;
-    public final int b;
+    public int a;
+    public ViewType b;
+    public T c;
+    public D d;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof to5) {
-                to5 to5Var = (to5) obj;
-                return Intrinsics.areEqual(this.a, to5Var.a) && this.b == to5Var.b;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    public abstract void d(ViewType viewType, T t, D d);
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b : invokeV.intValue;
-    }
+    public abstract T f(ViewType viewType, ViewGroup viewGroup);
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "DetailViewInfo(parent=" + this.a + ", childIndex=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public to5(ViewGroup parent, int i) {
+    public to5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {parent, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(parent, "parent");
-        this.a = parent;
-        this.b = i;
+        this.a = 3;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public final void a(View view2) {
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (t = this.c) != null) {
+            t.attachView(view2);
         }
-        return invokeV.intValue;
     }
 
-    public final ViewGroup b() {
-        InterceptResult invokeV;
+    public final void b(View view2) {
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && (t = this.c) != null) {
+            t.dettachView(view2);
         }
-        return (ViewGroup) invokeV.objValue;
+    }
+
+    public void e(int i) {
+        ViewType viewType;
+        T t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (this.a != i && (viewType = this.b) != null && (t = this.c) != null) {
+                d(viewType, t, this.d);
+            }
+            this.a = i;
+        }
+    }
+
+    public final View c(ViewType viewType, ViewGroup viewGroup, D d) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, viewGroup, d)) == null) {
+            this.b = viewType;
+            this.d = d;
+            if (this.c == null) {
+                this.c = f(viewType, viewGroup);
+            }
+            View view2 = this.c.getView();
+            if (viewGroup.indexOfChild(view2) < 0) {
+                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+                if (layoutParams != null) {
+                    layoutParams.width = -1;
+                    layoutParams.height = -1;
+                }
+                a(viewGroup);
+            } else if (viewGroup.indexOfChild(view2) != viewGroup.getChildCount() - 1) {
+                view2.bringToFront();
+            }
+            d(viewType, this.c, d);
+            return view2;
+        }
+        return (View) invokeLLL.objValue;
     }
 }

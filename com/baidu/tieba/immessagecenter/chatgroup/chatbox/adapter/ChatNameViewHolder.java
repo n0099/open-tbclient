@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.du7;
-import com.baidu.tieba.eu7;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.rt7;
-import com.baidu.tieba.st7;
+import com.baidu.tieba.b48;
+import com.baidu.tieba.c48;
+import com.baidu.tieba.n38;
+import com.baidu.tieba.o38;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -33,7 +33,7 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
     public TextView e;
     public ImageView f;
     public RecyclerView g;
-    public du7 h;
+    public b48 h;
 
     /* loaded from: classes4.dex */
     public class a extends LinearLayoutManager {
@@ -101,14 +101,14 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != null) {
                 if (this.a.h.d()) {
-                    this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f0807a8);
+                    this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f08079c);
                     ChatNameViewHolder chatNameViewHolder = this.a;
-                    st7.d(chatNameViewHolder, chatNameViewHolder.g);
+                    o38.d(chatNameViewHolder, chatNameViewHolder.g);
                     int unused = ChatNameViewHolder.i = 1;
                 } else {
-                    this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f0807a7);
+                    this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f08079b);
                     ChatNameViewHolder chatNameViewHolder2 = this.a;
-                    st7.a(chatNameViewHolder2, chatNameViewHolder2.g);
+                    o38.a(chatNameViewHolder2, chatNameViewHolder2.g);
                     int unused2 = ChatNameViewHolder.i = 2;
                 }
                 this.a.n();
@@ -135,10 +135,10 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917a9);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e2e);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e47);
-        this.g = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090e39);
+        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917ad);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e2f);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e48);
+        this.g = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090e3a);
         this.g.setLayoutManager(new a(this, view2.getContext()));
         this.g.setFocusable(false);
         this.d.setOnClickListener(new b(this));
@@ -148,24 +148,24 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && !this.h.e()) {
-            n15 d = n15.d(this.e);
-            d.A(R.dimen.T_X08);
-            d.B(R.string.F_X01);
+            q25 d = q25.d(this.e);
+            d.B(R.dimen.T_X08);
+            d.C(R.string.F_X01);
             d.w(R.color.CAM_X0107);
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull rt7 rt7Var, @NonNull TbPageContext tbPageContext, int i2) {
+    public void d(@NonNull n38 n38Var, @NonNull TbPageContext tbPageContext, int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048576, this, rt7Var, tbPageContext, i2) == null) && (rt7Var instanceof du7)) {
-            du7 du7Var = (du7) rt7Var;
-            this.h = du7Var;
-            this.e.setText(du7Var.b());
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, n38Var, tbPageContext, i2) == null) && (n38Var instanceof b48)) {
+            b48 b48Var = (b48) n38Var;
+            this.h = b48Var;
+            this.e.setText(b48Var.b());
             ImageView imageView = this.f;
-            int i4 = R.drawable.obfuscated_res_0x7f0807a8;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0807a8);
+            int i4 = R.drawable.obfuscated_res_0x7f08079c;
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08079c);
             if (this.g.getAdapter() != this.h.getAdapter()) {
                 if (this.g.getAdapter() != null) {
                     this.g.swapAdapter(this.h.getAdapter(), true);
@@ -184,7 +184,7 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
             recyclerView.setVisibility(i3);
             ImageView imageView2 = this.f;
             if (this.h.d()) {
-                i4 = R.drawable.obfuscated_res_0x7f0807a7;
+                i4 = R.drawable.obfuscated_res_0x7f08079b;
             }
             imageView2.setImageResource(i4);
             o();
@@ -195,12 +195,12 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHAT_GROUP_CLICK);
-            rt7 rt7Var = this.h.getSubItems().get(0);
-            if (rt7Var instanceof eu7) {
-                eu7 eu7Var = (eu7) rt7Var;
-                if (eu7Var.a() != null) {
-                    statisticItem.param("fid", eu7Var.a().getForumId());
-                    statisticItem.param("fname", eu7Var.a().getForumName());
+            n38 n38Var = this.h.getSubItems().get(0);
+            if (n38Var instanceof c48) {
+                c48 c48Var = (c48) n38Var;
+                if (c48Var.a() != null) {
+                    statisticItem.param("fid", c48Var.a().getForumId());
+                    statisticItem.param("fname", c48Var.a().getForumName());
                 }
             }
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());

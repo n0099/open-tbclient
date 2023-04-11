@@ -1,42 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class xf2 implements yf2 {
+public class xf2 implements ff2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.yf2
-    @Nullable
-    public V8EngineConfiguration.CodeCacheSetting b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yf2
-    public void c(bf2 bf2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bf2Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.yf2
-    public void d(bf2 bf2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bf2Var) == null) {
-        }
-    }
 
     public xf2() {
         Interceptable interceptable = $ic;
@@ -50,5 +23,29 @@ public abstract class xf2 implements yf2 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.ff2
+    @SuppressLint({"BDThrowableCheck"})
+    public kf2 a(jf2 jf2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jf2Var)) == null) {
+            int type = jf2Var.getType();
+            if (type != 1) {
+                if (type != 2) {
+                    if (type != 3) {
+                        if (!eo1.a) {
+                            return new ag2();
+                        }
+                        throw new IllegalArgumentException("invalid model object:" + jf2Var);
+                    }
+                    return new o92();
+                }
+                return cr2.b();
+            }
+            return new ag2();
+        }
+        return (kf2) invokeL.objValue;
     }
 }

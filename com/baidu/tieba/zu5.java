@@ -1,87 +1,155 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TimerTask;
 /* loaded from: classes7.dex */
-public final class zu5 extends TimerTask {
+public class zu5 extends BitmapDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public final float b;
-    public final WheelView c;
+    public int a;
+    public Context b;
+    public Rect c;
+    public String d;
+    public Matrix e;
+    public int f;
+    public int g;
+    public float h;
 
-    public zu5(WheelView wheelView, float f) {
+    public zu5(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView, Float.valueOf(f)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = wheelView;
-        this.b = f;
-        this.a = 2.1474836E9f;
+        this.a = 0;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0.9f;
+        this.b = context;
+        this.a = i;
+        this.d = String.valueOf(i);
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public final void run() {
+    public void a(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == 2.1474836E9f) {
-                float f = 2000.0f;
-                if (Math.abs(this.b) > 2000.0f) {
-                    if (this.b <= 0.0f) {
-                        f = -2000.0f;
-                    }
-                    this.a = f;
-                } else {
-                    this.a = this.b;
-                }
-            }
-            if (Math.abs(this.a) >= 0.0f && Math.abs(this.a) <= 20.0f) {
-                this.c.b();
-                this.c.getHandler().sendEmptyMessage(2000);
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            this.f = i;
+            this.g = i2;
+            Rect rect = this.c;
+            if (rect == null) {
                 return;
             }
-            WheelView wheelView = this.c;
-            float f2 = (int) (this.a / 100.0f);
-            wheelView.setTotalScrollY(wheelView.getTotalScrollY() - f2);
-            if (!this.c.i()) {
-                float itemHeight = this.c.getItemHeight();
-                float f3 = (-this.c.getInitPosition()) * itemHeight;
-                float itemsCount = ((this.c.getItemsCount() - 1) - this.c.getInitPosition()) * itemHeight;
-                double d = itemHeight * 0.25d;
-                if (this.c.getTotalScrollY() - d < f3) {
-                    f3 = this.c.getTotalScrollY() + f2;
-                } else if (this.c.getTotalScrollY() + d > itemsCount) {
-                    itemsCount = this.c.getTotalScrollY() + f2;
-                }
-                if (this.c.getTotalScrollY() <= f3) {
-                    this.a = 40.0f;
-                    this.c.setTotalScrollY((int) f3);
-                } else if (this.c.getTotalScrollY() >= itemsCount) {
-                    this.c.setTotalScrollY((int) itemsCount);
-                    this.a = -40.0f;
-                }
-            }
-            float f4 = this.a;
-            if (f4 < 0.0f) {
-                this.a = f4 + 20.0f;
+            super.setBounds(rect.left, rect.top + i2, rect.right, rect.bottom);
+        }
+    }
+
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        sm smVar;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && this.a > 0 && this.b != null) {
+            Paint paint = new Paint();
+            ColorMatrix colorMatrix = new ColorMatrix();
+            TbImageMemoryCache s = TbImageMemoryCache.s();
+            if (s != null && (str2 = this.d) != null) {
+                smVar = s.w(str2);
             } else {
-                this.a = f4 - 20.0f;
+                smVar = null;
             }
-            this.c.getHandler().sendEmptyMessage(1000);
+            if (smVar == null) {
+                Bitmap resBitmap = BitmapHelper.getResBitmap(this.b, this.a);
+                if (resBitmap != null) {
+                    smVar = new sm(resBitmap, false, (String) null);
+                }
+                if (s != null && smVar != null && (str = this.d) != null) {
+                    s.k(str, smVar);
+                }
+            }
+            if (smVar != null) {
+                int r = smVar.r();
+                int m = smVar.m();
+                if (r > 0 && m > 0 && this.c != null) {
+                    canvas.save();
+                    canvas.clipRect(super.getBounds());
+                    if (m <= 0 && r <= 0 && this.f == 0 && this.g == 0) {
+                        smVar.e(canvas, 0.0f, 0.0f, null);
+                    } else {
+                        if (this.e == null) {
+                            Matrix matrix = new Matrix();
+                            this.e = matrix;
+                            matrix.postTranslate(this.f, this.g);
+                            Rect rect = this.c;
+                            float f = (rect.right - rect.left) / r;
+                            float f2 = (rect.bottom - rect.top) / m;
+                            if (f >= f2) {
+                                f = f2;
+                            }
+                            if (f < 1.0f) {
+                                this.e.postScale(f, f);
+                            }
+                        }
+                        if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                            float f3 = this.h;
+                            colorMatrix.setScale(f3, f3, f3, 1.0f);
+                            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+                            smVar.f(canvas, this.e, paint);
+                        } else {
+                            smVar.f(canvas, this.e, null);
+                        }
+                    }
+                    canvas.restore();
+                }
+            }
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setBounds(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
+            this.c = new Rect(i, i2, i3, i4);
+            this.e = null;
+            super.setBounds(i, i2, i3, i4);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setBounds(Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, rect) == null) {
+            this.c = new Rect(rect);
+            this.e = null;
+            super.setBounds(rect);
         }
     }
 }

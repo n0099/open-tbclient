@@ -8,23 +8,23 @@ import kotlin.SinceKotlin;
 /* loaded from: classes9.dex */
 public abstract class TimeMark {
     /* renamed from: elapsedNow-UwyO8pc */
-    public abstract long mo2057elapsedNowUwyO8pc();
+    public abstract long mo2059elapsedNowUwyO8pc();
 
     public final boolean hasNotPassedNow() {
-        return Duration.m2097isNegativeimpl(mo2057elapsedNowUwyO8pc());
+        return Duration.m2099isNegativeimpl(mo2059elapsedNowUwyO8pc());
     }
 
     public final boolean hasPassedNow() {
-        return !Duration.m2097isNegativeimpl(mo2057elapsedNowUwyO8pc());
+        return !Duration.m2099isNegativeimpl(mo2059elapsedNowUwyO8pc());
     }
 
     /* renamed from: minus-LRDsOJo  reason: not valid java name */
-    public TimeMark m2193minusLRDsOJo(long j) {
-        return mo2058plusLRDsOJo(Duration.m2116unaryMinusUwyO8pc(j));
+    public TimeMark m2195minusLRDsOJo(long j) {
+        return mo2060plusLRDsOJo(Duration.m2118unaryMinusUwyO8pc(j));
     }
 
     /* renamed from: plus-LRDsOJo */
-    public TimeMark mo2058plusLRDsOJo(long j) {
+    public TimeMark mo2060plusLRDsOJo(long j) {
         return new AdjustedTimeMark(this, j, null);
     }
 }

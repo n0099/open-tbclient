@@ -6,6 +6,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.vk6;
 /* loaded from: classes2.dex */
 public class InitPrologueAdTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -27,7 +28,7 @@ public class InitPrologueAdTask extends LaunchTask {
             BdLog.i(e.getMessage());
         }
         if (PermissionUtil.isAgreePrivacyPolicy() && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            Thread thread = new Thread(new Runnable() { // from class: com.baidu.searchbox.task.sync.appcreate.InitPrologueAdTask.1
+            vk6.a(new Runnable() { // from class: com.baidu.searchbox.task.sync.appcreate.InitPrologueAdTask.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -36,9 +37,7 @@ public class InitPrologueAdTask extends LaunchTask {
                         BdLog.e(th);
                     }
                 }
-            });
-            thread.setPriority(10);
-            thread.start();
+            }, "initPrologue", 0);
         }
     }
 }

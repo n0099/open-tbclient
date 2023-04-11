@@ -13,8 +13,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lj8;
+import com.baidu.tieba.bu8;
+import com.baidu.tieba.ii;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -98,28 +100,6 @@ public class TextSizeSeekBar extends View {
         d(context);
     }
 
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
-            super.onMeasure(i, i2);
-            if (this.a == 0 || this.b == 0) {
-                this.a = View.MeasureSpec.getSize(i);
-                int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025e);
-                this.b = dimensionPixelSize;
-                this.c = (this.a - this.d) / 3;
-                this.f = dimensionPixelSize / 2;
-                for (int i3 = 0; i3 < 4; i3++) {
-                    int i4 = this.c;
-                    int i5 = this.f;
-                    int i6 = this.e;
-                    this.p.add(new Rect(i4 * i3, i5 - (i6 / 2), (i4 * i3) + this.d, i5 + (i6 / 2)));
-                }
-            }
-            setMeasuredDimension(this.a, this.b);
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TextSizeSeekBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -160,7 +140,7 @@ public class TextSizeSeekBar extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
             super.onDraw(canvas);
             c(canvas);
             b(canvas);
@@ -204,7 +184,7 @@ public class TextSizeSeekBar extends View {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 1 || action == 2) {
                 int i = 0;
@@ -213,7 +193,7 @@ public class TextSizeSeekBar extends View {
                         break;
                     } else if (this.p.get(i).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
                         this.j = i;
-                        lj8.a(Math.abs(i - 3));
+                        bu8.a(Math.abs(i - 3));
                         invalidate();
                         break;
                     } else {
@@ -262,10 +242,18 @@ public class TextSizeSeekBar extends View {
         }
     }
 
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a = 0;
+            this.b = 0;
+        }
+    }
+
     @Override // android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.i = SkinManager.getDrawable(R.drawable.pic_wordsize_n);
             this.j = Math.abs(TbadkCoreApplication.getInst().getFontSize() - 3);
             super.onAttachedToWindow();
@@ -275,13 +263,40 @@ public class TextSizeSeekBar extends View {
     @Override // android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDetachedFromWindow();
             Drawable drawable = this.i;
             if (drawable != null) {
                 drawable.setCallback(null);
                 this.i = null;
             }
+        }
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            if (this.a == 0 || this.b == 0) {
+                this.a = View.MeasureSpec.getSize(i);
+                int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702e4) * 2;
+                if (UtilHelper.isFoldScreen() && this.a > ii.m(getContext(), true) - dimensionPixelSize) {
+                    this.a -= dimensionPixelSize;
+                }
+                int dimensionPixelSize2 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025e);
+                this.b = dimensionPixelSize2;
+                this.c = (this.a - this.d) / 3;
+                this.f = dimensionPixelSize2 / 2;
+                this.p.clear();
+                for (int i3 = 0; i3 < 4; i3++) {
+                    int i4 = this.c;
+                    int i5 = this.f;
+                    int i6 = this.e;
+                    this.p.add(new Rect(i4 * i3, i5 - (i6 / 2), (i4 * i3) + this.d, i5 + (i6 / 2)));
+                }
+            }
+            setMeasuredDimension(this.a, this.b);
         }
     }
 }

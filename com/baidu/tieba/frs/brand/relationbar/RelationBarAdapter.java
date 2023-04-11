@@ -45,13 +45,23 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
         this.b = list;
     }
 
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ListUtils.getCount(this.b);
+        }
+        return invokeV.intValue;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: d */
+    /* renamed from: k */
     public void onBindViewHolder(RelationBarHolder relationBarHolder, int i) {
         OriForumInfo oriForumInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048576, this, relationBarHolder, i) != null) || (oriForumInfo = (OriForumInfo) ListUtils.getItem(this.b, i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, relationBarHolder, i) != null) || (oriForumInfo = (OriForumInfo) ListUtils.getItem(this.b, i)) == null) {
             return;
         }
         RelationBarCellView relationBarCellView = (RelationBarCellView) relationBarHolder.a();
@@ -61,23 +71,13 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: e */
+    /* renamed from: l */
     public RelationBarHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
             return new RelationBarHolder(new RelationBarCellView(this.a));
         }
         return (RelationBarHolder) invokeLI.objValue;
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ListUtils.getCount(this.b);
-        }
-        return invokeV.intValue;
     }
 }

@@ -11,12 +11,14 @@ import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.pms.init.response.ParseUtils;
 import com.baidu.searchbox.pms.utils.ABIUtils;
 import com.baidu.searchbox.pms.utils.DebugUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class PackageControl {
@@ -184,7 +186,6 @@ public class PackageControl {
         int i14;
         int i15;
         int i16;
-        int i17;
         ArrayList arrayList;
         Cursor cursor2 = cursor;
         ArrayList arrayList2 = new ArrayList();
@@ -202,8 +203,8 @@ public class PackageControl {
             int columnIndex11 = cursor2.getColumnIndex(PackageTable.DOWNLOAD_OPTION);
             int columnIndex12 = cursor2.getColumnIndex("channel_id");
             int columnIndex13 = cursor2.getColumnIndex("wifi");
-            int columnIndex14 = cursor2.getColumnIndex(PackageTable.IS_SILENCE);
             ArrayList arrayList3 = arrayList2;
+            int columnIndex14 = cursor2.getColumnIndex(PackageTable.IS_SILENCE);
             int columnIndex15 = cursor2.getColumnIndex(PackageTable.DISABLE);
             int columnIndex16 = cursor2.getColumnIndex("sign");
             int columnIndex17 = cursor2.getColumnIndex("type");
@@ -216,126 +217,133 @@ public class PackageControl {
             int columnIndex24 = cursor2.getColumnIndex("_id");
             int columnIndex25 = cursor2.getColumnIndex(PackageTable.UPDATE_SIGN);
             int columnIndex26 = cursor2.getColumnIndex(PackageTable.IS_MAIN_ENTRANCE);
-            int i18 = columnIndex14;
+            int i17 = columnIndex13;
             int columnIndex27 = cursor2.getColumnIndex(PackageTable.DEPENDENCY_PACKAGE);
             int columnIndex28 = cursor2.getColumnIndex(PackageTable.ABI);
-            if (cursor.moveToFirst()) {
-                int i19 = columnIndex28;
-                while (true) {
-                    String string = cursor2.getString(columnIndex);
-                    if (TextUtils.isEmpty(string)) {
-                        i3 = columnIndex26;
-                        i = columnIndex;
-                        i2 = columnIndex13;
-                        arrayList = arrayList3;
-                        i5 = columnIndex15;
-                        i4 = i18;
-                        i17 = columnIndex27;
-                        i6 = columnIndex2;
-                        i16 = columnIndex25;
-                        i14 = columnIndex20;
-                        i8 = columnIndex19;
-                        i7 = columnIndex3;
-                        i15 = i19;
-                        int i20 = columnIndex21;
-                        i9 = columnIndex4;
-                        i12 = columnIndex23;
-                        i13 = columnIndex22;
-                        i10 = columnIndex5;
-                        i11 = i20;
-                    } else {
-                        i = columnIndex;
-                        i2 = columnIndex13;
-                        int i21 = cursor2.getInt(columnIndex26);
-                        i3 = columnIndex26;
-                        boolean z = true;
-                        if (i21 != 1) {
-                            z = false;
-                        }
-                        PackageInfo packageInfo = new PackageInfo(z);
-                        packageInfo.errNo = 0;
-                        packageInfo.packageName = string;
-                        packageInfo.updateVersion = cursor2.getLong(columnIndex2);
-                        packageInfo.downloadUrl = cursor2.getString(columnIndex3);
-                        packageInfo.version = cursor2.getLong(columnIndex4);
-                        packageInfo.name = cursor2.getString(columnIndex5);
-                        packageInfo.maxHostVersion = cursor2.getString(columnIndex10);
-                        packageInfo.minHostVersion = cursor2.getString(columnIndex9);
-                        packageInfo.md5 = cursor2.getString(columnIndex6);
-                        packageInfo.size = cursor2.getString(columnIndex7);
-                        packageInfo.downloadOption = cursor2.getInt(columnIndex11);
-                        packageInfo.extraServer = cursor2.getString(columnIndex8);
-                        packageInfo.channelId = cursor2.getString(columnIndex12);
-                        packageInfo.wifi = cursor2.getInt(i2);
-                        i4 = i18;
-                        packageInfo.isSilence = cursor2.getInt(i4);
-                        i5 = columnIndex15;
-                        packageInfo.disable = cursor2.getInt(i5);
-                        i6 = columnIndex2;
-                        packageInfo.sign = cursor2.getString(columnIndex16);
-                        packageInfo.type = cursor2.getInt(columnIndex17);
-                        packageInfo.extraLocal = cursor2.getString(columnIndex18);
-                        int i22 = columnIndex19;
-                        packageInfo.filePath = cursor2.getString(i22);
-                        i7 = columnIndex3;
-                        int i23 = columnIndex20;
-                        i8 = i22;
-                        packageInfo.totalSize = cursor2.getLong(i23);
-                        int i24 = columnIndex21;
-                        i9 = columnIndex4;
-                        packageInfo.currentSize = cursor2.getLong(i24);
-                        int i25 = columnIndex22;
-                        i10 = columnIndex5;
-                        packageInfo.createTime = cursor2.getLong(i25);
-                        i11 = i24;
-                        i12 = columnIndex23;
-                        i13 = i25;
-                        packageInfo.updateTime = cursor2.getLong(i12);
-                        packageInfo.rawId = cursor2.getInt(columnIndex24);
-                        int i26 = columnIndex25;
-                        packageInfo.updateSign = cursor2.getString(i26);
-                        i14 = i23;
-                        i15 = i19;
-                        packageInfo.abi = cursor2.getString(i15);
-                        i16 = i26;
-                        i17 = columnIndex27;
-                        String string2 = cursor2.getString(i17);
-                        if (!TextUtils.isEmpty(string2)) {
-                            try {
-                                packageInfo.setDependenciesString(new JSONObject(string2));
-                            } catch (Exception unused) {
-                            }
-                        }
-                        arrayList = arrayList3;
-                        arrayList.add(packageInfo);
-                    }
-                    if (cursor.moveToNext()) {
-                        arrayList3 = arrayList;
-                        columnIndex27 = i17;
-                        i19 = i15;
-                        columnIndex2 = i6;
-                        columnIndex3 = i7;
-                        columnIndex19 = i8;
-                        columnIndex20 = i14;
-                        columnIndex25 = i16;
-                        columnIndex = i;
-                        columnIndex26 = i3;
-                        cursor2 = cursor;
-                        i18 = i4;
-                        columnIndex15 = i5;
-                        columnIndex13 = i2;
-                        int i27 = i13;
-                        columnIndex23 = i12;
-                        columnIndex4 = i9;
-                        columnIndex21 = i11;
-                        columnIndex5 = i10;
-                        columnIndex22 = i27;
-                    } else {
-                        return arrayList;
-                    }
-                }
-            } else {
+            if (!cursor.moveToFirst()) {
                 return arrayList3;
+            }
+            while (true) {
+                String string = cursor2.getString(columnIndex);
+                if (TextUtils.isEmpty(string)) {
+                    i2 = columnIndex26;
+                    i = columnIndex;
+                    arrayList = arrayList3;
+                    i16 = columnIndex27;
+                    int i18 = columnIndex20;
+                    i7 = columnIndex2;
+                    i13 = columnIndex25;
+                    i15 = i18;
+                    int i19 = i17;
+                    i6 = columnIndex3;
+                    i14 = columnIndex28;
+                    i4 = columnIndex14;
+                    i5 = columnIndex12;
+                    i3 = i19;
+                    int i20 = columnIndex21;
+                    i8 = columnIndex4;
+                    i11 = columnIndex23;
+                    i12 = columnIndex22;
+                    i9 = columnIndex5;
+                    i10 = i20;
+                } else {
+                    i = columnIndex;
+                    int i21 = columnIndex28;
+                    int i22 = cursor2.getInt(columnIndex26);
+                    i2 = columnIndex26;
+                    boolean z = true;
+                    if (i22 != 1) {
+                        z = false;
+                    }
+                    PackageInfo packageInfo = new PackageInfo(z);
+                    packageInfo.errNo = 0;
+                    packageInfo.packageName = string;
+                    int i23 = columnIndex12;
+                    packageInfo.updateVersion = cursor2.getLong(columnIndex2);
+                    packageInfo.downloadUrl = cursor2.getString(columnIndex3);
+                    packageInfo.version = cursor2.getLong(columnIndex4);
+                    packageInfo.name = cursor2.getString(columnIndex5);
+                    packageInfo.maxHostVersion = cursor2.getString(columnIndex10);
+                    packageInfo.minHostVersion = cursor2.getString(columnIndex9);
+                    packageInfo.md5 = cursor2.getString(columnIndex6);
+                    packageInfo.size = cursor2.getString(columnIndex7);
+                    packageInfo.downloadOption = cursor2.getInt(columnIndex11);
+                    String string2 = cursor2.getString(columnIndex8);
+                    packageInfo.extraServer = string2;
+                    if (!TextUtils.isEmpty(string2)) {
+                        try {
+                            packageInfo.uniqueVersion = new JSONObject(packageInfo.extraServer).optString(ParseUtils.UNIQUE_VERSION);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    packageInfo.channelId = cursor2.getString(i23);
+                    i3 = i17;
+                    packageInfo.wifi = cursor2.getInt(i3);
+                    i4 = columnIndex14;
+                    packageInfo.isSilence = cursor2.getInt(i4);
+                    i5 = i23;
+                    packageInfo.disable = cursor2.getInt(columnIndex15);
+                    packageInfo.sign = cursor2.getString(columnIndex16);
+                    packageInfo.type = cursor2.getInt(columnIndex17);
+                    packageInfo.extraLocal = cursor2.getString(columnIndex18);
+                    packageInfo.filePath = cursor2.getString(columnIndex19);
+                    i6 = columnIndex3;
+                    int i24 = columnIndex20;
+                    i7 = columnIndex2;
+                    packageInfo.totalSize = cursor2.getLong(i24);
+                    int i25 = columnIndex21;
+                    i8 = columnIndex4;
+                    packageInfo.currentSize = cursor2.getLong(i25);
+                    int i26 = columnIndex22;
+                    i9 = columnIndex5;
+                    packageInfo.createTime = cursor2.getLong(i26);
+                    i10 = i25;
+                    i11 = columnIndex23;
+                    i12 = i26;
+                    packageInfo.updateTime = cursor2.getLong(i11);
+                    packageInfo.rawId = cursor2.getInt(columnIndex24);
+                    i13 = columnIndex25;
+                    packageInfo.updateSign = cursor2.getString(i13);
+                    i14 = i21;
+                    packageInfo.abi = cursor2.getString(i14);
+                    i15 = i24;
+                    i16 = columnIndex27;
+                    String string3 = cursor2.getString(i16);
+                    if (!TextUtils.isEmpty(string3)) {
+                        try {
+                            packageInfo.setDependenciesString(new JSONObject(string3));
+                        } catch (Exception unused) {
+                        }
+                    }
+                    arrayList = arrayList3;
+                    arrayList.add(packageInfo);
+                }
+                if (cursor.moveToNext()) {
+                    arrayList3 = arrayList;
+                    columnIndex27 = i16;
+                    columnIndex = i;
+                    columnIndex26 = i2;
+                    cursor2 = cursor;
+                    int i27 = i15;
+                    columnIndex25 = i13;
+                    columnIndex2 = i7;
+                    columnIndex20 = i27;
+                    int i28 = i4;
+                    columnIndex28 = i14;
+                    columnIndex3 = i6;
+                    i17 = i3;
+                    columnIndex12 = i5;
+                    columnIndex14 = i28;
+                    int i29 = i12;
+                    columnIndex23 = i11;
+                    columnIndex4 = i8;
+                    columnIndex21 = i10;
+                    columnIndex5 = i9;
+                    columnIndex22 = i29;
+                } else {
+                    return arrayList;
+                }
             }
         } else {
             return arrayList2;
@@ -520,6 +528,20 @@ public class PackageControl {
         return true;
     }
 
+    public boolean deleteRedundantItem(String str) {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new Pair<>(PackageTable.FILE_PATH, str));
+        return deleteItemByKeValues(arrayList, true);
+    }
+
+    public List<PackageInfo> safeLoadPackageFile(Cursor cursor) {
+        ArrayList arrayList = new ArrayList(0);
+        if (cursor != null) {
+            return getPackageFiles(cursor);
+        }
+        return arrayList;
+    }
+
     public Cursor getPackageFileCursor(List<Pair<String, String>> list, List<Pair<String, String>> list2, String str, String str2) {
         int i;
         Pair<String, String> pair;
@@ -577,7 +599,7 @@ public class PackageControl {
     }
 
     public List<PackageInfo> queryFinishedItems(String str, String str2, String str3) {
-        return queryItems(str, str2, str3, "package_name", 10);
+        return queryItems(str, str2, str3, "", 10);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x005e */
@@ -638,6 +660,60 @@ public class PackageControl {
         return list;
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0038 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0011 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:6:0x0022 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v0, types: [android.util.Pair, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r0v10 */
+    /* JADX WARN: Type inference failed for: r0v11 */
+    /* JADX WARN: Type inference failed for: r0v12 */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v4, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r0v5 */
+    /* JADX WARN: Type inference failed for: r0v7, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r7v0, types: [com.baidu.searchbox.pms.db.PackageControl] */
+    public List<PackageInfo> queryRedundantItems(String str) {
+        Throwable th;
+        Cursor cursor;
+        ArrayList arrayList = new ArrayList();
+        ?? pair = new Pair(PackageTable.FILE_PATH, str);
+        arrayList.add(pair);
+        List<PackageInfo> list = null;
+        try {
+            try {
+                cursor = getPackageFileCursorByGroup(arrayList, true, "update_version", "package_name", null);
+                try {
+                    list = safeLoadPackageFile(cursor);
+                    pair = cursor;
+                } catch (Exception e) {
+                    e = e;
+                    pair = cursor;
+                    if (AppConfig.isDebug()) {
+                        e.printStackTrace();
+                        pair = cursor;
+                    }
+                    Closeables.closeSafely((Cursor) pair);
+                    return list;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                Closeables.closeSafely((Cursor) pair);
+                throw th;
+            }
+        } catch (Exception e2) {
+            e = e2;
+            cursor = null;
+        } catch (Throwable th3) {
+            pair = 0;
+            th = th3;
+            Closeables.closeSafely((Cursor) pair);
+            throw th;
+        }
+        Closeables.closeSafely((Cursor) pair);
+        return list;
+    }
+
     public int resetFinishedUpdateVersion(String str, List<String> list) {
         int i;
         int i2 = 2;
@@ -666,13 +742,5 @@ public class PackageControl {
         ContentValues contentValues = new ContentValues();
         contentValues.put("update_version", "-1");
         return PmsContentProviderImpl.updateExt(this.mContext, PmsContentProviderImpl.CONTENT_URI_PACKAGE_INFO, contentValues, str2, strArr);
-    }
-
-    public List<PackageInfo> safeLoadPackageFile(Cursor cursor) {
-        ArrayList arrayList = new ArrayList(0);
-        if (cursor != null) {
-            return getPackageFiles(cursor);
-        }
-        return arrayList;
     }
 }

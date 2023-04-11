@@ -814,8 +814,8 @@ public class FeedbackReportActivity extends Activity {
             this.a = feedbackReportActivity;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:64:0x01fc  */
-        /* JADX WARN: Removed duplicated region for block: B:65:0x0204  */
+        /* JADX WARN: Removed duplicated region for block: B:64:0x01ee  */
+        /* JADX WARN: Removed duplicated region for block: B:65:0x01f6  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -1573,8 +1573,8 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0108  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0126  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x0106  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0124  */
     @Override // android.app.Activity
     /*
         Code decompiled incorrectly, please refer to instructions dump.

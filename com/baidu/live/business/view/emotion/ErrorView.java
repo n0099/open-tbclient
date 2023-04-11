@@ -10,16 +10,16 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i90;
-import com.baidu.tieba.q90;
-import com.baidu.tieba.zb0;
+import com.baidu.tieba.ac0;
+import com.baidu.tieba.j90;
+import com.baidu.tieba.r90;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes2.dex */
 public class ErrorView extends LinearLayout {
     public TextView a;
     public SimpleDraweeView b;
     public TextView c;
-    public q90 d;
+    public r90 d;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -28,8 +28,8 @@ public class ErrorView extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            if (!i90.f(ErrorView.this.getContext())) {
-                Toast.makeText(ErrorView.this.getContext(), (int) R.string.obfuscated_res_0x7f0f0abb, 1).show();
+            if (!j90.f(ErrorView.this.getContext())) {
+                Toast.makeText(ErrorView.this.getContext(), (int) R.string.obfuscated_res_0x7f0f0ab7, 1).show();
             } else if (ErrorView.this.d != null) {
                 ErrorView.this.d.a(view2);
             }
@@ -44,8 +44,8 @@ public class ErrorView extends LinearLayout {
         e(i, LiveFeedPageSdk.HOST_LIVE_TAB);
     }
 
-    public void setActionCallback(q90 q90Var) {
-        this.d = q90Var;
+    public void setActionCallback(r90 r90Var) {
+        this.d = r90Var;
     }
 
     public void setImageResource(int i) {
@@ -67,7 +67,7 @@ public class ErrorView extends LinearLayout {
 
     public ErrorView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d057b, this);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0579, this);
         setOrientation(1);
         setGravity(17);
         this.b = (SimpleDraweeView) findViewById(R.id.errorview_img);
@@ -81,23 +81,23 @@ public class ErrorView extends LinearLayout {
     }
 
     public void c(String str) {
-        if (i90.f(getContext())) {
+        if (j90.f(getContext())) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-            layoutParams.width = i90.b(getContext(), EmotionStrategy.getInstance().errorWidth);
-            layoutParams.height = i90.b(getContext(), EmotionStrategy.getInstance().errorHeight);
+            layoutParams.width = j90.b(getContext(), EmotionStrategy.getInstance().errorWidth);
+            layoutParams.height = j90.b(getContext(), EmotionStrategy.getInstance().errorHeight);
             this.b.setLayoutParams(layoutParams);
-            setImageResource(zb0.f().c(str));
-            this.c.setText(R.string.obfuscated_res_0x7f0f0aba);
+            setImageResource(ac0.f().c(str));
+            this.c.setText(R.string.obfuscated_res_0x7f0f0ab6);
         } else {
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-            layoutParams2.width = i90.b(getContext(), EmotionStrategy.getInstance().networkWidth);
-            layoutParams2.height = i90.b(getContext(), EmotionStrategy.getInstance().networkHeight);
+            layoutParams2.width = j90.b(getContext(), EmotionStrategy.getInstance().networkWidth);
+            layoutParams2.height = j90.b(getContext(), EmotionStrategy.getInstance().networkHeight);
             this.b.setLayoutParams(layoutParams2);
-            setImageResource(zb0.f().d(str));
-            this.c.setText(R.string.obfuscated_res_0x7f0f0abb);
+            setImageResource(ac0.f().d(str));
+            this.c.setText(R.string.obfuscated_res_0x7f0f0ab7);
         }
-        this.c.setTextColor(zb0.f().a(getContext(), str, "color_8585852"));
-        this.a.setTextColor(zb0.f().a(getContext(), str, "color_5252522"));
-        this.a.setBackground(zb0.f().o(getContext(), str));
+        this.c.setTextColor(ac0.f().a(getContext(), str, "color_8585852"));
+        this.a.setTextColor(ac0.f().a(getContext(), str, "color_5252522"));
+        this.a.setBackground(ac0.f().o(getContext(), str));
     }
 }

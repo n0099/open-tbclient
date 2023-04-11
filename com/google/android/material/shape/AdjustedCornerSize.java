@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import java.util.Arrays;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class AdjustedCornerSize implements CornerSize {
     public final float adjustment;
     public final CornerSize other;

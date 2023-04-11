@@ -1,33 +1,33 @@
 package rx.schedulers;
 
-import com.baidu.tieba.bsa;
-import com.baidu.tieba.hwa;
-import com.baidu.tieba.lwa;
-import com.baidu.tieba.rra;
-import com.baidu.tieba.vra;
+import com.baidu.tieba.c6b;
+import com.baidu.tieba.i1b;
+import com.baidu.tieba.m1b;
+import com.baidu.tieba.s1b;
+import com.baidu.tieba.y5b;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes9.dex */
-public class TestScheduler extends rra {
+public class TestScheduler extends i1b {
     public static long c;
     public final Queue<c> a = new PriorityQueue(11, new a());
     public long b;
 
     /* loaded from: classes9.dex */
-    public final class b extends rra.a {
-        public final hwa a = new hwa();
+    public final class b extends i1b.a {
+        public final y5b a = new y5b();
 
         /* loaded from: classes9.dex */
-        public class a implements bsa {
+        public class a implements s1b {
             public final /* synthetic */ c a;
 
             public a(c cVar) {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.bsa
+            @Override // com.baidu.tieba.s1b
             public void call() {
                 TestScheduler.this.a.remove(this.a);
             }
@@ -35,14 +35,14 @@ public class TestScheduler extends rra {
 
         /* renamed from: rx.schedulers.TestScheduler$b$b  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0748b implements bsa {
+        public class C0749b implements s1b {
             public final /* synthetic */ c a;
 
-            public C0748b(c cVar) {
+            public C0749b(c cVar) {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.bsa
+            @Override // com.baidu.tieba.s1b
             public void call() {
                 TestScheduler.this.a.remove(this.a);
             }
@@ -51,49 +51,49 @@ public class TestScheduler extends rra {
         public b() {
         }
 
-        @Override // com.baidu.tieba.rra.a
-        public vra b(bsa bsaVar) {
-            c cVar = new c(this, 0L, bsaVar);
+        @Override // com.baidu.tieba.i1b.a
+        public m1b b(s1b s1bVar) {
+            c cVar = new c(this, 0L, s1bVar);
             TestScheduler.this.a.add(cVar);
-            return lwa.a(new C0748b(cVar));
+            return c6b.a(new C0749b(cVar));
         }
 
-        @Override // com.baidu.tieba.rra.a
+        @Override // com.baidu.tieba.i1b.a
         public long a() {
             return TestScheduler.this.now();
         }
 
-        @Override // com.baidu.tieba.vra
+        @Override // com.baidu.tieba.m1b
         public boolean isUnsubscribed() {
             return this.a.isUnsubscribed();
         }
 
-        @Override // com.baidu.tieba.vra
+        @Override // com.baidu.tieba.m1b
         public void unsubscribe() {
             this.a.unsubscribe();
         }
 
-        @Override // com.baidu.tieba.rra.a
-        public vra c(bsa bsaVar, long j, TimeUnit timeUnit) {
-            c cVar = new c(this, TestScheduler.this.b + timeUnit.toNanos(j), bsaVar);
+        @Override // com.baidu.tieba.i1b.a
+        public m1b c(s1b s1bVar, long j, TimeUnit timeUnit) {
+            c cVar = new c(this, TestScheduler.this.b + timeUnit.toNanos(j), s1bVar);
             TestScheduler.this.a.add(cVar);
-            return lwa.a(new a(cVar));
+            return c6b.a(new a(cVar));
         }
     }
 
     /* loaded from: classes9.dex */
     public static final class c {
         public final long a;
-        public final bsa b;
-        public final rra.a c;
+        public final s1b b;
+        public final i1b.a c;
         public final long d;
 
-        public c(rra.a aVar, long j, bsa bsaVar) {
+        public c(i1b.a aVar, long j, s1b s1bVar) {
             long j2 = TestScheduler.c;
             TestScheduler.c = 1 + j2;
             this.d = j2;
             this.a = j;
-            this.b = bsaVar;
+            this.b = s1bVar;
             this.c = aVar;
         }
 
@@ -102,12 +102,12 @@ public class TestScheduler extends rra {
         }
     }
 
-    @Override // com.baidu.tieba.rra
-    public rra.a createWorker() {
+    @Override // com.baidu.tieba.i1b
+    public i1b.a createWorker() {
         return new b();
     }
 
-    @Override // com.baidu.tieba.rra
+    @Override // com.baidu.tieba.i1b
     public long now() {
         return TimeUnit.NANOSECONDS.toMillis(this.b);
     }

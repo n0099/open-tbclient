@@ -13,7 +13,7 @@ import androidx.annotation.StyleableRes;
 import androidx.appcompat.widget.TintTypedArray;
 import com.baidu.tieba.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ThemeEnforcement {
     public static final String APPCOMPAT_THEME_NAME = "Theme.AppCompat";
     public static final String MATERIAL_THEME_NAME = "Theme.MaterialComponents";

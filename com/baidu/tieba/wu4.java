@@ -2,6 +2,6 @@ package com.baidu.tieba;
 
 import android.view.View;
 /* loaded from: classes6.dex */
-public interface wu4<T> {
-    void c(View view2, T t, int i, long j);
+public interface wu4 {
+    void a(View view2, boolean z, Object obj);
 }

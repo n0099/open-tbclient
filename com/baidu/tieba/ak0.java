@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,14 +15,6 @@ public class ak0 {
     public String a;
     public String b;
     public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public yj0 k;
 
     public ak0() {
         Interceptable interceptable = $ic;
@@ -35,8 +26,12 @@ public class ak0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
+        this.c = "";
     }
 
     @NonNull
@@ -44,18 +39,11 @@ public class ak0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject c = v01.c(str);
             ak0 ak0Var = new ak0();
-            ak0Var.a = c.optString("als_ext");
-            ak0Var.b = c.optString("cmd");
-            ak0Var.c = c.optString("defer_cmd");
-            ak0Var.d = c.optString("init_text");
-            ak0Var.e = c.optString("opt_icon");
-            ak0Var.f = c.optString("opt_text");
-            ak0Var.g = c.optString("app_icon_url");
-            ak0Var.h = c.optString("app_name");
-            ak0Var.i = c.optString("version_code");
-            ak0Var.j = c.optString(LegoListActivityConfig.AD_ID);
+            JSONObject c = w01.c(str);
+            ak0Var.a = c.optString("ext1");
+            ak0Var.b = c.optString("ext2");
+            ak0Var.c = c.optString("ext3");
             return ak0Var;
         }
         return (ak0) invokeL.objValue;
@@ -67,16 +55,9 @@ public class ak0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ak0Var)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("als_ext", ak0Var.a);
-                jSONObject.put("cmd", ak0Var.b);
-                jSONObject.put("defer_cmd", ak0Var.c);
-                jSONObject.put("init_text", ak0Var.d);
-                jSONObject.put("opt_icon", ak0Var.e);
-                jSONObject.put("opt_text", ak0Var.f);
-                jSONObject.put("app_icon_url", ak0Var.g);
-                jSONObject.put("app_name", ak0Var.h);
-                jSONObject.put("version_code", ak0Var.i);
-                jSONObject.put(LegoListActivityConfig.AD_ID, ak0Var.j);
+                jSONObject.put("ext1", ak0Var.a);
+                jSONObject.put("ext2", ak0Var.b);
+                jSONObject.put("ext3", ak0Var.c);
             } catch (JSONException unused) {
             }
             return jSONObject.toString();

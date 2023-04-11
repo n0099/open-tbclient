@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HttpDnsService {
     public static final String TAG = "HttpDnsService";
     public static HttpDnsService mHttpDnsService;
@@ -32,7 +32,7 @@ public class HttpDnsService {
     public AtomicBoolean mInit = new AtomicBoolean(false);
     public AtomicBoolean mUpdateIp = new AtomicBoolean(true);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface DegradationFilter {
         boolean shouldDegradeHttpDNS(String str);
     }

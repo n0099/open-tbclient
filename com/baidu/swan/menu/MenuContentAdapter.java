@@ -8,14 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be4;
-import com.baidu.tieba.yn4;
+import com.baidu.tieba.ce4;
+import com.baidu.tieba.zn4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MenuContentAdapter extends RecyclerView.Adapter<a> {
-    public List<be4> a = new ArrayList();
-    public List<be4> b = new ArrayList();
+    public List<ce4> a = new ArrayList();
+    public List<ce4> b = new ArrayList();
     public int c;
     public Context d;
 
@@ -26,8 +26,8 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
 
         public a(View view2) {
             super(view2);
-            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f090abc);
-            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091fec);
+            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f090abf);
+            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091fd9);
         }
     }
 
@@ -35,16 +35,21 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         this.d = context;
     }
 
-    public final boolean d(boolean z) {
+    public final boolean k(boolean z) {
         if (!z && this.a.size() <= 5 && this.b.size() <= 5) {
             return false;
         }
         return true;
     }
 
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        return Math.max(this.a.size(), this.b.size());
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: e */
+    /* renamed from: l */
     public void onBindViewHolder(a aVar, int i) {
         int i2;
         ViewGroup.LayoutParams layoutParams = aVar.itemView.getLayoutParams();
@@ -87,9 +92,9 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: f */
+    /* renamed from: m */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d0886, viewGroup, false);
+        View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d0881, viewGroup, false);
         ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new ViewGroup.LayoutParams(this.c, -2);
@@ -100,11 +105,11 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         return new a(inflate);
     }
 
-    public void g(List<List<be4>> list, boolean z, int i) {
+    public void n(List<List<ce4>> list, boolean z, int i) {
         int max;
         float f;
-        List<be4> list2;
-        List<be4> list3;
+        List<ce4> list2;
+        List<ce4> list3;
         this.a.clear();
         this.b.clear();
         if (list == null) {
@@ -122,23 +127,18 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         } else {
             max = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
         }
-        if (d(z)) {
+        if (k(z)) {
             f = 5.5f;
         } else {
             f = 5.0f;
         }
-        if (yn4.d()) {
+        if (zn4.d()) {
             Context context = this.d;
-            if ((context instanceof Activity) && yn4.e((Activity) context)) {
-                max = yn4.a((Activity) this.d);
+            if ((context instanceof Activity) && zn4.e((Activity) context)) {
+                max = zn4.a((Activity) this.d);
             }
         }
         this.c = (int) (max / f);
         notifyDataSetChanged();
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        return Math.max(this.a.size(), this.b.size());
     }
 }

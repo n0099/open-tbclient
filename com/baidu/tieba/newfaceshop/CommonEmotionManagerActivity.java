@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.emotioncenter.CommonEmotionCenterFragment;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -81,9 +81,9 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d01f9);
-            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09076e);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090772);
             if (isUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = hi.u(getPageContext().getPageActivity());
+                ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = ii.u(getPageContext().getPageActivity());
             }
             String stringExtra = getIntent().getStringExtra("url");
             this.c = stringExtra;
@@ -94,7 +94,7 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_load_url", this.c);
             this.b.setArguments(bundle2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09076e, this.b).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f090772, this.b).commit();
         }
     }
 }

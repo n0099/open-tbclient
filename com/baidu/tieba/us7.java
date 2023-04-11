@@ -1,96 +1,80 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class us7 {
+public class us7 extends pw<jw4> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile us7 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
-    public ArrayList<String> b;
+    public ev7 f;
+    public int g;
 
-    public us7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public us7(Context context, TbPageContext<?> tbPageContext) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.g = 3;
+        this.f = new ev7(tbPageContext);
     }
 
-    public static us7 d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hx
+    /* renamed from: s */
+    public void a(jw4 jw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (us7.class) {
-                    if (c == null) {
-                        c = new us7();
-                    }
-                }
-            }
-            return c;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, jw4Var) == null) && (jw4Var instanceof bv7)) {
+            this.f.l((bv7) jw4Var);
         }
-        return (us7) invokeV.objValue;
     }
 
-    public void a() {
+    public void t(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Map<String, String> map = this.a;
-            if (map != null) {
-                map.clear();
-                this.a = null;
-            }
-            ArrayList<String> arrayList = this.b;
-            if (arrayList != null) {
-                arrayList.clear();
-                this.b = null;
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            this.f.o(bdUniqueId);
         }
     }
 
-    public Map<String, String> b() {
+    @Override // com.baidu.tieba.pw
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.f.r();
         }
-        return (Map) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public ArrayList<String> c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ix
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public void e(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
-            this.a = map;
-        }
-    }
-
-    public void f(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.b = arrayList;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.m(tbPageContext, i);
+                q(k(), 3);
+            }
+            this.g = i;
         }
     }
 }

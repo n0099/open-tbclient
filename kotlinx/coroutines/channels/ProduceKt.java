@@ -66,7 +66,7 @@ public final class ProduceKt {
                             produceKt$awaitClose$1.L$1 = function0;
                             produceKt$awaitClose$1.label = 1;
                             final CancellableContinuationImpl cancellableContinuationImpl = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(produceKt$awaitClose$1), 1);
-                            producerScope.mo2240invokeOnClose(new Function1<Throwable, Unit>() { // from class: kotlinx.coroutines.channels.ProduceKt$awaitClose$4$1
+                            producerScope.mo2242invokeOnClose(new Function1<Throwable, Unit>() { // from class: kotlinx.coroutines.channels.ProduceKt$awaitClose$4$1
                                 {
                                     super(1);
                                 }
@@ -84,7 +84,7 @@ public final class ProduceKt {
                                     CancellableContinuation cancellableContinuation = CancellableContinuation.this;
                                     Unit unit = Unit.INSTANCE;
                                     Result.Companion companion = Result.Companion;
-                                    cancellableContinuation.resumeWith(Result.m768constructorimpl(unit));
+                                    cancellableContinuation.resumeWith(Result.m770constructorimpl(unit));
                                 }
                             });
                             Object result = cancellableContinuationImpl.getResult();

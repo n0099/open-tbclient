@@ -1,126 +1,67 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
-import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class j58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public ArrayList<TransmitForumData> b;
-    public final CustomMessageListener c;
+    public i58<? extends BaseChatAdapter, ? extends BaseMsg> a;
 
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j58 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(j58 j58Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j58Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j58Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ArrayList)) {
-                this.a.b.clear();
-                this.a.b.addAll((ArrayList) customResponsedMessage.getData());
-            }
-        }
-    }
-
-    public j58(TbPageContext tbPageContext) {
+    public j58() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new ArrayList<>();
-        this.c = new a(this, 2016563);
-        this.a = tbPageContext;
-        MessageManager.getInstance().registerListener(this.c);
     }
 
-    public List<TransmitForumData> b() {
+    @NonNull
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> i58<T, Msg> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return (i58<T, Msg>) this.a;
         }
-        return (List) invokeV.objValue;
+        return (i58) invokeV.objValue;
     }
 
-    public void c() {
+    @Nullable
+    public static j58 b(@NonNull View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dh6.c().i();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            return (j58) view2.getTag(R.id.obfuscated_res_0x7f09223f);
+        }
+        return (j58) invokeL.objValue;
+    }
+
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> void c(@NonNull i58<T, Msg> i58Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i58Var) == null) {
+            this.a = i58Var;
         }
     }
 
-    public void d() {
+    public static void d(@NonNull View view2, @NonNull j58 j58Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.c);
-        }
-    }
-
-    public void e(long j, String str, ShareItem shareItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, shareItem}) == null) {
-            if (j <= 0 && TextUtils.isEmpty(str)) {
-                return;
-            }
-            SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.a.getPageActivity(), 24007);
-            CustomMessage customMessage = new CustomMessage(2002001, selectForumActivityConfig);
-            selectForumActivityConfig.setFrom(1);
-            selectForumActivityConfig.setForumList(this.b);
-            selectForumActivityConfig.setLiveId(j);
-            selectForumActivityConfig.setYyAnchorBdUid(str);
-            shareItem.k(true);
-            MessageManager.getInstance().sendMessage(customMessage);
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, j58Var) == null) {
+            view2.setTag(R.id.obfuscated_res_0x7f09223f, j58Var);
         }
     }
 }

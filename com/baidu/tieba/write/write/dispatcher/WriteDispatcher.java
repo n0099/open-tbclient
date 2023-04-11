@@ -7,15 +7,15 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tieba.g39;
-import com.baidu.tieba.tr9;
+import com.baidu.tieba.k1a;
+import com.baidu.tieba.xc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class WriteDispatcher implements g39 {
+public class WriteDispatcher implements xc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,7 @@ public class WriteDispatcher implements g39 {
         }
     }
 
-    @Override // com.baidu.tieba.g39
+    @Override // com.baidu.tieba.xc9
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
@@ -46,7 +46,7 @@ public class WriteDispatcher implements g39 {
             if (!StringUtils.isNull(jSONObject.optString("dynamicThreadParams"))) {
                 newInstance.setType(15).setCallFrom("2").setDynamicParams(jSONObject.optString("dynamicThreadParams")).setStatisticFrom(jSONObject.optInt("entranceType")).send();
             } else if (jSONObject.optInt("entranceType") == 1) {
-                newInstance.setType(9).setCallFrom("2").setFrom("main_tab").setStatisticFrom(jSONObject.optInt("entranceType")).setFromArticle(tr9.m).send();
+                newInstance.setType(9).setCallFrom("2").setFrom("main_tab").setStatisticFrom(jSONObject.optInt("entranceType")).setFromArticle(k1a.m).send();
             } else {
                 WriteActivityConfig callFrom = newInstance.setType(9).setTopicId(jSONObject.optString("topicId")).setFrom("topic_detail").setCallFrom("1");
                 if (jSONObject.optInt("enabledSendVoiceThread") != 1) {

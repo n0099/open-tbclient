@@ -1,268 +1,178 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
-import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.log.TbLogManager;
-import com.baidu.tieba.vy9;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.hardware.Camera;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.yalog.Logger;
-import com.baidu.yalog.LoggerManager;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class zy9 implements TbLogManager.a {
+public class zy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public /* synthetic */ class a {
-        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-216009902, "Lcom/baidu/tieba/zy9$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-216009902, "Lcom/baidu/tieba/zy9$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[TbLogManager.Level.values().length];
-            iArr[TbLogManager.Level.VERBOSE.ordinal()] = 1;
-            iArr[TbLogManager.Level.DEBUG.ordinal()] = 2;
-            iArr[TbLogManager.Level.INFO.ordinal()] = 3;
-            iArr[TbLogManager.Level.WARN.ordinal()] = 4;
-            iArr[TbLogManager.Level.ERROR.ordinal()] = 5;
-            $EnumSwitchMapping$0 = iArr;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948376431, "Lcom/baidu/tieba/zy9;")) == null) {
+            return;
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b implements IActiveUploadListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbLogManager.b a;
-
-        public b(TbLogManager.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener
-        public void onFailure(String errMsg) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, errMsg) == null) {
-                Intrinsics.checkNotNullParameter(errMsg, "errMsg");
-                TbLogManager.b bVar = this.a;
-                if (bVar != null) {
-                    bVar.onFailure(errMsg);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener
-        public void onSuccess() {
-            TbLogManager.b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bVar = this.a) != null) {
-                bVar.onSuccess();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class c implements IActiveUploadListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbLogManager.b a;
-
-        public c(TbLogManager.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener
-        public void onFailure(String errMsg) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, errMsg) == null) {
-                Intrinsics.checkNotNullParameter(errMsg, "errMsg");
-                TbLogManager.b bVar = this.a;
-                if (bVar != null) {
-                    bVar.onFailure(errMsg);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener
-        public void onSuccess() {
-            TbLogManager.b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bVar = this.a) != null) {
-                bVar.onSuccess();
-            }
-        }
-    }
-
-    public zy9() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948376431, "Lcom/baidu/tieba/zy9;");
         }
     }
 
-    public static final void g() {
+    public static int a(int i, int i2, int i3) {
+        InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            LoggerManager.reinitialize();
-        }
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
     }
 
-    @Override // com.baidu.tieba.log.TbLogManager.a
-    public void a() {
+    public static int b(TbPageContext tbPageContext, int i) {
+        InterceptResult invokeLI;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LoggerManager.requestCleanOverQuotaLog();
-        }
-    }
-
-    @Override // com.baidu.tieba.log.TbLogManager.a
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            vy9.c(new vy9.d() { // from class: com.baidu.tieba.ty9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.vy9.d
-                public final void onSuccess() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        zy9.g();
-                    }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, tbPageContext, i)) == null) {
+            int i3 = 0;
+            try {
+                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+                Camera.getCameraInfo(i, cameraInfo);
+                int d = d(tbPageContext);
+                if (cameraInfo.facing == 1) {
+                    i3 = (cameraInfo.orientation + d) % 360;
+                    i2 = (360 - i3) % 360;
+                } else {
+                    i2 = ((cameraInfo.orientation - d) + 360) % 360;
                 }
-            });
+                return i2;
+            } catch (RuntimeException e) {
+                dha.g(e);
+                return i3;
+            }
         }
+        return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.log.TbLogManager.a
-    public void b(String space, TbLogManager.Level level, String logId, String tag, String msg) {
+    public static int c(Camera.Parameters parameters) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, space, level, logId, tag, msg) == null) {
-            Intrinsics.checkNotNullParameter(space, "space");
-            Intrinsics.checkNotNullParameter(level, "level");
-            Intrinsics.checkNotNullParameter(logId, "logId");
-            Intrinsics.checkNotNullParameter(tag, "tag");
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            Logger logger = LoggerManager.getLogger(space);
-            if (logger == null) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parameters)) == null) {
+            if (parameters == null) {
+                return -1;
             }
-            int i = a.$EnumSwitchMapping$0[level.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i == 5) {
-                                logger.e(logId, tag, msg);
-                            }
-                        } else {
-                            logger.w(logId, tag, msg);
+            try {
+                if (!parameters.isZoomSupported()) {
+                    return -1;
+                }
+                return Math.min(parameters.getMaxZoom(), 40);
+            } catch (Exception e) {
+                dha.g(e);
+                return -1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static int d(TbPageContext tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
+            int rotation = tbPageContext.getPageActivity().getWindowManager().getDefaultDisplay().getRotation();
+            if (rotation == 0) {
+                return 0;
+            }
+            if (rotation != 1) {
+                if (rotation != 2) {
+                    if (rotation != 3) {
+                        return 0;
+                    }
+                    return 270;
+                }
+                return 180;
+            }
+            return 90;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void e(TbPageContext tbPageContext, int i, Matrix matrix) {
+        float f;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(65541, null, tbPageContext, i, matrix) != null) || matrix == null) {
+            return;
+        }
+        if (1 == i) {
+            f = -1.0f;
+        } else {
+            f = 1.0f;
+        }
+        matrix.setScale(f, 1.0f);
+        matrix.postRotate(b(tbPageContext, i));
+        matrix.postScale(wha.e() / 2000.0f, wha.d() / 2000.0f);
+        matrix.postTranslate(wha.e() / 2.0f, wha.d() / 2.0f);
+    }
+
+    public static void g(int i, int i2, Camera camera) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65543, null, i, i2, camera) == null) {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            Camera.getCameraInfo(i2, cameraInfo);
+            int i4 = 0;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            i4 = 270;
                         }
                     } else {
-                        logger.i(logId, tag, msg);
+                        i4 = 180;
                     }
                 } else {
-                    logger.d(logId, tag, msg);
+                    i4 = 90;
                 }
+            }
+            if (cameraInfo.facing == 1) {
+                i3 = (360 - ((cameraInfo.orientation + i4) % 360)) % 360;
             } else {
-                logger.v(logId, tag, msg);
+                i3 = ((cameraInfo.orientation - i4) + 360) % 360;
             }
-            if (TbadkCoreApplication.getInst().isDebugMode() || hv4.h()) {
-                System.out.println((Object) ("TbUbcLog space:" + space + " tag:" + tag + " msg:" + msg));
-            }
+            camera.setDisplayOrientation(i3);
         }
     }
 
-    @Override // com.baidu.tieba.log.TbLogManager.a
-    public void c(String type, String dataId, List<String> spaces, long j, long j2, long j3, TbLogManager.b bVar) {
+    public static void f(RectF rectF, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{type, dataId, spaces, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), bVar}) == null) {
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(dataId, "dataId");
-            Intrinsics.checkNotNullParameter(spaces, "spaces");
-            ((IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE)).activeUpload(type, dataId, spaces, j, j2, j3, new c(bVar));
+        if (interceptable == null || interceptable.invokeLL(65542, null, rectF, rect) == null) {
+            rect.left = Math.round(rectF.left);
+            rect.top = Math.round(rectF.top);
+            rect.right = Math.round(rectF.right);
+            rect.bottom = Math.round(rectF.bottom);
         }
     }
 
-    @Override // com.baidu.tieba.log.TbLogManager.a
-    public void d(String space, boolean z) {
+    public static void h(TbPageContext tbPageContext, int i, Camera camera) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, space, z) == null) {
-            Intrinsics.checkNotNullParameter(space, "space");
-            Logger logger = LoggerManager.getLogger(space);
-            if (logger == null) {
-                return;
+        if (interceptable == null || interceptable.invokeLIL(65544, null, tbPageContext, i, camera) == null) {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            Camera.getCameraInfo(i, cameraInfo);
+            int d = d(tbPageContext);
+            if (cameraInfo.facing == 1) {
+                i2 = (360 - ((cameraInfo.orientation + d) % 360)) % 360;
+            } else {
+                i2 = ((cameraInfo.orientation - d) + 360) % 360;
             }
-            logger.flush(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.log.TbLogManager.a
-    public void e(String type, String dataId, List<String> spaces, TbLogManager.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, type, dataId, spaces, bVar) == null) {
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(dataId, "dataId");
-            Intrinsics.checkNotNullParameter(spaces, "spaces");
-            ((IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE)).activeUpload(type, dataId, spaces, new b(bVar));
+            camera.setDisplayOrientation(i2);
         }
     }
 }

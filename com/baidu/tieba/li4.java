@@ -1,89 +1,99 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class li4 extends zg4<ri4> {
+public class li4 extends ah4<ri4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public of4 d;
-    @Nullable
-    public of4 e;
+    public final String d;
 
-    @Override // com.baidu.tieba.zg4
+    @Override // com.baidu.tieba.ah4
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "updatecore" : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zg4
-    /* renamed from: v */
-    public boolean f(ri4 ri4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ri4Var)) == null) ? ri4Var != null : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public li4(of4 of4Var, zi4 zi4Var, @Nullable of4 of4Var2, @Nullable of4 of4Var3) {
-        super(of4Var, zi4Var);
+    public li4(String str, pf4 pf4Var, aj4 aj4Var) {
+        super(pf4Var, aj4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {of4Var, zi4Var, of4Var2, of4Var3};
+            Object[] objArr = {str, pf4Var, aj4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((of4) objArr2[0], (zi4) objArr2[1]);
+                super((pf4) objArr2[0], (aj4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = of4Var2;
-        this.e = of4Var3;
+        this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zg4
+    @Override // com.baidu.tieba.ah4
     /* renamed from: x */
     public ri4 u(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
-            return al4.q(jSONObject);
+            return bl4.i(this.d, jSONObject);
         }
         return (ri4) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zg4
+    @Override // com.baidu.tieba.ah4
+    /* renamed from: v */
+    public boolean f(ri4 ri4Var) {
+        InterceptResult invokeL;
+        List<ug4> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ri4Var)) == null) {
+            if (ri4Var == null || (list = ri4Var.a) == null) {
+                return false;
+            }
+            for (ug4 ug4Var : list) {
+                if (!ug4Var.a()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ah4
     /* renamed from: w */
-    public ng4 t(ri4 ri4Var) {
+    public og4 t(ri4 ri4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ri4Var)) == null) {
             this.a.E();
-            uk4.e(this.b.a(), ri4Var.a);
-            of4 of4Var = this.a;
-            if (of4Var == this.d || of4Var == this.e) {
-                of4Var = null;
+            cl4 cl4Var = new cl4();
+            p(ri4Var.a, cl4Var);
+            if (cl4Var.n() == 0) {
+                this.a.F();
+                return null;
             }
-            gj4.c(ri4Var.b, of4Var, this.d, this.e);
+            this.a.G(cl4Var);
+            fh4.d(ri4Var, this.a);
             return null;
         }
-        return (ng4) invokeL.objValue;
+        return (og4) invokeL.objValue;
     }
 }

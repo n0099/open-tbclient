@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import android.widget.Toast;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,64 +12,60 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
 /* loaded from: classes6.dex */
 public class si {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static ti b;
-    public static String c;
-    public static ui d;
-    public static Handler e;
+    public static Field a;
+    public static Field b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements Handler.Callback {
+    public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public Handler a;
 
-        public a() {
+        public a(Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {handler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = handler;
+        }
+
+        @Override // android.os.Handler
+        public void dispatchMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                try {
+                    super.dispatchMessage(message);
+                } catch (Exception unused) {
                 }
             }
         }
 
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                int i = message.what;
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i != 6) {
-                            if (si.d != null) {
-                                si.d.error(message.what, zi.a(R.string.obfuscated_res_0x7f0f16a9));
-                            }
-                        } else {
-                            if (si.d != null) {
-                                si.d.d(message.arg1);
-                            }
-                            return true;
-                        }
-                    } else if (si.d != null) {
-                        si.d.error(message.what, zi.a(R.string.obfuscated_res_0x7f0f16a7));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
+                try {
+                    if (this.a != null) {
+                        this.a.handleMessage(message);
                     }
-                } else if (si.d != null) {
-                    si.d.c(si.c, message.arg1);
+                } catch (Exception unused) {
                 }
-                int unused = si.a = 0;
-                ui unused2 = si.d = null;
-                return false;
             }
-            return invokeL.booleanValue;
         }
     }
 
@@ -83,41 +82,31 @@ public class si {
                 return;
             }
         }
-        e = new Handler(new a());
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            ti tiVar = b;
-            if (tiVar != null) {
-                tiVar.l();
-            } else {
-                a = 0;
+        try {
+            if (Build.VERSION.SDK_INT < 28) {
+                Field declaredField = Toast.class.getDeclaredField("mTN");
+                a = declaredField;
+                declaredField.setAccessible(true);
+                Field declaredField2 = a.getType().getDeclaredField("mHandler");
+                b = declaredField2;
+                declaredField2.setAccessible(true);
             }
+        } catch (Exception unused) {
         }
     }
 
-    public static boolean e(String str, ui uiVar, int i) {
-        InterceptResult invokeLLI;
+    public static void a(Toast toast) {
+        Object obj;
+        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, str, uiVar, i)) == null) {
-            if (a == 0) {
-                ti tiVar = b;
-                if (tiVar == null) {
-                    b = new ti(e, i);
-                } else {
-                    tiVar.k(i);
+        if (interceptable == null || interceptable.invokeL(65537, null, toast) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 28 || a == null || b == null || (obj = a.get(toast)) == null || (handler = (Handler) b.get(obj)) == null) {
+                    return;
                 }
-                c = str;
-                d = uiVar;
-                b.j(str);
-                a = 2;
-                new Thread(b).start();
-                return true;
+                b.set(obj, new a(handler));
+            } catch (Exception unused) {
             }
-            return false;
         }
-        return invokeLLI.booleanValue;
     }
 }

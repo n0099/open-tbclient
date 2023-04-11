@@ -12,13 +12,13 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ImPersonInputView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,32 +91,32 @@ public class ImPersonInputView extends RelativeLayout {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03eb, (ViewGroup) this, true);
-        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f090fc0);
-        EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f090922);
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ed, (ViewGroup) this, true);
+        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f090fc5);
+        EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f090924);
         this.b = editText;
-        editText.setHint(getContext().getString(R.string.obfuscated_res_0x7f0f12b8));
+        editText.setHint(getContext().getString(R.string.obfuscated_res_0x7f0f12ae));
         this.b.setMaxLines(3);
         this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0108));
         this.b.setTextColor(getResources().getColor(R.color.CAM_X0105));
-        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0925fa);
+        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0925ef);
         this.c = findViewById;
         findViewById.setAlpha(0.5f);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925fb);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925f0);
         this.d = textView;
-        textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0363));
+        textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0362));
         a();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            n15 d = n15.d(this.b);
+            q25 d = q25.d(this.b);
             d.l(R.color.CAM_X0340);
             d.m(R.dimen.L_X04);
             d.o(R.string.J_X01);
             d.h(SkinManager.getColor(0, (int) R.color.CAM_X0201));
-            n15.d(this.d).w(R.color.CAM_X0100);
+            q25.d(this.d).w(R.color.CAM_X0100);
         }
     }
 

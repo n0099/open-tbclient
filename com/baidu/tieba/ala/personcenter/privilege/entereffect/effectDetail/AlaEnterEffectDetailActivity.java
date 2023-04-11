@@ -13,13 +13,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a96;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.m86;
-import com.baidu.tieba.n86;
-import com.baidu.tieba.w86;
-import com.baidu.tieba.z86;
-import com.baidu.tieba.zz4;
+import com.baidu.tieba.c05;
+import com.baidu.tieba.ca6;
+import com.baidu.tieba.fa6;
+import com.baidu.tieba.ga6;
+import com.baidu.tieba.s96;
+import com.baidu.tieba.t96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,22 +31,22 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public AlaEnterEffectData a;
     public String b;
-    public z86 c;
-    public w86 d;
-    public a96 e;
-    public n86 f;
-    public m86 g;
-    public a96.b h;
-    public z86.b i;
+    public fa6 c;
+    public ca6 d;
+    public ga6 e;
+    public t96 f;
+    public s96 g;
+    public ga6.b h;
+    public fa6.b i;
 
     /* loaded from: classes3.dex */
-    public class d implements z86.b {
+    public class d implements fa6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEnterEffectDetailActivity a;
 
         /* loaded from: classes3.dex */
-        public class a implements zz4.e {
+        public class a implements c05.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -69,26 +69,26 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 this.a = dVar;
             }
 
-            @Override // com.baidu.tieba.zz4.e
-            public void onClick(zz4 zz4Var) {
+            @Override // com.baidu.tieba.c05.e
+            public void onClick(c05 c05Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                    zz4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                    c05Var.dismiss();
                     if (this.a.a.a != null) {
-                        a96 a96Var = this.a.a.e;
+                        ga6 ga6Var = this.a.a.e;
                         String str = this.a.a.a.id;
                         boolean z = true;
                         if (this.a.a.a.use_status == 1) {
                             z = false;
                         }
-                        a96Var.b(str, z);
+                        ga6Var.b(str, z);
                     }
                 }
             }
         }
 
         /* loaded from: classes3.dex */
-        public class b implements zz4.e {
+        public class b implements c05.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -108,11 +108,11 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 }
             }
 
-            @Override // com.baidu.tieba.zz4.e
-            public void onClick(zz4 zz4Var) {
+            @Override // com.baidu.tieba.c05.e
+            public void onClick(c05 c05Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                    zz4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                    c05Var.dismiss();
                 }
             }
         }
@@ -135,7 +135,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             this.a = alaEnterEffectDetailActivity;
         }
 
-        @Override // com.baidu.tieba.z86.b
+        @Override // com.baidu.tieba.fa6.b
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.a == null) {
@@ -160,27 +160,27 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             }
             boolean z = false;
             if (!TextUtils.isEmpty(this.a.b) && !this.a.b.equals(this.a.a.id)) {
-                zz4 zz4Var = new zz4(this.a.getActivity());
-                zz4Var.setCanceledOnTouchOutside(false);
-                zz4Var.setAutoNight(false);
-                zz4Var.setMessageId(R.string.obfuscated_res_0x7f0f020c);
-                zz4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f045e, new a(this));
-                zz4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038e, new b(this));
-                zz4Var.create(this.a.getPageContext());
-                zz4Var.show();
+                c05 c05Var = new c05(this.a.getActivity());
+                c05Var.setCanceledOnTouchOutside(false);
+                c05Var.setAutoNight(false);
+                c05Var.setMessageId(R.string.obfuscated_res_0x7f0f020c);
+                c05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f045d, new a(this));
+                c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new b(this));
+                c05Var.create(this.a.getPageContext());
+                c05Var.show();
             } else if (this.a.a != null) {
-                a96 a96Var = this.a.e;
+                ga6 ga6Var = this.a.e;
                 String str = this.a.a.id;
                 if (this.a.a.use_status != 1) {
                     z = true;
                 }
-                a96Var.b(str, z);
+                ga6Var.b(str, z);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class a implements a96.b {
+    public class a implements ga6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEnterEffectDetailActivity a;
@@ -203,7 +203,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             this.a = alaEnterEffectDetailActivity;
         }
 
-        @Override // com.baidu.tieba.a96.b
+        @Override // com.baidu.tieba.ga6.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -211,7 +211,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             }
         }
 
-        @Override // com.baidu.tieba.a96.b
+        @Override // com.baidu.tieba.ga6.b
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && this.a.a != null) {
@@ -266,7 +266,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements m86.b {
+    public class c implements s96.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEnterEffectDetailActivity a;
@@ -289,7 +289,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             this.a = alaEnterEffectDetailActivity;
         }
 
-        @Override // com.baidu.tieba.m86.b
+        @Override // com.baidu.tieba.s96.b
         public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -348,33 +348,33 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            a96 a96Var = this.e;
-            if (a96Var != null) {
-                a96Var.c();
+            ga6 ga6Var = this.e;
+            if (ga6Var != null) {
+                ga6Var.c();
             }
-            w86 w86Var = this.d;
-            if (w86Var != null) {
-                w86Var.d();
+            ca6 ca6Var = this.d;
+            if (ca6Var != null) {
+                ca6Var.d();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        w86 w86Var;
+        ca6 ca6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
             AlaEnterEffectData alaEnterEffectData = this.a;
-            if (alaEnterEffectData != null && (w86Var = this.d) != null) {
-                w86Var.g(alaEnterEffectData);
+            if (alaEnterEffectData != null && (ca6Var = this.d) != null) {
+                ca6Var.g(alaEnterEffectData);
             }
         }
     }
 
     public static void startActivityForResult(Activity activity, AlaEnterEffectData alaEnterEffectData, String str, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(65542, null, activity, alaEnterEffectData, str, i) == null) && activity != null && alaEnterEffectData != null) {
+        if ((interceptable == null || interceptable.invokeLLLI(65541, null, activity, alaEnterEffectData, str, i) == null) && activity != null && alaEnterEffectData != null) {
             Intent intent = new Intent(activity, AlaEnterEffectDetailActivity.class);
             intent.putExtra("key_effect_data", alaEnterEffectData);
             intent.putExtra("key_selected_effect_id", str);
@@ -388,7 +388,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            this.e = new a96(this.h);
+            this.e = new ga6(this.h);
             Serializable serializableExtra = getIntent().getSerializableExtra("key_effect_data");
             if (!(serializableExtra instanceof AlaEnterEffectData)) {
                 showToast(R.string.tb_err_unknown);
@@ -398,14 +398,14 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             }
             this.a = (AlaEnterEffectData) serializableExtra;
             this.b = getIntent().getStringExtra("key_selected_effect_id");
-            z86 z86Var = new z86(getActivity(), this.a);
-            this.c = z86Var;
-            z86Var.d(this.i);
+            fa6 fa6Var = new fa6(getActivity(), this.a);
+            this.c = fa6Var;
+            fa6Var.d(this.i);
             this.c.b().setOnClickListener(new b(this));
             setContentView(this.c.b());
-            this.d = new w86(getActivity(), this.c.b());
-            this.f = new n86(getPageContext());
-            this.g = new m86(getPageContext(), new c(this));
+            this.d = new ca6(getActivity(), this.c.b());
+            this.f = new t96(getPageContext());
+            this.g = new s96(getPageContext(), new c(this));
         }
     }
 }

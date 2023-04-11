@@ -79,14 +79,14 @@ public class VideoPlatformStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                mj9.h().o();
-                jj9.d().k();
+                dt9.h().o();
+                at9.d().k();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<sc8> {
+    public static class b implements CustomMessageTask.CustomRunnable<jn8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -106,11 +106,11 @@ public class VideoPlatformStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<sc8> run(CustomMessage<sc8> customMessage) {
+        public CustomResponsedMessage<jn8> run(CustomMessage<jn8> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2921309, new tc8());
+                return new CustomResponsedMessage<>(2921309, new kn8());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -235,7 +235,7 @@ public class VideoPlatformStatic {
                 jSONObject.put("deviceId", TbadkCoreApplication.getInst().getImei());
                 jSONObject.put("network", d());
                 jSONObject.put(HttpConstants.HTTP_OS_TYPE_OLD, "AND");
-                jSONObject.put("osVer", ji.k());
+                jSONObject.put("osVer", ki.k());
                 if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                     jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
                 } else {
@@ -246,7 +246,7 @@ public class VideoPlatformStatic {
                     jSONObject.put("location", new StringBuilder().toString());
                 }
                 jSONObject.put(Constants.PHONE_BRAND, Build.BRAND);
-                jSONObject.put("model", ji.g());
+                jSONObject.put("model", ki.g());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -261,21 +261,21 @@ public class VideoPlatformStatic {
         if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
             switch (i) {
                 case 101:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc2);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbb);
                 case 102:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc1);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fba);
                 case 103:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbe);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb7);
                 case 104:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbd);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb6);
                 case 105:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc3);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbc);
                 case 106:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fbf);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb8);
                 case 107:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc0);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb9);
                 default:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f05ea) + i;
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f05e4) + i;
             }
         }
         return (String) invokeI.objValue;

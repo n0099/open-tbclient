@@ -1,191 +1,112 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Xml;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes3.dex */
 public class ao4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0043 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0045 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0021 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v14 */
-    public static boolean a(InputStream inputStream, File file) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
-        int read;
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, file)) == null) {
-            boolean z = false;
-            if (inputStream == null || file == null) {
-                return false;
-            }
-            File parentFile = file.getParentFile();
-            if (!parentFile.exists()) {
-                parentFile.mkdirs();
-            }
-            if (file.exists()) {
-                file.delete();
-            }
-            FileOutputStream fileOutputStream2 = null;
-            FileOutputStream fileOutputStream3 = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e) {
-                e = e;
-            }
-            try {
-                byte[] bArr = new byte[8192];
-                while (true) {
-                    read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    fileOutputStream.write(bArr, 0, read);
-                }
-                fileOutputStream.flush();
-                z = true;
-                xn4.d(fileOutputStream);
-                fileOutputStream2 = read;
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream3 = fileOutputStream;
-                e.printStackTrace();
-                xn4.d(fileOutputStream3);
-                fileOutputStream2 = fileOutputStream3;
-                xn4.d(inputStream);
-                return z;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                xn4.d(fileOutputStream2);
-                xn4.d(inputStream);
-                throw th;
-            }
-            xn4.d(inputStream);
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static String b(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
-            return c(inputStream, Xml.Encoding.UTF_8.toString());
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(InputStream inputStream, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
-            if (inputStream == null) {
-                return null;
-            }
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
             StringBuilder sb = new StringBuilder();
-            try {
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, str), 8192);
-                    while (true) {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        sb.append(readLine);
-                    }
-                } catch (Throwable th) {
-                    xn4.d(inputStream);
-                    throw th;
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
                 }
-            } catch (Exception | OutOfMemoryError e) {
-                e.printStackTrace();
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
-            xn4.d(inputStream);
             return sb.toString();
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeLLZ.objValue;
     }
 
-    public static boolean d(InputStream inputStream, String str) {
-        InterceptResult invokeLL;
+    public static String b(File file, boolean z) {
+        InterceptResult invokeLZ;
+        ReadableByteChannel readableByteChannel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, inputStream, str)) == null) {
-            boolean z = false;
-            if (inputStream != null && !TextUtils.isEmpty(str)) {
-                File file = new File(str);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                byte[] bArr = new byte[8192];
-                ZipInputStream zipInputStream = new ZipInputStream(inputStream);
-                while (true) {
-                    try {
-                        ZipEntry nextEntry = zipInputStream.getNextEntry();
-                        if (nextEntry != null) {
-                            String str2 = str + "/" + nextEntry.getName();
-                            if (xn4.x(str2)) {
-                                xn4.d(zipInputStream);
-                                return false;
-                            } else if (nextEntry.isDirectory()) {
-                                File file2 = new File(str2);
-                                if (!file2.exists()) {
-                                    file2.mkdirs();
-                                }
-                            } else {
-                                File parentFile = new File(str2).getParentFile();
-                                if (!parentFile.exists()) {
-                                    parentFile.mkdirs();
-                                }
-                                if (!parentFile.isDirectory()) {
-                                    parentFile.delete();
-                                    parentFile.mkdirs();
-                                }
-                                FileOutputStream fileOutputStream = new FileOutputStream(str2);
-                                while (true) {
-                                    try {
-                                        int read = zipInputStream.read(bArr);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        fileOutputStream.write(bArr, 0, read);
-                                    } finally {
-                                    }
-                                }
-                                xn4.d(fileOutputStream);
-                            }
-                        } else {
-                            z = true;
-                            break;
-                        }
-                    } catch (IOException unused) {
-                    } catch (Throwable th) {
-                        xn4.d(zipInputStream);
-                        throw th;
-                    }
-                }
-                xn4.d(zipInputStream);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
+            ReadableByteChannel readableByteChannel2 = null;
+            try {
+                readableByteChannel = Channels.newChannel(new FileInputStream(file));
+            } catch (IOException unused) {
+                readableByteChannel = null;
+            } catch (Throwable th) {
+                th = th;
             }
-            return z;
+            try {
+                String c = c(z, readableByteChannel);
+                if (readableByteChannel != null && readableByteChannel.isOpen()) {
+                    yn4.d(readableByteChannel);
+                }
+                return c;
+            } catch (IOException unused2) {
+                if (readableByteChannel != null && readableByteChannel.isOpen()) {
+                    yn4.d(readableByteChannel);
+                }
+                return null;
+            } catch (Throwable th2) {
+                th = th2;
+                readableByteChannel2 = readableByteChannel;
+                if (readableByteChannel2 != null && readableByteChannel2.isOpen()) {
+                    yn4.d(readableByteChannel2);
+                }
+                throw th;
+            }
         }
-        return invokeLL.booleanValue;
+        return (String) invokeLZ.objValue;
+    }
+
+    public static String c(boolean z, ReadableByteChannel readableByteChannel) throws IOException {
+        InterceptResult invokeZL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(65538, null, z, readableByteChannel)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                ByteBuffer allocate = ByteBuffer.allocate(8192);
+                while (readableByteChannel.read(allocate) != -1) {
+                    allocate.flip();
+                    messageDigest.update(allocate);
+                    allocate.clear();
+                }
+                return a(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException unused) {
+                return null;
+            }
+        }
+        return (String) invokeZL.objValue;
+    }
+
+    public static String d(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return a(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException unused) {
+                return null;
+            }
+        }
+        return (String) invokeLZ.objValue;
     }
 }

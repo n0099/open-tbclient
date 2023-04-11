@@ -17,14 +17,14 @@ public final class c extends a {
 
     @Override // com.kwad.components.ad.reflux.kwai.a
     public final void M(@NonNull Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0485, this);
-        this.li = (TextView) findViewById(R.id.obfuscated_res_0x7f0912b1);
-        this.lm = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912af);
-        this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912b0);
-        this.ll = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912aa);
-        this.lj = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ab);
-        this.lk = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a8);
-        this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0912b2);
-        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0912a9);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0487, this);
+        this.li = (TextView) findViewById(R.id.obfuscated_res_0x7f0912b5);
+        this.lm = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912b3);
+        this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912b4);
+        this.ll = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912ae);
+        this.lj = (TextView) findViewById(R.id.obfuscated_res_0x7f0912af);
+        this.lk = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ac);
+        this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0912b6);
+        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0912ad);
     }
 }

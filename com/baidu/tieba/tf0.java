@@ -26,7 +26,7 @@ public class tf0 {
             }
         }
         try {
-            z = ie9.a;
+            z = uf0.a;
         } catch (Throwable unused) {
             z = false;
         }

@@ -20,6 +20,6 @@ public class TailFrameBarAppLandscape extends a {
 
     @Override // com.kwad.components.ad.widget.tailframe.appbar.a
     public int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d04b1;
+        return R.layout.obfuscated_res_0x7f0d04b3;
     }
 }

@@ -33,7 +33,7 @@ public class CloseAdData extends OrmObject {
         this.a = 1;
     }
 
-    public int R() {
+    public int Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -42,7 +42,7 @@ public class CloseAdData extends OrmObject {
         return invokeV.intValue;
     }
 
-    public int S() {
+    public int R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -51,7 +51,7 @@ public class CloseAdData extends OrmObject {
         return invokeV.intValue;
     }
 
-    public void T(VipCloseAd vipCloseAd) {
+    public void S(VipCloseAd vipCloseAd) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vipCloseAd) != null) || vipCloseAd == null) {
             return;

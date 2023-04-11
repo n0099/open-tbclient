@@ -45,21 +45,21 @@ public final class ExceptionsConstuctorKt {
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
                     public final Throwable invoke(Throwable th) {
-                        Object m768constructorimpl;
+                        Object m770constructorimpl;
                         Object newInstance;
                         try {
                             Result.Companion companion = Result.Companion;
                             newInstance = constructor.newInstance(th.getMessage(), th);
                         } catch (Throwable th2) {
                             Result.Companion companion2 = Result.Companion;
-                            m768constructorimpl = Result.m768constructorimpl(ResultKt.createFailure(th2));
+                            m770constructorimpl = Result.m770constructorimpl(ResultKt.createFailure(th2));
                         }
                         if (newInstance != null) {
-                            m768constructorimpl = Result.m768constructorimpl((Throwable) newInstance);
-                            if (Result.m774isFailureimpl(m768constructorimpl)) {
-                                m768constructorimpl = null;
+                            m770constructorimpl = Result.m770constructorimpl((Throwable) newInstance);
+                            if (Result.m776isFailureimpl(m770constructorimpl)) {
+                                m770constructorimpl = null;
                             }
-                            return (Throwable) m768constructorimpl;
+                            return (Throwable) m770constructorimpl;
                         }
                         throw new TypeCastException("null cannot be cast to non-null type kotlin.Throwable");
                     }
@@ -76,21 +76,21 @@ public final class ExceptionsConstuctorKt {
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
                     public final Throwable invoke(Throwable th) {
-                        Object m768constructorimpl;
+                        Object m770constructorimpl;
                         Object newInstance;
                         try {
                             Result.Companion companion = Result.Companion;
                             newInstance = constructor.newInstance(th);
                         } catch (Throwable th2) {
                             Result.Companion companion2 = Result.Companion;
-                            m768constructorimpl = Result.m768constructorimpl(ResultKt.createFailure(th2));
+                            m770constructorimpl = Result.m770constructorimpl(ResultKt.createFailure(th2));
                         }
                         if (newInstance != null) {
-                            m768constructorimpl = Result.m768constructorimpl((Throwable) newInstance);
-                            if (Result.m774isFailureimpl(m768constructorimpl)) {
-                                m768constructorimpl = null;
+                            m770constructorimpl = Result.m770constructorimpl((Throwable) newInstance);
+                            if (Result.m776isFailureimpl(m770constructorimpl)) {
+                                m770constructorimpl = null;
                             }
-                            return (Throwable) m768constructorimpl;
+                            return (Throwable) m770constructorimpl;
                         }
                         throw new TypeCastException("null cannot be cast to non-null type kotlin.Throwable");
                     }
@@ -108,23 +108,23 @@ public final class ExceptionsConstuctorKt {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.jvm.functions.Function1
                 public final Throwable invoke(Throwable th) {
-                    Object m768constructorimpl;
+                    Object m770constructorimpl;
                     Object newInstance;
                     try {
                         Result.Companion companion = Result.Companion;
                         newInstance = constructor.newInstance(th.getMessage());
                     } catch (Throwable th2) {
                         Result.Companion companion2 = Result.Companion;
-                        m768constructorimpl = Result.m768constructorimpl(ResultKt.createFailure(th2));
+                        m770constructorimpl = Result.m770constructorimpl(ResultKt.createFailure(th2));
                     }
                     if (newInstance != null) {
                         Throwable th3 = (Throwable) newInstance;
                         th3.initCause(th);
-                        m768constructorimpl = Result.m768constructorimpl(th3);
-                        if (Result.m774isFailureimpl(m768constructorimpl)) {
-                            m768constructorimpl = null;
+                        m770constructorimpl = Result.m770constructorimpl(th3);
+                        if (Result.m776isFailureimpl(m770constructorimpl)) {
+                            m770constructorimpl = null;
                         }
-                        return (Throwable) m768constructorimpl;
+                        return (Throwable) m770constructorimpl;
                     }
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.Throwable");
                 }
@@ -139,23 +139,23 @@ public final class ExceptionsConstuctorKt {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // kotlin.jvm.functions.Function1
             public final Throwable invoke(Throwable th) {
-                Object m768constructorimpl;
+                Object m770constructorimpl;
                 Object newInstance;
                 try {
                     Result.Companion companion = Result.Companion;
                     newInstance = constructor.newInstance(new Object[0]);
                 } catch (Throwable th2) {
                     Result.Companion companion2 = Result.Companion;
-                    m768constructorimpl = Result.m768constructorimpl(ResultKt.createFailure(th2));
+                    m770constructorimpl = Result.m770constructorimpl(ResultKt.createFailure(th2));
                 }
                 if (newInstance != null) {
                     Throwable th3 = (Throwable) newInstance;
                     th3.initCause(th);
-                    m768constructorimpl = Result.m768constructorimpl(th3);
-                    if (Result.m774isFailureimpl(m768constructorimpl)) {
-                        m768constructorimpl = null;
+                    m770constructorimpl = Result.m770constructorimpl(th3);
+                    if (Result.m776isFailureimpl(m770constructorimpl)) {
+                        m770constructorimpl = null;
                     }
-                    return (Throwable) m768constructorimpl;
+                    return (Throwable) m770constructorimpl;
                 }
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.Throwable");
             }
@@ -177,20 +177,20 @@ public final class ExceptionsConstuctorKt {
     }
 
     public static final int fieldsCountOrDefault(Class<?> cls, int i) {
-        Integer m768constructorimpl;
+        Integer m770constructorimpl;
         JvmClassMappingKt.getKotlinClass(cls);
         try {
             Result.Companion companion = Result.Companion;
-            m768constructorimpl = Result.m768constructorimpl(Integer.valueOf(fieldsCount$default(cls, 0, 1, null)));
+            m770constructorimpl = Result.m770constructorimpl(Integer.valueOf(fieldsCount$default(cls, 0, 1, null)));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m768constructorimpl = Result.m768constructorimpl(ResultKt.createFailure(th));
+            m770constructorimpl = Result.m770constructorimpl(ResultKt.createFailure(th));
         }
         Integer valueOf = Integer.valueOf(i);
-        if (Result.m774isFailureimpl(m768constructorimpl)) {
-            m768constructorimpl = valueOf;
+        if (Result.m776isFailureimpl(m770constructorimpl)) {
+            m770constructorimpl = valueOf;
         }
-        return ((Number) m768constructorimpl).intValue();
+        return ((Number) m770constructorimpl).intValue();
     }
 
     public static /* synthetic */ int fieldsCount$default(Class cls, int i, int i2, Object obj) {
@@ -209,25 +209,25 @@ public final class ExceptionsConstuctorKt {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // kotlin.jvm.functions.Function1
             public final Throwable invoke(Throwable th) {
-                Object m768constructorimpl;
+                Object m770constructorimpl;
                 try {
                     Result.Companion companion = Result.Companion;
-                    m768constructorimpl = Result.m768constructorimpl((Throwable) Function1.this.invoke(th));
+                    m770constructorimpl = Result.m770constructorimpl((Throwable) Function1.this.invoke(th));
                 } catch (Throwable th2) {
                     Result.Companion companion2 = Result.Companion;
-                    m768constructorimpl = Result.m768constructorimpl(ResultKt.createFailure(th2));
+                    m770constructorimpl = Result.m770constructorimpl(ResultKt.createFailure(th2));
                 }
-                if (Result.m774isFailureimpl(m768constructorimpl)) {
-                    m768constructorimpl = null;
+                if (Result.m776isFailureimpl(m770constructorimpl)) {
+                    m770constructorimpl = null;
                 }
-                return (Throwable) m768constructorimpl;
+                return (Throwable) m770constructorimpl;
             }
         };
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, ARITH, INVOKE] complete} */
     public static final <E extends Throwable> E tryCopyException(E e) {
-        Object m768constructorimpl;
+        Object m770constructorimpl;
         ReentrantReadWriteLock.ReadLock readLock;
         int i;
         ReentrantReadWriteLock.WriteLock writeLock;
@@ -237,13 +237,13 @@ public final class ExceptionsConstuctorKt {
         if (e instanceof CopyableThrowable) {
             try {
                 Result.Companion companion = Result.Companion;
-                m768constructorimpl = Result.m768constructorimpl(((CopyableThrowable) e).createCopy());
+                m770constructorimpl = Result.m770constructorimpl(((CopyableThrowable) e).createCopy());
             } catch (Throwable th) {
                 Result.Companion companion2 = Result.Companion;
-                m768constructorimpl = Result.m768constructorimpl(ResultKt.createFailure(th));
+                m770constructorimpl = Result.m770constructorimpl(ResultKt.createFailure(th));
             }
-            if (!Result.m774isFailureimpl(m768constructorimpl)) {
-                obj = m768constructorimpl;
+            if (!Result.m776isFailureimpl(m770constructorimpl)) {
+                obj = m770constructorimpl;
             }
             return (E) obj;
         }

@@ -1,21 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.FrsPage.PrivateForumShareinfo;
+import tbclient.FrsPage.PrivateForumTotalInfo;
+import tbclient.PrivateForumInfo;
+import tbclient.PrivatePopInfo;
 /* loaded from: classes6.dex */
 public class uy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
+    public PrivatePopInfo a;
+    public PrivateForumInfo b;
+    public Integer c;
 
     public uy4() {
         Interceptable interceptable = $ic;
@@ -27,50 +29,53 @@ public class uy4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.c = null;
     }
 
-    public void a(Intent intent) {
+    public PrivateForumInfo a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, intent) != null) || intent == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (PrivateForumInfo) invokeV.objValue;
+    }
+
+    public Integer b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (Integer) invokeV.objValue;
+    }
+
+    public PrivatePopInfo c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (PrivatePopInfo) invokeV.objValue;
+    }
+
+    public void d(PrivateForumTotalInfo privateForumTotalInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, privateForumTotalInfo) != null) || privateForumTotalInfo == null) {
             return;
         }
-        this.a = intent.getStringExtra(TiebaStatic.Params.RECOM_WEIGHT);
-        this.b = intent.getStringExtra("recom_source");
-        this.c = intent.getStringExtra("recom_abtag");
-        this.d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
-    }
-
-    public void b(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) != null) || threadData == null) {
-            return;
+        try {
+            PrivateForumShareinfo privateForumShareinfo = privateForumTotalInfo.private_forum_shareinfo;
+            this.b = privateForumTotalInfo.private_forum_info;
+            this.c = privateForumTotalInfo.private_forum_taskpercent;
+            this.a = privateForumTotalInfo.private_forum_popinfo;
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
-        this.a = threadData.mRecomWeight;
-        this.b = threadData.mRecomSource;
-        this.c = threadData.mRecomAbTag;
-        this.d = threadData.mRecomExtra;
-    }
-
-    public void c(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) && intent != null) {
-            intent.putExtra(TiebaStatic.Params.RECOM_WEIGHT, this.a);
-            intent.putExtra("recom_source", this.b);
-            intent.putExtra("recom_abtag", this.c);
-            intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.d);
-        }
-    }
-
-    public void d(ey8 ey8Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, ey8Var) != null) || ey8Var == null) {
-            return;
-        }
-        ey8Var.g = this.a;
-        ey8Var.f = this.b;
-        ey8Var.l = this.c;
-        ey8Var.o = this.d;
     }
 }

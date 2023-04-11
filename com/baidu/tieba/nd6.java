@@ -1,22 +1,94 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.webkit.WebResourceResponse;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: OnWebScrollChangeListener.java */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class nd6 {
+public class nd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final WebResourceResponse a;
+    public final ByteArrayInputStream b;
+    public final int c;
 
-    public static void a(od6 od6Var, int i, int i2, int i3, int i4) {
+    public nd6(WebResourceResponse webResourceResponse, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{od6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webResourceResponse, bArr};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.a = webResourceResponse;
+        if (bArr != null) {
+            this.c = bArr.length;
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            this.b = byteArrayInputStream;
+            byteArrayInputStream.mark(0);
+            return;
+        }
+        this.c = 0;
+        this.b = null;
     }
 
-    public static void b(od6 od6Var, int i, int i2, int i3, int i4) {
+    public WebResourceResponse a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{od6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b != null && c()) {
+                this.b.reset();
+                this.a.setData(this.b);
+            }
+            return this.a;
         }
+        return (WebResourceResponse) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a != null && this.b != null && d() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WebResourceResponse webResourceResponse = this.a;
+            if (webResourceResponse != null && !df6.b(webResourceResponse.getResponseHeaders())) {
+                return TextUtils.equals(this.a.getResponseHeaders().get("tieba-response-via"), PrefetchEvent.MODULE);
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,16 +1,13 @@
 package com.baidu.tieba;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.android.util.io.FileUtils;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,40 +16,150 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import rx.schedulers.Schedulers;
 /* loaded from: classes5.dex */
 public class op5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static volatile op5 e = null;
-    public static String f = "ad_download_center";
-    public static int g = 3;
-    public static int h = 4;
-    public static String i = "MYPAGE_TAB";
-    public static String j = "POINT_VISIBLE";
-    public static String k = "POINT_GONE";
+    public static /* synthetic */ Interceptable $ic;
+    public static JSONObject a;
+    public static ArrayList<Long> b;
+    public static final Hashtable<String, ArrayList<c<Integer, Integer>>> c;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public SharedPreferences.Editor b;
-    public String c;
-    public boolean d;
+
+    /* loaded from: classes5.dex */
+    public static class a implements t1b<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.t1b
+        public void call(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                String s = p45.m().s("old_sniff_url", "");
+                if (TextUtils.isEmpty(this.a) || this.a.equals(s)) {
+                    op5.p(false);
+                    return;
+                }
+                File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
+                if (!file.exists()) {
+                    file.mkdir();
+                }
+                if (kp5.j().b(new File(file, "sniff.json"), this.a) > 0) {
+                    p45.m().B("old_sniff_url", "");
+                }
+                op5.p(true);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements t1b<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+
+        public b(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.t1b
+        public void call(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                if (op5.a == null || this.a) {
+                    op5.g();
+                }
+                op5.o();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c<X, Y> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final X a;
+        public final Y b;
+
+        public c(X x, Y y) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x, y};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x;
+            this.b = y;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948039957, "Lcom/baidu/tieba/op5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948039957, "Lcom/baidu/tieba/op5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948039957, "Lcom/baidu/tieba/op5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948039957, "Lcom/baidu/tieba/op5;");
-        }
+        b = new ArrayList<>();
+        c = new Hashtable<>();
+        d = true;
     }
 
     public op5() {
@@ -60,265 +167,230 @@ public class op5 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.d = false;
-        this.c = TbadkCoreApplication.getCurrentAccount();
-        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("person_download_apks", 0);
-        this.a = sharedPreferences;
-        this.b = sharedPreferences.edit();
     }
 
-    public static op5 c() {
+    public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return lg0.e();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            f1b.f("").k(Schedulers.io()).w(new a(str));
+        }
+    }
+
+    public static void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
+            k(i, 0);
+        }
+    }
+
+    public static void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65550, null, i) == null) {
+            j(i, 0);
+        }
+    }
+
+    public static void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
+            f1b.f("").k(Schedulers.io()).w(new b(z));
+        }
+    }
+
+    public static void f(PackageManager packageManager, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(65543, null, packageManager, str, i, i2) == null) {
+            try {
+                packageManager.getApplicationInfo(str, 0);
+                j(i, i2);
+            } catch (PackageManager.NameNotFoundException unused) {
+                k(i, i2);
+            }
+        }
+    }
+
+    public static void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
+            if (!file.exists()) {
+                return;
+            }
+            File file2 = new File(file, "sniff.json");
+            if (!file2.exists()) {
+                return;
+            }
+            String readFileData = FileUtils.readFileData(file2);
+            if (!TextUtils.isEmpty(readFileData)) {
                 synchronized (op5.class) {
-                    if (e == null) {
-                        e = new op5();
+                    try {
+                        a = new JSONObject(readFileData);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
             }
-            return e;
-        }
-        return (op5) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921740, Boolean.FALSE));
         }
     }
 
-    public boolean d() {
+    public static String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            ArrayList<Long> arrayList = b;
+            if (arrayList != null && arrayList.size() != 0) {
+                ArrayList arrayList2 = new ArrayList();
+                Iterator<Long> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    arrayList2.add(String.valueOf(it.next()));
+                }
+                return TextUtils.join(",", arrayList2);
+            }
+            return "";
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public void g() {
+    public static void j(int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && f()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921744));
-            r(i, false);
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921740, Boolean.TRUE));
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921741));
+        if (interceptable == null || interceptable.invokeII(65547, null, i, i2) == null) {
+            ArrayList<Long> arrayList = b;
+            if (i < arrayList.size()) {
+                arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() | (1 << i2)));
+            }
         }
     }
 
-    public void q() {
+    public static void k(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921742));
+        if (interceptable == null || interceptable.invokeII(65548, null, i, i2) == null) {
+            ArrayList<Long> arrayList = b;
+            if (i < arrayList.size()) {
+                arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() & (~(1 << i2))));
+            }
         }
     }
 
-    public void a(String str) {
+    public static void n(int i, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
+        if (interceptable == null || interceptable.invokeIL(65551, null, i, jSONArray) == null) {
+            if (i >= b.size()) {
+                Log.e("AD_SNIFF_RESULT_KEY", "group index should NOT greater or equal group size!!!");
+                return;
+            }
+            PackageManager packageManager = BdBaseApplication.getInst().getApp().getApplicationContext().getPackageManager();
+            l(i);
+            int i2 = 0;
+            while (i2 < jSONArray.length()) {
+                String optString = jSONArray.optString(i2);
+                i2++;
+                c<Integer, Integer> cVar = new c<>(Integer.valueOf(i), Integer.valueOf(i2));
+                ArrayList<c<Integer, Integer>> arrayList = c.get(optString);
+                if (arrayList == null) {
+                    arrayList = new ArrayList<>();
+                }
+                arrayList.add(cVar);
+                c.put(optString, arrayList);
+                f(packageManager, optString, i, i2);
+            }
+            m(i);
+            p45.m().B("AD_SNIFF_RESULT_KEY", i());
+        }
+    }
+
+    public static void o() {
+        JSONObject jSONObject;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65552, null) != null) || (jSONObject = a) == null || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
             return;
         }
-        File file = new File(str);
-        try {
-            if (file.exists()) {
-                file.delete();
+        int length = optJSONArray.length();
+        int size = b.size();
+        ArrayList<Long> arrayList = new ArrayList<>();
+        for (int i = 0; i < length; i++) {
+            if (i < size) {
+                arrayList.add(b.get(i));
+            } else {
+                arrayList.add(0L);
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
         }
-    }
-
-    public boolean i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (str != null && !str.equals("")) {
-                try {
-                    if (new File(str).exists()) {
-                        return true;
-                    }
-                } catch (Exception unused) {
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (str != null && !"".equals(str)) {
-                try {
-                    if (TbadkCoreApplication.getInst().getPackageManager().getApplicationInfo(str, 0) != null) {
-                        return true;
-                    }
-                } catch (PackageManager.NameNotFoundException unused) {
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (z) {
-                n(true);
-                b();
-                g();
+        b = arrayList;
+        for (int i2 = 0; i2 < length; i2++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+            if (optJSONObject == null) {
                 return;
             }
-            n(false);
-            p();
+            q(i2, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), d);
+        }
+        if (d) {
+            d = false;
         }
     }
 
-    public void l(String str) {
+    public static void q(int i, String str, int i2, JSONArray jSONArray, boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            HashMap<String, String> e2 = e();
-            if (!TextUtils.isEmpty(str) && e2 != null && e2.size() > 0 && e2.containsKey(str)) {
-                e2.remove(str);
-                m(e2);
+        if ((interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), jSONArray, Boolean.valueOf(z)}) == null) && i >= 0 && !TextUtils.isEmpty(str) && i2 >= 0 && jSONArray != null && jSONArray.length() != 0) {
+            long time = new Date().getTime();
+            String str2 = "AD_SNIFF_RESULT_KEY_" + str + "_TS";
+            long o = p45.m().o(str2, 0L);
+            long millis = TimeUnit.MINUTES.toMillis(i2);
+            boolean z3 = true;
+            int i3 = (o > 0L ? 1 : (o == 0L ? 0 : -1));
+            if (i3 == 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            z3 = (i3 <= 0 || time - o <= millis) ? false : false;
+            if (z || z2 || z3) {
+                p45.m().A(str2, time);
+                n(i, jSONArray);
             }
         }
     }
 
-    public void n(boolean z) {
+    public static void r(Intent intent) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.d = z;
+        if ((interceptable != null && interceptable.invokeL(65555, null, intent) != null) || TextUtils.isEmpty(intent.getDataString())) {
+            return;
         }
-    }
-
-    public HashMap<String, String> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return null;
-                }
-                this.c = TbadkCoreApplication.getCurrentAccount();
-            }
-            HashMap<String, String> hashMap = new HashMap<>();
-            try {
-                JSONArray jSONArray = new JSONArray(this.a.getString(this.c, ""));
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                    JSONArray names = jSONObject.names();
-                    if (names != null) {
-                        for (int i3 = 0; i3 < names.length(); i3++) {
-                            String string = names.getString(i3);
-                            hashMap.put(string, jSONObject.getString(string));
-                        }
-                    }
-                }
-                return hashMap;
-            } catch (JSONException unused) {
-                return null;
-            }
+        if (intent.getDataString().length() > 8) {
+            str = intent.getDataString().substring(8);
+        } else {
+            str = "";
         }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            HashMap<String, String> e2 = e();
-            if (e2 != null && e2.size() > 0) {
-                for (Map.Entry<String, String> entry : e2.entrySet()) {
-                    if (TextUtils.isEmpty(entry.getKey()) || TextUtils.isEmpty(entry.getValue())) {
-                        break;
-                    } else if (entry.getKey().equals(i) && entry.getValue().equals(j)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && str != null && str.length() > 0 && i(str)) {
-            File file = new File(str);
-            try {
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
-                intent.setDataAndType(UtilHelper.getUriFromFile(file, intent, TbadkCoreApplication.getInst()), "application/vnd.android.package-archive");
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                TbadkCoreApplication.getInst().startActivity(intent);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public void m(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return;
-                }
-                this.c = TbadkCoreApplication.getCurrentAccount();
-            }
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                try {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                } catch (JSONException unused) {
-                }
-            }
-            jSONArray.put(jSONObject);
-            this.b.putString(this.c, jSONArray.toString());
-            this.b.commit();
-        }
-    }
-
-    public void r(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048592, this, str, z) == null) {
-            HashMap<String, String> e2 = e();
-            if (!TextUtils.isEmpty(str) && e2 != null && e2.size() > 0) {
-                for (Map.Entry<String, String> entry : e2.entrySet()) {
-                    if (entry != null && e2.containsKey(str)) {
-                        if (z) {
-                            e2.put(str, j);
-                        } else {
-                            e2.put(str, k);
-                        }
-                        m(e2);
+        String action = intent.getAction();
+        ArrayList<c<Integer, Integer>> arrayList = c.get(str);
+        if (arrayList != null && arrayList.size() != 0) {
+            Iterator<c<Integer, Integer>> it = arrayList.iterator();
+            while (it.hasNext()) {
+                c<Integer, Integer> next = it.next();
+                if (next != null) {
+                    int intValue = next.a.intValue();
+                    int intValue2 = next.b.intValue();
+                    if (PackageChangedReceiver.ACTION_INSTALL.equals(action)) {
+                        j(intValue, intValue2);
+                    } else {
+                        k(intValue, intValue2);
                     }
                 }
             }

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface tu4 {
-    void a();
+public interface tu4<T> {
+    void onError(int i, String str);
 
-    void onCancelClick();
+    void onSuccess(T t);
 }

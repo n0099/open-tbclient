@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.helios.ids.gaid.GaidProvider;
-import com.baidu.helios.ids.oid.OaidProvider;
-import com.baidu.tieba.q40;
+import com.baidu.helios.channels.csc.QuantumChannel;
+import com.baidu.tieba.g20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class i50 implements q40.a {
+public class i50 implements g20.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,17 +28,17 @@ public class i50 implements q40.a {
         }
     }
 
-    @Override // com.baidu.tieba.q40.a
-    public List<p40> a() {
+    @Override // com.baidu.tieba.g20.a
+    public List<f20> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new r40());
-            arrayList.add(new OaidProvider());
-            arrayList.add(new GaidProvider());
-            arrayList.add(new e50());
-            arrayList.add(new t40());
+            arrayList.add(new o20());
+            arrayList.add(new QuantumChannel());
+            arrayList.add(new j20());
+            arrayList.add(new k20());
+            arrayList.add(new l20());
             return arrayList;
         }
         return (List) invokeV.objValue;

@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
 public interface bs {
-    boolean a();
+    void a(String str, as asVar);
 }

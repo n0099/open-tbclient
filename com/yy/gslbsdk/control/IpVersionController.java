@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class IpVersionController {
     public static final String IPV4_AND_V6 = "ipv4+v6";
     public static final String IPV4_BIZ = "ipv4-biz";

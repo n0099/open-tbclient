@@ -1,43 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class at9 implements ys9 {
+public class at9 {
     public static /* synthetic */ Interceptable $ic;
+    public static at9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NewVcodeView a;
-    public final NewWriteModel b;
-    public String c;
-    public String d;
-    public boolean e;
-    public String f;
-    public boolean g;
-    public Runnable h;
-    public final NewWriteModel.d i;
-    public NewWriteModel.d j;
 
     /* loaded from: classes3.dex */
-    public class a implements Runnable {
+    public class a extends BdAsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ at9 a;
@@ -60,22 +47,26 @@ public class at9 implements ys9 {
             this.a = at9Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.a == null) {
-                return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                List a = at9.a();
+                int size = a.size();
+                for (int i = 0; i < size; i++) {
+                    zs9 zs9Var = (zs9) a.get(i);
+                    this.a.j(zs9Var.a, zs9Var.b);
+                }
+                return null;
             }
-            if (StringUtils.isNull(this.a.f)) {
-                this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.drag_vcode_error));
-            } else {
-                this.a.a.showToast(false, this.a.f);
-            }
+            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements NewWriteModel.d {
+    public class b extends BdAsyncTask<zs9, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ at9 a;
@@ -98,217 +89,228 @@ public class at9 implements ys9 {
             this.a = at9Var;
         }
 
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, x75 x75Var, WriteData writeData, AntiData antiData) {
-            String str;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Void doInBackground(zs9... zs9VarArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, x75Var, writeData, antiData}) != null) || this.a.a == null) {
-                return;
-            }
-            this.a.a.showPostThreadLoadingView(false);
-            if (!z) {
-                if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                    this.a.a.getContext().setVisible(false);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-                    return;
-                } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015 && this.a.j != null) {
-                    if (this.a.j != null) {
-                        this.a.j.callback(z, postWriteCallBackData, x75Var, writeData, antiData);
-                        return;
-                    }
-                    return;
-                } else if (postWriteCallBackData == null) {
-                    return;
-                } else {
-                    if (StringUtils.isNull(postWriteCallBackData.getErrorString())) {
-                        this.a.a.showToast(false, this.a.a.getContext().getResources().getString(R.string.input_vcode_error));
-                    } else {
-                        this.a.a.showToast(false, postWriteCallBackData.getErrorString());
-                    }
-                    this.a.m();
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zs9VarArr)) == null) {
+                if (zs9VarArr != null && zs9VarArr.length == 1 && zs9VarArr[0] != null) {
+                    this.a.c(zs9VarArr[0]);
                 }
+                return null;
             }
-            this.a.g = true;
-            if (writeData != null && writeData.isAddThread()) {
-                String string = this.a.a.getContext().getResources().getString(R.string.send_success);
-                String str2 = null;
-                if (postWriteCallBackData != null) {
-                    str2 = postWriteCallBackData.getPreMsg();
-                    str = postWriteCallBackData.getColorMsg();
-                    string = postWriteCallBackData.getErrorString();
-                } else {
-                    str = null;
-                }
-                ge9.b(this.a.a.getContext().getActivity(), string, str2, str);
-            }
-            Intent intent = new Intent();
-            Bundle bundle = new Bundle();
-            bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
-            intent.putExtras(bundle);
-            eb9.j(writeData);
-            he9.a(writeData, postWriteCallBackData.getThreadId());
-            BaseActivity context = this.a.a.getContext();
-            this.a.a.getContext();
-            context.setResult(-1, intent);
-            this.a.a.getContext().finish();
+            return (Void) invokeL.objValue;
         }
     }
 
-    public at9(NewVcodeView newVcodeView, NewWriteModel newWriteModel) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947626851, "Lcom/baidu/tieba/at9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947626851, "Lcom/baidu/tieba/at9;");
+                return;
+            }
+        }
+        a = new at9();
+    }
+
+    public at9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {newVcodeView, newWriteModel};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.e = false;
-        this.f = null;
-        this.h = new a(this);
-        b bVar = new b(this);
-        this.i = bVar;
-        this.a = newVcodeView;
-        this.b = newWriteModel;
-        newWriteModel.p0(bVar);
     }
 
-    @Override // com.baidu.tieba.ys9
-    public void c(NewWriteModel.d dVar) {
+    public static /* synthetic */ List a() {
+        return h();
+    }
+
+    public static at9 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.j = dVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
+        }
+        return (at9) invokeV.objValue;
+    }
+
+    public static File[] g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            File file = new File(en8.e);
+            if (!file.exists()) {
+                return null;
+            }
+            return file.listFiles();
+        }
+        return (File[]) invokeV.objValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !di.c()) {
+            return;
+        }
+        new a(this).execute(new Void[0]);
+    }
+
+    public void j(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
+            new b(this).execute(new zs9(str, jSONObject));
         }
     }
 
-    public final boolean k(String str) {
+    public static JSONObject e(String str) {
         InterceptResult invokeL;
-        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (StringUtils.isNull(str) || (split = str.split(",")) == null || split.length != 2) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (StringUtils.isNull(str) || !new File(str).exists()) {
+                return null;
             }
-            this.d = split[0];
-            l(split[1]);
-            return true;
+            try {
+                return new JSONObject().put("running", l(cn8.d(str)));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject f(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            File file = new File(str);
+            if (!file.exists()) {
+                return null;
+            }
+            try {
+                jSONObject = new JSONObject(cn8.e(file));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (!m(jSONObject)) {
+                return null;
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static boolean m(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
+            int optInt = jSONObject.optInt("errorTimes", -1);
+            int optInt2 = jSONObject.optInt("postSuccess", -1);
+            int optInt3 = jSONObject.optInt("posted", -1);
+            if (optInt != -1 && optInt2 != -1 && optInt3 != -1 && (optInt3 == 1 || optInt > 0)) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ys9
-    public void e(boolean z, String str) {
+    public final void c(zs9 zs9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
-            this.e = z;
-            this.f = str;
-        }
-    }
-
-    @Override // com.baidu.tieba.ys9
-    public void onPageFinished(WebView webView, String str) {
-        NewVcodeView newVcodeView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, webView, str) == null) && (newVcodeView = this.a) != null) {
-            newVcodeView.showWebViewDelay(500);
-            if (this.e) {
-                jg.a().postDelayed(this.h, 500L);
+        if (interceptable == null || interceptable.invokeL(1048576, this, zs9Var) == null) {
+            try {
+                byte[] b2 = bt9.b(zs9Var.b);
+                bt9.c(b2, TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
+                cn8.b(zs9Var.a);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    @Override // com.baidu.tieba.ys9
-    public void a(boolean z) {
+    public static List<zs9> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.a.setRatio(1.2631578f);
-            this.a.showWebView(false);
-            String str = TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/captcha";
-            if (z) {
-                str = str + "?feedback=1";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            File[] g = g();
+            if (g == null) {
+                return arrayList;
             }
-            this.a.getWebView().loadUrl(str);
-        }
-    }
-
-    public final void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            if (!hi.F()) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d1f);
-                this.a.getContext().finish();
-            } else if (!StringUtils.isNull(str)) {
-                this.a.showPostThreadLoadingView(true);
-                this.b.h0().setVcode(str);
-                this.b.h0().setVcodeType("4");
-                this.b.s0();
-            } else {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d1f);
-                this.a.getContext().finish();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ys9
-    public boolean b(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
-            if (str.contains("objc:jsChangeVcode")) {
-                String a2 = tq5.a(str);
-                this.c = a2;
-                if (a2 == null || this.b.h0() == null) {
-                    return false;
+            for (File file : g) {
+                String name = file.getName();
+                JSONObject f = f(file.getAbsolutePath() + en8.a + "kpi");
+                if (f == null) {
+                    cn8.b(name);
+                } else {
+                    JSONObject e = e(file.getAbsolutePath() + en8.a + "debug");
+                    if (e == null) {
+                        cn8.b(name);
+                    } else {
+                        arrayList.add(new zs9(name, i(VideoPlatformStatic.c(), f, e)));
+                    }
                 }
-                NewVcodeView newVcodeView = this.a;
-                String str2 = this.c;
-                newVcodeView.runJsMethod(str2, "'" + this.b.h0().getVcodeUrl() + "'");
-                return true;
-            } else if (str.equals("objc:jumpToFeedback()")) {
-                NewVcodeView newVcodeView2 = this.a;
-                if (newVcodeView2 != null && newVcodeView2.getContext() != null) {
-                    ws9.a(this.a.getContext().getPageContext());
-                }
-                return true;
-            } else if (!str.contains("objc:jsSubmit")) {
-                return false;
-            } else {
-                return k(tq5.a(str));
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static JSONObject i(JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, jSONObject, jSONObject2, jSONObject3)) == null) {
+            try {
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("kpiInfo", jSONObject2);
+                jSONObject4.put("baseInfo", jSONObject);
+                jSONObject4.put("debugInfo", jSONObject3);
+                return jSONObject4;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
         }
-        return invokeLL.booleanValue;
+        return (JSONObject) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ys9
-    public void d() {
+    public static JSONArray l(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        int optInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.showPostThreadLoadingView(false);
-            this.b.cancelLoadData();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONArray)) == null) {
+            if (jSONArray == null) {
+                return null;
+            }
+            int length = jSONArray.length();
+            boolean z = false;
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null && ((optInt = optJSONObject.optInt("type")) == 501 || optInt == 503 || optInt == 502)) {
+                    z = true;
+                    break;
+                }
+            }
+            if (!z) {
+                jSONArray.put(new g89(502, "unknown", -4399, "").a());
+            }
+            return jSONArray;
         }
-    }
-
-    @Override // com.baidu.tieba.ys9
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            jg.a().removeCallbacks(this.h);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            NewVcodeView newVcodeView = this.a;
-            String str = this.d;
-            newVcodeView.runJsMethod(str, "'" + this.b.h0().getVcodeUrl() + "'");
-        }
+        return (JSONArray) invokeL.objValue;
     }
 }

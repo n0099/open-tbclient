@@ -11,7 +11,8 @@ import org.json.JSONObject;
 public class w75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
+    public x75 b;
 
     public w75() {
         Interceptable interceptable = $ic;
@@ -27,24 +28,37 @@ public class w75 {
         }
     }
 
-    public String a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void b(JSONObject jSONObject) {
+    public x75 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        try {
-            this.a = jSONObject.optString("checkurl", null);
-        } catch (Exception e) {
-            e.printStackTrace();
+        return (x75) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("common");
+            if (optJSONObject != null) {
+                this.a = optJSONObject.optInt("version");
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("special");
+            if (optJSONObject2 != null) {
+                x75 x75Var = new x75();
+                this.b = x75Var;
+                x75Var.f(optJSONObject2);
+            }
         }
     }
 }

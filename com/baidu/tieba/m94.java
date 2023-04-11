@@ -8,17 +8,12 @@ public class m94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(bf2 bf2Var) {
+    public static void a(cf2 cf2Var, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, bf2Var) == null) && bf2Var != null && bf2Var.n().hasEventListener("audiointerruptionbegin") && w14.h().i()) {
-            bf2Var.dispatchEvent(new JSEvent("audiointerruptionbegin"));
-        }
-    }
-
-    public static void b(bf2 bf2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, bf2Var) == null) && bf2Var != null && bf2Var.n().hasEventListener("audiointerruptionend")) {
-            bf2Var.dispatchEvent(new JSEvent("audiointerruptionend"));
+        if ((interceptable == null || interceptable.invokeLL(65536, null, cf2Var, str) == null) && cf2Var != null && cf2Var.n().hasEventListener("deviceOrientationChange")) {
+            JSEvent jSEvent = new JSEvent("deviceOrientationChange");
+            jSEvent.data = new o94(str);
+            cf2Var.dispatchEvent(jSEvent);
         }
     }
 }

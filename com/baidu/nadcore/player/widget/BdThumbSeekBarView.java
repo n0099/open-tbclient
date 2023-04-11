@@ -12,8 +12,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b01;
-import com.baidu.tieba.xz0;
+import com.baidu.tieba.c01;
+import com.baidu.tieba.yz0;
 /* loaded from: classes2.dex */
 public class BdThumbSeekBarView extends View {
     public BdSeeBarStatus a;
@@ -124,7 +124,7 @@ public class BdThumbSeekBarView extends View {
         if (this.h == null) {
             this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.nad_bdvideoplayer_seekbar_thumb);
         }
-        this.i = xz0.a(this, 0.0f);
+        this.i = yz0.a(this, 0.0f);
         if (this.j == null) {
             d(1.5f);
         }
@@ -135,7 +135,7 @@ public class BdThumbSeekBarView extends View {
         this.e = (int) ((i2 * f) + 0.5d);
         this.f = (int) (50.0f * f);
         this.g = (int) (f * 3.0f);
-        b01.b(com.baidu.searchbox.player.widget.BdThumbSeekBarView.TAG, "mUITraceHeight: " + this.e);
+        c01.b(com.baidu.searchbox.player.widget.BdThumbSeekBarView.TAG, "mUITraceHeight: " + this.e);
     }
 
     public BdThumbSeekBarView(Context context, AttributeSet attributeSet, BdSeekBarStyle bdSeekBarStyle, int i) {

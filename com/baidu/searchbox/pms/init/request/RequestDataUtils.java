@@ -220,22 +220,30 @@ public class RequestDataUtils {
     }
 
     public static void putPackageInfo(String str, RequestParams.Channel channel, List<PackageParams> list, JSONObject jSONObject) throws JSONException {
-        String str2;
+        String updateParams;
         JSONObject jSONObject2 = new JSONObject();
         if (channel.isUsePmsVersionData()) {
-            for (PackageInfo packageInfo : queryItems(channel.getChannelId(), CollectionUtils.convertToPackageNameList(list))) {
+            List<String> convertToPackageNameList = CollectionUtils.convertToPackageNameList(list);
+            HashMap hashMap = new HashMap();
+            for (PackageParams packageParams : list) {
+                hashMap.put(packageParams.packageName, packageParams);
+            }
+            for (PackageInfo packageInfo : queryItems(channel.getChannelId(), convertToPackageNameList)) {
                 if (!TextUtils.isEmpty(packageInfo.packageName)) {
                     if (TextUtils.equals(str, ApsCloudControlProcessor.SERVER_DPM)) {
-                        str2 = packageInfo.updateSign;
+                        updateParams = packageInfo.updateSign;
                     } else {
-                        str2 = packageInfo.updateVersion + "";
+                        PackageParams packageParams2 = (PackageParams) hashMap.get(packageInfo.packageName);
+                        packageParams2.updateVersion = packageInfo.updateVersion;
+                        packageParams2.uniqueVersion = packageInfo.uniqueVersion;
+                        updateParams = packageParams2.getUpdateParams();
                     }
-                    jSONObject2.put(packageInfo.packageName, str2);
+                    jSONObject2.put(packageInfo.packageName, updateParams);
                 }
             }
         } else {
-            for (PackageParams packageParams : list) {
-                jSONObject2.put(packageParams.packageName, packageParams.getUpdateParams());
+            for (PackageParams packageParams3 : list) {
+                jSONObject2.put(packageParams3.packageName, packageParams3.getUpdateParams());
             }
         }
         if (jSONObject2.length() > 0) {

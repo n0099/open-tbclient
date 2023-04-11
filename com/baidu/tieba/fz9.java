@@ -1,82 +1,21 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Process;
-import androidx.multidex.MultiDex;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.turbonet.base.BuildConfig;
-import java.lang.reflect.InvocationTargetException;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 /* loaded from: classes4.dex */
-public class fz9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface fz9 {
+    void G0(CloudMusicData.MusicTagList musicTagList);
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                int myPid = Process.myPid();
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                    if (runningAppProcessInfo.pid == myPid) {
-                        return runningAppProcessInfo.processName;
-                    }
-                }
-                return null;
-            } catch (SecurityException unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
+    void H(boolean z);
 
-    public static void b(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, context) != null) || !BuildConfig.isMultidexEnabled()) {
-            return;
-        }
-        if (Build.VERSION.SDK_INT < 21 && !c(context)) {
-            dz9.h("base_multidex", "Skipping multidex installation: not needed for process.", new Object[0]);
-            return;
-        }
-        MultiDex.install(context);
-        dz9.h("base_multidex", "Completed multidex installation.", new Object[0]);
-    }
+    void N();
 
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                Object invoke = Process.class.getMethod("isIsolated", new Class[0]).invoke(null, new Object[0]);
-                if (invoke != null && (invoke instanceof Boolean)) {
-                    if (((Boolean) invoke).booleanValue()) {
-                        return false;
-                    }
-                }
-            } catch (IllegalAccessException | IllegalArgumentException | NoSuchMethodException | InvocationTargetException unused) {
-            }
-            String a = a(context);
-            if (a == null) {
-                return true;
-            }
-            try {
-                ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
-                if (applicationInfo != null && applicationInfo.metaData != null) {
-                    Bundle bundle = applicationInfo.metaData;
-                    return !bundle.getBoolean(a + ".ignore_multidex", false);
-                }
-            } catch (PackageManager.NameNotFoundException unused2) {
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    void Z0(int i);
+
+    void c0(ez9 ez9Var);
+
+    void l(boolean z);
+
+    void l0(int i);
+
+    void p0(int i);
 }

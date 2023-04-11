@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.yy.gslbsdk.GslbEvent;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LogTools {
     public static final String TAG = GlobalTools.LOG_TAG + "-2.2.28-live";
 

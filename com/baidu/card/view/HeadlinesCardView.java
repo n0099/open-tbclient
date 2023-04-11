@@ -18,13 +18,13 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ez4;
-import com.baidu.tieba.gt4;
-import com.baidu.tieba.gx;
-import com.baidu.tieba.hw4;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.n95;
-import com.baidu.tieba.ry;
+import com.baidu.tieba.gz4;
+import com.baidu.tieba.hx;
+import com.baidu.tieba.it4;
+import com.baidu.tieba.jw4;
+import com.baidu.tieba.q25;
+import com.baidu.tieba.ra5;
+import com.baidu.tieba.sy;
 import com.baidu.tieba.view.TbImageAutoSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -36,13 +36,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class HeadlinesCardView extends FrameLayout implements gx<hw4> {
+public class HeadlinesCardView extends FrameLayout implements hx<jw4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static final int o;
     public static final int p;
     public transient /* synthetic */ FieldHolder $fh;
-    public hw4 a;
+    public jw4 a;
     public TbImageView b;
     public TbImageView c;
     public ImageView d;
@@ -52,7 +52,7 @@ public class HeadlinesCardView extends FrameLayout implements gx<hw4> {
     public TbImageAutoSwitch h;
     public TextView i;
     public HeadlinesItemInfoView j;
-    public ry k;
+    public sy k;
     public List<String> l;
     public TbImageAutoSwitch.b m;
 
@@ -91,7 +91,7 @@ public class HeadlinesCardView extends FrameLayout implements gx<hw4> {
         public void a(View view2, int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
-                ((HeadImageView) view2).M((String) this.a.l.get(i), 12, false);
+                ((HeadImageView) view2).N((String) this.a.l.get(i), 12, false);
             }
         }
 
@@ -128,15 +128,15 @@ public class HeadlinesCardView extends FrameLayout implements gx<hw4> {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ez4 a;
+        public final /* synthetic */ gz4 a;
         public final /* synthetic */ HeadlinesCardView b;
 
-        public b(HeadlinesCardView headlinesCardView, ez4 ez4Var) {
+        public b(HeadlinesCardView headlinesCardView, gz4 gz4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {headlinesCardView, ez4Var};
+                Object[] objArr = {headlinesCardView, gz4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -147,7 +147,7 @@ public class HeadlinesCardView extends FrameLayout implements gx<hw4> {
                 }
             }
             this.b = headlinesCardView;
-            this.a = ez4Var;
+            this.a = gz4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -155,7 +155,7 @@ public class HeadlinesCardView extends FrameLayout implements gx<hw4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!TextUtils.isEmpty(this.a.a())) {
-                    gt4.v(view2.getContext(), null, this.a.a(), true);
+                    it4.v(view2.getContext(), null, this.a.a(), true);
                 }
                 if (this.b.k != null) {
                     this.b.k.a();
@@ -168,15 +168,15 @@ public class HeadlinesCardView extends FrameLayout implements gx<hw4> {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ez4 a;
+        public final /* synthetic */ gz4 a;
         public final /* synthetic */ HeadlinesCardView b;
 
-        public c(HeadlinesCardView headlinesCardView, ez4 ez4Var) {
+        public c(HeadlinesCardView headlinesCardView, gz4 gz4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {headlinesCardView, ez4Var};
+                Object[] objArr = {headlinesCardView, gz4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -187,7 +187,7 @@ public class HeadlinesCardView extends FrameLayout implements gx<hw4> {
                 }
             }
             this.b = headlinesCardView;
-            this.a = ez4Var;
+            this.a = gz4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -195,7 +195,7 @@ public class HeadlinesCardView extends FrameLayout implements gx<hw4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!TextUtils.isEmpty(this.a.i())) {
-                    gt4.v(view2.getContext(), null, this.a.i(), true);
+                    it4.v(view2.getContext(), null, this.a.i(), true);
                 }
                 if (this.b.k != null) {
                     this.b.k.b();
@@ -232,7 +232,7 @@ public class HeadlinesCardView extends FrameLayout implements gx<hw4> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                n95.f(this.a.getContext(), this.a.a.getThreadData(), 1, 2);
+                ra5.f(this.a.getContext(), this.a.a.getThreadData(), 1, 2);
             }
         }
     }
@@ -325,16 +325,16 @@ public class HeadlinesCardView extends FrameLayout implements gx<hw4> {
     public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            n15.d(this.i).w(R.color.CAM_X0109);
+            q25.d(this.i).w(R.color.CAM_X0109);
             WebPManager.setPureDrawable(this.d, R.drawable.icon_pure_card_toutiao_yaoqing16, R.color.CAM_X0305, null);
-            n15.d(this.e).w(R.color.CAM_X0305);
+            q25.d(this.e).w(R.color.CAM_X0305);
         }
     }
 
-    public void setOnStatListener(ry ryVar) {
+    public void setOnStatListener(sy syVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ryVar) == null) {
-            this.k = ryVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, syVar) == null) {
+            this.k = syVar;
         }
     }
 
@@ -373,14 +373,14 @@ public class HeadlinesCardView extends FrameLayout implements gx<hw4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gx
+    @Override // com.baidu.tieba.hx
     /* renamed from: h */
-    public void a(hw4 hw4Var) {
+    public void a(jw4 jw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hw4Var) == null) {
-            this.a = hw4Var;
-            if (hw4Var != null && hw4Var.getThreadData() != null && hw4Var.getThreadData().getTaskInfoData() != null && hw4Var.getThreadData().getTaskInfoData().e() != null) {
-                ez4 e = hw4Var.getThreadData().getTaskInfoData().e();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jw4Var) == null) {
+            this.a = jw4Var;
+            if (jw4Var != null && jw4Var.getThreadData() != null && jw4Var.getThreadData().getTaskInfoData() != null && jw4Var.getThreadData().getTaskInfoData().e() != null) {
+                gz4 e = jw4Var.getThreadData().getTaskInfoData().e();
                 this.g.c(e);
                 this.l.clear();
                 this.l.addAll(e.e());
@@ -392,9 +392,9 @@ public class HeadlinesCardView extends FrameLayout implements gx<hw4> {
                 this.j.setOnBannerClickListener(new b(this, e));
                 this.j.setOnButtonClickListener(new c(this, e));
                 this.f.setOnClickListener(new d(this));
-                ry ryVar = this.k;
-                if (ryVar != null) {
-                    ryVar.onShow();
+                sy syVar = this.k;
+                if (syVar != null) {
+                    syVar.onShow();
                 }
             }
         }

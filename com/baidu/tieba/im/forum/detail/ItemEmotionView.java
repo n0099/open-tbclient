@@ -64,7 +64,7 @@ public class ItemEmotionView extends RelativeLayout {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02c9, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02cb, (ViewGroup) this, true);
             setVisibility(8);
         }
     }
@@ -83,7 +83,7 @@ public class ItemEmotionView extends RelativeLayout {
     public void setEmotionOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            findViewById(R.id.obfuscated_res_0x7f090348).setOnClickListener(onClickListener);
+            findViewById(R.id.obfuscated_res_0x7f09033f).setOnClickListener(onClickListener);
         }
     }
 }

@@ -1,49 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.MoreTreasureTrove.DataRes;
-import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
-import tbclient.ThreadInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ig7 {
+public class ig7 extends k15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<gn> a(List<ThreadInfo> list) {
-        InterceptResult invokeL;
+    public ig7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (ThreadInfo threadInfo : list) {
-                ThreadData threadData = new ThreadData();
-                threadData.parserProtobuf(threadInfo);
-                threadData.isFromLowFlowsPage = true;
-                arrayList.add(threadData);
-            }
-            return we7.a(arrayList);
         }
-        return (List) invokeL.objValue;
     }
 
-    public static List<gn> b(MoreTreasureTroveResIdl moreTreasureTroveResIdl) {
-        InterceptResult invokeL;
-        DataRes dataRes;
+    @Override // com.baidu.tieba.k15
+    public void a(@NonNull Context context, @NonNull b15 b15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, moreTreasureTroveResIdl)) == null) {
-            if (moreTreasureTroveResIdl != null && (dataRes = moreTreasureTroveResIdl.data) != null && !ListUtils.isEmpty(dataRes.hot_thread_info)) {
-                return a(moreTreasureTroveResIdl.data.hot_thread_info);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, b15Var) == null) {
+            if (!(context instanceof FrsActivity)) {
+                YunDialogLog.getInstance().b("YunDialogManager", "展示吧主弹窗失败：当前Activity非FrsActivity");
+                z05.r("frsGuide");
+                return;
             }
-            return null;
+            FrsFragment t1 = ((FrsActivity) context).t1();
+            if (t1 == null) {
+                YunDialogLog.getInstance().b("YunDialogManager", "展示吧主弹窗失败：当前FrsFragment为空");
+                z05.r("frsGuide");
+                return;
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921476));
+            t1.N4(true);
+            z05.l("frsGuide");
         }
-        return (List) invokeL.objValue;
     }
 }

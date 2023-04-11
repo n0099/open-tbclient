@@ -1,53 +1,104 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewTreeObserver;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.view.SwanAppWebPopWindow;
+import com.baidu.tieba.zc3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ww1 extends wv1 {
+public class ww1 extends nw1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public int g;
-    public ViewTreeObserver.OnGlobalLayoutListener h;
+    public SwanAppWebPopWindow f;
+    public j72 g;
+    public a72 h;
 
-    @Override // com.baidu.tieba.wv1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "Keyboard" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wv1
+    @Override // com.baidu.tieba.xv1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SoftKeyboardApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "WebPopWindowApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ww1 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ u73 b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ ww1 e;
 
-        public a(ww1 ww1Var) {
+        /* loaded from: classes6.dex */
+        public class a extends j72 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.baidu.tieba.j72, com.baidu.tieba.k72
+            public void b() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    super.b();
+                    u42.i("WebPopWindowApi", "swanId=" + this.a.b.b + ", nowId=" + u73.g0());
+                    if (TextUtils.equals(this.a.b.b, u73.g0())) {
+                        return;
+                    }
+                    this.a.e.H();
+                }
+            }
+
+            @Override // com.baidu.tieba.j72, com.baidu.tieba.k72
+            public void c() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    u42.i("WebPopWindowApi", "call onFragmentDestroyed");
+                    this.a.e.H();
+                    if (this.a.e.h != null && this.a.e.g != null) {
+                        this.a.e.h.U2(this.a.e.g);
+                    }
+                }
+            }
+        }
+
+        public b(ww1 ww1Var, String str, u73 u73Var, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ww1Var};
+                Object[] objArr = {ww1Var, str, u73Var, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,121 +108,213 @@ public class ww1 extends wv1 {
                     return;
                 }
             }
-            this.a = ww1Var;
+            this.e = ww1Var;
+            this.a = str;
+            this.b = u73Var;
+            this.c = str2;
+            this.d = str3;
         }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
+        @Override // java.lang.Runnable
+        public void run() {
+            SwanAppActivity activity;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Rect rect = new Rect();
-                this.a.f.getWindowVisibleDisplayFrame(rect);
-                int height = rect.height();
-                if (this.a.g == height) {
-                    return;
-                }
-                if (this.a.g - height > 180) {
-                    HashMap hashMap = new HashMap();
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("height", kl3.O(this.a.g - height));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    hashMap.put("data", jSONObject.toString());
-                    gt2.U().u(new uh2("keyboardHeightChange", hashMap));
-                    this.a.g = height;
-                } else if (height - this.a.g > 180) {
-                    HashMap hashMap2 = new HashMap();
-                    JSONObject jSONObject2 = new JSONObject();
-                    try {
-                        jSONObject2.put("height", 0);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
-                    hashMap2.put("data", jSONObject2.toString());
-                    gt2.U().u(new uh2("keyboardHeightChange", hashMap2));
-                    this.a.g = height;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (activity = ht2.U().getActivity()) == null) {
+                return;
+            }
+            if (this.e.f != null && this.e.f.z()) {
+                this.e.d(this.a, new uz1(303, "execute failed, halfScreenWebview is showing"));
+                return;
+            }
+            d72 V = ht2.U().V();
+            if (V == null) {
+                return;
+            }
+            this.e.h = V.m();
+            if (this.e.h == null) {
+                return;
+            }
+            if (this.e.g != null) {
+                this.e.h.U2(this.e.g);
+            }
+            this.e.g = new a(this);
+            this.e.h.q2(this.e.g);
+            ww1 ww1Var = this.e;
+            SwanAppWebPopWindow swanAppWebPopWindow = new SwanAppWebPopWindow(activity, this.c);
+            swanAppWebPopWindow.t0(R.string.obfuscated_res_0x7f0f131e);
+            ww1Var.f = swanAppWebPopWindow;
+            if (TextUtils.equals(this.d, "protect")) {
+                SwanAppWebPopWindow swanAppWebPopWindow2 = this.e.f;
+                swanAppWebPopWindow2.p0(SwanAppWebPopWindow.CloseStyle.CLOSE_AT_BOTTOM);
+                swanAppWebPopWindow2.q0();
+            }
+            SwanAppWebPopWindow swanAppWebPopWindow3 = this.e.f;
+            swanAppWebPopWindow3.o0();
+            swanAppWebPopWindow3.v0();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("status", 0);
+            } catch (JSONException e) {
+                if (ww1.i) {
+                    e.printStackTrace();
                 }
             }
+            this.e.d(this.a, new uz1(0, "show halfScreenWebview success", jSONObject));
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements nm3<xc3<zc3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ u73 b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ ww1 d;
+
+        public a(ww1 ww1Var, String str, u73 u73Var, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ww1Var, str, u73Var, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = ww1Var;
+            this.a = str;
+            this.b = u73Var;
+            this.c = str2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.nm3
+        /* renamed from: b */
+        public void a(xc3<zc3.e> xc3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xc3Var) == null) {
+                if (!sc3.h(xc3Var)) {
+                    this.d.d(this.a, new uz1(10005, "system deny"));
+                } else {
+                    this.d.I(this.b, this.c, this.a);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948284888, "Lcom/baidu/tieba/ww1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948284888, "Lcom/baidu/tieba/ww1;");
+                return;
+            }
+        }
+        i = eo1.a;
+    }
+
+    public final void H() {
+        SwanAppWebPopWindow swanAppWebPopWindow;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.h.a0() && (swanAppWebPopWindow = this.f) != null) {
+            swanAppWebPopWindow.r();
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ww1(@NonNull uv1 uv1Var) {
-        super(uv1Var);
+    public ww1(@NonNull vv1 vv1Var) {
+        super(vv1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uv1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((uv1) newInitContext.callArgs[0]);
+            Object[] objArr = {vv1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((vv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    public final void A() {
+    public final void G(u73 u73Var, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SwanAppActivity activity = gt2.U().getActivity();
-            if (activity == null) {
-                t42.c("SoftKeyboardApi", "activity is null");
-                return;
-            }
-            this.f = activity.getWindow().getDecorView();
-            Rect rect = new Rect();
-            this.f.getWindowVisibleDisplayFrame(rect);
-            this.g = rect.height();
-            if (this.h == null) {
-                this.h = new a(this);
-                this.f.getViewTreeObserver().addOnGlobalLayoutListener(this.h);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, u73Var, str, str2) == null) {
+            if (TextUtils.equals(str, "protect")) {
+                u73Var.e0().g(getContext(), "scope_web_window_pay_protected", new a(this, str2, u73Var, str));
+            } else {
+                d(str2, new uz1(202, "type is invalid"));
             }
         }
     }
 
-    public void B() {
+    public final void I(u73 u73Var, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.h != null) {
-                this.f.getViewTreeObserver().removeOnGlobalLayoutListener(this.h);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, u73Var, str, str2) == null) {
+            String J = J(u73Var, str);
+            if (J == null) {
+                d(str2, new uz1(202, "type is invalid"));
+            } else {
+                ol3.e0(new b(this, str2, u73Var, J, str));
             }
-            this.h = null;
-            this.g = 0;
         }
     }
 
-    public tz1 C() {
-        InterceptResult invokeV;
+    public final String J(u73 u73Var, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            q("#startKeyboardHeightChange", false);
-            if (t73.b0() == null) {
-                return new tz1(1001, "swan app is null");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, u73Var, str)) == null) {
+            if (TextUtils.equals(str, "protect") && u73Var != null) {
+                return "https://baozhang.baidu.com/guarantee/baoshowdetail?appkey=" + u73Var.O();
             }
-            A();
-            return tz1.f();
+            return null;
         }
-        return (tz1) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public tz1 D() {
-        InterceptResult invokeV;
+    public uz1 K(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            q("#stopKeyboardHeightChange", false);
-            if (t73.b0() == null) {
-                return new tz1(1001, "swan app is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            q("#showHalfScreenWebview", false);
+            if (i) {
+                Log.d("WebPopWindowApi", "#showHalfScreenWebview params=" + str);
             }
-            B();
-            return tz1.f();
+            u73 b0 = u73.b0();
+            if (b0 == null) {
+                return new uz1(202, "swan app is null");
+            }
+            Pair<uz1, JSONObject> s = s(str);
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (((uz1) s.first).isSuccess() && jSONObject != null) {
+                String optString = jSONObject.optString("type");
+                if (TextUtils.isEmpty(optString)) {
+                    return new uz1(202, "type is invalid");
+                }
+                String optString2 = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString2)) {
+                    return new uz1(202, "cb is invalid");
+                }
+                G(b0, optString, optString2);
+                return uz1.f();
+            }
+            return new uz1(202);
         }
-        return (tz1) invokeV.objValue;
+        return (uz1) invokeL.objValue;
     }
 }

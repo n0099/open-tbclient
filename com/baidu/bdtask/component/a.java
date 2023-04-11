@@ -11,17 +11,17 @@ import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.bdtask.model.ui.TaskUIBtn;
 import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.bdtask.utils.b;
-import com.baidu.tieba.ds;
 import com.baidu.tieba.es;
-import com.baidu.tieba.gv;
-import com.baidu.tieba.ks;
+import com.baidu.tieba.fs;
+import com.baidu.tieba.hv;
 import com.baidu.tieba.ls;
-import com.baidu.tieba.pp;
-import com.baidu.tieba.ss;
-import com.baidu.tieba.tp;
+import com.baidu.tieba.ms;
+import com.baidu.tieba.qp;
 import com.baidu.tieba.ts;
+import com.baidu.tieba.up;
 import com.baidu.tieba.us;
-import com.baidu.tieba.yq;
+import com.baidu.tieba.vs;
+import com.baidu.tieba.zq;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -134,16 +134,16 @@ public final class a {
         this();
     }
 
-    public static /* bridge */ /* synthetic */ void c(a aVar, int i, TaskUIData taskUIData, TaskInfo taskInfo, TaskStatus taskStatus, us usVar, int i2, Object obj) {
+    public static /* bridge */ /* synthetic */ void c(a aVar, int i, TaskUIData taskUIData, TaskInfo taskInfo, TaskStatus taskStatus, vs vsVar, int i2, Object obj) {
         if ((i2 & 16) != 0) {
-            usVar = null;
+            vsVar = null;
         }
-        aVar.b(i, taskUIData, taskInfo, taskStatus, usVar);
+        aVar.b(i, taskUIData, taskInfo, taskStatus, vsVar);
     }
 
-    public final void b(int i, TaskUIData taskUIData, TaskInfo taskInfo, TaskStatus taskStatus, us usVar) {
+    public final void b(int i, TaskUIData taskUIData, TaskInfo taskInfo, TaskStatus taskStatus, vs vsVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), taskUIData, taskInfo, taskStatus, usVar}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), taskUIData, taskInfo, taskStatus, vsVar}) == null) {
             DebugTrace debugTrace = DebugTrace.a;
             debugTrace.a("showGuide guide type : " + i);
             if (i != 1) {
@@ -153,25 +153,25 @@ public final class a {
                 }
                 return;
             }
-            e(taskUIData, taskInfo, taskStatus, usVar);
+            e(taskUIData, taskInfo, taskStatus, vsVar);
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:55:0x0023, code lost:
-        if ((r0 instanceof com.baidu.tieba.ls) == false) goto L7;
+        if ((r0 instanceof com.baidu.tieba.ms) == false) goto L7;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void d(TaskUIData taskUIData, TaskInfo taskInfo, TaskStatus taskStatus) {
-        Class<? extends ls<? extends ks<?>>> cls;
-        ls<? extends ks<?>> newInstance;
-        Class<? extends ks<?>> cls2;
+        Class<? extends ms<? extends ls<?>>> cls;
+        ms<? extends ls<?>> newInstance;
+        Class<? extends ls<?>> cls2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskUIData, taskInfo, taskStatus) == null) {
             b bVar = b.a;
-            ds a2 = yq.c.e().a();
-            ks<?> ksVar = null;
+            es a2 = zq.c.e().a();
+            ls<?> lsVar = null;
             if (a2 != null) {
                 cls = a2.a();
             } else {
@@ -184,9 +184,9 @@ public final class a {
                 }
             }
             newInstance = null;
-            ls<? extends ks<?>> lsVar = newInstance;
+            ms<? extends ls<?>> msVar = newInstance;
             b bVar2 = b.a;
-            ds a3 = yq.c.e().a();
+            es a3 = zq.c.e().a();
             if (a3 != null) {
                 cls2 = a3.b();
             } else {
@@ -194,15 +194,15 @@ public final class a {
             }
             if (cls2 != null) {
                 try {
-                    ks<?> newInstance2 = cls2.newInstance();
-                    if (newInstance2 instanceof ks) {
-                        ksVar = newInstance2;
+                    ls<?> newInstance2 = cls2.newInstance();
+                    if (newInstance2 instanceof ls) {
+                        lsVar = newInstance2;
                     }
                 } catch (Exception unused2) {
                 }
             }
-            ks<?> ksVar2 = ksVar;
-            if (lsVar != null && ksVar2 != null) {
+            ls<?> lsVar2 = lsVar;
+            if (msVar != null && lsVar2 != null) {
                 TaskUIBtn backBtn = taskUIData.getBackBtn();
                 TaskUIBtn cancelBtn = taskUIData.getCancelBtn();
                 String actionId = taskInfo.getActionId();
@@ -212,28 +212,28 @@ public final class a {
                 if (taskUIData.getModalType() != 1) {
                     i = 2;
                 }
-                new pp(lsVar, ksVar2, new TaskDialogViewData(actionId, actTaskId, singleKey, i, taskUIData.getTxtColor(), taskUIData.getBgUrl(), backBtn.getTxtColor(), backBtn.getTxt(), backBtn.getBgUrl(), backBtn.getScheme(), cancelBtn.getTxt(), cancelBtn.getBgUrl(), cancelBtn.getTxtColor(), cancelBtn.getScheme(), taskUIData.getCloseBg())).a();
+                new qp(msVar, lsVar2, new TaskDialogViewData(actionId, actTaskId, singleKey, i, taskUIData.getTxtColor(), taskUIData.getBgUrl(), backBtn.getTxtColor(), backBtn.getTxt(), backBtn.getBgUrl(), backBtn.getScheme(), cancelBtn.getTxt(), cancelBtn.getBgUrl(), cancelBtn.getTxtColor(), cancelBtn.getScheme(), taskUIData.getCloseBg())).a();
             }
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:59:0x0023, code lost:
-        if ((r0 instanceof com.baidu.tieba.ts) == false) goto L7;
+        if ((r0 instanceof com.baidu.tieba.us) == false) goto L7;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void e(TaskUIData taskUIData, TaskInfo taskInfo, TaskStatus taskStatus, us usVar) {
-        Class<? extends ts<? extends ss<?>>> cls;
-        ts<? extends ss<?>> newInstance;
-        Class<? extends ss<?>> cls2;
+    public final void e(TaskUIData taskUIData, TaskInfo taskInfo, TaskStatus taskStatus, vs vsVar) {
+        Class<? extends us<? extends ts<?>>> cls;
+        us<? extends ts<?>> newInstance;
+        Class<? extends ts<?>> cls2;
         boolean z;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, taskUIData, taskInfo, taskStatus, usVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, taskUIData, taskInfo, taskStatus, vsVar) == null) {
             b bVar = b.a;
-            es b2 = yq.c.e().b();
-            ss<?> ssVar = null;
+            fs b2 = zq.c.e().b();
+            ts<?> tsVar = null;
             if (b2 != null) {
                 cls = b2.b();
             } else {
@@ -246,9 +246,9 @@ public final class a {
                 }
             }
             newInstance = null;
-            ts<? extends ss<?>> tsVar = newInstance;
+            us<? extends ts<?>> usVar = newInstance;
             b bVar2 = b.a;
-            es b3 = yq.c.e().b();
+            fs b3 = zq.c.e().b();
             if (b3 != null) {
                 cls2 = b3.c();
             } else {
@@ -256,29 +256,29 @@ public final class a {
             }
             if (cls2 != null) {
                 try {
-                    ss<?> newInstance2 = cls2.newInstance();
-                    if (newInstance2 instanceof ss) {
-                        ssVar = newInstance2;
+                    ts<?> newInstance2 = cls2.newInstance();
+                    if (newInstance2 instanceof ts) {
+                        tsVar = newInstance2;
                     }
                 } catch (Exception unused2) {
                 }
             }
-            ss<?> ssVar2 = ssVar;
-            if (tsVar != null && ssVar2 != null) {
-                es b4 = yq.c.e().b();
+            ts<?> tsVar2 = tsVar;
+            if (usVar != null && tsVar2 != null) {
+                fs b4 = zq.c.e().b();
                 if (b4 != null) {
                     z = b4.a();
                 } else {
                     z = false;
                 }
-                gv.h(z);
+                hv.h(z);
                 TaskUIBtn backBtn = taskUIData.getBackBtn();
                 if (backBtn.isEmpty()) {
                     i = 1;
                 } else {
                     i = 2;
                 }
-                new tp(tsVar, ssVar2, new TaskToastViewData(taskInfo, taskStatus, i, taskUIData.getBackColor(), taskUIData.getBgUrl(), taskUIData.getMessage(), taskUIData.getDuration(), taskUIData.getTxtColor(), backBtn.getColor(), backBtn.getTxt(), backBtn.getBgUrl(), backBtn.getTxtColor(), backBtn.getScheme(), usVar)).a();
+                new up(usVar, tsVar2, new TaskToastViewData(taskInfo, taskStatus, i, taskUIData.getBackColor(), taskUIData.getBgUrl(), taskUIData.getMessage(), taskUIData.getDuration(), taskUIData.getTxtColor(), backBtn.getColor(), backBtn.getTxt(), backBtn.getBgUrl(), backBtn.getTxtColor(), backBtn.getScheme(), vsVar)).a();
             }
         }
     }

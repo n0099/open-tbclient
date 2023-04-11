@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dq5;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.jr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             return 0L;
         }
         return invokeI.longValue;
@@ -124,7 +124,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                 }
             }
             this.a = (EditText) view2.findViewById(R.id.vote_item);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09103a);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09103f);
             this.c = new g(writeVoteViewAdapter, this);
             this.a.setOnEditorActionListener(writeVoteViewAdapter.e);
         }
@@ -270,9 +270,9 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092833);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092835);
-            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092834);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092821);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092823);
+            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092822);
         }
     }
 
@@ -337,15 +337,15 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             String replace = obj.replace(" ", "");
             WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
             writeVoteItemData.setId(this.b + 1);
-            if (dq5.f(replace) > 28) {
-                this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f1736), 14));
+            if (jr5.e(replace) > 28) {
+                this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f172c), 14));
             }
-            String n = dq5.n(replace, 28);
-            if (!n.equals(editable.toString())) {
-                this.a.a.setText(n);
-                this.a.a.setSelection(n.length());
+            String m = jr5.m(replace, 28);
+            if (!m.equals(editable.toString())) {
+                this.a.a.setText(m);
+                this.a.a.setSelection(m.length());
             }
-            writeVoteItemData.setText(n);
+            writeVoteItemData.setText(m);
             this.c.d.c(writeVoteItemData, this.b);
         }
     }
@@ -374,8 +374,8 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     public int getItemViewType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (!i(i)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (!p(i)) {
                 return 1;
             }
             return 2;
@@ -383,17 +383,17 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         return invokeI.intValue;
     }
 
-    public void h(f fVar) {
+    public void o(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
             this.d = fVar;
         }
     }
 
-    public final boolean i(int i) {
+    public final boolean p(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             List<WriteVoteItemData> list = this.b;
             if (list != null && list.size() < 20 && i == this.b.size()) {
                 return true;
@@ -411,34 +411,11 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public void g(RecyclerView.ViewHolder viewHolder) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, viewHolder) != null) || viewHolder == null) {
-            return;
-        }
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadius(this.a.getResources().getDimension(R.dimen.tbds10));
-        gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0209));
-        gradientDrawable.setStroke(hi.g(this.a.getPageActivity(), R.dimen.tbds1), SkinManager.getColor(R.color.CAM_X0603));
-        if (viewHolder instanceof e) {
-            e eVar = (e) viewHolder;
-            eVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            eVar.a.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            eVar.a.setBackgroundDrawable(gradientDrawable);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(eVar.b, R.drawable.obfuscated_res_0x7f08062e, SvgManager.SvgResourceStateType.NORMAL);
-        } else if (viewHolder instanceof d) {
-            d dVar = (d) viewHolder;
-            SkinManager.setViewTextColor(dVar.a, (int) R.color.CAM_X0302);
-            dVar.c.setBackgroundDrawable(gradientDrawable);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(dVar.b, R.drawable.obfuscated_res_0x7f08064f, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
-        }
-    }
-
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             List<WriteVoteItemData> list = this.b;
             if (list == null) {
                 return 0;
@@ -451,14 +428,37 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
         return invokeV.intValue;
     }
 
+    public void n(RecyclerView.ViewHolder viewHolder) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, viewHolder) != null) || viewHolder == null) {
+            return;
+        }
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setCornerRadius(this.a.getResources().getDimension(R.dimen.tbds10));
+        gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0209));
+        gradientDrawable.setStroke(ii.g(this.a.getPageActivity(), R.dimen.tbds1), SkinManager.getColor(R.color.CAM_X0603));
+        if (viewHolder instanceof e) {
+            e eVar = (e) viewHolder;
+            eVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            eVar.a.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
+            eVar.a.setBackgroundDrawable(gradientDrawable);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(eVar.b, R.drawable.obfuscated_res_0x7f080626, SvgManager.SvgResourceStateType.NORMAL);
+        } else if (viewHolder instanceof d) {
+            d dVar = (d) viewHolder;
+            SkinManager.setViewTextColor(dVar.a, (int) R.color.CAM_X0302);
+            dVar.c.setBackgroundDrawable(gradientDrawable);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(dVar.b, R.drawable.obfuscated_res_0x7f080646, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
+        }
+    }
+
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i) == null) {
             if (viewHolder instanceof e) {
                 e eVar = (e) viewHolder;
                 String text = this.b.get(i).getText();
-                eVar.a.setHint(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f1731), Integer.valueOf(i + 1)));
+                eVar.a.setHint(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f1727), Integer.valueOf(i + 1)));
                 eVar.a.setGravity(19);
                 if (i < this.b.size() - 1) {
                     eVar.a.setImeOptions(5);
@@ -484,10 +484,10 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                 }
             } else if (viewHolder instanceof d) {
                 d dVar = (d) viewHolder;
-                dVar.a.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f1708), Integer.valueOf(20 - this.b.size())));
+                dVar.a.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f16fe), Integer.valueOf(20 - this.b.size())));
                 dVar.c.setOnClickListener(new c(this));
             }
-            g(viewHolder);
+            n(viewHolder);
         }
     }
 
@@ -496,11 +496,11 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
             if (i == 1) {
-                return new e(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0978, viewGroup, false));
+                return new e(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0970, viewGroup, false));
             }
-            return new d(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0975, viewGroup, false));
+            return new d(this, LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d096d, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

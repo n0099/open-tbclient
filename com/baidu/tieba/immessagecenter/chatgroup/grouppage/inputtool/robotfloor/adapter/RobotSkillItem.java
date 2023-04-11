@@ -2,7 +2,7 @@ package com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor
 
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rt7;
+import com.baidu.tieba.n38;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
-public class RobotSkillItem extends rt7 implements Serializable {
+public class RobotSkillItem extends n38 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7811153205500425245L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +19,7 @@ public class RobotSkillItem extends rt7 implements Serializable {
     public int skillType;
     public String uk;
 
-    @Override // com.baidu.tieba.rt7
+    @Override // com.baidu.tieba.n38
     public int getViewType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

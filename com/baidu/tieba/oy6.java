@@ -1,163 +1,101 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import tbclient.AdInfo;
-import tbclient.Media;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.StringCompanionObject;
+import tbclient.FeedVideoComponent;
+import tbclient.ThumbnailInfo;
+import tbclient.VideoField;
 /* loaded from: classes5.dex */
-public class oy6 extends BaseCardInfo {
+public final class oy6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public List<MediaData> e;
-    public int f;
-    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948048637, "Lcom/baidu/tieba/oy6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static final String a(String schema, dx6 feedExtraData) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, schema, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(schema, "schema");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            String a = kz6.a(schema, "author_is_living", feedExtraData.a().a().get("author_is_living"));
+            String str = feedExtraData.a().a().get("yy_ext");
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948048637, "Lcom/baidu/tieba/oy6;");
-                return;
+            if (z) {
+                Intrinsics.checkNotNullExpressionValue(a, "{\n        result\n    }");
+                return a;
             }
+            String a2 = kz6.a(a, "yy_ext", str);
+            Intrinsics.checkNotNullExpressionValue(a2, "{\n        SchemaUtil.app…yy_ext\", yyExtInfo)\n    }");
+            return a2;
         }
-        h = BdUniqueId.gen();
+        return (String) invokeLL.objValue;
     }
 
-    public oy6() {
+    public static final gw6 b(VideoField videoField, xx6 videoSchemaData, dx6 feedExtraData) {
+        InterceptResult invokeLLL;
+        String str;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, videoField, videoSchemaData, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(videoField, "videoField");
+            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            wx6 wx6Var = new wx6();
+            ThumbnailInfo thumbnailInfo = videoField.thumbnail;
+            if (thumbnailInfo != null) {
+                str = thumbnailInfo.url;
+            } else {
+                str = null;
             }
-        }
-        this.g = false;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.gn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return h;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public List<MediaData> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public void o(AdInfo adInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, adInfo) != null) || adInfo == null) {
-            return;
-        }
-        this.a = adInfo.portrait;
-        this.b = adInfo.ad_name;
-        this.c = adInfo.ad_desc;
-        this.d = adInfo.ad_url;
-        this.f = adInfo.show_rule.intValue();
-        if (adInfo.media != null) {
-            this.e = new ArrayList();
-            for (Media media : adInfo.media) {
-                MediaData mediaData = new MediaData();
-                mediaData.parserProtobuf(media);
-                this.e.add(mediaData);
+            wx6Var.a = str;
+            Integer num = videoField.is_vertical;
+            if (num != null && num.intValue() == 1) {
+                z = true;
+            } else {
+                z = false;
             }
+            wx6Var.b = z;
+            Integer num2 = videoField.width;
+            Intrinsics.checkNotNullExpressionValue(num2, "videoField.width");
+            num2.intValue();
+            Integer num3 = videoField.height;
+            Intrinsics.checkNotNullExpressionValue(num3, "videoField.height");
+            num3.intValue();
+            StringBuilder sb = new StringBuilder();
+            sb.append(StringHelper.stringForVideoTime(videoField.duration.intValue() * 1000));
+            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+            String string = yu6.a.getString(R.string.play_count_new);
+            Intrinsics.checkNotNullExpressionValue(string, "FeedAppContext.getString(R.string.play_count_new)");
+            String format = String.format(string, Arrays.copyOf(new Object[]{StringHelper.numFormatOverWan(videoField.play_count.intValue())}, 1));
+            Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
+            sb.append(format);
+            wx6Var.c = sb.toString();
+            return new gw6(wx6Var, videoSchemaData, ex6.b(feedExtraData, "video_click"), null, 8, null);
         }
+        return (gw6) invokeLLL.objValue;
     }
 
-    public void p(boolean z) {
+    public static final void c(FeedVideoComponent feedVideoComponent, List<b07<?>> dataList, xx6 videoSchemaData, dx6 feedExtraData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.g = z;
+        if (interceptable == null || interceptable.invokeLLLL(65538, null, feedVideoComponent, dataList, videoSchemaData, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedVideoComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            VideoField videoField = feedVideoComponent.video_info;
+            if (videoField != null) {
+                dataList.add(new c07(b(videoField, videoSchemaData, feedExtraData), "video"));
+            }
         }
     }
 }

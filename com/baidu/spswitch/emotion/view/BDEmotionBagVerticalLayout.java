@@ -1434,7 +1434,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             }
             LayoutInflater.from(this.mCtx).inflate(R.layout.emotion_vertical_panel_root, this);
             this.mViewPager = (ViewPager) findViewById(R.id.view_pager);
-            this.mIndicator = (CircleIndicator) findViewById(R.id.obfuscated_res_0x7f091085);
+            this.mIndicator = (CircleIndicator) findViewById(R.id.obfuscated_res_0x7f09108a);
             ArrayList arrayList = new ArrayList();
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mCtx).inflate(R.layout.emotion_vertical_panel_page1_root, (ViewGroup) this, false);
             ImageView imageView = (ImageView) viewGroup.findViewById(R.id.delete_btn);

@@ -2,7 +2,7 @@ package com.google.android.material.shape;
 
 import android.graphics.RectF;
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CornerTreatment {
     @Deprecated
     public void getCornerPath(float f, float f2, @NonNull ShapePath shapePath) {

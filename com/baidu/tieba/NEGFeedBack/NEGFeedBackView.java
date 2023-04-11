@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fy4;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.mw5;
+import com.baidu.tieba.hy4;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.sx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,16 +36,16 @@ public class NEGFeedBackView extends AppCompatImageView {
     public int e;
     public int f;
     public int g;
-    public mw5 h;
+    public sx5 h;
     public View.OnClickListener i;
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(ArrayList<Integer> arrayList, String str, fy4 fy4Var);
+        void a(ArrayList<Integer> arrayList, String str, hy4 hy4Var);
 
-        void b(fy4 fy4Var, CompoundButton compoundButton, boolean z);
+        void b(hy4 hy4Var, CompoundButton compoundButton, boolean z);
 
-        void c(fy4 fy4Var);
+        void c(hy4 hy4Var);
     }
 
     public void setACRotateAnimation() {
@@ -132,10 +132,10 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void setData(fy4 fy4Var) {
+    public void setData(hy4 hy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fy4Var) == null) {
-            this.h.u(fy4Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, hy4Var) == null) {
+            this.h.u(hy4Var);
         }
     }
 
@@ -201,7 +201,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public final void t(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, tbPageContext) == null) {
-            this.h = new mw5(tbPageContext, this);
+            this.h = new sx5(tbPageContext, this);
             setOnClickListener(this.i);
             setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             u();
@@ -281,7 +281,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public void r(ViewGroup viewGroup, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i, i2) == null) {
-            int g = hi.g(this.a, R.dimen.tbds24);
+            int g = ii.g(this.a, R.dimen.tbds24);
             setPadding(i2, 0, i2, 0);
             if (viewGroup instanceof RelativeLayout) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, i);

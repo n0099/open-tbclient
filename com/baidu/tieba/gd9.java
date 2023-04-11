@@ -1,235 +1,155 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWorkErr;
-import com.baidu.tbadk.coreExtra.data.AuthTokenData;
-import com.baidu.tieba.q65;
-import com.baidu.tieba.zz4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.searchrecforum.message.SearchRecForumRequestMessage;
+import com.baidu.tieba.searchrecforum.message.SearchRecForumResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes4.dex */
 public class gd9 {
     public static /* synthetic */ Interceptable $ic;
-    public static AtomicBoolean a;
-    public static List<Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BdUniqueId a;
+    public boolean b;
+    public boolean c;
+    public HttpResponsedMessage d;
+    public b e;
+    public final HttpMessageListener f;
 
     /* loaded from: classes4.dex */
-    public static class a implements zz4.e {
+    public interface b {
+        void a(jd9 jd9Var);
+
+        void onFail();
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zz4 a;
-        public final /* synthetic */ q65 b;
+        public final /* synthetic */ gd9 a;
 
-        public a(zz4 zz4Var, q65 q65Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(gd9 gd9Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zz4Var, q65Var};
+                Object[] objArr = {gd9Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = zz4Var;
-            this.b = q65Var;
+            this.a = gd9Var;
         }
 
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                this.a.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, this.b));
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                if (this.a.c) {
+                    this.a.d = httpResponsedMessage;
+                } else {
+                    this.a.f(httpResponsedMessage);
+                }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class b implements zz4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zz4 a;
-
-        public b(zz4 zz4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zz4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zz4Var;
-        }
-
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static abstract class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public abstract void a(String str);
-
-        public abstract void c(String str);
-
-        public abstract void d();
-
-        public abstract void e();
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void b(q65.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-                if (cVar != null && cVar.a) {
-                    if (cVar instanceof q65.a) {
-                        a(((q65.a) cVar).b);
-                        return;
-                    } else if (cVar instanceof q65.b) {
-                        c(((q65.b) cVar).b);
-                        return;
-                    } else {
-                        e();
-                        return;
-                    }
-                }
-                d();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947790221, "Lcom/baidu/tieba/gd9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947790221, "Lcom/baidu/tieba/gd9;");
+    public gd9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new AtomicBoolean(false);
-        b = Arrays.asList(Integer.valueOf((int) NetWorkErr.ERROR_UEG_IDENTITY_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_PHONE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_MODIFY_PWD), Integer.valueOf((int) NetWorkErr.ERROR_UEG_FACE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_DOUBLE_CHECK), Integer.valueOf((int) NetWorkErr.ERROR_UEG_BIND_MOBILE));
+        this.a = BdUniqueId.gen();
+        this.b = false;
+        this.c = false;
+        this.f = new a(this, CmdConfigHttp.CMD_GET_SEARCH_BACK_INTEREST_FORUM);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SEARCH_BACK_INTEREST_FORUM, TbConfig.SERVER_ADDRESS + "c/f/excellent/getRecomForum");
+        tbHttpMessageTask.setResponsedClass(SearchRecForumResponsedMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        MessageManager.getInstance().registerListener(this.f);
     }
 
-    public static boolean a(int i, AuthTokenData authTokenData, c cVar) {
-        InterceptResult invokeILL;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i, authTokenData, cVar)) == null) {
-            if (b.contains(Integer.valueOf(i))) {
-                if ((i != 3250020 && i != 3250021) || (authTokenData != null && !TextUtils.isEmpty(authTokenData.getAuthToken()))) {
-                    return c(i, authTokenData.getAuthToken(), cVar);
-                }
-                return false;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !fd9.d().e()) {
+            return;
         }
-        return invokeILL.booleanValue;
+        if (this.b) {
+            MessageManager.getInstance().removeHttpMessage(this.a);
+        }
+        this.b = true;
+        SearchRecForumRequestMessage searchRecForumRequestMessage = new SearchRecForumRequestMessage();
+        searchRecForumRequestMessage.setParams(fd9.d().c());
+        searchRecForumRequestMessage.setTag(this.a);
+        MessageManager.getInstance().sendMessage(searchRecForumRequestMessage);
     }
 
-    public static boolean b(int i, String str, c cVar) {
-        InterceptResult invokeILL;
+    public void h(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, null, i, str, cVar)) == null) {
-            if (b.contains(Integer.valueOf(i))) {
-                if ((i != 3250020 && i != 3250021) || !TextUtils.isEmpty(str)) {
-                    return c(i, str, cVar);
-                }
-                return false;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.e = bVar;
         }
-        return invokeILL.booleanValue;
     }
 
-    public static boolean c(int i, String str, c cVar) {
-        InterceptResult invokeILL;
-        q65 a2;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65539, null, i, str, cVar)) == null) {
-            if (!a.compareAndSet(false, true)) {
-                return false;
-            }
-            String.valueOf(System.currentTimeMillis());
-            if (i == 3250022) {
-                q65 d = q65.d();
-                d.g(cVar);
-                if (cVar != null) {
-                    cVar.d();
-                }
-                if (TbadkCoreApplication.getInst().getCurrentActivity() != null) {
-                    zz4 zz4Var = new zz4(TbadkCoreApplication.getInst().getCurrentActivity());
-                    zz4Var.setMessageId(R.string.anti_account_modifypwd_tip);
-                    zz4Var.setPositiveButton(R.string.modify_pwd, new a(zz4Var, d));
-                    zz4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038e, new b(zz4Var));
-                    if (TbadkCoreApplication.getInst().getCurrentActivity() instanceof b9) {
-                        zz4Var.create(((b9) TbadkCoreApplication.getInst().getCurrentActivity()).getPageContext());
-                        zz4Var.show();
-                    }
-                }
-            } else {
-                if (i == 3250017) {
-                    a2 = q65.b();
-                } else if (i == 3250023) {
-                    a2 = q65.c();
-                } else if (i == 3250024) {
-                    a2 = new q65(4, null);
-                } else {
-                    a2 = q65.a(str);
-                }
-                a2.g(cVar);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, a2));
-            }
-            a.set(false);
-            return true;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c) {
+            f(this.d);
+            this.c = false;
+            this.d = null;
         }
-        return invokeILL.booleanValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = true;
+        }
+    }
+
+    public final void f(HttpResponsedMessage httpResponsedMessage) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpResponsedMessage) == null) {
+            this.b = false;
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003526 && (httpResponsedMessage instanceof SearchRecForumResponsedMessage)) {
+                if (httpResponsedMessage.getError() != 0 && (bVar = this.e) != null) {
+                    bVar.onFail();
+                    return;
+                }
+                fd9.d().i(false);
+                b bVar2 = this.e;
+                if (bVar2 != null) {
+                    bVar2.a(((SearchRecForumResponsedMessage) httpResponsedMessage).data);
+                }
+            }
+        }
     }
 }

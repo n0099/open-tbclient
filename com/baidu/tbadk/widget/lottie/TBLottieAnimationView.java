@@ -15,10 +15,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.DynamicLottieSwitch;
-import com.baidu.tieba.ci;
-import com.baidu.tieba.gi;
-import com.baidu.tieba.ts5;
-import com.baidu.tieba.us5;
+import com.baidu.tieba.au5;
+import com.baidu.tieba.di;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.zt5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,16 +33,16 @@ public class TBLottieAnimationView extends LottieAnimationView {
     public static /* synthetic */ Interceptable $ic;
     public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public us5 a;
+    public au5 a;
     public String b;
     public boolean c;
     public boolean d;
     public boolean e;
     public boolean f;
-    public us5.a g;
+    public au5.a g;
 
     /* loaded from: classes3.dex */
-    public class a implements us5.a {
+    public class a implements au5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TBLottieAnimationView a;
@@ -65,10 +65,10 @@ public class TBLottieAnimationView extends LottieAnimationView {
             this.a = tBLottieAnimationView;
         }
 
-        @Override // com.baidu.tieba.us5.a
+        @Override // com.baidu.tieba.au5.a
         public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !gi.isEmpty(str)) {
+            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !hi.isEmpty(str)) {
                 this.a.setAnimationDir(str);
             }
         }
@@ -342,7 +342,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
             try {
                 return file.mkdirs();
             } catch (Exception e2) {
-                TiebaStatic.file(e2, gi.join("FileHelper", ".", "CheckTempDir", " ", str));
+                TiebaStatic.file(e2, hi.join("FileHelper", ".", "CheckTempDir", " ", str));
                 return false;
             }
         }
@@ -428,7 +428,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
             if (!file.exists() || file.length() <= 0) {
                 return null;
             }
-            return ci.v(file);
+            return di.v(file);
         }
         return (InputStream) invokeLL.objValue;
     }
@@ -446,18 +446,18 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public final void q(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || gi.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || hi.isEmpty(str)) {
             return;
         }
-        ts5 ts5Var = new ts5();
-        ts5Var.d(str);
-        ts5Var.c(getFristLoadInternal());
-        setImageAssetDelegate(ts5Var);
+        zt5 zt5Var = new zt5();
+        zt5Var.d(str);
+        zt5Var.c(getFristLoadInternal());
+        setImageAssetDelegate(zt5Var);
     }
 
     public void setAnimationDir(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || gi.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || hi.isEmpty(str)) {
             return;
         }
         q(str);
@@ -491,7 +491,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public final void r(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || gi.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || hi.isEmpty(str)) {
             return;
         }
         boolean z = this.c;
@@ -506,11 +506,11 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public void setAnimationUrl(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && !gi.isEmpty(str) && !str.equals(this.b)) {
+        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && !hi.isEmpty(str) && !str.equals(this.b)) {
             this.b = str;
-            us5 us5Var = new us5(getAnimationPath(), str, this.g);
-            this.a = us5Var;
-            us5Var.execute(new Void[0]);
+            au5 au5Var = new au5(getAnimationPath(), str, this.g);
+            this.a = au5Var;
+            au5Var.execute(new Void[0]);
         }
     }
 }

@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bq9;
-import com.baidu.tieba.dq9;
+import com.baidu.tieba.ao6;
 import com.baidu.tieba.edgefloat.foldclose.FoldCloseEdgeFloat;
-import com.baidu.tieba.g19;
+import com.baidu.tieba.sz9;
+import com.baidu.tieba.uz9;
 import com.baidu.tieba.view.progressball.ProgressBall;
-import com.baidu.tieba.xk6;
+import com.baidu.tieba.wa9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public final class DownloadFloatBall {
     public final List<String> c;
     public final Lazy d;
     public final Lazy e;
-    public xk6 f;
+    public ao6 f;
     public View.OnClickListener g;
     public View.OnClickListener h;
 
@@ -93,7 +93,7 @@ public final class DownloadFloatBall {
             }
 
             /* loaded from: classes4.dex */
-            public static final class a implements bq9 {
+            public static final class a implements sz9 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadFloatBall a;
@@ -116,7 +116,7 @@ public final class DownloadFloatBall {
                     this.a = downloadFloatBall;
                 }
 
-                @Override // com.baidu.tieba.bq9
+                @Override // com.baidu.tieba.sz9
                 public void a(boolean z) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -145,10 +145,10 @@ public final class DownloadFloatBall {
                 return (FoldCloseEdgeFloat) invokeV.objValue;
             }
         });
-        this.f = new xk6();
+        this.f = new ao6();
     }
 
-    public final void m(xk6 data) {
+    public final void m(ao6 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -182,13 +182,13 @@ public final class DownloadFloatBall {
         q(TbadkCoreStatisticKey.DOWNLOAD_FLOAT_BALL_SHOW, false, z);
     }
 
-    public final xk6 b() {
+    public final ao6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.f;
         }
-        return (xk6) invokeV.objValue;
+        return (ao6) invokeV.objValue;
     }
 
     public final FoldCloseEdgeFloat d() {
@@ -243,68 +243,68 @@ public final class DownloadFloatBall {
         return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0037: INVOKE  (r4v1 int A[REMOVE]) = (r0v2 com.baidu.tieba.dq9) type: VIRTUAL call: com.baidu.tieba.dq9.e():int), ('%' char)] */
-    public final dq9 c() {
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0037: INVOKE  (r4v1 int A[REMOVE]) = (r0v2 com.baidu.tieba.uz9) type: VIRTUAL call: com.baidu.tieba.uz9.e():int), ('%' char)] */
+    public final uz9 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            dq9 dq9Var = new dq9();
+            uz9 uz9Var = new uz9();
             String c = this.f.c();
             if (c == null) {
                 c = "";
             }
-            dq9Var.h(c);
-            dq9Var.j(R.drawable.progress_ball_dynamic);
-            dq9Var.l(Math.min(Math.max(this.f.f(), 0), 100));
+            uz9Var.h(c);
+            uz9Var.j(R.drawable.progress_ball_dynamic);
+            uz9Var.l(Math.min(Math.max(this.f.f(), 0), 100));
             StringBuilder sb = new StringBuilder();
-            sb.append(dq9Var.e());
+            sb.append(uz9Var.e());
             sb.append('%');
-            dq9Var.m(new SpannableString(sb.toString()));
-            dq9Var.f().setSpan(new AbsoluteSizeSpan(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X06)), 0, dq9Var.f().length() - 1, 17);
-            return dq9Var;
+            uz9Var.m(new SpannableString(sb.toString()));
+            uz9Var.f().setSpan(new AbsoluteSizeSpan(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X06)), 0, uz9Var.f().length() - 1, 17);
+            return uz9Var;
         }
-        return (dq9) invokeV.objValue;
+        return (uz9) invokeV.objValue;
     }
 
-    public final dq9 e() {
+    public final uz9 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            dq9 dq9Var = new dq9();
+            uz9 uz9Var = new uz9();
             String c = this.f.c();
             if (c == null) {
                 c = "";
             }
-            dq9Var.h(c);
-            dq9Var.i(R.color.CAM_X0302);
-            dq9Var.l(100);
-            dq9Var.m(new SpannableString(this.f.b()));
-            return dq9Var;
+            uz9Var.h(c);
+            uz9Var.i(R.color.CAM_X0302);
+            uz9Var.l(100);
+            uz9Var.m(new SpannableString(this.f.b()));
+            return uz9Var;
         }
-        return (dq9) invokeV.objValue;
+        return (uz9) invokeV.objValue;
     }
 
-    public final dq9 g() {
+    public final uz9 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            dq9 dq9Var = new dq9();
+            uz9 uz9Var = new uz9();
             String c = this.f.c();
             if (c == null) {
                 c = "";
             }
-            dq9Var.h(c);
-            dq9Var.i(R.color.CAM_X0305);
-            dq9Var.l(Math.min(Math.max(this.f.f(), 0), 100));
-            dq9Var.m(new SpannableString(this.f.b()));
-            return dq9Var;
+            uz9Var.h(c);
+            uz9Var.i(R.color.CAM_X0305);
+            uz9Var.l(Math.min(Math.max(this.f.f(), 0), 100));
+            uz9Var.m(new SpannableString(this.f.b()));
+            return uz9Var;
         }
-        return (dq9) invokeV.objValue;
+        return (uz9) invokeV.objValue;
     }
 
-    public final dq9 i() {
+    public final uz9 i() {
         InterceptResult invokeV;
-        dq9 e;
+        uz9 e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (this.f.a() == 7) {
@@ -321,7 +321,7 @@ public final class DownloadFloatBall {
             }
             return e;
         }
-        return (dq9) invokeV.objValue;
+        return (uz9) invokeV.objValue;
     }
 
     public final void q(String key, boolean z, boolean z2) {
@@ -332,7 +332,7 @@ public final class DownloadFloatBall {
             StatisticItem statisticItem = new StatisticItem(key);
             statisticItem.param("obj_source", this.f.d());
             int i2 = 2;
-            if (g19.i(this.f.e())) {
+            if (wa9.i(this.f.e())) {
                 i = 4;
             } else {
                 if (!z2) {

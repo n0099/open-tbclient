@@ -12,12 +12,12 @@ import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.b35;
+import com.baidu.tieba.am;
+import com.baidu.tieba.e45;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.tl;
 import com.baidu.tieba.ul;
-import com.baidu.tieba.wh;
-import com.baidu.tieba.zl;
+import com.baidu.tieba.vl;
+import com.baidu.tieba.xh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,12 +78,12 @@ public class SoLoadUtils {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            b35.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_loadLibrary_start", 0, "", new Object[0]);
+                            e45.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_loadLibrary_start", 0, "", new Object[0]);
                             System.loadLibrary(this.val$soName);
-                            b35.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_loadLibrary_end", 0, "", new Object[0]);
+                            e45.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_loadLibrary_end", 0, "", new Object[0]);
                         } catch (Throwable th) {
                             th.printStackTrace();
-                            b35.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_loadLibrary_error", 1, th.getMessage(), new Object[0]);
+                            e45.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_loadLibrary_error", 1, th.getMessage(), new Object[0]);
                         }
                     }
                 }
@@ -95,7 +95,7 @@ public class SoLoadUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
             if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(str))) {
-                b35.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_nonSo", 0, "", new Object[0]);
+                e45.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_nonSo", 0, "", new Object[0]);
                 DefaultDownloadCallback defaultDownloadCallback = new DefaultDownloadCallback(str3) { // from class: com.baidu.tbadk.core.util.SoLoadUtils.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -124,12 +124,12 @@ public class SoLoadUtils {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, packageInfo, errorInfo) == null) {
                             super.onDownloadSuccess(packageInfo, errorInfo);
-                            b35.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_nonSo_onDownloadSuccess", 0, "", new Object[0]);
+                            e45.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_nonSo_onDownloadSuccess", 0, "", new Object[0]);
                             SoLoadUtils.loadPassFaceSo(this.val$soName);
                         }
                     }
                 };
-                zl zlVar = new zl(str3) { // from class: com.baidu.tbadk.core.util.SoLoadUtils.2
+                am amVar = new am(str3) { // from class: com.baidu.tbadk.core.util.SoLoadUtils.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String val$soName;
@@ -152,23 +152,23 @@ public class SoLoadUtils {
                         this.val$soName = str3;
                     }
 
-                    @Override // com.baidu.tieba.zl
+                    @Override // com.baidu.tieba.am
                     public void onSoFileLoaded(String str4) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, str4) == null) {
-                            b35.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_nonSo_onSoFileLoaded", 0, "", new Object[0]);
+                            e45.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_nonSo_onSoFileLoaded", 0, "", new Object[0]);
                             SoLoadUtils.loadPassFaceSo(this.val$soName);
                         }
                     }
                 };
                 RequestParams requestParams = new RequestParams();
-                requestParams.setRunType(ul.a);
+                requestParams.setRunType(vl.a);
                 requestParams.setRunNode("aps");
-                requestParams.addChannel(new tl(str2, defaultDownloadCallback, zlVar));
+                requestParams.addChannel(new ul(str2, defaultDownloadCallback, amVar));
                 PmsManager.getInstance().execute(requestParams);
                 return;
             }
-            b35.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_hasSo", 0, "", new Object[0]);
+            e45.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_hasSo", 0, "", new Object[0]);
             loadPassFaceSo(str3);
         }
     }
@@ -180,7 +180,7 @@ public class SoLoadUtils {
         String[] list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (wh.a()) {
+            if (xh.a()) {
                 str = "so_64_cache";
             } else {
                 str = "so_cache";

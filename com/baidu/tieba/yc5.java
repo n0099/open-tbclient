@@ -1,76 +1,74 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.MoreDeskView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class yc5 extends nb5 {
+public class yc5 extends ad5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final qc5 a;
 
-    @Override // com.baidu.tieba.nb5
-    public void c(pb5 pb5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pb5Var) == null) {
-        }
-    }
-
-    public yc5(qc5 qc5Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yc5(Context context, int i) {
+        super(context, null, 2, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qc5Var};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = qc5Var;
+        this.b = TbadkCoreApplication.getInst().getString(R.string.more_function);
+        this.d = i == -1 ? R.drawable.icon_pure_post_more24 : i;
+        this.e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.i = false;
+        this.j = true;
+        this.m = new MoreDeskView(context);
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1};
     }
 
-    @Override // com.baidu.tieba.nb5
-    public pb5 b(Context context) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yc5(Context context, boolean z) {
+        super(context, null, 2, 0);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setBarLauncherType(6);
-            editorTools.setBackgroundColorId(R.color.CAM_X0602);
-            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
-            editorTools.setMoreDeskBgColorId(R.color.CAM_X0206);
-            editorTools.F(false);
-            return new xc5(editorTools);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (pb5) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nb5
-    public void d(pb5 pb5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pb5Var) == null) {
-            EditorTools b = pb5Var.b();
-            b.setHideBigEmotion(true);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            b.h(arrayList);
-            b.d(new zc5(b.getContext(), this.a));
-            wb5 p = b.p(5);
-            p.d = 0;
-            p.e(false);
-            b.setClearEbPadding(true);
-            b.f();
-        }
+        this.b = TbadkCoreApplication.getInst().getString(R.string.more_function);
+        this.d = R.drawable.icon_pure_post_more24;
+        this.e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.i = false;
+        this.j = true;
+        this.m = new MoreDeskView(context, !z);
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1};
     }
 }

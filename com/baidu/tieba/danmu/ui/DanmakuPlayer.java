@@ -13,19 +13,19 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.ci6;
-import com.baidu.tieba.ck6;
+import com.baidu.tieba.bn6;
 import com.baidu.tieba.danmu.ecs.system.DataSystem;
 import com.baidu.tieba.danmu.ecs.system.RenderSystem;
 import com.baidu.tieba.danmu.ui.DanmakuPlayer;
-import com.baidu.tieba.di6;
-import com.baidu.tieba.dk6;
-import com.baidu.tieba.ei6;
-import com.baidu.tieba.ii6;
-import com.baidu.tieba.jk6;
-import com.baidu.tieba.nj6;
-import com.baidu.tieba.wh6;
-import com.baidu.tieba.yj6;
+import com.baidu.tieba.fl6;
+import com.baidu.tieba.fn6;
+import com.baidu.tieba.gl6;
+import com.baidu.tieba.gn6;
+import com.baidu.tieba.hl6;
+import com.baidu.tieba.ll6;
+import com.baidu.tieba.mn6;
+import com.baidu.tieba.qm6;
+import com.baidu.tieba.zk6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,17 +52,17 @@ public final class DanmakuPlayer {
     public static boolean n;
     public transient /* synthetic */ FieldHolder $fh;
     public DanmakuView a;
-    public final ii6 b;
+    public final ll6 b;
     public final Lazy c;
     public final Lazy d;
     public final Lazy e;
     public int f;
     public int g;
     public float h;
-    public wh6 i;
+    public zk6 i;
     public final Semaphore j;
     public boolean k;
-    public dk6 l;
+    public gn6 l;
     public boolean m;
 
     static {
@@ -123,7 +123,7 @@ public final class DanmakuPlayer {
                 int i = msg.what;
                 if (i != 2101) {
                     if (i == 2201) {
-                        wh6 c = this.a.m().u().c();
+                        zk6 c = this.a.m().u().c();
                         c.F();
                         c.G();
                         c.C();
@@ -178,12 +178,12 @@ public final class DanmakuPlayer {
         }
     }
 
-    public DanmakuPlayer(yj6 renderer, ei6 ei6Var) {
+    public DanmakuPlayer(bn6 renderer, hl6 hl6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {renderer, ei6Var};
+            Object[] objArr = {renderer, hl6Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -194,7 +194,7 @@ public final class DanmakuPlayer {
             }
         }
         Intrinsics.checkNotNullParameter(renderer, "renderer");
-        this.b = ii6.a.c(ii6.m, renderer, null, 2, null);
+        this.b = ll6.a.c(ll6.m, renderer, null, 2, null);
         this.c = LazyKt__LazyJVMKt.lazy(DanmakuPlayer$actionThread$2.INSTANCE);
         this.d = LazyKt__LazyJVMKt.lazy(new Function0<a>(this) { // from class: com.baidu.tieba.danmu.ui.DanmakuPlayer$actionHandler$2
             public static /* synthetic */ Interceptable $ic;
@@ -281,15 +281,15 @@ public final class DanmakuPlayer {
         });
         this.h = 1.0f;
         this.j = new Semaphore(0);
-        if (ei6Var == null) {
+        if (hl6Var == null) {
             return;
         }
-        ei6Var.a(l());
+        hl6Var.a(l());
         throw null;
     }
 
-    public /* synthetic */ DanmakuPlayer(yj6 yj6Var, ei6 ei6Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(yj6Var, (i & 2) != 0 ? null : ei6Var);
+    public /* synthetic */ DanmakuPlayer(bn6 bn6Var, hl6 hl6Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(bn6Var, (i & 2) != 0 ? null : hl6Var);
     }
 
     public static final void y(DanmakuPlayer this$0) {
@@ -300,19 +300,19 @@ public final class DanmakuPlayer {
         }
     }
 
-    public final void A(wh6 wh6Var) {
+    public final void A(zk6 zk6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, wh6Var) == null) {
-            this.i = wh6Var;
-            ii6 ii6Var = this.b;
-            if (wh6Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, zk6Var) == null) {
+            this.i = zk6Var;
+            ll6 ll6Var = this.b;
+            if (zk6Var == null) {
                 return;
             }
-            ii6Var.F(wh6Var);
+            ll6Var.F(zk6Var);
         }
     }
 
-    public final List<ci6> k(RectF hitRect) {
+    public final List<fl6> k(RectF hitRect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, hitRect)) == null) {
@@ -326,53 +326,53 @@ public final class DanmakuPlayer {
         return (List) invokeL.objValue;
     }
 
-    public final ci6 p(di6 danmaku) {
+    public final fl6 p(gl6 danmaku) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, danmaku)) == null) {
             Intrinsics.checkNotNullParameter(danmaku, "danmaku");
-            return jk6.a.a(danmaku, this);
+            return mn6.a.a(danmaku, this);
         }
-        return (ci6) invokeL.objValue;
+        return (fl6) invokeL.objValue;
     }
 
-    public final ci6 v(di6 danmaku) {
+    public final fl6 v(gl6 danmaku) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, danmaku)) == null) {
             Intrinsics.checkNotNullParameter(danmaku, "danmaku");
-            ci6 p = p(danmaku);
+            fl6 p = p(danmaku);
             DataSystem l = l();
             if (l != null) {
                 l.w(p);
             }
             return p;
         }
-        return (ci6) invokeL.objValue;
+        return (fl6) invokeL.objValue;
     }
 
-    public final void w(dk6 dk6Var) {
+    public final void w(gn6 gn6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048599, this, dk6Var) == null) && !Intrinsics.areEqual(this.l, dk6Var)) {
-            this.l = dk6Var;
+        if ((interceptable == null || interceptable.invokeL(1048599, this, gn6Var) == null) && !Intrinsics.areEqual(this.l, gn6Var)) {
+            this.l = gn6Var;
             RenderSystem renderSystem = (RenderSystem) this.b.k(RenderSystem.class);
             if (renderSystem != null) {
-                renderSystem.q(dk6Var);
+                renderSystem.q(gn6Var);
             }
         }
     }
 
-    public final void x(wh6 wh6Var) {
+    public final void x(zk6 zk6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, wh6Var) == null) {
-            if (wh6Var != null) {
-                A(wh6Var);
+        if (interceptable == null || interceptable.invokeL(1048600, this, zk6Var) == null) {
+            if (zk6Var != null) {
+                A(zk6Var);
             }
             this.b.C();
             if (!this.k) {
                 this.k = true;
                 if (!n) {
-                    g().post(new Runnable() { // from class: com.baidu.tieba.bk6
+                    g().post(new Runnable() { // from class: com.baidu.tieba.en6
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -389,14 +389,14 @@ public final class DanmakuPlayer {
         }
     }
 
-    public final List<ci6> B(List<di6> dataList) {
+    public final List<fl6> B(List<gl6> dataList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataList)) == null) {
             Intrinsics.checkNotNullParameter(dataList, "dataList");
             ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(dataList, 10));
-            for (di6 di6Var : dataList) {
-                arrayList.add(p(di6Var));
+            for (gl6 gl6Var : dataList) {
+                arrayList.add(p(gl6Var));
             }
             DataSystem l = l();
             if (l != null) {
@@ -431,7 +431,7 @@ public final class DanmakuPlayer {
                 return;
             }
             if (!n) {
-                ii6.E(this.b, null, 1, null);
+                ll6.E(this.b, null, 1, null);
             }
             this.j.tryAcquire();
             if (!this.k) {
@@ -488,7 +488,7 @@ public final class DanmakuPlayer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
             BdLog.d("DanmakuEngine [Player] SeekTo(" + j + ')');
-            wh6 i = i();
+            zk6 i = i();
             if (i != null) {
                 i.E();
             }
@@ -511,22 +511,22 @@ public final class DanmakuPlayer {
         if (!this.k) {
             return;
         }
-        nj6.b("updateFrame");
+        qm6.b("updateFrame");
         this.b.r();
-        nj6.b("postInvalidate");
+        qm6.b("postInvalidate");
         DanmakuView danmakuView = this.a;
         if (danmakuView != null) {
             danmakuView.postInvalidateOnAnimation();
         }
-        nj6.a();
-        nj6.a();
+        qm6.a();
+        qm6.a();
     }
 
     public final void E(int i, int i2, float f) {
-        wh6 wh6Var;
+        zk6 zk6Var;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) != null) || (wh6Var = this.i) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) != null) || (zk6Var = this.i) == null) {
             return;
         }
         if (this.f == i && this.g == i2) {
@@ -540,11 +540,11 @@ public final class DanmakuPlayer {
             }
         }
         long clamp = MathUtils.clamp(((float) 13000) * ((i * f) / 682), 9000L, 15000L);
-        if (wh6Var.t() != clamp) {
-            wh6Var.A(clamp);
-            wh6Var.I();
-            wh6Var.F();
-            wh6Var.J();
+        if (zk6Var.t() != clamp) {
+            zk6Var.A(clamp);
+            zk6Var.I();
+            zk6Var.F();
+            zk6Var.J();
         }
         BdLog.d("XanaDanmaku [Factor] update rolling duration to " + clamp);
         this.f = i;
@@ -570,13 +570,13 @@ public final class DanmakuPlayer {
         return (HandlerThread) invokeV.objValue;
     }
 
-    public final wh6 i() {
+    public final zk6 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.b.t();
         }
-        return (wh6) invokeV.objValue;
+        return (zk6) invokeV.objValue;
     }
 
     public final long j() {
@@ -597,13 +597,13 @@ public final class DanmakuPlayer {
         return (DataSystem) invokeV.objValue;
     }
 
-    public final ii6 m() {
+    public final ll6 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.b;
         }
-        return (ii6) invokeV.objValue;
+        return (ll6) invokeV.objValue;
     }
 
     public final b n() {
@@ -647,7 +647,7 @@ public final class DanmakuPlayer {
     public final void o(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048591, this, i, i2) == null) {
-            ck6 d = this.b.u().d();
+            fn6 d = this.b.u().d();
             E(i, i2, d.d());
             D();
             if (d.getWidth() != i || d.getHeight() != i2) {

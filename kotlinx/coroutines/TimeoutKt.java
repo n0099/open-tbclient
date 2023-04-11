@@ -36,14 +36,14 @@ public final class TimeoutKt {
 
     @ExperimentalTime
     /* renamed from: withTimeout-lwyi7ZQ  reason: not valid java name */
-    public static final <T> Object m2208withTimeoutlwyi7ZQ(double d, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
-        return withTimeout(DelayKt.m2201toDelayMillisLRDsOJo(d), function2, continuation);
+    public static final <T> Object m2210withTimeoutlwyi7ZQ(double d, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
+        return withTimeout(DelayKt.m2203toDelayMillisLRDsOJo(d), function2, continuation);
     }
 
     @ExperimentalTime
     /* renamed from: withTimeoutOrNull-lwyi7ZQ  reason: not valid java name */
-    public static final <T> Object m2209withTimeoutOrNulllwyi7ZQ(double d, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
-        return withTimeoutOrNull(DelayKt.m2201toDelayMillisLRDsOJo(d), function2, continuation);
+    public static final <T> Object m2211withTimeoutOrNulllwyi7ZQ(double d, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
+        return withTimeoutOrNull(DelayKt.m2203toDelayMillisLRDsOJo(d), function2, continuation);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0024  */

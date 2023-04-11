@@ -1,11 +1,28 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
+import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface wa1<IMAGEVIEW extends ImageView> extends cn0 {
-    void a(String str, IMAGEVIEW imageview, boolean z);
+public class wa1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, IMAGEVIEW imageview, int i, int i2);
+    public static void a(View view2, View view3, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65536, null, view2, view3, i) == null) {
+            b(view2, view3, i, i, i, i);
+        }
+    }
 
-    void e(String str, bn0 bn0Var);
+    public static void b(View view2, View view3, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, view3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && view3 != null && view2 != null) {
+            if (view2.getTouchDelegate() instanceof sa1) {
+                ((sa1) view2.getTouchDelegate()).a(view3, i, i2, i3, i4);
+            } else {
+                view2.setTouchDelegate(new sa1(view3, i, i2, i3, i4));
+            }
+        }
+    }
 }

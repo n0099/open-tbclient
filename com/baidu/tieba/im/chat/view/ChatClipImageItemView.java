@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.ji;
-import com.baidu.tieba.ok;
-import com.baidu.tieba.rk;
-import com.baidu.tieba.rm;
-import com.baidu.tieba.uk;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.ki;
+import com.baidu.tieba.pk;
+import com.baidu.tieba.sk;
+import com.baidu.tieba.sm;
+import com.baidu.tieba.vk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,11 +27,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
-public class ChatClipImageItemView extends GifView implements rk.a {
+public class ChatClipImageItemView extends GifView implements sk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean j1;
-    public rk k1;
+    public sk k1;
     public final Path l1;
     public boolean m1;
     public a n1;
@@ -41,7 +41,7 @@ public class ChatClipImageItemView extends GifView implements rk.a {
         void a(Canvas canvas);
     }
 
-    @Override // com.baidu.tieba.rk.a
+    @Override // com.baidu.tieba.sk.a
     public void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
@@ -120,15 +120,15 @@ public class ChatClipImageItemView extends GifView implements rk.a {
         this.l1 = new Path();
         this.m1 = true;
         this.n1 = null;
-        S(context, attributeSet, i);
+        T(context, attributeSet, i);
         setShowStaticDrawable(false);
     }
 
-    private void S(Context context, AttributeSet attributeSet, int i) {
+    private void T(Context context, AttributeSet attributeSet, int i) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, this, context, attributeSet, i) == null) {
-            String trim = ji.g().trim();
+            String trim = ki.g().trim();
             if (trim != null) {
                 String[] strArr = {"M040", "M045"};
                 for (int i2 = 0; i2 < 2; i2++) {
@@ -150,19 +150,19 @@ public class ChatClipImageItemView extends GifView implements rk.a {
                 }
             }
             if (!z) {
-                this.k1 = new uk();
+                this.k1 = new vk();
             } else {
-                this.k1 = new ok();
+                this.k1 = new pk();
             }
             this.d.n = true;
             this.k1.t(this);
-            rk rkVar = this.k1;
-            this.e = rkVar;
-            rkVar.r(this.d);
+            sk skVar = this.k1;
+            this.e = skVar;
+            skVar.r(this.d);
         }
     }
 
-    @Override // com.baidu.tieba.rk.a
+    @Override // com.baidu.tieba.sk.a
     public Path a(RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -173,7 +173,7 @@ public class ChatClipImageItemView extends GifView implements rk.a {
             float width = rectF.width();
             float height = rectF.height();
             this.l1.reset();
-            this.l1.set(n0(width, height, 1.0f));
+            this.l1.set(o0(width, height, 1.0f));
             return this.l1;
         }
         return (Path) invokeL.objValue;
@@ -216,13 +216,13 @@ public class ChatClipImageItemView extends GifView implements rk.a {
     }
 
     @Override // com.baidu.tbadk.gif.GifView, com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public rm getBdImage() {
+    public sm getBdImage() {
         InterceptResult invokeV;
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            rm bdImage = super.getBdImage();
+            sm bdImage = super.getBdImage();
             boolean z3 = true;
             if (getDrawable() != null && (getDrawable() instanceof BitmapDrawable) && ((BitmapDrawable) getDrawable()).getBitmap() != null) {
                 z = true;
@@ -234,25 +234,25 @@ public class ChatClipImageItemView extends GifView implements rk.a {
             } else {
                 z2 = false;
             }
-            rk rkVar = this.k1;
+            sk skVar = this.k1;
             if (!z2 && !z) {
                 z3 = false;
             }
-            rkVar.u(z3);
+            skVar.u(z3);
             return bdImage;
         }
-        return (rm) invokeV.objValue;
+        return (sm) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public rm getDefaultBdImage() {
+    public sm getDefaultBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             this.k1.u(false);
             return super.getDefaultBdImage();
         }
-        return (rm) invokeV.objValue;
+        return (sm) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.gif.GifView, com.baidu.tbadk.widget.TbImageView, android.view.View
@@ -263,14 +263,14 @@ public class ChatClipImageItemView extends GifView implements rk.a {
         }
     }
 
-    public final Path n0(float f, float f2, float f3) {
+    public final Path o0(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            int d = hi.d(getContext(), 4.0f);
-            int d2 = hi.d(getContext(), 12.0f);
-            int d3 = hi.d(getContext(), 6.0f);
-            int d4 = hi.d(getContext(), 10.0f);
+            int d = ii.d(getContext(), 4.0f);
+            int d2 = ii.d(getContext(), 12.0f);
+            int d3 = ii.d(getContext(), 6.0f);
+            int d4 = ii.d(getContext(), 10.0f);
             float f4 = d3;
             float f5 = 2.0f * f3;
             float f6 = (f - f4) - f5;

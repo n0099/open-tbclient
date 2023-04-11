@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.gn;
-import com.baidu.tieba.rk7;
+import com.baidu.tieba.hn;
+import com.baidu.tieba.ou7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage 
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<gn> mDataList;
+    public List<hn> mDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketGetTopicThreadMessage() {
@@ -63,9 +63,9 @@ public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage 
                 this.mDataList = new ArrayList();
                 for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
                     if (topicThread != null) {
-                        rk7 rk7Var = new rk7();
-                        rk7Var.f(topicThread);
-                        this.mDataList.add(rk7Var);
+                        ou7 ou7Var = new ou7();
+                        ou7Var.d(topicThread);
+                        this.mDataList.add(ou7Var);
                     }
                 }
             }
@@ -74,7 +74,7 @@ public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage 
         return invokeIL.objValue;
     }
 
-    public List<gn> getDataList() {
+    public List<hn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.gi;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class JumpYYLiveHttpResponseMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             YyExtData yyExtData = this.mYyExtData;
-            if (yyExtData != null && !gi.isEmpty(yyExtData.mSid) && !gi.isEmpty(this.mYyExtData.mSsid)) {
+            if (yyExtData != null && !hi.isEmpty(yyExtData.mSid) && !hi.isEmpty(this.mYyExtData.mSsid)) {
                 return true;
             }
             return false;

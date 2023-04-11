@@ -10,7 +10,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.NovelWebViewActivity;
 import com.baidu.tbadk.browser.ShareWebActivity;
@@ -31,24 +30,24 @@ import com.baidu.tbadk.coreExtra.InitUserNameDialogActivity;
 import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.av4;
-import com.baidu.tieba.gn7;
-import com.baidu.tieba.he5;
+import com.baidu.tieba.al9;
+import com.baidu.tieba.bj5;
+import com.baidu.tieba.c35;
+import com.baidu.tieba.cv4;
+import com.baidu.tieba.dx7;
+import com.baidu.tieba.gz7;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
-import com.baidu.tieba.jb9;
-import com.baidu.tieba.jp7;
-import com.baidu.tieba.k15;
-import com.baidu.tieba.kt4;
+import com.baidu.tieba.k28;
 import com.baidu.tieba.lc.LcUpdateDialogActivity;
-import com.baidu.tieba.ns7;
+import com.baidu.tieba.lf5;
+import com.baidu.tieba.mt4;
+import com.baidu.tieba.n25;
+import com.baidu.tieba.pm9;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.service.UpdateInfoService;
-import com.baidu.tieba.ti5;
-import com.baidu.tieba.vh5;
 import com.baidu.tieba.wallet.WalletStaticInit;
-import com.baidu.tieba.yc9;
-import com.baidu.tieba.z15;
+import com.baidu.tieba.zj5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -191,17 +190,17 @@ public class LaunchStatic {
         b();
         d();
         c();
-        yc9.a();
-        ns7.a();
-        gn7.a();
+        pm9.a();
+        k28.a();
+        dx7.a();
         ImMemoryCacheRegister.i();
-        jp7.i();
-        kt4.h();
+        gz7.i();
+        mt4.h();
         ServiceStaticInit.init();
         WalletStaticInit.init();
-        k15.d();
-        z15.a();
-        av4.d();
+        n25.d();
+        c35.a();
+        cv4.d();
         a();
         e();
         testTitans();
@@ -213,9 +212,9 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            he5.d().f();
-            jb9.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, jb9.a(TbConfig.GET_PAY_CONFIG, 303039));
+            lf5.d().f();
+            al9.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, al9.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -237,7 +236,7 @@ public class LaunchStatic {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess() && !Fresco.hasBeenInitialized()) {
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !Fresco.hasBeenInitialized()) {
             Fresco.initialize(TbadkCoreApplication.getInst());
         }
     }
@@ -246,7 +245,7 @@ public class LaunchStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             try {
-                vh5.f().l(SyncDataEvent.class, new ti5());
+                bj5.f().l(SyncDataEvent.class, new zj5());
             } catch (Exception e) {
                 e.printStackTrace();
             }

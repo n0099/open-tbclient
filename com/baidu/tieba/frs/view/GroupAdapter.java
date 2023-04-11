@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.view.GroupAdapter;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,9 +68,9 @@ public final class GroupAdapter extends RecyclerView.Adapter<GroupItemHolder> {
         this.a = list;
     }
 
-    public final void g(View.OnClickListener onClickListener) {
+    public final void n(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             this.b = onClickListener;
         }
     }
@@ -86,7 +86,7 @@ public final class GroupAdapter extends RecyclerView.Adapter<GroupItemHolder> {
         this((i & 1) != 0 ? null : list);
     }
 
-    public static final void f(GroupAdapter this$0, View view2) {
+    public static final void m(GroupAdapter this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -97,13 +97,27 @@ public final class GroupAdapter extends RecyclerView.Adapter<GroupItemHolder> {
         }
     }
 
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List<FeedGroupInfo> list = this.a;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: d */
+    /* renamed from: k */
     public void onBindViewHolder(GroupItemHolder holder, int i) {
         FeedGroupInfo feedGroupInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, holder, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, holder, i) == null) {
             Intrinsics.checkNotNullParameter(holder, "holder");
             List<FeedGroupInfo> list = this.a;
             if (list != null && (feedGroupInfo = list.get(i)) != null) {
@@ -116,26 +130,26 @@ public final class GroupAdapter extends RecyclerView.Adapter<GroupItemHolder> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: e */
+    /* renamed from: l */
     public GroupItemHolder onCreateViewHolder(ViewGroup parent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parent, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parent, i)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
             LinearLayout linearLayout = new LinearLayout(parent.getContext());
-            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, hi.g(parent.getContext(), R.dimen.tbds75));
-            marginLayoutParams.leftMargin = hi.g(parent.getContext(), R.dimen.M_W_X006);
+            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, ii.g(parent.getContext(), R.dimen.tbds75));
+            marginLayoutParams.leftMargin = ii.g(parent.getContext(), R.dimen.M_W_X006);
             linearLayout.setLayoutParams(marginLayoutParams);
-            linearLayout.setPadding(hi.g(parent.getContext(), R.dimen.M_W_X006), 0, hi.g(parent.getContext(), R.dimen.M_W_X004), 0);
+            linearLayout.setPadding(ii.g(parent.getContext(), R.dimen.M_W_X006), 0, ii.g(parent.getContext(), R.dimen.M_W_X004), 0);
             linearLayout.setGravity(16);
             TextView textView = new TextView(parent.getContext());
-            textView.setPadding(0, 0, 0, hi.g(parent.getContext(), R.dimen.tbds2));
+            textView.setPadding(0, 0, 0, ii.g(parent.getContext(), R.dimen.tbds2));
             linearLayout.addView(textView);
             ImageView imageView = new ImageView(parent.getContext());
-            imageView.setPadding(0, hi.g(parent.getContext(), R.dimen.tbds1), 0, 0);
+            imageView.setPadding(0, ii.g(parent.getContext(), R.dimen.tbds1), 0, 0);
             imageView.setAlpha(0.6f);
             linearLayout.addView(imageView);
-            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.m97
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jj7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -143,26 +157,12 @@ public final class GroupAdapter extends RecyclerView.Adapter<GroupItemHolder> {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        GroupAdapter.f(GroupAdapter.this, view2);
+                        GroupAdapter.m(GroupAdapter.this, view2);
                     }
                 }
             });
             return new GroupItemHolder(linearLayout, textView, imageView);
         }
         return (GroupItemHolder) invokeLI.objValue;
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<FeedGroupInfo> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gi;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,22 +58,22 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
                 }
             }
             this.a = view2;
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091196);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09119a);
             this.b = headImageView;
             headImageView.setIsRound(true);
             this.b.setPlaceHolder(1);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092603);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925f8);
         }
 
         public void a(SmartApp smartApp) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) {
                 this.a.setTag(smartApp);
-                if (!gi.isEmpty(smartApp.avatar)) {
+                if (!hi.isEmpty(smartApp.avatar)) {
                     this.b.setPlaceHolder(1);
-                    this.b.N(smartApp.avatar, 10, false, false);
+                    this.b.O(smartApp.avatar, 10, false, false);
                 }
-                if (!gi.isEmpty(smartApp.name)) {
+                if (!hi.isEmpty(smartApp.name)) {
                     this.c.setText(smartApp.name);
                 } else {
                     this.c.setText(R.string.intelligent_smart_app);
@@ -124,55 +124,65 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         this.a = context;
     }
 
-    public final SmartApp d(int i) {
+    public final SmartApp k(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             return (SmartApp) ListUtils.getItem(this.b, i);
         }
         return (SmartApp) invokeI.objValue;
     }
 
-    public void e(SmartApp smartApp) {
-        SmartApp h;
+    public void l(SmartApp smartApp) {
+        SmartApp o;
         List<SmartApp> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, smartApp) == null) && (h = h(smartApp.id)) != null && (list = this.b) != null) {
-            ListUtils.add(list, 0, h);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, smartApp) == null) && (o = o(smartApp.id)) != null && (list = this.b) != null) {
+            ListUtils.add(list, 0, o);
         }
     }
 
-    public void i(List<SmartApp> list) {
+    public void p(List<SmartApp> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.b = list;
         }
     }
 
-    public void j(View.OnClickListener onClickListener) {
+    public void q(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) {
             this.c = onClickListener;
         }
     }
 
-    public void k(View.OnLongClickListener onLongClickListener) {
+    public void r(View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onLongClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, onLongClickListener) == null) {
             this.d = onLongClickListener;
         }
     }
 
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ListUtils.getCount(this.b);
+        }
+        return invokeV.intValue;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: f */
+    /* renamed from: m */
     public void onBindViewHolder(HistoryRecordViewHolder historyRecordViewHolder, int i) {
-        SmartApp d;
+        SmartApp k;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, historyRecordViewHolder, i) != null) || historyRecordViewHolder == null || (d = d(i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048579, this, historyRecordViewHolder, i) != null) || historyRecordViewHolder == null || (k = k(i)) == null) {
             return;
         }
-        historyRecordViewHolder.a(d);
+        historyRecordViewHolder.a(k);
         historyRecordViewHolder.c(this.c);
         historyRecordViewHolder.d(this.d);
         historyRecordViewHolder.b();
@@ -180,27 +190,17 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: g */
+    /* renamed from: n */
     public HistoryRecordViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            return new HistoryRecordViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0844, viewGroup, false));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
+            return new HistoryRecordViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d083d, viewGroup, false));
         }
         return (HistoryRecordViewHolder) invokeLI.objValue;
     }
 
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return ListUtils.getCount(this.b);
-        }
-        return invokeV.intValue;
-    }
-
-    public SmartApp h(String str) {
+    public SmartApp o(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {

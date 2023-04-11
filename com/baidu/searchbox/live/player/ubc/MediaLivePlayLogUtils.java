@@ -3,6 +3,8 @@ package com.baidu.searchbox.live.player.ubc;
 import android.util.Log;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import com.baidu.searchbox.live.service.ILivePageInfoInterface;
+import com.baidu.searchbox.live.service.MixRequestServiceLocator;
 import com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell;
 import com.baidu.searchbox.live.ubc.FlowInfoHelper;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
@@ -231,6 +233,22 @@ public final class MediaLivePlayLogUtils {
         return hashMap;
     }
 
+    public final boolean isFirstJump(String str) {
+        ILivePageInfoInterface iLivePageInfoInterface = (ILivePageInfoInterface) MixRequestServiceLocator.Companion.getGlobalService(ILivePageInfoInterface.class);
+        boolean z = false;
+        if (iLivePageInfoInterface != null && iLivePageInfoInterface.isInsertVideo()) {
+            return false;
+        }
+        Integer num = (Integer) FlowInfoHelper.get(getFlowInfo(str), K_JUMP_TYPE);
+        if (num != null && num.intValue() == 1) {
+            z = true;
+        }
+        if (isDebug) {
+            logDebug("isFirstJump " + z);
+        }
+        return z;
+    }
+
     public final HashMap<String, Object> remove(String str) {
         boolean z;
         if (isDebug) {
@@ -271,16 +289,6 @@ public final class MediaLivePlayLogUtils {
 
     public final boolean isClosed(String str) {
         return FlowInfoHelper.isFlowClosed(getFlowInfo(str));
-    }
-
-    public final boolean isFirstJump(String str) {
-        Integer num = (Integer) FlowInfoHelper.get(getFlowInfo(str), K_JUMP_TYPE);
-        boolean z = true;
-        z = (num == null || num.intValue() != 1) ? false : false;
-        if (isDebug) {
-            logDebug("isFirstJump " + z);
-        }
-        return z;
     }
 
     public final boolean isPlayStage(String str) {

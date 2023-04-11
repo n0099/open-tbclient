@@ -41,7 +41,7 @@ import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FloatingActionButtonImpl {
     public static final int ANIM_STATE_HIDING = 1;
     public static final int ANIM_STATE_NONE = 0;
@@ -108,14 +108,14 @@ public class FloatingActionButtonImpl {
     public final RectF tmpRectF2 = new RectF();
     public final Matrix tmpMatrix = new Matrix();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface InternalTransformationCallback {
         void onScaleChanged();
 
         void onTranslationChanged();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface InternalVisibilityChangedListener {
         void onHidden();
 
@@ -133,7 +133,7 @@ public class FloatingActionButtonImpl {
         return true;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class DisabledElevationAnimation extends ShadowAnimatorImpl {
         @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl.ShadowAnimatorImpl
         public float getTargetShadowSize() {
@@ -145,7 +145,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class ElevateToHoveredFocusedTranslationZAnimation extends ShadowAnimatorImpl {
         public ElevateToHoveredFocusedTranslationZAnimation() {
             super();
@@ -158,7 +158,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class ElevateToPressedTranslationZAnimation extends ShadowAnimatorImpl {
         public ElevateToPressedTranslationZAnimation() {
             super();
@@ -171,7 +171,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class ResetElevationAnimation extends ShadowAnimatorImpl {
         public ResetElevationAnimation() {
             super();
@@ -183,7 +183,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public abstract class ShadowAnimatorImpl extends AnimatorListenerAdapter implements ValueAnimator.AnimatorUpdateListener {
         public float shadowSizeEnd;
         public float shadowSizeStart;

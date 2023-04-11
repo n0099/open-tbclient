@@ -525,7 +525,7 @@ public class hh {
                     byteArrayOutputStream = new ByteArrayOutputStream(l.length / 2);
                     try {
                         try {
-                            di.b(l, byteArrayOutputStream);
+                            ei.b(l, byteArrayOutputStream);
                             bArr = byteArrayOutputStream.toByteArray();
                             fg.d(byteArrayOutputStream);
                         } catch (Exception e2) {
@@ -684,7 +684,7 @@ public class hh {
                 byteArrayOutputStream = new ByteArrayOutputStream(k.length / 2);
                 try {
                     try {
-                        di.b(k, byteArrayOutputStream);
+                        ei.b(k, byteArrayOutputStream);
                         bArr = byteArrayOutputStream.toByteArray();
                     } catch (Exception e2) {
                         e = e2;
@@ -828,8 +828,8 @@ public class hh {
             this.c = str2;
             this.a = rgVar;
             if (rgVar != null) {
-                rgVar.k = ji.g();
-                this.a.q = ji.k();
+                rgVar.k = ki.g();
+                this.a.q = ki.k();
                 this.a.o = sg.a(BdBaseApplication.getInst());
                 this.a.p = String.valueOf(BdNetTypeUtil.netType());
             }

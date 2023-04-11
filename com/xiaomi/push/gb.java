@@ -21,7 +21,7 @@ public final class gb {
 
     static {
         try {
-            for (ClassLoader classLoader : m442a()) {
+            for (ClassLoader classLoader : m444a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
                 while (resources.hasMoreElements()) {
                     InputStream inputStream = null;
@@ -73,7 +73,7 @@ public final class gb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m441a() {
+    public static String m443a() {
         return "3.1.0";
     }
 
@@ -88,7 +88,7 @@ public final class gb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ClassLoader[] m442a() {
+    public static ClassLoader[] m444a() {
         ClassLoader[] classLoaderArr = {gb.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < 2; i++) {

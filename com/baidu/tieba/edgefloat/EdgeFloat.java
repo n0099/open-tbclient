@@ -13,13 +13,16 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tieba.edgefloat.EdgeFloat;
-import com.baidu.tieba.ql6;
-import com.baidu.tieba.rl6;
+import com.baidu.tieba.to6;
+import com.baidu.tieba.uo6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +41,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u0086\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0007\n\u0002\b\n\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u001b\u0018\u00002\u00020\u0001:\u0001_B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010;\u001a\u00020<H\u0002J(\u0010=\u001a\u00020:2\u0006\u0010.\u001a\u00020\u00062\u0006\u0010/\u001a\u00020\u00062\u0006\u00102\u001a\u00020\u00062\u0006\u0010\u001c\u001a\u00020\u0006H\u0002J\u000e\u0010>\u001a\u00020<2\u0006\u0010?\u001a\u00020@J&\u0010A\u001a\u00020<2\u0006\u0010B\u001a\u00020\u00192\u0006\u0010C\u001a\u00020\u00192\f\u0010D\u001a\b\u0012\u0004\u0012\u00020<0EH\u0002J\u0006\u0010F\u001a\u00020<J\b\u0010G\u001a\u00020\u0012H\u0002J\u0012\u0010H\u001a\u00020\u00122\b\u0010I\u001a\u0004\u0018\u00010\fH\u0002J\u0006\u0010 \u001a\u00020\u0012J\u000e\u0010J\u001a\u00020\u00062\u0006\u0010K\u001a\u00020\u0006J\u000e\u0010L\u001a\u00020<2\u0006\u0010\u0016\u001a\u00020\u0006J\u0016\u0010M\u001a\u00020<2\u0006\u0010N\u001a\u00020\u00062\u0006\u0010K\u001a\u00020\u0006J\u000e\u0010O\u001a\u00020<2\u0006\u0010K\u001a\u00020\u0006J\u0006\u0010P\u001a\u00020<J\u0010\u0010Q\u001a\u00020<2\u0006\u0010R\u001a\u00020\u0006H\u0016J\u0016\u0010S\u001a\u00020<2\u0006\u0010T\u001a\u00020\u00122\u0006\u0010\"\u001a\u00020\u0006J\u000e\u0010U\u001a\u00020<2\u0006\u0010V\u001a\u00020\u0012J\u0006\u0010W\u001a\u00020<J\b\u0010X\u001a\u00020<H\u0002J\u0006\u0010Y\u001a\u00020<J\u000e\u0010Z\u001a\u00020<2\u0006\u0010I\u001a\u00020\fJ \u0010[\u001a\u00020<2\u0006\u0010\\\u001a\u00020\u00062\u0006\u0010]\u001a\u00020\u00062\u0006\u0010^\u001a\u00020\bH\u0002R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\bX\u0082D¢\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\f0\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u001e\u001a\u00020\u00122\u0006\u0010\u001d\u001a\u00020\u0012@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u001fR\u000e\u0010 \u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010$X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020&X\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010'\u001a\u0012\u0012\u0004\u0012\u00020)0(j\b\u0012\u0004\u0012\u00020)`*X\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010+\u001a\u0012\u0012\u0004\u0012\u00020)0(j\b\u0012\u0004\u0012\u00020)`*X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010,\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010-\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010.\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010/\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00100\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00101\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00102\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u00103\u001a\u0002048BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b7\u00108\u001a\u0004\b5\u00106R\u000e\u00109\u001a\u00020:X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006`"}, d2 = {"Lcom/baidu/tieba/edgefloat/EdgeFloat;", "Lcom/baidu/tieba/edgefloat/IChangeSkinType;", "builder", "Lcom/baidu/tieba/edgefloat/EdgeFloat$Builder;", "(Lcom/baidu/tieba/edgefloat/EdgeFloat$Builder;)V", "CLICK_MOTION_EVENT_DELTA", "", "FADE_IN_OUT_ANIM_TIME", "", "SLIDE_ANIM_TIME", "activityRef", "Ljava/lang/ref/WeakReference;", "Landroid/app/Activity;", "avoidKeyboardHeight", "beforeKeyboardX", "beforeKeyboardY", "bottomLimit", "canDrag", "", "changeSkinListener", "contentView", "Landroid/view/View;", "deltaX", "deltaY", "downEventX", "", "downEventY", NotificationCompat.WearableExtender.KEY_GRAVITY, "height", "<set-?>", "isOnLeft", "()Z", "isShowing", "isTouching", "keyboardHeight", "onActivityDispatchTouchEvent", "Lcom/baidu/tieba/edgefloat/OnActivityDispatchTouchEventListener;", "onTouchListener", "Landroid/view/View$OnTouchListener;", "pageNoSupport", "Ljava/util/ArrayList;", "", "Lkotlin/collections/ArrayList;", "pageSupport", "screenHeight", "screenWidth", "startX", "startY", "statusBarHeight", "topLimit", "width", "wm", "Landroid/view/WindowManager;", "getWm", "()Landroid/view/WindowManager;", "wm$delegate", "Lkotlin/Lazy;", "wmParams", "Landroid/view/WindowManager$LayoutParams;", "addToWindow", "", "createLayoutParams", "dispatchTouchEvent", Config.EVENT_PART, "Landroid/view/MotionEvent;", "fadeAlpha", "oldAlpha", "newAlpha", "onEnd", "Lkotlin/Function0;", "hide", "isAttachedToCurrentActivityWindow", "isPageSupport", "activity", "limitY", "y", "moveToX", "moveXY", "x", "moveY", "onBackPressed", "onChangeSkinType", "type", "onKeyboardHeightChanged", "isVisible", "onWindowFocusChanged", "hasFocus", "release", "removeFromWindow", "show", "switchActivity", "translateX", "oldX", "newX", "duration", "Builder", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public final class EdgeFloat implements ql6 {
+public final class EdgeFloat implements to6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
@@ -69,8 +72,8 @@ public final class EdgeFloat implements ql6 {
     public int r;
     public final ArrayList<String> s;
     public final ArrayList<String> t;
-    public ql6 u;
-    public rl6 v;
+    public to6 u;
+    public uo6 v;
     public final Lazy w;
     public WindowManager.LayoutParams x;
     public boolean y;
@@ -96,8 +99,8 @@ public final class EdgeFloat implements ql6 {
         public boolean n;
         public final ArrayList<String> o;
         public final ArrayList<String> p;
-        public ql6 q;
-        public rl6 r;
+        public to6 q;
+        public uo6 r;
 
         public a(Activity activity) {
             Interceptable interceptable = $ic;
@@ -279,7 +282,7 @@ public final class EdgeFloat implements ql6 {
             return (a) invokeI.objValue;
         }
 
-        public final a y(rl6 onActivityDispatchTouchEvent) {
+        public final a y(uo6 onActivityDispatchTouchEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, onActivityDispatchTouchEvent)) == null) {
@@ -290,7 +293,7 @@ public final class EdgeFloat implements ql6 {
             return (a) invokeL.objValue;
         }
 
-        public final a z(ql6 onChangeSkinType) {
+        public final a z(to6 onChangeSkinType) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, onChangeSkinType)) == null) {
@@ -348,13 +351,13 @@ public final class EdgeFloat implements ql6 {
             return invokeV.booleanValue;
         }
 
-        public final ql6 i() {
+        public final to6 i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
                 return this.q;
             }
-            return (ql6) invokeV.objValue;
+            return (to6) invokeV.objValue;
         }
 
         public final View j() {
@@ -384,13 +387,13 @@ public final class EdgeFloat implements ql6 {
             return invokeV.intValue;
         }
 
-        public final rl6 m() {
+        public final uo6 m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
                 return this.r;
             }
-            return (rl6) invokeV.objValue;
+            return (uo6) invokeV.objValue;
         }
 
         public final ArrayList<String> n() {
@@ -618,7 +621,7 @@ public final class EdgeFloat implements ql6 {
             }
         });
         this.x = new WindowManager.LayoutParams();
-        this.H = new View.OnTouchListener() { // from class: com.baidu.tieba.ol6
+        this.H = new View.OnTouchListener() { // from class: com.baidu.tieba.ro6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -652,9 +655,9 @@ public final class EdgeFloat implements ql6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, ev) == null) {
             Intrinsics.checkNotNullParameter(ev, "ev");
-            rl6 rl6Var = this.v;
-            if (rl6Var != null) {
-                rl6Var.dispatchTouchEvent(ev);
+            uo6 uo6Var = this.v;
+            if (uo6Var != null) {
+                uo6Var.dispatchTouchEvent(ev);
             }
         }
     }
@@ -676,12 +679,12 @@ public final class EdgeFloat implements ql6 {
         return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.ql6
+    @Override // com.baidu.tieba.to6
     public void onChangeSkinType(int i) {
-        ql6 ql6Var;
+        to6 to6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (ql6Var = this.u) != null) {
-            ql6Var.onChangeSkinType(i);
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (to6Var = this.u) != null) {
+            to6Var.onChangeSkinType(i);
         }
     }
 
@@ -786,7 +789,7 @@ public final class EdgeFloat implements ql6 {
         ValueAnimator ofInt = ValueAnimator.ofInt(i, i2);
         ofInt.setDuration(j);
         ofInt.setInterpolator(new DecelerateInterpolator());
-        ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.nl6
+        ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.qo6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -807,7 +810,7 @@ public final class EdgeFloat implements ql6 {
             ValueAnimator alphaAnim = ValueAnimator.ofFloat(f, f2);
             alphaAnim.setDuration(this.c);
             alphaAnim.setInterpolator(new AccelerateInterpolator());
-            alphaAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pl6
+            alphaAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.so6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -839,61 +842,25 @@ public final class EdgeFloat implements ql6 {
                 iBinder = null;
             }
             this.x.token = iBinder;
-            if (!k() && this.x.token != null) {
-                if (this.e.isAttachedToWindow()) {
-                    i().removeViewImmediate(this.e);
+            if (k()) {
+                return;
+            }
+            try {
+                if (this.x.token != null) {
+                    if (this.e.isAttachedToWindow()) {
+                        i().removeViewImmediate(this.e);
+                    }
+                    i().addView(this.e, this.x);
                 }
-                i().addView(this.e, this.x);
+            } catch (Exception e) {
+                if (!BdBaseApplication.getInst().isDebugMode()) {
+                    DefaultLog.getInstance().b("Sprite Window", e.getMessage());
+                    new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 6).param("obj_source", e.getMessage()).eventStat();
+                    return;
+                }
+                throw e;
             }
         }
-    }
-
-    public final boolean k() {
-        InterceptResult invokeV;
-        IBinder iBinder;
-        Activity activity;
-        Window window;
-        View decorView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            WeakReference<Activity> weakReference = this.d;
-            if (weakReference != null && (activity = weakReference.get()) != null && (window = activity.getWindow()) != null && (decorView = window.getDecorView()) != null) {
-                iBinder = decorView.getWindowToken();
-            } else {
-                iBinder = null;
-            }
-            if (this.e.isAttachedToWindow() && Intrinsics.areEqual(iBinder, this.e.getApplicationWindowToken())) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void y() {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048597, this) != null) || this.y) {
-            return;
-        }
-        this.y = true;
-        if (this.o) {
-            this.e.setOnTouchListener(this.H);
-        }
-        this.e.setAlpha(0.0f);
-        g(0.0f, 1.0f, EdgeFloat$show$1.INSTANCE);
-        this.x = e(this.g, this.h, this.i, this.j);
-        WeakReference<Activity> weakReference = this.d;
-        if (weakReference != null) {
-            activity = weakReference.get();
-        } else {
-            activity = null;
-        }
-        if (!m(activity)) {
-            return;
-        }
-        d();
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public final WindowManager.LayoutParams e(int i, int i2, int i3, int i4) {
@@ -998,10 +965,10 @@ public final class EdgeFloat implements ql6 {
     }
 
     public final void s() {
-        rl6 rl6Var;
+        uo6 uo6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (rl6Var = this.v) != null) {
-            rl6Var.onBackPressed();
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (uo6Var = this.v) != null) {
+            uo6Var.onBackPressed();
         }
     }
 
@@ -1015,6 +982,54 @@ public final class EdgeFloat implements ql6 {
             this.y = false;
             this.G = false;
         }
+    }
+
+    public final boolean k() {
+        InterceptResult invokeV;
+        IBinder iBinder;
+        Activity activity;
+        Window window;
+        View decorView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            WeakReference<Activity> weakReference = this.d;
+            if (weakReference != null && (activity = weakReference.get()) != null && (window = activity.getWindow()) != null && (decorView = window.getDecorView()) != null) {
+                iBinder = decorView.getWindowToken();
+            } else {
+                iBinder = null;
+            }
+            if (this.e.isAttachedToWindow() && Intrinsics.areEqual(iBinder, this.e.getApplicationWindowToken())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void y() {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048597, this) != null) || this.y) {
+            return;
+        }
+        this.y = true;
+        if (this.o) {
+            this.e.setOnTouchListener(this.H);
+        }
+        this.e.setAlpha(0.0f);
+        g(0.0f, 1.0f, EdgeFloat$show$1.INSTANCE);
+        this.x = e(this.g, this.h, this.i, this.j);
+        WeakReference<Activity> weakReference = this.d;
+        if (weakReference != null) {
+            activity = weakReference.get();
+        } else {
+            activity = null;
+        }
+        if (!m(activity)) {
+            return;
+        }
+        d();
+        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public final boolean m(Activity activity) {

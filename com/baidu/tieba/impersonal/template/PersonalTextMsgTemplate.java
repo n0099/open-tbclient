@@ -7,14 +7,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g08;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.fa8;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.ik6;
 import com.baidu.tieba.impersonal.typewriter.TextTypeWriter;
-import com.baidu.tieba.kh6;
-import com.baidu.tieba.l08;
-import com.baidu.tieba.n08;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.r18;
+import com.baidu.tieba.oa8;
+import com.baidu.tieba.q25;
+import com.baidu.tieba.qa8;
+import com.baidu.tieba.yb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,13 +28,13 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u0014\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00040\u0001B\r\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007J\u001a\u0010\u000e\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u00032\u0006\u0010\u0011\u001a\u00020\u0004H\u0016J\u0010\u0010\u0012\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u0014H\u0016R\u001b\u0010\b\u001a\u00020\t8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\f\u0010\r\u001a\u0004\b\n\u0010\u000b¨\u0006\u0015"}, d2 = {"Lcom/baidu/tieba/impersonal/template/PersonalTextMsgTemplate;", "Lcom/baidu/tieba/impersonal/template/BasePersonalMsgTemplate;", "Lcom/baidu/tieba/impersonal/data/TextMsgContent;", "Landroid/widget/TextView;", "Lcom/baidu/tieba/impersonal/components/uistate/PersonalTextMsgUiState;", "name", "", "(Ljava/lang/String;)V", "textTypeWriter", "Lcom/baidu/tieba/impersonal/typewriter/TextTypeWriter;", "getTextTypeWriter", "()Lcom/baidu/tieba/impersonal/typewriter/TextTypeWriter;", "textTypeWriter$delegate", "Lkotlin/Lazy;", "bindChild", "", MapBundleKey.OfflineMapKey.OFFLINE_CHILD, "data", "createChild", "parent", "Landroid/view/ViewGroup;", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes4.dex */
-public final class PersonalTextMsgTemplate extends r18<l08, TextView, g08> {
+/* loaded from: classes5.dex */
+public final class PersonalTextMsgTemplate extends yb8<oa8, TextView, fa8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements Function1<Integer, Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public final class PersonalTextMsgTemplate extends r18<l08, TextView, g08> {
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                kh6.b().b(new n08(i));
+                ik6.b().b(new qa8(i));
             }
         }
 
@@ -92,19 +92,19 @@ public final class PersonalTextMsgTemplate extends r18<l08, TextView, g08> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r18
-    /* renamed from: h */
-    public void d(TextView textView, final g08 data) {
+    @Override // com.baidu.tieba.yb8
+    /* renamed from: k */
+    public void d(TextView textView, final fa8 data) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
-            if (data.h()) {
-                TextTypeWriter j = j();
-                l08 f = data.c().f();
-                j.n(textView, (f == null || (r1 = f.a()) == null) ? "" : "", new a(), new Function0<Unit>(data) { // from class: com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate$bindChild$2
+            if (data.j()) {
+                TextTypeWriter m = m();
+                oa8 f = data.c().f();
+                m.n(textView, (f == null || (r1 = f.a()) == null) ? "" : "", new a(), new Function0<Unit>(data) { // from class: com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate$bindChild$2
                     public static /* synthetic */ Interceptable $ic;
-                    public final /* synthetic */ g08 $data;
+                    public final /* synthetic */ fa8 $data;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -140,12 +140,12 @@ public final class PersonalTextMsgTemplate extends r18<l08, TextView, g08> {
                     public final void invoke2() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            this.$data.i(false);
+                            this.$data.k(false);
                         }
                     }
                 });
             } else if (textView != null) {
-                l08 f2 = data.c().f();
+                oa8 f2 = data.c().f();
                 if (f2 != null) {
                     str = f2.a();
                 } else {
@@ -157,9 +157,9 @@ public final class PersonalTextMsgTemplate extends r18<l08, TextView, g08> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r18
-    /* renamed from: i */
-    public TextView f(ViewGroup parent) {
+    @Override // com.baidu.tieba.yb8
+    /* renamed from: l */
+    public TextView g(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, parent)) == null) {
@@ -168,16 +168,16 @@ public final class PersonalTextMsgTemplate extends r18<l08, TextView, g08> {
             eMTextView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             eMTextView.setTextIsSelectable(true);
             eMTextView.setTextColor(parent.getContext().getResources().getColor(R.color.CAM_X0105));
-            eMTextView.setPadding(0, hi.g(parent.getContext(), R.dimen.M_H_X003), 0, hi.g(parent.getContext(), R.dimen.M_H_X003));
-            n15 d = n15.d(eMTextView);
-            d.A(R.dimen.T_X05);
-            d.x(R.dimen.M_T_X002);
+            eMTextView.setPadding(0, ii.g(parent.getContext(), R.dimen.M_H_X003), 0, ii.g(parent.getContext(), R.dimen.M_H_X003));
+            q25 d = q25.d(eMTextView);
+            d.B(R.dimen.T_X05);
+            d.y(R.dimen.M_T_X002);
             return eMTextView;
         }
         return (TextView) invokeL.objValue;
     }
 
-    public final TextTypeWriter j() {
+    public final TextTypeWriter m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {

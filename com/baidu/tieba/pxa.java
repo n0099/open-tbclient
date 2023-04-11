@@ -1,63 +1,74 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.model.PayFinishInfo;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.WindowParams;
-import tv.athena.revenue.payui.view.dialog.CancelType;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import android.os.Build;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface pxa {
-    void a(Activity activity, hza hzaVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+public class pxa {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    public static void a(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, webSettings) == null) && Build.VERSION.SDK_INT >= 11) {
+            webSettings.setAllowContentAccess(false);
+        }
+    }
 
-    void c(int i, String str, PayCallBackBean payCallBackBean);
+    public static void b(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, webSettings) == null) {
+            webSettings.setAllowFileAccess(false);
+            if (Build.VERSION.SDK_INT >= 16) {
+                webSettings.setAllowFileAccessFromFileURLs(false);
+                webSettings.setAllowUniversalAccessFromFileURLs(false);
+            }
+        }
+    }
 
-    void d(CancelType cancelType, AbsViewEventHandler absViewEventHandler);
+    public static void c(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, webSettings) == null) {
+            webSettings.setGeolocationEnabled(false);
+        }
+    }
 
-    sxa e();
+    public static void d(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, webSettings) == null) && Build.VERSION.SDK_INT >= 21) {
+            webSettings.setMixedContentMode(1);
+        }
+    }
 
-    void f(Activity activity, kza kzaVar, hza hzaVar, Dialog dialog, IYYPayWayView iYYPayWayView, AppCustomExpand appCustomExpand, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    public static void e(WebSettings webSettings) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webSettings) == null) && Build.VERSION.SDK_INT <= 18) {
+            webSettings.setSavePassword(false);
+        }
+    }
 
-    void g(Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, IYYPayAmountView.ViewParams viewParams);
+    public static void f(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, webView) == null) {
+            WebSettings settings = webView.getSettings();
+            b(settings);
+            g(webView);
+            e(settings);
+            c(settings);
+            d(settings);
+            a(settings);
+        }
+    }
 
-    void j(PayFinishInfo payFinishInfo);
-
-    void k(AbsViewEventHandler absViewEventHandler, PayDialogType payDialogType);
-
-    void l(Activity activity, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void m(Activity activity, hza hzaVar, kza kzaVar, Dialog dialog, IYYPayWayView iYYPayWayView, AppCustomExpand appCustomExpand, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void n();
-
-    void o(Activity activity, String str);
-
-    boolean p(Activity activity, IYYPayResultView iYYPayResultView, AbsViewEventHandler absViewEventHandler);
-
-    void q(l0b l0bVar, Dialog dialog);
-
-    void refreshWindow(WindowParams windowParams);
-
-    void release();
-
-    boolean s(Activity activity, IYYPayWayView iYYPayWayView, AbsViewEventHandler absViewEventHandler);
-
-    void t(Activity activity, hza hzaVar, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void u(Activity activity);
-
-    PayDialogType v();
+    public static void g(WebView webView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, webView) == null) && Build.VERSION.SDK_INT >= 11) {
+            webView.removeJavascriptInterface("searchBoxJavaBridge_");
+            webView.removeJavascriptInterface("accessibility");
+            webView.removeJavascriptInterface("accessibilityTraversal");
+        }
+    }
 }

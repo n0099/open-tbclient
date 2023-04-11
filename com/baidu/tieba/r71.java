@@ -3,27 +3,44 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class r71 {
+public class r71 extends g71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final k71 a;
 
-    public static <T> void a(@NonNull b81 b81Var, String str) {
+    public r71(@NonNull k71 k71Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, b81Var, str) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {k71Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if (!str.startsWith("javascript:")) {
-            str = "javascript:" + str;
-        }
-        b81Var.loadUrl(str, null);
+        this.a = k71Var;
     }
 
-    public static void b(@NonNull b81 b81Var, int i, int i2, int i3, int i4) {
+    @Override // com.baidu.tieba.g71
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{b81Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            a(b81Var, "NadJsControl.visibleRectChange(".concat(String.valueOf(i)).concat(",").concat(String.valueOf(i2)).concat(",").concat(String.valueOf(i3)).concat(",").concat(String.valueOf(i4)).concat(");"));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.m();
+            if (this.a.l() != null && this.a.l().k() != null) {
+                String c = this.a.l().k().c();
+                if (!TextUtils.isEmpty(c)) {
+                    this.a.m().setUserAgentString(c);
+                }
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ public final class DelayKt {
             return Unit.INSTANCE;
         }
         CancellableContinuationImpl cancellableContinuationImpl = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(continuation), 1);
-        getDelay(cancellableContinuationImpl.getContext()).mo2238scheduleResumeAfterDelay(j, cancellableContinuationImpl);
+        getDelay(cancellableContinuationImpl.getContext()).mo2240scheduleResumeAfterDelay(j, cancellableContinuationImpl);
         Object result = cancellableContinuationImpl.getResult();
         if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
             DebugProbesKt.probeCoroutineSuspended(continuation);
@@ -30,8 +30,8 @@ public final class DelayKt {
 
     @ExperimentalTime
     /* renamed from: delay-p9JZ4hM  reason: not valid java name */
-    public static final Object m2200delayp9JZ4hM(double d, Continuation<? super Unit> continuation) {
-        Object delay = delay(m2201toDelayMillisLRDsOJo(d), continuation);
+    public static final Object m2202delayp9JZ4hM(double d, Continuation<? super Unit> continuation) {
+        Object delay = delay(m2203toDelayMillisLRDsOJo(d), continuation);
         if (delay == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
             return delay;
         }
@@ -52,7 +52,7 @@ public final class DelayKt {
 
     @ExperimentalTime
     /* renamed from: toDelayMillis-LRDsOJo  reason: not valid java name */
-    public static final long m2201toDelayMillisLRDsOJo(double d) {
+    public static final long m2203toDelayMillisLRDsOJo(double d) {
         if (Duration.compareTo-LRDsOJo(d, Duration.Companion.getZERO()) > 0) {
             return RangesKt___RangesKt.coerceAtLeast(Duration.toLongMilliseconds-impl(d), 1L);
         }

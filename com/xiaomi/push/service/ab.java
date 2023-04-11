@@ -20,16 +20,16 @@ public final class ab extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo674a() {
+    public String mo676a() {
         return "send ack message for obsleted message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo391a() {
+    public void mo393a() {
         try {
             id a = y.a((Context) this.f879a, this.a);
-            a.m543a().a("message_obsleted", "1");
+            a.m545a().a("message_obsleted", "1");
             ah.a(this.f879a, a);
         } catch (gg e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

@@ -1,82 +1,53 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.annotation.Nullable;
-import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.browser.TBWebContainerActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.InputStream;
-import okio.Okio;
 /* loaded from: classes6.dex */
-public class tb6 implements sb6<String, Pair<InputStream, Long>> {
+public class tb6 implements we6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ TBWebContainerActivity a;
 
-    public tb6() {
+    @Override // com.baidu.tieba.we6
+    public /* synthetic */ void a(int i, int i2, int i3, int i4) {
+        ve6.b(this, i, i2, i3, i4);
+    }
+
+    @Override // com.baidu.tieba.we6
+    public /* synthetic */ void b(int i, int i2, int i3, int i4) {
+        ve6.a(this, i, i2, i3, i4);
+    }
+
+    public tb6(TBWebContainerActivity tBWebContainerActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tBWebContainerActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tBWebContainerActivity;
     }
 
-    public final File c(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.we6
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
+        ot4 ot4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            File file = new File(Uri.parse(str).getPath());
-            if (file.exists() && file.isFile()) {
-                return file;
-            }
-            return null;
+        if (interceptable != null && interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) != null) {
+            return;
         }
-        return (File) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sb6
-    @Nullable
-    /* renamed from: d */
-    public Pair<InputStream, Long> a(String str) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            File c = c(str);
-            if (c != null) {
-                return Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length()));
-            }
-            return null;
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sb6
-    /* renamed from: e */
-    public void b(String str, dsa<Pair<InputStream, Long>, Exception> dsaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, dsaVar) == null) {
-            try {
-                File c = c(str);
-                if (c != null) {
-                    dsaVar.call(Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length())), null);
-                } else {
-                    dsaVar.call(null, new IllegalArgumentException(str + "file not exist !"));
-                }
-            } catch (Exception e) {
-                dsaVar.call(null, e);
-            }
-        }
+        ot4Var = this.a.mView;
+        ot4Var.t(i, i2, i3, i4);
     }
 }

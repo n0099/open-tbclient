@@ -1,7 +1,7 @@
 package com.google.android.material.shape;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CutCornerTreatment extends CornerTreatment {
     public float size;
 

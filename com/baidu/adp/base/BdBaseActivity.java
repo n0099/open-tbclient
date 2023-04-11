@@ -22,9 +22,9 @@ import com.baidu.tieba.c9;
 import com.baidu.tieba.cg;
 import com.baidu.tieba.e9;
 import com.baidu.tieba.f9;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.kn;
-import com.baidu.tieba.pk;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.ln;
+import com.baidu.tieba.qk;
 import com.baidu.tieba.v8;
 import com.baidu.tieba.w8;
 import com.baidu.tieba.za;
@@ -77,13 +77,13 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         }
     }
 
-    public kn onGetPreLoadListView() {
+    public ln onGetPreLoadListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return null;
         }
-        return (kn) invokeV.objValue;
+        return (ln) invokeV.objValue;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -114,9 +114,9 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     }
 
     @Override // com.baidu.tieba.f9
-    public void onPreLoad(kn knVar) {
+    public void onPreLoad(ln lnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, knVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, lnVar) == null) {
         }
     }
 
@@ -197,8 +197,8 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         if ((interceptable != null && interceptable.invokeL(65537, this, view2) != null) || view2 == null) {
             return;
         }
-        if (view2 instanceof pk) {
-            ((pk) view2).refresh();
+        if (view2 instanceof qk) {
+            ((qk) view2).refresh();
         }
         if (view2 instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view2;
@@ -292,7 +292,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onStop();
-            kn onGetPreLoadListView = onGetPreLoadListView();
+            ln onGetPreLoadListView = onGetPreLoadListView();
             if (onGetPreLoadListView != null) {
                 onGetPreLoadListView.cancelRefresh();
             }
@@ -353,7 +353,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            hi.Q(getApplicationContext(), str);
+            ii.Q(getApplicationContext(), str);
         }
     }
 

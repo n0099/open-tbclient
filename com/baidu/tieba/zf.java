@@ -330,7 +330,7 @@ public class zf {
 
     public static void j(boolean z, String str, jf jfVar, long j, long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65546, null, new Object[]{Boolean.valueOf(z), str, jfVar, Long.valueOf(j), Long.valueOf(j2)}) != null) || !hi.F()) {
+        if ((interceptable != null && interceptable.invokeCommon(65546, null, new Object[]{Boolean.valueOf(z), str, jfVar, Long.valueOf(j), Long.valueOf(j2)}) != null) || !ii.F()) {
             return;
         }
         synchronized (b) {

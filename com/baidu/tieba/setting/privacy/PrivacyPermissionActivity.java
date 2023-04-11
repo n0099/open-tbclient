@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gt4;
+import com.baidu.tieba.it4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +79,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    gt4.s(this.a.itemView.getContext(), TbConfig.PRIVACY_DETAIL_URL);
+                    it4.s(this.a.itemView.getContext(), TbConfig.PRIVACY_DETAIL_URL);
                 }
             }
         }
@@ -187,10 +187,10 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             }
             this.c = 3;
             this.d = new a(this);
-            TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) view2.findViewById(R.id.obfuscated_res_0x7f091c1c);
+            TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) view2.findViewById(R.id.obfuscated_res_0x7f091c0b);
             this.a = tbSettingTextTipView;
             tbSettingTextTipView.setOnClickListener(this.d);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c1a);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c09);
         }
 
         public void a(b bVar) {
@@ -200,9 +200,9 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
                 this.a.setText(bVar.b);
                 TbSettingTextTipView tbSettingTextTipView = this.a;
                 if (bVar.d) {
-                    string = this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0fe8);
+                    string = this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0fe1);
                 } else {
-                    string = this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0fe6);
+                    string = this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0fdf);
                 }
                 tbSettingTextTipView.setTip(string);
                 this.b.setText(bVar.c);
@@ -290,10 +290,10 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
                 if (i == 0) {
-                    return new PermissionViewHolder(LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0505, viewGroup, false));
+                    return new PermissionViewHolder(LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0504, viewGroup, false));
                 }
                 if (i == 1) {
-                    return new PermissionDetailHolder(LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d08f3, viewGroup, false));
+                    return new PermissionDetailHolder(LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d08ee, viewGroup, false));
                 }
                 return null;
             }
@@ -343,7 +343,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         this.d = new ArrayList();
         this.f = new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE", PermissionRequest.RESOURCE_AUDIO_CAPTURE, h.g};
         this.g = new String[]{getString(R.string.obfuscated_res_0x7f0f027e), getString(R.string.obfuscated_res_0x7f0f0281), getString(R.string.obfuscated_res_0x7f0f0280), getString(R.string.obfuscated_res_0x7f0f027f)};
-        this.h = new String[]{getString(R.string.obfuscated_res_0x7f0f0fdc), getString(R.string.obfuscated_res_0x7f0f0fef), getString(R.string.obfuscated_res_0x7f0f0fee), getString(R.string.obfuscated_res_0x7f0f0fe3)};
+        this.h = new String[]{getString(R.string.obfuscated_res_0x7f0f0fd5), getString(R.string.obfuscated_res_0x7f0f0fe8), getString(R.string.obfuscated_res_0x7f0f0fe7), getString(R.string.obfuscated_res_0x7f0f0fdc)};
         this.i = new a(this);
     }
 
@@ -363,13 +363,13 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d07ab);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091e45);
+            setContentView(R.layout.obfuscated_res_0x7f0d07a3);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091e33);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.a = navigationBar;
             navigationBar.showBottomLine();
             this.b = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0fe5));
+            this.a.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0fde));
             RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
             this.c = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(this));

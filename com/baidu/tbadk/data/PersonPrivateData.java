@@ -31,7 +31,7 @@ public class PersonPrivateData extends OrmObject {
         this.a = 1;
     }
 
-    public int R() {
+    public int Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -40,7 +40,7 @@ public class PersonPrivateData extends OrmObject {
         return invokeV.intValue;
     }
 
-    public void S(PrivSets privSets) {
+    public void R(PrivSets privSets) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, privSets) != null) || privSets == null) {
             return;

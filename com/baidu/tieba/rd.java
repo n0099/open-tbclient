@@ -67,7 +67,7 @@ public class rd implements ed {
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return zh.e(this.a, 0);
+                                                    return ai.e(this.a, 0);
                                                 } catch (IOException e2) {
                                                     e2.printStackTrace();
                                                     return null;

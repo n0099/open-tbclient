@@ -1,65 +1,62 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.util.DnsUtil;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.NetworkQuality;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.network.outback.ConnectManager;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.Socket;
-import java.net.SocketAddress;
-import java.net.UnknownHostException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import okhttp3.Call;
-import okhttp3.Connection;
-import okhttp3.EventListener;
-import okhttp3.Handshake;
-import okhttp3.Headers;
-import okhttp3.Protocol;
-import okhttp3.Request;
-import okhttp3.Response;
 /* loaded from: classes5.dex */
-public class o69 extends EventListener {
+public class o69 extends yf6<m59> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile o69 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile ConcurrentHashMap<Integer, NetworkStatRecord> a;
-    public r69 b;
+    public TbPageContext i;
+    public View j;
+    public View k;
+    public TextView l;
+    public HTypeListView m;
+    public k49 n;
+
+    @Override // com.baidu.tieba.yf6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a4 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NetworkStatRecord a;
-        public final /* synthetic */ Call b;
-        public final /* synthetic */ o69 c;
+        public final /* synthetic */ m59 a;
+        public final /* synthetic */ o69 b;
 
-        public a(o69 o69Var, NetworkStatRecord networkStatRecord, Call call) {
+        public a(o69 o69Var, m59 m59Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {o69Var, networkStatRecord, call};
+                Object[] objArr = {o69Var, m59Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -69,478 +66,118 @@ public class o69 extends EventListener {
                     return;
                 }
             }
-            this.c = o69Var;
-            this.a = networkStatRecord;
-            this.b = call;
+            this.b = o69Var;
+            this.a = m59Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.url = this.b.request().url().toString();
-                this.a.localDnsIpList = this.c.h(this.b.request());
-                this.a.processName = ProcessUtils.getCurProcessName();
-                this.a.appLaunchTimestamp = SpeedStatsManager.getInstance().getAppLaunchStartTimeStamp();
-                this.a.useFallbackConn = this.b.request().isFallbackConn();
-                if (this.c.b == null) {
-                    synchronized (this) {
-                        if (this.c.b == null) {
-                            this.c.b = new r69();
-                        }
-                    }
-                }
-                if (this.c.b.shouldRecord()) {
-                    this.c.b.doRecord(this.a);
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.s(this.a);
             }
         }
     }
 
-    public o69() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o69(TbPageContext tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.i = tbPageContext;
+        View h = h();
+        this.j = h;
+        this.k = h.findViewById(R.id.obfuscated_res_0x7f0908d8);
+        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090dd8);
+        HTypeListView hTypeListView = (HTypeListView) this.j.findViewById(R.id.obfuscated_res_0x7f090dc5);
+        this.m = hTypeListView;
+        this.n = new k49(this.i, hTypeListView);
     }
 
-    public static o69 f() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yf6
+    /* renamed from: t */
+    public void l(m59 m59Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (c == null) {
-                synchronized (o69.class) {
-                    if (c == null) {
-                        c = new o69();
-                    }
-                }
-            }
-            return c;
-        }
-        return (o69) invokeV.objValue;
-    }
-
-    @Override // okhttp3.EventListener
-    public void callFailed(Call call, IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, iOException) == null) {
-            super.callFailed(call, iOException);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                g.exception = iOException;
-                g.failTs = System.currentTimeMillis();
-                d(call, g);
-                j(call);
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void connectionReleased(Call call, Connection connection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, call, connection) == null) {
-            super.connectionReleased(call, connection);
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void dnsStart(Call call, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, call, str) == null) {
-            super.dnsStart(call, str);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                g.dnsStartTs = System.currentTimeMillis();
-            }
-        }
-    }
-
-    public final void i(NetworkStatRecord networkStatRecord, Proxy proxy) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048593, this, networkStatRecord, proxy) == null) && proxy.type() != Proxy.Type.DIRECT) {
-            networkStatRecord.isProxyConnect = true;
-            SocketAddress address = proxy.address();
-            if (address instanceof InetSocketAddress) {
-                InetSocketAddress inetSocketAddress = (InetSocketAddress) address;
-                networkStatRecord.proxyHostString = inetSocketAddress.getHostString();
-                networkStatRecord.proxyAddress = inetSocketAddress.toString();
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void requestBodyEnd(Call call, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048595, this, call, j) == null) {
-            super.requestBodyEnd(call, j);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                g.requestBodyLength = j;
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void requestHeadersEnd(Call call, Request request) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, call, request) == null) {
-            super.requestHeadersEnd(call, request);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                g.sendHeaderTs = System.currentTimeMillis();
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void responseBodyEnd(Call call, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048598, this, call, j) == null) {
-            super.responseBodyEnd(call, j);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                g.realResponseLength = j;
-                g.readOverTs = System.currentTimeMillis();
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void secureConnectEnd(Call call, Handshake handshake) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048602, this, call, handshake) == null) {
-            super.secureConnectEnd(call, handshake);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                g.sslEndTs = System.currentTimeMillis();
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void callEnd(Call call) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, call) == null) {
-            super.callEnd(call);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                g.isConnected = ConnectManager.isNetworkConnected(f69.a());
-                g.finishTs = System.currentTimeMillis();
-                d(call, g);
-                j(call);
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void callThreadSwitchEnd(Call call) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, call) == null) {
-            super.callThreadSwitchEnd(call);
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void callThreadSwitchInQueue(Call call) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, call) == null) {
-            super.callThreadSwitchInQueue(call);
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void callThreadSwitchStart(Call call) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, call) == null) {
-            super.callThreadSwitchStart(call);
-        }
-    }
-
-    public final NetworkStatRecord g(Call call) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, call)) == null) {
-            if (this.a == null) {
-                return null;
-            }
-            return this.a.get(Integer.valueOf(call.hashCode()));
-        }
-        return (NetworkStatRecord) invokeL.objValue;
-    }
-
-    public final void j(Call call) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048594, this, call) == null) && this.a != null) {
-            this.a.remove(Integer.valueOf(call.hashCode()));
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void requestHeadersStart(Call call) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, call) == null) {
-            super.requestHeadersStart(call);
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void responseBodyStart(Call call) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, call) == null) {
-            super.responseBodyStart(call);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                g.responseTs = System.currentTimeMillis();
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void responseHeadersStart(Call call) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, call) == null) {
-            super.responseHeadersStart(call);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                g.receiveHeaderTs = System.currentTimeMillis();
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void secureConnectStart(Call call) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, call) == null) {
-            super.secureConnectStart(call);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                g.sslStartTs = System.currentTimeMillis();
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void callStart(Call call) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, call) == null) {
-            super.callStart(call);
-            Object tag = call.request().tag();
-            if (!(tag instanceof HttpRequest) && !(tag instanceof com.baidu.searchbox.network.outback.core.Request)) {
-                NetworkStatRecord networkStatRecord = new NetworkStatRecord();
-                networkStatRecord.startTs = System.currentTimeMillis();
-                if (this.a == null) {
-                    synchronized (this) {
-                        if (this.a == null) {
-                            this.a = new ConcurrentHashMap<>();
-                        }
-                    }
-                }
-                this.a.put(Integer.valueOf(call.hashCode()), networkStatRecord);
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void connectEnd(Call call, InetSocketAddress inetSocketAddress, Proxy proxy, Protocol protocol) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, call, inetSocketAddress, proxy, protocol) == null) {
-            super.connectEnd(call, inetSocketAddress, proxy, protocol);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                g.tcpEndTs = currentTimeMillis;
-                g.connTs = currentTimeMillis;
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void connectFailed(Call call, InetSocketAddress inetSocketAddress, Proxy proxy, Protocol protocol, IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, call, inetSocketAddress, proxy, protocol, iOException) == null) {
-            super.connectFailed(call, inetSocketAddress, proxy, protocol, iOException);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                g.remoteIP = inetSocketAddress.toString();
-                i(g, proxy);
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void connectStart(Call call, InetSocketAddress inetSocketAddress, Proxy proxy) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, call, inetSocketAddress, proxy) == null) {
-            super.connectStart(call, inetSocketAddress, proxy);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                g.tcpStartTs = System.currentTimeMillis();
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void dnsEnd(Call call, String str, List<InetAddress> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048588, this, call, str, list) == null) {
-            super.dnsEnd(call, str, list);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                g.dnsEndTs = System.currentTimeMillis();
-                g.addressList = list;
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void connectionAcquired(Call call, Connection connection) {
-        String protocol;
-        InetAddress localAddress;
-        String str;
-        InetAddress inetAddress;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, call, connection) == null) {
-            super.connectionAcquired(call, connection);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                i(g, connection.route().proxy());
-                if (connection.protocol() == null) {
-                    protocol = "unknown";
+        if (interceptable == null || interceptable.invokeL(1048581, this, m59Var) == null) {
+            if (m59Var != null && m59Var.isValid()) {
+                a aVar = new a(this, m59Var);
+                this.n.a(aVar);
+                this.j.setOnClickListener(aVar);
+                this.n.b(aVar);
+                this.m.setData(u(m59Var.g));
+                if (m59Var.a) {
+                    this.l.setText(R.string.obfuscated_res_0x7f0f0826);
+                } else if (m59Var.b) {
+                    this.l.setText(R.string.obfuscated_res_0x7f0f0825);
                 } else {
-                    protocol = connection.protocol().toString();
+                    this.l.setText(R.string.obfuscated_res_0x7f0f0824);
                 }
-                g.protocol = protocol;
-                Socket socket = connection.socket();
-                String str2 = "";
-                if (socket != null) {
-                    if (socket.getLocalAddress() == null) {
-                        str = "";
-                    } else {
-                        str = localAddress.getHostAddress() + ":" + socket.getLocalPort();
-                    }
-                    if (socket.getInetAddress() != null) {
-                        str2 = inetAddress.getHostAddress() + ":" + socket.getPort();
-                    }
-                    g.localIP = str;
-                    g.remoteIP = str2;
-                } else {
-                    g.localIP = "";
-                    g.remoteIP = "";
-                }
-                if (g.tcpStartTs < 0) {
-                    g.isConnReused = true;
-                }
-                if (g.addressList == null) {
-                    g.addressList = call.request().getAddressList();
-                }
+                m(this.i, TbadkCoreApplication.getInst().getSkinType());
+                return;
+            }
+            this.j.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.yf6
+    public void m(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
+        }
+    }
+
+    public final void s(m59 m59Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, m59Var) == null) {
+            if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
+                this.i.showToast(R.string.obfuscated_res_0x7f0f0822);
+            } else if (!ViewHelper.checkUpIsLogin(this.i.getPageActivity())) {
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.i.getPageActivity(), m59Var.c, m59Var.d, m59Var.e, m59Var.f)));
             }
         }
     }
 
-    public final void d(Call call, NetworkStatRecord networkStatRecord) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, call, networkStatRecord) == null) {
-            Context a2 = f69.a();
-            networkStatRecord.isConnected = ConnectManager.isNetworkConnected(a2);
-            networkStatRecord.networkQualityFrom = NetworkQuality.getNetworkQualityUpdateFrom();
-            networkStatRecord.sdtProbeErrorCode = NetworkQuality.getLastSdtProbeErrorCode();
-            networkStatRecord.isVPNConnect = com.baidu.searchbox.http.ConnectManager.isVPNConnected(a2);
-            networkStatRecord.netType = HttpManager.getDefault(a2).getNetworkInfo();
-            ExecutorUtilsExt.postOnSerial(new a(this, networkStatRecord, call), "ParseLocalDnsDoRecord");
-        }
-    }
-
-    public final String e(Response response) {
+    public final List<hn> u(List<hn> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, response)) == null) {
-            Headers headers = response.headers();
-            StringBuilder sb = new StringBuilder();
-            int size = headers.size();
-            for (int i = 0; i < size; i++) {
-                sb.append(headers.name(i));
-                sb.append(":");
-                sb.append(headers.value(i));
-                sb.append(ParamableElem.DIVIDE_PARAM);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
+            int count = ListUtils.getCount(list);
+            if (count <= 0) {
+                return list;
             }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final List<String> h(Request request) {
-        InterceptResult invokeL;
-        InetAddress[] allByName;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, request)) == null) {
-            try {
-                String host = request.url().host();
-                if (TextUtils.isEmpty(host) || (allByName = InetAddress.getAllByName(host)) == null || allByName.length <= 0) {
-                    return null;
-                }
-                return DnsUtil.parseRawAddressList(Arrays.asList(allByName));
-            } catch (IllegalArgumentException e) {
-                if (!DnsUtil.DEBUG) {
-                    return null;
-                }
-                Log.d("GlobalEventListener", "doRecord illegalArgumentException: " + e.toString());
-                return null;
-            } catch (NullPointerException e2) {
-                if (!DnsUtil.DEBUG) {
-                    return null;
-                }
-                Log.d("GlobalEventListener", "doRecord nullPointerException: " + e2.toString());
-                return null;
-            } catch (SecurityException e3) {
-                if (!DnsUtil.DEBUG) {
-                    return null;
-                }
-                Log.d("GlobalEventListener", "parseLocalDnsIpList: " + e3.toString());
-                return null;
-            } catch (UnknownHostException e4) {
-                if (!DnsUtil.DEBUG) {
-                    return null;
-                }
-                Log.d("GlobalEventListener", "doRecord unknownHostException: " + e4.toString());
-                return null;
+            List<hn> arrayList = new ArrayList<>(list);
+            int g = ii.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07019a);
+            int g2 = ii.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
+            if (count > 7) {
+                arrayList = arrayList.subList(0, 7);
+                n59 n59Var = new n59();
+                n59Var.b = g;
+                n59Var.a = g;
+                ListUtils.add(arrayList, n59Var);
             }
+            w09 w09Var = new w09(g2, g);
+            ListUtils.add(arrayList, 0, w09Var);
+            ListUtils.add(arrayList, w09Var);
+            return arrayList;
         }
         return (List) invokeL.objValue;
-    }
-
-    @Override // okhttp3.EventListener
-    public void responseHeadersEnd(Call call, Response response) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048600, this, call, response) == null) {
-            super.responseHeadersEnd(call, response);
-            NetworkStatRecord g = g(call);
-            if (g != null) {
-                int code = response.code();
-                g.statusCode = code;
-                if (code >= 400) {
-                    str = e(response);
-                } else {
-                    str = "";
-                }
-                g.errheaders = str;
-                g.clientIP = response.header("X-Bfe-Svbbrers");
-                g.contentType = response.header("Content-Type");
-                String header = response.header("Content-Length");
-                if (header != null) {
-                    try {
-                        g.responseLength = Long.parseLong(header);
-                    } catch (NumberFormatException unused) {
-                    }
-                }
-            }
-        }
     }
 }

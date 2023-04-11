@@ -1,136 +1,114 @@
 package com.baidu.tieba;
 
-import android.hardware.Camera;
-import android.view.MotionEvent;
+import android.text.TextUtils;
+import android.webkit.WebView;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class im9 {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class im9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String PROXY_CLASS_NAME_SUFFIX = "_Proxy";
+    public static final String PROXY_CLASS_PACKAGE_NAME = "com.baidu.tieba.h5power";
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public float b;
-    public int c;
-    public Camera d;
-    public om9 e;
+    public HashMap<String, List<jm9>> mAsyncCallBackMethodList;
+    public HashSet<String> mNotificationNameList;
 
-    public im9(Camera camera) {
+    public km9 dispatch(WebView webView, mm9 mm9Var, km9 km9Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, mm9Var, km9Var)) == null) {
+            return null;
+        }
+        return (km9) invokeLLL.objValue;
+    }
+
+    public abstract List<km9> processNotification(WebView webView, String str, HashMap hashMap);
+
+    public im9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {camera};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = 0;
-        this.d = camera;
-    }
-
-    public void c(om9 om9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, om9Var) == null) {
-            this.e = om9Var;
         }
     }
 
-    public final void d(int i) {
-        Camera camera;
+    public km9 addObserver(WebView webView, String str, km9 km9Var, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || (camera = this.d) == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{webView, str, km9Var, Boolean.valueOf(z)})) == null) {
+            if (km9Var == null) {
+                km9Var = new km9();
+            }
+            if (this.mNotificationNameList.contains(str)) {
+                km9Var.n(false);
+                km9Var.s(true);
+                List<jm9> list = this.mAsyncCallBackMethodList.get(str);
+                if (list == null) {
+                    list = new ArrayList<>();
+                }
+                jm9 jm9Var = new jm9();
+                jm9Var.e(km9Var.c());
+                jm9Var.d(z);
+                jm9Var.f(km9Var.e());
+                list.add(jm9Var);
+                this.mAsyncCallBackMethodList.put(str, list);
+                if (webView instanceof oe6) {
+                    ((oe6) webView).a(str, jm9Var.a());
+                }
+            }
+            return km9Var;
         }
-        Camera.Parameters parameters = camera.getParameters();
-        if (!parameters.isZoomSupported()) {
-            return;
-        }
-        parameters.setZoom(i);
-        this.d.setParameters(parameters);
-        this.c = i;
+        return (km9) invokeCommon.objValue;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public km9 addObserver(String str, km9 km9Var, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Camera camera = this.d;
-            if (camera == null) {
-                return -1;
-            }
-            Camera.Parameters parameters = camera.getParameters();
-            if (!parameters.isZoomSupported()) {
-                return -1;
-            }
-            if (parameters.getMaxZoom() > 40) {
-                return 40;
-            }
-            return parameters.getMaxZoom();
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, km9Var, z)) == null) {
+            return addObserver(null, str, km9Var, z);
         }
-        return invokeV.intValue;
+        return (km9) invokeLLZ.objValue;
     }
 
-    public boolean b(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public km9 dispatch(mm9 mm9Var, km9 km9Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            om9 om9Var = this.e;
-            if (om9Var != null && om9Var.j()) {
-                return true;
-            }
-            int action = motionEvent.getAction() & 255;
-            int i = 0;
-            if (action != 0) {
-                if (action != 2) {
-                    if (action == 5) {
-                        this.a = 1;
-                        this.b = e(motionEvent);
-                    }
-                } else if (this.a != 1 || motionEvent.getPointerCount() < 2) {
-                    return true;
-                } else {
-                    float e = e(motionEvent);
-                    int i2 = (int) ((e - this.b) / 10.0f);
-                    if (i2 >= 1 || i2 <= -1) {
-                        int i3 = this.c + i2;
-                        if (i3 > a()) {
-                            i3 = a();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, mm9Var, km9Var)) == null) {
+            return dispatch(null, mm9Var, km9Var);
+        }
+        return (km9) invokeLL.objValue;
+    }
+
+    public void removeObserverBridge(List<Pair<String, String>> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && !list.isEmpty()) {
+            for (Pair<String, String> pair : list) {
+                List<jm9> list2 = this.mAsyncCallBackMethodList.get(pair.first);
+                if (list2 != null && !list2.isEmpty()) {
+                    Iterator<jm9> it = list2.iterator();
+                    while (it.hasNext()) {
+                        if (TextUtils.equals(it.next().a(), pair.second)) {
+                            it.remove();
                         }
-                        if (i3 >= 0) {
-                            i = i3;
-                        }
-                        d(i);
-                        this.b = e;
                     }
                 }
-            } else {
-                this.a = 0;
             }
-            return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public final float e(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (motionEvent == null) {
-                return 0.0f;
-            }
-            double x = motionEvent.getX(0) - motionEvent.getX(1);
-            double y = motionEvent.getY(0) - motionEvent.getY(1);
-            return (float) Math.sqrt((x * x) + (y * y));
-        }
-        return invokeL.floatValue;
     }
 }

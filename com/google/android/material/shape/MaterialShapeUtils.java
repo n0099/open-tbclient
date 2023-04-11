@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import androidx.annotation.NonNull;
 import com.google.android.material.internal.ViewUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MaterialShapeUtils {
     @NonNull
     public static CornerTreatment createDefaultCornerTreatment() {

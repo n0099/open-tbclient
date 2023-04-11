@@ -1,94 +1,87 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.adapter.PbAppEmptyHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.BusinessPromot;
-import tbclient.FrsPage.HeadImgs;
-import tbclient.TiebaPlusInfo;
 /* loaded from: classes3.dex */
-public class cb9 {
+public class cb9 extends um<rl9, PbAppEmptyHolder> implements ra9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public TiebaPlusInfo b;
+    public BaseFragmentActivity a;
 
-    public cb9() {
+    @Override // com.baidu.tieba.ra9
+    public void setIsFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cb9(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = baseFragmentActivity;
     }
 
-    public TiebaPlusInfo a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.um
+    /* renamed from: s */
+    public PbAppEmptyHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            View view2 = new View(this.a.getPageContext().getPageActivity());
+            view2.setVisibility(8);
+            return new PbAppEmptyHolder(view2);
         }
-        return (TiebaPlusInfo) invokeV.objValue;
+        return (PbAppEmptyHolder) invokeL.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(BusinessPromot businessPromot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, businessPromot) == null) {
-            this.a = businessPromot.is_download.booleanValue();
-            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
-            builder.app_company = businessPromot.download_developer;
-            builder.title = businessPromot.download_appname;
-            builder.app_privacy = businessPromot.download_privacy_policy;
-            builder.download_url = businessPromot.download_url;
-            builder.app_icon = businessPromot.download_img;
-            builder.app_version = businessPromot.download_version;
-            builder.app_power = businessPromot.download_user_power;
-            builder.app_package = businessPromot.download_package_name;
-            builder.app_id = businessPromot.download_appid;
-            builder.item_id = businessPromot.download_item_id;
-            this.b = builder.build(true);
-        }
-    }
-
-    public void d(HeadImgs headImgs) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.um
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rl9 rl9Var, PbAppEmptyHolder pbAppEmptyHolder) {
+        InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, headImgs) == null) {
-            if (headImgs.download_is_thirdpage.intValue() == 1) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rl9Var, pbAppEmptyHolder})) == null) {
+            AdvertAppInfo advertAppInfo = rl9Var.getAdvertAppInfo();
+            if (advertAppInfo != null) {
+                ow4 ow4Var = advertAppInfo.i;
+                if (advertAppInfo.c == -1001) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                ow4.g(ow4Var, rl9Var.getPosition(), z);
             }
-            this.a = z;
-            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
-            builder.app_company = headImgs.download_developer;
-            builder.title = headImgs.download_appname;
-            builder.app_privacy = headImgs.download_privacy_policy;
-            builder.download_url = headImgs.download_url;
-            builder.app_icon = headImgs.download_img;
-            builder.app_version = headImgs.download_version;
-            builder.app_power = headImgs.download_user_power;
-            builder.app_package = headImgs.download_package_name;
-            builder.app_id = headImgs.download_appid;
-            builder.item_id = String.valueOf(headImgs.download_item_id);
-            this.b = builder.build(true);
+            return pbAppEmptyHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
 }

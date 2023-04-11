@@ -213,7 +213,7 @@ public abstract class DeserializedMemberScope extends MemberScopeImpl {
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2025getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassifierDescriptor mo2027getContributedClassifier(Name name, LookupLocation lookupLocation) {
         if (hasClass(name)) {
             return deserializeClass(name);
         }

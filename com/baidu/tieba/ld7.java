@@ -1,14 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,223 +12,101 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.Personalized.DataRes;
-import tbclient.Personalized.HeadCardCover;
-import tbclient.Personalized.HeaderCard;
-import tbclient.Personalized.MatchCardInfo;
-import tbclient.ThemeColorInfo;
-import tbclient.ThreadInfo;
+import tbclient.GameCodeList;
+import tbclient.ItemGameCode;
 /* loaded from: classes5.dex */
-public class ld7 extends hw4 {
+public class ld7 extends jw4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ThemeColorInfo b;
-    public List<gn> c;
-    public int d;
-    public int e;
-    public boolean f;
+    public int a;
+    public List<GameCodeList> b;
 
-    @Override // com.baidu.tieba.hw4
-    public fy4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.jw4
+    public hy4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (hy4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jw4
+    public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return null;
         }
-        return (fy4) invokeV.objValue;
+        return (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hw4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947939114, "Lcom/baidu/tieba/ld7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947939114, "Lcom/baidu/tieba/ld7;");
+                return;
+            }
         }
-        return (ThreadData) invokeV.objValue;
+        c = BdUniqueId.gen();
     }
 
     public ld7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = 0;
-        this.e = -1;
-        this.c = new ArrayList();
+        this.b = new ArrayList();
     }
 
-    public int c() {
+    public List<GameCodeList> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public ThemeColorInfo f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
-        }
-        return (ThemeColorInfo) invokeV.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public List<gn> getDataList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
         }
         return (List) invokeV.objValue;
     }
 
-    public int getPosition() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
         return invokeV.intValue;
     }
 
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.gn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return ag6.A0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return c;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public static boolean h(HeadCardCover headCardCover) {
-        InterceptResult invokeL;
+    public void e(ItemGameCode itemGameCode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, headCardCover)) == null) {
-            if (headCardCover != null && headCardCover.freq != null) {
-                String[] split = m35.m().s("key_recommand_collect_cover_freq", "0-0-0").split("-");
-                if (split.length == 3) {
-                    int parseInt = Integer.parseInt(split[0]);
-                    int parseInt2 = Integer.parseInt(split[1]);
-                    int parseInt3 = Integer.parseInt(split[2]);
-                    long j = parseInt;
-                    if (j == headCardCover.freq.start_time.longValue()) {
-                        long j2 = parseInt2;
-                        if (j2 == headCardCover.freq.end_time.longValue() && parseInt3 == headCardCover.freq.show_times.longValue()) {
-                            int n = m35.m().n("key_recommand_collect_cover_show_time", 0);
-                            long currentTimeMillis = System.currentTimeMillis() / 1000;
-                            if (n < parseInt3 && currentTimeMillis >= j && currentTimeMillis <= j2) {
-                                m35.m().z("key_recommand_collect_cover_show_time", n + 1);
-                                return true;
-                            }
-                        }
-                    }
-                    m35.m().B("key_recommand_collect_cover_freq", headCardCover.freq.start_time + "-" + headCardCover.freq.end_time + "-" + headCardCover.freq.show_times);
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean m(DataRes.Builder builder) {
-        InterceptResult invokeL;
-        HeaderCard headerCard;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, builder)) == null) {
-            if (TbadkCoreApplication.isLogin() && builder != null && (headerCard = builder.header_card) != null && (ListUtils.isNotEmpty(headerCard.thread_list) || h(builder.header_card.cover))) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void i(HeaderCard headerCard) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, headerCard) != null) || headerCard == null) {
-            return;
-        }
-        this.c.clear();
-        this.f = false;
-        HeadCardCover headCardCover = headerCard.cover;
-        if (headCardCover != null) {
-            this.f = true;
-            MatchCardInfo matchCardInfo = headCardCover.match_info;
-            if (matchCardInfo != null && !TextUtils.isEmpty(matchCardInfo.card_title)) {
-                this.a = headerCard.cover.match_info.card_title;
-            }
-            ThemeColorInfo themeColorInfo = headerCard.cover.card_background;
-            if (themeColorInfo != null) {
-                this.b = themeColorInfo;
-            }
-            if (headerCard.cover.match_info != null) {
-                md7 md7Var = new md7();
-                md7Var.b(headerCard.cover.match_info);
-                this.c.add(md7Var);
-                if (ListUtils.isNotEmpty(headerCard.cover.match_info.thread_list)) {
-                    for (ThreadInfo threadInfo : headerCard.cover.match_info.thread_list) {
-                        ThreadData threadData = new ThreadData();
-                        threadData.setNeedCheckNTitle(false);
-                        threadData.parserProtobuf(threadInfo);
-                        if (threadData.getTitleText() != null && StringUtils.isNotNull(headerCard.cover.match_info.icon_text)) {
-                            ThreadCardUtils.setUniversalPrefix(threadData.getTitleText(), headerCard.cover.match_info.icon_text, R.color.CAM_X0302, R.color.CAM_X0101);
-                        }
-                        this.c.add(threadData);
-                    }
-                    return;
-                }
-                return;
-            }
-            return;
-        }
-        if (ListUtils.isNotEmpty(headerCard.thread_list)) {
-            for (int i = 0; i < headerCard.thread_list.size(); i++) {
-                ThreadData threadData2 = new ThreadData();
-                threadData2.setNeedCheckNTitle(false);
-                threadData2.parserProtobuf(headerCard.thread_list.get(i));
-                this.c.add(threadData2);
-            }
-        }
-        this.a = headerCard.card_title;
-        this.b = headerCard.card_background;
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemGameCode) == null) {
+            this.a = itemGameCode.unclaimed_num.intValue();
+            this.b = new ArrayList(itemGameCode.game_code_list);
         }
     }
 }

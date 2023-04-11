@@ -23,7 +23,7 @@ public class GamePlayServiceView extends RelativeLayout {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void d(int i);
+        void h(int i);
     }
 
     /* loaded from: classes4.dex */
@@ -54,7 +54,7 @@ public class GamePlayServiceView extends RelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                this.a.a.d(0);
+                this.a.a.h(0);
             }
         }
     }
@@ -134,10 +134,10 @@ public class GamePlayServiceView extends RelativeLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d078b, (ViewGroup) this, true);
-            findViewById(R.id.obfuscated_res_0x7f09154c).setBackgroundColor(SkinManager.getColor(R.color.CAM_X0207));
-            findViewById(R.id.obfuscated_res_0x7f091566).setOnClickListener(this.b);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f092599)).setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0784, (ViewGroup) this, true);
+            findViewById(R.id.obfuscated_res_0x7f09154f).setBackgroundColor(SkinManager.getColor(R.color.CAM_X0207));
+            findViewById(R.id.obfuscated_res_0x7f091569).setOnClickListener(this.b);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f09258f)).setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }
 }

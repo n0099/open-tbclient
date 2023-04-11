@@ -12,6 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.jg;
+import com.baidu.tieba.vk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -117,17 +118,22 @@ public class TbCameraView extends TextureView {
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048576, this, surfaceTexture, i, i2) == null) {
                 this.a.a = surfaceTexture;
                 if (!this.a.q && !this.a.p) {
-                    boolean z = true;
                     this.a.q = true;
                     TbCameraView tbCameraView = this.a;
-                    tbCameraView.p = (tbCameraView.n == null || !this.a.n.a()) ? false : false;
+                    if (tbCameraView.n != null && this.a.n.a()) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    tbCameraView.p = z;
                 }
                 if (this.a.p) {
-                    new Thread(this.a.s).start();
+                    vk6.a(this.a.s, "mTextureAvailable", 1);
                 }
             }
         }

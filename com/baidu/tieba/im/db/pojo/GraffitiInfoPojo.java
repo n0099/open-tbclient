@@ -28,7 +28,7 @@ public class GraffitiInfoPojo extends OrmObject {
         }
     }
 
-    public static GraffitiInfoPojo R(GraffitiInfo graffitiInfo) {
+    public static GraffitiInfoPojo Q(GraffitiInfo graffitiInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, graffitiInfo)) == null) {
@@ -43,7 +43,7 @@ public class GraffitiInfoPojo extends OrmObject {
         return (GraffitiInfoPojo) invokeL.objValue;
     }
 
-    public static GraffitiInfoPojo S(tbclient.GraffitiInfo graffitiInfo) {
+    public static GraffitiInfoPojo R(tbclient.GraffitiInfo graffitiInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, graffitiInfo)) == null) {

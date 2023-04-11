@@ -1,197 +1,92 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tieba.homepage.concern.view.ConcernRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nn7 extends x8<MsglistActivity<?>> {
+public class nn7 extends pw<dz4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView b;
-    public ImageView c;
-    public HorizontalScrollView d;
-    public LinearLayout e;
-    public int f;
-    public af g;
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nn7 a;
-
-        public a(nn7 nn7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nn7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nn7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.g != null) {
-                this.a.g.C(view2, 18, this.a.f, 0L);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GifView a;
-        public final /* synthetic */ uo7 b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ nn7 d;
-
-        public b(nn7 nn7Var, GifView gifView, uo7 uo7Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nn7Var, gifView, uo7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = nn7Var;
-            this.a = gifView;
-            this.b = uo7Var;
-            this.c = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.getBdImage() != null && this.a.getBdImage().w()) {
-                this.b.c = this.a.getBdImage().r();
-                this.b.d = this.a.getBdImage().m();
-                if (this.d.g != null) {
-                    new StatisticItem("c14658").addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
-                    this.d.g.C(view2, 19, this.d.f, this.c);
-                }
-            }
-        }
-    }
+    public ConcernRecommendLayout f;
+    public int g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nn7(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.msg_msgicebreak_view);
+    public nn7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((a9) objArr2[0], ((Integer) objArr2[1]).intValue());
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
-            this.b = (TextView) i(R.id.msg_ice_break_title);
-            this.c = (ImageView) i(R.id.msg_ice_break_close);
-            this.d = (HorizontalScrollView) i(R.id.msg_ice_break_scroll_view);
-            this.e = (LinearLayout) i(R.id.msg_ice_break_gif_ll);
-            this.b.setText(R.string.im_ice_break_guide_title);
-            this.c.setOnClickListener(new a(this));
+        this.g = 3;
+        ConcernRecommendLayout concernRecommendLayout = new ConcernRecommendLayout(tbPageContext.getPageActivity());
+        this.f = concernRecommendLayout;
+        concernRecommendLayout.setPageContext(tbPageContext);
+        this.f.setPageUniqueId(bdUniqueId);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hx
+    /* renamed from: s */
+    public void a(dz4 dz4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dz4Var) == null) {
+            this.f.setData(dz4Var);
         }
     }
 
-    public void r(ChatMessage chatMessage) {
+    public void t(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, chatMessage) == null) && this.e != null && chatMessage != null && chatMessage.getIceBreakEmotions() != null) {
-            this.e.removeAllViews();
-            int g = hi.g(this.e.getContext(), R.dimen.tbds260);
-            int g2 = hi.g(this.e.getContext(), R.dimen.M_W_X004);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g, g);
-            layoutParams.setMargins(0, 0, g2, 0);
-            for (int i = 0; i < chatMessage.getIceBreakEmotions().size(); i++) {
-                this.e.addView(o(chatMessage.getIceBreakEmotions().get(i), i), layoutParams);
-            }
-            new StatisticItem("c14661").addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.f.setHasBorder(z);
         }
     }
 
-    public void q(af afVar) {
+    public void u(zu4<MetaData> zu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, afVar) == null) {
-            this.g = afVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, zu4Var) == null) {
+            this.f.setOnItemCoverListener(zu4Var);
         }
     }
 
-    public final GifView o(uo7 uo7Var, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.pw
+    public View k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, uo7Var, i)) == null) {
-            GifView gifView = new GifView(this.e.getContext());
-            gifView.setDrawerType(1);
-            gifView.setConrers(15);
-            gifView.setRadiusById(R.string.J_X05);
-            gifView.setShowStaticDrawable(false);
-            gifView.setPlaceHolder(2);
-            gifView.l0(uo7Var.b, 38);
-            gifView.setOnClickListener(new b(this, gifView, uo7Var, i));
-            return gifView;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
         }
-        return (GifView) invokeLI.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public void p(int i) {
+    @Override // com.baidu.tieba.ix
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            HorizontalScrollView horizontalScrollView = this.d;
-            if (horizontalScrollView != null) {
-                n15 d = n15.d(horizontalScrollView);
-                d.o(R.string.J_X05);
-                d.f(R.color.CAM_X0201);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.onChangeSkinType(tbPageContext, i);
+                q(this.f, 3);
             }
-            TextView textView = this.b;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0107);
-            }
-            ImageView imageView = this.c;
-            if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_im_pobing_close18, R.color.CAM_X0111, null);
-            }
+            this.g = i;
         }
     }
 }

@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.jt6;
+import com.baidu.tieba.d27;
+import com.baidu.tieba.ii;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public ArrayList<jt6> b;
+    public ArrayList<d27> b;
     public View.OnClickListener c;
     public View.OnClickListener d;
 
@@ -58,15 +58,15 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
                     return;
                 }
             }
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f090774);
-            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f0927cb);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f090778);
+            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f0927b9);
             this.b = clickableHeaderImageView;
-            clickableHeaderImageView.setRadius(hi.g(view2.getContext(), R.dimen.obfuscated_res_0x7f070309));
+            clickableHeaderImageView.setRadius(ii.g(view2.getContext(), R.dimen.obfuscated_res_0x7f070309));
             this.b.setAutoChangeStyle(true);
             this.b.setClickable(false);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927ca);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927cc);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f091479);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927b8);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927ba);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f09147c);
         }
     }
 
@@ -90,96 +90,26 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         this.a = context;
     }
 
-    public final void d(FansViewHolder fansViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fansViewHolder) == null) {
-            SkinManager.setViewTextColor(fansViewHolder.c, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(fansViewHolder.e, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(fansViewHolder.d, (int) R.color.btn_color_remove);
-            SkinManager.setBackgroundResource(fansViewHolder.d, R.drawable.btn_transparent_focus_border_bg);
-        }
-    }
-
-    public final jt6 g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return (jt6) ListUtils.getItem(this.b, i);
-        }
-        return (jt6) invokeI.objValue;
-    }
-
-    public void k(ArrayList<jt6> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
-            this.b = arrayList;
-        }
-    }
-
-    public void l(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) {
-            this.d = onClickListener;
-        }
-    }
-
-    public void m(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) {
-            this.c = onClickListener;
-        }
-    }
-
-    public boolean e(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (j == 0 || ListUtils.isEmpty(this.b)) {
-                return false;
-            }
-            jt6 jt6Var = null;
-            Iterator<jt6> it = this.b.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                jt6 next = it.next();
-                if (next != null && next.a == j) {
-                    jt6Var = next;
-                    break;
-                }
-            }
-            if (jt6Var != null) {
-                this.b.remove(jt6Var);
-            }
-            if (jt6Var == null) {
-                return false;
-            }
-            return true;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public ArrayList<jt6> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return ListUtils.getCount(this.b);
         }
         return invokeV.intValue;
     }
 
-    public boolean h() {
+    public ArrayList<d27> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -188,33 +118,103 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: i */
-    public void onBindViewHolder(FansViewHolder fansViewHolder, int i) {
-        jt6 g;
+    public final void k(FansViewHolder fansViewHolder) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048582, this, fansViewHolder, i) != null) || fansViewHolder == null || (g = g(i)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fansViewHolder) == null) {
+            SkinManager.setViewTextColor(fansViewHolder.c, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(fansViewHolder.e, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(fansViewHolder.d, (int) R.color.btn_color_remove);
+            SkinManager.setBackgroundResource(fansViewHolder.d, R.drawable.btn_transparent_focus_border_bg);
         }
-        fansViewHolder.b.M(g.d, 12, false);
-        fansViewHolder.c.setText(g.c);
-        fansViewHolder.d.setOnClickListener(this.c);
-        fansViewHolder.d.setTag(g);
-        fansViewHolder.a.setOnClickListener(this.d);
-        fansViewHolder.a.setTag(g);
-        d(fansViewHolder);
+    }
+
+    public final d27 n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return (d27) ListUtils.getItem(this.b, i);
+        }
+        return (d27) invokeI.objValue;
+    }
+
+    public void r(ArrayList<d27> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) {
+            this.b = arrayList;
+        }
+    }
+
+    public void s(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
+            this.d = onClickListener;
+        }
+    }
+
+    public void t(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
+            this.c = onClickListener;
+        }
+    }
+
+    public boolean l(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            if (j == 0 || ListUtils.isEmpty(this.b)) {
+                return false;
+            }
+            d27 d27Var = null;
+            Iterator<d27> it = this.b.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                d27 next = it.next();
+                if (next != null && next.a == j) {
+                    d27Var = next;
+                    break;
+                }
+            }
+            if (d27Var != null) {
+                this.b.remove(d27Var);
+            }
+            if (d27Var == null) {
+                return false;
+            }
+            return true;
+        }
+        return invokeJ.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: j */
+    /* renamed from: q */
     public FansViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
-            return new FansViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02b8, (ViewGroup) null));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i)) == null) {
+            return new FansViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02ba, (ViewGroup) null));
         }
         return (FansViewHolder) invokeLI.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    /* renamed from: p */
+    public void onBindViewHolder(FansViewHolder fansViewHolder, int i) {
+        d27 n;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, fansViewHolder, i) != null) || fansViewHolder == null || (n = n(i)) == null) {
+            return;
+        }
+        fansViewHolder.b.N(n.d, 12, false);
+        fansViewHolder.c.setText(n.c);
+        fansViewHolder.d.setOnClickListener(this.c);
+        fansViewHolder.d.setTag(n);
+        fansViewHolder.a.setOnClickListener(this.d);
+        fansViewHolder.a.setTag(n);
+        k(fansViewHolder);
     }
 }

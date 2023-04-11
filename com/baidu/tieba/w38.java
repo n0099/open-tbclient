@@ -1,38 +1,31 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class w38 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface w38 {
+    void a();
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i == Integer.MAX_VALUE : invokeI.booleanValue;
-    }
+    void c(@NonNull String str);
 
-    public static int b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return Integer.MAX_VALUE;
-            }
-            if (str.length() != 0) {
-                try {
-                    if (!str.startsWith("#")) {
-                        str = "#" + str;
-                    }
-                } catch (Exception unused) {
-                    return Integer.MAX_VALUE;
-                }
-            }
-            return Color.parseColor(str);
-        }
-        return invokeL.intValue;
-    }
+    void i();
+
+    void k(@NonNull String str);
+
+    void l(boolean z, int i, int i2, @Nullable Map<String, Object> map);
+
+    void m(@NonNull String str, @NonNull CharSequence charSequence);
+
+    void n(@NonNull u38 u38Var);
+
+    void o();
+
+    void onDestroy();
+
+    void p();
+
+    void q(@NonNull String str, @Nullable String str2);
+
+    void r(int i, int i2, @Nullable String str);
 }

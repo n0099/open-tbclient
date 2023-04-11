@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.dialog.yun;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x05;
+import com.baidu.tieba.a15;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ public abstract class YunTask {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public Type b;
-    public x05 c;
+    public a15 c;
     public Status d;
 
     public void g() {
@@ -254,9 +254,9 @@ public abstract class YunTask {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.d = Status.FINISHED;
             i();
-            x05 x05Var = this.c;
-            if (x05Var != null) {
-                x05Var.e(this);
+            a15 a15Var = this.c;
+            if (a15Var != null) {
+                a15Var.e(this);
             }
         }
     }
@@ -288,7 +288,7 @@ public abstract class YunTask {
         return (Type) invokeV.objValue;
     }
 
-    public final void b(x05 queue) {
+    public final void b(a15 queue) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, queue) == null) {
             Intrinsics.checkNotNullParameter(queue, "queue");

@@ -19,27 +19,27 @@ public final class InlineList<E> {
     public final Object holder;
 
     /* renamed from: box-impl  reason: not valid java name */
-    public static final /* synthetic */ InlineList m2227boximpl(Object obj) {
+    public static final /* synthetic */ InlineList m2229boximpl(Object obj) {
         return new InlineList(obj);
     }
 
     /* renamed from: constructor-impl  reason: not valid java name */
-    public static Object m2228constructorimpl(Object obj) {
+    public static Object m2230constructorimpl(Object obj) {
         return obj;
     }
 
     /* renamed from: equals-impl  reason: not valid java name */
-    public static boolean m2230equalsimpl(Object obj, Object obj2) {
-        return (obj2 instanceof InlineList) && Intrinsics.areEqual(obj, ((InlineList) obj2).m2236unboximpl());
+    public static boolean m2232equalsimpl(Object obj, Object obj2) {
+        return (obj2 instanceof InlineList) && Intrinsics.areEqual(obj, ((InlineList) obj2).m2238unboximpl());
     }
 
     /* renamed from: equals-impl0  reason: not valid java name */
-    public static final boolean m2231equalsimpl0(Object obj, Object obj2) {
+    public static final boolean m2233equalsimpl0(Object obj, Object obj2) {
         return Intrinsics.areEqual(obj, obj2);
     }
 
     /* renamed from: hashCode-impl  reason: not valid java name */
-    public static int m2233hashCodeimpl(Object obj) {
+    public static int m2235hashCodeimpl(Object obj) {
         if (obj != null) {
             return obj.hashCode();
         }
@@ -47,12 +47,12 @@ public final class InlineList<E> {
     }
 
     /* renamed from: toString-impl  reason: not valid java name */
-    public static String m2235toStringimpl(Object obj) {
+    public static String m2237toStringimpl(Object obj) {
         return "InlineList(holder=" + obj + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     /* renamed from: unbox-impl  reason: not valid java name */
-    public final /* synthetic */ Object m2236unboximpl() {
+    public final /* synthetic */ Object m2238unboximpl() {
         return this.holder;
     }
 
@@ -63,19 +63,19 @@ public final class InlineList<E> {
     }
 
     public boolean equals(Object obj) {
-        return m2230equalsimpl(this.holder, obj);
+        return m2232equalsimpl(this.holder, obj);
     }
 
     /* renamed from: constructor-impl$default  reason: not valid java name */
-    public static /* synthetic */ Object m2229constructorimpl$default(Object obj, int i, DefaultConstructorMarker defaultConstructorMarker) {
+    public static /* synthetic */ Object m2231constructorimpl$default(Object obj, int i, DefaultConstructorMarker defaultConstructorMarker) {
         if ((i & 1) != 0) {
             obj = null;
         }
-        return m2228constructorimpl(obj);
+        return m2230constructorimpl(obj);
     }
 
     /* renamed from: forEachReversed-impl  reason: not valid java name */
-    public static final void m2232forEachReversedimpl(Object obj, Function1<? super E, Unit> function1) {
+    public static final void m2234forEachReversedimpl(Object obj, Function1<? super E, Unit> function1) {
         if (obj == null) {
             return;
         }
@@ -92,31 +92,31 @@ public final class InlineList<E> {
     }
 
     /* renamed from: plus-impl  reason: not valid java name */
-    public static final Object m2234plusimpl(Object obj, E e) {
+    public static final Object m2236plusimpl(Object obj, E e) {
         if (DebugKt.getASSERTIONS_ENABLED() && !(!(e instanceof List))) {
             throw new AssertionError();
         }
         if (obj == null) {
-            return m2228constructorimpl(e);
+            return m2230constructorimpl(e);
         }
         if (obj instanceof ArrayList) {
             if (obj != null) {
                 ((ArrayList) obj).add(e);
-                return m2228constructorimpl(obj);
+                return m2230constructorimpl(obj);
             }
             throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.ArrayList<E> /* = java.util.ArrayList<E> */");
         }
         ArrayList arrayList = new ArrayList(4);
         arrayList.add(obj);
         arrayList.add(e);
-        return m2228constructorimpl(arrayList);
+        return m2230constructorimpl(arrayList);
     }
 
     public int hashCode() {
-        return m2233hashCodeimpl(this.holder);
+        return m2235hashCodeimpl(this.holder);
     }
 
     public String toString() {
-        return m2235toStringimpl(this.holder);
+        return m2237toStringimpl(this.holder);
     }
 }

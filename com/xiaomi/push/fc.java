@@ -13,13 +13,13 @@ public class fc extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo674a() {
+    public String mo676a() {
         return "Handling bind stats";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a  reason: collision with other method in class */
-    public void mo391a() {
+    public void mo393a() {
         this.a.c();
     }
 }

@@ -30,27 +30,27 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.as9;
-import com.baidu.tieba.bs9;
-import com.baidu.tieba.ct9;
-import com.baidu.tieba.ds9;
-import com.baidu.tieba.eq5;
-import com.baidu.tieba.es9;
-import com.baidu.tieba.fs9;
-import com.baidu.tieba.gs9;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.m35;
-import com.baidu.tieba.ms4;
-import com.baidu.tieba.p35;
-import com.baidu.tieba.qs4;
-import com.baidu.tieba.rs4;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.kr5;
+import com.baidu.tieba.l2a;
+import com.baidu.tieba.m2a;
+import com.baidu.tieba.os4;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.q1a;
+import com.baidu.tieba.r1a;
+import com.baidu.tieba.s1a;
+import com.baidu.tieba.s45;
 import com.baidu.tieba.ss4;
-import com.baidu.tieba.tl5;
-import com.baidu.tieba.us9;
-import com.baidu.tieba.vs9;
+import com.baidu.tieba.t2a;
+import com.baidu.tieba.ts4;
+import com.baidu.tieba.u1a;
+import com.baidu.tieba.us4;
+import com.baidu.tieba.v1a;
+import com.baidu.tieba.w1a;
 import com.baidu.tieba.write.album.TbCameraView;
 import com.baidu.tieba.write.util.PhotoType;
-import com.baidu.tieba.zr9;
+import com.baidu.tieba.x1a;
+import com.baidu.tieba.zm5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,30 +61,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class ImageListFragment extends BaseFragment implements as9.d, AbsListView.OnScrollListener {
+public class ImageListFragment extends BaseFragment implements r1a.d, AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static int H = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public TbCameraView.f A;
     public TbCameraView.d B;
     public PopupWindow.OnDismissListener C;
-    public ds9 D;
-    public ct9.f E;
-    public es9 F;
-    public gs9 G;
+    public u1a D;
+    public t2a.f E;
+    public v1a F;
+    public x1a G;
     public BaseFragmentActivity a;
-    public bs9 b;
-    public zr9 c;
-    public rs4 d;
+    public s1a b;
+    public q1a c;
+    public ts4 d;
     public View e;
     public RelativeLayout f;
     public ImageView g;
     public TextView h;
     public TBSpecificationBtn i;
     public TextView j;
-    public ct9 k;
+    public t2a k;
     public TransparentHeadGridView l;
-    public fs9 m;
+    public w1a m;
     public NoDataView n;
     public View o;
     public NavigationBar p;
@@ -95,7 +95,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     public boolean u;
     public boolean v;
     public int w;
-    public p35 x;
+    public s45 x;
     public View.OnClickListener y;
     public View.OnClickListener z;
 
@@ -141,7 +141,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || eq5.a() || this.a.c == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || kr5.a() || this.a.c == null) {
                 return;
             }
             int l = this.a.c.l();
@@ -301,7 +301,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     }
 
     /* loaded from: classes6.dex */
-    public class f implements ds9 {
+    public class f implements u1a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageListFragment a;
@@ -324,7 +324,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
             this.a = imageListFragment;
         }
 
-        @Override // com.baidu.tieba.ds9
+        @Override // com.baidu.tieba.u1a
         public void a(int i, MediaFileInfo mediaFileInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, mediaFileInfo) == null) {
@@ -334,7 +334,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
                     }
                 } else if (this.a.c != null && this.a.c.m() != null && this.a.c.m().isFromQRCode() && (mediaFileInfo instanceof ImageFileInfo)) {
                     if (this.a.b != null) {
-                        this.a.b.o((ImageFileInfo) mediaFileInfo);
+                        this.a.b.n((ImageFileInfo) mediaFileInfo);
                     }
                 } else if (mediaFileInfo != null && this.a.c != null && (mediaFileInfo instanceof ImageFileInfo)) {
                     this.a.c.y((ImageFileInfo) mediaFileInfo);
@@ -347,7 +347,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     }
 
     /* loaded from: classes6.dex */
-    public class g implements ct9.f {
+    public class g implements t2a.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageListFragment a;
@@ -370,13 +370,13 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
             this.a = imageListFragment;
         }
 
-        @Override // com.baidu.tieba.ct9.f
-        public void a(int i, ms4 ms4Var) {
+        @Override // com.baidu.tieba.t2a.f
+        public void a(int i, os4 os4Var) {
             List<MediaFileInfo> d;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, ms4Var) == null) && this.a.c != null && ms4Var != null) {
-                String b = ms4Var.b();
-                String g = ms4Var.g();
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, os4Var) == null) && this.a.c != null && os4Var != null) {
+                String b = os4Var.b();
+                String g = os4Var.g();
                 if (b == null || b.equals(this.a.c.h()) || (d = this.a.c.d(b)) == null) {
                     return;
                 }
@@ -389,7 +389,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     }
 
     /* loaded from: classes6.dex */
-    public class h implements es9 {
+    public class h implements v1a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageListFragment a;
@@ -415,7 +415,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
         /* JADX WARN: Code restructure failed: missing block: B:57:0x014d, code lost:
             if (r5.a.a2(r7) != false) goto L52;
          */
-        @Override // com.baidu.tieba.es9
+        @Override // com.baidu.tieba.v1a
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -428,17 +428,17 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
                 }
                 if (mediaFileInfo instanceof ImageFileInfo) {
                     ImageFileInfo imageFileInfo = (ImageFileInfo) mediaFileInfo;
-                    if (us9.a(imageFileInfo.getFilePath()) == PhotoType.APNG) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0d7b);
+                    if (l2a.a(imageFileInfo.getFilePath()) == PhotoType.APNG) {
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0d76);
                         return false;
-                    } else if (vs9.a(imageFileInfo)) {
+                    } else if (m2a.a(imageFileInfo)) {
                         this.a.a.showToast(R.string.obfuscated_res_0x7f0f025b);
                         return false;
-                    } else if (this.a.w == ImageListFragment.H && vs9.c(imageFileInfo)) {
+                    } else if (this.a.w == ImageListFragment.H && m2a.c(imageFileInfo)) {
                         this.a.a.showToast(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f025c), new Object[0]));
                         return false;
-                    } else if (vs9.b(imageFileInfo)) {
-                        this.a.a.showToast(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f025d), Integer.valueOf(m35.m().n("key_upload_pic_max_width", 0)), Integer.valueOf(m35.m().n("key_upload_pic_max_height", 0))));
+                    } else if (m2a.b(imageFileInfo)) {
+                        this.a.a.showToast(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f025d), Integer.valueOf(p45.m().n("key_upload_pic_max_width", 0)), Integer.valueOf(p45.m().n("key_upload_pic_max_height", 0))));
                         return false;
                     } else {
                         if (this.a.c.n(imageFileInfo)) {
@@ -480,12 +480,12 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     }
 
     /* loaded from: classes6.dex */
-    public class i implements qs4 {
+    public class i implements ss4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageListFragment a;
 
-        @Override // com.baidu.tieba.qs4
+        @Override // com.baidu.tieba.ss4
         public void onPreLoad() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -510,18 +510,18 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
             this.a = imageListFragment;
         }
 
-        @Override // com.baidu.tieba.qs4
-        public void a(ss4 ss4Var) {
+        @Override // com.baidu.tieba.ss4
+        public void a(us4 us4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ss4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, us4Var) == null) {
                 if (this.a.x != null) {
                     this.a.x.h(false);
                 }
-                if (ss4Var == null) {
-                    ss4Var = new ss4();
+                if (us4Var == null) {
+                    us4Var = new us4();
                 }
                 if (this.a.c != null && this.a.m != null) {
-                    this.a.c.z(ss4Var);
+                    this.a.c.z(us4Var);
                     String h = this.a.c.h();
                     this.a.c.x(h);
                     this.a.m.n(this.a.c.d(h));
@@ -566,9 +566,9 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     public void h2() {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.b != null && getPageContext() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.b != null && getPageContext() != null) {
             if (this.d == null) {
-                this.d = new rs4(getPageContext().getPageActivity());
+                this.d = new ts4(getPageContext().getPageActivity());
             }
             if (this.b.h()) {
                 if (this.b.g()) {
@@ -585,11 +585,19 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
         }
     }
 
+    @Override // com.baidu.tieba.r1a.d
+    public void B(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            u();
+        }
+    }
+
     public final boolean Z1(VideoFileInfo videoFileInfo) {
         InterceptResult invokeL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoFileInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoFileInfo)) == null) {
             if (videoFileInfo != null) {
                 i2 = videoFileInfo.videoDuration;
             } else {
@@ -607,8 +615,8 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     public final boolean a2(VideoFileInfo videoFileInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoFileInfo)) == null) {
-            VideoFileInfo h2 = gs9.h(videoFileInfo.videoPath);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, videoFileInfo)) == null) {
+            VideoFileInfo h2 = x1a.h(videoFileInfo.videoPath);
             if (h2 == null || Math.max(h2.videoWidth, h2.videoHeight) <= 3000) {
                 return true;
             }
@@ -622,7 +630,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
         InterceptResult invokeL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, videoFileInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, videoFileInfo)) == null) {
             if (videoFileInfo != null) {
                 i2 = videoFileInfo.videoDuration;
             } else {
@@ -637,31 +645,31 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
         return invokeL.booleanValue;
     }
 
-    public void m2(bs9 bs9Var) {
+    public void m2(s1a s1aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bs9Var) == null) {
-            this.b = bs9Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, s1aVar) == null) {
+            this.b = s1aVar;
         }
     }
 
     public void n2(NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, navigationBar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, navigationBar) == null) {
             this.p = navigationBar;
         }
     }
 
-    public void o2(gs9 gs9Var) {
+    public void o2(x1a x1aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, gs9Var) == null) {
-            this.G = gs9Var;
+        if (interceptable == null || interceptable.invokeL(1048593, this, x1aVar) == null) {
+            this.G = x1aVar;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             super.onActivityCreated(bundle);
             if (!this.u) {
                 PermissionUtil.requestWriteExternalStorgePermission(requireActivity(), 1);
@@ -669,20 +677,12 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
         }
     }
 
-    @Override // com.baidu.tieba.as9.d
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
-            q();
-        }
-    }
-
     public View c2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            bs9 bs9Var = this.b;
-            if (bs9Var != null && bs9Var.s() == 1) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            s1a s1aVar = this.b;
+            if (s1aVar != null && s1aVar.s() == 1) {
                 return this.g;
             }
             return this.h;
@@ -693,7 +693,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     public View d2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.i;
         }
         return (View) invokeV.objValue;
@@ -702,10 +702,10 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     public TbCameraView e2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            fs9 fs9Var = this.m;
-            if (fs9Var != null) {
-                return fs9Var.j();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            w1a w1aVar = this.m;
+            if (w1aVar != null) {
+                return w1aVar.j();
             }
             return null;
         }
@@ -715,7 +715,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     public TransparentHeadGridView f2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.l;
         }
         return (TransparentHeadGridView) invokeV.objValue;
@@ -724,7 +724,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     public View g2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.r;
         }
         return (View) invokeV.objValue;
@@ -733,11 +733,11 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.onDetach();
-            ct9 ct9Var = this.k;
-            if (ct9Var != null) {
-                ct9Var.f();
+            t2a t2aVar = this.k;
+            if (t2aVar != null) {
+                t2aVar.f();
             }
         }
     }
@@ -745,7 +745,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onPause();
             this.t = true;
         }
@@ -754,20 +754,20 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onResume();
             this.t = false;
             if (!isShow()) {
                 return;
             }
-            q();
+            u();
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             super.onStart();
         }
     }
@@ -775,31 +775,31 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             super.onStop();
         }
     }
 
-    public final void q() {
+    public final void u() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && !isHidden() && !this.t) {
+        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && !isHidden() && !this.t) {
             i2();
         }
     }
 
     public void k2(ImageFileInfo imageFileInfo, boolean z) {
-        fs9 fs9Var;
+        w1a w1aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048588, this, imageFileInfo, z) != null) || imageFileInfo == null || (fs9Var = this.m) == null) {
+        if ((interceptable != null && interceptable.invokeLZ(1048589, this, imageFileInfo, z) != null) || imageFileInfo == null || (w1aVar = this.m) == null) {
             return;
         }
-        j2(fs9Var.i(imageFileInfo), z);
+        j2(w1aVar.i(imageFileInfo), z);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048602, this, absListView, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048603, this, absListView, i2) == null) {
             super.onScrollStateChanged(absListView, i2);
             if (i2 == 2) {
                 this.m.s(true);
@@ -812,7 +812,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     public final boolean Y1(VideoFileInfo videoFileInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, videoFileInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoFileInfo)) == null) {
             if (new File(videoFileInfo.videoPath).length() > 104857600) {
                 this.a.showToast(String.format(getString(R.string.obfuscated_res_0x7f0f025f), new Object[0]));
                 return false;
@@ -823,17 +823,17 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     }
 
     public final void i2() {
-        bs9 bs9Var;
+        s1a s1aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.c == null && (bs9Var = this.b) != null) {
-                this.c = bs9Var.t();
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            if (this.c == null && (s1aVar = this.b) != null) {
+                this.c = s1aVar.t();
             }
-            zr9 zr9Var = this.c;
-            if (zr9Var == null) {
+            q1a q1aVar = this.c;
+            if (q1aVar == null) {
                 return;
             }
-            if (!zr9Var.r()) {
+            if (!q1aVar.r()) {
                 this.m.notifyDataSetChanged();
             } else {
                 h2();
@@ -845,40 +845,40 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onDestroy();
             TransparentHeadGridView transparentHeadGridView = this.l;
             if (transparentHeadGridView != null) {
                 transparentHeadGridView.setOuterOnScrollListener(null);
             }
-            rs4 rs4Var = this.d;
-            if (rs4Var != null) {
-                rs4Var.c();
+            ts4 ts4Var = this.d;
+            if (ts4Var != null) {
+                ts4Var.c();
             }
             BaseFragmentActivity baseFragmentActivity = this.a;
             if (baseFragmentActivity != null) {
                 baseFragmentActivity.closeLoadingDialog();
             }
-            p35 p35Var = this.x;
-            if (p35Var != null) {
-                p35Var.h(false);
+            s45 s45Var = this.x;
+            if (s45Var != null) {
+                s45Var.h(false);
             }
-            fs9 fs9Var = this.m;
-            if (fs9Var != null) {
-                fs9Var.m();
+            w1a w1aVar = this.m;
+            if (w1aVar != null) {
+                w1aVar.m();
             }
-            as9.f().k(this);
+            r1a.f().k(this);
         }
     }
 
     public final void p2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
             if (this.x == null) {
-                this.x = new p35(getPageContext());
+                this.x = new s45(getPageContext());
             }
             this.x.e(null);
-            this.x.i(R.string.obfuscated_res_0x7f0f0b06);
+            this.x.i(R.string.obfuscated_res_0x7f0f0b02);
             this.x.h(true);
         }
     }
@@ -886,13 +886,13 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     public void j2(int i2, boolean z) {
         View childAt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             TransparentHeadGridView transparentHeadGridView = this.l;
             if (transparentHeadGridView != null) {
                 int firstVisiblePosition = transparentHeadGridView.getFirstVisiblePosition();
                 int lastVisiblePosition = this.l.getLastVisiblePosition();
                 if (i2 >= firstVisiblePosition && i2 <= lastVisiblePosition && (childAt = this.l.getChildAt(i2 - firstVisiblePosition)) != null && this.m != null) {
-                    this.m.u((ImageView) childAt.findViewById(R.id.obfuscated_res_0x7f092006), z);
+                    this.m.u((ImageView) childAt.findViewById(R.id.obfuscated_res_0x7f091ff3), z);
                 } else {
                     return;
                 }
@@ -904,8 +904,8 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     public void l2(boolean z) {
         BaseFragmentActivity baseFragmentActivity;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && (baseFragmentActivity = this.a) != null && this.r != null) {
-            this.r.setText(baseFragmentActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0df6));
+        if ((interceptable == null || interceptable.invokeZ(1048590, this, z) == null) && (baseFragmentActivity = this.a) != null && this.r != null) {
+            this.r.setText(baseFragmentActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0df1));
             if (z) {
                 this.r.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.icon_pure_image_ok_select16, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL), (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0302);
@@ -919,14 +919,14 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
             super.onChangeSkinType(i2);
-            tl5.a(getPageContext(), this.e);
+            zm5.a(getPageContext(), this.e);
             SkinManager.setBackgroundColor(this.s, R.color.CAM_X0204, i2);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, i2);
             if (this.h != null && this.g != null) {
-                bs9 bs9Var = this.b;
-                if (bs9Var != null && bs9Var.s() == 1) {
+                s1a s1aVar = this.b;
+                if (s1aVar != null && s1aVar.s() == 1) {
                     SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0105, null);
                     this.h.setVisibility(8);
                 } else {
@@ -937,17 +937,17 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
             if (this.j != null) {
                 this.j.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, null), (Drawable) null);
             }
-            fs9 fs9Var = this.m;
-            if (fs9Var != null) {
-                fs9Var.notifyDataSetChanged();
+            w1a w1aVar = this.m;
+            if (w1aVar != null) {
+                w1aVar.notifyDataSetChanged();
             }
             NoDataView noDataView = this.n;
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i2);
             }
-            zr9 zr9Var = this.c;
-            if (zr9Var != null) {
-                l2(zr9Var.s());
+            q1a q1aVar = this.c;
+            if (q1aVar != null) {
+                l2(q1aVar.s());
             }
         }
     }
@@ -955,7 +955,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
             super.onCreate(bundle);
             BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
             this.a = baseFragmentActivity;
@@ -966,17 +966,17 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
                     this.b = ((AlbumActivity) baseFragmentActivity).a;
                 }
             }
-            bs9 bs9Var = this.b;
-            if (bs9Var != null) {
-                this.c = bs9Var.t();
+            s1a s1aVar = this.b;
+            if (s1aVar != null) {
+                this.c = s1aVar.t();
                 this.u = this.b.B();
                 this.v = this.b.A();
             }
-            as9.f().d(this);
-            this.d = new rs4(this.a);
-            ct9 ct9Var = new ct9(this.a);
-            this.k = ct9Var;
-            ct9Var.setOnDismissListener(this.C);
+            r1a.f().d(this);
+            this.d = new ts4(this.a);
+            t2a t2aVar = new t2a(this.a);
+            this.k = t2aVar;
+            t2aVar.setOnDismissListener(this.C);
             this.k.l(this.E);
         }
     }
@@ -986,7 +986,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
         InterceptResult invokeLLL;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048597, this, layoutInflater, viewGroup, bundle)) == null) {
             BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
             this.a = baseFragmentActivity;
             if (this.b == null) {
@@ -996,25 +996,25 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
                     this.b = ((AlbumActivity) baseFragmentActivity).a;
                 }
             }
-            bs9 bs9Var = this.b;
-            if (bs9Var != null) {
-                this.c = bs9Var.t();
+            s1a s1aVar = this.b;
+            if (s1aVar != null) {
+                this.c = s1aVar.t();
             }
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d011c, (ViewGroup) null);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d011b, (ViewGroup) null);
             this.e = inflate;
-            this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09024a);
+            this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090243);
             this.o = this.e.findViewById(R.id.layout_title);
-            this.j = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090270);
+            this.j = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090269);
             this.g = (ImageView) this.e.findViewById(R.id.img_close);
-            this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091038);
-            this.s = this.e.findViewById(R.id.obfuscated_res_0x7f0917c2);
-            this.q = this.e.findViewById(R.id.obfuscated_res_0x7f0913e0);
-            this.r = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0918ef);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091840);
+            this.h = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09103d);
+            this.s = this.e.findViewById(R.id.obfuscated_res_0x7f0917c7);
+            this.q = this.e.findViewById(R.id.obfuscated_res_0x7f0913e4);
+            this.r = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0918f2);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091843);
             this.i = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            this.i.getStyleConfig().m(hi.g(this.a, R.dimen.tbds25));
-            this.c.x(ms4.f);
+            this.i.getStyleConfig().m(ii.g(this.a, R.dimen.tbds25));
+            this.c.x(os4.f);
             this.j.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0258));
             if (this.c.m() != null) {
                 this.w = this.c.m().getSource();
@@ -1030,11 +1030,11 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
                 this.q.setVisibility(8);
             }
             this.n = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.f, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.b(R.string.obfuscated_res_0x7f0f0263, R.string.obfuscated_res_0x7f0f0264), null);
-            TransparentHeadGridView transparentHeadGridView = (TransparentHeadGridView) this.e.findViewById(R.id.obfuscated_res_0x7f090e62);
+            TransparentHeadGridView transparentHeadGridView = (TransparentHeadGridView) this.e.findViewById(R.id.obfuscated_res_0x7f090e63);
             this.l = transparentHeadGridView;
             transparentHeadGridView.setSelector(R.color.transparent);
-            fs9 fs9Var = new fs9(this.a, this.c);
-            this.m = fs9Var;
+            w1a w1aVar = new w1a(this.a, this.c);
+            this.m = w1aVar;
             if (this.u) {
                 if (this.c.m() != null && this.c.m().isFromQRCode()) {
                     this.m.w(false);
@@ -1043,7 +1043,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
                     this.m.w(true);
                 }
             } else {
-                fs9Var.w(false);
+                w1aVar.w(false);
             }
             if (this.v && this.c.l() == 1) {
                 this.m.x(false);
@@ -1081,26 +1081,26 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048601, this, absListView, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeLIII(1048602, this, absListView, i2, i3, i4) == null) {
             super.onScroll(absListView, i2, i3, i4);
         }
     }
 
     /* JADX WARN: Type inference failed for: r0v9, types: [boolean, int] */
     public final void q2() {
-        zr9 zr9Var;
+        q1a q1aVar;
         String string;
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && (zr9Var = this.c) != null && this.i != null) {
+        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && (q1aVar = this.c) != null && this.i != null) {
             boolean z = false;
-            if (zr9Var.p()) {
+            if (q1aVar.p()) {
                 ?? p = this.c.p();
-                string = this.a.getString(R.string.obfuscated_res_0x7f0f0995, new Object[]{Integer.valueOf((int) p), 1});
+                string = this.a.getString(R.string.obfuscated_res_0x7f0f0990, new Object[]{Integer.valueOf((int) p), 1});
                 i2 = p;
             } else {
                 int count = ListUtils.getCount(this.c.g());
-                string = this.a.getString(R.string.obfuscated_res_0x7f0f0995, new Object[]{Integer.valueOf(count), Integer.valueOf(this.c.l())});
+                string = this.a.getString(R.string.obfuscated_res_0x7f0f0990, new Object[]{Integer.valueOf(count), Integer.valueOf(this.c.l())});
                 i2 = count;
             }
             this.i.setText(string);

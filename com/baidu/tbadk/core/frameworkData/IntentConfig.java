@@ -27,15 +27,15 @@ import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tieba.b9;
-import com.baidu.tieba.ck5;
-import com.baidu.tieba.dk5;
-import com.baidu.tieba.fk5;
+import com.baidu.tieba.bj5;
+import com.baidu.tieba.fl5;
 import com.baidu.tieba.g9;
+import com.baidu.tieba.il5;
 import com.baidu.tieba.jg;
+import com.baidu.tieba.jl5;
 import com.baidu.tieba.kg;
-import com.baidu.tieba.vh5;
-import com.baidu.tieba.w58;
-import com.baidu.tieba.zj5;
+import com.baidu.tieba.ll5;
+import com.baidu.tieba.ng8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -541,12 +541,12 @@ public class IntentConfig extends OrmObject {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65548, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
             b9<?> b2 = g9.b(context);
-            dk5 dk5Var = null;
-            if (b2 instanceof ck5) {
-                dk5Var = ((ck5) b2).getTbPageInfo();
+            jl5 jl5Var = null;
+            if (b2 instanceof il5) {
+                jl5Var = ((il5) b2).getTbPageInfo();
             }
-            if (dk5Var != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", dk5Var.a());
+            if (jl5Var != null) {
+                this.mIntent.putExtra("tb_page_tag_source_trace", jl5Var.a());
             }
         }
     }
@@ -556,7 +556,7 @@ public class IntentConfig extends OrmObject {
         ArrayList<String> c2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
-            zj5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+            fl5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
             if (currentVisiblePageExtra == null) {
                 c2 = null;
             } else {
@@ -567,7 +567,7 @@ public class IntentConfig extends OrmObject {
             }
             if (currentVisiblePageExtra != null) {
                 TbPageExtraHelper.setPrePageKey(currentVisiblePageExtra.a());
-                vh5.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
+                bj5.i(new PrePageKeyEvent(TbPageExtraHelper.getPrePageKey()));
             }
             this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", c2);
         }
@@ -578,8 +578,8 @@ public class IntentConfig extends OrmObject {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mIntent != null) {
             b9<?> b2 = g9.b(this.mContext);
             ArrayList<String> arrayList = null;
-            if (b2 instanceof fk5) {
-                arrayList = (ArrayList) ((fk5) b2).getNextPageSourceKeyList();
+            if (b2 instanceof ll5) {
+                arrayList = (ArrayList) ((ll5) b2).getNextPageSourceKeyList();
             }
             if (ListUtils.isEmpty(arrayList)) {
                 return;
@@ -691,7 +691,7 @@ public class IntentConfig extends OrmObject {
                     return false;
                 }
             }
-            w58 activityLog = ActivityLog.getInstance();
+            ng8 activityLog = ActivityLog.getInstance();
             activityLog.b(WBConstants.SHARE_START_ACTIVITY, "fail mComponentClass:" + this.mComponentClass + " mContext：" + this.mContext);
             return false;
         }
@@ -730,7 +730,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            w58 activityLog = ActivityLog.getInstance();
+            ng8 activityLog = ActivityLog.getInstance();
             activityLog.b("startActivityForResult", "fail mComponentClass:" + this.mComponentClass + " mContext：" + this.mContext);
         }
     }

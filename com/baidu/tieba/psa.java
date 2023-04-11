@@ -1,121 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ora;
+import android.animation.ValueAnimator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorThrowable;
+import com.google.ar.core.InstallActivity;
 /* loaded from: classes5.dex */
-public final class psa<T, R> implements ora.a<R> {
+public final class psa implements ValueAnimator.AnimatorUpdateListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ora<T> a;
-    public final gsa<? super T, ? extends R> b;
+    public final /* synthetic */ int a;
+    public final /* synthetic */ int b;
+    public final /* synthetic */ int c;
+    public final /* synthetic */ InstallActivity d;
 
-    /* loaded from: classes5.dex */
-    public static final class a<T, R> extends ura<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ura<? super R> e;
-        public final gsa<? super T, ? extends R> f;
-        public boolean g;
-
-        public a(ura<? super R> uraVar, gsa<? super T, ? extends R> gsaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uraVar, gsaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = uraVar;
-            this.f = gsaVar;
-        }
-
-        @Override // com.baidu.tieba.ura
-        public void f(qra qraVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, qraVar) == null) {
-                this.e.f(qraVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.pra
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                if (this.g) {
-                    vva.j(th);
-                    return;
-                }
-                this.g = true;
-                this.e.onError(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.pra
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                try {
-                    this.e.onNext(this.f.call(t));
-                } catch (Throwable th) {
-                    asa.e(th);
-                    unsubscribe();
-                    onError(OnErrorThrowable.addValueAsLastCause(th, t));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.pra
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
-                return;
-            }
-            this.e.onCompleted();
-        }
-    }
-
-    public psa(ora<T> oraVar, gsa<? super T, ? extends R> gsaVar) {
+    public psa(InstallActivity installActivity, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {oraVar, gsaVar};
+            Object[] objArr = {installActivity, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = oraVar;
-        this.b = gsaVar;
+        this.d = installActivity;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
     }
 
-    public void call(ura<? super R> uraVar) {
+    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+    public final void onAnimationUpdate(ValueAnimator valueAnimator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, uraVar) == null) {
-            a aVar = new a(uraVar, this.b);
-            uraVar.b(aVar);
-            this.a.B(aVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+            float animatedFraction = 1.0f - valueAnimator.getAnimatedFraction();
+            float animatedFraction2 = valueAnimator.getAnimatedFraction();
+            int i = this.b;
+            this.d.getWindow().setLayout((int) ((this.a * animatedFraction) + (i * animatedFraction2)), (int) ((this.c * animatedFraction) + (i * animatedFraction2)));
+            this.d.getWindow().getDecorView().refreshDrawableState();
         }
-    }
-
-    @Override // com.baidu.tieba.ora.a, com.baidu.tieba.csa
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((ura) ((ura) obj));
     }
 }

@@ -1,78 +1,82 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class yma {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "PBKDF2";
+public class yma {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948336348, "Lcom/baidu/tieba/yma;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948336348, "Lcom/baidu/tieba/yma;");
-        }
-    }
-
-    public static byte[] a(char[] cArr, byte[] bArr, int i, int i2, boolean z) {
-        SecretKeyFactory secretKeyFactory;
-        InterceptResult invokeCommon;
+    public static com.fun.module.csj.g0 a(TTNativeAd tTNativeAd) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{cArr, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            try {
-                PBEKeySpec pBEKeySpec = new PBEKeySpec(cArr, bArr, i, i2);
-                if (z) {
-                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
-                } else {
-                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tTNativeAd)) == null) {
+            int imageMode = tTNativeAd.getImageMode();
+            if (imageMode == 15) {
+                i = R.layout.fun_csj_ad_native_vertical_video_view;
+            } else if (imageMode != 16) {
+                if (imageMode != 166) {
+                    if (imageMode == 2) {
+                        i = R.layout.fun_csj_ad_native_small_img_view;
+                    } else if (imageMode == 3) {
+                        i = R.layout.fun_csj_ad_native_large_img_view;
+                    } else if (imageMode == 4) {
+                        i = R.layout.fun_csj_ad_native_group_img_view;
+                    } else if (imageMode != 5) {
+                        return null;
+                    }
                 }
-                return secretKeyFactory.generateSecret(pBEKeySpec).getEncoded();
-            } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-                String str = a;
-                gna.c(str, "pbkdf exception : " + e.getMessage());
-                return new byte[0];
+                i = R.layout.fun_csj_ad_native_large_video_view;
+            } else {
+                i = R.layout.fun_csj_ad_native_vertical_img_view;
             }
+            com.fun.module.csj.g0 g0Var = (com.fun.module.csj.g0) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(i, (ViewGroup) null);
+            g0Var.a(tTNativeAd);
+            return g0Var;
         }
-        return (byte[]) invokeCommon.objValue;
+        return (com.fun.module.csj.g0) invokeL.objValue;
     }
 
-    public static byte[] b(char[] cArr, byte[] bArr, int i, int i2) {
-        InterceptResult invokeLLII;
+    public static String b(boolean z) {
+        InterceptResult invokeZ;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, cArr, bArr, i, i2)) == null) {
-            return a(cArr, bArr, i, i2, false);
-        }
-        return (byte[]) invokeLLII.objValue;
-    }
-
-    public static byte[] c(char[] cArr, byte[] bArr, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, cArr, bArr, i, i2)) == null) {
-            byte[] bArr2 = new byte[0];
-            if (Build.VERSION.SDK_INT < 26) {
-                gna.c(a, "system version not high than 26");
-                return bArr2;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
+            HashMap hashMap = new HashMap();
+            if (z) {
+                str = "1";
+            } else {
+                str = "0";
             }
-            return a(cArr, bArr, i, i2, true);
+            hashMap.put("personal_ads_type", str);
+            if (hashMap.isEmpty()) {
+                return "";
+            }
+            try {
+                JSONArray jSONArray = new JSONArray();
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("name", entry.getKey());
+                    jSONObject.put("value", entry.getValue());
+                    jSONArray.put(jSONObject);
+                }
+                return jSONArray.toString();
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return "";
+            }
         }
-        return (byte[]) invokeLLII.objValue;
+        return (String) invokeZ.objValue;
     }
 }

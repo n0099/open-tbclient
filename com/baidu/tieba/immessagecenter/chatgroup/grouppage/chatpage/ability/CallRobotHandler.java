@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.hv7;
+import com.baidu.tieba.c58;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
@@ -21,12 +21,12 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\u0018\u00002\u00020\u0001:\u0001\rB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u001a\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\b2\b\u0010\t\u001a\u0004\u0018\u00010\nH\u0016J\b\u0010\u000b\u001a\u00020\fH\u0016R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u000e"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/CallRobotHandler;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseAbilityHandler;", "chatPage", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;", "(Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;)V", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/AbilityItem;", "oriMsg", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseMsg;", "provideType", "", "Conf", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public final class CallRobotHandler extends hv7 {
+public final class CallRobotHandler extends c58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ChatPage b;
 
-    @Override // com.baidu.tieba.hv7
+    @Override // com.baidu.tieba.c58
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -251,7 +251,7 @@ public final class CallRobotHandler extends hv7 {
         this.b = chatPage;
     }
 
-    @Override // com.baidu.tieba.hv7
+    @Override // com.baidu.tieba.c58
     public void b(AbilityItem abilityItem, BaseMsg baseMsg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseMsg) == null) {
@@ -259,7 +259,7 @@ public final class CallRobotHandler extends hv7 {
             Object entity = DataExt.toEntity(abilityItem.getConfMap(), Conf.class);
             Intrinsics.checkNotNullExpressionValue(entity, "toEntity(abilityItem.confMap, Conf::class.java)");
             Conf conf = (Conf) entity;
-            this.b.R0(conf.getBotUk(), conf.getSkillId(), GroupInputViewController.SourceType.TWO, baseMsg, conf.isNeedReply(), conf.isNeedAt(), conf.isNeedShowSelectPanel());
+            this.b.V0(conf.getBotUk(), conf.getSkillId(), GroupInputViewController.SourceType.TWO, baseMsg, conf.isNeedReply(), conf.isNeedAt(), conf.isNeedShowSelectPanel());
         }
     }
 }

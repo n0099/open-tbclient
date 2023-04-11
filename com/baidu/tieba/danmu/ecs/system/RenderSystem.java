@@ -14,29 +14,29 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.ci6;
-import com.baidu.tieba.ck6;
+import com.baidu.tieba.bl6;
+import com.baidu.tieba.cl6;
+import com.baidu.tieba.cn6;
 import com.baidu.tieba.danmu.data.ItemState;
 import com.baidu.tieba.danmu.data.state.DrawState;
-import com.baidu.tieba.dk6;
-import com.baidu.tieba.hi6;
-import com.baidu.tieba.hk6;
+import com.baidu.tieba.fl6;
+import com.baidu.tieba.fn6;
+import com.baidu.tieba.gn6;
 import com.baidu.tieba.i0;
-import com.baidu.tieba.ik6;
 import com.baidu.tieba.j7;
-import com.baidu.tieba.jk6;
-import com.baidu.tieba.ki6;
-import com.baidu.tieba.lj6;
-import com.baidu.tieba.mj6;
-import com.baidu.tieba.ni6;
-import com.baidu.tieba.nj6;
-import com.baidu.tieba.oi6;
-import com.baidu.tieba.ri6;
-import com.baidu.tieba.wh6;
+import com.baidu.tieba.kl6;
+import com.baidu.tieba.kn6;
+import com.baidu.tieba.ln6;
+import com.baidu.tieba.mn6;
+import com.baidu.tieba.nl6;
+import com.baidu.tieba.om6;
+import com.baidu.tieba.pm6;
+import com.baidu.tieba.ql6;
+import com.baidu.tieba.qm6;
+import com.baidu.tieba.rl6;
+import com.baidu.tieba.ul6;
 import com.baidu.tieba.y;
-import com.baidu.tieba.yh6;
-import com.baidu.tieba.zh6;
-import com.baidu.tieba.zj6;
+import com.baidu.tieba.zk6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.sequences.SequencesKt___SequencesKt;
 @Metadata(d1 = {"\u0000²\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0007\n\u0002\b\u0004\b\u0000\u0018\u0000 K2\u00020\u00012\u00020\u0002:\u0003KLMB\r\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005J\u001e\u0010.\u001a\u00020/2\u0006\u00100\u001a\u0002012\f\u00102\u001a\b\u0012\u0004\u0012\u00020/03H\u0007J(\u00104\u001a\u0002052\u0006\u00100\u001a\u0002012\u0006\u00106\u001a\u0002072\u0006\u00108\u001a\u0002092\u0006\u0010:\u001a\u00020;H\u0002J\u0016\u0010<\u001a\n\u0012\u0004\u0012\u00020>\u0018\u00010=2\u0006\u0010?\u001a\u00020@J\u0016\u0010<\u001a\n\u0012\u0004\u0012\u00020>\u0018\u00010=2\u0006\u0010A\u001a\u00020BJ\u0010\u0010C\u001a\u0002052\u0006\u0010D\u001a\u00020EH\u0016J\b\u0010F\u001a\u00020/H\u0016J\b\u0010G\u001a\u00020/H\u0002J\u0010\u0010H\u001a\u00020/2\u0006\u0010I\u001a\u00020JH\u0016R\u001a\u0010\u0006\u001a\u00020\u0007X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\b\u0010\t\"\u0004\b\n\u0010\u000bR\u000e\u0010\f\u001a\u00020\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u001d\u0010\u000e\u001a\u0004\u0018\u00010\u000f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0010\u0010\u0011R\u000e\u0010\u0014\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R?\u0010\u0015\u001a&\u0012\f\u0012\n \u0018*\u0004\u0018\u00010\u00170\u0017 \u0018*\u0012\u0012\f\u0012\n \u0018*\u0004\u0018\u00010\u00170\u0017\u0018\u00010\u00160\u00168BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001b\u0010\u0013\u001a\u0004\b\u0019\u0010\u001aR\u000e\u0010\u001c\u001a\u00020\u001dX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001e\u001a\u00020\u001fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010 \u001a\u00020\u001dX\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010!\u001a\u0004\u0018\u00010\"X\u0080\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b#\u0010$\"\u0004\b%\u0010&R\u0014\u0010'\u001a\b\u0012\u0004\u0012\u00020)0(X\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u0010*\u001a\u00060+R\u00020\u0000X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010,\u001a\u0004\u0018\u00010)X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010-\u001a\u00020\u001dX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006N"}, d2 = {"Lcom/baidu/tieba/danmu/ecs/system/RenderSystem;", "Lcom/baidu/tieba/danmu/ecs/base/DanmakuEntitySystem;", "Landroid/os/Handler$Callback;", "context", "Lcom/baidu/tieba/danmu/ecs/DanmakuContext;", "(Lcom/baidu/tieba/danmu/ecs/DanmakuContext;)V", "cacheHit", "Lcom/baidu/tieba/danmu/utils/Fraction;", "getCacheHit", "()Lcom/baidu/tieba/danmu/utils/Fraction;", "setCacheHit", "(Lcom/baidu/tieba/danmu/utils/Fraction;)V", "callbackHandler", "Landroid/os/Handler;", "debugPaint", "Landroid/graphics/Paint;", "getDebugPaint", "()Landroid/graphics/Paint;", "debugPaint$delegate", "Lkotlin/Lazy;", "drawPaint", "entities", "Lcom/badlogic/ashley/utils/ImmutableArray;", "Lcom/badlogic/ashley/core/Entity;", "kotlin.jvm.PlatformType", "getEntities", "()Lcom/badlogic/ashley/utils/ImmutableArray;", "entities$delegate", "lastAllGeneration", "", "lastDrawTime", "", "lastRenderGeneration", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "Lcom/baidu/tieba/danmu/ui/DanmakuListener;", "getListener$danmu_release", "()Lcom/baidu/tieba/danmu/ui/DanmakuListener;", "setListener$danmu_release", "(Lcom/baidu/tieba/danmu/ui/DanmakuListener;)V", "pendingDiscardResults", "", "Lcom/baidu/tieba/danmu/ecs/system/RenderSystem$RenderResult;", "renderObjectPool", "Lcom/baidu/tieba/danmu/ecs/system/RenderSystem$RenderObjectPool;", "renderResult", "resultGeneration", "draw", "", "canvas", "Landroid/graphics/Canvas;", "onRenderReady", "Lkotlin/Function0;", "drawRenderObject", "", "obj", "Lcom/baidu/tieba/danmu/render/RenderObject;", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", "config", "Lcom/baidu/tieba/danmu/DanmakuConfig;", "getDanmakus", "", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", Config.EVENT_HEAT_POINT, "Landroid/graphics/Point;", "rect", "Landroid/graphics/RectF;", "handleMessage", "msg", "Landroid/os/Message;", "release", "releaseDiscardResults", StickerDataChangeType.UPDATE, "deltaTime", "", "Companion", "RenderObjectPool", "RenderResult", "danmu_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public final class RenderSystem extends ki6 implements Handler.Callback {
+public final class RenderSystem extends nl6 implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy e;
@@ -71,8 +71,8 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
     public final Paint j;
     public final Handler k;
     public int l;
-    public dk6 m;
-    public ik6 n;
+    public gn6 m;
+    public ln6 n;
     public int o;
     public final Lazy p;
     public long q;
@@ -93,7 +93,7 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
     }
 
     /* loaded from: classes4.dex */
-    public final class a extends j7<zj6> {
+    public final class a extends j7<cn6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -121,33 +121,33 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.j7
         /* renamed from: g */
-        public zj6 d() {
+        public cn6 d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return new zj6(ci6.i.a(), yh6.f.a(), jk6.a.b(), jk6.a.c(), new Matrix());
+                return new cn6(fl6.i.a(), bl6.f.a(), mn6.a.b(), mn6.a.c(), new Matrix());
             }
-            return (zj6) invokeV.objValue;
+            return (cn6) invokeV.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.j7
         /* renamed from: h */
-        public void f(zj6 zj6Var) {
+        public void f(cn6 cn6Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, zj6Var) != null) || zj6Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, cn6Var) != null) || cn6Var == null) {
                 return;
             }
-            if (!Intrinsics.areEqual(zj6Var.b(), yh6.f.a())) {
-                zj6Var.b().d();
+            if (!Intrinsics.areEqual(cn6Var.b(), bl6.f.a())) {
+                cn6Var.b().d();
             }
-            zj6Var.k(ci6.i.a());
-            zj6Var.i(yh6.f.a());
-            zj6Var.f().setEmpty();
-            zj6Var.e().set(0.0f, 0.0f);
-            zj6Var.g().reset();
-            zj6Var.h(1.0f);
-            zj6Var.j(false);
+            cn6Var.k(fl6.i.a());
+            cn6Var.i(bl6.f.a());
+            cn6Var.f().setEmpty();
+            cn6Var.e().set(0.0f, 0.0f);
+            cn6Var.g().reset();
+            cn6Var.h(1.0f);
+            cn6Var.j(false);
         }
     }
 
@@ -155,11 +155,11 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final List<zj6> a;
+        public final List<cn6> a;
         public final int b;
         public final int c;
 
-        public b(List<zj6> renderObjects, int i, int i2) {
+        public b(List<cn6> renderObjects, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -189,7 +189,7 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
             return invokeV.intValue;
         }
 
-        public final List<zj6> b() {
+        public final List<cn6> b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -209,7 +209,7 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RenderSystem(hi6 context) {
+    public RenderSystem(kl6 context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -220,7 +220,7 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((hi6) newInitContext.callArgs[0]);
+                super((kl6) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -260,7 +260,7 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return this.this$0.f().j(hk6.a.c());
+                    return this.this$0.f().j(kn6.a.c());
                 }
                 return (i0) invokeV.objValue;
             }
@@ -275,7 +275,7 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
         Looper myLooper = Looper.myLooper();
         if (myLooper != null) {
             this.k = new Handler(myLooper, this);
-            this.n = new ik6(1, 1);
+            this.n = new ln6(1, 1);
             this.o = -1;
             this.p = LazyKt__LazyJVMKt.lazy(RenderSystem$debugPaint$2.INSTANCE);
             return;
@@ -286,36 +286,36 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message msg) {
         InterceptResult invokeL;
-        ci6 ci6Var;
+        fl6 fl6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, msg)) == null) {
             Intrinsics.checkNotNullParameter(msg, "msg");
-            dk6 dk6Var = this.m;
-            if (dk6Var != null && msg.what == 1) {
+            gn6 gn6Var = this.m;
+            if (gn6Var != null && msg.what == 1) {
                 Object obj = msg.obj;
-                if (obj instanceof ci6) {
-                    ci6Var = (ci6) obj;
+                if (obj instanceof fl6) {
+                    fl6Var = (fl6) obj;
                 } else {
-                    ci6Var = null;
+                    fl6Var = null;
                 }
-                if (ci6Var == null) {
+                if (fl6Var == null) {
                     return false;
                 }
-                dk6Var.a(ci6Var);
+                gn6Var.a(fl6Var);
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public final void q(dk6 dk6Var) {
+    public final void q(gn6 gn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dk6Var) == null) {
-            this.m = dk6Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gn6Var) == null) {
+            this.m = gn6Var;
         }
     }
 
-    @Override // com.baidu.tieba.ki6
+    @Override // com.baidu.tieba.nl6
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -355,47 +355,47 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             long j = elapsedRealtime - this.q;
             b bVar = this.i;
-            nj6.b("notify_monitor");
+            qm6.b("notify_monitor");
             onRenderReady.invoke();
-            nj6.a();
-            wh6 c = i().c();
+            qm6.a();
+            zk6 c = i().c();
             if (c.w() && bVar != null && bVar.c() == c.x()) {
                 if (bVar.b().isEmpty()) {
                     this.o = bVar.a();
                     return;
                 }
-                nj6.b("RenderSystem_draw");
+                qm6.b("RenderSystem_draw");
                 int a2 = bVar.a();
                 int i = (a2 - this.o) - 1;
-                if (!lj6.e(this)) {
+                if (!om6.e(this)) {
                     if (i > 0) {
                         BdLog.w("DanmakuEngine [Engine] skipped " + i + " frames results");
-                    } else if (a2 == this.o && !lj6.e(this)) {
+                    } else if (a2 == this.o && !om6.e(this)) {
                         BdLog.w("DanmakuEngine [Engine] render same frame");
                     }
                 }
                 this.o = a2;
                 int i2 = 0;
-                zj6 zj6Var = null;
+                cn6 cn6Var = null;
                 try {
-                    ck6 c2 = lj6.c(this);
-                    for (zj6 zj6Var2 : bVar.b()) {
+                    fn6 c2 = om6.c(this);
+                    for (cn6 cn6Var2 : bVar.b()) {
                         Paint n = n();
                         if (n != null) {
-                            canvas.drawRect(zj6Var2.f(), n);
+                            canvas.drawRect(cn6Var2.f(), n);
                         }
-                        if (zj6Var2.c()) {
-                            zj6Var = zj6Var2;
+                        if (cn6Var2.c()) {
+                            cn6Var = cn6Var2;
                         } else {
-                            this.j.setAlpha((int) (c.f() * zj6Var2.a() * 255));
-                            if (l(canvas, zj6Var2, c2, c)) {
+                            this.j.setAlpha((int) (c.f() * cn6Var2.a() * 255));
+                            if (l(canvas, cn6Var2, c2, c)) {
                                 i2++;
                             }
                         }
                     }
-                    if (zj6Var != null) {
+                    if (cn6Var != null) {
                         this.j.setAlpha(255);
-                        if (l(canvas, zj6Var, c2, c)) {
+                        if (l(canvas, cn6Var, c2, c)) {
                             i2++;
                         }
                     }
@@ -403,33 +403,33 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
                     BdLog.e("DanmakuEngine [Exception] onDraw");
                 }
                 long elapsedRealtime2 = SystemClock.elapsedRealtime() - elapsedRealtime;
-                if (!lj6.e(this) && elapsedRealtime2 > 20) {
+                if (!om6.e(this) && elapsedRealtime2 > 20) {
                     BdLog.w("DanmakuEngine[RenderSystem][DRAW] OVERLOAD! interval: " + j + ", cost: " + elapsedRealtime2);
                 }
                 this.q = elapsedRealtime;
                 this.n.b(i2);
                 this.n.a(bVar.b().size());
-                nj6.a();
+                qm6.a();
             }
         }
     }
 
-    public final boolean l(Canvas canvas, zj6 zj6Var, ck6 ck6Var, wh6 wh6Var) {
+    public final boolean l(Canvas canvas, cn6 cn6Var, fn6 fn6Var, zk6 zk6Var) {
         InterceptResult invokeLLLL;
-        zh6 g;
+        cl6 g;
         Bitmap c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, canvas, zj6Var, ck6Var, wh6Var)) == null) {
-            if (Intrinsics.areEqual(zj6Var.b(), yh6.f.a()) || zj6Var.b().g() == null || zj6Var.d().f().b() != wh6Var.h() || zj6Var.d().j().compareTo(ItemState.Rendered) < 0 || (g = zj6Var.b().g()) == null || (c = g.c()) == null || c.isRecycled()) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, canvas, cn6Var, fn6Var, zk6Var)) == null) {
+            if (Intrinsics.areEqual(cn6Var.b(), bl6.f.a()) || cn6Var.b().g() == null || cn6Var.d().f().b() != zk6Var.h() || cn6Var.d().i().compareTo(ItemState.Rendered) < 0 || (g = cn6Var.b().g()) == null || (c = g.c()) == null || c.isRecycled()) {
                 return false;
             }
-            canvas.drawBitmap(c, zj6Var.g(), this.j);
+            canvas.drawBitmap(c, cn6Var.g(), this.j);
             return true;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final List<ci6> m(final RectF rect) {
+    public final List<fl6> m(final RectF rect) {
         InterceptResult invokeL;
         b bVar;
         Interceptable interceptable = $ic;
@@ -438,7 +438,7 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
             if (!i().c().w() || (bVar = this.i) == null) {
                 return null;
             }
-            return SequencesKt___SequencesKt.toList(SequencesKt___SequencesKt.map(SequencesKt___SequencesKt.filter(CollectionsKt___CollectionsKt.asSequence(bVar.b()), new Function1<zj6, Boolean>(rect) { // from class: com.baidu.tieba.danmu.ecs.system.RenderSystem$getDanmakus$3
+            return SequencesKt___SequencesKt.toList(SequencesKt___SequencesKt.map(SequencesKt___SequencesKt.filter(CollectionsKt___CollectionsKt.asSequence(bVar.b()), new Function1<cn6, Boolean>(rect) { // from class: com.baidu.tieba.danmu.ecs.system.RenderSystem$getDanmakus$3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ RectF $rect;
@@ -466,7 +466,7 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.jvm.functions.Function1
-                public final Boolean invoke(zj6 it) {
+                public final Boolean invoke(cn6 it) {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, it)) == null) {
@@ -491,10 +491,10 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
                 this.g.clear();
             }
             for (b bVar : list) {
-                List<zj6> b2 = bVar.b();
+                List<cn6> b2 = bVar.b();
                 a aVar = this.f;
-                for (zj6 zj6Var : b2) {
-                    aVar.c(zj6Var);
+                for (cn6 cn6Var : b2) {
+                    aVar.c(cn6Var);
                 }
             }
         }
@@ -502,20 +502,20 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
 
     @Override // com.baidu.tieba.a0
     public void update(float f) {
-        zj6 zj6Var;
-        ci6 a2;
-        ci6 a3;
+        cn6 cn6Var;
+        fl6 a2;
+        fl6 a3;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
-            wh6 c = i().c();
-            if (lj6.e(this) && c.d() == this.h) {
+            zk6 c = i().c();
+            if (om6.e(this) && c.d() == this.h) {
                 return;
             }
-            if (lj6.e(this)) {
+            if (om6.e(this)) {
                 BdLog.d("DanmakuEngine [Render] update on pause");
             }
-            nj6.b("RenderSystem_update");
+            qm6.b("RenderSystem_update");
             this.h = c.d();
             p();
             i0<y> entities = o();
@@ -530,17 +530,17 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
                 y next = it.next();
                 y entity = next;
                 Intrinsics.checkNotNullExpressionValue(entity, "entity");
-                oi6 b2 = mj6.b(entity);
+                rl6 b2 = pm6.b(entity);
                 boolean z3 = false;
                 if (b2 != null && (a3 = b2.a()) != null) {
                     DrawState f2 = a3.f();
-                    ni6 d = mj6.d(entity);
+                    ql6 d = pm6.d(entity);
                     if (d != null && !d.d()) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    z3 = (z && a3.j().compareTo(ItemState.Measured) >= 0 && f2.p() && f2.f() == c.p() && f2.e() == c.o()) ? false : false;
+                    z3 = (z && a3.i().compareTo(ItemState.Measured) >= 0 && f2.p() && f2.f() == c.p() && f2.e() == c.o()) ? false : false;
                 }
                 if (z3) {
                     arrayList.add(next);
@@ -549,40 +549,40 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
             ArrayList arrayList2 = new ArrayList(o().size());
             for (y entity2 : arrayList) {
                 Intrinsics.checkNotNullExpressionValue(entity2, "entity");
-                oi6 b3 = mj6.b(entity2);
+                rl6 b3 = pm6.b(entity2);
                 if (b3 != null && (a2 = b3.a()) != null) {
                     DrawState f3 = a2.f();
-                    yh6 c2 = a2.f().c();
-                    ri6 a4 = mj6.a(entity2);
-                    if (this.m != null && a2.i() != c.m()) {
+                    bl6 c2 = a2.f().c();
+                    ul6 a4 = pm6.a(entity2);
+                    if (this.m != null && a2.h() != c.m()) {
                         a2.o(c.m());
                         this.k.obtainMessage(1, a2).sendToTarget();
                     }
-                    zj6Var = this.f.e();
+                    cn6Var = this.f.e();
                     c2.l();
-                    zj6Var.k(a2);
-                    zj6Var.i(c2);
-                    zj6Var.g().reset();
+                    cn6Var.k(a2);
+                    cn6Var.i(c2);
+                    cn6Var.g().reset();
                     if (a4 != null) {
-                        zj6Var.e().set(a4.f());
-                        zj6Var.f().setEmpty();
-                        a4.i(zj6Var.g());
-                        zj6Var.h(a4.e());
-                        zj6Var.g().postConcat(f3.m());
+                        cn6Var.e().set(a4.f());
+                        cn6Var.f().setEmpty();
+                        a4.i(cn6Var.g());
+                        cn6Var.h(a4.e());
+                        cn6Var.g().postConcat(f3.m());
                     } else {
-                        zj6Var.g().set(f3.m());
+                        cn6Var.g().set(f3.m());
                     }
-                    zj6Var.e().set(f3.g(), f3.h());
-                    zj6Var.f().set(f3.i());
-                    if (a2.l()) {
-                        zj6Var.h(1.0f);
-                        zj6Var.j(true);
+                    cn6Var.e().set(f3.g(), f3.h());
+                    cn6Var.f().set(f3.i());
+                    if (a2.k()) {
+                        cn6Var.h(1.0f);
+                        cn6Var.j(true);
                     }
                 } else {
-                    zj6Var = null;
+                    cn6Var = null;
                 }
-                if (zj6Var != null) {
-                    arrayList2.add(zj6Var);
+                if (cn6Var != null) {
+                    arrayList2.add(cn6Var);
                 }
             }
             synchronized (this) {
@@ -595,7 +595,7 @@ public final class RenderSystem extends ki6 implements Handler.Callback {
                 this.i = new b(arrayList2, i, c.x());
                 Unit unit = Unit.INSTANCE;
             }
-            nj6.a();
+            qm6.a();
         }
     }
 }

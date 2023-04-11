@@ -1,8 +1,8 @@
 package com.baidu.perf.signal.register;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.we1;
 import com.baidu.tieba.xe1;
+import com.baidu.tieba.ye1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,9 +15,9 @@ import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class NativeSignalCapture {
     public static /* synthetic */ Interceptable $ic;
-    public static final LinkedList<we1> sANRListeners;
+    public static final LinkedList<xe1> sANRListeners;
     public static final Object sANRMutex;
-    public static final LinkedList<xe1> sExceptionListeners;
+    public static final LinkedList<ye1> sExceptionListeners;
     public static final Object sExceptionMutex;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -82,38 +82,38 @@ public class NativeSignalCapture {
         }
     }
 
-    public static void addANRListener(we1 we1Var) {
+    public static void addANRListener(xe1 xe1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, we1Var) == null) && we1Var != null) {
+        if ((interceptable == null || interceptable.invokeL(65538, null, xe1Var) == null) && xe1Var != null) {
             synchronized (sANRMutex) {
-                sANRListeners.add(we1Var);
+                sANRListeners.add(xe1Var);
             }
         }
     }
 
-    public static void addExceptionListener(xe1 xe1Var) {
+    public static void addExceptionListener(ye1 ye1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, xe1Var) == null) && xe1Var != null) {
+        if ((interceptable == null || interceptable.invokeL(65539, null, ye1Var) == null) && ye1Var != null) {
             synchronized (sExceptionMutex) {
-                sExceptionListeners.add(xe1Var);
+                sExceptionListeners.add(ye1Var);
             }
         }
     }
 
-    public static void removeANRListener(we1 we1Var) {
+    public static void removeANRListener(xe1 xe1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, we1Var) == null) && we1Var != null) {
+        if ((interceptable == null || interceptable.invokeL(65547, null, xe1Var) == null) && xe1Var != null) {
             synchronized (sANRMutex) {
-                sANRListeners.remove(we1Var);
+                sANRListeners.remove(xe1Var);
             }
         }
     }
 
-    public static void removeExceptionListener(xe1 xe1Var) {
+    public static void removeExceptionListener(ye1 ye1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, null, xe1Var) == null) && xe1Var != null) {
+        if ((interceptable == null || interceptable.invokeL(65548, null, ye1Var) == null) && ye1Var != null) {
             synchronized (sExceptionMutex) {
-                sExceptionListeners.remove(xe1Var);
+                sExceptionListeners.remove(ye1Var);
             }
         }
     }
@@ -122,7 +122,7 @@ public class NativeSignalCapture {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(65543, null, i) == null) && sANRListeners != null) {
             synchronized (sANRMutex) {
-                Iterator<we1> it = sANRListeners.iterator();
+                Iterator<xe1> it = sANRListeners.iterator();
                 while (it.hasNext()) {
                     it.next().onNativeANR(i);
                 }
@@ -134,7 +134,7 @@ public class NativeSignalCapture {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIII(65544, null, i, i2, i3) == null) && sExceptionListeners != null) {
             synchronized (sExceptionMutex) {
-                Iterator<xe1> it = sExceptionListeners.iterator();
+                Iterator<ye1> it = sExceptionListeners.iterator();
                 while (it.hasNext()) {
                     it.next().a(i, i2, i3);
                 }

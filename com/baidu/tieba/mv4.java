@@ -1,101 +1,69 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Intent;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigdayImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.FlutterLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileDrawableLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc2;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalPicDrawableLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalVideoThumbLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.MemeLoaderProc2;
+import com.baidu.tbadk.core.util.resourceLoaderProc.NinePatchLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitBlurLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleBlurLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverMemoryLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleLoaderProc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mv4 implements Application.ActivityLifecycleCallbacks {
+public class mv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(@NonNull Activity activity) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-        }
-    }
-
-    public mv4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) && !PermissionUtil.isAgreePrivacyPolicy() && activity != null && !activity.getClass().getSimpleName().equals("LogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba") && !PermissionUtil.isBrowseMode()) {
-            if (activity.getIntent() != null && activity.getIntent().getBooleanExtra(ImageViewerConfig.KEY_IS_BROWSE_MODE, false)) {
-                PermissionUtil.doBrowseModeInit();
-                return;
-            }
-            Class<?> cls = null;
-            try {
-                cls = Class.forName(SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (cls != null) {
-                Intent intent = new Intent(activity, cls);
-                intent.putExtra(LogoActivityConfig.EXTRAINTENT, activity.getIntent());
-                activity.startActivity(intent);
-                activity.finish();
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            cg.h().o(10, new SimpleLoaderProc(true, true, false, 10));
+            cg.h().o(11, new SimpleLoaderProc(false, true, false, 10));
+            cg.h().o(42, new SimpleLoaderProc(true, false, false, 10));
+            cg.h().o(13, new SimpleLoaderProc(true, true, false, 13));
+            cg.h().o(14, new SimpleLoaderProc(false, true, false, 13));
+            cg.h().o(17, new SimpleLoaderProc(true, true, false, 17));
+            cg.h().o(18, new SimpleLoaderProc(false, true, false, 17));
+            cg.h().o(39, new SimpleBlurLoaderProc(true, 39));
+            cg.h().o(12, new PortraitLoaderProc(false, false, 12));
+            cg.h().o(26, new PortraitLoaderProc(true, false, 26));
+            cg.h().o(28, new PortraitLoaderProc(false, false, 26));
+            cg.h().o(40, new PortraitBlurLoaderProc(false, false, 40));
+            cg.h().o(19, new NinePatchLoaderProc(19));
+            cg.h().o(24, new LocalPicDrawableLoaderProc(24));
+            cg.h().o(25, new PortraitLoaderProc(false, true, 26));
+            cg.h().o(27, new BigImageLoaderProc(27));
+            cg.h().o(29, new SimpleForeverLoaderProc(true, 29));
+            cg.h().o(32, new LocalFileDrawableLoaderProc(32));
+            cg.h().o(23, new z65());
+            cg.h().o(33, new MemeLoaderProc2());
+            cg.h().o(34, new EmotionShareLoaderProc());
+            cg.h().o(35, new LocalFileImageLoaderProc(160, 160));
+            cg.h().o(36, new LocalFileImageLoaderProc());
+            cg.h().o(43, new LocalFileImageLoaderProc2());
+            cg.h().o(37, new LocalVideoThumbLoaderProc());
+            cg.h().o(38, new ImageLoaderProc());
+            cg.h().o(41, new BigdayImageLoaderProc());
+            cg.h().o(44, new FlutterLoaderProc(true, 44, false));
+            cg.h().o(15, new SimpleLoaderProc(false, true, true, 15));
+            cg.h().o(16, new SimpleLoaderProc(false, true, true, 16));
+            cg.h().o(21, new SimpleLoaderProc(false, true, true, 21));
+            cg.h().o(30, new SimpleLoaderProc(true, true, false, 30));
+            cg.h().o(31, new SimpleLoaderProc(false, true, false, 30));
+            cg.h().o(45, new SimpleForeverMemoryLoaderProc(true, true, true, 45));
+            cg.h().o(46, new SimpleLoaderProc(true, true, false, 46));
+            cg.h().o(47, new SimpleLoaderProc(false, true, false, 46));
         }
     }
 }

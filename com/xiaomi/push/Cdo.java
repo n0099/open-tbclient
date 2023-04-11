@@ -20,20 +20,20 @@ public class Cdo {
     }
 
     public static byte[] a(String str, byte[] bArr) {
-        byte[] m215a = bl.m215a(str);
+        byte[] m217a = bl.m217a(str);
         try {
-            a(m215a);
-            return h.a(m215a, bArr);
+            a(m217a);
+            return h.a(m217a, bArr);
         } catch (Exception unused) {
             return null;
         }
     }
 
     public static byte[] b(String str, byte[] bArr) {
-        byte[] m215a = bl.m215a(str);
+        byte[] m217a = bl.m217a(str);
         try {
-            a(m215a);
-            return h.b(m215a, bArr);
+            a(m217a);
+            return h.b(m217a, bArr);
         } catch (Exception unused) {
             return null;
         }

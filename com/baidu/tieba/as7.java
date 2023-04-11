@@ -1,166 +1,104 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import tbclient.ActiveCenter;
 /* loaded from: classes3.dex */
-public class as7 {
+public class as7 extends eh6 implements sh6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId T;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<MetaData> a;
-    public List<MetaData> b;
-    public List<MetaData> c;
-    public List<MetaData> d;
+    public int R;
+    public ActiveCenterData S;
 
-    /* loaded from: classes3.dex */
-    public class a implements Comparator<MetaData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.sh6
+    public void J(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        }
+    }
 
-        public a(as7 as7Var) {
-            Interceptable interceptable = $ic;
+    @Override // com.baidu.tieba.sh6
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.sh6
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947625828, "Lcom/baidu/tieba/as7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {as7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947625828, "Lcom/baidu/tieba/as7;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(MetaData metaData, MetaData metaData2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, metaData, metaData2)) == null) {
-                return Long.compare(metaData.lastUpdateTime, metaData2.lastUpdateTime);
-            }
-            return invokeLL.intValue;
-        }
+        T = BdUniqueId.gen();
     }
 
     public as7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.d = new ArrayList();
     }
 
-    public List<MetaData> b() {
+    @Override // com.baidu.tieba.sh6
+    public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c(true, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.R;
         }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void f() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Collections.sort(this.d, new a(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return T;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public final void a() {
+    public void L(ActiveCenter activeCenter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!v38.e(this.a)) {
-                for (MetaData metaData : this.a) {
-                    metaData.setItemType(1);
-                }
-            }
-            if (!v38.e(this.c)) {
-                for (MetaData metaData2 : this.c) {
-                    metaData2.setItemType(2);
-                }
-            }
-            if (!v38.e(this.b)) {
-                for (MetaData metaData3 : this.b) {
-                    metaData3.setItemType(3);
-                }
-            }
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (MetaData metaData : this.a) {
-                if (metaData != null) {
-                    arrayList.add(metaData.getUserId());
-                }
-            }
-            if (v38.e(this.c)) {
-                return;
-            }
-            for (MetaData metaData2 : this.c) {
-                if (metaData2 != null) {
-                    if (metaData2.getUserId() == null) {
-                        this.d.add(metaData2);
-                    } else if (!arrayList.contains(metaData2.getUserId())) {
-                        arrayList.add(metaData2.getUserId());
-                        this.d.add(metaData2);
-                    }
-                }
-            }
-        }
-    }
-
-    public List<MetaData> c(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            this.a = bs7.a();
-            if (z) {
-                this.b = cs7.a();
-            }
-            a();
-            e(z);
-            f();
-            if (z2) {
-                this.c = es7.a();
-                d();
-            }
-            return this.d;
-        }
-        return (List) invokeCommon.objValue;
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            if (!v38.e(this.a)) {
-                this.d.addAll(this.a);
-            }
-            if (z && !v38.e(this.b)) {
-                this.d.addAll(this.b);
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activeCenter) == null) && activeCenter != null) {
+            ActiveCenterData activeCenterData = new ActiveCenterData();
+            this.S = activeCenterData;
+            activeCenterData.parseProto(activeCenter);
         }
     }
 }

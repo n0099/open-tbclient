@@ -1,289 +1,285 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
+import android.app.Activity;
+import android.content.Intent;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
+import com.baidu.tbadk.core.data.BdToastData;
+import com.baidu.tbadk.core.util.BdToastHelper;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.mutiprocess.event.TipEvent;
+import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hu4 {
+public class hu4 implements re6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout A;
-    public ImageView B;
-    public TextView C;
-    public LinearLayout D;
-    public ImageView E;
-    public TextView F;
-    public View G;
-    public View H;
-    public View I;
-    public final View a;
-    public final ThreadAchievementShareInfo.ParamBean b;
-    public final Context c;
-    public List<ThreadAchievementShareInfo.ThreadListBean> d;
-    public TextView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    public View n;
-    public View o;
-    public View p;
-    public TextView q;
-    public TbImageView r;
-    public TbImageView s;
-    public TbImageView t;
-    public View u;
-    public View v;
-    public View w;
-    public LinearLayout x;
-    public ImageView y;
-    public TextView z;
 
-    public hu4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
+    @Override // com.baidu.tieba.re6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        qe6.a(this, webView, str, jSONObject);
+    }
+
+    public hu4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, threadAchievementShareInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = context;
-        this.a = LayoutInflater.from(context).inflate(R.layout.hot_thread_rank_list, (ViewGroup) null);
-        ThreadAchievementShareInfo.ParamBean params = threadAchievementShareInfo.getParams();
-        this.b = params;
-        if (params != null) {
-            this.d = params.getThread_list();
-        }
-        c();
-        b();
-    }
-
-    public View a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final void b() {
-        List<ThreadAchievementShareInfo.ThreadListBean> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b != null && (list = this.d) != null && list.size() >= 2) {
-            int rank = this.b.getRank();
-            if (rank == 0) {
-                ThreadAchievementShareInfo.ThreadListBean threadListBean = this.d.get(rank);
-                threadListBean.setDuration(500);
-                int i = rank + 1;
-                e(i, threadListBean);
-                f(rank + 2, this.d.get(i));
-                this.u.setVisibility(8);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.w.getLayoutParams();
-                layoutParams.topMargin = 0;
-                layoutParams.bottomMargin = hi.g(this.c, R.dimen.tbds8);
-            } else if (rank == 1) {
-                d(rank, this.d.get(rank - 1));
-                f(rank + 1, this.d.get(rank));
-                this.v.setVisibility(4);
-                ((RelativeLayout.LayoutParams) this.u.getLayoutParams()).topMargin = hi.g(this.c, R.dimen.tbds5);
-                SkinManager.setBackgroundColor(this.k, R.color.CAM_X0310);
-                SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0310);
-                SkinManager.setBackgroundColor(this.p, R.color.cp_other_b_alpha20);
-            } else {
-                int i2 = rank - 1;
-                e(i2, this.d.get(rank - 2));
-                d(rank, this.d.get(i2));
-                ((RelativeLayout.LayoutParams) this.u.getLayoutParams()).topMargin = hi.g(this.c, R.dimen.tbds230);
-                this.w.setVisibility(4);
             }
         }
     }
 
-    @SuppressLint({"CutPasteId"})
-    public final void c() {
+    @Override // com.baidu.tieba.re6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.q = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0923fe);
-            this.e = (TextView) this.a.findViewById(R.id.first_rank_num);
-            this.f = (TextView) this.a.findViewById(R.id.first_thread_content);
-            this.r = (TbImageView) this.a.findViewById(R.id.first_thread_img);
-            this.g = (TextView) this.a.findViewById(R.id.first_heat_degree);
-            this.n = this.a.findViewById(R.id.first_heat_degree_bg);
-            this.h = (TextView) this.a.findViewById(R.id.second_rank_num);
-            this.i = (TextView) this.a.findViewById(R.id.second_thread_content);
-            this.s = (TbImageView) this.a.findViewById(R.id.second_thread_img);
-            this.j = (TextView) this.a.findViewById(R.id.second_heat_degree);
-            this.o = this.a.findViewById(R.id.second_heat_degree_bg);
-            this.k = (TextView) this.a.findViewById(R.id.current_rank_num);
-            this.l = (TextView) this.a.findViewById(R.id.current_thread_content);
-            this.t = (TbImageView) this.a.findViewById(R.id.current_thread_img);
-            this.m = (TextView) this.a.findViewById(R.id.current_heat_degree);
-            this.p = this.a.findViewById(R.id.current_heat_degree_bg);
-            this.v = this.a.findViewById(R.id.first_item_layout);
-            this.w = this.a.findViewById(R.id.second_item_layout);
-            this.u = this.a.findViewById(R.id.current_item_layout);
-            this.I = this.a.findViewById(R.id.first_thread_img_overlay);
-            this.H = this.a.findViewById(R.id.second_thread_img_overlay);
-            this.G = this.a.findViewById(R.id.current_thread_img_overlay);
-            this.x = (LinearLayout) this.a.findViewById(R.id.first_video_during_container);
-            this.y = (ImageView) this.a.findViewById(R.id.first_vidoe_play_iv);
-            this.z = (TextView) this.a.findViewById(R.id.first_video_during_tv);
-            this.A = (LinearLayout) this.a.findViewById(R.id.second_video_during_container);
-            this.B = (ImageView) this.a.findViewById(R.id.second_vidoe_play_iv);
-            this.C = (TextView) this.a.findViewById(R.id.second_video_during_tv);
-            this.D = (LinearLayout) this.a.findViewById(R.id.current_video_during_container);
-            this.E = (ImageView) this.a.findViewById(R.id.current_vidoe_play_iv);
-            this.F = (TextView) this.a.findViewById(R.id.current_video_during_tv);
-            this.r.setRadius(hi.g(this.c, R.dimen.tbds10));
-            this.r.setConrers(15);
-            this.r.setPlaceHolder(2);
-            this.s.setRadius(hi.g(this.c, R.dimen.tbds10));
-            this.s.setConrers(15);
-            this.s.setPlaceHolder(2);
-            this.t.setRadius(hi.g(this.c, R.dimen.tbds10));
-            this.t.setConrers(15);
-            this.t.setPlaceHolder(2);
-            this.f.setLineSpacing(hi.g(this.c, R.dimen.tbds13), 1.0f);
-            this.i.setLineSpacing(hi.g(this.c, R.dimen.tbds13), 1.0f);
-            this.l.setLineSpacing(hi.g(this.c, R.dimen.tbds13), 1.0f);
-            SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.e, R.drawable.cp_other_d_round_bg);
-            SkinManager.setBackgroundResource(this.n, R.drawable.cp_other_b_alpha20_round_bg);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0310);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.h, R.drawable.cp_link_tip_d_round_bg);
-            SkinManager.setBackgroundResource(this.o, R.drawable.cp_link_tip_d_alpha20_round_bg);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0305);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.k, R.drawable.cp_link_tip_d_round_bg);
-            SkinManager.setBackgroundResource(this.p, R.drawable.cp_link_tip_d_alpha20_round_bg);
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0305);
-            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-            TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(0).setBgColor(SkinManager.getResourceId(R.color.CAM_X0201)).setShadowColor(SkinManager.getResourceId(R.color.CAM_X0806)).setShadowSide(4112).setShadowRadius(hi.g(this.c, R.dimen.tbds16)).setOffsetX(0).setOffsetY(hi.g(this.c, R.dimen.tbds5)).into(this.u);
-            this.y.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
-            this.B.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
-            this.E.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
-            SkinManager.setViewTextColor(this.z, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.C, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.F, (int) R.color.CAM_X0101);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (CommonTbJsBridge.TOAST_POPUPVIEW.equals(str2)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str3);
+                    jsPromptResult.confirm(f(webView, jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE), jSONObject.optInt("ahead_type"), jSONObject.optString("message"), jSONObject.optString("btn_text"), jSONObject.optInt("toast_duration"), jSONObject.optString("schema"), jSONObject.optString("token"), jSONObject.optDouble(NativeConstants.OPACITY), jSONObject.optString(BigdayActivityConfig.IMG_URL), jSONObject.optString("url"), jSONObject.optInt("mission_id"), jSONObject.optString("btn_color"), jSONObject.optString("message_color"), jSONObject.optString("btn_text_color"), jSONObject.optInt("status"), jSONObject.optInt(CommonTbJsBridge.FINISH_THIS_PAGE)).a());
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+            } else if (CommonTbJsBridge.SHOW_TIP_TOAST.equals(str2)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(str3);
+                    jsPromptResult.confirm(g(webView, jSONObject2.optString("content"), jSONObject2.optString("linkUrl"), jSONObject2.optString("key"), jSONObject2.optInt("maxTimes"), jSONObject2.optInt(CommonTbJsBridge.FINISH_THIS_PAGE)).a());
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+            } else if (CommonTbJsBridge.GET_MODAL_DATA.equals(str2)) {
+                try {
+                    try {
+                        jsPromptResult.confirm(e(webView, new JSONObject(str3).optString("url")).a());
+                        return false;
+                    } catch (JSONException e3) {
+                        e = e3;
+                        BdLog.e(e);
+                        return false;
+                    }
+                } catch (JSONException e4) {
+                    e = e4;
+                }
+            }
+            return false;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final void c(String str) {
+        TbPageContext<?> d;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !hi.isEmpty(str) && (d = d(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
+            UrlManager.getInstance().dealOneLink(d, new String[]{str});
         }
     }
 
-    public final void d(int i, ThreadAchievementShareInfo.ThreadListBean threadListBean) {
+    public final TbPageContext d(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, threadListBean) == null) {
-            this.u.setVisibility(0);
-            this.k.setText(String.valueOf(i));
-            this.l.setText(threadListBean.getTitle());
-            if (!TextUtils.isEmpty(threadListBean.getHotvalue())) {
-                this.p.setVisibility(0);
-                TextView textView = this.m;
-                textView.setText("热度 " + StringHelper.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
+            if (activity instanceof BaseActivity) {
+                return ((BaseActivity) activity).getPageContext();
             }
-            if (threadListBean.getDuration() > 0) {
-                this.D.setVisibility(0);
-                this.G.setVisibility(0);
-                this.F.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
+            if (activity instanceof BaseFragmentActivity) {
+                return ((BaseFragmentActivity) activity).getPageContext();
             }
-            if (!TextUtils.isEmpty(threadListBean.getImg())) {
-                this.t.setVisibility(0);
-                this.t.M(threadListBean.getImg(), 10, false);
-                return;
-            }
-            this.t.setVisibility(8);
-            this.D.setVisibility(8);
-            ((RelativeLayout.LayoutParams) this.l.getLayoutParams()).rightMargin = hi.g(this.c, R.dimen.tbds44);
+            return null;
         }
+        return (TbPageContext) invokeL.objValue;
     }
 
-    public final void e(int i, ThreadAchievementShareInfo.ThreadListBean threadListBean) {
+    /* JADX WARN: Can't wrap try/catch for region: R(8:3|4|5|(5:7|(1:11)|13|14|15)(5:20|(2:22|23)|13|14|15)|12|13|14|15) */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0058, code lost:
+        r8 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0059, code lost:
+        com.baidu.adp.lib.util.BdLog.e(r8);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public km9 e(WebView webView, String str) {
+        InterceptResult invokeLL;
+        String f;
+        JSONObject newGodDataJson;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, threadListBean) == null) {
-            this.v.setVisibility(0);
-            this.e.setText(String.valueOf(i));
-            this.f.setText(threadListBean.getTitle());
-            if (!TextUtils.isEmpty(threadListBean.getHotvalue())) {
-                this.n.setVisibility(0);
-                TextView textView = this.g;
-                textView.setText("热度 " + StringHelper.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
+            km9 km9Var = new km9();
+            JSONObject jSONObject = null;
+            int i = 0;
+            try {
+                f = q95.c().f();
+                newGodDataJson = TbSingleton.getInstance().getNewGodDataJson();
+            } catch (Exception e) {
+                BdLog.e(e);
             }
-            if (threadListBean.getDuration() > 0) {
-                this.x.setVisibility(0);
-                this.I.setVisibility(0);
-                this.z.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
+            if (!hi.isEmpty(str)) {
+                int indexOf = str.indexOf(WebViewActivityConfig.TAG_NEW_GOD_INVITE);
+                if (newGodDataJson != null && indexOf != -1) {
+                    jSONObject = newGodDataJson;
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("resultCode", i);
+                jSONObject2.put("user_info", jSONObject);
+                km9Var.o(jSONObject2.toString());
+                return km9Var;
             }
-            if (!TextUtils.isEmpty(threadListBean.getImg())) {
-                this.r.setVisibility(0);
-                this.r.M(threadListBean.getImg(), 10, false);
-                return;
+            if (!TextUtils.isEmpty(f)) {
+                jSONObject = new JSONObject(f);
             }
-            this.r.setVisibility(8);
-            this.x.setVisibility(8);
-            ((RelativeLayout.LayoutParams) this.f.getLayoutParams()).rightMargin = hi.g(this.c, R.dimen.tbds44);
+            JSONObject jSONObject22 = new JSONObject();
+            jSONObject22.put("resultCode", i);
+            jSONObject22.put("user_info", jSONObject);
+            km9Var.o(jSONObject22.toString());
+            return km9Var;
+            i = 1;
+            JSONObject jSONObject222 = new JSONObject();
+            jSONObject222.put("resultCode", i);
+            jSONObject222.put("user_info", jSONObject);
+            km9Var.o(jSONObject222.toString());
+            return km9Var;
         }
+        return (km9) invokeLL.objValue;
     }
 
-    public final void f(int i, ThreadAchievementShareInfo.ThreadListBean threadListBean) {
+    public km9 f(WebView webView, int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, threadListBean) == null) {
-            this.w.setVisibility(0);
-            this.h.setText(String.valueOf(i));
-            this.i.setText(threadListBean.getTitle());
-            if (!TextUtils.isEmpty(threadListBean.getHotvalue())) {
-                this.o.setVisibility(0);
-                TextView textView = this.j;
-                textView.setText("热度 " + StringHelper.numFormatOverWanNa(Long.parseLong(threadListBean.getHotvalue())));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, str4, Double.valueOf(d), str5, str6, Integer.valueOf(i4), str7, str8, str9, Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+            km9 km9Var = new km9();
+            dr4 dr4Var = new dr4();
+            dr4Var.c = i;
+            dr4Var.d = i2;
+            dr4Var.e = str;
+            dr4Var.f = str2;
+            dr4Var.i = i3;
+            dr4Var.l = str3;
+            dr4Var.n = d;
+            dr4Var.j = str5;
+            dr4Var.k = str6;
+            dr4Var.b = i4;
+            dr4Var.o = str7;
+            dr4Var.p = str8;
+            dr4Var.q = str9;
+            if (i == dr4.y) {
+                k05.h(TbadkCoreApplication.getInst().getCurrentActivity(), dr4Var).j();
+            } else if (i == dr4.z) {
+                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                fw4 fw4Var = new fw4(currentActivity);
+                if (currentActivity != null) {
+                    fw4Var.d(currentActivity, dr4Var);
+                    fw4Var.i();
+                }
+            } else if (i == dr4.A) {
+                if (i2 == dr4.E) {
+                    if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), dr4Var.l) && !hi.isEmpty(dr4Var.k)) {
+                        c(dr4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+                    }
+                } else if (i2 == dr4.F && !hi.isEmpty(str6)) {
+                    c(dr4Var.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+                }
+            } else if (i == dr4.C) {
+                Activity a = he6.a(webView.getContext());
+                if (i6 == 1 && a != null) {
+                    a.finish();
+                }
+                bj5.i(new TopToastEvent(i5, str, 1500));
+            } else if (i == dr4.D) {
+                Activity a2 = he6.a(webView.getContext());
+                if (i6 == 1 && a2 != null) {
+                    a2.finish();
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    BdToastData bdToastData = new BdToastData();
+                    bdToastData.parserJson(str);
+                    BdToastHelper.toast(bdToastData);
+                }
             }
-            if (threadListBean.getDuration() > 0) {
-                this.A.setVisibility(0);
-                this.H.setVisibility(0);
-                this.C.setText(StringUtils.translateSecondsToString(threadListBean.getDuration()));
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", 1);
+                km9Var.o(jSONObject.toString());
+                return km9Var;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return km9Var;
             }
-            if (!TextUtils.isEmpty(threadListBean.getImg())) {
-                this.s.setVisibility(0);
-                this.s.M(threadListBean.getImg(), 10, false);
-                return;
-            }
-            this.s.setVisibility(8);
-            this.A.setVisibility(8);
-            ((RelativeLayout.LayoutParams) this.i.getLayoutParams()).rightMargin = hi.g(this.c, R.dimen.tbds44);
         }
+        return (km9) invokeCommon.objValue;
+    }
+
+    public km9 g(WebView webView, String str, String str2, String str3, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{webView, str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            km9 km9Var = new km9();
+            Activity a = he6.a(webView.getContext());
+            int i3 = 0;
+            boolean z = false;
+            boolean z2 = false;
+            i3 = 0;
+            if (!TextUtils.isEmpty(str) && a != null) {
+                if (!TextUtils.isEmpty(str3)) {
+                    String str4 = "showToast_" + str3;
+                    int n = p45.m().n(str4, 0);
+                    if (n < i) {
+                        p45.m().z(str4, n);
+                        Intent intent = a.getIntent();
+                        if (i2 == 1) {
+                            z = true;
+                        }
+                        bj5.i(new TipEvent(intent, str, str2, z));
+                    }
+                } else {
+                    Intent intent2 = a.getIntent();
+                    if (i2 == 1) {
+                        z2 = true;
+                    }
+                    bj5.i(new TipEvent(intent2, str, str2, z2));
+                }
+                if (i2 == 1) {
+                    a.finish();
+                }
+                i3 = 1;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", i3);
+                km9Var.o(jSONObject.toString());
+                return km9Var;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return km9Var;
+            }
+        }
+        return (km9) invokeCommon.objValue;
     }
 }

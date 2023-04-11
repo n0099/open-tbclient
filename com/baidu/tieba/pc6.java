@@ -1,61 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.os.Build;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class pc6 {
+public abstract class pc6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, String> a;
-    public final HashMap<String, String> b;
-    public final ConcurrentHashMap<String, vc6> c;
-    public final Map<String, vc6> d;
+    public final WebView a;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final pc6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-522708216, "Lcom/baidu/tieba/pc6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-522708216, "Lcom/baidu/tieba/pc6$b;");
-                    return;
-                }
-            }
-            a = new pc6(null);
-        }
-    }
-
-    public pc6() {
+    public pc6(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -65,135 +33,79 @@ public class pc6 {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new ConcurrentHashMap<>();
-        this.d = new ConcurrentHashMap();
-    }
-
-    public /* synthetic */ pc6(a aVar) {
-        this();
-    }
-
-    public vc6 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.d.get(str);
-        }
-        return (vc6) invokeL.objValue;
-    }
-
-    public vc6 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.c.get(str);
-        }
-        return (vc6) invokeL.objValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.d.remove(str);
+        this.a = webView;
+        webView.setDrawingCacheEnabled(false);
+        webView.setLayerType(2, null);
+        webView.setScrollBarStyle(0);
+        webView.requestFocusFromTouch();
+        if (Build.VERSION.SDK_INT >= 26) {
+            webView.setRendererPriorityPolicy(2, false);
         }
     }
 
-    public void j(HashMap<String, vc6> hashMap) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hashMap) == null) {
-            this.c.clear();
-            if (hashMap == null) {
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            WebSettings c = c();
+            c.setJavaScriptEnabled(true);
+            c.setCacheMode(-1);
+            if (Build.VERSION.SDK_INT >= 21) {
+                c.setMixedContentMode(0);
             }
-            this.c.putAll(hashMap);
+            c.setGeolocationEnabled(true);
+            c.setLoadsImagesAutomatically(true);
+            c.setBlockNetworkImage(false);
+            c.setBlockNetworkLoads(false);
+            c.setLoadWithOverviewMode(true);
+            c.setAllowFileAccess(true);
+            c.setUseWideViewPort(true);
+            c.setSupportZoom(true);
+            c.setBuiltInZoomControls(false);
+            c.setDisplayZoomControls(false);
+            c.setMediaPlaybackRequiresUserGesture(false);
+            c.setDomStorageEnabled(true);
+            try {
+                c.setAppCacheEnabled(true);
+                c.setAppCachePath(b(getContext(), "tb_web_cache").getPath());
+            } catch (IOException unused) {
+                c.setAppCachePath(getContext().getCacheDir().getPath());
+            }
+            String userAgentString = c().getUserAgentString();
+            String b = bc6.b();
+            if (!userAgentString.endsWith(b)) {
+                c.setUserAgentString(userAgentString + " " + b);
+            }
         }
     }
 
-    public static pc6 b() {
-        InterceptResult invokeV;
+    public final File b(Context context, String str) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            File file = new File(context.getCacheDir(), str);
+            if (!file.exists() && !file.mkdirs()) {
+                throw new IOException(file.getAbsolutePath() + "文件夹创建失败！");
+            }
+            return file;
         }
-        return (pc6) invokeV.objValue;
+        return (File) invokeLL.objValue;
     }
 
-    public ConcurrentHashMap<String, vc6> d() {
+    public WebSettings c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return this.a.getSettings();
         }
-        return (ConcurrentHashMap) invokeV.objValue;
+        return (WebSettings) invokeV.objValue;
     }
 
-    public void a(String str, vc6 vc6Var) {
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, vc6Var) == null) {
-            this.d.put(str, vc6Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.getContext();
         }
-    }
-
-    public void k(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            this.a.put(str, str2);
-        }
-    }
-
-    public void l(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            this.b.put(str, str2);
-        }
-    }
-
-    public void m(String str, HashMap<String, vc6> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, hashMap) == null) {
-            g(str);
-            this.c.putAll(hashMap);
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        Iterator<String> it = this.c.keySet().iterator();
-        while (it.hasNext()) {
-            vc6 vc6Var = this.c.get(it.next());
-            if (vc6Var != null && str.equals(vc6Var.c)) {
-                it.remove();
-            }
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            for (String str : this.c.keySet()) {
-                vc6 vc6Var = this.c.get(str);
-                if (vc6Var != null) {
-                    vc6Var.g = z;
-                }
-            }
-        }
-    }
-
-    public void i(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZL(1048583, this, z, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (String str2 : this.c.keySet()) {
-            vc6 vc6Var = this.c.get(str2);
-            if (vc6Var != null && str.equals(vc6Var.c)) {
-                vc6Var.g = z;
-            }
-        }
+        return (Context) invokeV.objValue;
     }
 }

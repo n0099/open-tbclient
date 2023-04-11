@@ -1,106 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import androidx.lifecycle.Lifecycle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
 /* loaded from: classes5.dex */
 public class mv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CustomMessageListener a;
-    public c b;
+    public nv5 a;
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(Application application);
-
-        void b(Application application);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mv5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(mv5 mv5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mv5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mv5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Lifecycle.Event event;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage.getData() instanceof lz4)) {
-                return;
-            }
-            lz4 lz4Var = (lz4) customResponsedMessage.getData();
-            if (lz4Var.a != null && (event = lz4Var.c) != null) {
-                if (event.equals(Lifecycle.Event.ON_PAUSE)) {
-                    if (this.a.b != null) {
-                        this.a.b.a(lz4Var.a);
-                    }
-                } else if (lz4Var.c.equals(Lifecycle.Event.ON_RESUME) && this.a.b != null) {
-                    this.a.b.b(lz4Var.a);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static mv5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-591078561, "Lcom/baidu/tieba/mv5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-591078561, "Lcom/baidu/tieba/mv5$b;");
-                    return;
-                }
-            }
-            a = new mv5();
-        }
-    }
-
-    public mv5() {
+    public mv5(Context context, tv5 tv5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, tv5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -110,23 +31,182 @@ public class mv5 {
                 return;
             }
         }
-        this.a = new a(this, 2921698);
+        nv5 nv5Var = new nv5(2);
+        this.a = nv5Var;
+        nv5Var.A = context;
+        nv5Var.a = tv5Var;
     }
 
-    public static mv5 b() {
+    public yv5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new yv5(this.a);
         }
-        return (mv5) invokeV.objValue;
+        return (yv5) invokeV.objValue;
     }
 
-    public void c(c cVar) {
+    public mv5 b(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.b = cVar;
-            MessageManager.getInstance().registerListener(this.a);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            this.a.T = z;
+            return this;
         }
+        return (mv5) invokeZ.objValue;
+    }
+
+    public mv5 c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.a.R = z;
+            return this;
+        }
+        return (mv5) invokeZ.objValue;
+    }
+
+    public mv5 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.a.P = i;
+            return this;
+        }
+        return (mv5) invokeI.objValue;
+    }
+
+    public mv5 e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.a.H = i;
+            return this;
+        }
+        return (mv5) invokeI.objValue;
+    }
+
+    public mv5 f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.a.L = i;
+            return this;
+        }
+        return (mv5) invokeI.objValue;
+    }
+
+    public mv5 g(Calendar calendar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, calendar)) == null) {
+            this.a.e = calendar;
+            return this;
+        }
+        return (mv5) invokeL.objValue;
+    }
+
+    public mv5 h(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            this.a.y = viewGroup;
+            return this;
+        }
+        return (mv5) invokeL.objValue;
+    }
+
+    public mv5 i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            this.a.O = i;
+            return this;
+        }
+        return (mv5) invokeI.objValue;
+    }
+
+    public mv5 l(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
+            this.a.Q = f;
+            return this;
+        }
+        return (mv5) invokeF.objValue;
+    }
+
+    public mv5 m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            this.a.N = i;
+            return this;
+        }
+        return (mv5) invokeI.objValue;
+    }
+
+    public mv5 n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            this.a.M = i;
+            return this;
+        }
+        return (mv5) invokeI.objValue;
+    }
+
+    public mv5 p(boolean[] zArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zArr)) == null) {
+            this.a.d = zArr;
+            return this;
+        }
+        return (mv5) invokeL.objValue;
+    }
+
+    public mv5 j(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            nv5 nv5Var = this.a;
+            nv5Var.l = str;
+            nv5Var.m = str2;
+            nv5Var.n = str3;
+            nv5Var.o = str4;
+            nv5Var.p = str5;
+            nv5Var.q = str6;
+            return this;
+        }
+        return (mv5) invokeCommon.objValue;
+    }
+
+    public mv5 k(int i, ov5 ov5Var) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, ov5Var)) == null) {
+            nv5 nv5Var = this.a;
+            nv5Var.x = i;
+            nv5Var.c = ov5Var;
+            return this;
+        }
+        return (mv5) invokeIL.objValue;
+    }
+
+    public mv5 o(int i, int i2, int i3, int i4, int i5, int i6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+            nv5 nv5Var = this.a;
+            nv5Var.r = i;
+            nv5Var.s = i2;
+            nv5Var.t = i3;
+            nv5Var.u = i4;
+            nv5Var.v = i5;
+            nv5Var.w = i6;
+            return this;
+        }
+        return (mv5) invokeCommon.objValue;
     }
 }

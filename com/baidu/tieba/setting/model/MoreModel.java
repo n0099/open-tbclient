@@ -130,7 +130,7 @@ public class MoreModel extends BdBaseModel {
         }
     }
 
-    public PersonChangeData R() {
+    public PersonChangeData Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -139,7 +139,7 @@ public class MoreModel extends BdBaseModel {
         return (PersonChangeData) invokeV.objValue;
     }
 
-    public boolean S() {
+    public boolean R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -148,14 +148,14 @@ public class MoreModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void T(PersonChangeData personChangeData) {
+    public void S(PersonChangeData personChangeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, personChangeData) == null) {
             this.a = personChangeData;
         }
     }
 
-    public void U(boolean z) {
+    public void T(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.b = z;

@@ -1,48 +1,47 @@
 package com.baidu.tieba;
 
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.cert.X509Certificate;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLException;
-import javax.net.ssl.SSLSession;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 /* loaded from: classes5.dex */
-public class mna implements HostnameVerifier {
+public class mna extends fna<TTNativeExpressAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public mna() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mna(TTNativeExpressAd tTNativeExpressAd) {
+        super(tTNativeExpressAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tTNativeExpressAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // javax.net.ssl.HostnameVerifier
-    public final boolean verify(String str, SSLSession sSLSession) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.fna
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
-            try {
-                X509Certificate x509Certificate = (X509Certificate) sSLSession.getPeerCertificates()[0];
-                una.b("", "verify: certificate is : " + x509Certificate.getSubjectDN().getName());
-                ona.a(str, x509Certificate, true);
-                return true;
-            } catch (SSLException e) {
-                una.d("", "SSLException : " + e.getMessage());
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b.isEmpty()) {
+                this.b = (String) ((TTNativeExpressAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
             }
+            return this.b;
         }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

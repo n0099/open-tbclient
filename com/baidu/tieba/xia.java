@@ -1,23 +1,29 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
-/* loaded from: classes6.dex */
-public final class xia implements View.OnClickListener {
+import com.baidu.validation.utils.ValidationLog;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class xia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ InstallActivity a;
+    public String a;
+    public final List<String> b;
 
-    public xia(InstallActivity installActivity) {
+    public xia() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,16 +33,47 @@ public final class xia implements View.OnClickListener {
                 return;
             }
         }
-        this.a = installActivity;
+        this.b = new ArrayList();
     }
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view2) {
+    public static xia a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                xia xiaVar = new xia();
+                JSONObject optJSONObject = jSONObject.optJSONObject("action");
+                if (optJSONObject != null) {
+                    xiaVar.a = optJSONObject.optString("name");
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("params");
+                    if (optJSONArray != null) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            xiaVar.b.add(optJSONArray.optString(i));
+                        }
+                    }
+                }
+                return xiaVar;
+            } catch (JSONException e) {
+                ValidationLog.e(e);
+                return null;
+            }
         }
-        this.a.h();
-        this.a.n();
+        return (xia) invokeL.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public List<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 }

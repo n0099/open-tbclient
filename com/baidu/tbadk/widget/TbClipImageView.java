@@ -3,7 +3,7 @@ package com.baidu.tbadk.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ji;
+import com.baidu.tieba.ki;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -76,15 +76,15 @@ public class TbClipImageView extends TbImageView {
             }
         }
         this.w0 = false;
-        S(context, attributeSet, i);
+        T(context, attributeSet, i);
     }
 
-    public final void S(Context context, AttributeSet attributeSet, int i) {
+    public final void T(Context context, AttributeSet attributeSet, int i) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, context, attributeSet, i) == null) {
-            String trim = ji.g().trim();
+            String trim = ki.g().trim();
             if (trim != null) {
                 String[] strArr = {"M040", "M045"};
                 int i2 = 0;

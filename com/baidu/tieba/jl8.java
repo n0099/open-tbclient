@@ -1,44 +1,61 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.pb.PbEditorData;
+import com.baidu.tbadk.core.atomData.AvatarPendantActivityConfig;
+import com.baidu.tbadk.core.atomData.BubbleGroupActivityConfig;
+import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.memberCenter.memberpay.MemberPayResult;
+import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class jl8 extends nb5 {
+public class jl8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbEditorData.ThreadData a;
-    public mb5 b;
-    public boolean c;
-    public boolean d;
+    public List<MemberPayResult.VipPayPrivilegeData> a;
+    public LayoutInflater b;
+    public Context c;
+    public b d;
 
     /* loaded from: classes5.dex */
-    public class a implements mb5 {
+    public interface b {
+        void a(String str);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ il8 a;
-        public final /* synthetic */ jl8 b;
+        public final /* synthetic */ MemberPayResult.VipPayPrivilegeData a;
+        public final /* synthetic */ c b;
+        public final /* synthetic */ qg8 c;
+        public final /* synthetic */ jl8 d;
 
-        public a(jl8 jl8Var, il8 il8Var) {
+        public a(jl8 jl8Var, MemberPayResult.VipPayPrivilegeData vipPayPrivilegeData, c cVar, qg8 qg8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jl8Var, il8Var};
+                Object[] objArr = {jl8Var, vipPayPrivilegeData, cVar, qg8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,47 +65,81 @@ public class jl8 extends nb5 {
                     return;
                 }
             }
-            this.b = jl8Var;
-            this.a = il8Var;
+            this.d = jl8Var;
+            this.a = vipPayPrivilegeData;
+            this.b = cVar;
+            this.c = qg8Var;
         }
 
-        @Override // com.baidu.tieba.mb5
-        public void C(lb5 lb5Var) {
-            il8 il8Var;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, lb5Var) != null) || (il8Var = this.a) == null || il8Var.b() == null || lb5Var == null) {
-                return;
-            }
-            if (this.b.b != null) {
-                this.b.b.C(lb5Var);
-            }
-            int i = lb5Var.a;
-            if (i != 32) {
-                if (i != 36) {
-                    if (i == 43 && !yo5.c(this.a.getContext().getPageContext(), true, false)) {
-                        HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(this.a.getContext().getActivity(), 25004, HotSelectActivityConfig.FROM_PB);
-                        if (this.b.a != null) {
-                            hotSelectActivityConfig.setForumExtra(gg.g(this.b.a.getForumId(), 0L), this.b.a.getFirstDir(), this.b.a.getSecondDir());
-                        }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotSelectActivityConfig));
-                        return;
-                    }
-                    return;
-                } else if (!this.b.h(this.a.getContext().getPageContext(), 11040)) {
-                    return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                String str = this.a.mLinkUrl;
+                if (!str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_POST_BUBBLE) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PENDANT_LIST) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_BG) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL) && !str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_ONE_KEY_SIGN)) {
+                    it4.s(this.d.b.getContext(), str);
                 } else {
-                    this.a.f();
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_POST_BUBBLE)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BubbleGroupActivityConfig(this.d.c)));
+                    }
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PENDANT_LIST)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AvatarPendantActivityConfig(this.d.c)));
+                    }
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_BG) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL)) {
+                        MemberCenterStatic.a((TbPageContext) g9.a(this.d.c), new String[]{str});
+                    }
+                    if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_ONE_KEY_SIGN)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SignAllForumActivityConfig(this.d.c)));
+                    }
+                }
+                if (this.d.d != null) {
+                    this.d.d.a(this.a.mEquityId);
+                }
+                if (!TextUtils.equals("click", this.a.getDynamicDisappear())) {
                     return;
                 }
+                this.d.e(this.b.d, this.c);
             }
-            this.a.b().C(new lb5(1, 11, null));
         }
     }
 
-    public jl8() {
+    /* loaded from: classes5.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public TextView b;
+        public RelativeLayout c;
+        public final TextView d;
+
+        public c(jl8 jl8Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jl8Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091671);
+            this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091675);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091674);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091673);
+        }
+    }
+
+    public jl8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -98,159 +149,130 @@ public class jl8 extends nb5 {
                 return;
             }
         }
-        this.c = false;
-        this.d = false;
+        this.b = LayoutInflater.from(context);
+        this.c = context;
     }
 
-    public void i(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: f */
+    public MemberPayResult.VipPayPrivilegeData getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void k(mb5 mb5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, mb5Var) == null) {
-            this.b = mb5Var;
-        }
-    }
-
-    public void l(PbEditorData.ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, threadData) == null) {
-            this.a = threadData;
-        }
-    }
-
-    @Override // com.baidu.tieba.nb5
-    public pb5 b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setIsFromPb(true);
-            editorTools.setBarMaxLauCount(5);
-            if (this.c) {
-                editorTools.setBarLauncherType(2);
-            } else if (this.d) {
-                editorTools.setBarLauncherType(5);
-            } else {
-                editorTools.setBarLauncherType(3);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            List<MemberPayResult.VipPayPrivilegeData> list = this.a;
+            if (list == null) {
+                return null;
             }
-            editorTools.setBackgroundColorId(0);
-            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
-            editorTools.F(true);
-            editorTools.setMoreButtonAtEnd(true);
-            editorTools.E(true);
-            return new il8(editorTools);
+            return list.get(i);
         }
-        return (pb5) invokeL.objValue;
+        return (MemberPayResult.VipPayPrivilegeData) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.nb5
-    public void c(pb5 pb5Var) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pb5Var) != null) || !(pb5Var instanceof il8)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (this.a == null) {
+                return 0L;
+            }
+            return i;
+        }
+        return invokeI.longValue;
+    }
+
+    public void h(List<MemberPayResult.VipPayPrivilegeData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.a = list;
+        }
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public final void e(View view2, qg8 qg8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, qg8Var) == null) {
+            if (view2 != null) {
+                view2.setVisibility(8);
+            }
+            if (qg8Var != null) {
+                qg8Var.i();
+            }
+        }
+    }
+
+    public final void g(MemberPayResult.VipPayPrivilegeData vipPayPrivilegeData, c cVar) {
+        qg8 qg8Var;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vipPayPrivilegeData, cVar) != null) || vipPayPrivilegeData == null) {
             return;
         }
-        EditorTools b = pb5Var.b();
-        a aVar = new a(this, (il8) pb5Var);
-        b.setActionListener(16, aVar);
-        b.setActionListener(14, aVar);
-        b.setActionListener(15, aVar);
-        b.setActionListener(24, aVar);
-        b.setActionListener(3, aVar);
-        b.setActionListener(10, aVar);
-        b.setActionListener(11, aVar);
-        b.setActionListener(36, aVar);
-        b.setActionListener(32, aVar);
-        b.setActionListener(43, aVar);
-        b.setActionListener(45, aVar);
+        cVar.b.setText(vipPayPrivilegeData.mTitle);
+        SkinManager.setViewTextColor(cVar.b, (int) R.color.CAM_X0105);
+        pg8 pg8Var = null;
+        if (TextUtils.equals("click", vipPayPrivilegeData.getDynamicDisappear())) {
+            qg8 qg8Var2 = new qg8("pay_panel_member_privilege_bubble_" + vipPayPrivilegeData.mTitle);
+            pg8 pg8Var2 = new pg8("pay_panel_member_privilege_bubble_" + vipPayPrivilegeData.mTitle);
+            z = qg8Var2.g(pg8Var2.f(vipPayPrivilegeData.getDynamicText()));
+            pg8Var = pg8Var2;
+            qg8Var = qg8Var2;
+        } else {
+            qg8Var = null;
+            z = false;
+        }
+        if (!TextUtils.isEmpty(vipPayPrivilegeData.getDynamicText()) && !z) {
+            cVar.d.setText(vipPayPrivilegeData.getDynamicText());
+            if (pg8Var != null) {
+                pg8Var.update(vipPayPrivilegeData.getDynamicText());
+            }
+            cVar.d.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
+            q25 d = q25.d(cVar.d);
+            d.m(R.dimen.tbds3);
+            d.l(R.color.CAM_X0402);
+            d.o(R.string.J_X01);
+            d.h(vipPayPrivilegeData.getDynamicColor());
+            cVar.d.setVisibility(0);
+        } else {
+            cVar.d.setVisibility(8);
+        }
+        cVar.a.N(vipPayPrivilegeData.mIconUrl, 10, false);
+        cVar.c.setOnClickListener(new a(this, vipPayPrivilegeData, cVar, qg8Var));
     }
 
-    @Override // com.baidu.tieba.nb5
-    public void d(pb5 pb5Var) {
-        String str;
-        CustomResponsedMessage runTask;
-        wb5 wb5Var;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pb5Var) == null) {
-            EditorTools b = pb5Var.b();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            if (!this.c) {
-                arrayList.add(10);
-                b.d(new hc5(b.getContext(), 1));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<MemberPayResult.VipPayPrivilegeData> list = this.a;
+            if (list == null) {
+                return 0;
             }
-            if (!this.d) {
-                arrayList.add(6);
-                arrayList.add(9);
-                PbEditorData.ThreadData threadData = this.a;
-                if (threadData != null) {
-                    str = threadData.getForumName();
-                } else {
-                    str = "";
-                }
-                if (vd9.a() && za9.a(str, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), wb5.class)) != null && (wb5Var = (wb5) runTask.getData()) != null) {
-                    wb5Var.l = 2;
-                    b.d(wb5Var);
-                }
-                b.d(new yb5(b.getContext(), 4));
-                if (!this.c) {
-                    CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, b.getContext()), wb5.class);
-                    if (runTask2 != null && runTask2.getData() != null) {
-                        wb5 wb5Var2 = (wb5) runTask2.getData();
-                        wb5Var2.l = 6;
-                        b.d(wb5Var2);
-                    }
-                    CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, b.getContext()), wb5.class);
-                    if (runTask3 != null && runTask3.getData() != null) {
-                        wb5 wb5Var3 = (wb5) runTask3.getData();
-                        wb5Var3.l = 7;
-                        b.d(wb5Var3);
-                    }
-                }
-                if (!"PbChosenActivity".equals(b.getContext().getClass().getSimpleName()) && !this.c) {
-                    b.d(new fc5(b.getContext(), 5));
-                }
-            }
-            if (!this.c && !this.d) {
-                arrayList.add(8);
-            }
-            b.h(arrayList);
-            wb5 p = b.p(5);
-            if (p != null) {
-                p.l = 3;
-                if (this.c || this.d) {
-                    p.e(false);
-                }
-            }
-            b.f();
-            if (this.c || this.d) {
-                b.C(new lb5(35, 5, Boolean.FALSE));
-            }
+            return list.size();
         }
+        return invokeV.intValue;
     }
 
-    public final boolean h(TbPageContext<?> tbPageContext, int i) {
-        InterceptResult invokeLI;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, tbPageContext, i)) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && currentAccount.length() > 0) {
-                return true;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d05c1, (ViewGroup) null);
+                view2.setTag(new c(this, view2));
             }
-            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
-            return false;
+            g(getItem(i), (c) view2.getTag());
+            return view2;
         }
-        return invokeLI.booleanValue;
+        return (View) invokeILL.objValue;
     }
 }

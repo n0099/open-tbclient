@@ -82,7 +82,7 @@ public abstract class eb<M extends Message<?>, T extends MessageTask, R extends 
     public void t(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bdUniqueId) == null) {
-            hi.c();
+            ii.c();
             if (bdUniqueId == null) {
                 return;
             }
@@ -104,7 +104,7 @@ public abstract class eb<M extends Message<?>, T extends MessageTask, R extends 
     public void u(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, messageListener) == null) {
-            hi.c();
+            ii.c();
             if (messageListener == null) {
                 return;
             }
@@ -233,7 +233,7 @@ public abstract class eb<M extends Message<?>, T extends MessageTask, R extends 
     public void s(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            hi.c();
+            ii.c();
             if (i != 0) {
                 b(i);
                 this.d.remove(i);
@@ -268,7 +268,7 @@ public abstract class eb<M extends Message<?>, T extends MessageTask, R extends 
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, m, t)) == null) {
-            hi.c();
+            ii.c();
             if (m == null) {
                 return false;
             }
@@ -306,7 +306,7 @@ public abstract class eb<M extends Message<?>, T extends MessageTask, R extends 
     public void d(N n) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, n) == null) {
-            hi.c();
+            ii.c();
             if (n == null) {
                 return;
             }
@@ -368,7 +368,7 @@ public abstract class eb<M extends Message<?>, T extends MessageTask, R extends 
     public void n(int i, MessageListener<N> messageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048586, this, i, messageListener) == null) {
-            hi.c();
+            ii.c();
             if (messageListener == null) {
                 return;
             }

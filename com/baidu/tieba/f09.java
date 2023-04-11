@@ -6,15 +6,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class f09 {
+public abstract class f09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public String b;
-    public String c;
-    public ArrayList<String> d;
-    public boolean e;
-    public boolean f;
+
+    public abstract ArrayList<hn> a();
 
     public f09() {
         Interceptable interceptable = $ic;

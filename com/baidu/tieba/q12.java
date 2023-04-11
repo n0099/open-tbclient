@@ -8,14 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class q12 extends z02 {
+public class q12 extends a12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public boolean e;
+    public int a;
+    public int b;
 
     public q12() {
         Interceptable interceptable = $ic;
@@ -30,26 +27,26 @@ public class q12 extends z02 {
                 return;
             }
         }
-        this.e = false;
+        this.a = Integer.MAX_VALUE;
+        this.b = Integer.MAX_VALUE;
     }
 
-    @Override // com.baidu.tieba.z02
-    public void a(a12 a12Var, Canvas canvas) {
+    @Override // com.baidu.tieba.a12
+    public void a(b12 b12Var, Canvas canvas) {
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, a12Var, canvas) == null) && this.e) {
-            a12Var.f.quadTo(this.a, this.b, this.c, this.d);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, b12Var, canvas) == null) && (i = this.a) != Integer.MAX_VALUE && (i2 = this.b) != Integer.MAX_VALUE) {
+            b12Var.f.moveTo(i, i2);
         }
     }
 
-    @Override // com.baidu.tieba.z02
+    @Override // com.baidu.tieba.a12
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 3) {
-            this.a = kl3.g((float) jSONArray.optDouble(0));
-            this.b = kl3.g((float) jSONArray.optDouble(1));
-            this.c = kl3.g((float) jSONArray.optDouble(2));
-            this.d = kl3.g((float) jSONArray.optDouble(3));
-            this.e = true;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
+            this.a = ll3.g((float) jSONArray.optDouble(0));
+            this.b = ll3.g((float) jSONArray.optDouble(1));
         }
     }
 }

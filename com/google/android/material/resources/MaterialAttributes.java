@@ -11,7 +11,7 @@ import androidx.annotation.Px;
 import androidx.annotation.RestrictTo;
 import com.baidu.tieba.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MaterialAttributes {
     @Nullable
     public static TypedValue resolve(@NonNull Context context, @AttrRes int i) {

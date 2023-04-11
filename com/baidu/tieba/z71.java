@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface z71 {
-    void onDestroy();
+    boolean g();
 
-    void onPause();
+    boolean j1();
+
+    boolean v0();
 }

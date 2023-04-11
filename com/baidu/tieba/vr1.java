@@ -1,19 +1,10 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.content.DialogInterface;
+import com.baidu.tieba.y63;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface vr1 {
-    void a(String str, av2 av2Var);
-
-    int getDuration();
-
-    boolean isPlaying();
-
-    void onRelease();
-
-    void pause();
-
-    void play();
-
-    void seek(int i);
-
-    void stop();
+    y63.a a(Context context, u73 u73Var, uc3 uc3Var, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener);
 }

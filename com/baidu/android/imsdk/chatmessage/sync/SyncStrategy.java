@@ -123,10 +123,17 @@ public abstract class SyncStrategy {
         return invokeV.booleanValue;
     }
 
+    public void resetFetchState() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.mState = 2;
+        }
+    }
+
     public SyncStrategy setCategory(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             this.mCategory = i;
             return this;
         }
@@ -136,7 +143,7 @@ public abstract class SyncStrategy {
     public SyncStrategy setContacter(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
             this.mContacter = j;
             return this;
         }
@@ -308,7 +315,7 @@ public abstract class SyncStrategy {
 
     public void start(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             String str = TAG;
             LogUtils.d(str, "******************start sync !************** mState = " + this.mState);
             ChatMessageDBManager.getInstance(this.mContext).getMaxMsgid();
@@ -328,7 +335,7 @@ public abstract class SyncStrategy {
 
     public void start(int i, long j, long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), str}) == null) {
             String str2 = TAG;
             LogUtils.d(str2, "******************start sync !************** " + this.mState + ", notifyId :" + j2);
             this.mPassPortSwitch = false;
@@ -351,7 +358,7 @@ public abstract class SyncStrategy {
     public boolean syncNotifyMessageStopCondition(int i, int i2, int i3, ArrayList<ChatMsg> arrayList) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), arrayList})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), arrayList})) == null) {
             if (arrayList != null && i == 0) {
                 synchronized (this.mRetryTimesSync) {
                     this.mReTryTimes = 0;

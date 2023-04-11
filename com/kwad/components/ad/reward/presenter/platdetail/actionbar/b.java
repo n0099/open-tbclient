@@ -136,7 +136,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             showActionBarResult = RewardActionBarControl.ShowActionBarResult.SHOW_NATIVE_PLAYABLE_PORTRAIT;
         } else if (!com.kwad.sdk.core.response.a.a.bF(this.mAdInfo) || (viewGroup2 = this.rt) == null) {
             if (com.kwad.sdk.core.response.a.a.aK(this.mAdTemplate)) {
-                ViewGroup viewGroup3 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091300);
+                ViewGroup viewGroup3 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091304);
                 this.ru = viewGroup3;
                 if (viewGroup3 != null) {
                     Resources resources = viewGroup3.getResources();
@@ -213,7 +213,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
         AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
         this.mAdInfo = bQ;
         if (com.kwad.sdk.core.response.a.a.bF(bQ)) {
-            this.rt = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912ec);
+            this.rt = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912f0);
         }
         this.pM.T(this.mAdTemplate);
         k kVar = this.nM;
@@ -341,11 +341,11 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0911bd);
-        this.rn = (ActionBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f09138f);
-        this.ro = (ActionBarAppPortrait) findViewById(R.id.obfuscated_res_0x7f091390);
-        this.rp = (ActionBarAppPortraitForLive) findViewById(R.id.obfuscated_res_0x7f091391);
-        this.rq = (ActionBarH5) findViewById(R.id.obfuscated_res_0x7f091392);
+        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0911c1);
+        this.rn = (ActionBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f091393);
+        this.ro = (ActionBarAppPortrait) findViewById(R.id.obfuscated_res_0x7f091394);
+        this.rp = (ActionBarAppPortraitForLive) findViewById(R.id.obfuscated_res_0x7f091395);
+        this.rq = (ActionBarH5) findViewById(R.id.obfuscated_res_0x7f091396);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

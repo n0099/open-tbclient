@@ -6,7 +6,7 @@ import android.net.Uri;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 /* loaded from: classes7.dex */
 public final class c extends g {
-    /* JADX WARN: Removed duplicated region for block: B:40:0x008c  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x008b  */
     @Override // com.baidu.webkit.internal.b.g
     /*
         Code decompiled incorrectly, please refer to instructions dump.

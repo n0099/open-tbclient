@@ -1,212 +1,100 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.ThemeColorInfo;
-import tbclient.ThemeElement;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.FrsPage.Fans;
+import tbclient.FrsPage.Size;
+import tbclient.FrsPage.StarInfo;
 /* loaded from: classes4.dex */
-public final class ik9 {
+public class ik9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public long b;
+    public boolean c;
+    public String d;
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x0020, code lost:
-        if (r1 == null) goto L12;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0029, code lost:
-        if (r1 == null) goto L12;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x002c, code lost:
-        r2 = r1;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final int a(ThemeColorInfo themeColorInfoInfo) {
-        InterceptResult invokeL;
-        boolean z;
+    public ik9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeColorInfoInfo)) == null) {
-            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            String str = null;
-            String str2 = "";
-            if (skinType != 0) {
-                if (skinType == 4) {
-                    ThemeElement themeElement = themeColorInfoInfo.dark;
-                    if (themeElement != null) {
-                        str = themeElement.common_color;
-                    }
-                }
-                if (str2.length() > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    return ga9.f(str2);
-                }
-                return Integer.MAX_VALUE;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ThemeElement themeElement2 = themeColorInfoInfo.day;
-            if (themeElement2 != null) {
-                str = themeElement2.common_color;
-            }
-        } else {
-            return invokeL.intValue;
         }
+        this.a = 0;
+        this.b = 0L;
+        this.c = false;
+        this.d = null;
     }
 
-    public static final String b(ThemeColorInfo themeColorInfoInfo) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, themeColorInfoInfo)) == null) {
-            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            String str = null;
-            if (skinType != 0) {
-                if (skinType != 4) {
-                    return "";
-                }
-                ThemeElement themeElement = themeColorInfoInfo.dark;
-                if (themeElement != null) {
-                    str = themeElement.dark_color;
-                }
-                if (str == null) {
-                    return "";
-                }
-            } else {
-                ThemeElement themeElement2 = themeColorInfoInfo.day;
-                if (themeElement2 != null) {
-                    str = themeElement2.dark_color;
-                }
-                if (str == null) {
-                    return "";
-                }
-            }
-            return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static final String c(ThemeColorInfo themeColorInfoInfo) {
-        InterceptResult invokeL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, themeColorInfoInfo)) == null) {
-            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            String str = null;
-            if (skinType != 0) {
-                if (skinType != 4) {
-                    return "";
-                }
-                ThemeElement themeElement = themeColorInfoInfo.dark;
-                if (themeElement != null) {
-                    str = themeElement.light_color;
-                }
-                if (str == null) {
-                    return "";
-                }
-            } else {
-                ThemeElement themeElement2 = themeColorInfoInfo.day;
-                if (themeElement2 != null) {
-                    str = themeElement2.light_color;
-                }
-                if (str == null) {
-                    return "";
-                }
-            }
-            return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (String) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public static final int d(ThemeColorInfo themeColorInfoInfo) {
-        InterceptResult invokeL;
-        Long l;
-        long longValue;
-        ThemeElement themeElement;
-        Long l2;
+    public void c(StarInfo starInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, themeColorInfoInfo)) == null) {
-            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != 0) {
-                if (skinType != 4 || (themeElement = themeColorInfoInfo.dark) == null || (l2 = themeElement.pattern_image_height) == null) {
-                    return 0;
-                }
-                longValue = l2.longValue();
-            } else {
-                ThemeElement themeElement2 = themeColorInfoInfo.day;
-                if (themeElement2 == null || (l = themeElement2.pattern_image_height) == null) {
-                    return 0;
-                }
-                longValue = l.longValue();
-            }
-            return (int) longValue;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, starInfo) != null) || starInfo == null) {
+            return;
         }
-        return invokeL.intValue;
-    }
-
-    public static final int e(ThemeColorInfo themeColorInfoInfo) {
-        InterceptResult invokeL;
-        Long l;
-        long longValue;
-        ThemeElement themeElement;
-        Long l2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, themeColorInfoInfo)) == null) {
-            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != 0) {
-                if (skinType != 4 || (themeElement = themeColorInfoInfo.dark) == null || (l2 = themeElement.pattern_image_width) == null) {
-                    return 0;
-                }
-                longValue = l2.longValue();
-            } else {
-                ThemeElement themeElement2 = themeColorInfoInfo.day;
-                if (themeElement2 == null || (l = themeElement2.pattern_image_width) == null) {
-                    return 0;
-                }
-                longValue = l.longValue();
+        int intValue = starInfo.has_frs_star.intValue();
+        this.a = intValue;
+        boolean z = true;
+        if (intValue == 1) {
+            String str = starInfo.top;
+            String str2 = starInfo.head;
+            Fans fans = starInfo.fans;
+            if (fans != null) {
+                fans.is_get.intValue();
+                fans.num.intValue();
+                fans.open.intValue();
+                this.b = fans.left_time.intValue();
             }
-            return (int) longValue;
-        }
-        return invokeL.intValue;
-    }
-
-    public static final String f(ThemeColorInfo themeColorInfoInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, themeColorInfoInfo)) == null) {
-            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            String str = null;
-            if (skinType != 0) {
-                if (skinType != 4) {
-                    return "";
-                }
-                ThemeElement themeElement = themeColorInfoInfo.dark;
-                if (themeElement != null) {
-                    str = themeElement.pattern_image;
-                }
-                if (str == null) {
-                    return "";
-                }
-            } else {
-                ThemeElement themeElement2 = themeColorInfoInfo.day;
-                if (themeElement2 != null) {
-                    str = themeElement2.pattern_image;
-                }
-                if (str == null) {
-                    return "";
-                }
+            Size size = starInfo.top_size;
+            if (size != null) {
+                size.width.intValue();
+                size.height.intValue();
             }
-            return str;
+            Size size2 = starInfo.head_size;
+            if (size2 != null) {
+                size2.width.intValue();
+                size2.height.intValue();
+            }
         }
-        return (String) invokeL.objValue;
+        if (starInfo.trade == null) {
+            z = false;
+        }
+        this.c = z;
+        if (z) {
+            Integer num = starInfo.trade.time;
+            if (num != null) {
+                num.intValue();
+            }
+            String str3 = starInfo.trade.url;
+        }
+        this.d = starInfo.star_forum_headimg;
     }
 }

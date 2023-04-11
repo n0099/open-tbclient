@@ -4,7 +4,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
 import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.b82;
+import com.baidu.tieba.c82;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,24 +17,22 @@ public class p82 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b82 a;
-    public final k82 b;
-    public final y72 c;
+    public long a;
+    public boolean b;
+    public final c82 c;
 
     /* loaded from: classes5.dex */
-    public class a implements b82.b {
+    public class a implements c82.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m82 a;
-        public final /* synthetic */ a82 b;
-        public final /* synthetic */ p82 c;
+        public final /* synthetic */ p82 a;
 
-        public a(p82 p82Var, m82 m82Var, a82 a82Var) {
+        public a(p82 p82Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p82Var, m82Var, a82Var};
+                Object[] objArr = {p82Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,27 +42,19 @@ public class p82 {
                     return;
                 }
             }
-            this.c = p82Var;
-            this.a = m82Var;
-            this.b = a82Var;
+            this.a = p82Var;
         }
 
-        @Override // com.baidu.tieba.b82.b
+        @Override // com.baidu.tieba.c82.b
         public void a(NetworkStatus networkStatus) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                u72.e(SceneType.SCENE_INIT_DATA_ERROR.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
-                StringBuilder sb = new StringBuilder();
-                sb.append(SceneType.SCENE_INIT_DATA_ERROR.getScene());
-                sb.append(this.b.a());
-                sb.append(this.a.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.a.c());
+                w72.g(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
+                v72.c(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getType(), networkStatus.getStatus());
+                this.a.e(networkStatus);
                 if (p82.d) {
-                    Log.d("SceneInitDataTips", ">> " + sb.toString());
+                    Log.d("SceneDownloadPkgTips", ">> " + SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
                 }
-                v72.g(sb.toString());
-                this.c.d(networkStatus);
             }
         }
     }
@@ -114,7 +104,7 @@ public class p82 {
                 return;
             }
         }
-        d = do1.a;
+        d = eo1.a;
     }
 
     public p82() {
@@ -130,32 +120,69 @@ public class p82 {
                 return;
             }
         }
-        this.c = y72.d();
-        this.a = new b82();
-        this.b = k82.d();
+        this.c = new c82();
     }
 
-    public void c() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (d) {
-                Log.d("SceneInitDataTips", ">> trigger init data error event.");
-            }
-            k82.d().j();
-            y72.d().j();
-            a82 f = this.c.f();
-            this.a.a(new a(this, this.b.f(), f));
+            this.c.a(new a(this));
         }
     }
 
-    public final void d(NetworkStatus networkStatus) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            boolean z = true;
+            if (t73.K().k() == 1) {
+                z = false;
+            }
+            this.b = z;
+            this.a = 0L;
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = false;
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> stop collecting network status.");
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.b) {
+            return;
+        }
+        if (this.a == 0) {
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> start to check download progress.");
+            }
+            this.a = System.currentTimeMillis();
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.a > 2000) {
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> download progress over 2s.");
+            }
+            c();
+            g();
+        }
+        this.a = currentTimeMillis;
+    }
+
+    public final void e(NetworkStatus networkStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatus) == null) {
             int i = b.a[networkStatus.ordinal()];
             if (i != 1 && i != 2) {
-                t72.f(R.string.obfuscated_res_0x7f0f140c);
+                u72.f(R.string.obfuscated_res_0x7f0f1403);
             } else {
-                t72.f(R.string.obfuscated_res_0x7f0f1402);
+                u72.f(R.string.obfuscated_res_0x7f0f13f9);
             }
         }
     }

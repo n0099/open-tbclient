@@ -1,73 +1,163 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.w74;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 /* loaded from: classes3.dex */
-public abstract class a84 extends q93 {
+public class a84 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String c;
+    public ArrayList<w74> a;
+    public String b;
+    public String c;
+    public int d;
 
-    public abstract boolean k(@NonNull d84 d84Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y74 a;
+        public final /* synthetic */ a84 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a84(q83 q83Var, String str, String str2) {
-        super(q83Var, str);
+        public a(a84 a84Var, y74 y74Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a84Var, y74Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = a84Var;
+            this.a = y74Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ArrayList<long[]> e = this.b.e();
+                z74 z74Var = new z74();
+                z74Var.a = this.b.b;
+                z74Var.b = e;
+                z74Var.c = this.b.c;
+                l44.i().b(z74Var, this.a);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947569036, "Lcom/baidu/tieba/a84;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947569036, "Lcom/baidu/tieba/a84;");
+                return;
+            }
+        }
+        e = eo1.a;
+    }
+
+    public a84(ArrayList<x74> arrayList, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {q83Var, str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {arrayList, str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        if (e) {
+            Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
+        }
+        ArrayList<w74> d = d(arrayList);
+        this.a = d;
+        this.b = str;
         this.c = str2;
+        this.d = d.size();
     }
 
-    @Override // com.baidu.tieba.q93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, t73 t73Var) {
-        InterceptResult invokeLLLL;
+    public void c(y74 y74Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, t73Var)) == null) {
-            c72 V = gt2.U().V();
-            if (V == null) {
-                t42.c(this.c, "fragment manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            e84 e84Var = (e84) V.n(q34.class);
-            if (e84Var == null) {
-                t42.c(this.c, "fragment is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            return k(e84Var.b(), unitedSchemeEntity, callbackHandler);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, y74Var) != null) || y74Var == null) {
+            return;
         }
-        return invokeLLLL.booleanValue;
+        ok3.l(new a(this, y74Var), "clipVideo");
     }
 
-    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    public final ArrayList<w74> d(ArrayList<x74> arrayList) {
+        InterceptResult invokeL;
+        w74 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler) == null) {
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
+            ArrayList<w74> arrayList2 = new ArrayList<>();
+            if (arrayList != null && arrayList.size() != 0) {
+                Iterator<x74> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    x74 next = it.next();
+                    if (next != null && (a2 = next.a()) != null) {
+                        arrayList2.add(a2);
+                    }
+                }
+            }
+            return arrayList2;
         }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public ArrayList<long[]> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList<long[]> arrayList = new ArrayList<>();
+            if (this.d == 0) {
+                return arrayList;
+            }
+            if (e) {
+                Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.a);
+            }
+            Collections.sort(this.a, new w74.a());
+            w74 w74Var = this.a.get(0);
+            for (int i = 1; i < this.d; i++) {
+                w74 w74Var2 = this.a.get(i);
+                if (!w74Var.b(w74Var2)) {
+                    arrayList.add(w74.a(w74Var));
+                    w74Var = w74Var2;
+                }
+            }
+            arrayList.add(w74.a(w74Var));
+            if (e) {
+                Log.d("ClipVideoTask", "mergeRange mergeList = " + arrayList);
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 }

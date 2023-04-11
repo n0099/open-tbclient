@@ -28,7 +28,7 @@ public final class b extends e {
     public final void aq() {
         AdInfo.AdSplashInfo adSplashInfo;
         super.aq();
-        KsLogoView ksLogoView = (KsLogoView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091360);
+        KsLogoView ksLogoView = (KsLogoView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091364);
         this.bq = ksLogoView;
         h(ksLogoView);
         if (this.yF.mAdTemplate.adInfoList.isEmpty() || (adSplashInfo = this.yF.mAdTemplate.adInfoList.get(0).adSplashInfo) == null) {

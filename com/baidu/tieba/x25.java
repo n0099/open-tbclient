@@ -1,34 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.ChatRoomEntranceData;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tbadk.data.LevePopData;
-import com.baidu.tbadk.data.LiveRemindData;
-import com.baidu.tbadk.data.MemberBroadcastData;
-import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
-import java.util.List;
-import tbclient.AlaLiveInfo;
+import com.baidu.tieba.u25;
 /* loaded from: classes6.dex */
-public interface x25 {
-    ChatRoomEntranceData getChatRoomEntranceData();
+public interface x25<T extends u25> {
+    void a(int i, T t);
 
-    ja5 getFestivalConfigData();
-
-    IconPopData getIconPopData();
-
-    LevePopData getLevePopData();
-
-    List<AlaLiveInfo> getLiveFollowSecondFloor();
-
-    List<AlaLiveInfo> getLiveIndexSecondFloor();
-
-    List<AlaLiveInfo> getLivePicSecondFloor();
-
-    LiveRemindData getLiveRemindData();
-
-    MemberBroadcastData getMemberBroadcastData();
-
-    SubscribeGroupUnreadMsgData getSubscribeChatHaveUnReadMsg();
-
-    String getUniqueId();
+    void b(int i, String str);
 }

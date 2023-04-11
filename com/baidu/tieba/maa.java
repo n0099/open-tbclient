@@ -3,11 +3,8 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,54 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class maa {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static final String e;
+    public static final boolean b;
+    public static volatile maa c;
     public transient /* synthetic */ FieldHolder $fh;
-    public naa a;
-    public JSONObject b;
-    public JSONObject c;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final maa a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-609161698, "Lcom/baidu/tieba/maa$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-609161698, "Lcom/baidu/tieba/maa$b;");
-                    return;
-                }
-            }
-            a = new maa(null);
-        }
-    }
+    public boolean a;
 
     static {
         InterceptResult invokeClinit;
@@ -77,8 +36,7 @@ public class maa {
                 return;
             }
         }
-        d = AppConfig.isDebug();
-        e = AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + "yalog/";
+        b = kaa.m();
     }
 
     public maa() {
@@ -94,407 +52,238 @@ public class maa {
                 return;
             }
         }
-        i();
+        this.a = fj1.g();
     }
 
-    public static maa c() {
+    public static maa a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (maa.class) {
+                    if (c == null) {
+                        c = new maa();
+                    }
+                }
+            }
+            return c;
         }
         return (maa) invokeV.objValue;
     }
 
-    public Map<String, oaa> a() {
-        InterceptResult invokeV;
+    public void b(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.e();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public float b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.f();
-        }
-        return invokeV.floatValue;
-    }
-
-    public float d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.g();
-        }
-        return invokeV.floatValue;
-    }
-
-    public List<paa> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.h();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public float f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.i();
-        }
-        return invokeV.floatValue;
-    }
-
-    public float g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.j();
-        }
-        return invokeV.floatValue;
-    }
-
-    public float h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a.k();
-        }
-        return invokeV.floatValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.a == null) {
-                this.a = new naa();
-            }
-            j();
-            k();
-        }
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.l();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.a.m();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public /* synthetic */ maa(a aVar) {
-        this();
-    }
-
-    public final void j() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (!new File(e).exists()) {
-                if (d) {
-                    Log.d("YaLogConfigManager", "dir not exists.");
-                    return;
-                }
-                return;
-            }
-            File file = new File(e, "yalog_cloud.txt");
-            if (!file.exists()) {
-                if (d) {
-                    Log.d("YaLogConfigManager", "yalog_cloud.txt not exists, use default value.");
-                }
-                this.a.p();
-                return;
-            }
-            String a2 = vaa.a(file);
-            if (d) {
-                Log.d("YaLogConfigManager", "read from local: " + a2);
-            }
-            if (TextUtils.isEmpty(a2)) {
-                this.a.p();
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(a2);
-                this.b = jSONObject;
-                this.a.t(jSONObject.optString(TbConfig.SW_APID));
-                this.a.q(this.b.optString("cl"));
-                this.a.A((float) this.b.optDouble("tosize"));
-                this.a.w((float) this.b.optDouble("sisize"));
-                this.a.y((float) this.b.optDouble("spsize"));
-                this.a.z((float) this.b.optDouble("sptime"));
-                this.a.v((float) this.b.optDouble("idsize"));
-                if (this.b.has("spdelist")) {
-                    List<String> asList = Arrays.asList(this.b.optString("spdelist"));
-                    if (asList.size() > 0) {
-                        this.a.s(asList);
-                    }
-                }
-                if (this.b.has("splist")) {
-                    JSONObject optJSONObject = this.b.optJSONObject("splist");
-                    ArrayList arrayList = new ArrayList();
-                    if (optJSONObject != null && optJSONObject.length() > 0) {
-                        Iterator<String> keys = optJSONObject.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                            if (optJSONObject2 != null) {
-                                if (!TextUtils.equals("0", optJSONObject2.optString(TbConfig.SW_APID))) {
-                                    z = true;
-                                } else {
-                                    z = false;
-                                }
-                                arrayList.add(new paa(next, z, (float) optJSONObject2.optDouble("size"), (float) optJSONObject2.optDouble("time")));
-                            }
-                        }
-                    }
-                    if (arrayList.size() > 0) {
-                        this.a.x(arrayList);
-                    }
-                }
-            } catch (JSONException e2) {
-                if (d) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public final void k() {
-        boolean z;
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (!new File(e).exists()) {
-                if (d) {
-                    Log.d("YaLogConfigManager", "dir not exists.");
-                    return;
-                }
-                return;
-            }
-            File file = new File(e, "yalog_id_cloud.txt");
-            if (!file.exists()) {
-                if (d) {
-                    Log.d("YaLogConfigManager", "yalog_id_cloud.txt not exists.");
-                    return;
-                }
-                return;
-            }
-            String a2 = vaa.a(file);
-            if (d) {
-                Log.d("YaLogConfigManager", "read from local: " + a2);
-            }
-            if (!TextUtils.isEmpty(a2)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(a2);
-                    this.c = jSONObject;
-                    if (jSONObject.has("iddemap") && (optJSONObject = this.c.optJSONObject("iddemap")) != null && optJSONObject.length() > 0) {
-                        HashMap hashMap = new HashMap();
-                        Iterator<String> keys = optJSONObject.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            hashMap.put(next, optJSONObject.optString(next));
-                        }
-                        if (hashMap.size() > 0) {
-                            this.a.r(hashMap);
-                        }
-                    }
-                    if (this.c.has("idlist")) {
-                        JSONObject optJSONObject2 = this.c.optJSONObject("idlist");
-                        HashMap hashMap2 = new HashMap();
-                        if (optJSONObject2 != null && optJSONObject2.length() > 0) {
-                            Iterator<String> keys2 = optJSONObject2.keys();
-                            while (keys2.hasNext()) {
-                                String next2 = keys2.next();
-                                JSONObject optJSONObject3 = optJSONObject2.optJSONObject(next2);
-                                if (optJSONObject3 != null) {
-                                    String optString = optJSONObject3.optString(TbConfig.SW_APID);
-                                    long optLong = optJSONObject3.optLong("v");
-                                    if (!TextUtils.equals("0", optString)) {
-                                        z = true;
-                                    } else {
-                                        z = false;
-                                    }
-                                    hashMap2.put(next2, new oaa(next2, optLong, z, (float) optJSONObject3.optDouble("size")));
-                                }
-                            }
-                        }
-                        if (hashMap2.size() > 0) {
-                            this.a.u(hashMap2);
-                        }
-                    }
-                } catch (JSONException e2) {
-                    if (d) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-        }
-    }
-
-    public final void n(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            try {
-                File file = new File(e);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                File file2 = new File(e, str);
-                String str3 = e;
-                File file3 = new File(str3, "pre_" + str);
-                file3.createNewFile();
-                vaa.b(str2, file3);
-                if (file2.exists()) {
-                    file2.delete();
-                }
-                file3.renameTo(file2);
-                if (d) {
-                    Log.d("YaLogConfigManager", "save to local: " + str2);
-                }
-            } catch (IOException e2) {
-                if (d) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public void o(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) && jSONObject != null && jSONObject.length() != 0) {
-            if (d) {
-                Log.d("YaLogConfigManager", "update Config: " + jSONObject.toString());
-            }
-            if (this.a == null) {
-                this.a = new naa();
-            }
-            this.a.n(jSONObject);
-            p(this.a);
-        }
-    }
-
-    public final void p(naa naaVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, naaVar) != null) || naaVar == null) {
+        if ((interceptable != null && interceptable.invokeLIL(1048576, this, str, i, str2) != null) || !this.a || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i == 0) {
             return;
         }
-        if (this.b == null) {
-            this.b = new JSONObject();
-        }
         try {
-            this.b.put(TbConfig.SW_APID, naaVar.d());
-            this.b.put("cl", naaVar.a());
-            this.b.put("tosize", String.valueOf(naaVar.k()));
-            this.b.put("sisize", String.valueOf(naaVar.g()));
-            this.b.put("spsize", String.valueOf(naaVar.i()));
-            this.b.put("sptime", String.valueOf(naaVar.j()));
-            this.b.put("idsize", String.valueOf(naaVar.f()));
-            List<String> c = naaVar.c();
-            if (c != null && c.size() > 0) {
-                this.b.put("spdelist", TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, c));
-            }
-            List<paa> h = naaVar.h();
-            if (h != null && h.size() > 0) {
-                JSONObject jSONObject = new JSONObject();
-                for (paa paaVar : h) {
-                    String b2 = paaVar.b();
-                    if (!TextUtils.isEmpty(b2)) {
-                        JSONObject jSONObject2 = new JSONObject();
-                        if (paaVar.c()) {
-                            str = "1";
-                        } else {
-                            str = "0";
-                        }
-                        jSONObject2.put(TbConfig.SW_APID, str);
-                        jSONObject2.put("size", paaVar.a());
-                        jSONObject2.put("time", paaVar.d());
-                        jSONObject.put(b2, jSONObject2);
-                    }
-                }
-                if (jSONObject.length() > 0) {
-                    this.b.put("splist", jSONObject);
-                }
-            }
-            n("yalog_cloud.txt", this.b.toString());
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+            jSONObject.put("dbOverNum", i);
+            jSONObject.put("tableName", str2);
+            c("logDiscard", "database", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    public final void r(naa naaVar) {
-        String str;
+    public void l(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048592, this, naaVar) != null) || naaVar == null) {
-            return;
-        }
-        if (this.c == null) {
-            this.c = new JSONObject();
-        }
-        try {
-            Map<String, String> b2 = naaVar.b();
-            if (b2 != null && b2.size() > 0) {
+        if ((interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) && this.a && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str)) {
+            try {
                 JSONObject jSONObject = new JSONObject();
-                for (String str2 : b2.keySet()) {
-                    jSONObject.put(str2, b2.get(str2));
-                }
-                this.c.put("iddemap", jSONObject);
+                jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str2);
+                jSONObject.put("size", str3);
+                c("logSize", str, jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            Map<String, oaa> e2 = naaVar.e();
-            if (e2 != null && e2.size() > 0) {
+        }
+    }
+
+    public final void c(String str, String str2, JSONObject jSONObject) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            if (b) {
+                if (jSONObject != null) {
+                    str3 = jSONObject.toString();
+                } else {
+                    str3 = "";
+                }
+                Log.d("UBCQualityStatics", "Quality event: type=" + str + ", value=" + str2 + ",ext=" + str3);
+            }
+            try {
                 JSONObject jSONObject2 = new JSONObject();
-                for (String str3 : e2.keySet()) {
-                    oaa oaaVar = e2.get(str3);
-                    if (oaaVar != null) {
-                        JSONObject jSONObject3 = new JSONObject();
-                        if (oaaVar.b()) {
-                            str = "1";
-                        } else {
-                            str = "0";
-                        }
-                        jSONObject3.put(TbConfig.SW_APID, str);
-                        jSONObject3.put("size", oaaVar.a());
-                        jSONObject3.put("v", oaaVar.c());
-                        jSONObject2.put(str3, jSONObject3);
-                    }
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject2.put("type", str);
                 }
-                if (jSONObject2.length() > 0) {
-                    this.c.put("idlist", jSONObject2);
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject2.put("value", str2);
                 }
+                if (jSONObject != null) {
+                    jSONObject2.put("ext", jSONObject);
+                }
+                uBCManager.onEvent("1876", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            n("yalog_id_cloud.txt", this.c.toString());
-        } catch (JSONException e3) {
-            e3.printStackTrace();
         }
     }
 
-    public void q(JSONObject jSONObject, boolean z) {
+    public void d(String str, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048591, this, jSONObject, z) == null) && jSONObject != null && jSONObject.length() != 0) {
-            if (d) {
-                Log.d("YaLogConfigManager", "update Config: " + jSONObject.toString());
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) != null) || !this.a || TextUtils.isEmpty(str) || i == 0) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+            jSONObject.put("fileNum", i);
+            c("logDiscard", "fileNum", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void e(String str, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIII(1048579, this, str, i, i2, i3) != null) || !this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (i == 0 && i2 == 0 && i3 == 0) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+            if (i != 0) {
+                jSONObject.put("flowExpired", i);
             }
-            if (this.a == null) {
-                this.a = new naa();
+            if (i2 != 0) {
+                jSONObject.put("eventExpired", i2);
             }
-            this.a.o(jSONObject, z);
-            r(this.a);
+            if (i3 != 0) {
+                jSONObject.put("flowInterrupt", i3);
+            }
+            c("logDiscard", "timeExpired", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+            c("logDiscard", "realLog", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || !this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("exception", str);
+            c("sqlError", null, jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) || !this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("exception", str);
+            c("sendFail", "bodyError", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || !this.a) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("errno", i);
+            c("sendFail", "backend", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void g(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) && this.a && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+                jSONObject.put("size", str2);
+                jSONObject.put("logId", str3);
+                c("logSize", "single", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048583, this, str, str2) != null) || !this.a) {
+            return;
+        }
+        if (TextUtils.isEmpty(str2) && TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            if (!TextUtils.isEmpty(str)) {
+                jSONObject.put("msg", str);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                jSONObject.put("exception", str2);
+            }
+            c("sendFail", "requestError", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void m(boolean z, long j) {
+        int q;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            if (z) {
+                q = p9a.o().r();
+            } else {
+                q = p9a.o().q();
+            }
+            if (z) {
+                str = "uploadReal";
+            } else {
+                str = "uploadNonReal";
+            }
+            if (j > q) {
+                l(str, String.valueOf(q), String.valueOf(j));
+            }
         }
     }
 }

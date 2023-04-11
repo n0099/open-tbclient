@@ -5,14 +5,14 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kl3;
+import com.baidu.tieba.ll3;
 /* loaded from: classes3.dex */
 public class OpenLocationMenuItem {
-    public static final int e = kl3.g(45.0f);
+    public static final int e = ll3.g(45.0f);
     public MenuItemType a;
     public b b;
     public TextView c;
-    public int d = kl3.g(1.0f);
+    public int d = ll3.g(1.0f);
 
     /* loaded from: classes3.dex */
     public enum MenuItemType {
@@ -59,7 +59,7 @@ public class OpenLocationMenuItem {
         this.c = new TextView(context);
         this.c.setText(str);
         this.c.setTextSize(16.0f);
-        this.c.setBackground(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f10));
+        this.c.setBackground(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080efd));
         this.c.setTextColor(-16777216);
         this.c.setGravity(17);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, e);

@@ -17,7 +17,8 @@ public class CheckShowNameDialogSwitch extends te {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tieba.te
-    public String[] getCrashKeys() {
+    /* renamed from: getCrashKeys */
+    public String[] mo55getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new String[0] : (String[]) invokeV.objValue;

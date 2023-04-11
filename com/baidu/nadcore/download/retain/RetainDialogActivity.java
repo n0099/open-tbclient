@@ -3,8 +3,8 @@ package com.baidu.nadcore.download.retain;
 import android.content.Intent;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vj0;
-import com.baidu.tieba.vk0;
+import com.baidu.tieba.wj0;
+import com.baidu.tieba.wk0;
 /* loaded from: classes2.dex */
 public class RetainDialogActivity extends NadDialogActivity {
     public int C;
@@ -27,26 +27,26 @@ public class RetainDialogActivity extends NadDialogActivity {
     @Override // com.baidu.nadcore.appframework.BaseActivity
     public void F1() {
         super.F1();
-        if (vk0.c().a()) {
+        if (wk0.c().a()) {
             finish();
         }
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
     public void a2() {
-        vk0.c().f();
+        wk0.c().f();
         finish();
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
     public void b2() {
-        vk0.c().g();
+        wk0.c().g();
         finish();
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
     public int c2() {
-        return vj0.a().b();
+        return wj0.a().b();
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity

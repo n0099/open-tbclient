@@ -1,187 +1,159 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Set;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pg6 {
+public class pg6 extends yf6<rh6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Uri a;
-    public String b;
-    public Bundle c;
+    public View i;
+    public HeadImageView j;
+    public TextView k;
+    public TextView l;
+    public TbImageView m;
+    public TextView n;
+    public View o;
+    public rh6 p;
+    public int q;
+    public String r;
+    public String s;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948061130, "Lcom/baidu/tieba/pg6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948061130, "Lcom/baidu/tieba/pg6;");
-        }
+    @Override // com.baidu.tieba.yf6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.card_promotion_item : invokeV.intValue;
     }
 
-    public pg6(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pg6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        g(str);
+        this.q = tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070266);
+        r(h());
     }
 
-    public String b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.yf6
+    public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return c(str, null);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public Bundle a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.c == null) {
-                this.c = new Bundle();
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundResource(this.i, R.drawable.addresslist_item_bg);
+                SkinManager.setBackgroundResource(this.n, R.drawable.label_bg_gray);
+                SkinManager.setBackgroundResource(this.o, R.color.CAM_X0204);
+                SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(this.n, R.color.CAM_X0109, 1);
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
+                this.j.setPlaceHolder(1);
+                this.m.setPlaceHolder(2);
             }
-            return this.c;
+            this.a = i;
         }
-        return (Bundle) invokeV.objValue;
     }
 
-    public Uri d() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (Uri) invokeV.objValue;
-    }
-
-    public String c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            Bundle bundle = this.c;
-            if (bundle != null) {
-                return bundle.getString(str, str2);
-            }
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                this.a.getScheme();
-                this.a.getHost();
-                String path = this.a.getPath();
-                this.b = path;
-                if (!TextUtils.isEmpty(path) && this.b.endsWith("/")) {
-                    this.b = this.b.substring(0, this.b.length() - 1);
-                }
-                Set<String> queryParameterNames = this.a.getQueryParameterNames();
-                if (queryParameterNames == null || queryParameterNames.isEmpty()) {
-                    return true;
-                }
-                if (this.c == null) {
-                    this.c = new Bundle();
-                }
-                for (String str : queryParameterNames) {
-                    String queryParameter = this.a.getQueryParameter(str);
-                    this.c.putString(str, queryParameter);
-                    if (TextUtils.equals(str, "params") && !TextUtils.isEmpty(queryParameter)) {
-                        try {
-                            JSONObject jSONObject = new JSONObject(queryParameter);
-                            Iterator<String> keys = jSONObject.keys();
-                            while (keys.hasNext()) {
-                                String next = keys.next();
-                                this.c.putString(next, jSONObject.optString(next, ""));
-                            }
-                        } catch (Exception e) {
-                            if (BdLog.isDebugMode()) {
-                                BdLog.e("builder parseUri e = " + e.toString());
-                            }
-                        }
-                    }
-                }
-                return true;
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e("builder parseUri te = " + th.toString());
-                }
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            if ((view2 == this.j || view2 == this.k || view2 == this.n) && !StringUtils.isNull(this.p.d)) {
+                TiebaStatic.log(new StatisticItem(this.r).param("obj_id", String.valueOf(this.p.a)));
+                UrlManager.getInstance().dealOneLink(g(), new String[]{this.p.d});
+            } else if ((view2 == this.i || view2 == this.l || view2 == this.m) && !StringUtils.isNull(this.p.g)) {
+                TiebaStatic.log(new StatisticItem(this.s).param("obj_id", String.valueOf(this.p.a)));
+                UrlManager.getInstance().dealOneLink(g(), new String[]{this.p.g});
             }
         }
-        return invokeV.booleanValue;
     }
 
-    public pg6 f(Uri uri) {
-        InterceptResult invokeL;
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uri)) == null) {
-            this.a = uri;
-            if (uri != null) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.i("builder uri = " + uri);
-                }
-                e();
-            } else if (BdLog.isDebugMode()) {
-                BdLog.i("builder uri = null");
-            }
-            return this;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f091e33);
+            this.j = (HeadImageView) view2.findViewById(R.id.promotion_head_img);
+            this.k = (TextView) view2.findViewById(R.id.promotion_name);
+            this.l = (TextView) view2.findViewById(R.id.promotion_desc);
+            this.m = (TbImageView) view2.findViewById(R.id.promotion_img);
+            this.n = (TextView) view2.findViewById(R.id.promotion_icon);
+            this.o = view2.findViewById(R.id.top_line);
+            this.j.setOnClickListener(this);
+            this.k.setOnClickListener(this);
+            this.n.setOnClickListener(this);
+            this.i.setOnClickListener(this);
+            this.j.setDefaultResource(17170445);
+            this.j.setPlaceHolder(1);
+            this.j.setRadius(this.q);
+            this.m.setDrawBorder(true);
+            this.m.setBorderWidth(1);
+            this.m.setPlaceHolder(2);
         }
-        return (pg6) invokeL.objValue;
     }
 
-    public pg6 g(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yf6
+    /* renamed from: s */
+    public void l(rh6 rh6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            Uri uri = null;
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    uri = Uri.parse(str);
-                }
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e("builder uri e = " + th.toString());
-                }
+        if (interceptable == null || interceptable.invokeL(1048581, this, rh6Var) == null) {
+            if (rh6Var == null) {
+                this.i.setVisibility(8);
+                return;
             }
-            f(uri);
-            return this;
+            if (this.i.getVisibility() != 0) {
+                this.i.setVisibility(0);
+            }
+            this.p = rh6Var;
+            this.j.N(rh6Var.c, 10, false);
+            this.k.setText(UtilHelper.getFixedText(rh6Var.b, 7, true));
+            if (StringUtils.isNull(rh6Var.i)) {
+                this.n.setVisibility(8);
+            } else {
+                this.n.setVisibility(0);
+                this.n.setText(rh6Var.i);
+            }
+            this.l.setText(rh6Var.e);
+            if (rv4.c().g()) {
+                this.m.setVisibility(0);
+                this.m.N(rh6Var.f, 10, false);
+                return;
+            }
+            this.m.setVisibility(8);
         }
-        return (pg6) invokeL.objValue;
+    }
+
+    public void t(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) {
+            this.r = str2;
+            this.s = str3;
+        }
     }
 }

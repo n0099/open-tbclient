@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class OfflineWebViewHttpReqMsg extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
@@ -18,7 +19,7 @@ public class OfflineWebViewHttpReqMsg extends HttpMessage {
     public String module;
     public String url;
     public String urlSign;
-    public WebView webView;
+    public WeakReference<WebView> webViewRef;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public OfflineWebViewHttpReqMsg() {

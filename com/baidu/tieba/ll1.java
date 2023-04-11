@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
+import com.baidu.smartcolor.utils.Tri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,29 +11,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ll1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ll1 a;
-    public static String b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    @Deprecated
+    public int a;
+    @Deprecated
+    public int b;
+    @Deprecated
+    public int c;
+    public String d;
+    public String e;
+    public Tri f;
+    public Tri g;
+    public Tri h;
+    public Tri i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
+    public boolean n;
+    public int o;
+    public int p;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void onFinish(String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ ll1 b;
+        public final ll1 a;
 
-        public b(ll1 ll1Var, Context context) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ll1Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,163 +51,64 @@ public class ll1 {
                     return;
                 }
             }
-            this.b = ll1Var;
-            this.a = context;
+            this.a = new ll1();
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public ll1 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    ql1.a("sso onekey init");
-                    this.b.f(this.a.getApplicationContext());
-                    bm1.m().e(this.a.getApplicationContext());
-                } catch (Throwable th) {
-                    cn1.d(th);
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ a b;
-        public final /* synthetic */ long c;
-
-        public c(ll1 ll1Var, Context context, a aVar, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ll1Var, context, aVar, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = aVar;
-            this.c = j;
+            return (ll1) invokeV.objValue;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public a b(Tri tri) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    ql1.a("sso onekey preLogin");
-                    if (!ml1.g(this.a.getApplicationContext()).e()) {
-                        zl1.b(this.b, wl1.a(), -1, null, false);
-                        ql1.d("sso onekey preLogin fail, user not auth");
-                        return;
-                    }
-                    bm1.m().f(this.a.getApplicationContext(), 0, null, this.c, this.b);
-                } catch (Throwable th) {
-                    cn1.d(th);
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tri)) == null) {
+                this.a.g = tri;
+                return this;
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ a b;
-        public final /* synthetic */ long c;
-
-        public d(ll1 ll1Var, Context context, a aVar, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ll1Var, context, aVar, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = aVar;
-            this.c = j;
+            return (a) invokeL.objValue;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public a c(Tri tri) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    ql1.a("sso onekey login");
-                    if (!ml1.g(this.a.getApplicationContext()).e()) {
-                        zl1.b(this.b, wl1.a(), -1, null, false);
-                        ql1.d("sso onekey login fail, user not auth");
-                        return;
-                    }
-                    bm1.m().g(this.a.getApplicationContext(), this.c, this.b);
-                } catch (Throwable th) {
-                    cn1.d(th);
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tri)) == null) {
+                this.a.f = tri;
+                return this;
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ a b;
-        public final /* synthetic */ long c;
-
-        public e(ll1 ll1Var, Context context, a aVar, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ll1Var, context, aVar, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = aVar;
-            this.c = j;
+            return (a) invokeL.objValue;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public a d(int i, int i2) {
+            InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    ql1.a("sso onekey verifyPhoneNum");
-                    if (!ml1.g(this.a.getApplicationContext()).e()) {
-                        zl1.b(this.b, wl1.a(), -1, null, false);
-                        ql1.d("sso onekey verifyPhoneNum fail, user not auth");
-                        return;
-                    }
-                    bm1.m().l(this.a.getApplicationContext(), this.c, this.b);
-                } catch (Throwable th) {
-                    cn1.d(th);
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+                if (i > 0 && i2 <= 100 && i2 >= i) {
+                    this.a.j = i;
+                    this.a.k = i2;
+                    return this;
                 }
+                throw new IllegalArgumentException("argument out of valid range!");
             }
+            return (a) invokeII.objValue;
+        }
+
+        public a e(int i, int i2) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
+                if (i >= 10 && i2 <= 100 && i2 >= i && i % 10 == 0 && i2 % 10 == 0) {
+                    this.a.l = i;
+                    this.a.m = i2;
+                    return this;
+                }
+                throw new IllegalArgumentException("argument out of valid range!");
+            }
+            return (a) invokeII.objValue;
         }
     }
 
@@ -214,130 +122,164 @@ public class ll1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static ll1 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (ll1.class) {
-                    if (a == null) {
-                        a = new ll1();
-                    }
-                }
-            }
-            return a;
-        }
-        return (ll1) invokeV.objValue;
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            ql1.b(z);
-        }
-    }
-
-    public String c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            ql1.a("getCurrentOperatorName");
-            if (!ml1.g(context.getApplicationContext()).e()) {
-                ql1.d("getCurrentOperatorName fail, user not auth");
-                return null;
-            }
-            int intValue = ((Integer) ln1.c(context.getApplicationContext()).second).intValue();
-            if (intValue == 1) {
-                return OneKeyLoginSdkCall.OPERATOR_CHINA_MOBILE;
-            }
-            if (intValue == 3) {
-                return OneKeyLoginSdkCall.OPERATOR_CHINA_TELECOM;
-            }
-            if (intValue != 2) {
-                return null;
-            }
-            return OneKeyLoginSdkCall.OPERATOR_CHINA_UNICOM;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public synchronized void e(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, str2) == null) {
-            synchronized (this) {
-                try {
-                    b = str;
-                    c = str2;
-                    wm1.b().post(new b(this, context));
-                } catch (Throwable th) {
-                    cn1.d(th);
-                }
-            }
-        }
-    }
-
-    public final void f(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            String m0 = ml1.g(context).m0();
-            if (TextUtils.isEmpty(m0)) {
                 return;
             }
-            String[] split = m0.split("_");
-            if (split.length != 2) {
-                ml1.g(context).h();
-            }
-            b = split[0];
-            c = split[1];
         }
+        this.a = 0;
+        this.b = 0;
+        this.c = 32;
+        Tri tri = Tri.UNDEFINED;
+        this.f = tri;
+        this.g = tri;
+        this.h = tri;
+        this.i = tri;
+        this.n = true;
+        this.o = 800;
+        this.p = 800;
     }
 
-    public void g(Context context, long j, a aVar) {
+    public Tri g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
-            try {
-                wm1.b().post(new d(this, context, aVar, j));
-            } catch (Throwable th) {
-                cn1.d(th);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.i;
         }
+        return (Tri) invokeV.objValue;
     }
 
-    public void h(Context context, long j, a aVar) {
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
-            try {
-                wm1.b().post(new c(this, context, aVar, j));
-            } catch (Throwable th) {
-                cn1.d(th);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.n;
         }
+        return invokeV.booleanValue;
     }
 
-    public void j(Context context, long j, a aVar) {
+    public Tri i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
-            try {
-                wm1.b().post(new e(this, context, aVar, j));
-            } catch (Throwable th) {
-                cn1.d(th);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
         }
+        return (Tri) invokeV.objValue;
     }
 
-    public void i(Context context, boolean z) {
+    public int j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, context, z) == null) {
-            try {
-                ql1.a("setUserAuthPrivacyState, value:" + z);
-                ml1.g(context.getApplicationContext()).Z(z);
-            } catch (Throwable th) {
-                cn1.d(th);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Tri m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return (Tri) invokeV.objValue;
+    }
+
+    public Tri n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.g;
+        }
+        return (Tri) invokeV.objValue;
+    }
+
+    @Deprecated
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.p;
+        }
+        return invokeV.intValue;
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.k;
+        }
+        return invokeV.intValue;
+    }
+
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.m;
+        }
+        return invokeV.intValue;
+    }
+
+    public int s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.o;
+        }
+        return invokeV.intValue;
+    }
+
+    public int t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public int u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.l;
+        }
+        return invokeV.intValue;
+    }
+
+    public String v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -27,10 +27,10 @@ import com.baidu.tieba.ch;
 import com.baidu.tieba.compatible.EditorHelper;
 import com.baidu.tieba.eh;
 import com.baidu.tieba.hh;
-import com.baidu.tieba.mi;
+import com.baidu.tieba.ni;
 import com.baidu.tieba.og;
-import com.baidu.tieba.oi;
 import com.baidu.tieba.pg;
+import com.baidu.tieba.pi;
 import com.baidu.tieba.qh;
 import com.baidu.tieba.rg;
 import com.baidu.tieba.sg;
@@ -76,7 +76,7 @@ public class BdStatisticsManager {
     public String mTrackLogWriteFileDir;
     public long mUploadInterval;
     public String mWriteFileDir;
-    public mi permissionUtil;
+    public ni permissionUtil;
 
     public void net(String str, String str2, String str3, long j, long j2, long j3, long j4, long j5, int i, int i2, String str4, Object... objArr) {
         Interceptable interceptable = $ic;
@@ -529,10 +529,10 @@ public class BdStatisticsManager {
         }
     }
 
-    public void setPermissionUtil(mi miVar) {
+    public void setPermissionUtil(ni niVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, miVar) == null) {
-            this.permissionUtil = miVar;
+        if (interceptable == null || interceptable.invokeL(1048625, this, niVar) == null) {
+            this.permissionUtil = niVar;
         }
     }
 
@@ -621,7 +621,7 @@ public class BdStatisticsManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, str)) == null) {
-            String d = oi.d(str.getBytes("UTF-8"));
+            String d = pi.d(str.getBytes("UTF-8"));
             if (!TextUtils.isEmpty(d) && d.length() > 8) {
                 return d.substring(d.length() - 8);
             }

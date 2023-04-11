@@ -6,7 +6,7 @@ import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SdkVerController {
     public static boolean mIsShowSdkUpdate;
     public IConfigAPI mConfigApi;

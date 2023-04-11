@@ -37,7 +37,7 @@ public class SearchEditView extends RelativeLayout {
     public interface d {
         void C1(String str);
 
-        void Q(String str);
+        void a0(String str);
     }
 
     /* loaded from: classes4.dex */
@@ -83,7 +83,7 @@ public class SearchEditView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (this.a.e != null) {
-                    this.a.e.Q(editable.toString().trim());
+                    this.a.e.a0(editable.toString().trim());
                 }
                 if (editable.toString().trim().length() == 0) {
                     this.a.d.setVisibility(4);

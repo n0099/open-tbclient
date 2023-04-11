@@ -26,7 +26,7 @@ import java.io.FilenameFilter;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CrashController {
     public static final int EXPIRES_DAY = 5;
     public static final String PREF_NAME = "hd_crash_pref";
@@ -38,7 +38,7 @@ public class CrashController {
     public Preference mPreference = new Preference(PREF_NAME);
     public boolean mIsSpecialDo = false;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OnCrashListener {
         void handler(JSONObject jSONObject);
     }

@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qu;
+import com.baidu.tieba.ru;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,16 +16,16 @@ import kotlin.Metadata;
 public final class BuoyContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qu a;
+    public ru a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BuoyContainer(Context context, qu quVar) {
+    public BuoyContainer(Context context, ru ruVar) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, quVar};
+            Object[] objArr = {context, ruVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,7 +36,7 @@ public final class BuoyContainer extends FrameLayout {
                 return;
             }
         }
-        this.a = quVar;
+        this.a = ruVar;
         setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
     }
 
@@ -45,9 +45,9 @@ public final class BuoyContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onAttachedToWindow();
-            qu quVar = this.a;
-            if (quVar != null) {
-                quVar.onAttachedToWindow();
+            ru ruVar = this.a;
+            if (ruVar != null) {
+                ruVar.onAttachedToWindow();
             }
         }
     }
@@ -57,9 +57,9 @@ public final class BuoyContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDetachedFromWindow();
-            qu quVar = this.a;
-            if (quVar != null) {
-                quVar.onDetachedFromWindow();
+            ru ruVar = this.a;
+            if (ruVar != null) {
+                ruVar.onDetachedFromWindow();
             }
         }
     }

@@ -17,10 +17,11 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e08;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ca8;
+import com.baidu.tieba.ii;
 import com.baidu.tieba.impersonal.components.PersonalMsgContainer;
-import com.baidu.tieba.k08;
+import com.baidu.tieba.na8;
+import com.baidu.tieba.uz6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,10 +33,10 @@ import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\b\u0007\u0018\u0000*\u0004\b\u0000\u0010\u0001*\b\b\u0001\u0010\u0002*\u00020\u00032\u00020\u00042\u00020\u0005B#\b\u0007\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\b\u001a\u00020\t\u0012\n\b\u0002\u0010\n\u001a\u0004\u0018\u00010\u000b¢\u0006\u0002\u0010\fJ\u0013\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u000f\u001a\u00028\u0001¢\u0006\u0002\u0010\u001aJ\r\u0010\u001b\u001a\u0004\u0018\u00018\u0001¢\u0006\u0002\u0010\u001cJ\b\u0010\u001d\u001a\u00020\u0019H\u0016J\u0014\u0010\u001e\u001a\u00020\u00192\f\u0010\u001f\u001a\b\u0012\u0004\u0012\u00028\u00000 R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u0012\u0010\u000f\u001a\u0004\u0018\u00018\u0001X\u0082\u000e¢\u0006\u0004\n\u0002\u0010\u0010R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006!"}, d2 = {"Lcom/baidu/tieba/impersonal/components/PersonalMsgContainer;", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "Landroid/view/View;", "Landroidx/constraintlayout/widget/ConstraintLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "left", "", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(ZLandroid/content/Context;Landroid/util/AttributeSet;)V", "avatar", "Lcom/baidu/tbadk/core/view/HeadImageView;", MapBundleKey.OfflineMapKey.OFFLINE_CHILD, "Landroid/view/View;", "container", "Landroid/widget/LinearLayout;", "nickName", "Landroid/widget/TextView;", "resend", "Landroid/widget/ImageView;", "rootContainer", "addChild", "", "(Landroid/view/View;)V", "getChild", "()Landroid/view/View;", "onChangeSkin", "updateState", "state", "Lcom/baidu/tieba/impersonal/components/uistate/BasePersonalMsgUiState;", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0000\b\u0007\u0018\u0000*\u0004\b\u0000\u0010\u0001*\b\b\u0001\u0010\u0002*\u00020\u00032\u00020\u00042\u00020\u0005B#\b\u0007\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\b\u001a\u00020\t\u0012\n\b\u0002\u0010\n\u001a\u0004\u0018\u00010\u000b¢\u0006\u0002\u0010\fJ\u0013\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u000f\u001a\u00028\u0001¢\u0006\u0002\u0010\u001aJ\r\u0010\u001b\u001a\u0004\u0018\u00018\u0001¢\u0006\u0002\u0010\u001cJ\u0006\u0010\u001d\u001a\u00020\u0012J\b\u0010\u001e\u001a\u00020\u0019H\u0016J\u0014\u0010\u001f\u001a\u00020\u00192\f\u0010 \u001a\b\u0012\u0004\u0012\u00028\u00000!R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u0012\u0010\u000f\u001a\u0004\u0018\u00018\u0001X\u0082\u000e¢\u0006\u0004\n\u0002\u0010\u0010R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\""}, d2 = {"Lcom/baidu/tieba/impersonal/components/PersonalMsgContainer;", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "Landroid/view/View;", "Landroidx/constraintlayout/widget/ConstraintLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "left", "", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(ZLandroid/content/Context;Landroid/util/AttributeSet;)V", "avatar", "Lcom/baidu/tbadk/core/view/HeadImageView;", MapBundleKey.OfflineMapKey.OFFLINE_CHILD, "Landroid/view/View;", "container", "Landroid/widget/LinearLayout;", "nickName", "Landroid/widget/TextView;", "resend", "Landroid/widget/ImageView;", "rootContainer", "addChild", "", "(Landroid/view/View;)V", "getChild", "()Landroid/view/View;", "getChildContainer", "onChangeSkin", "updateState", "state", "Lcom/baidu/tieba/impersonal/components/uistate/BasePersonalMsgUiState;", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes4.dex */
-public final class PersonalMsgContainer<T, V extends View> extends ConstraintLayout {
+/* loaded from: classes5.dex */
+public final class PersonalMsgContainer<T, V extends View> extends ConstraintLayout implements uz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean a;
@@ -46,13 +47,13 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
     public final ImageView f;
     public V g;
 
-    public static final void b(View view2) {
+    public static final void c(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, view2) == null) {
         }
     }
 
-    public static final void c(View view2) {
+    public static final void d(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2) == null) {
         }
@@ -82,28 +83,28 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
         Intrinsics.checkNotNullParameter(context, "context");
         this.a = z;
         if (z) {
-            i = R.layout.obfuscated_res_0x7f0d04fd;
+            i = R.layout.obfuscated_res_0x7f0d04fc;
         } else {
-            i = R.layout.obfuscated_res_0x7f0d04fe;
+            i = R.layout.obfuscated_res_0x7f0d04fd;
         }
         LayoutInflater.from(context).inflate(i, this);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         View findViewById = findViewById(R.id.root_container);
         Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.root_container)");
         this.b = (ConstraintLayout) findViewById;
-        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090316);
+        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09030b);
         Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.avatar)");
         this.c = (HeadImageView) findViewById2;
-        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f091846);
+        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f091849);
         Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.nickname)");
         this.d = (TextView) findViewById3;
-        View findViewById4 = findViewById(R.id.obfuscated_res_0x7f09076e);
+        View findViewById4 = findViewById(R.id.obfuscated_res_0x7f090772);
         Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.container)");
         this.e = (LinearLayout) findViewById4;
         View findViewById5 = findViewById(R.id.btn_msgitem_resend);
         Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.btn_msgitem_resend)");
         this.f = (ImageView) findViewById5;
-        this.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zz7
+        this.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.x98
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -115,19 +116,7 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
                 }
             }
         });
-        this.c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.b08
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // android.view.View.OnClickListener
-            public final void onClick(View view2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    PersonalMsgContainer.b(view2);
-                }
-            }
-        });
-        this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.c08
+        this.c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.z98
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -136,6 +125,18 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                     PersonalMsgContainer.c(view2);
+                }
+            }
+        });
+        this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aa8
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // android.view.View.OnClickListener
+            public final void onClick(View view2) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    PersonalMsgContainer.d(view2);
                 }
             }
         });
@@ -150,45 +151,46 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
         if (interceptable == null || interceptable.invokeLLL(65538, null, context, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(context, "$context");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            hi.z(context, this$0);
+            ii.z(context, this$0);
         }
     }
 
-    public static final void i(e08 state, View it) {
+    public static final void i(ca8 state, View it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, state, it) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
-            Function2<View, k08<T>, Unit> d = state.d();
-            if (d != null) {
+            Function2<View, na8<T>, Unit> e = state.e();
+            if (e != null) {
                 Intrinsics.checkNotNullExpressionValue(it, "it");
-                d.invoke(it, state.c());
+                e.invoke(it, state.c());
             }
         }
     }
 
-    public final void d(V child) {
+    @Override // com.baidu.tieba.uz6
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, child) == null) {
-            Intrinsics.checkNotNullParameter(child, "child");
-            this.g = child;
-            this.e.removeAllViews();
-            this.e.addView(child);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.d.setTextColor(getResources().getColor(R.color.CAM_X0605));
             HeadImageView headImageView = this.c;
             headImageView.setPlaceHolderAutoChangeSkinType(1);
             headImageView.setIsRound(true);
             headImageView.setAutoChangeStyle(false);
             if (this.a) {
-                SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f0802e9);
+                SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f0802e7);
             } else {
-                SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f0802e8);
+                SkinManager.setBackgroundResource(this.e, R.drawable.obfuscated_res_0x7f0802e6);
             }
+        }
+    }
+
+    public final void e(V child) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, child) == null) {
+            Intrinsics.checkNotNullParameter(child, "child");
+            this.g = child;
+            this.e.removeAllViews();
+            this.e.addView(child);
         }
     }
 
@@ -201,18 +203,27 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
         return (V) invokeV.objValue;
     }
 
-    public final void h(final e08<T> state) {
+    public final LinearLayout getChildContainer() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, state) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (LinearLayout) invokeV.objValue;
+    }
+
+    public final void h(final ca8<T> state) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            this.c.M(state.c().e().b(), 12, false);
+            this.c.N(state.c().e().b(), 12, false);
             this.d.setText(state.c().e().a());
             if (state.c().e().d() && state.c().e().c() == 2) {
                 this.f.setVisibility(0);
             } else {
                 this.f.setVisibility(8);
             }
-            this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.a08
+            this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y98
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -220,11 +231,11 @@ public final class PersonalMsgContainer<T, V extends View> extends ConstraintLay
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        PersonalMsgContainer.i(e08.this, view2);
+                        PersonalMsgContainer.i(ca8.this, view2);
                     }
                 }
             });
-            e();
+            b();
         }
     }
 }

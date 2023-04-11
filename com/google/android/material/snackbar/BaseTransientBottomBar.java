@@ -815,9 +815,9 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     @LayoutRes
     public int getSnackbarBaseLayoutResId() {
         if (hasSnackbarStyleAttr()) {
-            return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d05fd;
+            return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d05fb;
         }
-        return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0229;
+        return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d022b;
     }
 
     @NonNull

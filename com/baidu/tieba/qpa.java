@@ -1,165 +1,99 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunNativeView;
+import com.fun.ad.sdk.channel.model.jy.JYNativeAdView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.win.opensdk.PBMediaView;
+import com.win.opensdk.PBNative;
+import com.win.opensdk.PBNativeListener;
 /* loaded from: classes6.dex */
-public final class qpa {
+public class qpa extends FunNativeAd2Bridger<PBNative, JYNativeAdView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ tpa b;
+    public final /* synthetic */ ppa c;
 
-    public static int a(String str, String str2) {
-        InterceptResult invokeLL;
-        int length;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qpa(ppa ppaVar, ReporterPidLoader reporterPidLoader, tpa tpaVar) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (str == null && str2 == null) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ppaVar, reporterPidLoader, tpaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (str != null && str2 == null) {
-                return 1;
-            }
-            if (str == null) {
-                return -1;
-            }
-            if (str.equals(str2)) {
-                return 0;
-            }
-            if (str.startsWith(str2)) {
-                return 1;
-            }
-            if (str2.startsWith(str)) {
-                return -1;
-            }
-            String[] split = str.split("\\.|-");
-            String[] split2 = str2.split("\\.|-");
-            if (split.length <= split2.length) {
-                length = split.length;
-            } else {
-                length = split2.length;
-            }
-            for (int i = 0; i < length; i++) {
-                try {
-                    int parseInt = Integer.parseInt(split[i]);
-                    int parseInt2 = Integer.parseInt(split2[i]);
-                    Integer.parseInt(split[i]);
-                    Integer.parseInt(split2[i]);
-                    if (parseInt > parseInt2) {
-                        return 1;
-                    }
-                    if (parseInt < parseInt2) {
-                        return -1;
-                    }
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (split.length > length) {
-                return 1;
-            }
-            if (split2.length > length) {
-                return -1;
-            }
-            return str.compareTo(str2);
         }
-        return invokeLL.intValue;
+        this.c = ppaVar;
+        this.b = tpaVar;
     }
 
-    public static String b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (context != null && str != null) {
-                try {
-                    PackageManager packageManager = context.getPackageManager();
-                    return packageManager.getApplicationLabel(packageManager.getApplicationInfo(str, 128)).toString();
-                } catch (Exception unused) {
-                }
-            }
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean d(Context context, Class<? extends Activity> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, cls)) == null) {
-            if (context != null && cls != null) {
-                try {
-                    context.getPackageManager().getActivityInfo(new ComponentName(context.getPackageName(), cls.getName()), 0);
-                    return true;
-                } catch (Exception unused) {
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /*  JADX ERROR: NullPointerException in pass: RegionMakerVisitor
-        java.lang.NullPointerException: Cannot read field "wordsInUse" because "set" is null
-        	at java.base/java.util.BitSet.or(BitSet.java:943)
-        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:732)
-        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:811)
-        	at jadx.core.dex.visitors.regions.IfMakerHelper.restructureIf(IfMakerHelper.java:88)
-        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:706)
-        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
-        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
-        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:730)
-        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
-        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
-        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:735)
-        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
-        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
-        	at jadx.core.dex.visitors.regions.RegionMakerVisitor.visit(RegionMakerVisitor.java:52)
-        */
-    public static boolean e(android.content.Context r4, android.content.Intent r5) {
-        /*
-            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.qpa.$ic
-            if (r0 != 0) goto L1a
-        L4:
-            r0 = 0
-            if (r4 == 0) goto L19
-            if (r5 != 0) goto La
-            goto L19
-        La:
-            android.content.pm.PackageManager r4 = r4.getPackageManager()     // Catch: java.lang.Exception -> L19
-            java.util.List r4 = r4.queryIntentActivities(r5, r0)     // Catch: java.lang.Exception -> L19
-            int r4 = r4.size()     // Catch: java.lang.Exception -> L19
-            if (r4 <= 0) goto L19
-            r0 = 1
-        L19:
-            return r0
-        L1a:
-            r1 = r0
-            r2 = 65540(0x10004, float:9.1841E-41)
-            r3 = 0
-            com.baidu.titan.sdk.runtime.InterceptResult r0 = r1.invokeLL(r2, r3, r4, r5)
-            if (r0 == 0) goto L4
-            boolean r1 = r0.booleanValue
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.qpa.e(android.content.Context, android.content.Intent):boolean");
-    }
-
-    public static String c(Context context) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.ad.sdk.channel.model.jy.JYNativeAdView, android.view.View] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public JYNativeAdView createExpressView(PBNative pBNative) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                return packageInfo.packageName + "(" + packageInfo.versionName + SmallTailInfo.EMOTION_SUFFIX;
-            } catch (Throwable unused) {
-                return "";
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pBNative)) == null) {
+            return this.c.e(pBNative);
         }
-        return (String) invokeL.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, PBNative pBNative, BaseNativeAd2<PBNative, JYNativeAdView> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, pBNative, baseNativeAd2, funAdInteractionListener}) == null) {
+            PBNative pBNative2 = pBNative;
+            ppa ppaVar = this.c;
+            FunNativeAdListenerHelper<PBNative, PBNativeListener> funNativeAdListenerHelper = ppaVar.e;
+            pid = ppaVar.mPid;
+            funNativeAdListenerHelper.startShow(pBNative2, str, pid, null, funAdInteractionListener);
+            ViewGroup inflate = customInflater.inflate();
+            if (inflate instanceof FunNativeView) {
+                inflate = ((FunNativeView) inflate).getRoot();
+            }
+            pBNative2.registerViewForInteraction(inflate, (PBMediaView) this.b.getVideoView(), customInflater.getClickViews());
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, PBNative pBNative, BaseNativeAd2<PBNative, JYNativeAdView> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, pBNative, baseNativeAd2, funAdInteractionListener}) == null) {
+            ppa ppaVar = this.c;
+            FunNativeAdListenerHelper<PBNative, PBNativeListener> funNativeAdListenerHelper = ppaVar.e;
+            pid = ppaVar.mPid;
+            funNativeAdListenerHelper.startShow(pBNative, str, pid, null, funAdInteractionListener);
+            expressInflater.inflate();
+        }
     }
 }

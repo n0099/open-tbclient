@@ -1,155 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdBaseFragmentActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.FestivalTipData;
-import tbclient.ThemeColorInfo;
 /* loaded from: classes7.dex */
-public final class xp9 {
+public class xp9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ThemeColorInfo a;
-    public final ThemeColorInfo b;
+    public final MainTabActivity a;
+    public final jo9 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948308200, "Lcom/baidu/tieba/xp9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948308200, "Lcom/baidu/tieba/xp9;");
-                return;
-            }
-        }
-        c = new a(null);
-    }
-
-    @JvmStatic
-    public static final xp9 a(FestivalTipData festivalTipData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, festivalTipData)) == null) ? c.a(festivalTipData) : (xp9) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof xp9) {
-                xp9 xp9Var = (xp9) obj;
-                return Intrinsics.areEqual(this.a, xp9Var.a) && Intrinsics.areEqual(this.b, xp9Var.b);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "FestivalTipViewStyle(backgroundColor=" + this.a + ", textColor=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final xp9 a(FestivalTipData festivalTipData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, festivalTipData)) == null) {
-                Intrinsics.checkNotNullParameter(festivalTipData, "festivalTipData");
-                ThemeColorInfo themeColorInfo = festivalTipData.background_color;
-                Intrinsics.checkNotNullExpressionValue(themeColorInfo, "festivalTipData.background_color");
-                ThemeColorInfo themeColorInfo2 = festivalTipData.font_color;
-                Intrinsics.checkNotNullExpressionValue(themeColorInfo2, "festivalTipData.font_color");
-                return new xp9(themeColorInfo, themeColorInfo2);
-            }
-            return (xp9) invokeL.objValue;
-        }
-    }
-
-    public xp9(ThemeColorInfo backgroundColor, ThemeColorInfo textColor) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xp9(MainTabActivity mainTabActivity, jo9 jo9Var) {
+        super(2921728);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {backgroundColor, textColor};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {mainTabActivity, jo9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(backgroundColor, "backgroundColor");
-        Intrinsics.checkNotNullParameter(textColor, "textColor");
-        this.a = backgroundColor;
-        this.b = textColor;
+        this.a = mainTabActivity;
+        this.b = jo9Var;
+        setPriority(1);
     }
 
-    public final ThemeColorInfo b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        jo9 jo9Var;
+        MainTabActivity mainTabActivity;
+        tq9 B1;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728 && (jo9Var = this.b) != null && jo9Var.y() != null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            BdUniqueId bdUniqueId = null;
+            if (currentActivity instanceof BdBaseFragmentActivity) {
+                bdUniqueId = ((BdBaseFragmentActivity) currentActivity).getUniqueId();
+            }
+            if (getTag() == bdUniqueId && (mainTabActivity = this.a) != null && (B1 = mainTabActivity.B1()) != null) {
+                B1.a();
+            }
         }
-        return (ThemeColorInfo) invokeV.objValue;
-    }
-
-    public final ThemeColorInfo c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (ThemeColorInfo) invokeV.objValue;
     }
 }

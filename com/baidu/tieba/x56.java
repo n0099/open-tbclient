@@ -1,86 +1,100 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.bdtask.ctrl.model.TaskProcess;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class x56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a9 a;
-    public BdTypeListView b;
-    public final List<tm> c;
-    public w56 d;
-    public t56 e;
-    public r56 f;
-    public s56 g;
+    public ThreadData a;
+    public boolean b;
+    public long c;
+    public List<a> d;
 
-    public x56(a9 a9Var, BdTypeListView bdTypeListView, boolean z) {
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optInt("tag_type");
+            this.b = jSONObject.optString("tag_word");
+        }
+    }
+
+    public x56() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a9Var, bdTypeListView, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = new ArrayList();
-        this.a = a9Var;
-        this.b = bdTypeListView;
-        a(z);
-    }
-
-    public final void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (z) {
-                t56 t56Var = new t56((TbPageContext) this.a, n66.c);
-                this.e = t56Var;
-                this.c.add(t56Var);
-            } else {
-                w56 w56Var = new w56((TbPageContext) this.a, n66.c);
-                this.d = w56Var;
-                this.c.add(w56Var);
-            }
-            this.f = new r56((TbPageContext) this.a, z56.a);
-            this.g = new s56((TbPageContext) this.a, a66.a);
-            this.c.add(this.f);
-            this.c.add(this.g);
-            this.b.addAdapters(this.c);
-        }
-    }
-
-    public void b(k26 k26Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k26Var) == null) {
-            w56 w56Var = this.d;
-            if (w56Var != null) {
-                w56Var.u(k26Var);
-            }
-            t56 t56Var = this.e;
-            if (t56Var != null) {
-                t56Var.u(k26Var);
             }
         }
     }
 
-    public void c(List<gn> list) {
-        BdTypeListView bdTypeListView;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (bdTypeListView = this.b) != null) {
-            bdTypeListView.setData(list);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        boolean z = true;
+        if (jSONObject.optInt(TiebaStatic.Params.IS_FOLLOW) != 1) {
+            z = false;
+        }
+        this.b = z;
+        this.c = jSONObject.optLong("last_watch_time");
+        JSONObject optJSONObject = jSONObject.optJSONObject("thread_info");
+        if (optJSONObject != null) {
+            ThreadData threadData = new ThreadData();
+            this.a = threadData;
+            threadData.parserJson(optJSONObject);
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray(TaskProcess.keyTags);
+        if (optJSONArray == null) {
+            return;
+        }
+        int length = optJSONArray.length();
+        this.d = new ArrayList(length);
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+            if (optJSONObject2 != null) {
+                a aVar = new a();
+                aVar.a(optJSONObject2);
+                this.d.add(aVar);
+            }
         }
     }
 }

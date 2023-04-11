@@ -2,7 +2,6 @@ package com.baidu.tieba.browser;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebContainerActivityConfig;
-import com.baidu.tieba.pd6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +27,6 @@ public class BrowserStatic {
                 return;
             }
         }
-        pd6.b("lt-log", "BrowserStatic running!");
         TbadkCoreApplication.getInst().RegisterIntent(TbWebContainerActivityConfig.class, TBWebContainerActivity.class);
     }
 

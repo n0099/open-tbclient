@@ -1,102 +1,42 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TailManagementActivityConfig;
-import com.baidu.tbadk.core.data.SmallTailThemeData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.data.UserData;
+import com.baidu.tieba.ca8;
+import com.baidu.tieba.impersonal.components.PersonalMsgContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.view.SimpleDraweeView;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
-public class yb8 {
+public abstract class yb8<T, V extends View, M extends ca8<T>> implements a07<PersonalMsgContainer<T, V>, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BdListView a;
-    public LinearLayout b;
-    public LinearLayout c;
-    public TextView d;
-    public ImageView e;
-    public ImageView f;
-    public TextView g;
-    public final Context h;
-    public SimpleDraweeView i;
-    public final View.OnClickListener j;
+    public final String a;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yb8 a;
+    public abstract void d(V v, M m);
 
-        public a(yb8 yb8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yb8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yb8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2 == this.a.b) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TailManagementActivityConfig(view2.getContext())));
-                } else if (view2 == this.a.c) {
-                    UserData e = he5.d().e();
-                    if (e == null || e.getSmallTailThemeData() == null) {
-                        str = "";
-                    } else {
-                        str = e.getSmallTailThemeData().getPropsId();
-                    }
-                    String string = TbadkCoreApplication.getInst().getString(R.string.tail_web_view_title);
-                    String s = m35.m().s("tail_link", "");
-                    if (!StringUtils.isNull(s)) {
-                        Context context = view2.getContext();
-                        gt4.x(context, string, UtilHelper.urlAddParam(s, "page_from=4&tailSkinId=" + str), true, true, true);
-                    }
-                }
-            }
+    public void f(ViewGroup container) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, container) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
         }
     }
 
-    public yb8(ViewGroup viewGroup) {
+    public abstract V g(ViewGroup viewGroup);
+
+    public yb8(String name) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup};
+            Object[] objArr = {name};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -106,60 +46,76 @@ public class yb8 {
                 return;
             }
         }
-        this.j = new a(this);
-        this.h = viewGroup.getContext();
-        this.a = (BdListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922b8);
-        this.i = (SimpleDraweeView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922b9);
-        this.b = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922b2);
-        this.d = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922b3);
-        this.e = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922b4);
-        this.c = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922af);
-        this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922b1);
-        this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922b0);
-        this.b.setOnClickListener(this.j);
-        this.c.setOnClickListener(this.j);
+        Intrinsics.checkNotNullParameter(name, "name");
+        this.a = name;
     }
 
-    public void d(tb8 tb8Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.a07
+    /* renamed from: e */
+    public void b(PersonalMsgContainer<T, V> view2, M data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tb8Var) == null) {
-            this.a.setAdapter((ListAdapter) tb8Var);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, data) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(data, "data");
+            view2.h(data);
+            d(view2.getChild(), data);
+            f(view2.getChildContainer());
         }
     }
 
-    public void c(int i) {
+    @Override // com.baidu.tieba.a07
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            n15 d = n15.d(this.d);
-            d.w(R.color.CAM_X0304);
-            d.B(R.string.F_X02);
-            d.A(R.dimen.T_X06);
-            n15 d2 = n15.d(this.b);
-            d2.o(R.string.J_X01);
-            d2.e(R.string.A_X11);
-            d2.f(R.color.CAM_X0302);
-            n15 d3 = n15.d(this.g);
-            d3.w(R.color.CAM_X0101);
-            d3.B(R.string.F_X02);
-            d3.A(R.dimen.T_X06);
-            n15 d4 = n15.d(this.c);
-            d4.o(R.string.J_X01);
-            d4.f(R.color.CAM_X0302);
-            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080a49, R.color.CAM_X0304, null);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f0809c4, R.color.CAM_X0101, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void e(SmallTailThemeData smallTailThemeData) {
+    public final boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, smallTailThemeData) == null) {
-            if (smallTailThemeData != null && !TextUtils.isEmpty(smallTailThemeData.getTail())) {
-                this.i.setVisibility(0);
-                this.i.setController(Fresco.newDraweeControllerBuilder().setUri(Uri.parse(smallTailThemeData.getTail())).setAutoPlayAnimations(true).build());
-                this.i.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return StringsKt__StringsJVMKt.endsWith$default(c(), "_left", false, 2, null);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return StringsKt__StringsJVMKt.endsWith$default(c(), "_right", false, 2, null);
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.a07
+    /* renamed from: h */
+    public PersonalMsgContainer<T, V> a(ViewGroup parent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            if (i()) {
+                Context context = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+                PersonalMsgContainer<T, V> personalMsgContainer = new PersonalMsgContainer<>(true, context, null, 4, null);
+                personalMsgContainer.e(g(parent));
+                return personalMsgContainer;
+            } else if (j()) {
+                Context context2 = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context2, "parent.context");
+                PersonalMsgContainer<T, V> personalMsgContainer2 = new PersonalMsgContainer<>(false, context2, null, 4, null);
+                personalMsgContainer2.e(g(parent));
+                return personalMsgContainer2;
+            } else {
+                throw new IllegalArgumentException("unknown template: " + c());
             }
-            this.i.setVisibility(4);
         }
+        return (PersonalMsgContainer) invokeL.objValue;
     }
 }

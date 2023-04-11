@@ -1,30 +1,42 @@
 package com.baidu.tieba;
 
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.AutoChangeLineView;
-import com.baidu.tieba.write.write.work.selectview.SelectTagView;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: lambda */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class iy9 implements AutoChangeLineView.b {
+public abstract class iy9 extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ iy9 a = new iy9();
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    private /* synthetic */ iy9() {
+    public abstract void a(TextPaint textPaint, boolean z);
+
+    public iy9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    @Override // com.baidu.tbadk.core.view.AutoChangeLineView.b
-    public final CharSequence a(TextView textView, int i, Object obj) {
-        InterceptResult invokeLIL;
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, obj)) == null) {
-            String str = (String) obj;
-            SelectTagView.d(textView, i, str);
-            return str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+            super.updateDrawState(textPaint);
+            a(textPaint, this.a);
+            textPaint.setUnderlineText(false);
+            textPaint.clearShadowLayer();
         }
-        return (CharSequence) invokeLIL.objValue;
     }
 }

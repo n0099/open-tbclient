@@ -1,6 +1,5 @@
 package com.badlogic.gdx.scenes.scene2d.utils;
 
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +29,7 @@ public final class FocusListener$FocusEvent$Type {
                 return;
             }
         }
-        keyboard = new FocusListener$FocusEvent$Type(IntentConfig.SHOW_KEYBOARD, 0);
+        keyboard = new FocusListener$FocusEvent$Type("keyboard", 0);
         FocusListener$FocusEvent$Type focusListener$FocusEvent$Type = new FocusListener$FocusEvent$Type("scroll", 1);
         scroll = focusListener$FocusEvent$Type;
         $VALUES = new FocusListener$FocusEvent$Type[]{keyboard, focusListener$FocusEvent$Type};

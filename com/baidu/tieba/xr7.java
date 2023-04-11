@@ -4,14 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Personalized.Resource;
 /* loaded from: classes7.dex */
-public class xr7 extends qr7 {
+public class xr7 extends rh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xr7() {
-        super(mp7.w(), 2001147);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -19,12 +18,25 @@ public class xr7 extends qr7 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((bp7) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
+    }
+
+    public void c(Resource resource) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, resource) != null) || resource == null) {
+            return;
+        }
+        this.a = resource.res_id.longValue();
+        this.b = resource.user_name;
+        this.c = resource.user_image;
+        this.d = resource.user_link;
+        this.e = resource.res_title;
+        this.f = resource.res_image;
+        this.g = resource.res_link;
+        this.h = resource.position.longValue();
+        this.i = resource.icon_text;
     }
 }

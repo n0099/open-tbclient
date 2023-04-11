@@ -1,52 +1,65 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Page;
-/* loaded from: classes6.dex */
-public class xm5 {
+/* loaded from: classes7.dex */
+public class xm5 extends qa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public Object c;
 
-    public xm5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xm5(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = true;
     }
 
-    public void a(Page page) {
-        boolean z;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ua
+    /* renamed from: c */
+    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, page) != null) || page == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001536) {
+                return httpResponsedMessage;
+            }
+            if (httpResponsedMessage instanceof JsonHttpResponsedMessage) {
+                HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
+                ReloginManager g = ReloginManager.g();
+                if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
+                    if (httpMessage.removeParam("reloin_key") == null) {
+                        httpMessage.addParam("reloin_key", "reloin_value");
+                        g.l((HttpMessage) httpResponsedMessage.getOrginalMessage());
+                    } else {
+                        g.f(null);
+                    }
+                    return null;
+                }
+            }
+            return httpResponsedMessage;
         }
-        if (page.has_more.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.b = z;
-        page.has_prev.intValue();
-        this.a = page.current_page.intValue();
-        page.page_size.intValue();
-        page.total_page.intValue();
-        page.offset.intValue();
-        page.total_count.intValue();
-        sn5.b("parserProto--->currentPage=" + this.a + ",hasMore=" + this.b);
+        return (HttpResponsedMessage) invokeL.objValue;
     }
 }

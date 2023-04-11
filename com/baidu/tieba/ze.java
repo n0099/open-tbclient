@@ -184,22 +184,6 @@ public class ze {
         return (ze) invokeL.objValue;
     }
 
-    public ze l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            if (!this.b) {
-                if (i > 0) {
-                    this.a.mTargetViewId = i;
-                    return this;
-                }
-                throw new BuildException("Illegal view id.");
-            }
-            throw new BuildException("Already created. rebuild a new one.");
-        }
-        return (ze) invokeI.objValue;
-    }
-
     public ye b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

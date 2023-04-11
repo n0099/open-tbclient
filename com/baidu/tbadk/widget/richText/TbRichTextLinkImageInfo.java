@@ -39,7 +39,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         this.e = true;
     }
 
-    public String R() {
+    public String Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -48,7 +48,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public boolean S() {
+    public boolean R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

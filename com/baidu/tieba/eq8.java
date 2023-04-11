@@ -1,81 +1,115 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.adp.BdUniqueId;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.CardForumHeadLayout;
-import com.baidu.tieba.pb.videopb.viewholder.VideoPbEnterForumViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class eq8 extends tm<fj8, VideoPbEnterForumViewHolder> {
+public class eq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public TextView b;
+    public View c;
+    public View d;
+    public LinearLayout e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eq8(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public eq8(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0272, (ViewGroup) null, false);
+        this.d = inflate;
+        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090972);
+        this.e = linearLayout;
+        linearLayout.setVisibility(8);
+        this.a = this.d.findViewById(R.id.obfuscated_res_0x7f090975);
+        this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09097b);
+        View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f09096f);
+        this.c = findViewById;
+        findViewById.setVisibility(8);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.tm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fj8 fj8Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
-        t(i, view2, viewGroup, fj8Var, videoPbEnterForumViewHolder);
-        return view2;
+    public View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (wp8.b().a()) {
+                this.c.setVisibility(0);
+            } else {
+                this.c.setVisibility(8);
+            }
+        }
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            View view2 = this.a;
+            if (view2 != null) {
+                SkinManager.setBackgroundColor(view2, R.color.CAM_X0204, i);
+            }
+            LinearLayout linearLayout = this.e;
+            if (linearLayout != null) {
+                SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0204, i);
+            }
+            TextView textView = this.b;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i);
+                SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204, i);
+            }
+            View view3 = this.c;
+            if (view3 != null) {
+                SkinManager.setViewTextColor(view3, R.color.CAM_X0107, i);
+                SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204, i);
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm
-    /* renamed from: s */
-    public VideoPbEnterForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void update(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.mContext);
-            CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.mContext);
-            cardForumHeadLayout.setPadding(hi.g(this.mContext, R.dimen.tbds32), 0, 0, 0);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, hi.g(this.mContext, R.dimen.tbds156));
-            layoutParams.leftMargin = hi.g(this.mContext, R.dimen.tbds44);
-            layoutParams.rightMargin = hi.g(this.mContext, R.dimen.tbds44);
-            layoutParams.bottomMargin = hi.g(this.mContext, R.dimen.tbds76);
-            frameLayout.addView(cardForumHeadLayout, layoutParams);
-            return new VideoPbEnterForumViewHolder(frameLayout);
+        if ((interceptable != null && interceptable.invokeL(1048579, this, num) != null) || num == null) {
+            return;
         }
-        return (VideoPbEnterForumViewHolder) invokeL.objValue;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, fj8 fj8Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fj8Var, videoPbEnterForumViewHolder})) == null) {
-            if (fj8Var != null) {
-                videoPbEnterForumViewHolder.setData(fj8Var.a);
-            }
-            videoPbEnterForumViewHolder.a();
-            return view2;
+        if (num.intValue() == 0) {
+            this.e.setVisibility(8);
+        } else {
+            this.b.setText(String.format(aj.a(R.string.obfuscated_res_0x7f0f059a), num));
+            this.e.setVisibility(0);
         }
-        return (View) invokeCommon.objValue;
+        if (wp8.b().a()) {
+            this.c.setVisibility(0);
+        } else {
+            this.c.setVisibility(8);
+        }
     }
 }

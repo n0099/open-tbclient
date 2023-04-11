@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class d92 extends u82<JSONObject, tz1> {
+public class d92 extends v82<JSONObject, uz1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,35 +29,41 @@ public class d92 extends u82<JSONObject, tz1> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.y82
+    @Override // com.baidu.tieba.z82
     @NonNull
     /* renamed from: c */
-    public tz1 a(@NonNull JSONObject jSONObject) {
+    public uz1 a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            if (b()) {
-                if (u82.a) {
-                    t42.b("Api-HandleException", "has triggered fmp before remove skeleton");
-                }
-                return new tz1(0);
-            } else if (jSONObject == null) {
-                return new tz1(202);
-            } else {
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject == null) {
-                    return new tz1(202, "data is required");
-                }
-                String optString = optJSONObject.optString("path");
-                if (TextUtils.isEmpty(optString)) {
-                    return new tz1(202, "path is required");
-                }
-                s82 s82Var = new s82();
-                s82Var.g(optString);
-                s82Var.e();
-                return new tz1(0);
+            if (jSONObject == null) {
+                return new uz1(202);
             }
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                return new uz1(202, "data is required");
+            }
+            String optString = optJSONObject.optString("status");
+            if (TextUtils.isEmpty(optString)) {
+                return new uz1(202, "status is required");
+            }
+            char c = 65535;
+            int hashCode = optString.hashCode();
+            if (hashCode != 48) {
+                if (hashCode == 49 && optString.equals("1")) {
+                    c = 0;
+                }
+            } else if (optString.equals("0")) {
+                c = 1;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    return new uz1(202, "status value is invalid");
+                }
+                new t82().d();
+            }
+            return new uz1(0);
         }
-        return (tz1) invokeL.objValue;
+        return (uz1) invokeL.objValue;
     }
 }

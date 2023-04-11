@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,9 +10,7 @@ import org.json.JSONObject;
 public class fu7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
     public String a;
-    @Nullable
     public String b;
 
     public fu7() {
@@ -31,32 +27,18 @@ public class fu7 {
         }
     }
 
-    @Nullable
-    public String a() {
-        InterceptResult invokeV;
+    public static fu7 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            fu7 fu7Var = new fu7();
+            fu7Var.a = jSONObject.optString("content");
+            fu7Var.b = jSONObject.optString("tid");
+            return fu7Var;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("src");
-        this.b = jSONObject.optString("link");
+        return (fu7) invokeL.objValue;
     }
 }

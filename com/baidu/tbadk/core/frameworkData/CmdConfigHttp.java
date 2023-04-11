@@ -275,6 +275,7 @@ public class CmdConfigHttp {
     public static final int CMD_REMOVE_ALL_FORBIDDEN_FANS = 1003407;
     public static final int CMD_REMOVE_FANS = 1003396;
     public static final int CMD_REPORT_HOME_PIC_CLICK = 1003072;
+    public static final int CMD_REQUEST_CHAT_ROOM_UPDATE = 1003564;
     public static final int CMD_REQUEST_SPRITE_LOOP = 1003562;
     public static final int CMD_REQUEST_SPRITE_QUESTION_REPLY = 1003563;
     public static final int CMD_SAFE_URL_QUERY = 1003433;

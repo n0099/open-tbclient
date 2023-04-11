@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.enterForum.adapter.LikeForumItemAdapter;
-import com.baidu.tieba.im6;
-import com.baidu.tieba.qm6;
+import com.baidu.tieba.lp6;
+import com.baidu.tieba.tp6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import org.json.JSONObject;
 public class LikeForumDragCallBack extends ItemTouchHelper.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public im6 a;
+    public lp6 a;
     public LikeForumItemAdapter b;
     public String c;
     public String d;
@@ -47,12 +47,12 @@ public class LikeForumDragCallBack extends ItemTouchHelper.Callback {
         }
     }
 
-    public LikeForumDragCallBack(LikeForumItemAdapter likeForumItemAdapter, im6 im6Var) {
+    public LikeForumDragCallBack(LikeForumItemAdapter likeForumItemAdapter, lp6 lp6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {likeForumItemAdapter, im6Var};
+            Object[] objArr = {likeForumItemAdapter, lp6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -64,22 +64,22 @@ public class LikeForumDragCallBack extends ItemTouchHelper.Callback {
         }
         this.e = false;
         this.b = likeForumItemAdapter;
-        this.a = im6Var;
+        this.a = lp6Var;
     }
 
-    public final String a(List<qm6> list) {
+    public final String a(List<tp6> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
             if (!ListUtils.isEmpty(list)) {
                 JSONArray jSONArray = new JSONArray();
                 for (int i = 0; i < list.size(); i++) {
-                    qm6 qm6Var = list.get(i);
-                    if (qm6Var != null) {
+                    tp6 tp6Var = list.get(i);
+                    if (tp6Var != null) {
                         try {
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("forum_id", qm6Var.getId());
-                            jSONObject.put("sort_value", String.valueOf(qm6Var.o()));
+                            jSONObject.put("forum_id", tp6Var.getId());
+                            jSONObject.put("sort_value", String.valueOf(tp6Var.l()));
                             jSONArray.put(jSONObject);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -98,9 +98,9 @@ public class LikeForumDragCallBack extends ItemTouchHelper.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, viewHolder) == null) {
             super.clearView(recyclerView, viewHolder);
-            im6 im6Var = this.a;
-            if (im6Var != null && this.e) {
-                im6Var.a(this.c, this.d);
+            lp6 lp6Var = this.a;
+            if (lp6Var != null && this.e) {
+                lp6Var.a(this.c, this.d);
             }
         }
     }
@@ -142,7 +142,7 @@ public class LikeForumDragCallBack extends ItemTouchHelper.Callback {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, recyclerView, viewHolder, viewHolder2)) == null) {
             this.e = false;
-            this.c = a(this.b.e());
+            this.c = a(this.b.l());
             int adapterPosition = viewHolder.getAdapterPosition();
             int adapterPosition2 = viewHolder2.getAdapterPosition();
             if (adapterPosition2 == this.b.getItemCount() - 1 || adapterPosition == adapterPosition2) {
@@ -152,17 +152,17 @@ public class LikeForumDragCallBack extends ItemTouchHelper.Callback {
                 int i = adapterPosition;
                 while (i < adapterPosition2) {
                     int i2 = i + 1;
-                    Collections.swap(this.b.e(), i, i2);
+                    Collections.swap(this.b.l(), i, i2);
                     this.e = true;
                     i = i2;
                 }
             } else {
                 for (int i3 = adapterPosition; i3 > adapterPosition2; i3--) {
-                    Collections.swap(this.b.e(), i3, i3 - 1);
+                    Collections.swap(this.b.l(), i3, i3 - 1);
                     this.e = true;
                 }
             }
-            this.d = a(this.b.e());
+            this.d = a(this.b.l());
             this.b.notifyItemMoved(adapterPosition, adapterPosition2);
             return true;
         }

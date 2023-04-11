@@ -1,9 +1,9 @@
 package rx.internal.util;
 
-import com.baidu.tieba.qra;
+import com.baidu.tieba.h1b;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class BackpressureDrainManager extends AtomicLong implements qra {
+public final class BackpressureDrainManager extends AtomicLong implements h1b {
     public static final long serialVersionUID = 2826241102729529449L;
     public final a actual;
     public boolean emitting;
@@ -186,7 +186,7 @@ public final class BackpressureDrainManager extends AtomicLong implements qra {
         drain();
     }
 
-    @Override // com.baidu.tieba.qra
+    @Override // com.baidu.tieba.h1b
     public void request(long j) {
         boolean z;
         if (j == 0) {

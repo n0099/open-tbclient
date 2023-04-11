@@ -1,233 +1,112 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.os.Build;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.pay.PayConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class wl5 extends BaseAdapter {
+public class wl5 {
     public static /* synthetic */ Interceptable $ic;
+    public static wl5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<xl5> a;
-    public TbPageContext<?> b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948274441, "Lcom/baidu/tieba/wl5;")) == null) {
+            return;
         }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 2;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public LinearLayout a;
-        public TbImageView b;
-
-        public b(wl5 wl5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wl5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(wl5 wl5Var, a aVar) {
-            this(wl5Var);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948274441, "Lcom/baidu/tieba/wl5;");
         }
     }
 
-    public wl5(TbPageContext<?> tbPageContext) {
+    public wl5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static synchronized wl5 c() {
+        InterceptResult invokeV;
+        wl5 wl5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (wl5.class) {
+                if (a == null) {
+                    a = new wl5();
+                }
+                wl5Var = a;
+            }
+            return wl5Var;
+        }
+        return (wl5) invokeV.objValue;
+    }
+
+    public void a(PayConfig payConfig, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, payConfig, context) == null) {
+            if (payConfig != null && context != null) {
+                if (!d()) {
+                    e(R.string.plugin_pay_wallet_not_found);
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayWalletActivityConfig(context, payConfig)));
                 return;
             }
+            e(R.string.plugin_pay_error);
         }
-        this.a = null;
-        this.b = null;
-        this.c = -1;
-        this.h = 0;
-        this.i = 0;
-        this.b = tbPageContext;
-        this.a = new ArrayList<>();
-        this.d = SkinManager.getColor(R.color.common_color_10043);
-        this.e = SkinManager.getColor(R.color.CAM_X0302);
-        this.f = hi.g(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f070198);
-        this.g = hi.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070224);
-        this.h = hi.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070215);
     }
 
-    public int a(int i) {
-        InterceptResult invokeI;
+    public void b(String str, TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int i2 = i / 4;
-            if (i2 == 0) {
-                return 1;
-            }
-            if (i2 == this.i - 1) {
-                return 2;
-            }
-            return 3;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, tbPageContext) != null) || tbPageContext == null) {
+            return;
         }
-        return invokeI.intValue;
+        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
     }
 
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void c(ArrayList<xl5> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.a = arrayList;
-            if (arrayList != null) {
-                if (arrayList.size() % 4 == 0) {
-                    this.i = arrayList.size() / 4;
-                } else {
-                    this.i = (arrayList.size() / 4) + 1;
-                }
-            }
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            ArrayList<xl5> arrayList = this.a;
-            if (arrayList != null && i < arrayList.size()) {
-                return this.a.get(i);
-            }
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (i == this.c) {
-                return 1;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<xl5> arrayList = this.a;
-            if (arrayList != null) {
-                return arrayList.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!TbadkCoreApplication.getInst().appResponseToCmd(2001351) || !TbadkCoreApplication.getInst().isWalletShouldOpen() || Build.VERSION.SDK_INT < 8) {
+                return false;
             }
-            return 0;
+            return true;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    public final void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            int itemViewType = getItemViewType(i);
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07df, viewGroup, false);
-                bVar = new b(this, null);
-                bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b57);
-                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b55);
-            } else {
-                bVar = (b) view2.getTag();
-            }
-            if (a(i) == 1) {
-                bVar.a.setPadding(0, this.h, 0, 0);
-            } else if (a(i) == 2) {
-                bVar.a.setPadding(0, 0, 0, this.h);
-            } else {
-                bVar.a.setPadding(0, 0, 0, 0);
-            }
-            bVar.b.setDrawerType(0);
-            bVar.b.setBorderSurroundContent(true);
-            bVar.b.setDrawBorder(true);
-            if (itemViewType == 0) {
-                bVar.b.setBorderColor(this.d);
-                bVar.b.setBorderWidth(this.f);
-            } else {
-                bVar.b.setBorderColor(this.e);
-                bVar.b.setBorderWidth(this.g);
-            }
-            bVar.b.setDefaultResource(R.drawable.transparent_bg);
-            bVar.b.M(this.a.get(i).a(), 10, false);
-            view2.setTag(bVar);
-            return view2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            ii.P(TbadkCoreApplication.getInst().getContext(), i);
         }
-        return (View) invokeILL.objValue;
     }
 }

@@ -1,51 +1,78 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wt7 {
+public class wt7 extends jw4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, float f, TextPaint textPaint, String str3) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.jw4
+    public hy4 getNegFeedBackData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, Float.valueOf(f), textPaint, str3})) == null) {
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            String b = b(textPaint, str, f - textPaint.measureText(str2), str2);
-            if (str.length() > b.length()) {
-                return b + str2;
-            }
-            return b + str3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-        return (String) invokeCommon.objValue;
+        return (hy4) invokeV.objValue;
     }
 
-    public static String b(TextPaint textPaint, String str, float f, String str2) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.jw4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{textPaint, str, Float.valueOf(f), str2})) == null) {
-            float measureText = textPaint.measureText(str);
-            while (str.length() > 0 && measureText > f) {
-                str = dq5.n(str, dq5.f(str) - 1);
-                measureText = textPaint.measureText(str);
-            }
-            return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        return (String) invokeCommon.objValue;
+        return (ThreadData) invokeV.objValue;
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            return SelectorHelper.getResources().getDisplayMetrics().widthPixels - i;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948282191, "Lcom/baidu/tieba/wt7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948282191, "Lcom/baidu/tieba/wt7;");
+                return;
+            }
         }
-        return invokeI.intValue;
+        a = BdUniqueId.gen();
+    }
+
+    public wt7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return a;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

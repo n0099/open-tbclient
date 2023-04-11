@@ -69,9 +69,9 @@ public abstract class DispatchedTask<T> extends Task {
 
     @Override // java.lang.Runnable
     public final void run() {
-        Object m768constructorimpl;
+        Object m770constructorimpl;
         Job job;
-        Object m768constructorimpl2;
+        Object m770constructorimpl2;
         TaskContext taskContext = this.taskContext;
         try {
             Continuation<T> delegate$kotlinx_coroutines_core = getDelegate$kotlinx_coroutines_core();
@@ -94,26 +94,26 @@ public abstract class DispatchedTask<T> extends Task {
                     if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
                         cancellationException = StackTraceRecoveryKt.access$recoverFromStackFrame(cancellationException, (CoroutineStackFrame) continuation);
                     }
-                    continuation.resumeWith(Result.m768constructorimpl(ResultKt.createFailure(cancellationException)));
+                    continuation.resumeWith(Result.m770constructorimpl(ResultKt.createFailure(cancellationException)));
                 } else if (exceptionalResult$kotlinx_coroutines_core != null) {
                     Result.Companion companion2 = Result.Companion;
-                    continuation.resumeWith(Result.m768constructorimpl(ResultKt.createFailure(exceptionalResult$kotlinx_coroutines_core)));
+                    continuation.resumeWith(Result.m770constructorimpl(ResultKt.createFailure(exceptionalResult$kotlinx_coroutines_core)));
                 } else {
                     T successfulResult$kotlinx_coroutines_core = getSuccessfulResult$kotlinx_coroutines_core(takeState$kotlinx_coroutines_core);
                     Result.Companion companion3 = Result.Companion;
-                    continuation.resumeWith(Result.m768constructorimpl(successfulResult$kotlinx_coroutines_core));
+                    continuation.resumeWith(Result.m770constructorimpl(successfulResult$kotlinx_coroutines_core));
                 }
                 Unit unit = Unit.INSTANCE;
                 ThreadContextKt.restoreThreadContext(context, updateThreadContext);
                 try {
                     Result.Companion companion4 = Result.Companion;
                     taskContext.afterTask();
-                    m768constructorimpl2 = Result.m768constructorimpl(Unit.INSTANCE);
+                    m770constructorimpl2 = Result.m770constructorimpl(Unit.INSTANCE);
                 } catch (Throwable th) {
                     Result.Companion companion5 = Result.Companion;
-                    m768constructorimpl2 = Result.m768constructorimpl(ResultKt.createFailure(th));
+                    m770constructorimpl2 = Result.m770constructorimpl(ResultKt.createFailure(th));
                 }
-                handleFatalException$kotlinx_coroutines_core(null, Result.m771exceptionOrNullimpl(m768constructorimpl2));
+                handleFatalException$kotlinx_coroutines_core(null, Result.m773exceptionOrNullimpl(m770constructorimpl2));
                 return;
             }
             throw new TypeCastException("null cannot be cast to non-null type kotlinx.coroutines.DispatchedContinuation<T>");
@@ -121,12 +121,12 @@ public abstract class DispatchedTask<T> extends Task {
             try {
                 Result.Companion companion6 = Result.Companion;
                 taskContext.afterTask();
-                m768constructorimpl = Result.m768constructorimpl(Unit.INSTANCE);
+                m770constructorimpl = Result.m770constructorimpl(Unit.INSTANCE);
             } catch (Throwable th3) {
                 Result.Companion companion7 = Result.Companion;
-                m768constructorimpl = Result.m768constructorimpl(ResultKt.createFailure(th3));
+                m770constructorimpl = Result.m770constructorimpl(ResultKt.createFailure(th3));
             }
-            handleFatalException$kotlinx_coroutines_core(th2, Result.m771exceptionOrNullimpl(m768constructorimpl));
+            handleFatalException$kotlinx_coroutines_core(th2, Result.m773exceptionOrNullimpl(m770constructorimpl));
         }
     }
 }

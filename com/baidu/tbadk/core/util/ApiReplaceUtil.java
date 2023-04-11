@@ -15,8 +15,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.hv4;
-import com.baidu.tieba.n35;
+import com.baidu.tieba.jv4;
+import com.baidu.tieba.q45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -72,7 +72,7 @@ public class ApiReplaceUtil {
         /* JADX INFO: Access modifiers changed from: private */
         public void checkPrivacyPolicyOnDebug() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && hv4.e() && !PermissionUtil.isAgreePrivacyPolicy()) {
+            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && jv4.e() && !PermissionUtil.isAgreePrivacyPolicy()) {
                 throw new IllegalStateException("未同意隐私协议前，禁止调用系统相关API");
             }
         }
@@ -227,7 +227,7 @@ public class ApiReplaceUtil {
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return n35.$default$forceApi(this);
+                    return q45.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
@@ -283,7 +283,7 @@ public class ApiReplaceUtil {
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return n35.$default$forceApi(this);
+                    return q45.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
@@ -340,7 +340,7 @@ public class ApiReplaceUtil {
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return n35.$default$forceApi(this);
+                    return q45.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
@@ -396,7 +396,7 @@ public class ApiReplaceUtil {
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return n35.$default$forceApi(this);
+                    return q45.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
@@ -451,7 +451,7 @@ public class ApiReplaceUtil {
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return n35.$default$forceApi(this);
+                    return q45.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
@@ -507,7 +507,7 @@ public class ApiReplaceUtil {
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action
                 public /* synthetic */ boolean forceApi() {
-                    return n35.$default$forceApi(this);
+                    return q45.$default$forceApi(this);
                 }
 
                 @Override // com.baidu.tbadk.core.util.ApiReplaceUtil.Getter.Action

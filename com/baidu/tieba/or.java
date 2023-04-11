@@ -1,86 +1,159 @@
 package com.baidu.tieba;
 
+import com.baidu.bdptask.bdtls.DH;
+import com.baidu.bdptask.bdtls.RSA;
+import com.baidu.bdtask.framework.utils.DebugTrace;
+import com.baidu.tieba.br;
+import com.baidu.tieba.cr;
+import com.baidu.tieba.dr;
+import com.baidu.tieba.er;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.nio.ByteBuffer;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 /* loaded from: classes5.dex */
 public class or {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static jr a(byte[] bArr) {
-        InterceptResult invokeL;
+    public static ir a(mr mrVar, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            jr jrVar = null;
-            if (bArr == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, mrVar, bArr)) == null) {
+            ir irVar = null;
+            if (mrVar == null || bArr == null || bArr.length == 0) {
                 return null;
             }
-            ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            byte b = wrap.get();
-            byte b2 = wrap.get();
-            if (b == -27 && b2 == -89) {
-                jrVar = new jr();
-                wrap.get();
-                wrap.get();
-                jrVar.a(wrap.get());
-                jrVar.f(wrap.get());
-                int i = wrap.getShort();
-                jrVar.c(i);
-                int i2 = wrap.getInt();
-                jrVar.b(i2);
-                byte[] bArr2 = new byte[i];
-                wrap.get(bArr2, 0, i);
-                jrVar.j(bArr2);
-                if (i2 > 0) {
-                    byte[] bArr3 = new byte[i2];
-                    wrap.get(bArr3, 0, i2);
-                    jrVar.l(bArr3);
+            try {
+                if (bArr[0] != 2) {
+                    return null;
                 }
+                ir irVar2 = new ir();
+                try {
+                    fr a = fr.a(Arrays.copyOfRange(bArr, 1, bArr.length));
+                    if (a == null) {
+                        return null;
+                    }
+                    irVar2.a(a);
+                    List<dr> b = a.b();
+                    if (b == null) {
+                        return null;
+                    }
+                    for (dr drVar : b) {
+                        int a2 = drVar.a();
+                        byte[] b2 = drVar.b();
+                        if (a2 == 0) {
+                            int a3 = ur.a(RSA.decrypt(b2));
+                            mrVar.e(DH.getDHSecretKey(a3, mrVar.o().intValue(), mrVar.p().intValue()));
+                            mrVar.l(Integer.valueOf(a3));
+                        }
+                    }
+                    if (a.e() == null) {
+                        return null;
+                    }
+                    br.a d = br.d();
+                    d.a(a.e());
+                    mrVar.h(d.b().a());
+                    if (mrVar.q() == null) {
+                        return null;
+                    }
+                    long currentTimeMillis = (System.currentTimeMillis() / 1000) + a.c();
+                    DebugTrace debugTrace = DebugTrace.a;
+                    debugTrace.a("liftTime=" + a.c());
+                    DebugTrace debugTrace2 = DebugTrace.a;
+                    debugTrace2.a("expireTime=" + currentTimeMillis);
+                    mrVar.c(currentTimeMillis);
+                    if (a.d() != null) {
+                        mrVar.j(a.d());
+                        return irVar2;
+                    }
+                    return irVar2;
+                } catch (Exception e) {
+                    e = e;
+                    irVar = irVar2;
+                    DebugTrace debugTrace3 = DebugTrace.a;
+                    debugTrace3.a("exception=" + e.getMessage());
+                    return irVar;
+                }
+            } catch (Exception e2) {
+                e = e2;
             }
-            return jrVar;
+        } else {
+            return (ir) invokeLL.objValue;
         }
-        return (jr) invokeL.objValue;
     }
 
-    public static byte[] b(jr jrVar) {
-        InterceptResult invokeL;
+    public static byte[] b(mr mrVar, ir irVar) throws Exception {
+        InterceptResult invokeLL;
+        byte[] encrypt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jrVar)) == null) {
-            if (jrVar == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, mrVar, irVar)) == null) {
+            if (irVar == null) {
                 return null;
             }
-            ByteBuffer allocate = ByteBuffer.allocate(jrVar.m() + 12 + jrVar.n());
-            allocate.put((byte) -27);
-            allocate.put((byte) -89);
-            if (jrVar.e() != null && jrVar.e().length == 2) {
-                allocate.put(jrVar.e()[0]);
-                allocate.put(jrVar.e()[1]);
-                allocate.put(jrVar.i());
-                allocate.put(jrVar.k());
-                if (jrVar.o() != null && jrVar.o().length != 0) {
-                    int length = jrVar.o().length;
-                    allocate.put((byte) ((length >> 8) & 255));
-                    allocate.put((byte) (length & 255));
-                    if (jrVar.p() != null && jrVar.p().length != 0) {
-                        allocate.putInt(jrVar.p().length);
-                    } else {
-                        allocate.putInt(0);
-                    }
-                    if (jrVar.o() != null) {
-                        allocate.put(jrVar.o());
-                    }
-                    if (jrVar.p() != null) {
-                        allocate.put(jrVar.p());
-                    }
-                    return allocate.array();
-                }
+            int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
+            byte[] bArr = new byte[32];
+            new Random().nextBytes(bArr);
+            er.a a = er.a();
+            a.a(Integer.valueOf(currentTimeMillis));
+            a.b(bt.a(bArr));
+            er c = a.c();
+            int dHGroupId = DH.getDHGroupId();
+            int dHSecret = DH.getDHSecret();
+            int dHPublicKey = DH.getDHPublicKey(dHGroupId, dHSecret);
+            mrVar.d(Integer.valueOf(dHGroupId));
+            mrVar.g(Integer.valueOf(dHSecret));
+            mrVar.i(Integer.valueOf(dHPublicKey));
+            byte[] d = ur.d(dHPublicKey);
+            if (d == null || (encrypt = RSA.encrypt(d)) == null) {
+                return null;
             }
-            return null;
+            byte[] bytes = ct.b(et.b(xs.a()), false).getBytes();
+            LinkedList linkedList = new LinkedList();
+            dr.a d2 = dr.d();
+            d2.a(0);
+            d2.b(bt.a(encrypt));
+            linkedList.offer(d2.c());
+            dr.a d3 = dr.d();
+            d3.a(1);
+            d3.b(bt.a(new byte[]{0}));
+            linkedList.offer(d3.c());
+            dr.a d4 = dr.d();
+            d4.a(2);
+            d4.b(bt.a(ur.d(dHGroupId)));
+            linkedList.offer(d4.c());
+            dr.a d5 = dr.d();
+            d5.a(3);
+            d5.b(bt.a(bytes));
+            linkedList.offer(d5.c());
+            if (zq.c.h().c()) {
+                DebugTrace debugTrace = DebugTrace.a;
+                debugTrace.a("groupId encode=" + dHGroupId);
+                DebugTrace debugTrace2 = DebugTrace.a;
+                debugTrace2.a("secretC encode=" + dHSecret);
+                DebugTrace debugTrace3 = DebugTrace.a;
+                debugTrace3.a("pubKey encode=" + dHPublicKey);
+                DebugTrace debugTrace4 = DebugTrace.a;
+                debugTrace4.a("signature encode=" + new String(bytes));
+            }
+            cr.a d6 = cr.d();
+            Iterator it = linkedList.iterator();
+            while (it.hasNext()) {
+                d6.a((dr) it.next());
+            }
+            d6.b(c);
+            d6.c(bt.a(nr.a));
+            byte[] a2 = d6.d().a();
+            ByteBuffer allocate = ByteBuffer.allocate(a2.length + 1);
+            allocate.put((byte) 1);
+            allocate.put(a2);
+            return allocate.array();
         }
-        return (byte[]) invokeL.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 }

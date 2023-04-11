@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mq9;
-import com.baidu.tieba.oq9;
+import com.baidu.tieba.d0a;
+import com.baidu.tieba.f0a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
 /* loaded from: classes6.dex */
-public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements oq9 {
+public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements f0a {
     public static /* synthetic */ Interceptable $ic = null;
     public static int k = 1;
     public static int l = 2;
@@ -80,7 +80,7 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public int getItemViewType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             if (this.e == 1) {
                 return k;
             }
@@ -99,7 +99,7 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.oq9
+    @Override // com.baidu.tieba.f0a
     public void a(int i, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeIL(1048576, this, i, bitmap) != null) || this.j) {
@@ -116,59 +116,11 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-    public void d(MultiMediaData multiMediaData, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiMediaData, i) == null) {
-            int i3 = this.b;
-            int i4 = this.c;
-            if (multiMediaData != null && (i2 = multiMediaData.height) != 0) {
-                i3 = (int) (((multiMediaData.width * 1.0f) / i2) * i4);
-            }
-            this.g = i;
-            mq9.c(multiMediaData, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
-            notifyDataSetChanged();
-        }
-    }
-
-    public void e(VlogEditManager vlogEditManager, int i) {
-        MultiMediaData multiMediaData;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, vlogEditManager, i) == null) {
-            int i3 = this.b;
-            int i4 = this.c;
-            if (vlogEditManager != null && vlogEditManager.getMultiMediaData(0) != null) {
-                multiMediaData = vlogEditManager.getMultiMediaData(0);
-            } else {
-                multiMediaData = null;
-            }
-            if (multiMediaData != null && (i2 = multiMediaData.height) != 0) {
-                i3 = (int) (((multiMediaData.width * 1.0f) / i2) * i4);
-            }
-            this.g = i;
-            mq9.b(vlogEditManager, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
-            notifyDataSetChanged();
-        }
-    }
-
-    public void f(int i, double d, double d2, double d3, double d4, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Integer.valueOf(i2)}) == null) {
-            this.e = i;
-            this.a = d;
-            this.b = (int) d2;
-            this.c = (int) d3;
-            this.d = d4;
-            this.f = i2;
-        }
-    }
-
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.e == 1) {
                 return this.g;
             }
@@ -185,6 +137,54 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             if (sparseArray != null) {
                 sparseArray.clear();
             }
+        }
+    }
+
+    public void k(MultiMediaData multiMediaData, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, multiMediaData, i) == null) {
+            int i3 = this.b;
+            int i4 = this.c;
+            if (multiMediaData != null && (i2 = multiMediaData.height) != 0) {
+                i3 = (int) (((multiMediaData.width * 1.0f) / i2) * i4);
+            }
+            this.g = i;
+            d0a.c(multiMediaData, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
+            notifyDataSetChanged();
+        }
+    }
+
+    public void l(VlogEditManager vlogEditManager, int i) {
+        MultiMediaData multiMediaData;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, vlogEditManager, i) == null) {
+            int i3 = this.b;
+            int i4 = this.c;
+            if (vlogEditManager != null && vlogEditManager.getMultiMediaData(0) != null) {
+                multiMediaData = vlogEditManager.getMultiMediaData(0);
+            } else {
+                multiMediaData = null;
+            }
+            if (multiMediaData != null && (i2 = multiMediaData.height) != 0) {
+                i3 = (int) (((multiMediaData.width * 1.0f) / i2) * i4);
+            }
+            this.g = i;
+            d0a.b(vlogEditManager, TbadkCoreApplication.getInst().getContext(), i, i3, i4, this);
+            notifyDataSetChanged();
+        }
+    }
+
+    public void m(int i, double d, double d2, double d3, double d4, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Integer.valueOf(i2)}) == null) {
+            this.e = i;
+            this.a = d;
+            this.b = (int) d2;
+            this.c = (int) d3;
+            this.d = d4;
+            this.f = i2;
         }
     }
 
@@ -233,11 +233,11 @@ public class VideoClipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
             if (i != m && i != n) {
                 if (i == k) {
-                    View inflate = LayoutInflater.from(this.h).inflate(R.layout.obfuscated_res_0x7f0d092a, viewGroup, false);
+                    View inflate = LayoutInflater.from(this.h).inflate(R.layout.obfuscated_res_0x7f0d0924, viewGroup, false);
                     inflate.setLayoutParams(new ViewGroup.LayoutParams(this.b, this.f));
                     return new CommonRangerSliderHolder(inflate);
                 } else if (i == l) {
-                    View inflate2 = LayoutInflater.from(this.h).inflate(R.layout.obfuscated_res_0x7f0d092a, viewGroup, false);
+                    View inflate2 = LayoutInflater.from(this.h).inflate(R.layout.obfuscated_res_0x7f0d0924, viewGroup, false);
                     inflate2.setLayoutParams(new ViewGroup.LayoutParams((int) this.d, this.f));
                     return new CommonRangerSliderHolder(inflate2);
                 } else {

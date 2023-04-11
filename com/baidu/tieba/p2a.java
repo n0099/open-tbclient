@@ -1,35 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.webkit.WebView;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes5.dex */
-public final class p2a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface p2a {
+    void a(boolean z);
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                return false;
-            }
-            if (w2a.i() && z2a.f(context) != 1) {
-                return false;
-            }
-            return q2a.c(q2a.b(str, "http://absample.baidu.com/appabapp/appapi/applog"), null);
-        }
-        return invokeLL.booleanValue;
-    }
+    boolean b(WebView webView, String str);
+
+    void c(NewWriteModel.d dVar);
+
+    void d();
+
+    void e(boolean z, String str);
+
+    void onDestroy();
+
+    void onPageFinished(WebView webView, String str);
 }

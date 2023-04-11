@@ -28,8 +28,8 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.vl5;
+import com.baidu.tieba.bn5;
+import com.baidu.tieba.ii;
 import com.baidu.tieba.write.write.relevance.list.RelevanceItemListFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class RelevanceItemSearchView implements vl5, ViewPager.OnPageChangeListener {
+public class RelevanceItemSearchView implements bn5, ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] a;
@@ -56,8 +56,8 @@ public class RelevanceItemSearchView implements vl5, ViewPager.OnPageChangeListe
     public List<c> k;
     public CustomMessageListener l;
 
-    @Override // com.baidu.tieba.vl5
-    public boolean L0() {
+    @Override // com.baidu.tieba.bn5
+    public boolean N0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -66,7 +66,7 @@ public class RelevanceItemSearchView implements vl5, ViewPager.OnPageChangeListe
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vl5
+    @Override // com.baidu.tieba.bn5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -97,7 +97,7 @@ public class RelevanceItemSearchView implements vl5, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.baidu.tieba.vl5
+    @Override // com.baidu.tieba.bn5
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -336,7 +336,7 @@ public class RelevanceItemSearchView implements vl5, ViewPager.OnPageChangeListe
         this.b = linearLayout;
         this.c = navigationBar;
         this.d = relevanceItemSearchActivity;
-        o();
+        n();
         j();
         i();
     }
@@ -393,43 +393,43 @@ public class RelevanceItemSearchView implements vl5, ViewPager.OnPageChangeListe
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f10a4));
+            this.c.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f109d));
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-            layoutParams.height = hi.g(this.b.getContext(), R.dimen.tbds60);
-            layoutParams.topMargin = hi.g(this.b.getContext(), R.dimen.tbds15);
+            layoutParams.height = ii.g(this.b.getContext(), R.dimen.tbds60);
+            layoutParams.topMargin = ii.g(this.b.getContext(), R.dimen.tbds15);
         }
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091faa);
-            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091fbc);
-            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091fd6);
+            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091f97);
+            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091fa8);
+            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091fc3);
             this.i = editText;
             editText.addTextChangedListener(new b(this));
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0921fe);
+            this.e = tbTabLayout;
+            tbTabLayout.setTabTextSize(ii.g(this.d, R.dimen.tbds46));
+            this.e.setSelectedTabTextSize(ii.g(this.d, R.dimen.tbds52));
+            this.e.setSelectedIndicatorBottomMargin(ii.g(this.d, R.dimen.tbds11));
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09220d);
-            this.e = tbTabLayout;
-            tbTabLayout.setTabTextSize(hi.g(this.d, R.dimen.tbds46));
-            this.e.setSelectedTabTextSize(hi.g(this.d, R.dimen.tbds52));
-            this.e.setSelectedIndicatorBottomMargin(hi.g(this.d, R.dimen.tbds11));
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07e6, (ViewGroup) this.b, true);
+            LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07df, (ViewGroup) this.b, true);
             this.d.showLoadingView(this.b);
             l();
             k();
-            n();
+            m();
             p();
         }
     }
@@ -437,7 +437,7 @@ public class RelevanceItemSearchView implements vl5, ViewPager.OnPageChangeListe
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0927ef);
+            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0927dd);
             this.f = customViewPager;
             customViewPager.addOnPageChangeListener(this);
             FragmentAdapter fragmentAdapter = new FragmentAdapter(this.d.getSupportFragmentManager());
@@ -447,10 +447,10 @@ public class RelevanceItemSearchView implements vl5, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.baidu.tieba.vl5
-    public void m(int i) {
+    @Override // com.baidu.tieba.bn5
+    public void o(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0109);
             SkinManager.setBackgroundResource(this.h, R.drawable.enter_forum_search_bg);

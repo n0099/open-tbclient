@@ -1,9 +1,7 @@
 package com.baidu.tieba;
+
+import java.util.List;
 /* loaded from: classes5.dex */
 public interface l6a {
-    void a();
-
-    void b(long j);
-
-    void c(int i);
+    void e(List<String> list);
 }

@@ -1,41 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class yj5 {
+public class yj5 implements vi5<SoLoaderEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
 
-    public yj5(BaseFragment baseFragment) {
+    public yj5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = baseFragment;
     }
 
-    public BaseFragment a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vi5
+    /* renamed from: a */
+    public boolean onEvent(SoLoaderEvent soLoaderEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, soLoaderEvent)) == null) {
+            if (soLoaderEvent != null && !StringUtils.isNull(soLoaderEvent.name)) {
+                if (bm.a(BdBaseApplication.getInst().getContext(), zl.a(soLoaderEvent.name))) {
+                    ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
+                    String str = soLoaderEvent.name;
+                    resHashMap.put(str, zl.a(str));
+                    return true;
+                }
+                return true;
+            }
+            return false;
         }
-        return (BaseFragment) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -216,16 +216,16 @@ public final class c {
         imageView.setImageDrawable(new BitmapDrawable(this.mContext.getResources(), this.xv.mBitmap));
         final AdTemplate adTemplate = this.xv.getAdTemplate();
         final com.kwad.components.core.c.a.c cVar = new com.kwad.components.core.c.a.c(adTemplate);
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d04a9, (ViewGroup) null);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d04ab, (ViewGroup) null);
         this.uL = viewGroup;
-        this.xz = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09135f);
-        this.xx = (FrameLayout) this.uL.findViewById(R.id.obfuscated_res_0x7f091369);
-        this.xy = this.uL.findViewById(R.id.obfuscated_res_0x7f09135d);
+        this.xz = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091363);
+        this.xx = (FrameLayout) this.uL.findViewById(R.id.obfuscated_res_0x7f09136d);
+        this.xy = this.uL.findViewById(R.id.obfuscated_res_0x7f091361);
         this.xx.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.splashscreen.c.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 if (c.this.xE) {
-                    com.kwad.components.core.c.a.a.a(new a.C0593a(view2.getContext()).L(adTemplate).b(cVar).aj(false).ae(2).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.c.1.1
+                    com.kwad.components.core.c.a.a.a(new a.C0594a(view2.getContext()).L(adTemplate).b(cVar).aj(false).ae(2).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.c.1.1
                         @Override // com.kwad.components.core.c.a.a.b
                         public final void onAdClicked() {
                             if (c.this.xw != null) {

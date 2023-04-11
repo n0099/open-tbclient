@@ -3,11 +3,11 @@ package com.baidu.swan.apps.media.chooser.listener;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.apps.media.chooser.adapter.SwanAppThumbnailAdapter;
-import com.baidu.tieba.rv2;
+import com.baidu.tieba.sv2;
 import java.util.Collections;
 /* loaded from: classes3.dex */
 public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
-    public rv2 a;
+    public sv2 a;
     public SwanAppThumbnailAdapter b;
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -24,8 +24,8 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {
     }
 
-    public SwanAppThumbnailTouchCallback(rv2 rv2Var, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
-        this.a = rv2Var;
+    public SwanAppThumbnailTouchCallback(sv2 sv2Var, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
+        this.a = sv2Var;
         this.b = swanAppThumbnailAdapter;
     }
 
@@ -54,19 +54,19 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
-        if (this.b.e() == null) {
+        if (this.b.l() == null) {
             return false;
         }
         int adapterPosition = viewHolder.getAdapterPosition();
         int adapterPosition2 = viewHolder2.getAdapterPosition();
         SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.b;
         if (swanAppThumbnailAdapter != null) {
-            Collections.swap(swanAppThumbnailAdapter.e(), adapterPosition, adapterPosition2);
+            Collections.swap(swanAppThumbnailAdapter.l(), adapterPosition, adapterPosition2);
             this.b.notifyItemMoved(adapterPosition, adapterPosition2);
         }
-        rv2 rv2Var = this.a;
-        if (rv2Var != null) {
-            rv2Var.onMove(adapterPosition, adapterPosition2);
+        sv2 sv2Var = this.a;
+        if (sv2Var != null) {
+            sv2Var.onMove(adapterPosition, adapterPosition2);
             return true;
         }
         return true;

@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
+import com.baidu.tieba.bj5;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.i85;
-import com.baidu.tieba.m35;
+import com.baidu.tieba.m95;
+import com.baidu.tieba.ng8;
+import com.baidu.tieba.p45;
 import com.baidu.tieba.push.PushGeneralData;
-import com.baidu.tieba.vh5;
-import com.baidu.tieba.w58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -89,11 +89,11 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onBind(Context context, int i, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), str, str2, str3, str4}) == null) {
-            w58 yunPushLog = YunPushLog.getInstance();
+            ng8 yunPushLog = YunPushLog.getInstance();
             yunPushLog.c(TAG, "onBind errorCode:" + i + " appid:" + str + " userId:" + str2 + " channelId:" + str3 + " requestId:" + str4);
             if (i == 0) {
                 PushManager.setPushBackStatus(TbadkCoreApplication.getInst(), false);
-                m35 m = m35.m();
+                p45 m = p45.m();
                 m.w(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
@@ -137,8 +137,8 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     pushGeneralData.parseData(jSONObject.optString("st_ext"));
                     PushRecevierEvent pushRecevierEvent = new PushRecevierEvent();
                     pushRecevierEvent.generalData = pushGeneralData;
-                    vh5.i(pushRecevierEvent);
-                } else if (!i85.L()) {
+                    bj5.i(pushRecevierEvent);
+                } else if (!m95.L()) {
                     int e = gg.e(str6, 2500);
                     if (e < 2500) {
                         e += 2500;
@@ -157,7 +157,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onMessage(Context context, String str, String str2, int i, PushMessageReceiver.PushCallBackExtra pushCallBackExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, str, str2, Integer.valueOf(i), pushCallBackExtra}) == null) {
-            w58 yunPushLog = YunPushLog.getInstance();
+            ng8 yunPushLog = YunPushLog.getInstance();
             yunPushLog.c(TAG, "onMessage message:" + str + " customContentString:" + str2 + " notifyId:" + i + " extra:" + pushCallBackExtra);
         }
     }
@@ -166,7 +166,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onNotificationArrived(Context context, String str, String str2, String str3, PushMessageReceiver.PushCallBackExtra pushCallBackExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048582, this, context, str, str2, str3, pushCallBackExtra) == null) {
-            w58 yunPushLog = YunPushLog.getInstance();
+            ng8 yunPushLog = YunPushLog.getInstance();
             yunPushLog.c(TAG, "onNotificationArrived title:" + str + " description:" + str2 + " customContentString:" + str3 + " extra:" + pushCallBackExtra);
         }
     }
@@ -175,7 +175,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onNotificationClicked(Context context, String str, String str2, String str3, PushMessageReceiver.PushCallBackExtra pushCallBackExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str, str2, str3, pushCallBackExtra) == null) {
-            w58 yunPushLog = YunPushLog.getInstance();
+            ng8 yunPushLog = YunPushLog.getInstance();
             yunPushLog.c(TAG, "onNotificationClicked title:" + str + " description:" + str2 + " customContentString:" + str3 + " extra:" + pushCallBackExtra);
         }
     }

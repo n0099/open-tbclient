@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
 public interface a65 {
-    void a();
+    void a(int i, float f);
 
-    boolean c();
+    void b(int i, float f);
 
-    boolean d(String str);
+    void c(int i, float f);
 
-    boolean e();
+    void d(int i, float f);
 }

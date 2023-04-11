@@ -9,9 +9,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionEmptyView;
-import com.baidu.tieba.lr6;
-import com.baidu.tieba.pr6;
-import com.baidu.tieba.qr6;
+import com.baidu.tieba.ou6;
+import com.baidu.tieba.su6;
+import com.baidu.tieba.tu6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,15 +26,15 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qr6 a;
-        public final /* synthetic */ lr6 b;
+        public final /* synthetic */ tu6 a;
+        public final /* synthetic */ ou6 b;
 
-        public a(ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder, qr6 qr6Var, lr6 lr6Var) {
+        public a(ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder, tu6 tu6Var, ou6 ou6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {forumEmotionEmptyViewHolder, qr6Var, lr6Var};
+                Object[] objArr = {forumEmotionEmptyViewHolder, tu6Var, ou6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,19 +44,19 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.a = qr6Var;
-            this.b = lr6Var;
+            this.a = tu6Var;
+            this.b = ou6Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                qr6 qr6Var = this.a;
-                qr6Var.c(!qr6Var.b());
-                lr6 lr6Var = this.b;
-                if (lr6Var != null) {
-                    lr6Var.b();
+                tu6 tu6Var = this.a;
+                tu6Var.c(!tu6Var.b());
+                ou6 ou6Var = this.b;
+                if (ou6Var != null) {
+                    ou6Var.b();
                 }
             }
         }
@@ -66,15 +66,15 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qr6 a;
-        public final /* synthetic */ lr6 b;
+        public final /* synthetic */ tu6 a;
+        public final /* synthetic */ ou6 b;
 
-        public b(ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder, qr6 qr6Var, lr6 lr6Var) {
+        public b(ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder, tu6 tu6Var, ou6 ou6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {forumEmotionEmptyViewHolder, qr6Var, lr6Var};
+                Object[] objArr = {forumEmotionEmptyViewHolder, tu6Var, ou6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,8 +84,8 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.a = qr6Var;
-            this.b = lr6Var;
+            this.a = tu6Var;
+            this.b = ou6Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -94,9 +94,9 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.c(false);
                 this.a.d(0);
-                lr6 lr6Var = this.b;
-                if (lr6Var != null) {
-                    lr6Var.a(this.a.a());
+                ou6 ou6Var = this.b;
+                if (ou6Var != null) {
+                    ou6Var.a(this.a.a());
                 }
             }
         }
@@ -106,15 +106,15 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qr6 a;
-        public final /* synthetic */ lr6 b;
+        public final /* synthetic */ tu6 a;
+        public final /* synthetic */ ou6 b;
 
-        public c(ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder, qr6 qr6Var, lr6 lr6Var) {
+        public c(ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder, tu6 tu6Var, ou6 ou6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {forumEmotionEmptyViewHolder, qr6Var, lr6Var};
+                Object[] objArr = {forumEmotionEmptyViewHolder, tu6Var, ou6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -124,8 +124,8 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.a = qr6Var;
-            this.b = lr6Var;
+            this.a = tu6Var;
+            this.b = ou6Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -134,9 +134,9 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.c(false);
                 this.a.d(1);
-                lr6 lr6Var = this.b;
-                if (lr6Var != null) {
-                    lr6Var.a(this.a.a());
+                ou6 ou6Var = this.b;
+                if (ou6Var != null) {
+                    ou6Var.a(this.a.a());
                 }
             }
         }
@@ -163,39 +163,39 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
         this.a = (ForumEmotionEmptyView) view2;
     }
 
-    public final void a(qr6 qr6Var, lr6 lr6Var) {
+    public final void a(tu6 tu6Var, ou6 ou6Var) {
         String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, qr6Var, lr6Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, tu6Var, ou6Var) == null) {
             ViewGroup filterDropDownView = this.a.getFilterDropDownView();
-            if (qr6Var != null) {
+            if (tu6Var != null) {
                 Resources resources = this.a.getResources();
                 TextView filterView = this.a.getFilterView();
                 filterDropDownView.setVisibility(0);
-                if (qr6Var.a() == 0) {
-                    string = resources.getString(R.string.obfuscated_res_0x7f0f06d6);
+                if (tu6Var.a() == 0) {
+                    string = resources.getString(R.string.obfuscated_res_0x7f0f06ce);
                 } else {
-                    string = resources.getString(R.string.obfuscated_res_0x7f0f06d7);
+                    string = resources.getString(R.string.obfuscated_res_0x7f0f06cf);
                 }
                 filterView.setText(string);
-                if (qr6Var.b()) {
+                if (tu6Var.b()) {
                     filterDropDownView.setVisibility(0);
                 } else {
                     filterDropDownView.setVisibility(8);
                 }
-                filterView.setOnClickListener(new a(this, qr6Var, lr6Var));
+                filterView.setOnClickListener(new a(this, tu6Var, ou6Var));
                 if (filterDropDownView.getChildCount() >= 2) {
-                    filterDropDownView.getChildAt(0).setOnClickListener(new b(this, qr6Var, lr6Var));
-                    filterDropDownView.getChildAt(1).setOnClickListener(new c(this, qr6Var, lr6Var));
+                    filterDropDownView.getChildAt(0).setOnClickListener(new b(this, tu6Var, ou6Var));
+                    filterDropDownView.getChildAt(1).setOnClickListener(new c(this, tu6Var, ou6Var));
                 }
             }
         }
     }
 
-    public void b(pr6 pr6Var, int i, qr6 qr6Var, lr6 lr6Var) {
+    public void b(su6 su6Var, int i, tu6 tu6Var, ou6 ou6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pr6Var, i, qr6Var, lr6Var) == null) {
-            a(qr6Var, lr6Var);
+        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, su6Var, i, tu6Var, ou6Var) == null) {
+            a(tu6Var, ou6Var);
         }
     }
 }

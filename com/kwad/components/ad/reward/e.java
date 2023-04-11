@@ -33,11 +33,11 @@ public final class e {
     }
 
     public static void a(int i, int i2, @NonNull SceneImpl sceneImpl, final int i3, final a aVar) {
-        SceneImpl m94clone = sceneImpl.m94clone();
+        SceneImpl m96clone = sceneImpl.m96clone();
         final long elapsedRealtime = SystemClock.elapsedRealtime();
-        m94clone.setAdStyle(i);
-        m94clone.setAdNum(i2);
-        a(new com.kwad.components.core.k.kwai.b(m94clone), null, false, true, new com.kwad.components.core.k.f() { // from class: com.kwad.components.ad.reward.e.1
+        m96clone.setAdStyle(i);
+        m96clone.setAdNum(i2);
+        a(new com.kwad.components.core.k.kwai.b(m96clone), null, false, true, new com.kwad.components.core.k.f() { // from class: com.kwad.components.ad.reward.e.1
             @Override // com.kwad.components.core.k.g
             public final void a(@NonNull final AdResultData adResultData) {
                 bd.runOnUiThread(new Runnable() { // from class: com.kwad.components.ad.reward.e.1.2

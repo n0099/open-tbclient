@@ -12,7 +12,7 @@ import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.zaa;
+import com.baidu.tieba.qka;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -117,7 +117,7 @@ public class CSSParser {
         public final a D() throws CSSParseException {
             InterceptResult invokeV;
             int i;
-            zaa zaaVar;
+            qka qkaVar;
             int d;
             a aVar;
             Interceptable interceptable = $ic;
@@ -143,16 +143,16 @@ public class CSSParser {
                         } else {
                             i = 1;
                         }
-                        zaa c = zaa.c(this.a, this.b, this.c, false);
+                        qka c = qka.c(this.a, this.b, this.c, false);
                         if (c != null) {
                             this.b = c.a();
                         }
                         if (!f('n') && !f('N')) {
-                            zaaVar = c;
+                            qkaVar = c;
                             c = null;
                         } else {
                             if (c == null) {
-                                c = new zaa(1L, this.b);
+                                c = new qka(1L, this.b);
                             }
                             A();
                             boolean f = f('+');
@@ -161,15 +161,15 @@ public class CSSParser {
                             }
                             if (f) {
                                 A();
-                                zaaVar = zaa.c(this.a, this.b, this.c, false);
-                                if (zaaVar != null) {
-                                    this.b = zaaVar.a();
+                                qkaVar = qka.c(this.a, this.b, this.c, false);
+                                if (qkaVar != null) {
+                                    this.b = qkaVar.a();
                                 } else {
                                     this.b = i2;
                                     return null;
                                 }
                             } else {
-                                zaaVar = null;
+                                qkaVar = null;
                             }
                             int i5 = i3;
                             i3 = i;
@@ -180,8 +180,8 @@ public class CSSParser {
                         } else {
                             d = i3 * c.d();
                         }
-                        if (zaaVar != null) {
-                            i4 = i * zaaVar.d();
+                        if (qkaVar != null) {
+                            i4 = i * qkaVar.d();
                         }
                         aVar = new a(d, i4);
                     }
@@ -490,8 +490,8 @@ public class CSSParser {
         /* JADX WARN: Removed duplicated region for block: B:18:0x003a  */
         /* JADX WARN: Removed duplicated region for block: B:19:0x0040  */
         /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
-        /* JADX WARN: Removed duplicated region for block: B:81:0x0134  */
-        /* JADX WARN: Removed duplicated region for block: B:83:0x0139  */
+        /* JADX WARN: Removed duplicated region for block: B:81:0x0132  */
+        /* JADX WARN: Removed duplicated region for block: B:83:0x0137  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */

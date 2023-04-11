@@ -1,61 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.wma;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes6.dex */
-public class qma {
+public class qma extends sma {
     public static /* synthetic */ Interceptable $ic;
-    public static wma a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948098020, "Lcom/baidu/tieba/qma;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948098020, "Lcom/baidu/tieba/qma;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qma(Ssp.Pid pid) {
+        super(pid);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new wma();
-    }
-
-    public static <TResult> TResult a(nma<TResult> nmaVar) throws ExecutionException, InterruptedException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, nmaVar)) == null) {
-            wma.c("await must not be called on the UI thread");
-            if (nmaVar.g()) {
-                return (TResult) wma.b(nmaVar);
-            }
-            wma.b bVar = new wma.b();
-            nmaVar.c(bVar);
-            nmaVar.b(bVar);
-            bVar.a.await();
-            return (TResult) wma.b(nmaVar);
-        }
-        return (TResult) invokeL.objValue;
-    }
-
-    public static <TResult> nma<TResult> b(Callable<TResult> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(pma.a(), callable) : (nma) invokeL.objValue;
-    }
-
-    public static <TResult> nma<TResult> call(Callable<TResult> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) ? a.a(pma.b(), callable) : (nma) invokeL.objValue;
     }
 }

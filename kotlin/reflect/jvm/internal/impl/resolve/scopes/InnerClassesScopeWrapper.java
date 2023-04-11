@@ -23,25 +23,25 @@ public final class InnerClassesScopeWrapper extends MemberScopeImpl {
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2025getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassifierDescriptor mo2027getContributedClassifier(Name name, LookupLocation lookupLocation) {
         ClassifierDescriptor classifierDescriptor;
-        ClassifierDescriptor mo2025getContributedClassifier = this.workerScope.mo2025getContributedClassifier(name, lookupLocation);
-        if (mo2025getContributedClassifier == null) {
+        ClassifierDescriptor mo2027getContributedClassifier = this.workerScope.mo2027getContributedClassifier(name, lookupLocation);
+        if (mo2027getContributedClassifier == null) {
             return null;
         }
-        if (!(mo2025getContributedClassifier instanceof ClassDescriptor)) {
+        if (!(mo2027getContributedClassifier instanceof ClassDescriptor)) {
             classifierDescriptor = null;
         } else {
-            classifierDescriptor = mo2025getContributedClassifier;
+            classifierDescriptor = mo2027getContributedClassifier;
         }
         ClassDescriptor classDescriptor = (ClassDescriptor) classifierDescriptor;
         if (classDescriptor != null) {
             return classDescriptor;
         }
-        if (!(mo2025getContributedClassifier instanceof TypeAliasDescriptor)) {
-            mo2025getContributedClassifier = null;
+        if (!(mo2027getContributedClassifier instanceof TypeAliasDescriptor)) {
+            mo2027getContributedClassifier = null;
         }
-        return (TypeAliasDescriptor) mo2025getContributedClassifier;
+        return (TypeAliasDescriptor) mo2027getContributedClassifier;
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope

@@ -1,43 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.RemoveFansController;
+import com.baidu.tieba.dy9;
+import com.baidu.tieba.f27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import java.util.List;
-import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class g27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public me<byte[]> a;
-    public c b;
+    public TbPageContext a;
+    public RemoveFansController b;
+    public f27 c;
+    public x09 d;
+    public dy9 e;
+    public e f;
 
     /* loaded from: classes4.dex */
-    public interface c {
-        void a(List<m27> list, List<gn> list2, boolean z);
+    public interface e {
+        void a();
+
+        void b(int i, String str, boolean z, int i2, long j);
     }
 
     /* loaded from: classes4.dex */
-    public class a extends wp5<GameForumGuideTabResIdl> {
+    public class a implements f27.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ g27 b;
+        public final /* synthetic */ g27 a;
 
-        public a(g27 g27Var, String str) {
+        public a(g27 g27Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g27Var, str};
+                Object[] objArr = {g27Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,37 +50,20 @@ public class g27 {
                     return;
                 }
             }
-            this.b = g27Var;
-            this.a = str;
+            this.a = g27Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wp5
-        /* renamed from: a */
-        public GameForumGuideTabResIdl doInBackground() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.f27.b
+        public void a(int i, String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Wire wire = new Wire(new Class[0]);
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                me meVar = this.b.a;
-                byte[] bArr = (byte[]) meVar.get(currentAccount + this.a);
-                if (bArr == null || bArr.length == 0) {
-                    return null;
-                }
-                try {
-                    return (GameForumGuideTabResIdl) wire.parseFrom(bArr, GameForumGuideTabResIdl.class);
-                } catch (IOException e) {
-                    BdLog.e(e);
-                    return null;
-                }
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) && this.a.f != null) {
+                this.a.f.b(i, str, z, 0, 0L);
             }
-            return (GameForumGuideTabResIdl) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements zo5<GameForumGuideTabResIdl> {
+    public class b implements RemoveFansController.IResultCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ g27 a;
@@ -100,30 +86,92 @@ public class g27 {
             this.a = g27Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zo5
-        /* renamed from: a */
-        public void onReturnDataInUI(GameForumGuideTabResIdl gameForumGuideTabResIdl) {
+        @Override // com.baidu.tbadk.core.util.RemoveFansController.IResultCallBack
+        public void onResultCallBack(int i, String str, long j, boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, gameForumGuideTabResIdl) != null) || gameForumGuideTabResIdl == null) {
-                return;
-            }
-            List<m27> a = f27.a(gameForumGuideTabResIdl.data.sub_tab_list);
-            List<gn> b = f27.b(gameForumGuideTabResIdl.data.thread_list);
-            boolean z = true;
-            if (gameForumGuideTabResIdl.data.has_more.intValue() != 1) {
-                z = false;
-            }
-            if (this.a.b != null) {
-                this.a.b.a(a, b, z);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)}) == null) && this.a.f != null) {
+                this.a.f.b(i, str, z, 1, j);
             }
         }
     }
 
-    public g27() {
+    /* loaded from: classes4.dex */
+    public class c implements dy9.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g27 a;
+
+        public c(g27 g27Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g27Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = g27Var;
+        }
+
+        @Override // com.baidu.tieba.dy9.d
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.d.dismiss();
+                if (this.a.f != null) {
+                    this.a.f.a();
+                }
+                this.a.c.d();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements dy9.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g27 a;
+
+        public d(g27 g27Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g27Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = g27Var;
+        }
+
+        @Override // com.baidu.tieba.dy9.c
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.d == null) {
+                return;
+            }
+            this.a.d.dismiss();
+        }
+    }
+
+    public g27(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -133,36 +181,62 @@ public class g27 {
                 return;
             }
         }
-        this.a = null;
-        this.a = BdCacheService.n().b("tb.frs.game.strategy.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.a = tbPageContext;
+        f27 f27Var = new f27(tbPageContext, bdUniqueId);
+        this.c = f27Var;
+        f27Var.e(new a(this));
+        RemoveFansController removeFansController = new RemoveFansController(tbPageContext, bdUniqueId);
+        this.b = removeFansController;
+        removeFansController.setResultCallBack(new b(this));
     }
 
-    public void c(String str) {
+    public void f(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a != null && str != null) {
-            aq5.b(new a(this, str), new b(this));
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.b.removeFans(j);
         }
     }
 
-    public void e(c cVar) {
+    public void g(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.b = cVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
+            this.f = eVar;
         }
     }
 
-    public void d(String str, byte[] bArr, boolean z) {
+    public void d() {
+        dy9 dy9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, z) == null) && str != null && str.length() > 0) {
-            if (z) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                me<byte[]> meVar = this.a;
-                meVar.e(currentAccount + str, bArr, 604800000L);
-                return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (dy9Var = this.e) != null) {
+            dy9Var.e();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            h();
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.d == null) {
+                dy9 dy9Var = new dy9(this.a.getContext());
+                this.e = dy9Var;
+                dy9Var.h(this.a.getString(R.string.obfuscated_res_0x7f0f0463));
+                ArrayList arrayList = new ArrayList();
+                dy9.b bVar = new dy9.b(this.a.getString(R.string.obfuscated_res_0x7f0f045d), this.e);
+                bVar.h(new c(this));
+                arrayList.add(bVar);
+                this.e.g(new d(this));
+                this.e.f(arrayList);
+                x09 x09Var = new x09(this.a.getPageActivity(), this.e.b());
+                this.d = x09Var;
+                x09Var.a(0.7f);
             }
-            String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-            me<byte[]> meVar2 = this.a;
-            meVar2.i(currentAccount2 + str, bArr, 604800000L);
+            this.d.show();
         }
     }
 }

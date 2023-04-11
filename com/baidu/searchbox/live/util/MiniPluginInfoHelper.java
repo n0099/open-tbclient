@@ -4,6 +4,7 @@ import com.baidu.android.common.others.IStringUtil;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
 import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
+import com.huawei.hms.framework.common.ExceptionCode;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
@@ -39,25 +40,21 @@ public final class MiniPluginInfoHelper {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r3v0 int), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r4v0 int), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x002c: ARITH  (r4v0 int A[REMOVE]) = (r0v3 int) / (1000000 int)), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char)] */
     public final String getSdkName() {
-        int versionCode = getVersionCode("com.baidu.searchbox.livenps");
+        int versionCode = getVersionCode("com.baidu.searchbox.livenps") - 600000000;
         StringBuilder sb = new StringBuilder();
-        int i = versionCode / 100000000;
-        int i2 = versionCode % 100000000;
+        int i = versionCode / ExceptionCode.CRASH_EXCEPTION;
+        int i2 = versionCode % ExceptionCode.CRASH_EXCEPTION;
         StringBuilder sb2 = new StringBuilder();
         sb2.append(i);
         sb2.append(IStringUtil.EXTENSION_SEPARATOR);
         sb.append(sb2.toString());
-        int i3 = i2 / 1000000;
-        int i4 = i2 % 1000000;
         StringBuilder sb3 = new StringBuilder();
-        sb3.append(i3);
+        sb3.append(i2 / 1000000);
         sb3.append(IStringUtil.EXTENSION_SEPARATOR);
         sb.append(sb3.toString());
-        int i5 = i4 / DefaultOggSeeker.MATCH_BYTE_RANGE;
-        int i6 = i4 % DefaultOggSeeker.MATCH_BYTE_RANGE;
-        sb.append(String.valueOf(i5));
+        sb.append(String.valueOf((i2 % 1000000) / DefaultOggSeeker.MATCH_BYTE_RANGE));
         String sb4 = sb.toString();
         Intrinsics.checkExpressionValueIsNotNull(sb4, "versionNameBuilder.toString()");
         return sb4;
@@ -73,12 +70,12 @@ public final class MiniPluginInfoHelper {
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r3v0 int), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x004d: ARITH  (r1v9 int A[REMOVE]) = (r5v4 int) / (1000 int)), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0051: ARITH  (r1v9 int A[REMOVE]) = (r5v5 int) / (1000 int)), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char)] */
     public final String getVersionName(String str) {
-        int versionCode = getVersionCode(str);
+        int versionCode = getVersionCode(str) - 600000000;
         StringBuilder sb = new StringBuilder();
-        int i = versionCode / 100000000;
-        int i2 = versionCode % 100000000;
+        int i = versionCode / ExceptionCode.CRASH_EXCEPTION;
+        int i2 = versionCode % ExceptionCode.CRASH_EXCEPTION;
         StringBuilder sb2 = new StringBuilder();
         sb2.append(i);
         sb2.append(IStringUtil.EXTENSION_SEPARATOR);

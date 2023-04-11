@@ -20,11 +20,11 @@ public interface f extends IInterface {
 
         /* renamed from: com.bytedance.pangle.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0517a implements f {
+        public static class C0518a implements f {
             public static f a;
             public IBinder b;
 
-            public C0517a(IBinder iBinder) {
+            public C0518a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -80,7 +80,7 @@ public interface f extends IInterface {
         }
 
         public static f b() {
-            return C0517a.a;
+            return C0518a.a;
         }
 
         public static f a(IBinder iBinder) {
@@ -91,7 +91,7 @@ public interface f extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof f)) {
                 return (f) queryLocalInterface;
             }
-            return new C0517a(iBinder);
+            return new C0518a(iBinder);
         }
 
         @Override // android.os.Binder

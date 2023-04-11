@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.kp5;
+import com.baidu.tieba.qq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,6 +84,9 @@ public class PollingReqMessage extends NetMessage {
                     builder.chatroom_new_msg = this.mListMsg;
                 }
             }
+            if (!StringUtils.isNull(this.forumName)) {
+                builder.forum_name = this.forumName;
+            }
             if (!TextUtils.isEmpty(this.dataType) && PollingModel.SUBSCRIBE_GROUP_CHAT_LIST.equals(this.dataType)) {
                 if (!TextUtils.isEmpty(this.mListMsg)) {
                     builder.chatroom_new_msg = this.mListMsg;
@@ -93,7 +96,7 @@ public class PollingReqMessage extends NetMessage {
                 }
             }
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                kp5.a(builder, true);
+                qq5.a(builder, true);
             }
             LoopReqIdl.Builder builder2 = new LoopReqIdl.Builder();
             builder2.data = builder.build(false);

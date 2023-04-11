@@ -1,25 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class zj9 {
+public class zj9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public String d;
+    public long e;
 
-    public static final void a(String str) {
-        me<byte[]> c;
+    public zj9() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && (c = yz4.c(str, TbadkCoreApplication.getCurrentAccount())) != null) {
-            c.g("0", null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.a = false;
+        this.b = false;
+        this.c = 0;
+        this.d = "";
+        this.e = 0L;
     }
 
-    public static final void b() {
+    public static zj9 a(ResponsedMessage responsedMessage) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            a("tb.rec_frs_update");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, responsedMessage)) == null) {
+            zj9 zj9Var = new zj9();
+            if (BdNetTypeUtil.isNetWorkAvailable() && (responsedMessage.getError() < -13 || responsedMessage.getError() > -10)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            zj9Var.a = z;
+            zj9Var.b = !responsedMessage.hasError();
+            zj9Var.c = responsedMessage.getError();
+            zj9Var.d = responsedMessage.getErrorString();
+            zj9Var.e = responsedMessage.getDownSize();
+            return zj9Var;
         }
+        return (zj9) invokeL.objValue;
     }
 }

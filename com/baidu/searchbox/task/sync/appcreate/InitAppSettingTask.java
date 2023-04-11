@@ -7,12 +7,12 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.dp5;
-import com.baidu.tieba.fl5;
-import com.baidu.tieba.k85;
-import com.baidu.tieba.r85;
+import com.baidu.tieba.jq5;
+import com.baidu.tieba.lm5;
+import com.baidu.tieba.o95;
 import com.baidu.tieba.v95;
 import com.baidu.tieba.w8;
+import com.baidu.tieba.za5;
 /* loaded from: classes2.dex */
 public class InitAppSettingTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -28,8 +28,8 @@ public class InitAppSettingTask extends LaunchTask {
     private void initSettings() {
         long currentTimeMillis = System.currentTimeMillis();
         TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-        dp5.c();
-        fl5.b().r(System.currentTimeMillis() - currentTimeMillis);
+        jq5.c();
+        lm5.b().r(System.currentTimeMillis() - currentTimeMillis);
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -39,8 +39,8 @@ public class InitAppSettingTask extends LaunchTask {
         initSettings();
         TbadkCoreApplication.getInst().initSetting();
         long currentTimeMillis = System.currentTimeMillis();
-        k85.d().q();
-        fl5.b().y(System.currentTimeMillis() - currentTimeMillis);
+        o95.d().q();
+        lm5.b().y(System.currentTimeMillis() - currentTimeMillis);
         w8.f().r(20);
         if (ProcessUtils.isMainProcess()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
@@ -50,18 +50,18 @@ public class InitAppSettingTask extends LaunchTask {
     public void loadLcsSwitchStratgy() {
         String loadString = TbadkSettings.getInst().loadString("lcs_switch_strategy", null);
         if (!TextUtils.isEmpty(loadString)) {
-            r85 r85Var = new r85();
-            r85Var.e(loadString);
-            v95 a = v95.a();
+            v95 v95Var = new v95();
+            v95Var.e(loadString);
+            za5 a = za5.a();
             boolean z = true;
-            if (r85Var.b() != 1) {
+            if (v95Var.b() != 1) {
                 z = false;
             }
-            a.h(z);
-            a.i(r85Var.c());
-            a.j(r85Var.d() * 1000);
-            if (r85Var.a() != null) {
-                a.k(r85Var.a());
+            a.i(z);
+            a.j(v95Var.c());
+            a.k(v95Var.d() * 1000);
+            if (v95Var.a() != null) {
+                a.l(v95Var.a());
             }
         }
     }

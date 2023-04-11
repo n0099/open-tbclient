@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface yu0 {
-    void cancel();
+    void switchToFullStyle();
 
-    void doTask();
-
-    void start();
+    void switchToNormalStyle();
 }

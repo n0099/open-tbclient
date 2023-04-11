@@ -1,180 +1,227 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.switchs.ShareSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class pw9 extends mw9 {
+public class pw9 implements ow9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gw9 V;
-    public gu9 W;
+    public mw9 a;
+    public lw9 b;
+    public TbPageContext<?> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pw9(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull yu9 yu9Var, boolean z) {
-        super(tbPageContext, navigationBar, linearLayout, editorTools, yu9Var, z);
+    @Override // com.baidu.tieba.ow9
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ow9
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ShareItem a;
+        public final /* synthetic */ pw9 b;
+
+        public a(pw9 pw9Var, ShareItem shareItem) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pw9Var, shareItem};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = pw9Var;
+            this.a = shareItem;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                yh.a(this.a.x);
+                ii.Q(this.b.c.getPageActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pw9 a;
+
+        public b(pw9 pw9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pw9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pw9Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
+                return;
+            }
+            this.a.h();
+        }
+    }
+
+    public pw9(TbPageContext<?> tbPageContext, lw9 lw9Var, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, yu9Var, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, lw9Var, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (yu9) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.V = new gw9(tbPageContext, this);
+        this.c = tbPageContext;
+        this.b = lw9Var;
+        nw9 nw9Var = new nw9();
+        this.a = nw9Var;
+        nw9Var.b(intent);
+        this.a.e(tbPageContext.getUniqueId());
     }
 
-    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9
-    public void M(@NonNull List<zu9<?>> list) {
+    @Override // com.baidu.tieba.ow9
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            list.add(cw9.f(this.a));
-            gu9 e = cw9.e(this.a);
-            this.W = e;
-            list.add(e);
-            eu9 c = cw9.c(this.a, this, this.d, this.s, this.V);
-            this.E = c;
-            list.add(c);
-            ru9 p = cw9.p(this.a);
-            this.G = p;
-            list.add(p);
-            list.add(cw9.h(this.a, this.C));
-        }
-    }
-
-    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9
-    public void O(@NonNull EditorTools editorTools) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
-            editorTools.setBarMaxLauCount(5);
-            editorTools.setMoreButtonAtEnd(true);
-            editorTools.setBarLauncherType(1);
-            editorTools.E(true);
-            editorTools.F(false);
-            editorTools.setBackgroundColorId(R.color.CAM_X0201);
-            if (!WriteActivityConfig.FROM_FORUM_SHARE.equals(this.p.getFrom())) {
-                ew9.h(this.a, editorTools, this);
-                ew9.j(this.a, editorTools, this);
-                ew9.k(this.a, editorTools, this);
-                ew9.b(this.a, editorTools, this);
-                ew9.i(this.a, editorTools);
-                ew9.m(this.a, editorTools, this.p.getCallFrom(), this);
-            }
-            ew9.d(editorTools, this);
-            ew9.a(this.a, editorTools, this);
-            if (StringHelper.equals("2", this.p.getCallFrom())) {
-                kc5 g = ew9.g(this.a, editorTools, this);
-                g.g(false);
-                g.h(false);
-            }
-            editorTools.f();
-            super.O(editorTools);
-        }
-    }
-
-    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9
-    public void P(@NonNull NavigationBar navigationBar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
-            super.P(navigationBar);
-            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f1015));
-        }
-    }
-
-    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9
-    public void U(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            super.U(bundle);
-            this.p.setIsNoTitle(true);
-            this.p.setTitle("");
-        }
-    }
-
-    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9, com.baidu.tieba.eb9.g
-    public void a(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, writeData) != null) || writeData == null || writeData.getType() != 12) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c == null) {
             return;
         }
-        super.a(writeData);
+        if (!ShareSwitch.isOn() && !ViewHelper.checkUpIsLogin(this.c.getPageActivity())) {
+            return;
+        }
+        i();
     }
 
-    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9
-    public void Y() {
+    @Override // com.baidu.tieba.ow9
+    public void b() {
+        mw9 mw9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            eb9.k(this.p.getItem_id(), this);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (mw9Var = this.a) != null) {
+            p45.m().w(p45.q(mw9Var.c()), false);
         }
     }
 
-    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9
-    public void c0() {
+    @Override // com.baidu.tieba.ow9
+    public void c() {
+        mw9 mw9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.c0();
-            eb9.t(this.p.getItem_id(), this.p);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (mw9Var = this.a) != null && this.b != null) {
+            this.b.H0(mw9Var.getVideoUrl());
         }
     }
 
-    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9, com.baidu.tieba.bv9
-    public void j() {
+    @Override // com.baidu.tieba.ow9
+    public void d() {
+        lw9 lw9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.j();
-            eb9.t(this.p.getItem_id(), null);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (lw9Var = this.b) != null) {
+            lw9Var.showErrorView();
         }
     }
 
-    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9
-    public boolean e0() {
-        InterceptResult invokeV;
-        eu9 eu9Var;
+    @Override // com.baidu.tieba.ow9
+    public void e() {
+        lw9 lw9Var;
+        mw9 mw9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.p.isSaveDraft() && this.l != null && (((eu9Var = this.E) != null && eu9Var.t()) || this.C.g().size() != 0)) {
-                return false;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (lw9Var = this.b) != null && (mw9Var = this.a) != null) {
+            lw9Var.q0(mw9Var.a(), this.a.g());
+        }
+    }
+
+    public final void h() {
+        mw9 mw9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (mw9Var = this.a) != null && this.b != null) {
+            this.b.C0(mw9Var.getVideoUrl());
+        }
+    }
+
+    @Override // com.baidu.tieba.ow9
+    public void onClose() {
+        lw9 lw9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (lw9Var = this.b) != null) {
+            lw9Var.finishActivity();
+        }
+    }
+
+    @Override // com.baidu.tieba.ow9
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            h();
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && this.c != null) {
+            ShareItem shareItem = new ShareItem();
+            shareItem.v = this.a.d();
+            shareItem.w = this.a.i();
+            shareItem.x = this.a.f();
+            shareItem.y = this.a.f();
+            if (!hi.isEmpty(this.a.h())) {
+                shareItem.z = Uri.parse(this.a.h());
             }
-            return true;
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.c.getPageActivity(), shareItem, true, true);
+            shareDialogConfig.setIsCopyLink(true);
+            shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
+            shareDialogConfig.setOnDismissListener(new b(this));
+            this.c.sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9, com.baidu.tieba.bv9
-    public boolean i() {
-        InterceptResult invokeV;
-        gu9 gu9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            eu9 eu9Var = this.E;
-            if (eu9Var != null && eu9Var.t() && this.E.p() != null && this.E.p().getText().length() >= 20 && this.E.p().getText().length() <= 500 && (gu9Var = this.W) != null && gu9Var.t()) {
-                return super.i();
-            }
-            d0(false);
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

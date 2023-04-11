@@ -12,8 +12,6 @@ public class j14 {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public int c;
-    public long d;
 
     public j14() {
         Interceptable interceptable = $ic;
@@ -36,8 +34,6 @@ public class j14 {
             j14 j14Var = new j14();
             j14Var.a = jSONObject.optInt("state");
             j14Var.b = jSONObject.optString("msg");
-            j14Var.c = jSONObject.optInt("switch_open");
-            j14Var.d = jSONObject.optLong("heartbeat_time");
             return j14Var;
         }
         return (j14) invokeL.objValue;
@@ -47,7 +43,7 @@ public class j14 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "UpUseTimeModel{state=" + this.a + ", limit='" + this.b + "', open=" + this.c + ", interval=" + this.d + '}';
+            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.b + "'}";
         }
         return (String) invokeV.objValue;
     }

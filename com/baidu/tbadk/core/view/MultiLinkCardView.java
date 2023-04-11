@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gq5;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.tf6;
+import com.baidu.tieba.fh6;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.mr5;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,8 +64,8 @@ public class MultiLinkCardView extends RelativeLayout {
                 return;
             }
         }
-        hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds136);
-        hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds136);
+        ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -143,7 +143,7 @@ public class MultiLinkCardView extends RelativeLayout {
         this.g.setLongIconSupport(false);
         this.g.setConrers(15);
         this.g.setPlaceHolder(1);
-        this.g.setRadius(hi.g(getContext(), R.dimen.tbds10));
+        this.g.setRadius(ii.g(getContext(), R.dimen.tbds10));
         TbImageView tbImageView2 = (TbImageView) findViewById(R.id.iv_multi_link_second_icon);
         this.h = tbImageView2;
         tbImageView2.setDrawCorner(true);
@@ -151,7 +151,7 @@ public class MultiLinkCardView extends RelativeLayout {
         this.h.setLongIconSupport(false);
         this.h.setConrers(15);
         this.h.setPlaceHolder(1);
-        this.h.setRadius(hi.g(getContext(), R.dimen.tbds10));
+        this.h.setRadius(ii.g(getContext(), R.dimen.tbds10));
         TbImageView tbImageView3 = (TbImageView) findViewById(R.id.iv_multi_link_third_icon);
         this.i = tbImageView3;
         tbImageView3.setDrawCorner(true);
@@ -159,10 +159,10 @@ public class MultiLinkCardView extends RelativeLayout {
         this.i.setLongIconSupport(false);
         this.i.setPlaceHolder(1);
         this.i.setConrers(15);
-        this.i.setRadius(hi.g(getContext(), R.dimen.tbds10));
+        this.i.setRadius(ii.g(getContext(), R.dimen.tbds10));
         TextView textView = (TextView) findViewById(R.id.tv_multi_link_more_link_count);
         this.j = textView;
-        n15.d(textView).z(R.array.S_O_X001);
+        q25.d(textView).A(R.array.S_O_X001);
         this.k = (TextView) findViewById(R.id.tv_multi_link_count);
         this.l = (ImageView) findViewById(R.id.iv_multi_link_right_arrow);
         this.o = new ArrayList();
@@ -187,13 +187,13 @@ public class MultiLinkCardView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, list, list2) == null) {
             new ArrayList();
-            gq5 gq5Var = new gq5();
-            List<tf6> a = gq5Var.a(list, list2);
-            boolean c = gq5Var.c();
+            mr5 mr5Var = new mr5();
+            List<fh6> a = mr5Var.a(list, list2);
+            boolean c = mr5Var.c();
             if (ListUtils.isEmpty(a)) {
                 return;
             }
-            TBSelector.makeDrawableSelector().gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606).radius(hi.g(getContext(), R.dimen.tbds10)).into(this.j);
+            TBSelector.makeDrawableSelector().gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606).radius(ii.g(getContext(), R.dimen.tbds10)).into(this.j);
             this.d.setVisibility(8);
             this.e.setVisibility(8);
             this.f.setVisibility(8);
@@ -208,7 +208,7 @@ public class MultiLinkCardView extends RelativeLayout {
                     PbLinkData pbLinkData = (PbLinkData) a.get(i2);
                     if (i2 < a.size() && pbLinkData != null) {
                         this.m.get(i2).setVisibility(0);
-                        this.n.get(i2).M(pbLinkData.picUrl, 10, false);
+                        this.n.get(i2).N(pbLinkData.picUrl, 10, false);
                         if (pbLinkData.urlType == 2 && !TextUtils.isEmpty(pbLinkData.linkFrom)) {
                             this.o.get(i2).setText(pbLinkData.linkFrom);
                             this.o.get(i2).setVisibility(0);
@@ -218,7 +218,7 @@ public class MultiLinkCardView extends RelativeLayout {
                     PbGoodsData pbGoodsData = (PbGoodsData) a.get(i2);
                     if (i2 < a.size() && pbGoodsData != null) {
                         this.m.get(i2).setVisibility(0);
-                        this.n.get(i2).M(pbGoodsData.picUrl, 10, false);
+                        this.n.get(i2).N(pbGoodsData.picUrl, 10, false);
                     }
                 }
                 if (a.size() > 3 && i2 == 2) {

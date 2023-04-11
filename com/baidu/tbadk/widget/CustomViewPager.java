@@ -8,10 +8,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.jv4;
+import com.baidu.tieba.ng8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -190,7 +192,7 @@ public class CustomViewPager extends TbViewPager {
             try {
                 super.onMeasure(i, i2);
             } catch (Exception e) {
-                if (!hv4.e() && !hv4.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
+                if (!jv4.e() && !jv4.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
                     e.printStackTrace();
                     if ((getContext() instanceof Activity) && !((Activity) getContext()).isFinishing()) {
                         ((Activity) getContext()).finish();
@@ -289,7 +291,20 @@ public class CustomViewPager extends TbViewPager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             k(5013);
-            super.onLayout(z, i, i2, i3, i4);
+            try {
+                super.onLayout(z, i, i2, i3, i4);
+            } catch (Exception e) {
+                if (!jv4.e() && !jv4.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
+                    e.printStackTrace();
+                    ng8 defaultLog = DefaultLog.getInstance();
+                    defaultLog.b("CustomViewPager", "CustomViewPager onLayout crash, msg=" + e);
+                    if ((getContext() instanceof Activity) && !((Activity) getContext()).isFinishing()) {
+                        ((Activity) getContext()).finish();
+                    }
+                } else {
+                    throw e;
+                }
+            }
             k(5014);
         }
     }

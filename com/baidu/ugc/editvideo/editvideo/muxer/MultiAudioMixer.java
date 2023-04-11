@@ -1,6 +1,6 @@
 package com.baidu.ugc.editvideo.editvideo.muxer;
 
-import com.baidu.tieba.m7a;
+import com.baidu.tieba.dha;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -46,7 +46,7 @@ public abstract class MultiAudioMixer {
             }
             for (int i = 0; i < bArr.length; i++) {
                 if (bArr[i].length != bArr2.length) {
-                    m7a.d("column of the road of audio + " + i + " is diffrent.");
+                    dha.d("column of the road of audio + " + i + " is diffrent.");
                     return null;
                 }
             }

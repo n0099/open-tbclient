@@ -57,7 +57,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FloatingActionButton extends VisibilityAwareImageButton implements TintableBackgroundView, TintableImageSourceView, ExpandableTransformationWidget, Shapeable, CoordinatorLayout.AttachedBehavior {
     public static final int AUTO_MINI_LARGEST_SCREEN_WIDTH = 470;
     public static final int DEF_STYLE_RES = 2131755835;
@@ -91,7 +91,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     public int size;
     public final Rect touchArea;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class OnVisibilityChangedListener {
         public void onHidden(FloatingActionButton floatingActionButton) {
         }
@@ -102,11 +102,11 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface Size {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class BaseBehavior<T extends FloatingActionButton> extends CoordinatorLayout.Behavior<T> {
         public static final boolean AUTO_HIDE_DEFAULT = true;
         public boolean autoHideEnabled;
@@ -261,7 +261,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Behavior extends BaseBehavior<FloatingActionButton> {
         public Behavior() {
         }
@@ -307,7 +307,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class ShadowDelegateImpl implements ShadowViewDelegate {
         public ShadowDelegateImpl() {
         }
@@ -338,7 +338,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class TransformationCallbackWrapper<T extends FloatingActionButton> implements FloatingActionButtonImpl.InternalTransformationCallback {
         @NonNull
         public final TransformationCallback<T> listener;

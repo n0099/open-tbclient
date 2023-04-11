@@ -24,9 +24,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bg5;
-import com.baidu.tieba.ka5;
-import com.baidu.tieba.xo5;
+import com.baidu.tieba.dq5;
+import com.baidu.tieba.fh5;
+import com.baidu.tieba.ob5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class GroupChatActivity extends BaseFragmentActivity {
     public View b;
     public String c;
     public GroupChatFragment d;
-    public ka5 e;
+    public ob5 e;
 
     public GroupChatActivity() {
         Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public class GroupChatActivity extends BaseFragmentActivity {
     public static void r1(@NonNull Context context, long j, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            bg5.b().h(context, "SCENE_GROUP_CHAT", Collections.singletonList(Long.valueOf(j)));
+            fh5.b().h(context, "SCENE_GROUP_CHAT", Collections.singletonList(Long.valueOf(j)));
             Intent intent = new Intent(context, GroupChatActivity.class);
             intent.putExtra("roomId", j);
             intent.putExtra("requestCode", i);
@@ -98,7 +98,7 @@ public class GroupChatActivity extends BaseFragmentActivity {
     public static void s1(@NonNull Context context, long j, int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str, str2}) == null) {
-            bg5.b().h(context, "SCENE_GROUP_CHAT", Collections.singletonList(Long.valueOf(j)));
+            fh5.b().h(context, "SCENE_GROUP_CHAT", Collections.singletonList(Long.valueOf(j)));
             Intent intent = new Intent(context, GroupChatActivity.class);
             intent.putExtra("roomId", j);
             intent.putExtra("requestCode", i);
@@ -111,7 +111,7 @@ public class GroupChatActivity extends BaseFragmentActivity {
     public static void t1(@NonNull Context context, long j, int i, String str, String str2, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str, str2, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            bg5.b().h(context, "SCENE_GROUP_CHAT", Collections.singletonList(Long.valueOf(j)));
+            fh5.b().h(context, "SCENE_GROUP_CHAT", Collections.singletonList(Long.valueOf(j)));
             Intent intent = new Intent(context, GroupChatActivity.class);
             intent.putExtra("roomId", j);
             intent.putExtra("requestCode", i);
@@ -183,12 +183,12 @@ public class GroupChatActivity extends BaseFragmentActivity {
                 if (intent != null) {
                     this.d.setArguments(intent.getExtras());
                 }
-                xo5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090bca, this.d);
+                dq5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090bca, this.d);
             }
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra(IntentConfig.BACK_SCHEME);
                 if (getIntent().getBooleanExtra("show_chat_list_after_finish", false)) {
-                    this.e = new ka5(getIntent().getLongExtra("roomId", 0L), true);
+                    this.e = new ob5(getIntent().getLongExtra("roomId", 0L), true);
                 }
             }
         }

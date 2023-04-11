@@ -1,382 +1,251 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.Call;
+import com.baidu.searchbox.network.outback.core.Callback;
 import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.internal.Util;
-import com.baidu.searchbox.network.support.dns.Dns;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.searchbox.network.support.cookie.CookieJarImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.Proxy;
-import java.net.ProxySelector;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
-import javax.net.SocketFactory;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLSocketFactory;
 /* loaded from: classes4.dex */
-public class e60 implements Cloneable, Call.Factory {
+public final class e60 implements Call {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final y50 b;
-    @Nullable
-    public final Proxy c;
-    public final List<z50> d;
-    public final List<z50> e;
-    public final ProxySelector f;
-    public final SSLSocketFactory g;
-    public final HostnameVerifier h;
-    public final Dns i;
-    public final int j;
-    public final int k;
-    public final int l;
-    public k60 m;
-    public boolean n;
-    public boolean o;
-    public String p;
+    public final f60 a;
+    public final Request b;
+    public final boolean c;
+    public boolean d;
+    public y50 e;
 
     /* loaded from: classes4.dex */
-    public static final class a {
+    public final class a extends b60 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Context a;
-        public y50 b;
-        @Nullable
-        public Proxy c;
-        public final List<z50> d;
-        public final List<z50> e;
-        public ProxySelector f;
-        @Nullable
-        public SSLSocketFactory g;
-        public HostnameVerifier h;
-        public boolean i;
-        public boolean j;
-        public Dns k;
-        public int l;
-        public int m;
-        public int n;
-        public k60 o;
-        public String p;
+        public final Callback b;
+        public final /* synthetic */ e60 c;
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(e60 e60Var, Callback callback) {
+            super("BaiduNetwork %s", e60Var.d());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e60Var, callback};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (Object[]) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = new ArrayList();
-            this.e = new ArrayList();
-            this.b = new y50();
-            ProxySelector proxySelector = ProxySelector.getDefault();
-            this.f = proxySelector;
-            if (proxySelector == null) {
-                this.f = new c60();
-            }
-            SocketFactory.getDefault();
-            this.h = null;
-            this.k = Dns.SYSTEM;
-            this.l = 10000;
-            this.m = 10000;
-            this.n = 10000;
-            this.o = new i60();
+            this.c = e60Var;
+            this.b = callback;
         }
 
-        public a(e60 e60Var) {
+        @Override // com.baidu.tieba.b60
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e60Var};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    try {
+                        this.b.onResponse(this.c, this.c.b());
+                    } catch (IOException e) {
+                        this.b.onFailure(this.c, e);
+                    }
+                } finally {
+                    this.c.a.p().d(this);
                 }
             }
-            this.d = new ArrayList();
-            this.e = new ArrayList();
-            this.b = e60Var.b;
-            this.c = e60Var.c;
-            this.d.addAll(e60Var.d);
-            this.e.addAll(e60Var.e);
-            this.f = e60Var.f;
-            this.k = e60Var.i;
-            this.l = e60Var.j;
-            this.m = e60Var.k;
-            this.n = e60Var.l;
-            this.o = e60Var.m;
-            this.i = e60Var.n;
-            this.j = e60Var.o;
-            this.p = e60Var.p;
-            this.h = e60Var.h;
-            this.g = e60Var.g;
-        }
-
-        public a a(z50 z50Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, z50Var)) == null) {
-                if (z50Var != null) {
-                    this.d.add(z50Var);
-                    return this;
-                }
-                throw new IllegalArgumentException("interceptor == null");
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a c(y50 y50Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y50Var)) == null) {
-                if (y50Var != null) {
-                    this.b = y50Var;
-                    return this;
-                }
-                throw new IllegalArgumentException("dispatcher == null");
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a d(k60 k60Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, k60Var)) == null) {
-                this.o = k60Var;
-                return this;
-            }
-            return (a) invokeL.objValue;
         }
 
         public e60 b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return new e60(this);
+                return this.c;
             }
             return (e60) invokeV.objValue;
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947686154, "Lcom/baidu/tieba/e60;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c.b.url().host();
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947686154, "Lcom/baidu/tieba/e60;");
-                return;
-            }
+            return (String) invokeV.objValue;
         }
-        new ArrayList(2);
     }
 
-    public SSLSocketFactory B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (SSLSocketFactory) invokeV.objValue;
-    }
-
-    public String C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.p;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public y50 p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (y50) invokeV.objValue;
-    }
-
-    public Dns q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
-        }
-        return (Dns) invokeV.objValue;
-    }
-
-    public HostnameVerifier r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.h;
-        }
-        return (HostnameVerifier) invokeV.objValue;
-    }
-
-    public k60 s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.m;
-        }
-        return (k60) invokeV.objValue;
-    }
-
-    public List<z50> t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.o;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.n;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public List<z50> w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public a x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return new a(this);
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public ProxySelector y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.f;
-        }
-        return (ProxySelector) invokeV.objValue;
-    }
-
-    public int z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public e60(a aVar) {
+    public e60(Request request, f60 f60Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {request, f60Var, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.n = false;
-        this.o = false;
-        this.p = null;
-        this.a = aVar.a;
-        this.b = aVar.b;
-        this.c = aVar.c;
-        this.d = Util.immutableList(aVar.d);
-        this.e = Util.immutableList(aVar.e);
-        this.f = aVar.f;
-        this.g = aVar.g;
-        this.h = aVar.h;
-        this.i = aVar.k;
-        this.j = aVar.l;
-        this.k = aVar.m;
-        this.l = aVar.n;
-        if (!this.d.contains(null)) {
-            if (!this.e.contains(null)) {
-                this.m = aVar.o;
-                this.n = aVar.i;
-                this.o = aVar.j;
-                this.p = aVar.p;
-                return;
+        this.b = request;
+        this.c = z;
+        this.a = f60Var;
+        l60 l60Var = f60Var.m;
+        this.e = new y50(f60Var);
+    }
+
+    public static e60 c(Request request, f60 f60Var, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, request, f60Var, z)) == null) {
+            return new e60(request, f60Var, z);
+        }
+        return (e60) invokeLLZ.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    /* renamed from: a */
+    public e60 m57clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c(this.b, this.a, this.c);
+        }
+        return (e60) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e.b();
+        }
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b.url().redact();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public boolean isCanceled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e.d();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public synchronized boolean isExecuted() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            synchronized (this) {
+                z = this.d;
             }
-            throw new IllegalStateException("Null network interceptor: " + this.e);
+            return z;
         }
-        throw new IllegalStateException("Null interceptor: " + this.d);
+        return invokeV.booleanValue;
     }
 
-    public void A(k60 k60Var) {
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public Request request() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, k60Var) != null) || k60Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.b;
         }
-        this.m = k60Var;
+        return (Request) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.core.Call.Factory
-    public Call newCall(Request request) {
-        InterceptResult invokeL;
+    public Response b() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, request)) == null) {
-            return d60.c(request, this, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.a.t());
+            arrayList.add(new o60(new CookieJarImpl(this.b.getCookieManager()), this.a));
+            arrayList.add(this.e);
+            arrayList.addAll(this.a.w());
+            arrayList.add(new p60());
+            return new q60(arrayList, null, 0, this.b, this).a(this.b);
         }
-        return (Call) invokeL.objValue;
+        return (Response) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public void enqueue(Callback callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
+            synchronized (this) {
+                if (!this.d) {
+                    this.d = true;
+                } else {
+                    throw new IllegalStateException("Already Executed");
+                }
+            }
+            this.a.p().a(new a(this, callback));
+        }
+    }
+
+    @Override // com.baidu.searchbox.network.outback.core.Call
+    public Response execute() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                if (!this.d) {
+                    this.d = true;
+                } else {
+                    throw new IllegalStateException("Already Executed");
+                }
+            }
+            try {
+                try {
+                    this.a.p().b(this);
+                    Response b = b();
+                    if (b != null) {
+                        return b;
+                    }
+                    throw new IOException("Canceled");
+                } catch (IOException e) {
+                    throw e;
+                } catch (Exception e2) {
+                    if (TextUtils.isEmpty(e2.getMessage())) {
+                        throw new IOException("unknown exception", e2);
+                    }
+                    throw new IOException(e2);
+                }
+            } finally {
+                this.a.p().e(this);
+            }
+        }
+        return (Response) invokeV.objValue;
     }
 }

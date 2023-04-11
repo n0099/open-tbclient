@@ -23,7 +23,7 @@ import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ChipGroup extends FlowLayout {
     public static final int DEF_STYLE_RES = 2131755880;
     @IdRes
@@ -41,12 +41,12 @@ public class ChipGroup extends FlowLayout {
     public boolean selectionRequired;
     public boolean singleSelection;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(ChipGroup chipGroup, @IdRes int i);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class CheckedStateTracker implements CompoundButton.OnCheckedChangeListener {
         public CheckedStateTracker() {
         }
@@ -77,7 +77,7 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public LayoutParams(int i, int i2) {
             super(i, i2);
@@ -96,7 +96,7 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class PassThroughHierarchyChangeListener implements ViewGroup.OnHierarchyChangeListener {
         public ViewGroup.OnHierarchyChangeListener onHierarchyChangeListener;
 

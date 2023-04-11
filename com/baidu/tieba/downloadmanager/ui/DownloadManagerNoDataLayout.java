@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -92,20 +92,20 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            setLayoutParams(new LinearLayout.LayoutParams(-1, hi.g(context, R.dimen.tbds496)));
+            setLayoutParams(new LinearLayout.LayoutParams(-1, ii.g(context, R.dimen.tbds496)));
             ImageView imageView = new ImageView(context);
             this.a = imageView;
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(hi.g(context, R.dimen.tbds177), hi.g(context, R.dimen.tbds177));
-            layoutParams.setMargins(0, hi.g(context, R.dimen.tbds133), 0, 0);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ii.g(context, R.dimen.tbds177), ii.g(context, R.dimen.tbds177));
+            layoutParams.setMargins(0, ii.g(context, R.dimen.tbds133), 0, 0);
             layoutParams.gravity = 1;
             addView(this.a, layoutParams);
             this.b = new TextView(context);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams2.setMargins(0, hi.g(context, R.dimen.tbds34), 0, 0);
+            layoutParams2.setMargins(0, ii.g(context, R.dimen.tbds34), 0, 0);
             this.b.setGravity(17);
             addView(this.b, layoutParams2);
-            this.c = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0473);
+            this.c = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0471);
             b();
         }
     }
@@ -115,9 +115,9 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setBackground(null);
             SkinManager.setImageResource(this.a, R.drawable.im_no_data_icon);
-            n15 d = n15.d(this.b);
+            q25 d = q25.d(this.b);
             d.w(R.color.CAM_X0110);
-            d.A(R.dimen.T_X08);
+            d.B(R.dimen.T_X08);
         }
     }
 

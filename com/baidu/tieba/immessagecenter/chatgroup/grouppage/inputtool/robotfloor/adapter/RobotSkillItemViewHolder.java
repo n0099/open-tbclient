@@ -12,10 +12,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gw7;
+import com.baidu.tieba.c68;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.rt7;
+import com.baidu.tieba.n38;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,7 +29,7 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
     public TextView f;
     public TextView g;
     public RobotSkillItem h;
-    public gw7 i;
+    public c68 i;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -65,13 +65,13 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RobotSkillItemViewHolder(@NonNull View view2, gw7 gw7Var) {
+    public RobotSkillItemViewHolder(@NonNull View view2, c68 c68Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, gw7Var};
+            Object[] objArr = {view2, c68Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,11 +82,11 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.i = gw7Var;
-        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e29);
-        this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e27);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e2a);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e28);
+        this.i = c68Var;
+        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e18);
+        this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e16);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e19);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e17);
         this.d.setOnClickListener(new a(this));
     }
 
@@ -108,10 +108,10 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
     @SuppressLint({"ResourceAsColor"})
-    public void d(@NonNull rt7 rt7Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull n38 n38Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rt7Var, tbPageContext, i) == null) && (rt7Var instanceof RobotSkillItem)) {
-            RobotSkillItem robotSkillItem = (RobotSkillItem) rt7Var;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n38Var, tbPageContext, i) == null) && (n38Var instanceof RobotSkillItem)) {
+            RobotSkillItem robotSkillItem = (RobotSkillItem) n38Var;
             this.h = robotSkillItem;
             if (!TextUtils.isEmpty(robotSkillItem.getSkillName())) {
                 TextView textView = this.f;
@@ -128,11 +128,11 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
     public void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            n15 d = n15.d(this.f);
-            d.A(R.dimen.T_X06);
+            q25 d = q25.d(this.f);
+            d.B(R.dimen.T_X06);
             d.w(R.color.CAM_X0105);
-            n15 d2 = n15.d(this.g);
-            d2.A(R.dimen.T_X08);
+            q25 d2 = q25.d(this.g);
+            d2.B(R.dimen.T_X08);
             d2.w(R.color.CAM_X0109);
         }
     }

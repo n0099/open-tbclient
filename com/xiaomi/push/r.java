@@ -7,7 +7,7 @@ public class r {
         try {
             return (String) s.a(null, CountryCodeBean.ANDRIOD_SYSTEMPROP).getMethod("get", String.class, String.class).invoke(null, str, str2);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m99a("SystemProperties.get: " + e);
+            com.xiaomi.channel.commonutils.logger.b.m101a("SystemProperties.get: " + e);
             return str2;
         }
     }

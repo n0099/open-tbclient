@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.yy.gslbsdk.util.LogTools;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DBInitMgr extends SQLiteOpenHelper {
     public static final String TAG = "DBInitMgr";
     public static final String TB_DELAY = "gslb_delay";

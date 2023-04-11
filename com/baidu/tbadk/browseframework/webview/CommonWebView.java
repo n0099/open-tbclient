@@ -25,11 +25,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.gt4;
+import com.baidu.tieba.fm9;
+import com.baidu.tieba.hm9;
+import com.baidu.tieba.it4;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.oc9;
-import com.baidu.tieba.ot4;
-import com.baidu.tieba.qc9;
+import com.baidu.tieba.qt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,9 +51,9 @@ public class CommonWebView extends WebView {
     public h j;
     public i k;
     public g l;
-    public oc9 m;
+    public fm9 m;
     public CommonTbJsBridge n;
-    public qc9 o;
+    public hm9 o;
 
     /* loaded from: classes3.dex */
     public interface d {
@@ -72,7 +72,7 @@ public class CommonWebView extends WebView {
 
     /* loaded from: classes3.dex */
     public interface g {
-        void a(WebView webView, int i);
+        void b(WebView webView, int i);
     }
 
     /* loaded from: classes3.dex */
@@ -98,7 +98,7 @@ public class CommonWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements qc9 {
+    public class a implements hm9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonWebView a;
@@ -121,15 +121,15 @@ public class CommonWebView extends WebView {
             this.a = commonWebView;
         }
 
-        @Override // com.baidu.tieba.qc9
+        @Override // com.baidu.tieba.hm9
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 CommonWebView commonWebView = this.a;
-                oc9 oc9Var = commonWebView.m;
-                if (oc9Var != null) {
-                    return oc9Var.c(commonWebView.getWebView(), str, jsPromptResult);
+                fm9 fm9Var = commonWebView.m;
+                if (fm9Var != null) {
+                    return fm9Var.c(commonWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -170,7 +170,7 @@ public class CommonWebView extends WebView {
                     return true;
                 }
                 try {
-                    gt4.o(this.a.a, str);
+                    it4.o(this.a.a, str);
                 } catch (Exception e) {
                     BdLog.e(e.toString());
                 }
@@ -229,7 +229,7 @@ public class CommonWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
-                ot4.a(BaseWebView.TAG, webView);
+                qt4.a(BaseWebView.TAG, webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -329,7 +329,7 @@ public class CommonWebView extends WebView {
             if (interceptable == null || interceptable.invokeLI(1048580, this, webView, i) == null) {
                 super.onProgressChanged(webView, i);
                 if (this.a.l != null) {
-                    this.a.l.a(webView, i);
+                    this.a.l.b(webView, i);
                 }
             }
         }
@@ -487,10 +487,10 @@ public class CommonWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(qc9 qc9Var) {
+    public void setOnJsPromptCallback(hm9 hm9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, qc9Var) == null) {
-            this.o = qc9Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, hm9Var) == null) {
+            this.o = hm9Var;
         }
     }
 
@@ -605,10 +605,10 @@ public class CommonWebView extends WebView {
             getSettings().setCacheMode(2);
             getSettings().setUseWideViewPort(true);
             getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + SkinManager.getCurrentSkinTypeString());
-            gt4.a(getSettings());
+            it4.a(getSettings());
             this.c = new c(this);
             this.d = new k(this, null);
-            this.m = new oc9();
+            this.m = new fm9();
             setWebViewClient(this.c);
             setWebChromeClient(this.d);
             if (Build.VERSION.SDK_INT >= 11) {
@@ -616,7 +616,7 @@ public class CommonWebView extends WebView {
                 removeJavascriptInterface("accessibility");
                 removeJavascriptInterface("accessibilityTraversal");
             }
-            gt4.j(getContext());
+            it4.j(getContext());
             if (Build.VERSION.SDK_INT >= 21) {
                 setAcceptThirdPartyCookies(true);
                 getSettings().setMixedContentMode(0);

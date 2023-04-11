@@ -20,13 +20,13 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.ad5;
 import com.baidu.tieba.cf;
-import com.baidu.tieba.ii0;
-import com.baidu.tieba.o58;
-import com.baidu.tieba.p58;
-import com.baidu.tieba.r58;
-import com.baidu.tieba.s58;
-import com.baidu.tieba.wb5;
+import com.baidu.tieba.fg8;
+import com.baidu.tieba.gg8;
+import com.baidu.tieba.ig8;
+import com.baidu.tieba.jg8;
+import com.baidu.tieba.ji0;
 /* loaded from: classes2.dex */
 public class InitSDKWithPrivacyTask extends LaunchTask {
     public static final String LBS_API_KEY = "ZcNrGBp4BZPVHSz6ODfQGHRAyPQoxc9E";
@@ -44,7 +44,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     private void initAdRuntime() {
         if (PermissionUtil.isAgreePrivacyPolicy()) {
             if (TbadkCoreApplication.getInst().isMainProcess(true) || TbadkCoreApplication.getInst().isRemoteProcess()) {
-                ii0.c();
+                ji0.c();
             }
         }
     }
@@ -56,13 +56,13 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     }
 
     private void initBaiduMap() {
-        cf.n().r(p58.t());
+        cf.n().r(gg8.t());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            cf.n().r(o58.j());
+            cf.n().r(fg8.j());
         }
         MessageManager.getInstance().registerListener(new CustomMessageListener(2010044) { // from class: com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -71,17 +71,17 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
                 EditorTools editorTools = (EditorTools) customResponsedMessage.getData();
                 if (editorTools.getCollectTools().indexOf(8) != -1) {
                     if (editorTools.v()) {
-                        editorTools.d(new r58(editorTools.getContext(), true));
+                        editorTools.d(new ig8(editorTools.getContext(), true));
                     } else {
-                        editorTools.d(new r58(editorTools.getContext()));
+                        editorTools.d(new ig8(editorTools.getContext()));
                     }
                 }
             }
         });
         CustomMessageTask customMessageTask = new CustomMessageTask(2016556, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.searchbox.task.sync.privacy.InitSDKWithPrivacyTask.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<wb5> run(CustomMessage<Context> customMessage) {
-                return new CustomResponsedMessage<>(2016556, new s58(customMessage.getData(), 0));
+            public CustomResponsedMessage<ad5> run(CustomMessage<Context> customMessage) {
+                return new CustomResponsedMessage<>(2016556, new jg8(customMessage.getData(), 0));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

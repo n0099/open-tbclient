@@ -1,117 +1,132 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
+import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Set;
-import kotlin.Unit;
 /* loaded from: classes3.dex */
-public final class ai6 {
+public class ai6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final Set<yh6> b;
-    public int c;
 
-    public ai6(int i) {
+    @Nullable
+    public static Intent a(Context context, String str, String str2, boolean z, zh6 zh6Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, str2, Boolean.valueOf(z), zh6Var})) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            int i = 0;
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+            while (true) {
+                if (i >= queryIntentActivities.size()) {
+                    break;
+                }
+                String str3 = queryIntentActivities.get(i).activityInfo.packageName;
+                if (TextUtils.equals(str3, str2)) {
+                    intent.setPackage(str3);
+                    break;
+                }
+                i++;
             }
+            if (z && !TextUtils.isEmpty(str2) && TextUtils.isEmpty(intent.getPackage())) {
+                if (zh6Var != null) {
+                    zh6Var.onFailed(-104);
+                    return null;
+                }
+                return null;
+            }
+            return intent;
         }
-        this.a = i;
-        this.b = new LinkedHashSet();
+        return (Intent) invokeCommon.objValue;
     }
 
-    public final yh6 a(int i, int i2) {
-        InterceptResult invokeII;
-        yh6 yh6Var;
-        Object obj;
-        boolean z;
+    public static Intent b(@NonNull Context context, String str, String str2, boolean z, @Nullable zh6 zh6Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            synchronized (this) {
-                Iterator<T> it = this.b.iterator();
-                while (true) {
-                    yh6Var = null;
-                    if (it.hasNext()) {
-                        obj = it.next();
-                        yh6 yh6Var2 = (yh6) obj;
-                        if (yh6Var2.k() >= i && yh6Var2.i() >= i2 && yh6Var2.k() - i < 5 && yh6Var2.i() - i2 < 5) {
-                            z = true;
-                            continue;
-                        } else {
-                            z = false;
-                            continue;
-                        }
-                        if (z) {
-                            break;
-                        }
-                    } else {
-                        obj = null;
-                        break;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, Boolean.valueOf(z), zh6Var})) == null) {
+            if (!d(str) && !e(str)) {
+                return a(context, str, str2, z, zh6Var);
+            }
+            return c(context, str, str2, zh6Var);
+        }
+        return (Intent) invokeCommon.objValue;
+    }
+
+    @Nullable
+    public static Intent c(Context context, String str, String str2, zh6 zh6Var) {
+        InterceptResult invokeLLLL;
+        List<ResolveInfo> queryIntentActivities;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, str, str2, zh6Var)) == null) {
+            Intent intent = null;
+            try {
+                Intent parseUri = Intent.parseUri(str, 1);
+                if (parseUri == null) {
+                    if (zh6Var != null) {
+                        zh6Var.onFailed(-103);
                     }
+                    return null;
                 }
-                yh6 yh6Var3 = (yh6) obj;
-                if (yh6Var3 != null) {
-                    this.b.remove(yh6Var3);
-                    this.c -= yh6Var3.j();
-                    yh6Var = yh6Var3;
+                String str3 = parseUri.getPackage();
+                if (str3 != null && !TextUtils.isEmpty(str3)) {
+                    parseUri.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                    Set<String> categories = parseUri.getCategories();
+                    if (categories == null || categories.isEmpty()) {
+                        parseUri.addCategory("android.intent.category.LAUNCHER");
+                    }
+                    if (parseUri.getComponent() == null && (queryIntentActivities = context.getPackageManager().queryIntentActivities(parseUri, 0)) != null && queryIntentActivities.size() > 0) {
+                        parseUri.setComponent(new ComponentName(str3, queryIntentActivities.iterator().next().activityInfo.name));
+                    }
+                    return parseUri;
                 }
+                return context.getPackageManager().getLaunchIntentForPackage(str2);
+            } catch (URISyntaxException unused) {
+                if (!TextUtils.isEmpty(str2)) {
+                    intent = context.getPackageManager().getLaunchIntentForPackage(str2);
+                }
+                if (intent == null && zh6Var != null) {
+                    zh6Var.onFailed(-102);
+                }
+                return intent;
             }
-            return yh6Var;
         }
-        return (yh6) invokeII.objValue;
+        return (Intent) invokeLLLL.objValue;
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                for (yh6 yh6Var : this.b) {
-                    yh6Var.e();
-                }
-                this.b.clear();
-                this.c = 0;
-                Unit unit = Unit.INSTANCE;
-            }
-        }
-    }
-
-    public final boolean c(yh6 yh6Var) {
+    public static boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yh6Var)) == null) {
-            if (yh6Var == null || yh6Var.g() == null) {
-                return true;
-            }
-            if (this.b.contains(yh6Var)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (yh6Var.j() + this.c > this.a) {
-                BdLog.v("DrawingCache [Release][+] OOM Pool");
+            return str.startsWith("android-app:");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            synchronized (this) {
-                this.b.add(yh6Var);
-                yh6Var.f();
-                this.c += yh6Var.j();
-                Unit unit = Unit.INSTANCE;
+            if (!str.startsWith("intent:") && !str.startsWith("#Intent;")) {
+                return false;
             }
             return true;
         }

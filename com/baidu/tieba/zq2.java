@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,19 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
+import java.io.DataInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Collection;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class zq2 extends DataOutputStream {
+public class zq2 extends DataInputStream {
     public static /* synthetic */ Interceptable $ic;
-    public static final xq2<byte[], String> a;
+    public static final yq2<String, byte[]> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements xq2<byte[], String> {
+    public static class a implements yq2<String, byte[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,23 +44,26 @@ public class zq2 extends DataOutputStream {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xq2
+        @Override // com.baidu.tieba.yq2
         @Nullable
-        public byte[] call(@Nullable String str) throws Exception {
+        public String call(@Nullable byte[] bArr) throws Exception {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (str == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+                if (bArr == null) {
                     return null;
                 }
-                return str.getBytes();
+                if (bArr.length == 0) {
+                    return "";
+                }
+                return new String(bArr);
             }
-            return (byte[]) invokeL.objValue;
+            return (String) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements xq2<byte[], Boolean> {
+    public class b implements yq2<Boolean, byte[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zq2 a;
@@ -81,18 +87,21 @@ public class zq2 extends DataOutputStream {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xq2
+        @Override // com.baidu.tieba.yq2
         @Nullable
-        public byte[] call(@Nullable Boolean bool) throws Exception {
+        public Boolean call(@Nullable byte[] bArr) throws Exception {
             InterceptResult invokeL;
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool)) == null) {
-                if (bool != null && bool.booleanValue()) {
-                    return new byte[0];
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+                if (bArr != null) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                return null;
+                return Boolean.valueOf(z);
             }
-            return (byte[]) invokeL.objValue;
+            return (Boolean) invokeL.objValue;
         }
     }
 
@@ -112,19 +121,77 @@ public class zq2 extends DataOutputStream {
         a = new a();
     }
 
+    public Map<String, Boolean> a() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f(new b(this));
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public byte[] c() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int readInt = readInt();
+            if (readInt >= 0) {
+                byte[] bArr = new byte[readInt];
+                if (readInt == read(bArr)) {
+                    return bArr;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                return a.call(c());
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<String> j() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return e(a);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public Map<String, String> l() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return f(a);
+        }
+        return (Map) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zq2(OutputStream outputStream) throws IOException {
-        super(outputStream);
+    public zq2(InputStream inputStream) throws IOException {
+        super(inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {outputStream};
+            Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((OutputStream) newInitContext.callArgs[0]);
+                super((InputStream) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -132,91 +199,69 @@ public class zq2 extends DataOutputStream {
         }
     }
 
-    public void a(Map<String, Boolean> map) throws IOException {
+    public <T> List<T> e(yq2<T, byte[]> yq2Var) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            e(map, new b(this));
-        }
-    }
-
-    public void b(byte[] bArr) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
-            if (bArr == null) {
-                writeInt(-1);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, yq2Var)) == null) {
+            int readInt = readInt();
+            if (readInt < 0) {
+                return null;
             }
-            writeInt(bArr.length);
-            if (bArr.length > 0) {
-                write(bArr);
-            }
-        }
-    }
-
-    public void f(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            try {
-                b(a.call(str));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void g(Collection<String> collection) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, collection) == null) {
-            d(collection, a);
-        }
-    }
-
-    public void h(Map<String, String> map) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            e(map, a);
-        }
-    }
-
-    public <T> void c(@Nullable T t, @NonNull xq2<byte[], T> xq2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, xq2Var) == null) {
-            try {
-                b(xq2Var.call(t));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public <T> void e(Map<String, T> map, xq2<byte[], T> xq2Var) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, map, xq2Var) == null) {
-            if (map == null) {
-                writeInt(-1);
-                return;
-            }
-            writeInt(map.size());
-            g(map.keySet());
-            d(map.values(), xq2Var);
-        }
-    }
-
-    public <T> void d(@Nullable Collection<T> collection, xq2<byte[], T> xq2Var) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, collection, xq2Var) == null) {
-            if (collection == null) {
-                writeInt(-1);
-                return;
-            }
-            writeInt(collection.size());
-            for (T t : collection) {
+            ArrayList arrayList = new ArrayList(readInt);
+            for (int i = 0; i < readInt; i++) {
                 try {
-                    b(xq2Var.call(t));
+                    arrayList.add(yq2Var.call(c()));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
+    }
+
+    public <T> T d(@NonNull yq2<T, byte[]> yq2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yq2Var)) == null) {
+            try {
+                return yq2Var.call(c());
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public List<String> k(List<String> list) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, list)) == null) {
+            List<String> j = j();
+            if (j == null) {
+                return list;
+            }
+            return j;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public <T> Map<String, T> f(yq2<T, byte[]> yq2Var) throws IOException {
+        InterceptResult invokeL;
+        List<String> j;
+        List<T> e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, yq2Var)) == null) {
+            if (readInt() < 0 || (j = j()) == null || (e = e(yq2Var)) == null || j.size() != e.size()) {
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            for (int i = 0; i < j.size(); i++) {
+                hashMap.put(j.get(i), e.get(i));
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

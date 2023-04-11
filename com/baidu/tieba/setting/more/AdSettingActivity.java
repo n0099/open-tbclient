@@ -23,14 +23,14 @@ import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.data.CloseAdData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c49;
-import com.baidu.tieba.jb9;
-import com.baidu.tieba.p35;
+import com.baidu.tieba.al9;
+import com.baidu.tieba.c05;
+import com.baidu.tieba.s45;
 import com.baidu.tieba.setting.im.more.MemberCloseAdHttpResponseMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdRequestMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdSocketResponseMessage;
+import com.baidu.tieba.td9;
 import com.baidu.tieba.za;
-import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,9 +46,9 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public static int f = 1;
     public static int g = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public c49 a;
+    public td9 a;
     public int b;
-    public p35 c;
+    public s45 c;
     public za d;
 
     static {
@@ -67,7 +67,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements zz4.e {
+    public class a implements c05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdSettingActivity a;
@@ -90,20 +90,20 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
             this.a = adSettingActivity;
         }
 
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.a.getPageContext().getPageActivity(), 2, "", 20);
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_SITE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
-                zz4Var.dismiss();
+                c05Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements zz4.e {
+    public class b implements c05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdSettingActivity a;
@@ -126,11 +126,11 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
             this.a = adSettingActivity;
         }
 
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                zz4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
+                c05Var.dismiss();
             }
         }
     }
@@ -168,33 +168,35 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (responsedMessage != null && responsedMessage.getError() != 0) {
-                    if (responsedMessage.getError() == 1990043) {
-                        this.a.J1();
-                    } else if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        this.a.G1();
-                        return;
+                    if (responsedMessage.getError() != 1990043) {
+                        if (!StringUtils.isNull(responsedMessage.getErrorString())) {
+                            this.a.showToast(responsedMessage.getErrorString());
+                        } else {
+                            this.a.F1();
+                            return;
+                        }
                     } else {
-                        this.a.showToast(responsedMessage.getErrorString());
+                        this.a.I1();
                     }
-                    this.a.H1(false);
+                    this.a.G1(false);
                     return;
                 }
                 boolean z = responsedMessage instanceof MemberCloseAdHttpResponseMessage;
-                if (!z && !(responsedMessage instanceof MemberCloseAdSocketResponseMessage)) {
-                    this.a.G1();
+                if (z || (responsedMessage instanceof MemberCloseAdSocketResponseMessage)) {
+                    CloseAdData closeAdData = null;
+                    if (z) {
+                        closeAdData = ((MemberCloseAdHttpResponseMessage) responsedMessage).getData();
+                    } else if (responsedMessage instanceof MemberCloseAdSocketResponseMessage) {
+                        closeAdData = ((MemberCloseAdSocketResponseMessage) responsedMessage).getData();
+                    }
+                    if (closeAdData != null) {
+                        this.a.H1(closeAdData.R());
+                        return;
+                    }
+                    this.a.F1();
                     return;
                 }
-                CloseAdData closeAdData = null;
-                if (z) {
-                    closeAdData = ((MemberCloseAdHttpResponseMessage) responsedMessage).getData();
-                } else if (responsedMessage instanceof MemberCloseAdSocketResponseMessage) {
-                    closeAdData = ((MemberCloseAdSocketResponseMessage) responsedMessage).getData();
-                }
-                if (closeAdData == null) {
-                    this.a.G1();
-                    return;
-                }
-                this.a.I1(closeAdData.S());
+                this.a.F1();
             }
         }
     }
@@ -213,19 +215,32 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
             }
         }
         this.b = g;
-        this.c = new p35(getPageContext());
+        this.c = new s45(getPageContext());
         this.d = new c(this, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, 309348);
     }
 
-    public final void I1(int i) {
+    @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
+    public void c0(View view2, BdSwitchView.SwitchState switchState) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, view2, switchState) == null) && view2 != null && this.a != null) {
+            if (BdSwitchView.SwitchState.ON == switchState) {
+                TiebaStatic.log("c11143");
+                E1(1);
+                return;
+            }
+            E1(0);
+        }
+    }
+
+    public final void H1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (i == 0) {
-                this.a.n();
+                this.a.z();
                 currentAccountObj.setMemberCloseAdVipClose(0);
             } else {
-                this.a.o();
+                this.a.A();
                 currentAccountObj.setMemberCloseAdVipClose(1);
             }
             this.b = g;
@@ -255,38 +270,25 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new c49(this);
-            E1();
+            this.a = new td9(this);
+            C1();
             registerListener(this.d);
             initData();
         }
     }
 
-    @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
-    public void g0(View view2, BdSwitchView.SwitchState switchState) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, view2, switchState) == null) && view2 != null && this.a != null) {
-            if (BdSwitchView.SwitchState.ON == switchState) {
-                TiebaStatic.log("c11143");
-                F1(1);
-                return;
-            }
-            F1(0);
-        }
-    }
-
-    public void E1() {
+    public void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jb9.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
-            jb9.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
+            al9.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
+            al9.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
         }
     }
 
-    public final void G1() {
+    public final void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            H1(true);
+            G1(true);
         }
     }
 
@@ -298,11 +300,11 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         }
         Serializable serializableExtra = intent.getSerializableExtra(AdSettingActivityConfig.KEY_SHOW_SHAKE_AD_DATA);
         if (serializableExtra instanceof ShakeAdSwitchData) {
-            this.a.p((ShakeAdSwitchData) serializableExtra);
+            this.a.B((ShakeAdSwitchData) serializableExtra);
         }
     }
 
-    public void F1(int i) {
+    public void E1(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.b != g) {
             return;
@@ -319,14 +321,14 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         this.c.h(true);
     }
 
-    public final void H1(boolean z) {
+    public final void G1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             int i = this.b;
             if (i == e) {
-                this.a.o();
+                this.a.A();
             } else if (i == f) {
-                this.a.n();
+                this.a.z();
             }
             if (z) {
                 showToast(R.string.setdefualt_error);
@@ -337,15 +339,15 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public final void J1() {
+    public final void I1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            zz4 zz4Var = new zz4(getPageContext().getPageActivity());
-            zz4Var.setMessageId(R.string.mebmer_close_ad_dialog_message);
-            zz4Var.setButtonTextColor(R.color.CAM_X0305);
-            zz4Var.setPositiveButton(R.string.open_now, new a(this));
-            zz4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038e, new b(this));
-            zz4Var.create(getPageContext()).show();
+            c05 c05Var = new c05(getPageContext().getPageActivity());
+            c05Var.setMessageId(R.string.mebmer_close_ad_dialog_message);
+            c05Var.setButtonTextColor(R.color.CAM_X0305);
+            c05Var.setPositiveButton(R.string.open_now, new a(this));
+            c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new b(this));
+            c05Var.create(getPageContext()).show();
         }
     }
 }

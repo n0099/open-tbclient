@@ -1,41 +1,45 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
-import android.text.Spanned;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class p15 {
+public class p15 extends k15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Paint.FontMetricsInt fontMetricsInt, int i) {
-        int i2;
-        int i3;
+    public p15() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65536, null, fontMetricsInt, i) != null) || (i3 = (i2 = fontMetricsInt.descent) - fontMetricsInt.ascent) <= 0) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        int round = Math.round(i2 * ((i * 1.0f) / i3));
-        fontMetricsInt.descent = round;
-        fontMetricsInt.ascent = round - i;
     }
 
-    public static boolean b(CharSequence charSequence) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.k15
+    public void a(@NonNull Context context, @NonNull b15 b15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) {
-            if (!(charSequence instanceof Spanned)) {
-                return false;
-            }
-            Spanned spanned = (Spanned) charSequence;
-            if (((EMTextView.a[]) spanned.getSpans(0, spanned.length(), EMTextView.a.class)).length <= 0) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, b15Var) == null) {
+            ClientUpdateInfo clientUpdateInfo = new ClientUpdateInfo();
+            clientUpdateInfo.mIsForceUpdate = b15Var.a("is_force_update");
+            clientUpdateInfo.mStatus = b15Var.a("status");
+            clientUpdateInfo.mReverson = b15Var.a("reverson");
+            clientUpdateInfo.mContentUrl = b15Var.a("content_url");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, b15Var.a("apk_md5_rsa"))));
         }
-        return invokeL.booleanValue;
     }
 }

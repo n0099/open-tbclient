@@ -1,373 +1,138 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
-import com.baidu.tieba.lr3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes6.dex */
 public class vq3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile vq3 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public er3 a;
-    public ConcurrentLinkedQueue<zq3> b;
-    public volatile boolean c;
-    public jr3 d;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ jr3 b;
-        public final /* synthetic */ vq3 c;
-
-        public a(vq3 vq3Var, String str, jr3 jr3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vq3Var, str, jr3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = vq3Var;
-            this.a = str;
-            this.b = jr3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ik4.e().f();
-                this.c.j(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements lr3.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vq3 a;
-
-        public b(vq3 vq3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vq3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vq3Var;
-        }
-
-        @Override // com.baidu.tieba.lr3.b
-        public void a(boolean z, byte[] bArr) {
-            cr3 a;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, bArr) == null) {
-                String str = "";
-                try {
-                    try {
-                        if (pq3.a) {
-                            Log.d("BDTLS", "doHandShake response");
-                        }
-                        if (z && bArr != null && (a = gr3.a(bArr)) != null) {
-                            byte i = a.i();
-                            byte[] f = a.f();
-                            if (f != null) {
-                                if (pq3.a) {
-                                    Log.d("BDTLS", "doHandShake response schemeType =" + ((int) i));
-                                }
-                                if (i != 21) {
-                                    if (i == 22) {
-                                        if (fr3.a(this.a.a, f) != null) {
-                                            if (pq3.a) {
-                                                Log.d("BDTLS", "doHandShake serverHello");
-                                            }
-                                            this.a.a.s(1);
-                                            uq3.a("serverHello");
-                                            while (true) {
-                                                zq3 zq3Var = (zq3) this.a.b.poll();
-                                                if (zq3Var != null) {
-                                                    this.a.g(zq3Var.b(), zq3Var.a());
-                                                } else {
-                                                    return;
-                                                }
-                                            }
-                                        } else {
-                                            str = "params decode error";
-                                        }
-                                    }
-                                } else {
-                                    if (pq3.a) {
-                                        Log.d("BDTLS", "doHandShake alert");
-                                    }
-                                    Bdtls$Alert parseFrom = Bdtls$Alert.parseFrom(f);
-                                    if (parseFrom != null) {
-                                        if (pq3.a) {
-                                            Log.d("BDTLS", "bdtls ubc handshake alert");
-                                        }
-                                        if (parseFrom.getDescription() != null) {
-                                            str = new String(parseFrom.getDescription().toByteArray());
-                                        }
-                                        uq3.b(this.a.a, parseFrom);
-                                    }
-                                }
-                            }
-                        }
-                    } catch (Exception e) {
-                        if (pq3.a) {
-                            e.printStackTrace();
-                            Log.d("BDTLS", "exception=" + e.getMessage());
-                        }
-                    }
-                    this.a.n(str);
-                } finally {
-                    this.a.c = false;
-                }
-            }
-        }
-    }
-
-    public vq3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new er3();
-        this.c = false;
-        this.b = new ConcurrentLinkedQueue<>();
-    }
-
-    public final void o(int i, jr3 jr3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048583, this, i, jr3Var) == null) && jr3Var != null) {
-            jr3Var.f(i);
-        }
-    }
-
-    public void p(String str, jr3 jr3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, jr3Var) == null) {
-            nk3.l(new a(this, str, jr3Var), "SessionController");
-        }
-    }
-
-    public static vq3 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (e == null) {
-                synchronized (vq3.class) {
-                    if (e == null) {
-                        e = new vq3();
-                    }
-                }
-            }
-            return e;
-        }
-        return (vq3) invokeV.objValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            jr3 jr3Var = this.d;
-            if (jr3Var == null) {
-                return false;
-            }
-            return jr3Var.c();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public er3 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.a == null) {
-                this.a = new er3();
-            }
-            return this.a;
-        }
-        return (er3) invokeV.objValue;
-    }
-
-    public final void g(String str, jr3 jr3Var) {
-        byte[] b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jr3Var) == null) {
-            if (jr3Var == null) {
-                o(-1, null);
-            } else if (str == null && TextUtils.equals(jr3Var.b(), "POST")) {
-                o(-1, jr3Var);
-            } else {
-                if (pq3.a) {
-                    Log.d("BDTLS", "BdtlsPmsRequest before bdtls encrypt requestData = " + str);
-                }
-                if (TextUtils.equals(jr3Var.b(), "GET")) {
-                    b2 = tq3.f().b(this.a, null);
-                } else {
-                    b2 = tq3.f().b(this.a, str);
-                }
-                if (b2 != null) {
-                    if (pq3.a) {
-                        Log.d("BDTLS", "doBdtlsApplicationDataRequest");
-                    }
-                    jr3Var.i(true);
-                    this.d = jr3Var;
-                    jr3Var.h(b2);
-                    return;
-                }
-                o(-1, jr3Var);
-            }
-        }
-    }
-
-    public final void j(String str, jr3 jr3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, jr3Var) == null) {
-            if (this.a.h() != 2) {
-                if (!this.a.j()) {
-                    if (this.b == null) {
-                        this.b = new ConcurrentLinkedQueue<>();
-                    }
-                    this.b.offer(new zq3(str, jr3Var));
-                    if (r13.c()) {
-                        ar3 ar3Var = new ar3();
-                        long j = ar3Var.getLong("expireTime", 0L);
-                        if (j > System.currentTimeMillis() / 1000) {
-                            this.a.l(ar3Var.getString("secretKey", "").getBytes());
-                            this.a.t(ar3Var.getString("sessionTicket", "").getBytes());
-                            this.a.r(j);
-                            g(str, jr3Var);
-                            return;
-                        }
-                    }
-                    h();
-                    return;
-                }
-                g(str, jr3Var);
-                return;
-            }
-            i(str, jr3Var);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (pq3.a) {
-                Log.d("BDTLS", "doHandShake");
-            }
-            if (this.c) {
-                if (pq3.a) {
-                    Log.d("BDTLS", "doHandShake isHandshakeRunning");
-                    return;
-                }
-                return;
-            }
-            this.c = true;
-            byte[] e2 = tq3.f().e(this.a);
-            if (e2 != null && e2.length > 0) {
-                new lr3().a(e2, new b(this));
-                return;
-            }
-            this.c = false;
-            n("record data error");
-        }
-    }
-
-    public final void i(String str, jr3 jr3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jr3Var) == null) {
-            if (jr3Var != null && TextUtils.equals(jr3Var.b(), "GET")) {
-                if (pq3.a) {
-                    Log.d("BDTLS", "doNormalApplicationDataRequest");
-                }
-                jr3Var.i(false);
-                this.d = jr3Var;
-                jr3Var.h(null);
-            } else if (jr3Var != null && str != null) {
-                if (pq3.a) {
-                    Log.d("BDTLS", "doNormalApplicationDataRequest");
-                }
-                jr3Var.i(false);
-                this.d = jr3Var;
-                jr3Var.h(str.getBytes());
-            } else {
-                o(-1, jr3Var);
-            }
-        }
-    }
-
-    public final void n(String str) {
+    public static void a(String str) {
         int i;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            if (qq3.a) {
+                Log.d("BDTLS", "bdtls success");
+            }
+            fr3 m = wq3.l().m();
+            if (m == null) {
+                if (qq3.a) {
+                    Log.d("BDTLS", "bdtls ubc data is null");
+                    return;
+                }
+                return;
+            }
+            try {
+                int i4 = -1;
+                if (m.d() != null) {
+                    i = m.d().intValue();
+                } else {
+                    i = -1;
+                }
+                if (m.f() != null) {
+                    i2 = m.f().intValue();
+                } else {
+                    i2 = -1;
+                }
+                if (m.e() != null) {
+                    i3 = m.e().intValue();
+                } else {
+                    i3 = -1;
+                }
+                if (m.g() != null) {
+                    i4 = m.g().intValue();
+                }
+                if (qq3.a) {
+                    Log.d("BDTLS", "bdtls ubc get data");
+                }
+                xe3 xe3Var = new xe3();
+                xe3Var.b = str;
+                xe3Var.a("dh_group_id", Integer.valueOf(i));
+                xe3Var.a("dh_secret", Integer.valueOf(i2));
+                xe3Var.a("dh_pub_c", Integer.valueOf(i3));
+                xe3Var.a("dh_pub_s", Integer.valueOf(i4));
+                if (qq3.a) {
+                    Log.d("BDTLS", "bdtls ubc create event");
+                }
+                ne3.d(xe3Var);
+            } catch (Exception e) {
+                if (qq3.a) {
+                    Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void b(fr3 fr3Var, Bdtls$Alert bdtls$Alert) {
+        String str;
+        int i;
+        int i2;
+        int i3;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            if (pq3.a) {
-                Log.d("BDTLS", "onHandshakeError");
+        if (interceptable == null || interceptable.invokeLL(65537, null, fr3Var, bdtls$Alert) == null) {
+            if (qq3.a) {
+                Log.d("BDTLS", "bdtls ubc");
             }
-            if (TextUtils.equals(str, "down grade")) {
-                i = 2;
-            } else {
-                i = -1;
-            }
-            this.a.s(i);
-            while (true) {
-                zq3 poll = this.b.poll();
-                if (poll != null) {
-                    if (i == 2) {
-                        i(poll.b(), poll.a());
+            if (fr3Var != null && bdtls$Alert != null) {
+                try {
+                    if (bdtls$Alert.getLevel() == 1) {
+                        str = "warning";
                     } else {
-                        jr3 a2 = poll.a();
-                        if (a2 != null) {
-                            if (TextUtils.isEmpty(str)) {
-                                str2 = "connect fail";
-                            } else {
-                                str2 = str;
-                            }
-                            a2.e(new IOException(str2));
-                        }
+                        str = "fatal_error";
                     }
-                } else {
-                    return;
+                    int i4 = -1;
+                    if (fr3Var.d() != null) {
+                        i = fr3Var.d().intValue();
+                    } else {
+                        i = -1;
+                    }
+                    if (fr3Var.f() != null) {
+                        i2 = fr3Var.f().intValue();
+                    } else {
+                        i2 = -1;
+                    }
+                    if (fr3Var.e() != null) {
+                        i3 = fr3Var.e().intValue();
+                    } else {
+                        i3 = -1;
+                    }
+                    if (fr3Var.g() != null) {
+                        i4 = fr3Var.g().intValue();
+                    }
+                    if (bdtls$Alert.getDescription() != null) {
+                        str2 = new String(bdtls$Alert.getDescription().toByteArray());
+                    } else {
+                        str2 = "";
+                    }
+                    if (qq3.a) {
+                        Log.d("BDTLS", "bdtls ubc get data");
+                    }
+                    xe3 xe3Var = new xe3();
+                    xe3Var.b = "alert";
+                    xe3Var.e = str;
+                    xe3Var.a("dh_group_id", Integer.valueOf(i));
+                    xe3Var.a("dh_secret", Integer.valueOf(i2));
+                    xe3Var.a("dh_pub_c", Integer.valueOf(i3));
+                    xe3Var.a("dh_pub_s", Integer.valueOf(i4));
+                    xe3Var.a("alert_msg", str2);
+                    if (qq3.a) {
+                        Log.d("BDTLS", "bdtls ubc create event");
+                    }
+                    ne3.d(xe3Var);
+                } catch (Exception e) {
+                    if (qq3.a) {
+                        Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
+                        e.printStackTrace();
+                    }
                 }
+            } else if (qq3.a) {
+                Log.d("BDTLS", "bdtls ubc data is null");
             }
         }
     }

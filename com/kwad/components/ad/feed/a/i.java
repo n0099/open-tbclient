@@ -27,11 +27,11 @@ public final class i extends a implements View.OnClickListener {
 
     @Override // com.kwad.components.core.widget.b
     public final void bg() {
-        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911f2)).setRatio(0.56f);
-        this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f0911b1);
-        this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911b7);
-        this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911b3);
-        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09121e);
+        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911f6)).setRatio(0.56f);
+        this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f0911b5);
+        this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911bb);
+        this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911b7);
+        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091222);
     }
 
     @Override // com.kwad.components.core.widget.b
@@ -54,7 +54,7 @@ public final class i extends a implements View.OnClickListener {
 
     @Override // com.kwad.components.core.widget.b
     public final int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d045c;
+        return R.layout.obfuscated_res_0x7f0d045e;
     }
 
     @Override // android.view.View.OnClickListener
@@ -69,7 +69,7 @@ public final class i extends a implements View.OnClickListener {
         } else if (view2 == this.df) {
             i = 100;
         }
-        if (com.kwad.components.core.c.a.d.a(new a.C0593a(getContext()).L(this.mAdTemplate), 1) == 1) {
+        if (com.kwad.components.core.c.a.d.a(new a.C0594a(getContext()).L(this.mAdTemplate), 1) == 1) {
             aq(i);
             return;
         }

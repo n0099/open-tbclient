@@ -1,76 +1,107 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipBasicList;
-import tbclient.GetVipInfo.VipSpecialItem;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class fa8 {
+public final class fa8 extends ca8<oa8> implements b07<fa8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public s98 b;
-    public LinkedHashMap<String, v98> c;
+    public final String d;
+    public boolean e;
 
-    public fa8(DataRes dataRes) {
+    public fa8 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (fa8) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fa8(na8<oa8> data, String templateName) {
+        super(data);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dataRes};
+            Object[] objArr = {data, templateName};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((na8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (dataRes == null) {
-            return;
+        Intrinsics.checkNotNullParameter(data, "data");
+        Intrinsics.checkNotNullParameter(templateName, "templateName");
+        this.d = templateName;
+    }
+
+    @Override // com.baidu.tieba.b07
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        String str = dataRes.grade_intro_title;
-        String str2 = dataRes.grade_intro_link;
-        new ea8(dataRes);
-        new ga8(dataRes.special_list);
-        new x98(dataRes.cooperate_list);
-        new ba8(dataRes.theme_list);
-        new t98(dataRes.banner_list);
-        new ja8(dataRes.task_list);
-        new ia8(dataRes.rank, dataRes.user);
-        new z98(dataRes.daily_list);
-        s98 s98Var = new s98();
-        this.b = s98Var;
-        s98Var.a(dataRes);
-        List<VipBasicList> list = dataRes.basic_list;
-        if (list != null && list.size() > 0) {
-            this.c = new LinkedHashMap<>();
-            for (VipBasicList vipBasicList : dataRes.basic_list) {
-                List<VipSpecialItem> list2 = vipBasicList.item;
-                if (list2 != null && list2.size() > 0) {
-                    v98 v98Var = new v98(vipBasicList);
-                    if (v98Var.c != 3 || v98Var.a().size() >= 2) {
-                        this.c.put(v98Var.d, v98Var);
-                    }
-                }
-            }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.b07
+    public /* bridge */ /* synthetic */ fa8 b() {
+        i();
+        return this;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
         }
-        List<String> list3 = dataRes.card_order;
-        if (list3 != null && list3.size() > 0) {
-            this.a = new ArrayList<>();
-            for (String str3 : dataRes.card_order) {
-                if (!StringUtils.isNull(str3)) {
-                    this.a.add(str3);
-                }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ca8
+    public boolean f(ca8<?> other) {
+        InterceptResult invokeL;
+        fa8 fa8Var;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, other)) == null) {
+            Intrinsics.checkNotNullParameter(other, "other");
+            if (super.f(other)) {
+                return true;
             }
+            if (other instanceof fa8) {
+                fa8Var = (fa8) other;
+            } else {
+                fa8Var = null;
+            }
+            if (fa8Var != null && this.e == fa8Var.e) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.e = z;
         }
     }
 }

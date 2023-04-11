@@ -1,42 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SmartApp;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.widget.DragImageView;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 /* loaded from: classes4.dex */
-public class ib9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public Integer d;
+public interface ib9 extends IAdBaseAsyncController {
+    View b(@NonNull String str, boolean z);
 
-    public ib9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    AdvertAppInfo d(@NonNull String str);
 
-    public void a(SmartApp smartApp) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, smartApp) != null) || smartApp == null) {
-            return;
-        }
-        String str = smartApp.avatar;
-        this.a = smartApp.name;
-        this.b = smartApp.id;
-        this.c = smartApp.link;
-        this.d = smartApp.is_game;
-    }
+    void e(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo);
+
+    boolean f(@NonNull String str);
+
+    void g(@NonNull np5 np5Var);
+
+    int getAdCount();
+
+    void h(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z);
+
+    void j(@NonNull String str);
+
+    void k(@NonNull AdvertAppInfo advertAppInfo);
+
+    void l();
+
+    boolean n();
+
+    void o(String str);
+
+    void onDestroy();
 }

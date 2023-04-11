@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PbImageIcon extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbImageIcon(Context context) {
@@ -32,7 +31,6 @@ public class PbImageIcon extends ImageView {
                 return;
             }
         }
-        this.a = context;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,7 +52,6 @@ public class PbImageIcon extends ImageView {
                 return;
             }
         }
-        this.a = context;
     }
 
     @Override // android.widget.ImageView, android.view.View

@@ -52,7 +52,7 @@ import com.google.android.material.ripple.RippleUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDrawable, Drawable.Callback, TextDrawableHelper.TextDrawableDelegate {
     public static final boolean DEBUG = false;
     public static final String NAMESPACE_APP = "http://schemas.android.com/apk/res-auto";
@@ -152,7 +152,7 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     public static final int[] DEFAULT_STATE = {16842910};
     public static final ShapeDrawable closeIconRippleMask = new ShapeDrawable(new OvalShape());
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Delegate {
         void onChipDrawableSizeChange();
     }

@@ -12,27 +12,27 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.webviewx.container.base.AbsContainer;
 import com.baidu.nadcore.widget.SlideInterceptor;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bm0;
-import com.baidu.tieba.d91;
-import com.baidu.tieba.i91;
+import com.baidu.tieba.cm0;
+import com.baidu.tieba.e91;
 import com.baidu.tieba.j91;
-import com.baidu.tieba.m91;
+import com.baidu.tieba.k91;
 import com.baidu.tieba.n91;
+import com.baidu.tieba.o91;
 /* loaded from: classes2.dex */
-public class AdWebActivity extends BaseActivity implements SlideInterceptor, i91, j91 {
-    public final AbsContainer u = d91.a.b(this, this, bm0.b().a().a("key_webview_core_type", 0));
+public class AdWebActivity extends BaseActivity implements SlideInterceptor, j91, k91 {
+    public final AbsContainer u = e91.a.b(this, this, cm0.b().a().a("key_webview_core_type", 0));
 
-    @Override // com.baidu.tieba.i91
-    public boolean d() {
+    @Override // com.baidu.tieba.j91
+    public boolean f() {
         return false;
     }
 
-    @Override // com.baidu.tieba.j91
+    @Override // com.baidu.tieba.k91
     public boolean g() {
         return false;
     }
 
-    @Override // com.baidu.tieba.i91
+    @Override // com.baidu.tieba.j91
     @NonNull
     public Activity getActivity() {
         return this;
@@ -68,8 +68,8 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, i91
         this.u.u();
     }
 
-    @Override // com.baidu.tieba.i91
-    public void c() {
+    @Override // com.baidu.tieba.j91
+    public void d() {
         finish();
     }
 
@@ -85,7 +85,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, i91
         }
         this.u.x("1");
         this.u.o();
-        m91.f().a(getActivity());
+        n91.f().a(getActivity());
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
@@ -108,7 +108,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, i91
             return false;
         }
         requestWindowFeature(1);
-        if (n91.b.a().a(getIntent())) {
+        if (o91.b.a().a(getIntent())) {
             R1(0, 0, 0, 0);
             forceActivityTransparent(true);
         } else {

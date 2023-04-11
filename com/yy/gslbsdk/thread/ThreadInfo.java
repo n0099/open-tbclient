@@ -1,16 +1,16 @@
 package com.yy.gslbsdk.thread;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ThreadInfo implements Runnable {
     public String threadName;
     public ThreadMainOper threadMainOper = null;
     public ThreadEndOper threadEndOper = null;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ThreadEndOper {
         void handleOper(String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ThreadMainOper {
         void handleOper(String str);
     }

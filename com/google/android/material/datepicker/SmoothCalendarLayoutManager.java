@@ -5,7 +5,7 @@ import android.util.DisplayMetrics;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SmoothCalendarLayoutManager extends LinearLayoutManager {
     public static final float MILLISECONDS_PER_INCH = 100.0f;
 

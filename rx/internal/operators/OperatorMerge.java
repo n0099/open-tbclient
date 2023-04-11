@@ -1,16 +1,16 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.cua;
-import com.baidu.tieba.fua;
-import com.baidu.tieba.iwa;
-import com.baidu.tieba.jsa;
-import com.baidu.tieba.lva;
-import com.baidu.tieba.ora;
-import com.baidu.tieba.oua;
-import com.baidu.tieba.qra;
-import com.baidu.tieba.ura;
-import com.baidu.tieba.xta;
-import com.baidu.tieba.xua;
+import com.baidu.tieba.a2b;
+import com.baidu.tieba.c5b;
+import com.baidu.tieba.f1b;
+import com.baidu.tieba.f4b;
+import com.baidu.tieba.h1b;
+import com.baidu.tieba.l1b;
+import com.baidu.tieba.o3b;
+import com.baidu.tieba.o4b;
+import com.baidu.tieba.t3b;
+import com.baidu.tieba.w3b;
+import com.baidu.tieba.z5b;
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -21,7 +21,7 @@ import rx.exceptions.OnErrorThrowable;
 import rx.internal.util.ScalarSynchronousObservable;
 import rx.internal.util.atomic.SpscExactAtomicArrayQueue;
 /* loaded from: classes9.dex */
-public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
+public final class OperatorMerge<T> implements f1b.b<T, f1b<? extends T>> {
     public final boolean a;
     public final int b;
 
@@ -36,7 +36,7 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
     }
 
     /* loaded from: classes9.dex */
-    public static final class MergeProducer<T> extends AtomicLong implements qra {
+    public static final class MergeProducer<T> extends AtomicLong implements h1b {
         public static final long serialVersionUID = -1214379189873595503L;
         public final d<T> subscriber;
 
@@ -48,14 +48,14 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
             return addAndGet(-i);
         }
 
-        @Override // com.baidu.tieba.qra
+        @Override // com.baidu.tieba.h1b
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i > 0) {
                 if (get() == Long.MAX_VALUE) {
                     return;
                 }
-                jsa.b(this, j);
+                a2b.b(this, j);
                 this.subscriber.i();
             } else if (i >= 0) {
             } else {
@@ -65,22 +65,22 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
     }
 
     /* loaded from: classes9.dex */
-    public static final class c<T> extends ura<T> {
-        public static final int j = xta.c / 4;
+    public static final class c<T> extends l1b<T> {
+        public static final int j = o3b.c / 4;
         public final d<T> e;
         public final long f;
         public volatile boolean g;
-        public volatile xta h;
+        public volatile o3b h;
         public int i;
 
-        @Override // com.baidu.tieba.ura
+        @Override // com.baidu.tieba.l1b
         public void d() {
-            int i = xta.c;
+            int i = o3b.c;
             this.i = i;
             e(i);
         }
 
-        @Override // com.baidu.tieba.pra
+        @Override // com.baidu.tieba.g1b
         public void onCompleted() {
             this.g = true;
             this.e.i();
@@ -97,7 +97,7 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
                 this.i = i;
                 return;
             }
-            int i2 = xta.c;
+            int i2 = o3b.c;
             this.i = i2;
             int i3 = i2 - i;
             if (i3 > 0) {
@@ -105,28 +105,28 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
             }
         }
 
-        @Override // com.baidu.tieba.pra
+        @Override // com.baidu.tieba.g1b
         public void onError(Throwable th) {
             this.g = true;
             this.e.o().offer(th);
             this.e.i();
         }
 
-        @Override // com.baidu.tieba.pra
+        @Override // com.baidu.tieba.g1b
         public void onNext(T t) {
             this.e.w(this, t);
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class d<T> extends ura<ora<? extends T>> {
+    public static final class d<T> extends l1b<f1b<? extends T>> {
         public static final c<?>[] v = new c[0];
-        public final ura<? super T> e;
+        public final l1b<? super T> e;
         public final boolean f;
         public final int g;
         public MergeProducer<T> h;
         public volatile Queue<Object> i;
-        public volatile iwa j;
+        public volatile z5b j;
         public volatile ConcurrentLinkedQueue<Throwable> k;
         public volatile boolean l;
         public boolean m;
@@ -176,26 +176,26 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
             this.u = i;
         }
 
-        public iwa n() {
-            iwa iwaVar;
-            iwa iwaVar2 = this.j;
-            if (iwaVar2 == null) {
+        public z5b n() {
+            z5b z5bVar;
+            z5b z5bVar2 = this.j;
+            if (z5bVar2 == null) {
                 boolean z = false;
                 synchronized (this) {
-                    iwaVar = this.j;
-                    if (iwaVar == null) {
-                        iwa iwaVar3 = new iwa();
-                        this.j = iwaVar3;
-                        iwaVar = iwaVar3;
+                    z5bVar = this.j;
+                    if (z5bVar == null) {
+                        z5b z5bVar3 = new z5b();
+                        this.j = z5bVar3;
+                        z5bVar = z5bVar3;
                         z = true;
                     }
                 }
                 if (z) {
-                    b(iwaVar);
+                    b(z5bVar);
                 }
-                return iwaVar;
+                return z5bVar;
             }
-            return iwaVar2;
+            return z5bVar2;
         }
 
         public Queue<Throwable> o() {
@@ -212,7 +212,7 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
             return concurrentLinkedQueue;
         }
 
-        @Override // com.baidu.tieba.pra
+        @Override // com.baidu.tieba.g1b
         public void onCompleted() {
             this.l = true;
             i();
@@ -227,8 +227,8 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
             }
         }
 
-        public d(ura<? super T> uraVar, boolean z, int i) {
-            this.e = uraVar;
+        public d(l1b<? super T> l1bVar, boolean z, int i) {
+            this.e = l1bVar;
             this.f = z;
             this.g = i;
             if (i == Integer.MAX_VALUE) {
@@ -254,7 +254,7 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
             }
         }
 
-        @Override // com.baidu.tieba.pra
+        @Override // com.baidu.tieba.g1b
         public void onError(Throwable th) {
             o().offer(th);
             this.l = true;
@@ -264,22 +264,22 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: rx.internal.operators.OperatorMerge$d<T> */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.pra
+        @Override // com.baidu.tieba.g1b
         /* renamed from: p */
-        public void onNext(ora<? extends T> oraVar) {
-            if (oraVar == null) {
+        public void onNext(f1b<? extends T> f1bVar) {
+            if (f1bVar == null) {
                 return;
             }
-            if (oraVar == ora.c()) {
+            if (f1bVar == f1b.c()) {
                 j();
-            } else if (oraVar instanceof ScalarSynchronousObservable) {
-                v(((ScalarSynchronousObservable) oraVar).E());
+            } else if (f1bVar instanceof ScalarSynchronousObservable) {
+                v(((ScalarSynchronousObservable) f1bVar).E());
             } else {
                 long j = this.q;
                 this.q = 1 + j;
                 c cVar = new c(this, j);
                 g(cVar);
-                oraVar.B(cVar);
+                f1bVar.B(cVar);
                 i();
             }
         }
@@ -296,7 +296,7 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
             boolean z3;
             int i2;
             try {
-                ura<? super T> uraVar = this.e;
+                l1b<? super T> l1bVar = this.e;
                 while (!h()) {
                     Queue<Object> queue = this.i;
                     long j2 = this.h.get();
@@ -324,7 +324,7 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
                                     obj = poll;
                                     break;
                                 }
-                                uraVar.onNext((Object) NotificationLite.e(poll));
+                                l1bVar.onNext((Object) NotificationLite.e(poll));
                                 i++;
                                 i4++;
                                 j--;
@@ -357,7 +357,7 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
                             t();
                             return;
                         }
-                        uraVar.onCompleted();
+                        l1bVar.onCompleted();
                         return;
                     }
                     if (length > 0) {
@@ -389,12 +389,12 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
                                     if (h()) {
                                         return;
                                     }
-                                    xta xtaVar = cVar.h;
-                                    if (xtaVar == null || (obj2 = xtaVar.i()) == null) {
+                                    o3b o3bVar = cVar.h;
+                                    if (o3bVar == null || (obj2 = o3bVar.i()) == null) {
                                         break;
                                     }
                                     try {
-                                        uraVar.onNext((Object) NotificationLite.e(obj2));
+                                        l1bVar.onNext((Object) NotificationLite.e(obj2));
                                         j--;
                                         i8++;
                                     }
@@ -413,8 +413,8 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
                                 }
                             } while (obj2 != null);
                             boolean z5 = cVar.g;
-                            xta xtaVar2 = cVar.h;
-                            if (z5 && (xtaVar2 == null || xtaVar2.e())) {
+                            o3b o3bVar2 = cVar.h;
+                            if (z5 && (o3bVar2 == null || o3bVar2.e())) {
                                 s(cVar);
                                 if (h()) {
                                     return;
@@ -536,13 +536,13 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
             if (queue == null) {
                 int i = this.g;
                 if (i == Integer.MAX_VALUE) {
-                    queue = new fua<>(xta.c);
+                    queue = new w3b<>(o3b.c);
                 } else {
-                    if (oua.a(i)) {
-                        if (lva.b()) {
-                            spscExactAtomicArrayQueue = new xua<>(i);
+                    if (f4b.a(i)) {
+                        if (c5b.b()) {
+                            spscExactAtomicArrayQueue = new o4b<>(i);
                         } else {
-                            spscExactAtomicArrayQueue = new cua<>(i);
+                            spscExactAtomicArrayQueue = new t3b<>(i);
                         }
                     } else {
                         spscExactAtomicArrayQueue = new SpscExactAtomicArrayQueue<>(i);
@@ -558,14 +558,14 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
         }
 
         public void r(c<T> cVar, T t) {
-            xta xtaVar = cVar.h;
-            if (xtaVar == null) {
-                xtaVar = xta.b();
-                cVar.b(xtaVar);
-                cVar.h = xtaVar;
+            o3b o3bVar = cVar.h;
+            if (o3bVar == null) {
+                o3bVar = o3b.b();
+                cVar.b(o3bVar);
+                cVar.h = o3bVar;
             }
             try {
-                xtaVar.g(NotificationLite.h(t));
+                o3bVar.g(NotificationLite.h(t));
             } catch (IllegalStateException e) {
                 if (!cVar.isUnsubscribed()) {
                     cVar.unsubscribe();
@@ -578,9 +578,9 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
         }
 
         public void s(c<T> cVar) {
-            xta xtaVar = cVar.h;
-            if (xtaVar != null) {
-                xtaVar.j();
+            o3b o3bVar = cVar.h;
+            if (o3bVar != null) {
+                o3bVar.j();
             }
             this.j.b(cVar);
             synchronized (this.o) {
@@ -651,8 +651,8 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
                 }
             }
             if (z) {
-                xta xtaVar = cVar.h;
-                if (xtaVar != null && !xtaVar.e()) {
+                o3b o3bVar = cVar.h;
+                if (o3bVar != null && !o3bVar.e()) {
                     r(cVar, t);
                     k();
                     return;
@@ -677,17 +677,17 @@ public final class OperatorMerge<T> implements ora.b<T, ora<? extends T>> {
         return (OperatorMerge<T>) b.a;
     }
 
-    public ura<ora<? extends T>> call(ura<? super T> uraVar) {
-        d dVar = new d(uraVar, this.a, this.b);
+    public l1b<f1b<? extends T>> call(l1b<? super T> l1bVar) {
+        d dVar = new d(l1bVar, this.a, this.b);
         MergeProducer<T> mergeProducer = new MergeProducer<>(dVar);
         dVar.h = mergeProducer;
-        uraVar.b(dVar);
-        uraVar.f(mergeProducer);
+        l1bVar.b(dVar);
+        l1bVar.f(mergeProducer);
         return dVar;
     }
 
-    @Override // com.baidu.tieba.ora.b, com.baidu.tieba.gsa
+    @Override // com.baidu.tieba.f1b.b, com.baidu.tieba.x1b
     public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((ura) ((ura) obj));
+        return call((l1b) ((l1b) obj));
     }
 }

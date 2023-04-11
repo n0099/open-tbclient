@@ -1,22 +1,22 @@
 package rx.schedulers;
 
-import com.baidu.tieba.kta;
-import com.baidu.tieba.lta;
-import com.baidu.tieba.mta;
-import com.baidu.tieba.pta;
-import com.baidu.tieba.rra;
-import com.baidu.tieba.rta;
-import com.baidu.tieba.vva;
-import com.baidu.tieba.yva;
-import com.baidu.tieba.zva;
+import com.baidu.tieba.b3b;
+import com.baidu.tieba.c3b;
+import com.baidu.tieba.d3b;
+import com.baidu.tieba.g3b;
+import com.baidu.tieba.i1b;
+import com.baidu.tieba.i3b;
+import com.baidu.tieba.m5b;
+import com.baidu.tieba.p5b;
+import com.baidu.tieba.q5b;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
 public final class Schedulers {
     public static final AtomicReference<Schedulers> d = new AtomicReference<>();
-    public final rra a;
-    public final rra b;
-    public final rra c;
+    public final i1b a;
+    public final i1b b;
+    public final i1b c;
 
     public static Schedulers a() {
         while (true) {
@@ -32,20 +32,20 @@ public final class Schedulers {
         }
     }
 
-    public static rra computation() {
-        return vva.f(a().a);
+    public static i1b computation() {
+        return m5b.f(a().a);
     }
 
-    public static rra immediate() {
-        return mta.a;
+    public static i1b immediate() {
+        return d3b.a;
     }
 
-    public static rra io() {
-        return vva.k(a().b);
+    public static i1b io() {
+        return m5b.k(a().b);
     }
 
-    public static rra newThread() {
-        return vva.l(a().c);
+    public static i1b newThread() {
+        return m5b.l(a().c);
     }
 
     public static void reset() {
@@ -59,7 +59,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.b();
         synchronized (a) {
-            lta.d.shutdown();
+            c3b.d.shutdown();
         }
     }
 
@@ -67,7 +67,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.c();
         synchronized (a) {
-            lta.d.start();
+            c3b.d.start();
         }
     }
 
@@ -75,57 +75,57 @@ public final class Schedulers {
         return new TestScheduler();
     }
 
-    public static rra trampoline() {
-        return rta.a;
+    public static i1b trampoline() {
+        return i3b.a;
     }
 
     public synchronized void b() {
-        if (this.a instanceof pta) {
-            ((pta) this.a).shutdown();
+        if (this.a instanceof g3b) {
+            ((g3b) this.a).shutdown();
         }
-        if (this.b instanceof pta) {
-            ((pta) this.b).shutdown();
+        if (this.b instanceof g3b) {
+            ((g3b) this.b).shutdown();
         }
-        if (this.c instanceof pta) {
-            ((pta) this.c).shutdown();
+        if (this.c instanceof g3b) {
+            ((g3b) this.c).shutdown();
         }
     }
 
     public synchronized void c() {
-        if (this.a instanceof pta) {
-            ((pta) this.a).start();
+        if (this.a instanceof g3b) {
+            ((g3b) this.a).start();
         }
-        if (this.b instanceof pta) {
-            ((pta) this.b).start();
+        if (this.b instanceof g3b) {
+            ((g3b) this.b).start();
         }
-        if (this.c instanceof pta) {
-            ((pta) this.c).start();
+        if (this.c instanceof g3b) {
+            ((g3b) this.c).start();
         }
     }
 
     public Schedulers() {
-        zva f = yva.c().f();
-        rra g = f.g();
+        q5b f = p5b.c().f();
+        i1b g = f.g();
         if (g != null) {
             this.a = g;
         } else {
-            this.a = zva.a();
+            this.a = q5b.a();
         }
-        rra i = f.i();
+        i1b i = f.i();
         if (i != null) {
             this.b = i;
         } else {
-            this.b = zva.c();
+            this.b = q5b.c();
         }
-        rra j = f.j();
+        i1b j = f.j();
         if (j != null) {
             this.c = j;
         } else {
-            this.c = zva.e();
+            this.c = q5b.e();
         }
     }
 
-    public static rra from(Executor executor) {
-        return new kta(executor);
+    public static i1b from(Executor executor) {
+        return new b3b(executor);
     }
 }

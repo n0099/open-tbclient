@@ -4,7 +4,7 @@ import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.BDLocation;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -98,7 +98,7 @@ public class LocalViewSize {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int l = hi.l(this.mContext);
+            int l = ii.l(this.mContext);
             if (l >= 1080) {
                 return 1080;
             }
@@ -115,8 +115,8 @@ public class LocalViewSize {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ImageSize imageSize = new ImageSize();
-            imageSize.height = hi.j(this.mContext);
-            imageSize.width = hi.l(this.mContext);
+            imageSize.height = ii.j(this.mContext);
+            imageSize.width = ii.l(this.mContext);
             return imageSize;
         }
         return (ImageSize) invokeV.objValue;
@@ -244,7 +244,7 @@ public class LocalViewSize {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int l = hi.l(this.mContext);
+            int l = ii.l(this.mContext);
             int i = 240;
             if (l < 240) {
                 i = l / 3;

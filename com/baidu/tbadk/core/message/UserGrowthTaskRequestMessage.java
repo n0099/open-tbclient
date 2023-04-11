@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.message;
 
+import android.text.TextUtils;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +12,6 @@ public class UserGrowthTaskRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SET_USER_AVATAR = "set_user_avatar";
     public static final String SET_USER_NICK = "set_user_nick";
-    public static final String SHARE_THREAD = "share_thread";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -33,5 +33,12 @@ public class UserGrowthTaskRequestMessage extends HttpMessage {
             }
         }
         addParam("act_type", str);
+    }
+
+    public void addActData(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str)) {
+            addParam("act_data", str);
+        }
     }
 }

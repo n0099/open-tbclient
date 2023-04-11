@@ -319,8 +319,8 @@ public final class FlowKt {
 
     @ExperimentalCoroutinesApi
     /* renamed from: catch  reason: not valid java name */
-    public static final <T> Flow<T> m2221catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
-        return FlowKt__ErrorsKt.m2226catch(flow, function3);
+    public static final <T> Flow<T> m2223catch(Flow<? extends T> flow, Function3<? super FlowCollector<? super T>, ? super Throwable, ? super Continuation<? super Unit>, ? extends Object> function3) {
+        return FlowKt__ErrorsKt.m2228catch(flow, function3);
     }
 
     public static final Object collect(Flow<?> flow, Continuation<? super Unit> continuation) {
@@ -355,8 +355,8 @@ public final class FlowKt {
     @FlowPreview
     @ExperimentalTime
     /* renamed from: debounce-8GFy2Ro  reason: not valid java name */
-    public static final <T> Flow<T> m2222debounce8GFy2Ro(Flow<? extends T> flow, double d) {
-        return FlowKt__DelayKt.m2224debounce8GFy2Ro(flow, d);
+    public static final <T> Flow<T> m2224debounce8GFy2Ro(Flow<? extends T> flow, double d) {
+        return FlowKt__DelayKt.m2226debounce8GFy2Ro(flow, d);
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Use 'onEach { delay(timeMillis) }'", replaceWith = @ReplaceWith(expression = "onEach { delay(timeMillis) }", imports = {}))
@@ -511,8 +511,8 @@ public final class FlowKt {
     @FlowPreview
     @ExperimentalTime
     /* renamed from: sample-8GFy2Ro  reason: not valid java name */
-    public static final <T> Flow<T> m2223sample8GFy2Ro(Flow<? extends T> flow, double d) {
-        return FlowKt__DelayKt.m2225sample8GFy2Ro(flow, d);
+    public static final <T> Flow<T> m2225sample8GFy2Ro(Flow<? extends T> flow, double d) {
+        return FlowKt__DelayKt.m2227sample8GFy2Ro(flow, d);
     }
 
     @ExperimentalCoroutinesApi

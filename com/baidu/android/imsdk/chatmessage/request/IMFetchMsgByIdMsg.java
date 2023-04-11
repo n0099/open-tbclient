@@ -12,6 +12,8 @@ import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.chatmessage.response.FetchMsgResponse;
+import com.baidu.android.imsdk.chatmessage.sync.Generator;
+import com.baidu.android.imsdk.chatmessage.sync.SyncStrategy;
 import com.baidu.android.imsdk.conversation.ConversationStudioManImpl;
 import com.baidu.android.imsdk.group.GroupMessageManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,7 +30,7 @@ import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.u60;
+import com.baidu.tieba.v60;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -515,7 +517,7 @@ public class IMFetchMsgByIdMsg extends Message {
                         LogUtils.e(str, "clientLogId :" + e7.getMessage());
                     }
                     this.this$0.mUbcData.setDebugInfo(this.this$0.mDebugInfo);
-                    u60.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                    v60.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 }
             }
         }
@@ -728,6 +730,7 @@ public class IMFetchMsgByIdMsg extends Message {
 
     @Override // com.baidu.android.imsdk.request.Message
     public void buildBody() {
+        SyncStrategy generate;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             JSONObject jSONObject = new JSONObject();
@@ -800,6 +803,9 @@ public class IMFetchMsgByIdMsg extends Message {
                 }
                 this.mBody = jSONObject.toString();
                 LogUtils.d(TAG, "长连接拉消息的消息 is media:" + this.mIsFromMedia + ";body" + this.mBody);
+                if ((this.mCategory == 0 || this.mCategory == 2) && (generate = Generator.generate(this.mContext, 5)) != null) {
+                    generate.resetFetchState();
+                }
             } catch (JSONException e2) {
                 LogUtils.e(TAG, "Exception ", e2);
             }

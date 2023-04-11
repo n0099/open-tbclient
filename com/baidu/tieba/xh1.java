@@ -1,68 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class xh1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static vh1 a;
-    public static wh1 b;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public interface xh1 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "splash.host");
+    public static final xh1 b = new a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948300264, "Lcom/baidu/tieba/xh1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948300264, "Lcom/baidu/tieba/xh1;");
-        }
-    }
+    boolean a(String str, ri1 ri1Var);
 
-    public static vh1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (bm0.class) {
-                    if (a == null) {
-                        a = (vh1) ServiceManager.getService(vh1.a);
-                    }
-                    if (a == null) {
-                        a = vh1.b;
-                    }
+    /* loaded from: classes7.dex */
+    public static class a implements xh1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.xh1
+        public boolean a(String str, ri1 ri1Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ri1Var)) == null) {
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return a;
         }
-        return (vh1) invokeV.objValue;
-    }
-
-    public static wh1 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (bm0.class) {
-                    if (b == null) {
-                        b = (wh1) ServiceManager.getService(wh1.a);
-                    }
-                    if (b == null) {
-                        b = wh1.b;
-                    }
-                }
-            }
-            return b;
-        }
-        return (wh1) invokeV.objValue;
     }
 }

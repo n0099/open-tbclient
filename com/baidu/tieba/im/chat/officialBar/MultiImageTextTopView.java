@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap7;
+import com.baidu.tieba.b08;
 import com.baidu.tieba.bf;
-import com.baidu.tieba.eq7;
-import com.baidu.tieba.hs7;
-import com.baidu.tieba.nr7;
+import com.baidu.tieba.e28;
+import com.baidu.tieba.k18;
+import com.baidu.tieba.xy7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,7 +69,7 @@ public class MultiImageTextTopView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
                 if (this.a.e != null) {
-                    this.a.e.P(view2, 9, this.a.f, 0L);
+                    this.a.e.Q(view2, 9, this.a.f, 0L);
                     return false;
                 }
                 return false;
@@ -82,12 +82,12 @@ public class MultiImageTextTopView extends RelativeLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eq7.a a;
+        public final /* synthetic */ b08.a a;
         public final /* synthetic */ TbPageContext b;
         public final /* synthetic */ int c;
         public final /* synthetic */ MultiImageTextTopView d;
 
-        public b(MultiImageTextTopView multiImageTextTopView, eq7.a aVar, TbPageContext tbPageContext, int i) {
+        public b(MultiImageTextTopView multiImageTextTopView, b08.a aVar, TbPageContext tbPageContext, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,18 +110,18 @@ public class MultiImageTextTopView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            eq7.a aVar;
+            b08.a aVar;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a) != null && !StringUtils.isNull(aVar.d)) {
                 UrlManager.getInstance().dealOneLink(this.b, new String[]{this.a.d});
                 if (this.c == 1) {
                     TiebaStatic.eventStat(this.d.a, "official_msg_ck", "click", 1, "fid", this.a.e);
-                    ap7 n = hs7.n(this.a.f);
+                    xy7 n = e28.n(this.a.f);
                     if (n != null) {
                         TiebaStatic.eventStat(this.d.a, "message_open_detail", "click", 1, "task_type", n.a, "task_id", n.b, "loc", "0");
                         int i = this.a.g;
                         if ((i == 1 || i == 3) && !"0".equals(n.b)) {
-                            nr7.c().a(n.b);
+                            k18.c().a(n.b);
                         }
                     }
                     StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
@@ -246,11 +246,11 @@ public class MultiImageTextTopView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05e5, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092483);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05e3, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092478);
             this.b = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a1);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092496);
             this.d = (TextView) findViewById(R.id.show_time);
             setOnLongClickListener(new a(this));
         }
@@ -267,7 +267,7 @@ public class MultiImageTextTopView extends RelativeLayout {
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, eq7.a aVar, View view2, int i) {
+    public void setData(TbPageContext<?> tbPageContext, b08.a aVar, View view2, int i) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048579, this, tbPageContext, aVar, view2, i) == null) {
@@ -286,7 +286,7 @@ public class MultiImageTextTopView extends RelativeLayout {
             }
             if (!TextUtils.isEmpty(aVar.c)) {
                 this.b.setTag(aVar.c);
-                this.b.M(aVar.c, 10, false);
+                this.b.N(aVar.c, 10, false);
             }
         }
     }

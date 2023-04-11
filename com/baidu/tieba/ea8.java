@@ -1,95 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AutoPayInfo;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipInfo;
-import tbclient.GetVipInfo.VipUpgrade;
-import tbclient.GetVipInfo.VipUser;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class ea8 implements gn {
+public final class ea8 extends ca8<ka8> implements b07<ea8> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947727725, "Lcom/baidu/tieba/ea8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947727725, "Lcom/baidu/tieba/ea8;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.gn
-    public BdUniqueId getType() {
+    public ea8 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a;
-        }
-        return (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (ea8) invokeV.objValue;
     }
 
-    public ea8(DataRes dataRes) {
-        VipUser vipUser;
-        VipUpgrade vipUpgrade;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ea8(na8<ka8> data, String templateName) {
+        super(data);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dataRes};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {data, templateName};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((na8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (dataRes != null && (vipUser = dataRes.user) != null && (vipUpgrade = dataRes.upgrade) != null) {
-            String str = vipUser.card_id;
-            String str2 = vipUser.total_scores_link;
-            String str3 = vipUser.speed_link;
-            String str4 = vipUser.task_scores_link;
-            vipUser.task_scores.intValue();
-            String str5 = vipUser.name;
-            vipUser.id.longValue();
-            String str6 = vipUser.portrait;
-            String str7 = vipUser.name_show;
-            String str8 = vipUser.vip_link;
-            VipInfo vipInfo = vipUser.vipInfo;
-            if (vipInfo != null) {
-                String str9 = vipInfo.icon_url;
-                vipInfo.s_time.intValue();
-                vipUser.vipInfo.e_time.intValue();
-                vipUser.now_time.intValue();
-                vipUser.vipInfo.v_status.intValue();
-                vipUser.vipInfo.v_level.intValue();
-                vipUser.vipInfo.ext_score.intValue();
-                vipUser.vipInfo.a_score.intValue();
-                vipUser.vipInfo.n_score.intValue();
-            }
-            dataRes.today_get_score.intValue();
-            dataRes.today_unget_score.intValue();
-            vipUpgrade.normal.intValue();
-            vipUpgrade.pay.intValue();
-            AutoPayInfo autoPayInfo = dataRes.autopay_info;
+        Intrinsics.checkNotNullParameter(data, "data");
+        Intrinsics.checkNotNullParameter(templateName, "templateName");
+        this.d = templateName;
+    }
+
+    @Override // com.baidu.tieba.b07
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.b07
+    public /* bridge */ /* synthetic */ ea8 b() {
+        i();
+        return this;
     }
 }

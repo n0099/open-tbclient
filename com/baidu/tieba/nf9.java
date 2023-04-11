@@ -1,402 +1,217 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
-import com.baidu.tbadk.core.atomData.LoginDialogActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.view.Thread2GroupShareView;
-import com.baidu.tieba.zz4;
+import com.baidu.searchbox.dns.DnsHelper;
+import com.baidu.searchbox.dns.DnsParseResult;
+import com.baidu.searchbox.dns.util.DnsUtil;
+import com.baidu.searchbox.http.IHttpDns;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.Inet6Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Pattern;
+import okhttp3.Dns;
 /* loaded from: classes5.dex */
-public class nf9 {
+public class nf9 implements Dns, IHttpDns {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final se9 b;
+    public boolean a;
+    public long b;
+    public long c;
+    public DnsParseResult e;
+    public boolean f;
+    public DnsHelper g;
+    public boolean h;
+    public a i;
 
     /* loaded from: classes5.dex */
-    public class a implements ShareSuccessReplyToServerModel.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nf9 a;
-
-        @Override // com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.nf9$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0353a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ CustomDialogData a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0353a(a aVar, CustomDialogData customDialogData) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, customDialogData};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = customDialogData;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    pj8.a(this.b.a.a.getPageContext(), this.a).show();
-                }
-            }
-        }
-
-        public a(nf9 nf9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nf9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nf9Var;
-        }
-
-        @Override // com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.b
-        public void b(CustomDialogData customDialogData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customDialogData) == null) {
-                jg.a().postDelayed(new RunnableC0353a(this, customDialogData), 1000L);
-            }
-        }
+    public interface a {
+        void a(long j, long j2, DnsParseResult dnsParseResult);
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements zz4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Thread2GroupShareView a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ ShareFromPBMsgData f;
-        public final /* synthetic */ nf9 g;
-
-        public b(nf9 nf9Var, Thread2GroupShareView thread2GroupShareView, long j, String str, String str2, String str3, ShareFromPBMsgData shareFromPBMsgData) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948000680, "Lcom/baidu/tieba/nf9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nf9Var, thread2GroupShareView, Long.valueOf(j), str, str2, str3, shareFromPBMsgData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.g = nf9Var;
-            this.a = thread2GroupShareView;
-            this.b = j;
-            this.c = str;
-            this.d = str2;
-            this.e = str3;
-            this.f = shareFromPBMsgData;
-        }
-
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                this.g.a.HidenSoftKeyPad((InputMethodManager) this.g.a.getSystemService("input_method"), this.a.getChatMsgView());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.g.a.getPageContext().getPageActivity(), this.b, this.c, this.d, this.e, 0, this.a.getLeaveMsg(), this.f.toChatMessageContent())));
-                zz4Var.dismiss();
-                ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
-                if (shareItem != null && shareItem.f() != null) {
-                    Bundle f = shareItem.f();
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).param("obj_source", 1).param("obj_type", f.getInt("obj_type")).param("obj_param1", 3).param("fid", f.getString("fid")).param("tid", f.getString("tid")).param("obj_locate", 5));
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948000680, "Lcom/baidu/tieba/nf9;");
+                return;
             }
         }
+        j = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements zz4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Thread2GroupShareView a;
-        public final /* synthetic */ nf9 b;
-
-        public c(nf9 nf9Var, Thread2GroupShareView thread2GroupShareView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nf9Var, thread2GroupShareView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = nf9Var;
-            this.a = thread2GroupShareView;
+    public DnsHelper a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
         }
-
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                this.b.a.HidenSoftKeyPad((InputMethodManager) this.b.a.getSystemService("input_method"), this.a.getChatMsgView());
-                zz4Var.dismiss();
-            }
-        }
+        return (DnsHelper) invokeV.objValue;
     }
 
-    public nf9(MainTabActivity mainTabActivity, se9 se9Var) {
+    @Override // com.baidu.searchbox.http.IHttpDns
+    public boolean getHttpDnsEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public nf9(DnsHelper dnsHelper, boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, se9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {dnsHelper, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = se9Var;
+        this.f = z;
+        this.b = -1L;
+        this.c = -1L;
+        this.g = dnsHelper;
+        if (dnsHelper != null && dnsHelper.isHttpDnsEnable()) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.a = z2;
     }
 
-    public final void d(Intent intent) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
-            long longExtra = intent.getLongExtra(PersonalChatActivityConfig.KEY_USER_ID, -1L);
-            String stringExtra = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_NAME);
-            String stringExtra2 = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT);
-            f(c(), longExtra, stringExtra, intent.getStringExtra("name_show"), stringExtra2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return j.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj instanceof nf9) {
+                return true;
+            }
+            return super.equals(obj);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpDns
+    public void setHttpDnsEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.a = z;
+            DnsHelper dnsHelper = this.g;
+            if (dnsHelper != null) {
+                dnsHelper.setHttpDnsEnable(z);
+            }
         }
     }
 
-    public final void b(Intent intent) {
+    @Override // com.baidu.searchbox.http.IHttpDns
+    public void setHttpDnsIPv4OnlyEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null) {
-            PostWriteCallBackData postWriteCallBackData = null;
-            try {
-                postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921030, postWriteCallBackData));
-            se9 se9Var = this.b;
-            if (se9Var != null && !se9Var.t(postWriteCallBackData)) {
-                this.b.Q(postWriteCallBackData);
-            }
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.h = z;
         }
     }
 
-    public final ShareFromPBMsgData c() {
-        InterceptResult invokeV;
-        String uri;
+    @Override // okhttp3.Dns
+    public List<InetAddress> lookup(String str) throws UnknownHostException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
-            if (shareItem == null) {
-                return null;
-            }
-            Uri uri2 = shareItem.z;
-            if (uri2 == null) {
-                uri = "https://tb5.bdstatic.com/yunying/tieba_logo.jpg";
-            } else {
-                uri = uri2.toString();
-            }
-            ShareFromPBMsgData shareFromPBMsgData = new ShareFromPBMsgData();
-            shareFromPBMsgData.setTitle(shareItem.v);
-            shareFromPBMsgData.setContent(shareItem.H);
-            shareFromPBMsgData.setImageUrl(uri);
-            shareFromPBMsgData.setForumName(shareItem.t);
-            shareFromPBMsgData.setThreadId(shareItem.O);
-            return shareFromPBMsgData;
-        }
-        return (ShareFromPBMsgData) invokeV.objValue;
-    }
-
-    public void e(int i, int i2, Intent intent) {
-        String str;
-        ShareSuccessReplyToServerModel shareSuccessReplyToServerModel;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
-            if (i2 != -1) {
-                if (i == 25059) {
-                    dx5.d();
-                } else if (i == 25060) {
-                    dx5.d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (str != null) {
+                boolean z = this.f;
+                if (z) {
+                    this.b = System.currentTimeMillis();
                 }
-            }
-            if (tq5.c(i, i2, intent)) {
-                return;
-            }
-            if (i2 != -1) {
-                se9 se9Var = this.b;
-                if (se9Var != null && se9Var.y() != null && this.b.y().getCurrentFragment() != null) {
-                    this.b.y().getCurrentFragment().onActivityResult(i, i2, intent);
-                }
-            } else if (i == 25046) {
-                if (TbadkCoreApplication.isLogin()) {
-                    mq4.f().k(this.a.getPageContext());
-                }
-            } else if (i == 25066) {
-                MainTabActivity mainTabActivity = this.a;
-                mainTabActivity.c = true;
-                mainTabActivity.b = mainTabActivity.getCurrentTabType();
-                TbSingleton.getInstance().setVideoChannelRelogin(true);
-            } else if (i != 13003 && i != 25048) {
-                if (i == 23007) {
-                    d(intent);
-                } else if (i == 13011) {
-                    i09.g().m(this.a.getPageContext());
-                } else if (i == 24007) {
-                    int intExtra = intent.getIntExtra("extra_share_status", 2);
-                    int intExtra2 = intent.getIntExtra("extra_show_channel", 1);
-                    if (intExtra == 1) {
-                        i09.g().m(this.a.getPageContext());
-                        ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
-                        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
-                        if (shareItem != null) {
-                            int i3 = shareItem.M;
-                            if (i3 == 0) {
-                                statisticItem.param("obj_locate", 15);
-                            } else {
-                                statisticItem.param("obj_locate", i3);
+                List arrayList = new ArrayList();
+                try {
+                    if (b(str)) {
+                        return Arrays.asList(InetAddress.getAllByName(str));
+                    }
+                    if (this.a && this.g != null) {
+                        DnsParseResult parseResult = this.g.getParseResult(str);
+                        if (parseResult != null) {
+                            arrayList = DnsUtil.parseInetAddressList(parseResult.getIpList());
+                        }
+                        if (z) {
+                            long currentTimeMillis = System.currentTimeMillis();
+                            this.c = currentTimeMillis;
+                            this.e = parseResult;
+                            if (this.i != null) {
+                                this.i.a(this.b, currentTimeMillis, parseResult);
                             }
                         }
-                        if (shareItem != null) {
-                            statisticItem.param("tid", shareItem.O);
-                        }
-                        statisticItem.param("pid", intent.getStringExtra("pid"));
-                        TiebaStatic.log(statisticItem);
-                        if (shareItem != null && (str = shareItem.x) != null && (shareSuccessReplyToServerModel = this.a.u) != null) {
-                            shareSuccessReplyToServerModel.R(str, intExtra2, new a(this));
-                        }
-                    }
-                } else if (i == 25059) {
-                    if (UbsABTestHelper.isFirstLoginTestA()) {
-                        if (TbadkApplication.getInst().isNeedNewUserLead() && TbadkCoreApplication.isLogin()) {
-                            InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this.a, 4);
-                            interestGuideActivityConfig.setRequestCode(25060);
-                            interestGuideActivityConfig.setIntentAction(IntentAction.ActivityForResult);
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig));
-                            return;
-                        }
-                        return;
-                    }
-                    dx5.d();
-                } else if (i == 25060) {
-                    if (UbsABTestHelper.isFirstLoginTestB()) {
-                        if (!TbadkCoreApplication.isLogin()) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2921535, this));
-                            return;
-                        }
-                        return;
-                    }
-                    dx5.d();
-                } else if (i == 25064) {
-                    MainTabActivity mainTabActivity2 = this.a;
-                    rr9 rr9Var = mainTabActivity2.q;
-                    if (rr9Var != null) {
-                        rr9Var.c(mainTabActivity2.getPageContext());
-                    }
-                } else if (i == 25071) {
-                    if (intent != null) {
-                        String stringExtra = intent.getStringExtra(LoginDialogActivityConfig.HOME_OPERATE_JUMP_URL);
-                        if (!TextUtils.isEmpty(stringExtra)) {
-                            gt4.v(this.a, null, stringExtra, true);
+                    } else {
+                        arrayList = Arrays.asList(InetAddress.getAllByName(str));
+                        if (z) {
+                            this.c = System.currentTimeMillis();
+                            DnsParseResult dnsParseResult = new DnsParseResult(DnsUtil.parseRawAddressList(arrayList), 0, 1, DnsUtil.stackType);
+                            this.e = dnsParseResult;
+                            if (this.i != null) {
+                                this.i.a(this.b, this.c, dnsParseResult);
+                            }
                         }
                     }
-                } else {
-                    se9 se9Var2 = this.b;
-                    if (se9Var2 != null && se9Var2.y() != null && this.b.y().getCurrentFragment() != null) {
-                        this.b.y().getCurrentFragment().onActivityResult(i, i2, intent);
+                    if (DnsUtil.stackType == 3 && this.h && arrayList != null) {
+                        ArrayList arrayList2 = new ArrayList();
+                        for (InetAddress inetAddress : arrayList) {
+                            if (inetAddress instanceof Inet6Address) {
+                                arrayList2.add(inetAddress);
+                            }
+                        }
+                        arrayList.removeAll(arrayList2);
+                        if (arrayList.isEmpty()) {
+                            throw new UnknownHostException("request support ipv4 address only!");
+                        }
                     }
+                    return arrayList;
+                } catch (IllegalArgumentException e) {
+                    e = e;
+                    throw new UnknownHostException(e.getMessage());
+                } catch (NullPointerException e2) {
+                    if (e2.getMessage() != null && e2.getMessage().contains("Attempt to get length of null array")) {
+                        UnknownHostException unknownHostException = new UnknownHostException("Broken system behaviour for dns lookup of " + str);
+                        unknownHostException.initCause(e2);
+                        throw unknownHostException;
+                    }
+                    throw e2;
+                } catch (SecurityException e3) {
+                    e = e3;
+                    throw new UnknownHostException(e.getMessage());
                 }
-            } else {
-                b(intent);
             }
+            throw new UnknownHostException("hostname == null");
         }
-    }
-
-    public final void f(ShareFromPBMsgData shareFromPBMsgData, long j, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{shareFromPBMsgData, Long.valueOf(j), str, str2, str3}) != null) || shareFromPBMsgData == null) {
-            return;
-        }
-        zz4 zz4Var = new zz4(this.a.getPageContext().getPageActivity());
-        Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(this.a.getPageContext().getPageActivity());
-        thread2GroupShareView.setData(shareFromPBMsgData);
-        zz4Var.setContentViewSize(1);
-        zz4Var.setContentView(thread2GroupShareView);
-        zz4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1211, new b(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
-        zz4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038e, new c(this, thread2GroupShareView));
-        zz4Var.setCanceledOnTouchOutside(true);
-        zz4Var.create(this.a.getPageContext()).show();
-        if (!gi.isEmpty(shareFromPBMsgData.getImageUrl())) {
-            thread2GroupShareView.c(shareFromPBMsgData.getImageUrl(), false);
-        }
+        return (List) invokeL.objValue;
     }
 }

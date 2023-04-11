@@ -1,7 +1,7 @@
 package com.baidu.tieba.impersonal.sprite;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.w58;
+import com.baidu.tieba.ng8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ImSpriteSysLog {
     public static final /* synthetic */ ImSpriteSysLog[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final ImSpriteSysLog INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
-    public final w58 instance;
+    public final ng8 instance;
 
     static {
         InterceptResult invokeClinit;
@@ -36,13 +36,13 @@ public final class ImSpriteSysLog {
         $VALUES = new ImSpriteSysLog[]{imSpriteSysLog};
     }
 
-    public static w58 getInstance() {
+    public static ng8 getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return INSTANCE.instance;
         }
-        return (w58) invokeV.objValue;
+        return (ng8) invokeV.objValue;
     }
 
     public static ImSpriteSysLog[] values() {
@@ -72,7 +72,7 @@ public final class ImSpriteSysLog {
                 return;
             }
         }
-        this.instance = new w58("whisper");
+        this.instance = new ng8("whisper");
     }
 
     public static ImSpriteSysLog valueOf(String str) {

@@ -1,104 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.ad.FrsADFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.Agree;
+import tbclient.FeedSocialComponent;
 /* loaded from: classes5.dex */
-public class my6 {
+public final class my6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsADFragment a;
-    public BdTypeRecyclerView b;
-    public py6 c;
-    public lw6 d;
-    public List<tm> e;
 
-    public my6(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
+    public static final void a(FeedSocialComponent feedSocialComponent, List<b07<?>> dataList, dx6 feedExtraData, xx6 videoSchemaData) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsADFragment, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = new ArrayList();
-        this.a = frsADFragment;
-        this.b = bdTypeRecyclerView;
-        a();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new py6(this.a.getPageContext(), oy6.h, this.a.getUniqueId());
-            this.d = new lw6(this.a.getPageContext(), mw6.b);
-            this.e.add(this.c);
-            this.e.add(this.d);
-            e();
-            this.b.addAdapters(this.e);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (tm tmVar : this.e) {
-                if (tmVar instanceof ew6) {
-                    ((ew6) tmVar).x();
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, feedSocialComponent, dataList, feedExtraData, videoSchemaData) == null) {
+            Intrinsics.checkNotNullParameter(feedSocialComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
+            tx6 tx6Var = new tx6();
+            Agree agree = feedSocialComponent.agree;
+            if (agree != null) {
+                Integer num = agree.agree_type;
+                Intrinsics.checkNotNullExpressionValue(num, "agree.agree_type");
+                tx6Var.e = num.intValue();
+                Integer num2 = feedSocialComponent.agree.has_agree;
+                Intrinsics.checkNotNullExpressionValue(num2, "agree.has_agree");
+                if (num2.intValue() > 0) {
+                    z = true;
+                } else {
+                    z = false;
                 }
+                tx6Var.f = z;
+                tx6Var.g = feedSocialComponent.agree.agree_num.longValue();
+                Long l = feedSocialComponent.agree.diff_agree_num;
+                Intrinsics.checkNotNullExpressionValue(l, "agree.diff_agree_num");
+                tx6Var.h = l.longValue();
+                Long l2 = feedSocialComponent.agree.disagree_num;
+                Intrinsics.checkNotNullExpressionValue(l2, "agree.disagree_num");
+                tx6Var.i = l2.longValue();
             }
-        }
-    }
-
-    public void d(ArrayList<gn> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.b.setData(arrayList);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || ListUtils.isEmpty(this.e) || this.a == null) {
-            return;
-        }
-        for (tm tmVar : this.e) {
-            if (tmVar instanceof ew6) {
-                ((ew6) tmVar).E(this.a.getTbPageTag());
-            }
-        }
-    }
-
-    public void f(qn qnVar) {
-        List<tm> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, qnVar) == null) && (list = this.e) != null && list.size() != 0) {
-            for (tm tmVar : this.e) {
-                if (tmVar != null && (tmVar instanceof ew6)) {
-                    tmVar.setOnAdapterItemClickListener(qnVar);
-                }
-            }
+            tx6Var.a = feedSocialComponent.share_num.intValue();
+            tx6Var.b = feedSocialComponent.comment_num.intValue();
+            tx6Var.c = String.valueOf(feedSocialComponent.tid);
+            Long fid = feedSocialComponent.fid;
+            Intrinsics.checkNotNullExpressionValue(fid, "fid");
+            tx6Var.d = fid.longValue();
+            tx6Var.l = feedExtraData.a();
+            videoSchemaData.f(tx6Var.f);
+            videoSchemaData.e(tx6Var.g);
+            tx6Var.j = videoSchemaData;
+            dataList.add(new c07(new lw6(tx6Var, null, null, null, 14, null), "social_bar"));
         }
     }
 }

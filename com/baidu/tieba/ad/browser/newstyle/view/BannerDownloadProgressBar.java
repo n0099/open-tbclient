@@ -14,7 +14,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xw5;
+import com.baidu.tieba.dy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,13 +70,13 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         this.l = new Paint();
         this.m = new RectF();
         this.n = new RectF();
-        d(context, attributeSet);
+        e(context, attributeSet);
     }
 
-    public final void d(Context context, AttributeSet attributeSet) {
+    public final void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xw5.ad_progress);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, dy5.ad_progress);
             int parseColor = Color.parseColor("#666666");
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070616);
             int parseColor2 = Color.parseColor("#2BBCFF");
@@ -91,7 +91,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
             this.c = obtainStyledAttributes.getDimension(8, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070614));
             this.h = obtainStyledAttributes.getDimensionPixelSize(4, dimensionPixelSize);
             obtainStyledAttributes.recycle();
-            e();
+            h();
         }
     }
 
@@ -125,7 +125,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         this.l = new Paint();
         this.m = new RectF();
         this.n = new RectF();
-        d(context, attributeSet);
+        e(context, attributeSet);
     }
 
     public final void a(Canvas canvas) {
@@ -158,7 +158,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         postInvalidate();
     }
 
-    public final void b(Canvas canvas) {
+    public final void c(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             this.h = getMeasuredHeight() / 2;
@@ -184,7 +184,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         }
     }
 
-    public final void c(Canvas canvas) {
+    public final void d(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             Paint.FontMetrics fontMetrics = this.l.getFontMetrics();
@@ -194,9 +194,18 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         }
     }
 
-    public final void e() {
+    public int getProgress() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.l.setAntiAlias(true);
             this.l.setTextSize(this.c);
             this.l.setColor(this.b);
@@ -208,28 +217,19 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         }
     }
 
-    public int getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
     @Override // android.widget.TextView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             super.onDraw(canvas);
             if (this.a > 0) {
-                b(canvas);
+                c(canvas);
             }
             a(canvas);
             if (TextUtils.isEmpty(this.f)) {
                 return;
             }
-            c(canvas);
+            d(canvas);
         }
     }
 
@@ -250,7 +250,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
             return;
         }
         this.b = i;
-        e();
+        h();
         postInvalidate();
     }
 
@@ -274,7 +274,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
             }
             this.d = i;
             this.e = i2;
-            e();
+            h();
             postInvalidate();
         }
     }

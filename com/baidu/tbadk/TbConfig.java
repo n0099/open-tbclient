@@ -20,7 +20,7 @@ import com.baidu.tbadk.switchs.BigImageCacheOptimizeSwitch;
 import com.baidu.tbadk.switchs.ImageCacheOptimizeSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -118,7 +118,7 @@ public class TbConfig {
     public static boolean ENABLE_VISIT_PREVIEW_SERVER_DIALOG = false;
     public static final String ENTERTAINMENT_ADDRESS = "lego/lego";
     public static final String ERROR_UPLOAD_SERVER = "c/s/logupload";
-    public static final String EXCHANGE_MALL = "https://tieba.baidu.com/mo/q/hybrid-main-user/exchangeShop?opacity=0&opacitybtnhex=ffffff&noshare=1&source=1";
+    public static final String EXCHANGE_MALL = "https://tieba.baidu.com/mo/q/hybrid-main-user/exchangeShop?customfullscreen=1&nonavigationbar=1";
     public static final String FATAL_ERROR_ALERT_FILE = "fatal_error_alert.log";
     public static final String FATAL_ERROR_DEBUG_FILE = "fatal_error_debug.log";
     public static final String FATAL_ERROR_FILE = "fatal_error.log";
@@ -411,6 +411,7 @@ public class TbConfig {
     public static final int TYPE_UNKNOWN_BUILD = -1;
     public static final String UNFAVOLIKE_ADDRESS = "c/c/forum/unfavolike";
     public static final String UNFOLLOW_ADDRESS = "c/c/user/unfollow";
+    public static final String UPDATE_CHAT_ROOM_DETAIL = "c/f/chat/getChatroomResource";
     public static final long UPDATE_NOTIFY_INTERVAL = 86400000;
     public static final String UPDATE_SIGN_DATA = "c/c/user/setSignMask";
     public static final String UPLOAD_CHUNK_AUDIO_ADDRESS = "c/c/voice/chunkupload";
@@ -1070,7 +1071,7 @@ public class TbConfig {
             return;
         }
         sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(hi.l(context) * hi.j(context));
+        int sqrt = (int) Math.sqrt(ii.l(context) * ii.j(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }
@@ -1315,7 +1316,7 @@ public class TbConfig {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i)) == null) {
-            return hi.g(TbadkCoreApplication.getInst().getContext(), i);
+            return ii.g(TbadkCoreApplication.getInst().getContext(), i);
         }
         return invokeI.intValue;
     }
@@ -1324,7 +1325,7 @@ public class TbConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) {
-            int d = hi.d(context, 427.0f);
+            int d = ii.d(context, 427.0f);
             if (d > 640) {
                 d = 640;
             }
@@ -1372,7 +1373,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                TbImageMemoryCache.o().F(i);
+                TbImageMemoryCache.s().G(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }

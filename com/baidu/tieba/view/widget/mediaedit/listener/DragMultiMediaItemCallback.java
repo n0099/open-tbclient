@@ -3,8 +3,8 @@ package com.baidu.tieba.view.widget.mediaedit.listener;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.q0a;
 import com.baidu.tieba.view.widget.mediaedit.adapter.MultiMediaAdapter;
-import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
     public int b;
     public boolean c;
     public MultiMediaAdapter d;
-    public zq9 e;
+    public q0a e;
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
     public boolean canDropOver(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
@@ -38,12 +38,12 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
         }
     }
 
-    public DragMultiMediaItemCallback(String str, String str2, MultiMediaAdapter multiMediaAdapter, zq9 zq9Var) {
+    public DragMultiMediaItemCallback(String str, String str2, MultiMediaAdapter multiMediaAdapter, q0a q0aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, multiMediaAdapter, zq9Var};
+            Object[] objArr = {str, str2, multiMediaAdapter, q0aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -55,7 +55,7 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
         }
         this.c = false;
         this.d = multiMediaAdapter;
-        this.e = zq9Var;
+        this.e = q0aVar;
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -67,20 +67,20 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
             viewHolder.itemView.setScaleY(1.0f);
             MultiMediaAdapter multiMediaAdapter = this.d;
             if (multiMediaAdapter != null) {
-                multiMediaAdapter.h(false);
-                this.d.f();
+                multiMediaAdapter.o(false);
+                this.d.m();
             }
             MultiMediaAdapter multiMediaAdapter2 = this.d;
             if (multiMediaAdapter2 != null && this.a != this.b && this.c) {
                 this.c = false;
                 if (this.e != null) {
-                    multiMediaAdapter2.g();
+                    multiMediaAdapter2.n();
                     this.e.c(this.a, this.b);
                 }
             }
-            zq9 zq9Var = this.e;
-            if (zq9Var != null) {
-                zq9Var.setDragMode(-1, 0);
+            q0a q0aVar = this.e;
+            if (q0aVar != null) {
+                q0aVar.setDragMode(-1, 0);
             }
         }
     }
@@ -101,10 +101,10 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
             int[] iArr = new int[2];
             viewHolder.itemView.getLocationOnScreen(iArr);
             viewHolder.itemView.getLocationInWindow(new int[2]);
-            this.d.h(true);
-            zq9 zq9Var = this.e;
-            if (zq9Var != null) {
-                zq9Var.setDragMode(this.a, iArr[0]);
+            this.d.o(true);
+            q0a q0aVar = this.e;
+            if (q0aVar != null) {
+                q0aVar.setDragMode(this.a, iArr[0]);
             }
         }
     }
@@ -137,7 +137,7 @@ public class DragMultiMediaItemCallback extends ItemTouchHelper.Callback {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, recyclerView, viewHolder, viewHolder2)) == null) {
             this.c = true;
             this.b = viewHolder2.getAdapterPosition();
-            Collections.swap(this.d.d(), viewHolder.getAdapterPosition(), this.b);
+            Collections.swap(this.d.k(), viewHolder.getAdapterPosition(), this.b);
             this.d.notifyItemMoved(viewHolder.getAdapterPosition(), this.b);
             return true;
         }

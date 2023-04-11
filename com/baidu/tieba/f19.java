@@ -1,14 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,15 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes4.dex */
-public class f19 implements d19 {
+public class f19 implements hn {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<d19> a;
-    public static final d19 b;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<hn> a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,8 +30,7 @@ public class f19 implements d19 {
                 return;
             }
         }
-        a = new AtomicReference<>(null);
-        b = new f19();
+        b = BdUniqueId.gen();
     }
 
     public f19() {
@@ -57,128 +47,22 @@ public class f19 implements d19 {
         }
     }
 
-    public static d19 l() {
+    public List<hn> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            d19 d19Var = a.get();
-            if (d19Var == null) {
-                return b;
-            }
-            return d19Var;
-        }
-        return (d19) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d19
-    public y09 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BdLog.e("recapp plugin install failed!");
-            return null;
-        }
-        return (y09) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d19
-    public t09 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            BdLog.e("recapp plugin install failed!");
-            return null;
-        }
-        return (t09) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d19
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            BdLog.e("recapp plugin install failed!");
-        }
-    }
-
-    @Override // com.baidu.tieba.d19
-    public List<AdvertAppInfo> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            BdLog.e("recapp plugin install failed!");
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d19
-    public a19 i() {
+    @Override // com.baidu.tieba.hn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            BdLog.e("recapp plugin install failed!");
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return b;
         }
-        return (a19) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d19
-    public tm<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
-            BdLog.e("recapp plugin install failed!");
-            return null;
-        }
-        return (tm) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.d19
-    public tm<?, ?> d(c19 c19Var, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, c19Var, bdUniqueId)) == null) {
-            BdLog.e("recapp plugin install failed!");
-            return null;
-        }
-        return (tm) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.d19
-    public IAdBaseAsyncController h(IAdBaseAsyncController.Type type, IAdBaseAsyncController.a aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, type, aVar)) == null) {
-            BdLog.e("recapp plugin install failed!");
-            return null;
-        }
-        return (IAdBaseAsyncController) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.d19
-    public void k(HashMap<String, String> hashMap, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, hashMap, context) == null) {
-            BdLog.e("recapp plugin install failed!");
-        }
-    }
-
-    @Override // com.baidu.tieba.d19
-    public tm<?, ?> g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, tbPageContext, bdUniqueId, str)) == null) {
-            BdLog.e("recapp plugin install failed!");
-            return null;
-        }
-        return (tm) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.d19
-    public void j(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, advertAppInfo) == null) {
-            BdLog.e("recapp plugin install failed!");
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

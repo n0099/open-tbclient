@@ -10,8 +10,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ga9;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.xj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -98,7 +98,7 @@ public class FeedBackReasonCheckBox extends AppCompatCheckBox {
         int skinType;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (skinType = TbadkCoreApplication.getInst().getSkinType()) != this.a) {
-            c(R.string.J_X07, hi.g(getContext(), R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0302, R.color.CAM_X0902);
+            c(R.string.J_X07, ii.g(getContext(), R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0302, R.color.CAM_X0902);
             SkinManager.setViewCheckedTextColorSelector(this, R.color.CAM_X0105, R.color.CAM_X0302, R.color.CAM_X0105);
             this.a = skinType;
         }
@@ -107,7 +107,7 @@ public class FeedBackReasonCheckBox extends AppCompatCheckBox {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int g = hi.g(getContext(), R.dimen.obfuscated_res_0x7f0701e8);
+            int g = ii.g(getContext(), R.dimen.obfuscated_res_0x7f0701e8);
             setPadding(g, 0, g, 0);
             setButtonDrawable((Drawable) null);
         }
@@ -127,12 +127,12 @@ public class FeedBackReasonCheckBox extends AppCompatCheckBox {
             this.c = gradientDrawable2;
             gradientDrawable2.setShape(0);
             this.c.setCornerRadius(f);
-            this.c.setStroke(i2, ga9.a(SkinManager.getColor(i4), SkinManager.RESOURCE_ALPHA_PRESS));
+            this.c.setStroke(i2, xj9.a(SkinManager.getColor(i4), SkinManager.RESOURCE_ALPHA_PRESS));
             GradientDrawable gradientDrawable3 = new GradientDrawable();
             this.d = gradientDrawable3;
             gradientDrawable3.setShape(0);
             this.d.setCornerRadius(f);
-            this.d.setStroke(i2, ga9.a(SkinManager.getColor(i5), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.d.setStroke(i2, xj9.a(SkinManager.getColor(i5), SkinManager.RESOURCE_ALPHA_DISABLE));
             StateListDrawable stateListDrawable = new StateListDrawable();
             this.e = stateListDrawable;
             stateListDrawable.addState(new int[]{16842912}, this.c);

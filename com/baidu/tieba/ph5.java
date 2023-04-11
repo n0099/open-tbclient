@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.oh5;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.List;
 /* loaded from: classes5.dex */
-public interface ph5<T extends oh5> {
-    boolean onEvent(T t);
+public interface ph5 {
+    boolean a(int i, long j, @NonNull List<ChatMsg> list);
 }

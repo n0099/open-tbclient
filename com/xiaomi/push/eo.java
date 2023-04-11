@@ -21,9 +21,9 @@ public class eo extends er {
 
     @Override // com.xiaomi.push.er
     public eo a(Bitmap bitmap) {
-        if (m384b() && bitmap != null) {
+        if (m386b() && bitmap != null) {
             if (bitmap.getWidth() != 984 || 184 > bitmap.getHeight() || bitmap.getHeight() > 1678) {
-                com.xiaomi.channel.commonutils.logger.b.m99a("colorful notification banner image resolution error, must belong to [984*184, 984*1678]");
+                com.xiaomi.channel.commonutils.logger.b.m101a("colorful notification banner image resolution error, must belong to [984*184, 984*1678]");
             } else {
                 this.b = bitmap;
             }
@@ -34,12 +34,12 @@ public class eo extends er {
     /* JADX DEBUG: Possible override for method com.xiaomi.push.ep.a(Ljava/lang/String;)I */
     @Override // com.xiaomi.push.ep
     /* renamed from: a */
-    public eo mo376a(String str) {
-        if (m384b() && !TextUtils.isEmpty(str)) {
+    public eo mo378a(String str) {
+        if (m386b() && !TextUtils.isEmpty(str)) {
             try {
                 this.a = Color.parseColor(str);
             } catch (Exception unused) {
-                com.xiaomi.channel.commonutils.logger.b.m99a("parse banner notification image text color error");
+                com.xiaomi.channel.commonutils.logger.b.m101a("parse banner notification image text color error");
             }
         }
         return this;
@@ -56,47 +56,47 @@ public class eo extends er {
     /* JADX DEBUG: Possible override for method com.xiaomi.push.ep.a()V */
     @Override // com.xiaomi.push.er
     /* renamed from: a */
-    public String mo381a() {
+    public String mo383a() {
         return "notification_banner";
     }
 
     @Override // com.xiaomi.push.er, com.xiaomi.push.ep
     /* renamed from: a  reason: collision with other method in class */
-    public void mo374a() {
-        RemoteViews m380a;
+    public void mo376a() {
+        RemoteViews m382a;
         Bitmap bitmap;
-        if (!m384b() || this.b == null) {
-            m383b();
+        if (!m386b() || this.b == null) {
+            m385b();
             return;
         }
-        super.mo374a();
+        super.mo376a();
         Resources resources = a().getResources();
         String packageName = a().getPackageName();
         int a = a(resources, "bg", "id", packageName);
         if (j.a(a()) >= 10) {
-            m380a = m380a();
+            m382a = m382a();
             bitmap = a(this.b, 30.0f);
         } else {
-            m380a = m380a();
+            m382a = m382a();
             bitmap = this.b;
         }
-        m380a.setImageViewBitmap(a, bitmap);
+        m382a.setImageViewBitmap(a, bitmap);
         int a2 = a(resources, "icon", "id", packageName);
         if (this.c != null) {
-            m380a().setImageViewBitmap(a2, this.c);
+            m382a().setImageViewBitmap(a2, this.c);
         } else {
             a(a2);
         }
         int a3 = a(resources, "title", "id", packageName);
-        m380a().setTextViewText(a3, ((er) this).f321a);
+        m382a().setTextViewText(a3, ((er) this).f321a);
         Map<String, String> map = ((er) this).f324a;
         if (map != null && this.a == 16777216) {
-            mo376a(map.get("notification_image_text_color"));
+            mo378a(map.get("notification_image_text_color"));
         }
-        RemoteViews m380a2 = m380a();
+        RemoteViews m382a2 = m382a();
         int i = this.a;
-        m380a2.setTextColor(a3, (i == 16777216 || !m382a(i)) ? -1 : -16777216);
-        setCustomContentView(m380a());
+        m382a2.setTextColor(a3, (i == 16777216 || !m384a(i)) ? -1 : -16777216);
+        setCustomContentView(m382a());
         Bundle bundle = new Bundle();
         bundle.putBoolean("miui.customHeight", true);
         addExtras(bundle);
@@ -106,8 +106,8 @@ public class eo extends er {
     /* JADX DEBUG: Possible override for method com.xiaomi.push.ep.a()V */
     @Override // com.xiaomi.push.er
     /* renamed from: a  reason: collision with other method in class */
-    public boolean mo375a() {
-        if (j.m629a()) {
+    public boolean mo377a() {
+        if (j.m631a()) {
             Resources resources = a().getResources();
             String packageName = a().getPackageName();
             return (a(a().getResources(), "bg", "id", a().getPackageName()) == 0 || a(resources, "icon", "id", packageName) == 0 || a(resources, "title", "id", packageName) == 0 || j.a(a()) < 9) ? false : true;
@@ -116,7 +116,7 @@ public class eo extends er {
     }
 
     public eo b(Bitmap bitmap) {
-        if (m384b() && bitmap != null) {
+        if (m386b() && bitmap != null) {
             this.c = bitmap;
         }
         return this;

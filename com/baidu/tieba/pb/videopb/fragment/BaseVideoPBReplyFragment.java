@@ -1,8 +1,7 @@
 package com.baidu.tieba.pb.videopb.fragment;
 
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.mq8;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import com.baidu.tieba.f09;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +13,11 @@ public abstract class BaseVideoPBReplyFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract AbsVideoPbFragment D();
+    public abstract f09 E1();
 
-    public abstract mq8 E1();
+    public abstract AbsVideoPbFragment M();
 
-    public abstract PbModel L();
-
-    public abstract AbsPbActivity M();
+    public abstract PbModel P();
 
     public BaseVideoPBReplyFragment() {
         Interceptable interceptable = $ic;

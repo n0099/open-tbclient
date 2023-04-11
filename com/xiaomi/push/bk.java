@@ -29,19 +29,19 @@ public class bk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m212a() {
+    private void m214a() {
         if (this.a.size() > 100) {
             this.a.removeFirst();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m213a() {
+    public synchronized int m215a() {
         return this.a.size();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m214a() {
+    public synchronized LinkedList<a> m216a() {
         LinkedList<a> linkedList;
         linkedList = this.a;
         this.a = new LinkedList<>();
@@ -50,6 +50,6 @@ public class bk {
 
     public synchronized void a(Object obj) {
         this.a.add(new a(0, obj));
-        m212a();
+        m214a();
     }
 }

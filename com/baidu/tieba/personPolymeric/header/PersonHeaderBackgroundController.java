@@ -18,8 +18,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.bg;
 import com.baidu.tieba.cg;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.gi;
-import com.baidu.tieba.rm;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.sm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class PersonHeaderBackgroundController {
     public View.OnClickListener f;
 
     /* loaded from: classes5.dex */
-    public class a extends bg<rm> {
+    public class a extends bg<sm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonHeaderBackgroundController a;
@@ -84,12 +84,12 @@ public class PersonHeaderBackgroundController {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.bg
-        public void onLoaded(rm rmVar, String str, int i) {
+        public void onLoaded(sm smVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rmVar, str, i) == null) {
-                super.onLoaded((a) rmVar, str, i);
-                if (rmVar != null) {
-                    rmVar.h(this.a.b);
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, smVar, str, i) == null) {
+                super.onLoaded((a) smVar, str, i);
+                if (smVar != null) {
+                    smVar.h(this.a.b);
                 }
             }
         }
@@ -169,7 +169,7 @@ public class PersonHeaderBackgroundController {
         this.a = tbPageContext;
         this.b = tbImageView;
         this.e = z;
-        tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0802df);
+        tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0802dd);
         this.c = view2;
         view2.setOnClickListener(this.f);
     }
@@ -217,7 +217,7 @@ public class PersonHeaderBackgroundController {
         }
         this.d = userData;
         String bg_pic = userData.getBg_pic();
-        if (!gi.isEmpty(bg_pic)) {
+        if (!hi.isEmpty(bg_pic)) {
             cg.h().k(bg_pic, 10, new a(this), 0, 0, this.a.getUniqueId(), new Object[0]);
         }
     }

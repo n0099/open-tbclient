@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class xf4 extends tf4<sg4> {
+public class xf4 extends uf4<rg4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,49 +30,47 @@ public class xf4 extends tf4<sg4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tf4
+    @Override // com.baidu.tieba.uf4
     /* renamed from: f */
-    public ContentValues c(sg4 sg4Var) {
+    public ContentValues c(rg4 rg4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sg4Var)) == null) {
-            ContentValues a = super.a(sg4Var);
-            a.put("pkg_type", Integer.valueOf(sg4Var.o));
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rg4Var)) == null) {
+            return a(rg4Var);
         }
         return (ContentValues) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tf4
+    @Override // com.baidu.tieba.uf4
     /* renamed from: g */
-    public sg4 d(Cursor cursor) {
+    public rg4 d(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
             if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                sg4 sg4Var = new sg4();
-                if (b(cursor, sg4Var)) {
-                    return sg4Var;
+                rg4 rg4Var = new rg4();
+                if (b(cursor, rg4Var)) {
+                    return rg4Var;
                 }
                 return null;
             }
             return null;
         }
-        return (sg4) invokeL.objValue;
+        return (rg4) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.tf4
-    public List<sg4> e(Cursor cursor) {
+    @Override // com.baidu.tieba.uf4
+    public List<rg4> e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
             ArrayList arrayList = new ArrayList();
             if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
                 do {
-                    sg4 sg4Var = new sg4();
-                    if (b(cursor, sg4Var)) {
-                        arrayList.add(sg4Var);
+                    rg4 rg4Var = new rg4();
+                    if (b(cursor, rg4Var)) {
+                        arrayList.add(rg4Var);
                     }
                 } while (cursor.moveToNext());
                 return arrayList;

@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import java.io.File;
-import org.json.JSONObject;
+import com.baidu.tieba.e0a;
 /* loaded from: classes5.dex */
 public interface m0a {
-    boolean a(JSONObject jSONObject, boolean z, boolean z2);
-
-    boolean b(File file, long j, boolean z, boolean z2);
+    void a(e0a.b bVar);
 }

@@ -29,13 +29,13 @@ import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bu5;
-import com.baidu.tieba.cu5;
-import com.baidu.tieba.ft6;
-import com.baidu.tieba.g19;
+import com.baidu.tieba.co6;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.va5;
-import com.baidu.tieba.zk6;
+import com.baidu.tieba.hv5;
+import com.baidu.tieba.iv5;
+import com.baidu.tieba.wa9;
+import com.baidu.tieba.z17;
+import com.baidu.tieba.zb5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,7 +64,7 @@ public class TiePlusEventController implements LifecycleObserver {
     @NonNull
     public final TiePlusHelper d;
     public PermissionJudgePolicy e;
-    public ft6 f;
+    public z17 f;
     public CustomMessageListener g;
     public CustomMessageListener h;
 
@@ -104,12 +104,12 @@ public class TiePlusEventController implements LifecycleObserver {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof cu5)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof iv5)) {
                 return;
             }
-            cu5 cu5Var = (cu5) customResponsedMessage.getData();
-            this.a.k(cu5Var);
-            this.a.h(cu5Var);
+            iv5 iv5Var = (iv5) customResponsedMessage.getData();
+            this.a.o(iv5Var);
+            this.a.l(iv5Var);
         }
     }
 
@@ -160,19 +160,19 @@ public class TiePlusEventController implements LifecycleObserver {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements bu5.c {
+    public class c implements hv5.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cu5 a;
+        public final /* synthetic */ iv5 a;
         public final /* synthetic */ String b;
         public final /* synthetic */ TiePlusEventController c;
 
-        public c(TiePlusEventController tiePlusEventController, cu5 cu5Var, String str) {
+        public c(TiePlusEventController tiePlusEventController, iv5 iv5Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tiePlusEventController, cu5Var, str};
+                Object[] objArr = {tiePlusEventController, iv5Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -183,11 +183,11 @@ public class TiePlusEventController implements LifecycleObserver {
                 }
             }
             this.c = tiePlusEventController;
-            this.a = cu5Var;
+            this.a = iv5Var;
             this.b = str;
         }
 
-        @Override // com.baidu.tieba.bu5.c
+        @Override // com.baidu.tieba.hv5.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -201,15 +201,15 @@ public class TiePlusEventController implements LifecycleObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TiebaPlusInfo a;
-        public final /* synthetic */ cu5 b;
+        public final /* synthetic */ iv5 b;
         public final /* synthetic */ TiePlusEventController c;
 
-        public d(TiePlusEventController tiePlusEventController, TiebaPlusInfo tiebaPlusInfo, cu5 cu5Var) {
+        public d(TiePlusEventController tiePlusEventController, TiebaPlusInfo tiebaPlusInfo, iv5 iv5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tiePlusEventController, tiebaPlusInfo, cu5Var};
+                Object[] objArr = {tiePlusEventController, tiebaPlusInfo, iv5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -221,7 +221,7 @@ public class TiePlusEventController implements LifecycleObserver {
             }
             this.c = tiePlusEventController;
             this.a = tiebaPlusInfo;
-            this.b = cu5Var;
+            this.b = iv5Var;
         }
 
         @Override // com.baidu.tbadk.core.view.itemcard.ItemCardHelper.c
@@ -250,15 +250,15 @@ public class TiePlusEventController implements LifecycleObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DownloadData a;
-        public final /* synthetic */ cu5 b;
+        public final /* synthetic */ iv5 b;
         public final /* synthetic */ TiePlusEventController c;
 
-        public e(TiePlusEventController tiePlusEventController, DownloadData downloadData, cu5 cu5Var) {
+        public e(TiePlusEventController tiePlusEventController, DownloadData downloadData, iv5 iv5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tiePlusEventController, downloadData, cu5Var};
+                Object[] objArr = {tiePlusEventController, downloadData, iv5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -270,7 +270,7 @@ public class TiePlusEventController implements LifecycleObserver {
             }
             this.c = tiePlusEventController;
             this.a = downloadData;
-            this.b = cu5Var;
+            this.b = iv5Var;
         }
 
         @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
@@ -290,7 +290,7 @@ public class TiePlusEventController implements LifecycleObserver {
                     str = str3;
                 }
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_DXX_GUIDE_START_DOWNLOAD).addParam("tid", str2).addParam("order_id", str).addParam(TiePlusStat.RichTextType.STAT_KEY, 1).addParam("packageName", this.b.n().app_package));
-                zk6 zk6Var = new zk6();
+                co6 co6Var = new co6();
                 ItemData itemData = new ItemData();
                 itemData.buttonLink = this.b.n().download_url;
                 itemData.buttonName = ItemCardHelper.b;
@@ -309,9 +309,9 @@ public class TiePlusEventController implements LifecycleObserver {
                 builder.pkg_source = 2;
                 itemData.itemId = gg.g(this.b.n().app_id, 0L);
                 itemData.apkDetail = builder.build(true);
-                zk6Var.a = itemData;
-                zk6Var.b = 1;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921627, zk6Var));
+                co6Var.a = itemData;
+                co6Var.b = 1;
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921627, co6Var));
             }
         }
     }
@@ -410,51 +410,51 @@ public class TiePlusEventController implements LifecycleObserver {
         }
     }
 
-    public static void l(@Nullable List<cu5> list) {
+    public static void onEvent(@NonNull iv5 iv5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, list) == null) && list != null) {
-            for (cu5 cu5Var : list) {
-                cu5Var.q(TiePlusStat.StatType.EXPOSE);
-                onEvent(cu5Var);
+        if (interceptable == null || interceptable.invokeL(65542, null, iv5Var) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001454, iv5Var));
+        }
+    }
+
+    public static void p(@Nullable List<iv5> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, list) == null) && list != null) {
+            for (iv5 iv5Var : list) {
+                iv5Var.q(TiePlusStat.StatType.EXPOSE);
+                onEvent(iv5Var);
             }
         }
     }
 
-    public static void onEvent(@NonNull cu5 cu5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, cu5Var) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001454, cu5Var));
-        }
-    }
-
-    public void e(@Nullable g gVar) {
+    public void j(@Nullable g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, gVar) == null) {
             this.c.add(new WeakReference<>(gVar));
         }
     }
 
-    public final void g(cu5 cu5Var) {
+    public final void k(iv5 iv5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cu5Var) == null) && cu5Var != null && cu5Var.n() != null) {
-            if (g19.i(cu5Var.n().app_package)) {
-                UtilHelper.startAppByPkgName(cu5Var.n().app_package);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iv5Var) == null) && iv5Var != null && iv5Var.n() != null) {
+            if (wa9.i(iv5Var.n().app_package)) {
+                UtilHelper.startAppByPkgName(iv5Var.n().app_package);
                 return;
             }
-            DownloadData downloadData = new DownloadData(cu5Var.n().app_package + ".v" + cu5Var.n().app_version);
-            downloadData.setUrl(cu5Var.n().download_url);
-            downloadData.setName(cu5Var.n().title);
+            DownloadData downloadData = new DownloadData(iv5Var.n().app_package + ".v" + iv5Var.n().app_version);
+            downloadData.setUrl(iv5Var.n().download_url);
+            downloadData.setName(iv5Var.n().title);
             downloadData.setSource(2);
             downloadData.setType(12);
             if (this.f == null) {
-                this.f = new ft6();
+                this.f = new z17();
             }
             int e2 = this.f.e(downloadData);
             if (e2 != 1 && e2 != 5) {
                 if (this.e == null) {
                     this.e = new PermissionJudgePolicy();
                 }
-                this.e.setOnPermissionsGrantedListener(new e(this, downloadData, cu5Var));
+                this.e.setOnPermissionsGrantedListener(new e(this, downloadData, iv5Var));
                 if (this.a instanceof Activity) {
                     this.e.clearRequestPermissionList();
                     this.e.appendRequestPermission((Activity) this.a, "android.permission.WRITE_EXTERNAL_STORAGE");
@@ -467,31 +467,31 @@ public class TiePlusEventController implements LifecycleObserver {
         }
     }
 
-    public void h(@NonNull cu5 cu5Var) {
+    public void l(@NonNull iv5 iv5Var) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cu5Var) == null) && cu5Var.j() == TiePlusStat.StatType.CLICK) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iv5Var) == null) && iv5Var.j() == TiePlusStat.StatType.CLICK) {
             TiePlusStat.Locate locate = this.b;
             if (locate == TiePlusStat.Locate.PB || locate == TiePlusStat.Locate.PB_COMMENT) {
-                j();
+                n();
             }
-            TiePlusStat.LandingType g2 = cu5Var.g();
-            TiebaPlusInfo n = cu5Var.n();
+            TiePlusStat.LandingType g2 = iv5Var.g();
+            TiebaPlusInfo n = iv5Var.n();
             String str = "";
             int i2 = 1;
             if (g2 == TiePlusStat.LandingType.H5) {
                 this.d.o(n.jump_url, 1, "", n.h5_jump_type.intValue());
             } else if (g2 == TiePlusStat.LandingType.WECHAT) {
-                this.d.V(n, cu5Var.h(), cu5Var.m());
+                this.d.V(n, iv5Var.h(), iv5Var.m());
             } else if (g2 == TiePlusStat.LandingType.WECHAT_MINIAPP) {
                 this.d.o(n.h5_jump_number, n.jump_type.intValue(), n.h5_jump_param, 0);
             } else if (g2 == TiePlusStat.LandingType.DIALOG_DOWNLOAD) {
-                if (TbadkCoreApplication.getInst().isMainTabActivity() && cu5Var.k().isRealVideoThread() && !ListUtils.isEmpty(cu5Var.k().getRichAbstractList())) {
-                    for (PbContent pbContent : cu5Var.k().getRichAbstractList()) {
+                if (TbadkCoreApplication.getInst().isMainTabActivity() && iv5Var.k().isRealVideoThread() && !ListUtils.isEmpty(iv5Var.k().getRichAbstractList())) {
+                    for (PbContent pbContent : iv5Var.k().getRichAbstractList()) {
                         if (pbContent != null) {
                             TiebaPlusInfo tiebaPlusInfo = pbContent.tiebaplus_info;
                             if (pbContent.type.intValue() == 35 && tiebaPlusInfo != null) {
-                                g(cu5Var);
+                                k(iv5Var);
                                 return;
                             }
                         }
@@ -499,27 +499,27 @@ public class TiePlusEventController implements LifecycleObserver {
                 }
                 TiePlusHelper tiePlusHelper = this.d;
                 tiePlusHelper.F(n.app_id);
-                tiePlusHelper.L(n.download_url);
+                tiePlusHelper.K(n.download_url);
                 tiePlusHelper.O(n.app_package);
                 tiePlusHelper.P(n.app_power);
                 tiePlusHelper.Q(n.app_privacy);
-                if (cu5Var.k() != null && cu5Var.k().isTiebaPlusAdThread) {
-                    str = cu5Var.k().tiebaPlusOrderId;
+                if (iv5Var.k() != null && iv5Var.k().isTiebaPlusAdThread) {
+                    str = iv5Var.k().tiebaPlusOrderId;
                 }
                 String str2 = str;
-                bu5 bu5Var = new bu5(this.a, this.d, true);
-                this.d.J(bu5Var);
+                hv5 hv5Var = new hv5(this.a, this.d, true);
+                this.d.J(hv5Var);
                 ItemData itemData = new ItemData();
                 itemData.parseProto(n);
                 this.d.N(itemData);
-                this.d.j(new va5(TiePlusStat.StatType.DOWNLOAD_FINISHED, cu5Var.h(), cu5Var.m(), str2, n.app_package));
-                bu5Var.f(n.app_company);
-                bu5Var.g(n.app_icon);
-                bu5Var.h(n.title);
-                bu5Var.i(n.app_version);
-                bu5Var.j(new c(this, cu5Var, str2));
-                bu5Var.show();
-                TiePlusStat.d(TiePlusStat.StatType.DIALOG_EXPOSE, this.b, cu5Var.l(), cu5Var.h(), cu5Var.m(), cu5Var.f(), cu5Var.e(), str2);
+                this.d.j(new zb5(TiePlusStat.StatType.DOWNLOAD_FINISHED, iv5Var.h(), iv5Var.m(), str2, n.app_package));
+                hv5Var.f(n.app_company);
+                hv5Var.g(n.app_icon);
+                hv5Var.h(n.title);
+                hv5Var.i(n.app_version);
+                hv5Var.j(new c(this, iv5Var, str2));
+                hv5Var.show();
+                TiePlusStat.d(TiePlusStat.StatType.DIALOG_EXPOSE, this.b, iv5Var.l(), iv5Var.h(), iv5Var.m(), iv5Var.f(), iv5Var.e(), str2);
             } else if (g2 == TiePlusStat.LandingType.APPOINT) {
                 if (n.is_appoint.intValue() == 1) {
                     if (StringUtils.isNull(n.forum_name)) {
@@ -550,7 +550,7 @@ public class TiePlusEventController implements LifecycleObserver {
                     ItemClickJumpUtil.itemClickJump(n.forum_name, n.item_id, i2, Integer.valueOf(i));
                     return;
                 }
-                this.d.E(gg.g(n.item_id, 0L), n.title, new d(this, n, cu5Var));
+                this.d.E(gg.g(n.item_id, 0L), n.title, new d(this, n, iv5Var));
             } else if (g2 == TiePlusStat.LandingType.MESSAGE) {
                 PluginUser pluginUser = n.plugin_user;
                 if (pluginUser != null) {
@@ -561,15 +561,15 @@ public class TiePlusEventController implements LifecycleObserver {
                 }
             } else if (g2 == TiePlusStat.LandingType.WECHAT_OFFICIAL) {
                 if (n.jump_setting.intValue() == 1) {
-                    this.d.W(n, cu5Var.h(), cu5Var.m());
+                    this.d.W(n, iv5Var.h(), iv5Var.m());
                 } else {
-                    this.d.V(n, cu5Var.h(), cu5Var.m());
+                    this.d.V(n, iv5Var.h(), iv5Var.m());
                 }
             }
         }
     }
 
-    public final void j() {
+    public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001455));
@@ -596,12 +596,12 @@ public class TiePlusEventController implements LifecycleObserver {
         }
     }
 
-    public void k(@NonNull cu5 cu5Var) {
+    public void o(@NonNull iv5 iv5Var) {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cu5Var) == null) {
-            ThreadData k = cu5Var.k();
+        if (interceptable == null || interceptable.invokeL(1048580, this, iv5Var) == null) {
+            ThreadData k = iv5Var.k();
             String str3 = "";
             if (!k.isTiebaPlusAdThread) {
                 str = "";
@@ -611,11 +611,11 @@ public class TiePlusEventController implements LifecycleObserver {
                 str2 = k.tiebaPlusToken;
                 str = k.tiebaPlusExtraParam;
             }
-            TiePlusStat.b(cu5Var.o(), cu5Var.j(), this.b, cu5Var.l(), cu5Var.h(), cu5Var.n().target_type.intValue(), cu5Var.g(), cu5Var.m(), cu5Var.f(), cu5Var.e(), str3, cu5Var.d());
-            int o = cu5Var.o();
-            TiePlusStat.StatType j = cu5Var.j();
+            TiePlusStat.b(iv5Var.o(), iv5Var.j(), this.b, iv5Var.l(), iv5Var.h(), iv5Var.n().target_type.intValue(), iv5Var.g(), iv5Var.m(), iv5Var.f(), iv5Var.e(), str3, iv5Var.d());
+            int o = iv5Var.o();
+            TiePlusStat.StatType j = iv5Var.j();
             TiePlusStat.Locate locate = this.b;
-            TiePlusStat.c(o, j, locate, str3, str2, str, cu5Var.i(locate));
+            TiePlusStat.c(o, j, locate, str3, str2, str, iv5Var.i(locate));
         }
     }
 }

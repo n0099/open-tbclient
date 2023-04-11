@@ -31,7 +31,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.RoundedCornerTreatment;
 import com.google.android.material.shape.ShapeAppearanceModel;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MaterialCardViewHelper {
     public static final float CARD_VIEW_SHADOW_MULTIPLIER = 1.5f;
     public static final int CHECKED_ICON_LAYER_INDEX = 2;
@@ -146,7 +146,7 @@ public class MaterialCardViewHelper {
         if (this.clickableForegroundDrawable == null) {
             LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.rippleDrawable, this.foregroundContentDrawable, createCheckedIconLayer()});
             this.clickableForegroundDrawable = layerDrawable;
-            layerDrawable.setId(2, R.id.obfuscated_res_0x7f09170f);
+            layerDrawable.setId(2, R.id.obfuscated_res_0x7f091713);
         }
         return this.clickableForegroundDrawable;
     }
@@ -424,7 +424,7 @@ public class MaterialCardViewHelper {
             DrawableCompat.setTintList(wrap, this.checkedIconTint);
         }
         if (this.clickableForegroundDrawable != null) {
-            this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f09170f, createCheckedIconLayer());
+            this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f091713, createCheckedIconLayer());
         }
     }
 

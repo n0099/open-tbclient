@@ -1,58 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.net.Uri;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberVideoView;
-import com.baidu.searchbox.player.BDPlayerConfig;
-import com.baidu.searchbox.player.BDVideoPlayer;
-import com.baidu.searchbox.player.UniversalPlayer;
-import com.baidu.searchbox.player.constants.PlayerStatus;
-import com.baidu.searchbox.player.event.PlayerEventTrigger;
-import com.baidu.searchbox.player.helper.OrientationHelper;
-import com.baidu.searchbox.player.helper.SimpleStyleSwitchHelper;
-import com.baidu.searchbox.player.interfaces.OnSnapShotFrameListener;
-import com.baidu.searchbox.player.kernel.AbsVideoKernel;
-import com.baidu.searchbox.player.layer.BaseKernelLayer;
-import com.baidu.searchbox.player.ubc.BDVideoPlayerUbcContent;
-import com.baidu.searchbox.player.ubc.CoreStatPlugin;
-import com.baidu.searchbox.player.ubc.DurationStatPlugin;
-import com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.mm0;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.img.GetEmotionPidModel;
+import com.baidu.tbadk.img.UploadedImageInfo;
+import com.baidu.tieba.face.data.EmotionImageData;
+import com.baidu.tieba.face.view.EmotionView;
+import com.baidu.tieba.horizonalList.widget.AbsHListView;
+import com.baidu.tieba.horizonalList.widget.HListView;
+import com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel;
+import com.baidu.tieba.xx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class yx8 extends UniversalPlayer implements px8 {
+public class yx8 implements QueryMatchEmotionModel.b, xx8.b, EmotionView.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public IUbcPlayerStatusFetcher b;
+    public a9 a;
+    public List<String> b;
+    public HListView c;
+    public xx8 d;
+    public QueryMatchEmotionModel e;
+    public String f;
+    public Handler g;
+    public ViewGroup h;
+    public ViewGroup.LayoutParams i;
+    public EditorTools j;
+    public GetEmotionPidModel k;
+    public Runnable l;
 
-    @Override // com.baidu.searchbox.player.BDVideoPlayer
-    public int getPlayerStageType() {
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 24;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.player.BDVideoPlayer
-    public void onAudioFocusChanged(int i) {
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.b
+    public void onFail(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) {
         }
     }
 
     /* loaded from: classes7.dex */
-    public class a implements IUbcPlayerStatusFetcher {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yx8 a;
@@ -75,374 +96,279 @@ public class yx8 extends UniversalPlayer implements px8 {
             this.a = yx8Var;
         }
 
-        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
-        public int getCurrentPosition() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a.getPosition();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f = "";
+                this.a.c.setVisibility(8);
             }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
-        public String getKernelLogId() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.a.mKernelLayer != null) {
-                    return this.a.mKernelLayer.getKernelLogId();
-                }
-                return "";
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
-        public float getLaunchSpeedScore() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return mm0.a.a().getLaunchSpeedScore();
-            }
-            return invokeV.floatValue;
-        }
-
-        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
-        public int getPlayType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(1048579, this)) != null) {
-                return invokeV.intValue;
-            }
-            return this.a.a;
-        }
-
-        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
-        public String getPlayUrl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a.getVideoUrl();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
-        public String getSessionId() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return this.a.mVideoTask.sessionId;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
-        public float getStaticDeviceScore() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return mm0.a.a().getStaticDeviceScore();
-            }
-            return invokeV.floatValue;
-        }
-
-        @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
-        public String getTraceId() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return this.a.mVideoTask.traceId;
-            }
-            return (String) invokeV.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yx8(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer) {
-        super(context, baseKernelLayer);
+    /* loaded from: classes7.dex */
+    public class b implements AbsHListView.i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yx8 a;
+
+        @Override // com.baidu.tieba.horizonalList.widget.AbsHListView.i
+        public void a(AbsHListView absHListView, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(1048576, this, absHListView, i, i2, i3) == null) {
+            }
+        }
+
+        public b(yx8 yx8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yx8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yx8Var;
+        }
+
+        @Override // com.baidu.tieba.horizonalList.widget.AbsHListView.i
+        public void b(AbsHListView absHListView, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absHListView, i) == null) {
+                if (i != 0) {
+                    if (i == 1) {
+                        this.a.g.removeCallbacks(this.a.l);
+                        return;
+                    }
+                    return;
+                }
+                this.a.g.removeCallbacks(this.a.l);
+                this.a.g.postDelayed(this.a.l, 5000L);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements GetEmotionPidModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ EmotionImageData a;
+        public final /* synthetic */ yx8 b;
+
+        @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
+        public void onFail(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            }
+        }
+
+        public c(yx8 yx8Var, EmotionImageData emotionImageData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yx8Var, emotionImageData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = yx8Var;
+            this.a = emotionImageData;
+        }
+
+        @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
+        public void a(uf5 uf5Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, uf5Var) == null) && uf5Var != null && !TextUtils.isEmpty(uf5Var.a)) {
+                this.a.setPicId(uf5Var.a);
+                this.b.n(this.a);
+            }
+        }
+    }
+
+    public yx8(a9 a9Var, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, baseKernelLayer};
+            Object[] objArr = {a9Var, viewGroup, layoutParams};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BaseKernelLayer) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this);
-        this.mLayerContainer.setClickable(false);
+        this.l = new a(this);
+        this.a = a9Var;
+        this.h = viewGroup;
+        this.i = layoutParams;
+        this.g = new Handler();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yx8(@Nullable Context context, @Nullable String str) {
-        super(context, "", str);
+    public void p(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = new a(this);
-        this.mLayerContainer.setClickable(false);
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            BaseKernelLayer playerKernelLayer = getPlayerKernelLayer();
-            if (playerKernelLayer != null) {
-                str2 = playerKernelLayer.getVideoUrl();
-            } else {
-                str2 = null;
-            }
-            if (gi.isEquals(str, str2) && PlayerStatus.isActiveStatus(playerKernelLayer.getStatus())) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.player.BDVideoPlayer
-    public void setupKernelLayer(@Nullable BaseKernelLayer baseKernelLayer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, baseKernelLayer) == null) {
-            super.setupKernelLayer(g(this, baseKernelLayer));
+        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && !TextUtils.isEmpty(str) && !ListUtils.isEmpty(this.b) && this.b.contains(str)) {
+            o(str);
         }
     }
 
-    @Override // com.baidu.searchbox.player.UniversalPlayer, com.baidu.searchbox.player.BDVideoPlayer
-    public void setupLayers(@NonNull Context context) {
+    public void q(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, context) == null) {
-            this.mKernelLayer.setAcceptVolumeChange(Boolean.FALSE);
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            this.b = list;
         }
     }
 
-    @Override // com.baidu.searchbox.player.BDVideoPlayer
-    public void setupPlugin(@NonNull Context context) {
+    public void r(EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, context) == null) {
-            super.setupPlugin(context);
-            addPlugin(new CoreStatPlugin());
-            addPlugin(new DurationStatPlugin());
+        if (interceptable == null || interceptable.invokeL(1048589, this, editorTools) == null) {
+            this.j = editorTools;
         }
     }
 
-    @Override // com.baidu.searchbox.player.BDVideoPlayer
-    public void doPlay() {
+    @Override // com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.b
+    public void a(String str, List<EmotionImageData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.doPlay();
-            this.mProgressHelper.start();
-        }
-    }
-
-    public void h() {
-        PlayerEventTrigger playerEventTrigger;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (playerEventTrigger = getPlayerEventTrigger()) != null) {
-            playerEventTrigger.ignoreInfoEventFilter(true);
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
-    public boolean isPlaying() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-            if (baseKernelLayer != null && (baseKernelLayer.getContentView() instanceof CyberVideoView)) {
-                return ((CyberVideoView) this.mKernelLayer.getContentView()).isPlaying();
-            }
-            return super.isPlaying();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.kernel.IKernelPlayer
-    public void onCompletion() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            super.onCompletion();
-            this.mProgressHelper.cancel();
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.kernel.IKernelPlayer
-    public void onSeekComplete() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            super.onSeekComplete();
-            this.mProgressHelper.start();
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            super.pause();
-            this.mProgressHelper.cancel();
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.UniversalPlayer, com.baidu.searchbox.player.BDVideoPlayer
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            super.release();
-            this.mProgressHelper.cancel();
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
-    public void resume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            super.resume();
-            this.mProgressHelper.start();
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            if (isPause()) {
-                resume();
-            } else {
-                super.start();
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            super.stop();
-            this.mProgressHelper.cancel();
-        }
-    }
-
-    public final BaseKernelLayer g(BDVideoPlayer bDVideoPlayer, BaseKernelLayer baseKernelLayer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bDVideoPlayer, baseKernelLayer)) == null) {
-            if (baseKernelLayer == null) {
-                baseKernelLayer = getReuseHelper().getValidCache(bDVideoPlayer, bDVideoPlayer.getKLayerCacheKey());
-            }
-            if (baseKernelLayer == null) {
-                return new BaseKernelLayer(AbsVideoKernel.CYBER_PLAYER);
-            }
-            return baseKernelLayer;
-        }
-        return (BaseKernelLayer) invokeLL.objValue;
-    }
-
-    public boolean k(OnSnapShotFrameListener onSnapShotFrameListener, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048585, this, onSnapShotFrameListener, f)) == null) {
-            try {
-                if (this.mKernelLayer == null) {
-                    return false;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) && !TextUtils.isEmpty(str) && str.equals(this.f)) {
+            if (ListUtils.isEmpty(list)) {
+                this.f = "";
+            } else if (this.h != null && this.i != null) {
+                if (list.size() > 10) {
+                    list = list.subList(0, 10);
                 }
-                return this.mKernelLayer.takeSnapshotAsync(onSnapShotFrameListener, f);
-            } catch (OutOfMemoryError unused) {
-                return false;
+                TiebaStatic.log("c12488");
+                HListView hListView = this.c;
+                if (hListView == null || hListView.getParent() == null) {
+                    HListView hListView2 = new HListView(this.a.getContext());
+                    this.c = hListView2;
+                    SkinManager.setBackgroundColor(hListView2, R.color.CAM_X0201);
+                    this.c.setDividerWidth(ii.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702f7));
+                    this.c.setClipToPadding(false);
+                    int g = ii.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070231);
+                    this.c.setPadding(g, g, g, g);
+                    this.c.setSelector(R.drawable.list_selector_transparent);
+                    this.i.height = ii.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070246);
+                    this.h.addView(this.c, this.i);
+                    if (this.d == null) {
+                        xx8 xx8Var = new xx8();
+                        this.d = xx8Var;
+                        xx8Var.d(this);
+                        this.d.c(this);
+                        this.c.setAdapter((ListAdapter) this.d);
+                        this.c.setOnScrollListener(new b(this));
+                    }
+                }
+                this.c.setVisibility(0);
+                this.d.b(list);
+                this.d.notifyDataSetChanged();
+                this.c.setSelection(0);
+                this.g.removeCallbacks(this.l);
+                this.g.postDelayed(this.l, 5000L);
             }
         }
-        return invokeLF.booleanValue;
     }
 
-    public void i(cy8 cy8Var) {
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, cy8Var) != null) || cy8Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.g.removeCallbacks(this.l);
+            this.g.postDelayed(this.l, 5000L);
         }
-        this.a = cy8Var.f;
-        updateStatisticsContent(new BDVideoPlayerUbcContent.Builder().extLog(cy8Var.a).url(cy8Var.b).id(cy8Var.c).from(cy8Var.d).page(cy8Var.e).playerStatusFetcher(this.b).build());
     }
 
-    @Override // com.baidu.searchbox.player.UniversalPlayer
-    public void initHelper() {
+    @Override // com.baidu.tieba.face.view.EmotionView.c
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.mProgressHelper = new zx8(this);
-            if (PermissionUtil.isBrowseMode()) {
-                this.mOrientationHelper = null;
-                this.mIsEnableOrientation = false;
-                this.mStyleSwitchHelper = new SimpleStyleSwitchHelper(this);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g.removeCallbacks(this.l);
+        }
+    }
+
+    public void l() {
+        QueryMatchEmotionModel queryMatchEmotionModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (queryMatchEmotionModel = this.e) != null) {
+            queryMatchEmotionModel.cancelLoadData();
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            HListView hListView = this.c;
+            if (hListView != null) {
+                hListView.setVisibility(8);
+            }
+            this.g.removeCallbacks(this.l);
+            this.f = "";
+        }
+    }
+
+    @Override // com.baidu.tieba.xx8.b
+    public void f(EmotionImageData emotionImageData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, emotionImageData) == null) {
+            this.g.removeCallbacks(this.l);
+            this.g.postDelayed(this.l, 5000L);
+            if (emotionImageData == null || TextUtils.isEmpty(emotionImageData.getPicUrl()) || this.j == null) {
                 return;
             }
-            OrientationHelper orientationHelper = new OrientationHelper(BDPlayerConfig.getAppContext(), 3);
-            this.mOrientationHelper = orientationHelper;
-            if (orientationHelper.canDetectOrientation()) {
-                this.mIsEnableOrientation = true;
-                this.mOrientationHelper.disable();
-                this.mOrientationHelper.setListener(new UniversalPlayer.OrientationChangeCallBack());
+            if (!TextUtils.isEmpty(emotionImageData.getPicId()) && !emotionImageData.getPicId().equals("0")) {
+                n(emotionImageData);
+                return;
             }
-            this.mStyleSwitchHelper = new SimpleStyleSwitchHelper(this);
+            if (this.k == null) {
+                this.k = new GetEmotionPidModel();
+            }
+            this.k.R(emotionImageData.getPicUrl(), new c(this, emotionImageData));
         }
     }
 
-    public void j(float f, float f2) {
-        boolean z;
+    public final void n(EmotionImageData emotionImageData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            boolean z2 = true;
-            int i = (f > 0.0f ? 1 : (f == 0.0f ? 0 : -1));
-            if (i == 0 && f2 == 0.0f) {
-                z = true;
-            } else {
-                z = false;
-            }
-            setGlobalMuteMode(z);
-            if (i == 0 && f2 == 0.0f) {
-                abandonAudioFocus();
-            } else {
-                requestAudioFocus();
-            }
-            BaseKernelLayer baseKernelLayer = this.mKernelLayer;
-            if (baseKernelLayer != null && (baseKernelLayer.getContentView() instanceof CyberVideoView) && ((CyberVideoView) this.mKernelLayer.getContentView()).getCyberPlayer() != null) {
-                ((CyberVideoView) this.mKernelLayer.getContentView()).getCyberPlayer().setVolume(f, f2);
-            } else {
-                mute((i == 0 && f2 == 0.0f) ? false : false);
-            }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, emotionImageData) == null) {
+            TiebaStatic.log("c12489");
+            e85 e85Var = new e85();
+            StringBuilder sb = new StringBuilder();
+            sb.append(emotionImageData.getPicId());
+            sb.append(",");
+            sb.append(emotionImageData.getWidth());
+            sb.append(",");
+            sb.append(emotionImageData.getHeight());
+            sb.append(",");
+            String lowerCase = pi.c(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT + sb.toString() + UploadedImageInfo.MD5_KEY).toLowerCase();
+            e85Var.n("#(meme,net_" + Uri.encode(emotionImageData.getPicUrl()) + "," + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX);
+            e85Var.q(EmotionGroupType.NET_SUG);
+            e85Var.s(emotionImageData.getWidth());
+            e85Var.l(emotionImageData.getHeight());
+            e85Var.r(emotionImageData.getPicUrl());
+            this.j.C(new pc5(24, -1, e85Var));
         }
     }
 
-    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.kernel.IKernelPlayer
-    public boolean onError(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
+    public final void o(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048588, this, i, i2, obj)) == null) {
-            this.mProgressHelper.cancel();
-            return super.onError(i, i2, obj);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && !TextUtils.isEmpty(str) && !str.equals(this.f)) {
+            this.f = str;
+            if (this.e == null) {
+                this.e = new QueryMatchEmotionModel(this.a);
+            }
+            this.e.T(str, this);
         }
-        return invokeIIL.booleanValue;
     }
 }

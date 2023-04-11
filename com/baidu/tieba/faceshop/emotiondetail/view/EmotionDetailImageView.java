@@ -15,8 +15,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.bg;
 import com.baidu.tieba.cg;
 import com.baidu.tieba.faceshop.emotiondetail.data.EmotionDetailData;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.rm;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.sm;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class EmotionDetailImageView extends FrameLayout {
     public int c;
 
     /* loaded from: classes4.dex */
-    public class a extends bg<rm> {
+    public class a extends bg<sm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionDetailData a;
@@ -69,13 +69,13 @@ public class EmotionDetailImageView extends FrameLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.bg
-        public void onLoaded(rm rmVar, String str, int i) {
+        public void onLoaded(sm smVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rmVar, str, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, smVar, str, i) == null) {
                 this.b.b.setVisibility(8);
-                if (rmVar != null) {
+                if (smVar != null) {
                     this.b.a = new TbMemeImageView(this.b.getContext());
-                    ((TbMemeImageView) this.b.a).g(rmVar);
+                    ((TbMemeImageView) this.b.a).g(smVar);
                     EmotionDetailImageView emotionDetailImageView = this.b;
                     ImageView imageView = emotionDetailImageView.a;
                     EmotionDetailData.PicInfo picInfo = this.a.pic_info;
@@ -100,7 +100,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 return;
             }
         }
-        d = hi.i(TbadkCoreApplication.getInst());
+        d = ii.i(TbadkCoreApplication.getInst());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -177,12 +177,12 @@ public class EmotionDetailImageView extends FrameLayout {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             ProgressBar progressBar = new ProgressBar(getContext(), null, 16843399);
             this.b = progressBar;
-            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08106a));
+            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081054));
             layoutParams.gravity = 17;
             this.b.setLayoutParams(layoutParams);
             this.b.setIndeterminate(true);
             addView(this.b);
-            this.c = hi.l(getContext());
+            this.c = ii.l(getContext());
         }
     }
 
@@ -204,7 +204,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 gifInfo.mGifWidth = picInfo2.width;
                 gifInfo.mGifHeight = picInfo2.height;
                 this.a.setTag(str);
-                ((GifView) this.a).k0(gifInfo);
+                ((GifView) this.a).l0(gifInfo);
                 ImageView imageView = this.a;
                 EmotionDetailData.PicInfo picInfo3 = emotionDetailData.pic_info;
                 g(imageView, picInfo3.width, picInfo3.height, 200, 200);
@@ -226,7 +226,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 i4 = (int) (i5 * 0.5f);
                 i3 = i5;
             }
-            int[] n = hi.n(i, i2, i3, i4);
+            int[] n = ii.n(i, i2, i3, i4);
             if (n == null) {
                 return false;
             }
@@ -239,7 +239,7 @@ public class EmotionDetailImageView extends FrameLayout {
                     float f2 = i6;
                     float f3 = i3;
                     if (f2 * f > f3) {
-                        i6 = i3 - (hi.g(getContext(), R.dimen.obfuscated_res_0x7f07020f) * 2);
+                        i6 = i3 - (ii.g(getContext(), R.dimen.obfuscated_res_0x7f07020f) * 2);
                     } else {
                         float f4 = f3 * 0.68f;
                         if (f2 * f > f4) {

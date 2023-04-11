@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import android.content.Context;
 /* loaded from: classes6.dex */
 public interface vra {
-    boolean isUnsubscribed();
-
-    void unsubscribe();
+    void onBlock(Context context, bsa bsaVar);
 }

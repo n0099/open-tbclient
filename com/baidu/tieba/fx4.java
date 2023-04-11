@@ -1,146 +1,159 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
-import com.baidu.tbadk.data.CardLinkInfoData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.ChatroomSignInfo;
 /* loaded from: classes4.dex */
-public class fx4 implements Comparable<fx4> {
+public final class fx4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public boolean i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public boolean n;
-    public int o;
-    public CardLinkInfoData p;
-    public int q;
+    public final long a;
+    public final String b;
+    public final String c;
 
-    public fx4(int i, int i2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947779495, "Lcom/baidu/tieba/fx4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947779495, "Lcom/baidu/tieba/fx4;");
+                return;
+            }
+        }
+        d = new a(null);
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof fx4) {
+                fx4 fx4Var = (fx4) obj;
+                return this.a == fx4Var.a && Intrinsics.areEqual(this.b, fx4Var.b) && Intrinsics.areEqual(this.c, fx4Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((com.baidu.tieba.a.a(this.a) * 31) + this.b.hashCode()) * 31) + this.c.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "ChatRoomGuideData(chatRoomId=" + this.a + ", jumpSchema=" + this.b + ", guideText=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final fx4 a(ChatroomSignInfo chatroomSignInfo) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatroomSignInfo)) == null) {
+                Intrinsics.checkNotNullParameter(chatroomSignInfo, "chatroomSignInfo");
+                Long l = chatroomSignInfo.chatroom_id;
+                Intrinsics.checkNotNullExpressionValue(l, "chatroomSignInfo.chatroom_id");
+                long longValue = l.longValue();
+                String str = chatroomSignInfo.jump_scheme;
+                Intrinsics.checkNotNullExpressionValue(str, "chatroomSignInfo.jump_scheme");
+                String str2 = chatroomSignInfo.guide_text;
+                Intrinsics.checkNotNullExpressionValue(str2, "chatroomSignInfo.guide_text");
+                return new fx4(longValue, str, str2);
+            }
+            return (fx4) invokeL.objValue;
+        }
+    }
+
+    public fx4(long j, String jumpSchema, String guideText) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {Long.valueOf(j), jumpSchema, guideText};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
+        Intrinsics.checkNotNullParameter(jumpSchema, "jumpSchema");
+        Intrinsics.checkNotNullParameter(guideText, "guideText");
+        this.a = j;
+        this.b = jumpSchema;
+        this.c = guideText;
     }
 
-    public static fx4 b(TbLinkSpanGroup tbLinkSpanGroup, jb7 jb7Var) {
-        InterceptResult invokeLL;
-        String str;
+    public final long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, jb7Var)) == null) {
-            if (tbLinkSpanGroup == null) {
-                return null;
-            }
-            fx4 fx4Var = new fx4(tbLinkSpanGroup.e(), 2);
-            if (jb7Var == null) {
-                return fx4Var;
-            }
-            if (TextUtils.isEmpty(jb7Var.f())) {
-                str = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
-            } else {
-                str = jb7Var.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
-            }
-            fx4Var.d = str;
-            fx4Var.c = jb7Var.c();
-            fx4Var.m = jb7Var.a();
-            if (!ListUtils.isEmpty(jb7Var.b()) && jb7Var.b().get(0) != null) {
-                fx4Var.e = jb7Var.b().get(0).a();
-            }
-            fx4Var.l = jb7Var.f();
-            fx4Var.f = jb7Var.d();
-            if (jb7Var.e() != null) {
-                fx4Var.j = jb7Var.e().a();
-                fx4Var.k = jb7Var.e().b();
-            }
-            tbLinkSpanGroup.B(fx4Var);
-            return fx4Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (fx4) invokeLL.objValue;
+        return invokeV.longValue;
     }
 
-    public static fx4 c(TbLinkSpanGroup tbLinkSpanGroup, k55 k55Var) {
-        InterceptResult invokeLL;
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbLinkSpanGroup, k55Var)) == null) {
-            if (tbLinkSpanGroup == null) {
-                return null;
-            }
-            boolean z = true;
-            fx4 fx4Var = new fx4(tbLinkSpanGroup.e(), 1);
-            if (k55Var == null) {
-                return fx4Var;
-            }
-            int i = k55Var.b;
-            if (i == 4) {
-                CardLinkInfoData cardLinkInfoData = k55Var.j;
-                if (cardLinkInfoData != null) {
-                    fx4Var.p = cardLinkInfoData;
-                    fx4Var.c = cardLinkInfoData.title;
-                    fx4Var.e = cardLinkInfoData.imageUrl;
-                    fx4Var.l = cardLinkInfoData.tagText;
-                    fx4Var.g = cardLinkInfoData.url;
-                    fx4Var.i = false;
-                    fx4Var.o = i;
-                }
-            } else {
-                fx4Var.p = k55Var.j;
-                fx4Var.c = k55Var.e;
-                fx4Var.e = k55Var.d;
-                fx4Var.l = k55Var.f;
-                fx4Var.f = k55Var.g;
-                fx4Var.g = k55Var.c;
-                fx4Var.n = k55Var.h;
-                String str = k55Var.i;
-                if (i != 1 && i != 5) {
-                    z = false;
-                }
-                fx4Var.i = z;
-                fx4Var.o = k55Var.b;
-            }
-            tbLinkSpanGroup.B(fx4Var);
-            return fx4Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (fx4) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(@NonNull fx4 fx4Var) {
-        InterceptResult invokeL;
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fx4Var)) == null) {
-            return this.q - fx4Var.q;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return invokeL.intValue;
+        return (String) invokeV.objValue;
     }
 }

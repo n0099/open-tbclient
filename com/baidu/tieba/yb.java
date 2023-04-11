@@ -295,7 +295,7 @@ public class yb extends DiskFileOperate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bArr) == null) {
             super.setData(bArr);
-            if (!isGif() && hi.D(bArr)) {
+            if (!isGif() && ii.D(bArr)) {
                 setGif(true);
             }
         }

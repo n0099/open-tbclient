@@ -1,144 +1,394 @@
 package com.baidu.tieba;
 
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class dd5 implements ad5 {
+public class dd5 extends gd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
 
-    public dd5(View view2, AttributeSet attributeSet) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947700724, "Lcom/baidu/tieba/dd5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947700724, "Lcom/baidu/tieba/dd5;");
+                return;
+            }
+        }
+        gd5.d.put("image_emoticon", "呵呵");
+        gd5.d.put("image_emoticon2", "哈哈");
+        gd5.d.put("image_emoticon3", "吐舌");
+        gd5.d.put("image_emoticon4", "啊");
+        gd5.d.put("image_emoticon5", "酷");
+        gd5.d.put("image_emoticon6", "怒");
+        gd5.d.put("image_emoticon7", "开心");
+        gd5.d.put("image_emoticon8", "汗");
+        gd5.d.put("image_emoticon9", "泪");
+        gd5.d.put("image_emoticon10", "黑线");
+        gd5.d.put("image_emoticon11", "鄙视");
+        gd5.d.put("image_emoticon12", "不高兴");
+        gd5.d.put("image_emoticon13", "真棒");
+        gd5.d.put("image_emoticon14", "钱");
+        gd5.d.put("image_emoticon15", "疑问");
+        gd5.d.put("image_emoticon16", "阴险");
+        gd5.d.put("image_emoticon17", "吐");
+        gd5.d.put("image_emoticon18", "咦");
+        gd5.d.put("image_emoticon19", "委屈");
+        gd5.d.put("image_emoticon20", "花心");
+        gd5.d.put("image_emoticon21", "呼~");
+        gd5.d.put("image_emoticon22", "笑眼");
+        gd5.d.put("image_emoticon23", "冷");
+        gd5.d.put("image_emoticon24", "太开心");
+        gd5.d.put("image_emoticon25", "滑稽");
+        gd5.d.put("image_emoticon26", "勉强");
+        gd5.d.put("image_emoticon27", "狂汗");
+        gd5.d.put("image_emoticon28", "乖");
+        gd5.d.put("image_emoticon29", "睡觉");
+        gd5.d.put("image_emoticon30", "惊哭");
+        gd5.d.put("image_emoticon31", "生气");
+        gd5.d.put("image_emoticon32", "惊讶");
+        gd5.d.put("image_emoticon33", "喷");
+        gd5.d.put("image_emoticon34", "爱心");
+        gd5.d.put("image_emoticon35", "心碎");
+        gd5.d.put("image_emoticon36", "玫瑰");
+        gd5.d.put("image_emoticon37", "礼物");
+        gd5.d.put("image_emoticon38", "彩虹");
+        gd5.d.put("image_emoticon39", "星星月亮");
+        gd5.d.put("image_emoticon40", "太阳");
+        gd5.d.put("image_emoticon41", "钱币");
+        gd5.d.put("image_emoticon42", "灯泡");
+        gd5.d.put("image_emoticon43", "茶杯");
+        gd5.d.put("image_emoticon44", "蛋糕");
+        gd5.d.put("image_emoticon45", "音乐");
+        gd5.d.put("image_emoticon46", "haha");
+        gd5.d.put("image_emoticon47", "胜利");
+        gd5.d.put("image_emoticon48", "大拇指");
+        gd5.d.put("image_emoticon49", "弱");
+        gd5.d.put("image_emoticon50", "OK");
+        gd5.d.put("image_emoticon61", "哼");
+        gd5.d.put("image_emoticon62", "吃瓜");
+        gd5.d.put("image_emoticon63", "扔便便");
+        gd5.d.put("image_emoticon64", "惊恐");
+        gd5.d.put("image_emoticon65", "哎呦");
+        gd5.d.put("image_emoticon66", "小乖");
+        gd5.d.put("image_emoticon67", "捂嘴笑");
+        gd5.d.put("image_emoticon68", "你懂的");
+        gd5.d.put("image_emoticon69", "what");
+        gd5.d.put("image_emoticon70", "酸爽");
+        gd5.d.put("image_emoticon71", "呀咩爹");
+        gd5.d.put("image_emoticon72", "笑尿");
+        gd5.d.put("image_emoticon73", "挖鼻");
+        gd5.d.put("image_emoticon74", "犀利");
+        gd5.d.put("image_emoticon75", "小红脸");
+        gd5.d.put("image_emoticon76", "懒得理");
+        gd5.d.put("image_emoticon77", "沙发");
+        gd5.d.put("image_emoticon78", "手纸");
+        gd5.d.put("image_emoticon79", "香蕉");
+        gd5.d.put("image_emoticon80", "便便");
+        gd5.d.put("image_emoticon81", "药丸");
+        gd5.d.put("image_emoticon82", "红领巾");
+        gd5.d.put("image_emoticon83", "蜡烛");
+        gd5.d.put("image_emoticon84", "三道杠");
+        gd5.d.put("image_emoticon85", "暗中观察");
+        gd5.d.put("image_emoticon86", "吃瓜");
+        gd5.d.put("image_emoticon87", "喝酒");
+        gd5.d.put("image_emoticon88", "嘿嘿嘿");
+        gd5.d.put("image_emoticon89", "噗");
+        gd5.d.put("image_emoticon90", "困成狗");
+        gd5.d.put("image_emoticon91", "微微一笑");
+        gd5.d.put("image_emoticon92", "托腮");
+        gd5.d.put("image_emoticon93", "摊手");
+        gd5.d.put("image_emoticon94", "柯基暗中观察");
+        gd5.d.put("image_emoticon95", "欢呼");
+        gd5.d.put("image_emoticon96", "炸药");
+        gd5.d.put("image_emoticon97", "突然兴奋");
+        gd5.d.put("image_emoticon98", "紧张");
+        gd5.d.put("image_emoticon99", "黑头瞪眼");
+        gd5.d.put("image_emoticon100", "黑头高兴");
+        gd5.d.put("image_emoticon125", "奥特曼");
+        gd5.d.put("image_emoticon126", "不听");
+        gd5.d.put("image_emoticon127", "干饭");
+        gd5.d.put("image_emoticon128", "望远镜");
+        gd5.d.put("image_emoticon129", "菜狗");
+        gd5.d.put("image_emoticon130", "老虎");
+        gd5.d.put("image_emoticon131", "嗷呜");
+        gd5.d.put("image_emoticon132", "烟花");
+        gd5.d.put("image_emoticon133", "香槟");
+        gd5.d.put("image_emoticon134", "文字啊");
+        gd5.d.put("image_emoticon135", "文字对");
+        gd5.d.put("image_emoticon136", "鼠1");
+        gd5.d.put("image_emoticon137", "鼠2");
+        gd5.d.put("image_emoticon101", "不跟丑人说话");
+        gd5.d.put("image_emoticon102", "么么哒");
+        gd5.d.put("image_emoticon103", "亲亲才能起来");
+        gd5.d.put("image_emoticon104", "伦家只是宝宝");
+        gd5.d.put("image_emoticon105", "你是我的人");
+        gd5.d.put("image_emoticon106", "假装看不见");
+        gd5.d.put("image_emoticon107", "单身等撩");
+        gd5.d.put("image_emoticon108", "吓到宝宝了");
+        gd5.d.put("image_emoticon109", "哈哈哈");
+        gd5.d.put("image_emoticon110", "嗯嗯");
+        gd5.d.put("image_emoticon111", "好幸福");
+        gd5.d.put("image_emoticon112", "宝宝不开心");
+        gd5.d.put("image_emoticon113", "小姐姐别走");
+        gd5.d.put("image_emoticon114", "小姐姐在吗");
+        gd5.d.put("image_emoticon115", "小姐姐来啦");
+        gd5.d.put("image_emoticon116", "小姐姐来玩呀");
+        gd5.d.put("image_emoticon117", "我养你");
+        gd5.d.put("image_emoticon118", "我是不会骗你的");
+        gd5.d.put("image_emoticon119", "扎心了");
+        gd5.d.put("image_emoticon120", "无聊");
+        gd5.d.put("image_emoticon121", "月亮代表我的心");
+        gd5.d.put("image_emoticon122", "来追我呀");
+        gd5.d.put("image_emoticon123", "爱你的形状");
+        gd5.d.put("image_emoticon124", "白眼");
+        gd5.d.put("ali_001", "赖皮");
+        gd5.d.put("ali_002", "感动");
+        gd5.d.put("ali_003", "十分惊讶");
+        gd5.d.put("ali_004", "怒气");
+        gd5.d.put("ali_005", "哭泣");
+        gd5.d.put("ali_006", "吃惊");
+        gd5.d.put("ali_007", "嘲弄");
+        gd5.d.put("ali_008", "飘过");
+        gd5.d.put("ali_009", "转圈哭");
+        gd5.d.put("ali_010", "神经病");
+        gd5.d.put("ali_011", "揪耳朵");
+        gd5.d.put("ali_012", "惊汗");
+        gd5.d.put("ali_013", "隐身");
+        gd5.d.put("ali_014", "不要嘛");
+        gd5.d.put("ali_015", "遁");
+        gd5.d.put("ali_016", "不公平");
+        gd5.d.put("ali_017", "爬来了");
+        gd5.d.put("ali_018", "蛋花哭");
+        gd5.d.put("ali_019", "温暖");
+        gd5.d.put("ali_020", "点头");
+        gd5.d.put("ali_021", "撒钱");
+        gd5.d.put("ali_022", "献花");
+        gd5.d.put("ali_023", "寒");
+        gd5.d.put("ali_024", "傻笑");
+        gd5.d.put("ali_025", "扭扭");
+        gd5.d.put("ali_026", "疯");
+        gd5.d.put("ali_027", "抓狂");
+        gd5.d.put("ali_028", "抓");
+        gd5.d.put("ali_029", "蜷");
+        gd5.d.put("ali_030", "挠墙");
+        gd5.d.put("ali_031", "狂笑");
+        gd5.d.put("ali_032", "抱枕");
+        gd5.d.put("ali_033", "吼叫");
+        gd5.d.put("ali_034", "嚷");
+        gd5.d.put("ali_035", "唠叨");
+        gd5.d.put("ali_036", "捏脸");
+        gd5.d.put("ali_037", "爆笑");
+        gd5.d.put("ali_038", "郁闷");
+        gd5.d.put("ali_039", "潜水");
+        gd5.d.put("ali_040", "十分开心");
+        gd5.d.put("ali_041", "冷笑话");
+        gd5.d.put("ali_042", "顶！");
+        gd5.d.put("ali_043", "潜");
+        gd5.d.put("ali_044", "画圈圈");
+        gd5.d.put("ali_045", "玩电脑");
+        gd5.d.put("ali_046", "狂吐");
+        gd5.d.put("ali_047", "哭着跑");
+        gd5.d.put("ali_048", "阿狸侠");
+        gd5.d.put("ali_049", "冷死了");
+        gd5.d.put("ali_050", "惆怅~");
+        gd5.d.put("ali_051", "摸头");
+        gd5.d.put("ali_052", "蹭");
+        gd5.d.put("ali_053", "打滚");
+        gd5.d.put("ali_054", "叩拜");
+        gd5.d.put("ali_055", "摸");
+        gd5.d.put("ali_056", "数钱");
+        gd5.d.put("ali_057", "拖走");
+        gd5.d.put("ali_058", "热");
+        gd5.d.put("ali_059", "加1");
+        gd5.d.put("ali_060", "压力");
+        gd5.d.put("ali_061", "表逼我");
+        gd5.d.put("ali_062", "人呢");
+        gd5.d.put("ali_063", "摇晃");
+        gd5.d.put("ali_064", "打地鼠");
+        gd5.d.put("ali_065", "这个屌");
+        gd5.d.put("ali_066", "恐慌");
+        gd5.d.put("ali_067", "晕乎乎");
+        gd5.d.put("ali_068", "浮云");
+        gd5.d.put("ali_069", "给力");
+        gd5.d.put("ali_070", "杯具了");
+        gd5.d.put("b01", "微笑");
+        gd5.d.put("b02", "帅哥");
+        gd5.d.put("b03", "美女");
+        gd5.d.put("b04", "老大");
+        gd5.d.put("b05", "哈哈哈");
+        gd5.d.put("b06", "奸笑");
+        gd5.d.put("b07", "傻乐");
+        gd5.d.put("b08", "飞吻");
+        gd5.d.put("b09", "害羞");
+        gd5.d.put("b10", "花痴");
+        gd5.d.put("b11", "憧憬");
+        gd5.d.put("b12", "你牛");
+        gd5.d.put("b13", "鼓掌");
+        gd5.d.put("b14", "可爱");
+        gd5.d.put("b15", "太委屈");
+        gd5.d.put("b16", "大哭");
+        gd5.d.put("b17", "泪奔");
+        gd5.d.put("b18", "寻死");
+        gd5.d.put("b19", "非常惊讶");
+        gd5.d.put("b20", "表示疑问");
+        gd5.d.put("yz_001", "焦糖舞");
+        gd5.d.put("yz_002", "翻滚");
+        gd5.d.put("yz_003", "拍屁股做鬼脸");
+        gd5.d.put("yz_004", "不");
+        gd5.d.put("yz_005", "河蟹掉啦");
+        gd5.d.put("yz_006", "哦耶");
+        gd5.d.put("yz_007", "我倒");
+        gd5.d.put("yz_008", "投降");
+        gd5.d.put("shoubai_emoji_face_01", "微笑");
+        gd5.d.put("shoubai_emoji_face_02", "开心");
+        gd5.d.put("shoubai_emoji_face_03", "期待");
+        gd5.d.put("shoubai_emoji_face_04", "大笑");
+        gd5.d.put("shoubai_emoji_face_05", "鼓掌");
+        gd5.d.put("shoubai_emoji_face_06", "悠闲");
+        gd5.d.put("shoubai_emoji_face_07", "笑哭");
+        gd5.d.put("shoubai_emoji_face_08", "不要啊");
+        gd5.d.put("shoubai_emoji_face_09", "啊");
+        gd5.d.put("shoubai_emoji_face_10", "哟");
+        gd5.d.put("shoubai_emoji_face_11", "汗");
+        gd5.d.put("shoubai_emoji_face_12", "抠鼻");
+        gd5.d.put("shoubai_emoji_face_13", "哼");
+        gd5.d.put("shoubai_emoji_face_14", "发怒");
+        gd5.d.put("shoubai_emoji_face_15", "委屈");
+        gd5.d.put("shoubai_emoji_face_16", "不高兴");
+        gd5.d.put("shoubai_emoji_face_17", "囧");
+        gd5.d.put("shoubai_emoji_face_18", "惊哭");
+        gd5.d.put("shoubai_emoji_face_19", "大哭");
+        gd5.d.put("shoubai_emoji_face_20", "流泪");
+        gd5.d.put("shoubai_emoji_face_21", "害羞");
+        gd5.d.put("shoubai_emoji_face_22", "亲亲");
+        gd5.d.put("shoubai_emoji_face_23", "色");
+        gd5.d.put("shoubai_emoji_face_24", "舔屏");
+        gd5.d.put("shoubai_emoji_face_25", "得意");
+        gd5.d.put("shoubai_emoji_face_26", "疑问");
+        gd5.d.put("shoubai_emoji_face_27", "晕");
+        gd5.d.put("shoubai_emoji_face_28", "大哈");
+        gd5.d.put("shoubai_emoji_face_29", "二哈");
+        gd5.d.put("shoubai_emoji_face_30", "三哈");
+        gd5.d.put("shoubai_emoji_face_31", "白眼");
+        gd5.d.put("shoubai_emoji_face_32", "阴险");
+        gd5.d.put("shoubai_emoji_face_33", "你懂的");
+        gd5.d.put("shoubai_emoji_face_34", "偷笑");
+        gd5.d.put("shoubai_emoji_face_35", "睡觉");
+        gd5.d.put("shoubai_emoji_face_36", "哈欠");
+        gd5.d.put("shoubai_emoji_face_37", "再见");
+        gd5.d.put("shoubai_emoji_face_38", "鄙视");
+        gd5.d.put("shoubai_emoji_face_39", "抓狂");
+        gd5.d.put("shoubai_emoji_face_40", "咒骂");
+        gd5.d.put("shoubai_emoji_face_41", "衰");
+        gd5.d.put("shoubai_emoji_face_42", "骷髅");
+        gd5.d.put("shoubai_emoji_face_43", "嘘");
+        gd5.d.put("shoubai_emoji_face_44", "闭嘴");
+        gd5.d.put("shoubai_emoji_face_45", "呆");
+        gd5.d.put("shoubai_emoji_face_46", "什么鬼");
+        gd5.d.put("shoubai_emoji_face_47", "吐");
+        gd5.d.put("shoubai_emoji_face_48", "已阅");
+        gd5.d.put("shoubai_emoji_face_49", "同上");
+        gd5.d.put("shoubai_emoji_face_50", "友军");
+        gd5.d.put("shoubai_emoji_face_51", "爱钱");
+        gd5.d.put("shoubai_emoji_face_52", "Freestyle");
+        gd5.d.put("shoubai_emoji_face_53", "国宝");
+        gd5.d.put("shoubai_emoji_face_54", "羊驼");
+        gd5.d.put("shoubai_emoji_face_55", "鲜花");
+        gd5.d.put("shoubai_emoji_face_56", "中国加油");
+        gd5.d.put("shoubai_emoji_face_57", "庆祝");
+        gd5.d.put("shoubai_emoji_face_58", "生日蛋糕");
+        gd5.d.put("shoubai_emoji_face_59", "MicDrop");
+        gd5.d.put("shoubai_emoji_face_60", "赞同");
+        gd5.d.put("shoubai_emoji_face_61", "药丸");
+        gd5.d.put("shoubai_emoji_face_62", "蜡烛");
+        gd5.d.put("shoubai_emoji_face_63", "鸡蛋");
+        gd5.d.put("shoubai_emoji_face_64", "浪");
+        gd5.d.put("shoubai_emoji_face_65", "打call");
+        gd5.d.put("shoubai_emoji_face_66", "尬笑");
+        gd5.d.put("shoubai_emoji_face_67", "坏笑");
+        gd5.d.put("shoubai_emoji_face_68", "没眼看");
+        gd5.d.put("shoubai_emoji_face_69", "嘿哈");
+        gd5.d.put("shoubai_emoji_face_70", "前面的别走");
+        gd5.d.put("shoubai_emoji_face_71", "滑稽");
+        gd5.d.put("shoubai_emoji_face_72", "捂脸");
+        gd5.d.put("shoubai_emoji_face_73", "左捂脸");
+        gd5.d.put("shoubai_emoji_face_74", "666");
+        gd5.d.put("shoubai_emoji_face_75", "2018");
+        gd5.d.put("shoubai_emoji_face_76", "福");
+        gd5.d.put("shoubai_emoji_face_77", "红包");
+        gd5.d.put("shoubai_emoji_face_78", "鞭炮");
+        gd5.d.put("shoubai_emoji_face_79", "财神");
+        gd5.d.put("shoubai_emoji_face_80", "饺子");
+        gd5.d.put("shoubai_emoji_face_81", "车票");
+        gd5.d.put("shoubai_emoji_face_82", "火车");
+        gd5.d.put("shoubai_emoji_face_83", "飞机");
+        gd5.d.put("shoubai_emoji_face_84", "射门");
+        gd5.d.put("shoubai_emoji_face_85", "红牌");
+        gd5.d.put("shoubai_emoji_face_86", "黄牌");
+        gd5.d.put("shoubai_emoji_face_87", "哨子");
+        gd5.d.put("shoubai_emoji_face_88", "比分");
+        gd5.d.put("shoubai_emoji_face_89", "啤酒");
+        gd5.d.put("shoubai_emoji_face_90", "足球");
+        gd5.d.put("shoubai_emoji_face_91", "大力神杯");
+        gd5.d.put("shoubai_emoji_face_92", "锦鲤");
+        gd5.d.put("shoubai_emoji_face_93", "2019");
+        gd5.d.put("shoubai_emoji_face_94", "猪年");
+        gd5.d.put("shoubai_emoji_face_95", "双手鼓掌");
+        gd5.d.put("shoubai_emoji_face_96", "火焰");
+        gd5.d.put("shoubai_emoji_face_97", "祈福");
+        gd5.d.put("shoubai_emoji_face_98", "亲吻");
+        gd5.d.put("shoubai_emoji_face_99", "天使");
+        gd5.d.put("shoubai_emoji_face_100", "樱花");
+        gd5.d.put("shoubai_emoji_face_101", "加油");
+        gd5.d.put("shoubai_emoji_face_102", "泡泡枪");
+        gd5.d.put("shoubai_emoji_face_103", "气球");
+        gd5.d.put("shoubai_emoji_face_104", "棒棒糖");
+        gd5.d.put("shoubai_emoji_face_105", "小黄鸭");
+        gd5.d.put("shoubai_emoji_face_106", "粽子");
+        gd5.d.put("bearchildren_01", "熊-88");
+        gd5.d.put("bearchildren_02", "熊-HI");
+        gd5.d.put("bearchildren_03", "熊-人艰不拆");
+        gd5.d.put("bearchildren_04", "熊-啥");
+        gd5.d.put("bearchildren_05", "熊-大哭");
+        gd5.d.put("bearchildren_06", "熊-失落");
+        gd5.d.put("bearchildren_07", "熊-怒赞");
+        gd5.d.put("bearchildren_08", "熊-惊呆了");
+        gd5.d.put("bearchildren_09", "熊-李菊福");
+        gd5.d.put("bearchildren_10", "熊-来信砍");
+        gd5.d.put("bearchildren_11", "熊-欢迎入群");
+        gd5.d.put("bearchildren_12", "熊-牛闪闪");
+        gd5.d.put("bearchildren_13", "熊-生日快乐");
+        gd5.d.put("bearchildren_14", "熊-石化");
+        gd5.d.put("bearchildren_15", "熊-羞羞哒");
+        gd5.d.put("bearchildren_16", "熊-肥皂必杀");
+        gd5.d.put("bearchildren_17", "熊-谢谢你");
+        gd5.d.put("bearchildren_18", "熊-跳舞");
+        gd5.d.put("bearchildren_19", "熊-霹雳舞");
+        gd5.d.put("bearchildren_20", "熊-鼓掌");
+    }
+
+    public dd5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, attributeSet};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.a = view2;
-        if (attributeSet != null) {
-            TypedArray typedArray = null;
-            try {
-                typedArray = view2.getContext().obtainStyledAttributes(attributeSet, je9.KPSwitchPanelLayout);
-                this.c = typedArray.getBoolean(0, false);
-            } finally {
-                if (typedArray != null) {
-                    typedArray.recycle();
-                }
-            }
-        }
-    }
-
-    public boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i == 0) {
-                this.b = false;
-            }
-            if (i == this.a.getVisibility()) {
-                return true;
-            }
-            if (!b() || i != 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.c) {
-            return;
-        }
-        id5.d(this.a, i);
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.ad5
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ad5
-    public void handleHide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.ad5
-    public void handleShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
-        }
-    }
-
-    @Override // com.baidu.tieba.ad5
-    public boolean isVisible() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return !this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int[] c(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-            if (this.b) {
-                this.a.setVisibility(8);
-                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
-                i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
-                i = makeMeasureSpec;
-            }
-            return new int[]{i, i2};
-        }
-        return (int[]) invokeII.objValue;
     }
 }

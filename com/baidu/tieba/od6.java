@@ -1,9 +1,8 @@
 package com.baidu.tieba;
+
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 /* loaded from: classes5.dex */
 public interface od6 {
-    void a(int i, int i2, int i3, int i4);
-
-    void b(int i, int i2, int i3, int i4);
-
-    void onScrollChanged(int i, int i2, int i3, int i4);
+    WebResourceResponse a(String str, WebResourceRequest webResourceRequest);
 }

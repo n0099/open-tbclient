@@ -3,15 +3,13 @@ package com.baidu.tieba.browser.webview.monitor;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.webkit.URLUtil;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.tieba.browser.webview.scroll.NestedScrollWebView;
-import com.baidu.tieba.ce6;
-import com.baidu.tieba.fe6;
-import com.baidu.tieba.je6;
-import com.baidu.tieba.zd6;
+import com.baidu.tieba.jf6;
+import com.baidu.tieba.of6;
+import com.baidu.tieba.rf6;
+import com.baidu.tieba.vf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,13 +17,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public abstract class MonitorWebView extends NestedScrollWebView implements ce6 {
+public abstract class MonitorWebView extends NestedScrollWebView implements of6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long l;
-    public je6 m;
-    public String n;
-    public final fe6 o;
+    public vf6 l;
+    public String m;
+    public final rf6 n;
 
     public void e(Context context) {
         Interceptable interceptable = $ic;
@@ -51,10 +48,24 @@ public abstract class MonitorWebView extends NestedScrollWebView implements ce6 
                 return;
             }
         }
-        this.l = 0L;
-        this.n = "";
-        this.o = new fe6(this);
+        this.m = "";
+        this.n = new rf6(this);
         e(context);
+    }
+
+    public boolean i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return false;
+            }
+            if (!URLUtil.isAssetUrl(str) && !URLUtil.isFileUrl(str) && !URLUtil.isHttpUrl(str) && !URLUtil.isHttpsUrl(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,9 +87,8 @@ public abstract class MonitorWebView extends NestedScrollWebView implements ce6 
                 return;
             }
         }
-        this.l = 0L;
-        this.n = "";
-        this.o = new fe6(this);
+        this.m = "";
+        this.n = new rf6(this);
         e(context);
     }
 
@@ -101,104 +111,64 @@ public abstract class MonitorWebView extends NestedScrollWebView implements ce6 
                 return;
             }
         }
-        this.l = 0L;
-        this.n = "";
-        this.o = new fe6(this);
+        this.m = "";
+        this.n = new rf6(this);
         e(context);
     }
 
-    public fe6 getController() {
+    public rf6 getController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.o;
+            return this.n;
         }
-        return (fe6) invokeV.objValue;
-    }
-
-    public long getLoadStartTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.l;
-        }
-        return invokeV.longValue;
+        return (rf6) invokeV.objValue;
     }
 
     @Override // android.webkit.WebView
     public String getOriginalUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.n;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.m;
         }
         return (String) invokeV.objValue;
     }
 
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.l = 0L;
-            this.m = null;
-        }
-    }
-
     public void j() {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.l = null;
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.l = 0L;
-            this.m = null;
-        }
-    }
-
-    @Override // android.webkit.WebView
-    public void loadData(String str, @Nullable String str2, @Nullable String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) {
-            this.l = System.currentTimeMillis();
-            super.loadData(str, str2, str3);
-        }
-    }
-
-    @Override // android.webkit.WebView
-    public void loadDataWithBaseURL(@Nullable String str, String str2, @Nullable String str3, @Nullable String str4, @Nullable String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, str, str2, str3, str4, str5) == null) {
-            this.l = System.currentTimeMillis();
-            super.loadDataWithBaseURL(str, str2, str3, str4, str5);
-        }
-    }
-
-    @Override // android.webkit.WebView
-    public void loadUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.l = System.currentTimeMillis();
-            super.loadUrl(str);
-        }
-    }
-
-    public void setPerfData(je6 je6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, je6Var) == null) {
-            this.m = je6Var;
+            this.l = null;
         }
     }
 
     @Override // android.webkit.WebView
     public void loadUrl(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, map) == null) {
-            this.l = System.currentTimeMillis();
-            if (URLUtil.isNetworkUrl(str) || URLUtil.isFileUrl(str)) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, map) == null) {
+            if (i(str)) {
                 map.put("Accept", SapiWebView.DATA_MIME_TYPE);
-                this.n = zd6.c(str);
-            }
-            je6 je6Var = this.m;
-            if (je6Var != null) {
-                je6Var.q(str);
+                this.m = jf6.c(str);
+                vf6 vf6Var = this.l;
+                if (vf6Var != null) {
+                    vf6Var.q(str);
+                }
             }
             super.loadUrl(str, map);
+        }
+    }
+
+    public void setPerfData(vf6 vf6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, vf6Var) == null) {
+            this.l = vf6Var;
         }
     }
 }

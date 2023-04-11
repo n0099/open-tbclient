@@ -1,118 +1,56 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class c96 extends me6<x76> {
+public class c96 extends z86 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public ProgressBar j;
-    public FrameLayout k;
-    public TextView l;
-    public TextView m;
-    public TextView n;
 
-    @Override // com.baidu.tieba.me6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0108 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.me6
-    public void m(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947629641, "Lcom/baidu/tieba/c96;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947629641, "Lcom/baidu/tieba/c96;");
+                return;
+            }
         }
+        b = BdUniqueId.gen();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c96(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public c96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        r(h());
-    }
-
-    public final void r(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090215);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091456);
-            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091457);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09022c);
-            this.j = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f090216);
-            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09145a);
-            h().setOnClickListener(this);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.me6
-    /* renamed from: s */
-    public void l(x76 x76Var) {
-        u76 c;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, x76Var) == null) && (c = x76Var.c()) != null && c.b() != null) {
-            String str = "LV." + c.b().yy_level_id;
-            if (!TextUtils.isEmpty(c.b().yy_level_name)) {
-                str = c.b().yy_level_name + str;
-                this.m.setText(c.b().yy_level_name);
-            }
-            this.i.setText(str);
-            if (c.b().yy_levelup_exp <= c.b().yy_level_exp) {
-                this.m.setVisibility(8);
-                this.n.setVisibility(8);
-                this.l.setVisibility(8);
-                this.j.setVisibility(8);
-                return;
-            }
-            if (!TextUtils.isEmpty(c.b().yy_level_next_name)) {
-                this.n.setText(c.b().yy_level_next_name);
-            }
-            long j = c.b().yy_levelup_exp;
-            long j2 = c.b().yy_level_exp;
-            this.j.setMax((int) j);
-            this.j.setProgress((int) j2);
-            if (!TextUtils.isEmpty(c.b().yy_level_next_name) && c.b().yy_levelup_exp > c.b().yy_level_exp) {
-                String string = this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0226);
-                int i = (int) ((((float) (c.b().yy_levelup_exp - c.b().yy_level_exp)) * 100.0f) / ((float) c.b().yy_levelup_exp));
-                if (i <= 0) {
-                    i = 1;
-                }
-                this.l.setText(String.format(string, c.b().yy_level_next_name, i + "%"));
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

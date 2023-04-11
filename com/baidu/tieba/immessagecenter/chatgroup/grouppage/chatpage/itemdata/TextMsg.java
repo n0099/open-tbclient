@@ -10,11 +10,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aq6;
+import com.baidu.tieba.bq5;
+import com.baidu.tieba.dt6;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.Action;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.TaskInfo;
-import com.baidu.tieba.vo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,16 +30,16 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
     public static final BdUniqueId ADAPTER_TYPE;
     public static final int MSG_TYPE = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    @vo5(serialize = false)
+    @bq5(serialize = false)
     public CharSequence cacheText;
-    @vo5(serialize = false)
+    @bq5(serialize = false)
     public boolean mIsRobotGuideMsg;
     @Nullable
     @SerializedName("robot_params")
     public Map<String, Object> robotParams;
-    @vo5(serialize = false)
+    @bq5(serialize = false)
     public String text;
-    @vo5(serialize = false)
+    @bq5(serialize = false)
     public SpannableStringBuilder thumbnailText;
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
@@ -56,14 +56,14 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
     public boolean needBubbleInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
     /* loaded from: classes4.dex */
-    public class a implements aq6.i {
+    public class a implements dt6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TextMsg a;
@@ -86,7 +86,7 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
             this.a = textMsg;
         }
 
-        @Override // com.baidu.tieba.aq6.i
+        @Override // com.baidu.tieba.dt6.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) && this.a.thumbnailText.length() <= 0) {
@@ -134,10 +134,20 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
         return (CharSequence) invokeV.objValue;
     }
 
-    public String getText() {
+    @Nullable
+    public Map<String, Object> getRobotParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.robotParams;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public String getText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             String str = this.text;
             if (str != null) {
                 this.text = str.replaceAll("\r", "\n");
@@ -147,11 +157,11 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.gn
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.hn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return ADAPTER_TYPE;
         }
         return (BdUniqueId) invokeV.objValue;
@@ -160,7 +170,7 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
     public boolean isRobotGuideMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.mIsRobotGuideMsg;
         }
         return invokeV.booleanValue;
@@ -180,21 +190,21 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
 
     public void setCacheText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, charSequence) == null) {
             this.cacheText = charSequence;
         }
     }
 
     public void setRobotGuideMsg(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.mIsRobotGuideMsg = z;
         }
     }
 
     public void setRobotParams(@Nullable Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, map) == null) {
             this.robotParams = map;
         }
     }
@@ -227,13 +237,13 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
     public CharSequence getThumbnailText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             SpannableStringBuilder spannableStringBuilder = this.thumbnailText;
             if (spannableStringBuilder != null) {
                 return spannableStringBuilder;
             }
             this.thumbnailText = new SpannableStringBuilder();
-            aq6.d(TbadkApplication.getInst(), this.text, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this));
+            dt6.d(TbadkApplication.getInst(), this.text, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this));
             if (this.thumbnailText.length() <= 0) {
                 this.thumbnailText.append((CharSequence) this.text);
             }
@@ -247,7 +257,7 @@ public class TextMsg extends BaseChatMsg<com.baidu.android.imsdk.chatmessage.mes
     public Action provideAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             TaskInfo taskInfo = getTaskInfo();
             if (taskInfo == null) {
                 return null;

@@ -22,11 +22,11 @@ import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ah6;
+import com.baidu.tieba.ch6;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.of6;
-import com.baidu.tieba.qf6;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public List<qf6> c;
+    public List<ch6> c;
     public HashSet<Long> d;
     public int e;
     public String f;
@@ -89,7 +89,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
             this.f.loop(true);
             HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.ala_protrait);
             this.c = headImageView;
-            headImageView.setRadius(hi.g(alaRecommendListAdapter.a, R.dimen.tbds65));
+            headImageView.setRadius(ii.g(alaRecommendListAdapter.a, R.dimen.tbds65));
             this.e = (TextView) view2.findViewById(R.id.ala_recommend_user_name);
             this.d = (TextView) view2.findViewById(R.id.ala_sign_icon);
         }
@@ -103,10 +103,10 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
                     this.g.b = i;
                 }
                 this.c.setSkinType(this.g.b);
-                n15 d = n15.d(this.d);
+                q25 d = q25.d(this.d);
                 d.o(R.string.J_X01);
-                d.A(R.dimen.T_X10);
-                d.B(R.string.F_X01);
+                d.B(R.dimen.T_X10);
+                d.C(R.string.F_X01);
                 d.m(R.dimen.L_X02);
                 d.u(SkinManager.getColor(this.g.b, (int) R.color.CAM_X0201));
                 d.h(SkinManager.getColor(this.g.b, (int) R.color.CAM_X0310));
@@ -114,7 +114,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
                 this.e.setTextColor(SkinManager.getColor(this.g.b, (int) R.color.CAM_X0105));
                 SkinManager.setLottieAnimation(this.f, R.raw.card_live_header_bg);
                 if (i2 == 0) {
-                    SkinManager.setBackgroundShapeDrawable(this.c, hi.g(this.g.a, R.dimen.tbds65), R.color.transparent, R.color.transparent, R.color.CAM_X0401, R.color.CAM_X0401, 4, this.g.b);
+                    SkinManager.setBackgroundShapeDrawable(this.c, ii.g(this.g.a, R.dimen.tbds65), R.color.transparent, R.color.transparent, R.color.CAM_X0401, R.color.CAM_X0401, 4, this.g.b);
                 }
             }
         }
@@ -124,16 +124,16 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qf6 a;
+        public final /* synthetic */ ch6 a;
         public final /* synthetic */ long b;
         public final /* synthetic */ AlaRecommendListAdapter c;
 
-        public a(AlaRecommendListAdapter alaRecommendListAdapter, qf6 qf6Var, long j) {
+        public a(AlaRecommendListAdapter alaRecommendListAdapter, ch6 ch6Var, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {alaRecommendListAdapter, qf6Var, Long.valueOf(j)};
+                Object[] objArr = {alaRecommendListAdapter, ch6Var, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -144,7 +144,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
                 }
             }
             this.c = alaRecommendListAdapter;
-            this.a = qf6Var;
+            this.a = ch6Var;
             this.b = j;
         }
 
@@ -153,10 +153,10 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 AlaRecommendListAdapter alaRecommendListAdapter = this.c;
-                qf6 qf6Var = this.a;
-                alaRecommendListAdapter.i(qf6Var.i, qf6Var.a);
-                qf6 qf6Var2 = this.a;
-                of6.a("c13623", qf6Var2.i, 0, qf6Var2.e(), this.a.b(), this.a.d(), this.b, 5, "", this.c.e);
+                ch6 ch6Var = this.a;
+                alaRecommendListAdapter.p(ch6Var.i, ch6Var.a);
+                ch6 ch6Var2 = this.a;
+                ah6.a("c13623", ch6Var2.i, 0, ch6Var2.e(), this.a.b(), this.a.d(), this.b, 5, "", this.c.e);
             }
         }
     }
@@ -219,7 +219,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<qf6> list = this.c;
+            List<ch6> list = this.c;
             if (list != null && list.get(i) != null) {
                 return this.c.get(i).getType();
             }
@@ -230,10 +230,10 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: m */
+    /* renamed from: t */
     public void onViewDetachedFromWindow(@NonNull AlaUserInfoViewHolder alaUserInfoViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, alaUserInfoViewHolder) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, alaUserInfoViewHolder) == null) {
             super.onViewDetachedFromWindow(alaUserInfoViewHolder);
             if (alaUserInfoViewHolder != null && alaUserInfoViewHolder.f != null) {
                 alaUserInfoViewHolder.f.cancelAnimation();
@@ -241,9 +241,9 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
         }
     }
 
-    public void n(boolean z) {
+    public void u(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.g = z;
         }
     }
@@ -251,11 +251,11 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: k */
+    /* renamed from: r */
     public AlaUserInfoViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i)) == null) {
             return new AlaUserInfoViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.ala_recommend_item, viewGroup, false));
         }
         return (AlaUserInfoViewHolder) invokeLI.objValue;
@@ -266,7 +266,7 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<qf6> list = this.c;
+            List<ch6> list = this.c;
             if (list == null) {
                 return 0;
             }
@@ -275,12 +275,12 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
         return invokeV.intValue;
     }
 
-    public void i(YyExtData yyExtData, String str) {
+    public void p(YyExtData yyExtData, String str) {
         String str2;
         String str3;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, yyExtData, str) != null) || yyExtData == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048582, this, yyExtData, str) != null) || yyExtData == null) {
             return;
         }
         if (ImageViewerConfig.FROM_CONCERN.equals(this.f)) {
@@ -309,42 +309,42 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: j */
+    /* renamed from: q */
     public void onBindViewHolder(@NonNull AlaUserInfoViewHolder alaUserInfoViewHolder, int i) {
-        List<qf6> list;
-        qf6 qf6Var;
+        List<ch6> list;
+        ch6 ch6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048579, this, alaUserInfoViewHolder, i) != null) || alaUserInfoViewHolder == null || (list = this.c) == null || list.size() <= i || (qf6Var = this.c.get(i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048583, this, alaUserInfoViewHolder, i) != null) || alaUserInfoViewHolder == null || (list = this.c) == null || list.size() <= i || (ch6Var = this.c.get(i)) == null) {
             return;
         }
-        if (qf6Var.getType() == 0) {
+        if (ch6Var.getType() == 0) {
             alaUserInfoViewHolder.d.setText(TbadkCoreApplication.getInst().getString(R.string.live_in));
             alaUserInfoViewHolder.c.setPlaceHolder(1);
             alaUserInfoViewHolder.c.setDefaultResource(R.drawable.transparent_bg);
-            if (!StringUtils.isNull(qf6Var.c())) {
-                alaUserInfoViewHolder.c.M(qf6Var.c(), 10, false);
+            if (!StringUtils.isNull(ch6Var.c())) {
+                alaUserInfoViewHolder.c.N(ch6Var.c(), 10, false);
             }
-            if (StringHelper.getChineseAndEnglishLength(qf6Var.f()) > 8) {
-                alaUserInfoViewHolder.e.setText(StringHelper.cutChineseAndEnglishWithSuffix(qf6Var.f(), 8, StringHelper.STRING_MORE));
+            if (StringHelper.getChineseAndEnglishLength(ch6Var.f()) > 8) {
+                alaUserInfoViewHolder.e.setText(StringHelper.cutChineseAndEnglishWithSuffix(ch6Var.f(), 8, StringHelper.STRING_MORE));
             } else {
-                alaUserInfoViewHolder.e.setText(qf6Var.f());
+                alaUserInfoViewHolder.e.setText(ch6Var.f());
             }
-            long a2 = qf6Var.a();
-            alaUserInfoViewHolder.a.setOnClickListener(new a(this, qf6Var, a2));
+            long a2 = ch6Var.a();
+            alaUserInfoViewHolder.a.setOnClickListener(new a(this, ch6Var, a2));
             if (!this.d.contains(Long.valueOf(a2))) {
-                of6.a("c13622", qf6Var.i, 0, qf6Var.e(), qf6Var.b(), qf6Var.d(), a2, 5, "", this.e);
+                ah6.a("c13622", ch6Var.i, 0, ch6Var.e(), ch6Var.b(), ch6Var.d(), a2, 5, "", this.e);
                 this.d.add(Long.valueOf(a2));
             }
         }
-        alaUserInfoViewHolder.g(TbadkCoreApplication.getInst().getSkinType(), qf6Var.getType());
+        alaUserInfoViewHolder.g(TbadkCoreApplication.getInst().getSkinType(), ch6Var.getType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: l */
+    /* renamed from: s */
     public void onViewAttachedToWindow(@NonNull AlaUserInfoViewHolder alaUserInfoViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, alaUserInfoViewHolder) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, alaUserInfoViewHolder) == null) {
             super.onViewAttachedToWindow(alaUserInfoViewHolder);
             if (alaUserInfoViewHolder == null) {
                 return;
@@ -355,17 +355,17 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
             if (TbDimenManager.getInstance().needAdapt()) {
                 TbDimenManager.getInstance().adaptDimen(this.a);
                 ViewGroup.LayoutParams layoutParams = alaUserInfoViewHolder.b.getLayoutParams();
-                layoutParams.width = hi.g(this.a, R.dimen.tbds172);
-                layoutParams.height = hi.g(this.a, R.dimen.tbds172);
+                layoutParams.width = ii.g(this.a, R.dimen.tbds172);
+                layoutParams.height = ii.g(this.a, R.dimen.tbds172);
                 alaUserInfoViewHolder.b.setLayoutParams(layoutParams);
             }
         }
     }
 
-    public void o(List<AlaLiveInfo> list, String str) {
+    public void x(List<AlaLiveInfo> list, String str) {
         AlaUserInfo alaUserInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, str) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048588, this, list, str) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         if (this.c == null) {
@@ -377,21 +377,21 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
         }
         for (AlaLiveInfo alaLiveInfo : list) {
             if (alaLiveInfo != null && (alaUserInfo = alaLiveInfo.user_info) != null && !StringUtils.isNull(alaUserInfo.user_name) && alaLiveInfo.yy_ext != null) {
-                qf6 qf6Var = new qf6();
-                qf6Var.l(0);
-                qf6Var.i(alaLiveInfo.user_info.portrait);
-                qf6Var.m(alaLiveInfo.user_info.user_name);
-                qf6Var.g(alaLiveInfo.live_id.longValue());
-                qf6Var.k(alaLiveInfo.thread_id.longValue());
-                qf6Var.j(alaLiveInfo.user_info.ala_id.longValue());
-                qf6Var.h(alaLiveInfo.live_type.intValue());
+                ch6 ch6Var = new ch6();
+                ch6Var.l(0);
+                ch6Var.i(alaLiveInfo.user_info.portrait);
+                ch6Var.m(alaLiveInfo.user_info.user_name);
+                ch6Var.g(alaLiveInfo.live_id.longValue());
+                ch6Var.k(alaLiveInfo.thread_id.longValue());
+                ch6Var.j(alaLiveInfo.user_info.ala_id.longValue());
+                ch6Var.h(alaLiveInfo.live_type.intValue());
                 YyExtData yyExtData = new YyExtData();
-                qf6Var.i = yyExtData;
+                ch6Var.i = yyExtData;
                 yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
-                this.c.add(qf6Var);
+                this.c.add(ch6Var);
             }
         }
         this.f = str;
-        this.e = of6.f(str);
+        this.e = ah6.f(str);
     }
 }

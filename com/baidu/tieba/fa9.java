@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.Group;
 /* loaded from: classes4.dex */
-public class fa9 {
+public class fa9 implements gx5<ea9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,12 +25,15 @@ public class fa9 {
         }
     }
 
-    public void a(Group group) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gx5
+    /* renamed from: b */
+    public ea9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, group) != null) || group == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new ea9();
         }
-        group.group_count.intValue();
-        group.hide_recommend_group.intValue();
+        return (ea9) invokeV.objValue;
     }
 }

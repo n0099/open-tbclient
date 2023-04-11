@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,17 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes3.dex */
-public class cc5 implements le5 {
+public class cc5 implements hn {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, Integer> a;
-    public static final ArrayList<Integer> b;
-    public static final HashMap<String, Integer> c;
-    public static final HashMap<String, String> d;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public boolean c;
 
     static {
         InterceptResult invokeClinit;
@@ -34,10 +31,7 @@ public class cc5 implements le5 {
                 return;
             }
         }
-        a = new HashMap<>(200);
-        b = new ArrayList<>(180);
-        c = new HashMap<>(180);
-        d = new HashMap<>(180);
+        d = BdUniqueId.gen();
     }
 
     public cc5() {
@@ -50,136 +44,67 @@ public class cc5 implements le5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.c = false;
     }
 
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            try {
-                Class.forName("com.baidu.tieba.zb5");
-            } catch (Throwable th) {
-                BdLog.e(th);
-            }
-            try {
-                Class.forName("com.baidu.tieba.wl6");
-            } catch (Throwable th2) {
-                BdLog.e(th2);
-            }
-            try {
-                Class.forName("com.baidu.tieba.yl6");
-            } catch (Throwable th3) {
-                BdLog.e(th3);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.le5
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            g();
-            return b.size();
+            return this.a;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public void g() {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && d.isEmpty()) {
-            i();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return d;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
         }
     }
 
-    @Override // com.baidu.tieba.le5
-    public String b(int i) {
-        InterceptResult invokeI;
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            g();
-            int h = h(i);
-            for (Map.Entry<String, Integer> entry : c.entrySet()) {
-                if (entry.getValue().intValue() == h) {
-                    return entry.getKey();
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
         }
-        return (String) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.le5
-    public String d(int i) {
-        InterceptResult invokeI;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            g();
-            for (Map.Entry<String, Integer> entry : a.entrySet()) {
-                if (entry.getValue().intValue() == i) {
-                    return entry.getKey();
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
         }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.le5
-    public int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            g();
-            Integer num = a.get(str);
-            if ("video_icon".equals(str)) {
-                return Integer.valueOf((int) R.drawable.ico_link_video).intValue();
-            }
-            if (num != null) {
-                return num.intValue();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // com.baidu.tieba.le5
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            g();
-            return d.get(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.le5
-    public int f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            g();
-            Integer num = c.get(str);
-            if (num != null) {
-                return num.intValue();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public final int h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            g();
-            if (i >= 0 && i < b.size()) {
-                return b.get(i).intValue();
-            }
-            return 0;
-        }
-        return invokeI.intValue;
     }
 }

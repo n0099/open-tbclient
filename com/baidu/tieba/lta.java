@@ -1,133 +1,307 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.content.pm.SigningInfo;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.atomic.AtomicReference;
-import rx.internal.schedulers.GenericScheduledExecutorServiceFactory;
+import com.hihonor.push.framework.aidl.entity.RequestHeader;
+import com.hihonor.push.sdk.common.data.ApiException;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.UUID;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
 /* loaded from: classes5.dex */
-public final class lta implements pta {
+public class lta {
     public static /* synthetic */ Interceptable $ic;
-    public static final ScheduledExecutorService[] b;
-    public static final ScheduledExecutorService c;
-    public static final lta d;
-    public static int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<ScheduledExecutorService[]> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947955792, "Lcom/baidu/tieba/lta;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947955792, "Lcom/baidu/tieba/lta;");
-                return;
-            }
-        }
-        b = new ScheduledExecutorService[0];
-        ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(0);
-        c = newScheduledThreadPool;
-        newScheduledThreadPool.shutdown();
-        d = new lta();
-    }
-
-    public static ScheduledExecutorService a() {
-        InterceptResult invokeV;
+    public static String f(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ScheduledExecutorService[] scheduledExecutorServiceArr = d.a.get();
-            if (scheduledExecutorServiceArr == b) {
-                return c;
-            }
-            int i = e + 1;
-            if (i >= scheduledExecutorServiceArr.length) {
-                i = 0;
-            }
-            e = i;
-            return scheduledExecutorServiceArr[i];
-        }
-        return (ScheduledExecutorService) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pta
-    public void shutdown() {
-        ScheduledExecutorService[] scheduledExecutorServiceArr;
-        ScheduledExecutorService[] scheduledExecutorServiceArr2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            do {
-                scheduledExecutorServiceArr = this.a.get();
-                scheduledExecutorServiceArr2 = b;
-                if (scheduledExecutorServiceArr == scheduledExecutorServiceArr2) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            if (bArr.length != 0) {
+                StringBuilder sb = new StringBuilder();
+                for (byte b : bArr) {
+                    String hexString = Integer.toHexString(b & 255);
+                    if (hexString.length() == 1) {
+                        sb.append(TransactionIdCreater.FILL_BYTE);
+                    }
+                    sb.append(hexString);
                 }
-            } while (!this.a.compareAndSet(scheduledExecutorServiceArr, scheduledExecutorServiceArr2));
-            for (ScheduledExecutorService scheduledExecutorService : scheduledExecutorServiceArr) {
-                ota.d(scheduledExecutorService);
-                scheduledExecutorService.shutdownNow();
+                return sb.toString();
             }
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 
-    public lta() {
+    public static byte[] h(String str) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new byte[0];
             }
+            String upperCase = str.toUpperCase(Locale.ENGLISH);
+            int length = upperCase.length() / 2;
+            byte[] bArr = new byte[length];
+            try {
+                byte[] bytes = upperCase.getBytes(StandardCharsets.UTF_8);
+                for (int i2 = 0; i2 < length; i2++) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("0x");
+                    sb.append(new String(new byte[]{bytes[i2 * 2]}, StandardCharsets.UTF_8));
+                    bArr[i2] = (byte) (((byte) (Byte.decode(sb.toString()).byteValue() << 4)) ^ Byte.decode("0x" + new String(new byte[]{bytes[i + 1]}, StandardCharsets.UTF_8)).byteValue());
+                }
+            } catch (NumberFormatException e) {
+                String str2 = "hex string 2 byte array exception : " + e.getMessage();
+            }
+            return bArr;
         }
-        this.a = new AtomicReference<>(b);
-        start();
+        return (byte[]) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.pta
-    public void start() {
+    public static byte[] i(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int availableProcessors = Runtime.getRuntime().availableProcessors();
-            if (availableProcessors > 4) {
-                availableProcessors /= 2;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i)) == null) {
+            if (bArr == null) {
+                return bArr;
             }
-            if (availableProcessors > 8) {
-                availableProcessors = 8;
+            for (int i2 = 0; i2 < bArr.length; i2++) {
+                if (i < 0) {
+                    bArr[i2] = (byte) (bArr[i2] << (-i));
+                } else {
+                    bArr[i2] = (byte) (bArr[i2] >> i);
+                }
             }
-            ScheduledExecutorService[] scheduledExecutorServiceArr = new ScheduledExecutorService[availableProcessors];
-            int i = 0;
-            for (int i2 = 0; i2 < availableProcessors; i2++) {
-                scheduledExecutorServiceArr[i2] = GenericScheduledExecutorServiceFactory.create();
+            return bArr;
+        }
+        return (byte[]) invokeLI.objValue;
+    }
+
+    public static byte[] j(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bArr, bArr2)) == null) {
+            byte[] bArr3 = null;
+            if (bArr != null) {
+                int length = bArr.length;
+                if (length != bArr2.length) {
+                    return null;
+                }
+                bArr3 = new byte[length];
+                for (int i = 0; i < length; i++) {
+                    bArr3[i] = (byte) (bArr[i] ^ bArr2[i]);
+                }
             }
-            if (this.a.compareAndSet(b, scheduledExecutorServiceArr)) {
-                while (i < availableProcessors) {
-                    ScheduledExecutorService scheduledExecutorService = scheduledExecutorServiceArr[i];
-                    if (!ota.k(scheduledExecutorService) && (scheduledExecutorService instanceof ScheduledThreadPoolExecutor)) {
-                        ota.g((ScheduledThreadPoolExecutor) scheduledExecutorService);
+            return bArr3;
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static RequestHeader a() throws ApiException {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context a = sta.e.a();
+            String str2 = null;
+            try {
+                Object obj = a.getPackageManager().getApplicationInfo(a.getPackageName(), 128).metaData.get("com.hihonor.push.app_id");
+                if (obj != null) {
+                    str2 = String.valueOf(obj);
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                nta.b("ConfigUtils", "getPushAppId", e);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                String str3 = "checkPushAppId Parameter is " + str2;
+                String e2 = e(a, a.getPackageName());
+                if (!TextUtils.isEmpty(e2)) {
+                    String str4 = "checkPushCertFingerprint Parameter is " + e2;
+                    RequestHeader requestHeader = new RequestHeader();
+                    requestHeader.setPackageName(a.getPackageName());
+                    requestHeader.setAppId(str2);
+                    requestHeader.setCertificateFingerprint(e2);
+                    qta qtaVar = qta.b;
+                    requestHeader.setPushToken(qtaVar.c(a));
+                    synchronized (qtaVar) {
+                        qtaVar.a(a);
+                        SharedPreferences sharedPreferences = qta.a.a;
+                        if (sharedPreferences != null) {
+                            str = sharedPreferences.getString("key_aaid", "");
+                        } else {
+                            str = "";
+                        }
+                        if (TextUtils.isEmpty(str)) {
+                            str = UUID.randomUUID().toString().replace("-", "");
+                            String str5 = "getRandomUUID UUID =" + str;
+                            qta.a.b("key_aaid", str);
+                        }
+                    }
+                    requestHeader.setAAID(str);
+                    requestHeader.setSdkVersion(70001103);
+                    return requestHeader;
+                }
+                nta.a("checkPushConfig Parameter is missing.");
+                throw HonorPushErrorEnum.ERROR_CERT_FINGERPRINT_EMPTY.toApiException();
+            }
+            nta.a("checkPushConfig Parameter is missing");
+            throw HonorPushErrorEnum.ERROR_NO_APPID.toApiException();
+        }
+        return (RequestHeader) invokeV.objValue;
+    }
+
+    public static ApiException b(Exception exc) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, exc)) == null) {
+            if (exc.getCause() instanceof ApiException) {
+                return (ApiException) exc.getCause();
+            }
+            if (exc instanceof ApiException) {
+                return (ApiException) exc;
+            }
+            return new ApiException(-1, exc.getMessage());
+        }
+        return (ApiException) invokeL.objValue;
+    }
+
+    public static <TResult> eua<TResult> c(Callable<TResult> callable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) {
+            ExecutorService executorService = xua.c.b;
+            wua wuaVar = new wua();
+            try {
+                executorService.execute(new bua(wuaVar, callable));
+            } catch (Exception e) {
+                wuaVar.a(e);
+            }
+            return wuaVar.a;
+        }
+        return (eua) invokeL.objValue;
+    }
+
+    public static void g(Handler handler) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, handler) != null) || Looper.myLooper() == handler.getLooper()) {
+            return;
+        }
+        throw new IllegalStateException("Must be called on the handler thread");
+    }
+
+    public static <TResult> TResult d(eua<TResult> euaVar) throws ExecutionException, InterruptedException {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, euaVar)) == null) {
+            if (Looper.myLooper() != Looper.getMainLooper()) {
+                synchronized (euaVar.a) {
+                    z = euaVar.b;
+                }
+                if (z) {
+                    if (euaVar.f()) {
+                        return euaVar.d();
+                    }
+                    throw new ExecutionException(euaVar.c());
+                }
+                iua iuaVar = new iua();
+                xua xuaVar = xua.c;
+                euaVar.a(new zta(xuaVar.a, iuaVar));
+                euaVar.a(new vta(xuaVar.a, iuaVar));
+                euaVar.a(new mta(xuaVar.a, iuaVar));
+                iuaVar.a.await();
+                if (euaVar.f()) {
+                    return euaVar.d();
+                }
+                throw new ExecutionException(euaVar.c());
+            }
+            throw new IllegalStateException("await must not be called on the UI thread");
+        }
+        return (TResult) invokeL.objValue;
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0054 -> B:20:0x0055). Please submit an issue!!! */
+    public static String e(Context context, String str) {
+        InterceptResult invokeLL;
+        Signature[] signatureArr;
+        String str2;
+        SigningInfo signingInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            String str3 = "getCertFingerprint pkgName=" + str + "onlyOne=true";
+            ArrayList arrayList = new ArrayList();
+            PackageManager packageManager = context.getPackageManager();
+            if (Build.VERSION.SDK_INT >= 30) {
+                PackageInfo packageInfo = packageManager.getPackageInfo(str, 134217728);
+                if (packageInfo != null && (signingInfo = packageInfo.signingInfo) != null) {
+                    if (signingInfo.hasMultipleSigners()) {
+                        signatureArr = signingInfo.getApkContentsSigners();
+                    } else {
+                        signatureArr = signingInfo.getSigningCertificateHistory();
+                    }
+                }
+                signatureArr = null;
+            } else {
+                PackageInfo packageInfo2 = packageManager.getPackageInfo(str, 64);
+                if (packageInfo2 != null) {
+                    signatureArr = packageInfo2.signatures;
+                }
+                signatureArr = null;
+            }
+            if (signatureArr != null && signatureArr.length > 0) {
+                int length = signatureArr.length;
+                int i = 0;
+                while (true) {
+                    if (i >= length) {
+                        break;
+                    }
+                    try {
+                        byte[] digest = MessageDigest.getInstance("SHA256").digest(signatureArr[i].toByteArray());
+                        StringBuilder sb = new StringBuilder();
+                        for (byte b : digest) {
+                            String upperCase = Integer.toHexString(b & 255).toUpperCase(Locale.US);
+                            if (upperCase.length() == 1) {
+                                sb.append("0");
+                            }
+                            sb.append(upperCase);
+                        }
+                        str2 = sb.toString();
+                    } catch (NoSuchAlgorithmException unused) {
+                        str2 = null;
+                    }
+                    if (str2 != null) {
+                        arrayList.add(str2);
+                        break;
                     }
                     i++;
                 }
-                return;
             }
-            while (i < availableProcessors) {
-                scheduledExecutorServiceArr[i].shutdownNow();
-                i++;
+            if (arrayList.isEmpty()) {
+                return null;
             }
+            return (String) arrayList.get(0);
         }
+        return (String) invokeLL.objValue;
     }
 }

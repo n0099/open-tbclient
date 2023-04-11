@@ -15,23 +15,23 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lb5;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.sb5;
-import com.baidu.tieba.wb5;
+import com.baidu.tieba.ad5;
+import com.baidu.tieba.pc5;
+import com.baidu.tieba.q25;
+import com.baidu.tieba.wc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class BLauncher extends ImageView implements sb5 {
+public class BLauncher extends ImageView implements wc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public int b;
     public int c;
-    public wb5 d;
+    public ad5 d;
     public Drawable e;
     public boolean f;
 
@@ -42,13 +42,13 @@ public class BLauncher extends ImageView implements sb5 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BLauncher(Context context, wb5 wb5Var) {
+    public BLauncher(Context context, ad5 ad5Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, wb5Var};
+            Object[] objArr = {context, ad5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,19 +61,19 @@ public class BLauncher extends ImageView implements sb5 {
         }
         this.c = 0;
         this.f = false;
-        if (wb5Var == null) {
+        if (ad5Var == null) {
             return;
         }
-        this.d = wb5Var;
+        this.d = ad5Var;
         setIcon();
-        setToolId(wb5Var.c);
+        setToolId(ad5Var.c);
     }
 
-    @Override // com.baidu.tieba.mb5
-    public void C(lb5 lb5Var) {
+    @Override // com.baidu.tieba.qc5
+    public void C(pc5 pc5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, lb5Var) == null) && lb5Var != null && lb5Var.a == 2) {
-            Object obj = lb5Var.c;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, pc5Var) == null) && pc5Var != null && pc5Var.a == 2) {
+            Object obj = pc5Var.c;
             if (obj == null) {
                 b();
             } else if (obj instanceof String) {
@@ -120,10 +120,10 @@ public class BLauncher extends ImageView implements sb5 {
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
         this.a.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
         if (!str.equals(" ")) {
-            n15 d = n15.d(this.a);
+            q25 d = q25.d(this.a);
             d.w(R.color.CAM_X0101);
-            d.A(R.dimen.T_X10);
-            d.B(R.string.F_X02);
+            d.B(R.dimen.T_X10);
+            d.C(R.string.F_X02);
             this.a.setText(str);
             SkinManager.setBackgroundResource(this.a, R.drawable.icon_news_red_dot_one_number, this.c);
             this.a.setVisibility(0);
@@ -139,11 +139,11 @@ public class BLauncher extends ImageView implements sb5 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (textView = this.a) != null) {
             textView.setVisibility(8);
-            h0();
+            e0();
         }
     }
 
-    @Override // com.baidu.tieba.sb5
+    @Override // com.baidu.tieba.wc5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -151,10 +151,19 @@ public class BLauncher extends ImageView implements sb5 {
         }
     }
 
+    @Override // com.baidu.tieba.wc5
+    public void e0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d.q = false;
+            invalidate();
+        }
+    }
+
     public boolean getIsOutSetVisibility() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.f;
         }
         return invokeV.booleanValue;
@@ -163,32 +172,23 @@ public class BLauncher extends ImageView implements sb5 {
     public TextView getNotice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.a;
         }
         return (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sb5
+    @Override // com.baidu.tieba.wc5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.b;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.sb5
-    public void h0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.d.q = false;
-            invalidate();
-        }
-    }
-
-    @Override // com.baidu.tieba.sb5
+    @Override // com.baidu.tieba.wc5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -212,7 +212,7 @@ public class BLauncher extends ImageView implements sb5 {
         }
     }
 
-    @Override // com.baidu.tieba.sb5
+    @Override // com.baidu.tieba.wc5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -246,19 +246,19 @@ public class BLauncher extends ImageView implements sb5 {
     }
 
     public void setIcon() {
-        wb5 wb5Var;
+        ad5 ad5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (wb5Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (ad5Var = this.d) == null) {
             return;
         }
-        if (wb5Var.i) {
+        if (ad5Var.i) {
             SvgManager svgManager = SvgManager.getInstance();
-            wb5 wb5Var2 = this.d;
-            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(wb5Var2.d, wb5Var2.e, this.c));
-        } else if (wb5Var.j) {
-            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(wb5Var.d, wb5Var.e, wb5Var.f, wb5Var.g, this.c));
+            ad5 ad5Var2 = this.d;
+            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(ad5Var2.d, ad5Var2.e, this.c));
+        } else if (ad5Var.j) {
+            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(ad5Var.d, ad5Var.e, ad5Var.f, ad5Var.g, this.c));
         } else {
-            SkinManager.setImageResource(this, wb5Var.d, this.c);
+            SkinManager.setImageResource(this, ad5Var.d, this.c);
         }
         if (!this.d.c()) {
             setEnabled(false);

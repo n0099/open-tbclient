@@ -21,7 +21,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.tieba.view.TbLayerImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -105,8 +105,8 @@ public class HeadPendantView extends RelativeLayout {
         }
         this.g = false;
         this.h = false;
-        this.i = hi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.j = hi.g(TbadkApplication.getInst(), R.dimen.tbds5);
+        this.i = ii.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.j = ii.g(TbadkApplication.getInst(), R.dimen.tbds5);
         this.l = true;
         this.m = false;
         this.a = context;
@@ -176,8 +176,8 @@ public class HeadPendantView extends RelativeLayout {
         }
         this.g = false;
         this.h = false;
-        this.i = hi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.j = hi.g(TbadkApplication.getInst(), R.dimen.tbds5);
+        this.i = ii.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.j = ii.g(TbadkApplication.getInst(), R.dimen.tbds5);
         this.l = true;
         this.m = false;
         this.a = context;
@@ -205,8 +205,8 @@ public class HeadPendantView extends RelativeLayout {
         }
         this.g = false;
         this.h = false;
-        this.i = hi.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.j = hi.g(TbadkApplication.getInst(), R.dimen.tbds5);
+        this.i = ii.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.j = ii.g(TbadkApplication.getInst(), R.dimen.tbds5);
         this.l = true;
         this.m = false;
         this.a = context;
@@ -259,7 +259,7 @@ public class HeadPendantView extends RelativeLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.i = hi.g(getContext(), R.dimen.tbds42);
+            this.i = ii.g(getContext(), R.dimen.tbds42);
             b();
             d();
             c();
@@ -398,7 +398,7 @@ public class HeadPendantView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             if (i > 0) {
-                this.i = hi.g(getContext(), i);
+                this.i = ii.g(getContext(), i);
             }
             if (this.i > 0 && (imageView = this.e) != null) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
@@ -526,7 +526,7 @@ public class HeadPendantView extends RelativeLayout {
     public void k(String str, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.f.I(str, i, 0, 0, z);
+            this.f.J(str, i, 0, 0, z);
         }
     }
 

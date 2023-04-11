@@ -24,7 +24,8 @@ public abstract class te {
 
     public abstract void changeSettingByType(int i);
 
-    public abstract String[] getCrashKeys();
+    /* renamed from: getCrashKeys */
+    public abstract String[] mo55getCrashKeys();
 
     public abstract int getDefaultType();
 
@@ -111,7 +112,7 @@ public abstract class te {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.mName = getName();
-            this.mKey = getCrashKeys();
+            this.mKey = mo55getCrashKeys();
             this.mDefaultType = getDefaultType();
             this.mOffType = getOffType();
             this.mMaxCrashTimes = getMaxCrashTimes();

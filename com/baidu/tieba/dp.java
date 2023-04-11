@@ -1,95 +1,104 @@
 package com.baidu.tieba;
 
+import androidx.annotation.CallSuper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
 import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
 import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes4.dex */
-public final class dp {
+public abstract class dp extends hs<TaskBuoyViewData, TaskBuoyViewModel> {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448302753, "Lcom/baidu/tieba/dp;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448302753, "Lcom/baidu/tieba/dp;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
-    @JvmStatic
-    public static final kp a(gs<TaskBuoyViewData, TaskBuoyViewModel> gsVar, lp lpVar, TaskInfo taskInfo) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, gsVar, lpVar, taskInfo)) == null) ? a.a(gsVar, lpVar, taskInfo) : (kp) invokeLLL.objValue;
-    }
-
-    @JvmStatic
-    public static final np b(gs<TaskBuoyViewData, TaskBuoyViewModel> gsVar, TaskBuoyViewModel taskBuoyViewModel, TaskInfo taskInfo) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, gsVar, taskBuoyViewModel, taskInfo)) == null) ? a.b(gsVar, taskBuoyViewModel, taskInfo) : (np) invokeLLL.objValue;
-    }
+    public TaskBuoyViewModel a;
+    public final ks b;
 
     /* loaded from: classes4.dex */
-    public static final class a {
+    public static final class a implements ks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dp a;
 
-        public a() {
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public a(dp dpVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dpVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = dpVar;
         }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        @JvmStatic
-        public final kp a(gs<TaskBuoyViewData, TaskBuoyViewModel> gsVar, lp lpVar, TaskInfo taskInfo) {
-            InterceptResult invokeLLL;
+        @Override // com.baidu.tieba.ks
+        public void a() {
+            TaskBuoyViewModel taskBuoyViewModel;
+            TaskInfo c;
+            TaskBuoyViewModel taskBuoyViewModel2;
+            ps<TaskBuoyViewData> a;
+            TaskBuoyViewData k;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, gsVar, lpVar, taskInfo)) == null) {
-                return new kp(gsVar, lpVar, taskInfo);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (taskBuoyViewModel = this.a.a) != null && (c = taskBuoyViewModel.c()) != null && (taskBuoyViewModel2 = this.a.a) != null && (a = taskBuoyViewModel2.a()) != null && (k = a.k()) != null) {
+                jp.a.b(k.getUiConfig().h(), c, k.getTaskStatus());
             }
-            return (kp) invokeLLL.objValue;
         }
 
-        @JvmStatic
-        public final np b(gs<TaskBuoyViewData, TaskBuoyViewModel> gsVar, TaskBuoyViewModel taskBuoyViewModel, TaskInfo taskInfo) {
-            InterceptResult invokeLLL;
+        @Override // com.baidu.tieba.ks
+        public void b() {
+            TaskBuoyViewModel taskBuoyViewModel;
+            TaskInfo c;
+            TaskBuoyViewModel taskBuoyViewModel2;
+            ps<TaskBuoyViewData> a;
+            TaskBuoyViewData k;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gsVar, taskBuoyViewModel, taskInfo)) == null) {
-                return new np(gsVar, taskBuoyViewModel, taskInfo);
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (taskBuoyViewModel = this.a.a) != null && (c = taskBuoyViewModel.c()) != null && (taskBuoyViewModel2 = this.a.a) != null && (a = taskBuoyViewModel2.a()) != null && (k = a.k()) != null) {
+                jp.a.a(k.getUiConfig().h(), c, k.getTaskStatus());
             }
-            return (np) invokeLLL.objValue;
+        }
+    }
+
+    public dp() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new a(this);
+    }
+
+    public ks c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (ks) invokeV.objValue;
+    }
+
+    @CallSuper
+    public void d(TaskBuoyViewModel taskBuoyViewModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskBuoyViewModel) == null) {
+            this.a = taskBuoyViewModel;
         }
     }
 }

@@ -18,12 +18,12 @@ import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.az7;
-import com.baidu.tieba.bz7;
-import com.baidu.tieba.gn;
-import com.baidu.tieba.gz7;
-import com.baidu.tieba.i85;
-import com.baidu.tieba.vy7;
+import com.baidu.tieba.e98;
+import com.baidu.tieba.hn;
+import com.baidu.tieba.m95;
+import com.baidu.tieba.t88;
+import com.baidu.tieba.y88;
+import com.baidu.tieba.z88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,15 +32,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<bz7>, NetModel.k<az7, bz7> {
+/* loaded from: classes5.dex */
+public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<z88>, NetModel.k<y88, z88> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ReplyMessageFragment a;
-    public az7 b;
+    public y88 b;
     public ReplyMeNetModel c;
     public ReplyMeCacheModel d;
-    public vy7 e;
+    public t88 e;
     public FeedData f;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -54,7 +54,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-    public void g(WriteCacheRespMsg<List<bz7>> writeCacheRespMsg, WriteCacheMessage<bz7> writeCacheMessage) {
+    public void k(WriteCacheRespMsg<List<z88>> writeCacheRespMsg, WriteCacheMessage<z88> writeCacheMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, writeCacheRespMsg, writeCacheMessage) == null) {
         }
@@ -64,7 +64,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -92,24 +92,24 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void F(MvcHttpResponsedMessage<bz7> mvcHttpResponsedMessage, MvcHttpMessage<az7, bz7> mvcHttpMessage, MvcNetMessage<az7, bz7> mvcNetMessage) {
-        bz7 bz7Var;
+    public void H(MvcHttpResponsedMessage<z88> mvcHttpResponsedMessage, MvcHttpMessage<y88, z88> mvcHttpMessage, MvcNetMessage<y88, z88> mvcNetMessage) {
+        z88 z88Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) {
-            az7 az7Var = null;
+            y88 y88Var = null;
             if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
-                bz7Var = mvcHttpResponsedMessage.getData();
+                z88Var = mvcHttpResponsedMessage.getData();
                 if (mvcHttpMessage != null) {
-                    az7Var = mvcHttpMessage.getRequestData();
+                    y88Var = mvcHttpMessage.getRequestData();
                 }
                 if (mvcNetMessage != null) {
-                    az7Var = mvcNetMessage.getRequestData();
+                    y88Var = mvcNetMessage.getRequestData();
                 }
             } else {
-                i85.h0().f0(0);
-                bz7Var = null;
+                m95.h0().f0(0);
+                z88Var = null;
             }
-            if (az7Var != null && bz7Var != null && W(az7Var, bz7Var, false)) {
+            if (y88Var != null && z88Var != null && V(y88Var, z88Var, false)) {
                 return;
             }
             if (mvcHttpResponsedMessage != null) {
@@ -126,24 +126,24 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void u(MvcSocketResponsedMessage<bz7, ?> mvcSocketResponsedMessage, MvcSocketMessage<az7, bz7> mvcSocketMessage, MvcNetMessage<az7, bz7> mvcNetMessage) {
-        bz7 bz7Var;
+    public void w(MvcSocketResponsedMessage<z88, ?> mvcSocketResponsedMessage, MvcSocketMessage<y88, z88> mvcSocketMessage, MvcNetMessage<y88, z88> mvcNetMessage) {
+        z88 z88Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048589, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) {
-            az7 az7Var = null;
+            y88 y88Var = null;
             if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
-                bz7Var = mvcSocketResponsedMessage.getData();
+                z88Var = mvcSocketResponsedMessage.getData();
                 if (mvcSocketMessage != null) {
-                    az7Var = mvcSocketMessage.getRequestData();
+                    y88Var = mvcSocketMessage.getRequestData();
                 }
                 if (mvcNetMessage != null) {
-                    az7Var = mvcNetMessage.getRequestData();
+                    y88Var = mvcNetMessage.getRequestData();
                 }
             } else {
-                i85.h0().f0(0);
-                bz7Var = null;
+                m95.h0().f0(0);
+                z88Var = null;
             }
-            if (az7Var != null && bz7Var != null && W(az7Var, bz7Var, false)) {
+            if (y88Var != null && z88Var != null && V(y88Var, z88Var, false)) {
                 return;
             }
             if (mvcSocketResponsedMessage != null) {
@@ -159,14 +159,14 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
         }
     }
 
-    public boolean R() {
+    public boolean Q() {
         InterceptResult invokeV;
         ArrayList<FeedData> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (!TbadkCoreApplication.isLogin()) {
-                vy7 vy7Var = this.e;
-                if (vy7Var != null && (arrayList = vy7Var.a) != null) {
+                t88 t88Var = this.e;
+                if (t88Var != null && (arrayList = t88Var.a) != null) {
                     arrayList.clear();
                 }
                 this.a.O1();
@@ -178,12 +178,12 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
         return invokeV.booleanValue;
     }
 
-    public boolean T() {
+    public boolean S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (R()) {
-                this.d.h0(this.b);
+            if (Q()) {
+                this.d.g0(this.b);
                 return true;
             }
             return true;
@@ -196,44 +196,44 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             ReplyMeNetModel replyMeNetModel = this.c;
             if (replyMeNetModel != null) {
-                replyMeNetModel.t0(null);
+                replyMeNetModel.s0(null);
             }
             ReplyMeCacheModel replyMeCacheModel = this.d;
             if (replyMeCacheModel != null) {
-                replyMeCacheModel.j0(null);
+                replyMeCacheModel.i0(null);
             }
         }
     }
 
-    public void S(int i) {
-        vy7 vy7Var;
+    public void R(int i) {
+        t88 t88Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (vy7Var = this.e) != null && vy7Var.a() != null && i < this.e.a().size()) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (t88Var = this.e) != null && t88Var.a() != null && i < this.e.a().size()) {
             this.e.a().remove(i);
         }
     }
 
-    public void U(Bundle bundle) {
+    public void T(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            this.b = new az7();
+            this.b = new y88();
             ReplyMeNetModel replyMeNetModel = new ReplyMeNetModel(this.a.getPageContext(), this.b);
             this.c = replyMeNetModel;
-            replyMeNetModel.t0(this);
+            replyMeNetModel.s0(this);
             this.c.setUniqueId(this.a.getUniqueId());
             ReplyMeCacheModel replyMeCacheModel = new ReplyMeCacheModel(this.a.getPageContext());
             this.d = replyMeCacheModel;
-            replyMeCacheModel.j0(this);
+            replyMeCacheModel.i0(this);
             this.d.setUniqueId(this.a.getUniqueId());
-            this.e = new vy7();
+            this.e = new t88();
         }
     }
 
-    public boolean V() {
+    public boolean U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.c.l0() || !R()) {
+            if (this.c.k0() || !Q()) {
                 return false;
             }
             this.b.c(this.f);
@@ -244,11 +244,11 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
         return invokeV.booleanValue;
     }
 
-    public boolean X() {
+    public boolean W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!this.c.l0() && R()) {
+            if (!this.c.k0() && Q()) {
                 this.f = null;
                 this.b.b();
                 this.c.setNeedCache(true);
@@ -260,44 +260,44 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
         return invokeV.booleanValue;
     }
 
-    public boolean W(az7 az7Var, bz7 bz7Var, boolean z) {
+    public boolean V(y88 y88Var, z88 z88Var, boolean z) {
         InterceptResult invokeLLZ;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048582, this, az7Var, bz7Var, z)) == null) {
-            if (az7Var.a() != 4) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048582, this, y88Var, z88Var, z)) == null) {
+            if (y88Var.a() != 4) {
                 this.e.a().clear();
             }
-            this.e.c(bz7Var);
+            this.e.c(z88Var);
             boolean z3 = true;
-            if (bz7Var != null && bz7Var.a() != null && bz7Var.a().size() > 0) {
-                this.f = bz7Var.a().get(bz7Var.a().size() - 1);
+            if (z88Var != null && z88Var.a() != null && z88Var.a().size() > 0) {
+                this.f = z88Var.a().get(z88Var.a().size() - 1);
                 if (this.e.b() != null && this.e.b().b() != 1) {
                     z2 = false;
                 } else {
                     z2 = true;
                 }
-                if (az7Var.a() == 1) {
-                    i85.h0().f0(0);
+                if (y88Var.a() == 1) {
+                    m95.h0().f0(0);
                 }
-                if (az7Var != null) {
-                    az7Var.d();
+                if (y88Var != null) {
+                    y88Var.d();
                 }
             } else {
                 this.f = null;
                 z2 = false;
                 z3 = false;
             }
-            i85.h0().o();
-            ArrayList<gn> arrayList = new ArrayList<>();
+            m95.h0().o();
+            ArrayList<hn> arrayList = new ArrayList<>();
             Iterator<FeedData> it = this.e.a.iterator();
             while (it.hasNext()) {
-                gz7 gz7Var = new gz7();
-                gz7Var.E(it.next());
+                e98 e98Var = new e98();
+                e98Var.E(it.next());
                 if (z) {
-                    gz7Var.G(false);
+                    e98Var.G(false);
                 }
-                arrayList.add(gz7Var);
+                arrayList.add(e98Var);
             }
             this.a.Y1(z2, arrayList);
             return z3;
@@ -306,11 +306,11 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.c<
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-    public void k(ReadCacheRespMsg<List<bz7>> readCacheRespMsg, ReadCacheMessage<bz7> readCacheMessage) {
+    public void o(ReadCacheRespMsg<List<z88>> readCacheRespMsg, ReadCacheMessage<z88> readCacheMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, readCacheRespMsg, readCacheMessage) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048587, this, readCacheRespMsg, readCacheMessage) == null) {
             if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-                W(this.b, readCacheRespMsg.getData().get(0), true);
+                V(this.b, readCacheRespMsg.getData().get(0), true);
             }
             this.f = null;
             this.b.b();

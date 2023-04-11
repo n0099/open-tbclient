@@ -1,27 +1,50 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import java.util.List;
-import java.util.Map;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public interface yg5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("HotTopic", "HotTopicRequest");
+public final class yg5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a();
-
-        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
+    public static final String a(String spriteTalk, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, spriteTalk, i)) == null) {
+            Intrinsics.checkNotNullParameter(spriteTalk, "spriteTalk");
+            return "tiebaapp://router/portal?params={\"page\":\"im/funnySprite\",\"pageParams\":{\"spriteType\": \"" + i + "\",spriteTalk: \"" + spriteTalk + "\"}}";
+        }
+        return (String) invokeLI.objValue;
     }
 
-    yg5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str);
+    public static final void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REQUEST_SPRITE_LOOP);
+            httpMessage.addParam("scene", i);
+            httpMessage.addParam("sprite_uk", p45.m().s("key_funny_sprite_uk", ""));
+            httpMessage.addParam("version", p45.m().s("key_sprite_speech_version", ""));
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
 
-    void b(int i, jy4 jy4Var, long j);
-
-    void c(@Nullable a aVar);
+    public static final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            ng8 defaultLog = DefaultLog.getInstance();
+            defaultLog.c("SpriteTip", "tryRequestFirstTip isShowSpriteDialog:" + TbSingleton.getInstance().isShowSpriteDialog);
+            if (!TbSingleton.getInstance().isShowSpriteDialog) {
+                return;
+            }
+            b(3);
+            TbSingleton.getInstance().isShowSpriteDialog = false;
+        }
+    }
 }

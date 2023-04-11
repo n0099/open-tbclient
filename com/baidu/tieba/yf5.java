@@ -1,58 +1,20 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
+import java.util.List;
+import java.util.concurrent.FutureTask;
 /* loaded from: classes7.dex */
-public class yf5 implements xf5 {
+public class yf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public ConcurrentHashMap<String, vf5> c;
-    public int d;
-    public boolean e;
-
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final yf5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-262305116, "Lcom/baidu/tieba/yf5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-262305116, "Lcom/baidu/tieba/yf5$a;");
-                    return;
-                }
-            }
-            a = new yf5();
-        }
-    }
+    public List<FutureTask<Boolean>> a;
+    public List<xf5> b;
+    public ErrorData c;
 
     public yf5() {
         Interceptable interceptable = $ic;
@@ -64,209 +26,35 @@ public class yf5 implements xf5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = new ConcurrentHashMap<>();
-    }
-
-    public static final yf5 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
-        }
-        return (yf5) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (this.e && currentTimeMillis > h() && currentTimeMillis < g()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (w01.c(this.c) || this.d != this.c.hashCode()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public Map<String, vf5> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.c.clear();
-            this.d = 0;
-            this.a = 0L;
-            this.b = 0L;
-            this.e = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.xf5
-    public void a() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<Map.Entry<String, vf5>> it = this.c.entrySet().iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    Map.Entry<String, vf5> next = it.next();
-                    if (next.getValue() != null && !next.getValue().v()) {
-                        z = false;
-                        break;
-                    }
-                } else {
-                    z = true;
-                    break;
-                }
-            }
-            this.e = z;
-            if (z) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921551, Boolean.TRUE));
             }
         }
     }
 
-    public vf5 d(String str) {
-        InterceptResult invokeL;
+    public void a(ErrorData errorData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.c.get(str);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, errorData) != null) || this.c != null) {
+            return;
         }
-        return (vf5) invokeL.objValue;
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.d = i;
+        this.c = errorData;
+        for (FutureTask<Boolean> futureTask : this.a) {
+            futureTask.cancel(true);
+        }
+        for (xf5 xf5Var : this.b) {
+            xf5Var.a();
         }
     }
 
-    public wf5 i() {
-        InterceptResult invokeV;
-        wf5 r;
+    public void b(List<xf5> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            vf5 d = f().d("style");
-            if (d != null && (r = d.r()) != null && StringUtils.isNotNull(r.b()) && StringUtils.isNotNull(r.c()) && StringUtils.isNotNull(r.a())) {
-                return r;
-            }
-            return null;
-        }
-        return (wf5) invokeV.objValue;
-    }
-
-    public void j() {
-        BdUniqueId bdUniqueId;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity instanceof BaseActivity) {
-                bdUniqueId = ((BaseActivity) currentActivity).getUniqueId();
-            } else if (currentActivity instanceof BaseFragmentActivity) {
-                bdUniqueId = ((BaseFragmentActivity) currentActivity).getUniqueId();
-            } else {
-                bdUniqueId = null;
-            }
-            for (Map.Entry<String, vf5> entry : this.c.entrySet()) {
-                if (entry.getValue() != null) {
-                    entry.getValue().A(bdUniqueId);
-                    entry.getValue().z(this);
-                    entry.getValue().x();
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.b = list;
         }
     }
 
-    public void k(JSONObject jSONObject) {
+    public void c(List<FutureTask<Boolean>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
-            this.c.clear();
-            this.a = jSONObject.optLong("start_time");
-            this.b = jSONObject.optLong("end_time");
-            JSONObject optJSONObject = jSONObject.optJSONObject("feed");
-            if (optJSONObject != null) {
-                vf5 vf5Var = new vf5();
-                vf5Var.y(optJSONObject);
-                this.c.put("homePage", vf5Var);
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("forum");
-            if (optJSONObject2 != null) {
-                vf5 vf5Var2 = new vf5();
-                vf5Var2.y(optJSONObject2);
-                this.c.put("enterForum", vf5Var2);
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("channel");
-            if (optJSONObject3 != null) {
-                vf5 vf5Var3 = new vf5();
-                vf5Var3.y(optJSONObject3);
-                this.c.put("channel", vf5Var3);
-            }
-            JSONObject optJSONObject4 = jSONObject.optJSONObject("news");
-            if (optJSONObject4 != null) {
-                vf5 vf5Var4 = new vf5();
-                vf5Var4.y(optJSONObject4);
-                this.c.put("message", vf5Var4);
-            }
-            JSONObject optJSONObject5 = jSONObject.optJSONObject("personal");
-            if (optJSONObject5 != null) {
-                vf5 vf5Var5 = new vf5();
-                vf5Var5.y(optJSONObject5);
-                this.c.put("person", vf5Var5);
-            }
-            JSONObject optJSONObject6 = jSONObject.optJSONObject("write");
-            if (optJSONObject6 != null) {
-                vf5 vf5Var6 = new vf5();
-                vf5Var6.y(optJSONObject6);
-                this.c.put("write", vf5Var6);
-            }
-            JSONObject optJSONObject7 = jSONObject.optJSONObject("style");
-            if (optJSONObject7 != null) {
-                vf5 vf5Var7 = new vf5();
-                vf5Var7.y(optJSONObject7);
-                this.c.put("style", vf5Var7);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
         }
     }
 }

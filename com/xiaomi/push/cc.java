@@ -11,13 +11,13 @@ public class cc extends ce {
 
     public static cc a(Context context, String str, int i) {
         com.xiaomi.channel.commonutils.logger.b.b("delete  messages when db size is too bigger");
-        String m249a = ci.a(context).m249a(str);
-        if (TextUtils.isEmpty(m249a)) {
+        String m251a = ci.a(context).m251a(str);
+        if (TextUtils.isEmpty(m251a)) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
         sb.append("rowDataId in (select ");
-        sb.append("rowDataId from " + m249a);
+        sb.append("rowDataId from " + m251a);
         sb.append(" order by createTimeStamp asc");
         sb.append(" limit ?)");
         return new cc(str, sb.toString(), new String[]{String.valueOf(i)}, "a job build to delete history message");
@@ -35,7 +35,7 @@ public class cc extends ce {
     public void a(Context context, Object obj) {
         if (obj instanceof Long) {
             long longValue = ((Long) obj).longValue();
-            long a = co.a(m251a());
+            long a = co.a(m253a());
             long j = ca.f161a;
             if (a <= j) {
                 com.xiaomi.channel.commonutils.logger.b.b("db size is suitable");

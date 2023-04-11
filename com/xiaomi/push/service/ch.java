@@ -19,7 +19,7 @@ public final class ch implements Runnable {
         byte[] a = ir.a(ah.a(this.a.c(), this.a.b(), this.a, hh.Notification));
         context = cg.a;
         if (!(context instanceof XMPushService)) {
-            com.xiaomi.channel.commonutils.logger.b.m99a("UNDatas UploadNotificationDatas failed because not xmsf");
+            com.xiaomi.channel.commonutils.logger.b.m101a("UNDatas UploadNotificationDatas failed because not xmsf");
             return;
         }
         context2 = cg.a;

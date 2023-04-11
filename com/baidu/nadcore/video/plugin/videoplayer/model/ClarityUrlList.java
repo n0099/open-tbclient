@@ -6,12 +6,12 @@ import androidx.annotation.Nullable;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi0;
-import com.baidu.tieba.hy0;
-import com.baidu.tieba.os0;
-import com.baidu.tieba.ss0;
+import com.baidu.tieba.ii0;
+import com.baidu.tieba.iy0;
+import com.baidu.tieba.ps0;
 import com.baidu.tieba.ts0;
-import com.baidu.tieba.uz0;
+import com.baidu.tieba.us0;
+import com.baidu.tieba.vz0;
 import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -99,14 +99,14 @@ public class ClarityUrlList extends ArrayList<c> {
         public float h;
         public int i;
         public int j;
-        public ss0 k;
+        public ts0 k;
 
         static {
-            hi0.b().getString(R.string.nad_videoplayer_clarity_text_sd);
-            hi0.b().getString(R.string.nad_videoplayer_clarity_text_hd);
-            hi0.b().getString(R.string.nad_videoplayer_clarity_text_sc);
-            hi0.b().getString(R.string.nad_videoplayer_clarity_text_1080p);
-            hi0.b().getString(R.string.nad_videoplayer_clarity_text_auto);
+            ii0.b().getString(R.string.nad_videoplayer_clarity_text_sd);
+            ii0.b().getString(R.string.nad_videoplayer_clarity_text_hd);
+            ii0.b().getString(R.string.nad_videoplayer_clarity_text_sc);
+            ii0.b().getString(R.string.nad_videoplayer_clarity_text_1080p);
+            ii0.b().getString(R.string.nad_videoplayer_clarity_text_auto);
         }
 
         public c() {
@@ -115,7 +115,7 @@ public class ClarityUrlList extends ArrayList<c> {
             this.f = -1.0f;
         }
 
-        public ss0 b() {
+        public ts0 b() {
             return this.k;
         }
 
@@ -139,19 +139,19 @@ public class ClarityUrlList extends ArrayList<c> {
             return this.e;
         }
 
-        public int i() {
+        public int h() {
             return this.i;
         }
 
-        public float j() {
+        public float i() {
             return this.h;
         }
 
-        public HashMap<String, String> k() {
+        public HashMap<String, String> j() {
             return this.g;
         }
 
-        public float l() {
+        public float k() {
             return this.f;
         }
 
@@ -184,7 +184,7 @@ public class ClarityUrlList extends ArrayList<c> {
             this.g = null;
             this.i = jSONObject.optInt("videoBps");
             this.j = jSONObject.optInt("vodMoovSize");
-            this.k = ts0.b(jSONObject.optString("auth"));
+            this.k = us0.b(jSONObject.optString("auth"));
             jSONObject.optLong("expire_date");
             jSONObject.optString("interact_url");
             jSONObject.optInt("prefetch_size");
@@ -283,7 +283,7 @@ public class ClarityUrlList extends ArrayList<c> {
         ArrayList arrayList = new ArrayList(this);
         Collections.sort(arrayList, new a());
         setCurrentClarityUrl((c) arrayList.get(0));
-        if (os0.b()) {
+        if (ps0.b()) {
             setMultiRateSwitchRank(((c) arrayList.get(0)).c);
         }
     }
@@ -346,7 +346,7 @@ public class ClarityUrlList extends ArrayList<c> {
             return;
         }
         Collections.sort(this);
-        hy0 b2 = uz0.b(this, get(size() - 1).j());
+        iy0 b2 = vz0.b(this, get(size() - 1).i());
         this.mSelectType = b2.b;
         int i2 = b2.a;
         this.mDefaultClarity = i2;

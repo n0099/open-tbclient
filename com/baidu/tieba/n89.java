@@ -1,32 +1,76 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.switchs.FunnySpriteSwitch;
-import com.baidu.tieba.sprite.resdownload.FunnySpriteResDownloadUtil;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.h89;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
+import com.baidu.tieba.post.ReplyLinearLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.regex.Pattern;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes5.dex */
-public class n89 implements d15 {
+public class n89 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PersonPostModel.c a;
+    public PersonPostModel b;
+    public final String c;
+    public BdUniqueId d;
+    public String e;
+    public TbPageContext<BaseFragmentActivity> f;
+    public final PersonPostModel.c g;
+    public final h89.a h;
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements PersonPostModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n89 a;
 
         public a(n89 n89Var) {
             Interceptable interceptable = $ic;
@@ -40,115 +84,271 @@ public class n89 implements d15 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = n89Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
+        public void q0(PersonPostModel personPostModel, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    Class.forName("com.baidu.tieba.homepage.framework.RecommendFrsStatic");
-                } catch (Exception e) {
-                    BdLog.i(e.getMessage());
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, personPostModel, z) == null) {
+                if (!z) {
+                    if (this.a.b != null) {
+                        for (int i = 0; i < personPostModel.postList.size(); i++) {
+                            if (personPostModel.postList.get(i) instanceof PersonPostModel.PostInfoList) {
+                                this.a.b.postList.add(personPostModel.postList.get(i));
+                            }
+                        }
+                    }
+                } else {
+                    this.a.b = personPostModel;
+                    Iterator<hn> it = this.a.b.postList.iterator();
+                    while (it.hasNext()) {
+                        hn next = it.next();
+                        if (next != null && !(next instanceof PersonPostModel.PostInfoList)) {
+                            it.remove();
+                        }
+                    }
                 }
-                uf5.b(1);
+                if (this.a.a != null) {
+                    this.a.a.q0(personPostModel, z);
+                }
+                this.a.notifyDataSetChanged();
             }
         }
     }
 
-    public n89() {
+    /* loaded from: classes5.dex */
+    public class b implements h89.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n89 a;
+
+        public b(n89 n89Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n89Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n89Var;
+        }
+
+        @Override // com.baidu.tieba.h89.a
+        public void a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                int id = view2.getId();
+                if (id == R.id.obfuscated_res_0x7f091bbe) {
+                    ((BaseFragmentActivity) this.a.f.getOrignalPage()).finish();
+                } else if (id == R.id.obfuscated_res_0x7f0926db) {
+                    ((BaseFragmentActivity) this.a.f.getOrignalPage()).finish();
+                } else if ((id == R.id.obfuscated_res_0x7f091114 || id == R.id.obfuscated_res_0x7f0918f1 || id == R.id.obfuscated_res_0x7f09110f || id == R.id.obfuscated_res_0x7f091d85) && this.a.b != null && this.a.f != null && this.a.f.getOrignalPage() != null) {
+                    PersonPostModel.PostInfoList h = this.a.h(((Integer) view2.getTag()).intValue());
+                    if (TextUtils.isEmpty(h.targetScheme) || !UrlManager.getInstance().dealOneLink(((BaseFragmentActivity) this.a.f.getOrignalPage()).getPageContext(), new String[]{h.targetScheme})) {
+                        PbActivityConfig createNormalCfg = new PbActivityConfig(this.a.f.getPageActivity()).createNormalCfg(String.valueOf(h.thread_id), String.valueOf(h.post_id), "person_page");
+                        createNormalCfg.setStartFrom(4);
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+                    }
+                }
+            }
+        }
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    /* loaded from: classes5.dex */
+    public static class c extends h89 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ReplyLinearLayout r;
+        public TextView s;
+        public View t;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(View view2, TbPageContext<BaseFragmentActivity> tbPageContext) {
+            super(view2, tbPageContext);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((View) objArr2[0], (TbPageContext) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.t = view2.findViewById(R.id.obfuscated_res_0x7f091a95);
+            this.i.setIsRound(true);
+            ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.content_container);
+            this.r = replyLinearLayout;
+            replyLinearLayout.setPageContext(tbPageContext);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918f1);
+            this.s = textView;
+            textView.setOnClickListener(this);
+            this.e.setVisibility(8);
+        }
+
+        @Override // com.baidu.tieba.h89
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                super.a(i);
+                q25 d = q25.d(this.s);
+                d.w(R.color.CAM_X0107);
+                d.o(R.string.J_X05);
+                d.f(R.color.CAM_X0206);
+                q25 d2 = q25.d(this.t);
+                d2.o(R.string.J_X05);
+                d2.f(R.color.CAM_X0201);
+            }
+        }
+    }
+
+    public n89(TbPageContext<BaseFragmentActivity> tbPageContext, String str, String str2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, str, str2, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.g = new a(this);
+        this.h = new b(this);
+        this.f = tbPageContext;
+        this.c = str;
+        this.d = bdUniqueId;
     }
 
-    @Override // com.baidu.tieba.d15
-    @NonNull
-    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
-        InterceptResult invokeLLL;
+    public PersonPostModel.PostInfoList h(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
-            HashMap hashMap = new HashMap(map);
-            hashMap.putAll(map2);
-            return hashMap;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return (PersonPostModel.PostInfoList) this.b.postList.get(i);
         }
-        return (Map) invokeLLL.objValue;
+        return (PersonPostModel.PostInfoList) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.d15
-    public boolean b(@NonNull Map<String, Object> map) {
-        InterceptResult invokeL;
+    public void i(PersonPostModel.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            if (!TbadkCoreApplication.isLogin()) {
-                YunDialogLog.getInstance().b("SpriteStrategy", "未登录状态");
-                return false;
-            } else if (!FunnySpriteSwitch.isOn()) {
-                YunDialogLog.getInstance().b("SpriteStrategy", "精灵开关未打开");
-                return false;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
+            this.a = cVar;
+        }
+    }
+
+    public void e() {
+        PersonPostModel personPostModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (personPostModel = this.b) != null) {
+            personPostModel.cancelLoadData();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        ArrayList<hn> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            PersonPostModel personPostModel = this.b;
+            if (personPostModel != null && (arrayList = personPostModel.postList) != null) {
+                return arrayList.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (this.b == null) {
+                PersonPostModel personPostModel = new PersonPostModel(this.f, this.d, null, true, 2);
+                this.b = personPostModel;
+                personPostModel.setUniqueId(this.d);
+            }
+            this.b.fetchPost(this.f, this.g, z, this.c, false, true, false, null);
+        }
+    }
+
+    public final void g(int i, c cVar, ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, cVar, viewGroup) == null) {
+            PersonPostModel.PostInfoList h = h(i);
+            if (this.e == null) {
+                this.e = h.user_portrait;
+            }
+            cVar.d(h, false, this.e, i);
+            cVar.r.setPost(h);
+            cVar.r.setContent(h.content);
+            if (Pattern.compile("^回复：").matcher(h.title).find()) {
+                cVar.s.setText(h.title.replaceFirst("回复：", "原贴："));
             } else {
-                Object obj = map.get("use_hot");
-                if (obj != null && "1".equals(obj.toString())) {
-                    Object obj2 = map.get("dialog_url");
-                    if (obj2 instanceof String) {
-                        String str = (String) obj2;
-                        if (!TextUtils.isEmpty(str) && !vq5.b().e(str)) {
-                            YunDialogLog.getInstance().b("SpriteStrategy", "H5弹窗未预热完成");
-                            return false;
-                        }
-                    }
-                }
-                if (!FunnySpriteResDownloadUtil.i().invoke().booleanValue()) {
-                    YunDialogLog.getInstance().b("SpriteStrategy", "资源未下载完成");
-                    return false;
-                }
-                Object obj3 = map.get("use_offline");
-                if (obj3 != null && "1".equals(obj3.toString())) {
-                    Object obj4 = map.get("dialog_url");
-                    if (obj4 instanceof String) {
-                        String str2 = (String) obj4;
-                        if (!TextUtils.isEmpty(str2)) {
-                            try {
-                                Object obj5 = map.get("module");
-                                w58 yunDialogLog = YunDialogLog.getInstance();
-                                yunDialogLog.c("SpriteStrategy", "开始手动初始化离线包:" + obj5);
-                                if ((obj5 instanceof String) && !TextUtils.isEmpty((String) obj5)) {
-                                    HashSet hashSet = new HashSet();
-                                    hashSet.add((String) obj5);
-                                    mu4.d(hashSet);
-                                    w58 yunDialogLog2 = YunDialogLog.getInstance();
-                                    yunDialogLog2.c("SpriteStrategy", "离线包手动初始化完成:" + obj5);
-                                }
-                            } catch (Exception e) {
-                                w58 yunDialogLog3 = YunDialogLog.getInstance();
-                                yunDialogLog3.b("SpriteStrategy", "离线包手动初始化异常:" + e);
-                            }
-                            boolean c = mu4.c(str2);
-                            w58 yunDialogLog4 = YunDialogLog.getInstance();
-                            yunDialogLog4.b("SpriteStrategy", "离线包是否可用:" + c);
-                            if (!c) {
-                                YunDialogLog.getInstance().b("SpriteStrategy", "离线包未下载完成");
-                                return false;
-                            }
-                        }
-                    }
-                }
-                kh6.b().b(new v79());
-                TbSingleton.getInstance().isShowSpriteDialog = true;
-                jg.a().post(new a(this));
-                return true;
+                cVar.s.setText(h.title);
             }
+            OriginalThreadInfo originalThreadInfo = h.originalThreadInfo;
+            if (originalThreadInfo != null && !StringUtils.isNull(originalThreadInfo.b)) {
+                TextView textView = cVar.s;
+                textView.setText("分享：" + h.originalThreadInfo.b);
+            }
+            cVar.s.setTag(Integer.valueOf(i));
+            if (h.thread_type == 33) {
+                cVar.s.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+            } else {
+                cVar.s.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            }
+            SkinManager.setBackgroundResource(cVar.s, R.drawable.person_post_line);
+            SkinManager.setViewTextColor(cVar.s, R.color.common_color_10039, 1);
+            int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
+            cVar.s.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+            cVar.c(this.h);
+            cVar.a(TbadkCoreApplication.getInst().getSkinType());
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d077c, viewGroup, false);
+                cVar = new c(view2, this.f);
+                view2.setTag(cVar);
+            } else {
+                cVar = (c) view2.getTag();
+            }
+            if (i == 0) {
+                cVar.h.setVisibility(0);
+            } else {
+                cVar.h.setVisibility(8);
+            }
+            g(i, cVar, viewGroup);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

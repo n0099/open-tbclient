@@ -1,160 +1,146 @@
 package com.baidu.tieba;
 
-import android.os.CountDownTimer;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.IBinder;
+import android.view.View;
+import android.view.Window;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hl0;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.download.view.AdDownloadDlgView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
-public class fl0<VIEW extends hl0> {
+public class fl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CountDownTimer a;
-    public long b;
-    public long c;
-    public WeakReference<VIEW> d;
 
     /* loaded from: classes4.dex */
-    public static class a extends CountDownTimer {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<fl0> a;
+        public final /* synthetic */ AlertDialog a;
+        public final /* synthetic */ Activity b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(@NonNull fl0 fl0Var, long j, long j2) {
-            super(j, j2);
+        public a(AlertDialog alertDialog, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fl0Var, Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {alertDialog, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = new WeakReference<>(fl0Var);
+            this.a = alertDialog;
+            this.b = activity;
         }
 
-        @Override // android.os.CountDownTimer
-        public void onFinish() {
-            fl0 fl0Var;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fl0Var = this.a.get()) != null) {
-                fl0Var.f(fl0Var.j());
-            }
-        }
-
-        @Override // android.os.CountDownTimer
-        public void onTick(long j) {
-            fl0 fl0Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && (fl0Var = this.a.get()) != null) {
-                fl0Var.c = fl0Var.b - j;
-                fl0Var.g(fl0Var.e(), fl0Var.j());
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                fl0.a(this.a, this.b);
             }
         }
     }
 
-    public fl0(@NonNull VIEW view2) {
+    public static boolean a(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !b(activity.getWindow().getDecorView())) {
+                return false;
             }
+            dialog.dismiss();
+            return true;
         }
-        this.d = new WeakReference<>(view2);
+        return invokeLL.booleanValue;
     }
 
-    public void h(long j) {
+    public static boolean b(View view2) {
+        InterceptResult invokeL;
+        IBinder windowToken;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            i();
-            this.b = j;
-            this.c = 0L;
-            a aVar = new a(this, this.b, 1000L);
-            this.a = aVar;
-            aVar.start();
-            VIEW k = k();
-            if (k != null) {
-                long j2 = this.b;
-                k.b(j2, j2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
+                try {
+                    if (windowToken.isBinderAlive()) {
+                        if (windowToken.pingBinder()) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return false;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
+                }
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void g(long j, long j2) {
-        VIEW k;
+    public static Dialog c(@NonNull ek0 ek0Var, @NonNull View view2, @NonNull Activity activity, @Nullable DialogInterface.OnDismissListener onDismissListener, @Nullable DialogInterface.OnShowListener onShowListener) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && (k = k()) != null) {
-            k.onProgress(j, j2);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, ek0Var, view2, activity, onDismissListener, onShowListener)) == null) {
+            AlertDialog create = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f10013b).create();
+            create.setCanceledOnTouchOutside(true);
+            create.setOnDismissListener(onDismissListener);
+            create.setOnShowListener(onShowListener);
+            AdDownloadDlgView adDownloadDlgView = new AdDownloadDlgView(activity);
+            adDownloadDlgView.b(ek0Var);
+            adDownloadDlgView.setDownloadView(view2);
+            adDownloadDlgView.setOnCloseClickListener(new a(create, activity));
+            d(create, activity);
+            Window window = create.getWindow();
+            if (window != null) {
+                window.setGravity(80);
+                window.setLayout(-1, -2);
+                window.setContentView(adDownloadDlgView);
+            }
+            return create;
         }
+        return (Dialog) invokeLLLLL.objValue;
     }
 
-    public final void f(long j) {
-        VIEW k;
+    public static boolean d(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && (k = k()) != null) {
-            k.a(j);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing()) {
+                return false;
+            }
+            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (activity.getWindow() != null && b(activity.getWindow().getDecorView())) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+            return false;
         }
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public void i() {
-        CountDownTimer countDownTimer;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (countDownTimer = this.a) == null) {
-            return;
-        }
-        countDownTimer.cancel();
-        VIEW k = k();
-        if (k != null) {
-            k.c(this.c, this.b);
-        }
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public final VIEW k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d.get();
-        }
-        return (VIEW) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

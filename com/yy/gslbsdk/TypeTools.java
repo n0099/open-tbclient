@@ -1,5 +1,5 @@
 package com.yy.gslbsdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TypeTools {
     public static final int TYPE_HTTPS_HALF = 1;
     public static final int TYPE_HTTPS_NONE = 0;

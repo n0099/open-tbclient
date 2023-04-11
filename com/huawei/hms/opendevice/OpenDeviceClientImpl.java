@@ -1,7 +1,7 @@
 package com.huawei.hms.opendevice;
 
 import android.content.Context;
-import com.baidu.tieba.nma;
+import com.baidu.tieba.ewa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -65,14 +65,14 @@ public class OpenDeviceClientImpl extends HuaweiApi<OpenDeviceOptions> implement
         super.setKitSdkVersion(60300305);
     }
 
-    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: com.baidu.tieba.nma<TResult>, com.baidu.tieba.nma<com.huawei.hms.support.api.opendevice.OdidResult> */
+    /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: com.baidu.tieba.ewa<TResult>, com.baidu.tieba.ewa<com.huawei.hms.support.api.opendevice.OdidResult> */
     @Override // com.huawei.hms.opendevice.OpenDeviceClient
-    public nma<OdidResult> getOdid() {
+    public ewa<OdidResult> getOdid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return doWrite(new OpenDeviceTaskApiCall(HuaweiOpendeviceNaming.getOdid, JsonUtil.createJsonString(null), HiAnalyticsClient.reportEntry(getContext(), HuaweiOpendeviceNaming.getOdid, 60300305)));
         }
-        return (nma) invokeV.objValue;
+        return (ewa) invokeV.objValue;
     }
 }

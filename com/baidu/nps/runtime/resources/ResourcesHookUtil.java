@@ -5,7 +5,7 @@ import android.content.res.Resources;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.tieba.fe1;
+import com.baidu.tieba.ge1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -79,7 +79,7 @@ public class ResourcesHookUtil {
                             if (!new File(str).exists()) {
                                 return false;
                             }
-                            fe1.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+                            ge1.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
                             if (set == null) {
                                 set = new HashSet<>();
                                 sAddedAssetsMap.put(str, set);
@@ -170,7 +170,7 @@ public class ResourcesHookUtil {
                     return false;
                 }
                 try {
-                    fe1.d(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+                    ge1.d(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
                     if (set == null) {
                         set = new HashSet<>();
                         sAddedAssetsMap.put(str, set);
@@ -215,7 +215,7 @@ public class ResourcesHookUtil {
                     return false;
                 }
                 try {
-                    fe1.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
+                    ge1.d(assets, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Class[]{String.class}, str);
                     if (set == null) {
                         set = new HashSet<>();
                         sAddedAssetsMap.put(str, set);

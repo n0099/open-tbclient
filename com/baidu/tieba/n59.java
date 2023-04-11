@@ -1,52 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.cloudcommand.processor.CloudCommandProcessor;
-import com.baidu.searchbox.cloudcontrol.processor.DataProcessors;
-import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-import com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister;
-import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiPushClient;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class n59 implements ICloudControlRegister {
+public class n59 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947953591, "Lcom/baidu/tieba/n59;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947953591, "Lcom/baidu/tieba/n59;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
 
     public n59() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = 0;
     }
 
-    @Override // com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister
-    public void registerAllProcessors(DataProcessors dataProcessors) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dataProcessors) == null) {
-            dataProcessors.addProcessor("aps", new ApsCloudControlProcessor());
-            dataProcessors.addProcessor(UBCCloudControlProcessor.UBC_KEY, new UBCCloudControlProcessor());
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921656, ICloudControlProcessor.class, MiPushClient.COMMAND_REGISTER);
-            if (runTask != null) {
-                dataProcessors.addProcessor("config", (ICloudControlProcessor) runTask.getData());
-            }
-            dataProcessors.addProcessor("command", new CloudCommandProcessor());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

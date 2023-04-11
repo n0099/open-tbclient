@@ -1,12 +1,12 @@
 package com.baidu.nadcore.sweetsqlite;
 
-import com.baidu.tieba.a21;
-import com.baidu.tieba.u11;
+import com.baidu.tieba.b21;
+import com.baidu.tieba.v11;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public abstract class Column implements Serializable {
     public static final long serialVersionUID = 10929877886821294L;
-    public final u11 field;
+    public final v11 field;
     public boolean isAssignedValue = false;
 
     public abstract void clear();
@@ -15,11 +15,11 @@ public abstract class Column implements Serializable {
 
     public abstract int type();
 
-    public Column(u11 u11Var) {
-        this.field = u11Var;
+    public Column(v11 v11Var) {
+        this.field = v11Var;
     }
 
     public void copyTo(Column column) {
-        a21.f(this, column);
+        b21.f(this, column);
     }
 }

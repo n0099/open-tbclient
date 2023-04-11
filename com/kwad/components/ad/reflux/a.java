@@ -23,13 +23,13 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
     public int le = -1;
     public int lf;
     public int lg;
-    public InterfaceC0562a lh;
+    public InterfaceC0563a lh;
     public c mApkDownloadHelper;
     public String title;
 
     /* renamed from: com.kwad.components.ad.reflux.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0562a {
+    public interface InterfaceC0563a {
         void eF();
     }
 
@@ -73,9 +73,9 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
     }
 
     private void eU() {
-        InterfaceC0562a interfaceC0562a = this.lh;
-        if (interfaceC0562a != null) {
-            interfaceC0562a.eF();
+        InterfaceC0563a interfaceC0563a = this.lh;
+        if (interfaceC0563a != null) {
+            interfaceC0563a.eF();
         }
     }
 
@@ -87,8 +87,8 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
         this.itemType = i;
     }
 
-    public final void a(InterfaceC0562a interfaceC0562a) {
-        this.lh = interfaceC0562a;
+    public final void a(InterfaceC0563a interfaceC0563a) {
+        this.lh = interfaceC0563a;
     }
 
     public final b eJ() {

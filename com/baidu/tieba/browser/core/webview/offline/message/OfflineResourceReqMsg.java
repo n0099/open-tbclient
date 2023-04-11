@@ -1,9 +1,10 @@
 package com.baidu.tieba.browser.core.webview.offline.message;
 
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.kp5;
+import com.baidu.tieba.qq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,12 +48,21 @@ public class OfflineResourceReqMsg extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.webview_version = this.mWebViewVersion;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                kp5.a(builder, true);
+                qq5.a(builder, true);
             }
             GetWebviewCacheInfoReqIdl.Builder builder2 = new GetWebviewCacheInfoReqIdl.Builder();
             builder2.data = builder.build(true);
             return builder2.build(true);
         }
         return invokeZ.objValue;
+    }
+
+    public String getWebViewVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mWebViewVersion;
+        }
+        return (String) invokeV.objValue;
     }
 }

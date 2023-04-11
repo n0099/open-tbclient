@@ -12,9 +12,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.cv5;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.jn;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.iw5;
+import com.baidu.tieba.kn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,11 +36,11 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean S;
     public boolean T;
     @NonNull
-    public cv5 U;
+    public iw5 U;
     public boolean V;
     public boolean W;
     public boolean a0;
-    public jn b0;
+    public kn b0;
 
     /* loaded from: classes5.dex */
     public interface b {
@@ -143,14 +143,14 @@ public class PbLandscapeListView extends BdTypeListView {
                 return;
             }
         }
-        this.J = hi.l(TbadkCoreApplication.getInst().getContext()) / 8;
+        this.J = ii.l(TbadkCoreApplication.getInst().getContext()) / 8;
         this.K = false;
         this.P = new a(this);
         this.Q = new Handler(this.P);
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new cv5(this);
+        this.U = new iw5(this);
         G();
     }
 
@@ -213,14 +213,14 @@ public class PbLandscapeListView extends BdTypeListView {
                 return;
             }
         }
-        this.J = hi.l(TbadkCoreApplication.getInst().getContext()) / 8;
+        this.J = ii.l(TbadkCoreApplication.getInst().getContext()) / 8;
         this.K = false;
         this.P = new a(this);
         this.Q = new Handler(this.P);
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new cv5(this);
+        this.U = new iw5(this);
         G();
     }
 
@@ -243,14 +243,14 @@ public class PbLandscapeListView extends BdTypeListView {
                 return;
             }
         }
-        this.J = hi.l(TbadkCoreApplication.getInst().getContext()) / 8;
+        this.J = ii.l(TbadkCoreApplication.getInst().getContext()) / 8;
         this.K = false;
         this.P = new a(this);
         this.Q = new Handler(this.P);
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new cv5(this);
+        this.U = new iw5(this);
         G();
     }
 
@@ -288,9 +288,9 @@ public class PbLandscapeListView extends BdTypeListView {
             super.dispatchDraw(canvas);
             if (this.W && !this.a0) {
                 this.a0 = true;
-                jn jnVar = this.b0;
-                if (jnVar != null) {
-                    jnVar.a();
+                kn knVar = this.b0;
+                if (knVar != null) {
+                    knVar.a();
                 }
             }
         }
@@ -329,30 +329,23 @@ public class PbLandscapeListView extends BdTypeListView {
         }
     }
 
-    public void setIsLandscape(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.K = z;
-        }
-    }
-
     public void setListViewDragListener(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
             this.O = cVar;
         }
     }
 
     public void setOnLayoutListener(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
             this.L = bVar;
         }
     }
 
     public void setTextViewAdded(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.R = z;
         }
     }
@@ -360,11 +353,11 @@ public class PbLandscapeListView extends BdTypeListView {
     @Override // com.baidu.adp.widget.ListView.BdListView
     public void x(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
             if (this.R) {
-                getAdapter2().h(view2, null, false, 1);
+                getAdapter2().f(view2, null, false, 1);
             } else {
-                getAdapter2().h(view2, null, false, 0);
+                getAdapter2().f(view2, null, false, 0);
             }
         }
     }

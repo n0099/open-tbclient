@@ -1,75 +1,94 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.service.IPCService;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class oaa {
+public class oaa implements aba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public float b;
-    public long c;
+    public cba a;
+    public IPCService b;
+    public dba c;
 
-    public oaa(String str, long j, boolean z, float f) {
+    public oaa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), Boolean.valueOf(z), Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = j;
-        this.a = z;
-        this.b = f;
     }
 
-    public float a() {
+    @Override // com.baidu.tieba.aba
+    public xaa a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            if (this.a == null) {
+                this.a = new cba();
+            }
+            return this.a;
         }
-        return invokeV.floatValue;
+        return (xaa) invokeV.objValue;
     }
 
-    public boolean b() {
+    @Override // com.baidu.tieba.aba
+    public zaa b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            if (this.b == null) {
+                this.b = new IPCService();
+            }
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (zaa) invokeV.objValue;
     }
 
-    public long c() {
+    @Override // com.baidu.tieba.aba
+    public z9a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return vaa.b();
         }
-        return invokeV.longValue;
+        return (z9a) invokeV.objValue;
     }
 
-    public boolean d(boolean z, float f) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.aba
+    public daa d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Float.valueOf(f)})) == null) {
-            if (z && Math.abs(this.b - f) < 0.001f) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return vaa.c();
         }
-        return invokeCommon.booleanValue;
+        return (daa) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.aba
+    public yaa e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c == null) {
+                this.c = new dba();
+            }
+            return this.c;
+        }
+        return (yaa) invokeV.objValue;
     }
 }

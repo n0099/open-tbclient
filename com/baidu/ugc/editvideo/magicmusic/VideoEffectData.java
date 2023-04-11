@@ -1,9 +1,9 @@
 package com.baidu.ugc.editvideo.magicmusic;
 
 import android.text.TextUtils;
-import com.baidu.tieba.m7a;
-import com.baidu.tieba.r7a;
-import com.baidu.tieba.y4a;
+import com.baidu.tieba.dha;
+import com.baidu.tieba.iha;
+import com.baidu.tieba.pea;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,11 +19,11 @@ public class VideoEffectData implements Serializable, Cloneable {
         if (videoEffectData == null) {
             return false;
         }
-        return !r7a.e(videoEffectData.mMagicEffectList) || hasReverseTimeEffect(videoEffectData) || hasRepeatTimeEffect(videoEffectData);
+        return !iha.e(videoEffectData.mMagicEffectList) || hasReverseTimeEffect(videoEffectData) || hasRepeatTimeEffect(videoEffectData);
     }
 
     public static boolean hasMagicEffect(VideoEffectData videoEffectData) {
-        return (videoEffectData == null || r7a.e(videoEffectData.getMagicEffectList())) ? false : true;
+        return (videoEffectData == null || iha.e(videoEffectData.getMagicEffectList())) ? false : true;
     }
 
     public static boolean hasRepeatTimeEffect(VideoEffectData videoEffectData) {
@@ -42,7 +42,7 @@ public class VideoEffectData implements Serializable, Cloneable {
             if (str.contains("SCALE_SMALL")) {
                 str = str.replace("SCALE_SMALL", "NINE_FRAME");
             }
-            return (VideoEffectData) new y4a().b(str, VideoEffectData.class);
+            return (VideoEffectData) new pea().b(str, VideoEffectData.class);
         } catch (Exception unused) {
             return null;
         }
@@ -53,7 +53,7 @@ public class VideoEffectData implements Serializable, Cloneable {
             return null;
         }
         try {
-            return new y4a().a(videoEffectData);
+            return new pea().a(videoEffectData);
         } catch (Exception unused) {
             return null;
         }
@@ -62,7 +62,7 @@ public class VideoEffectData implements Serializable, Cloneable {
     public Object clone() {
         VideoEffectData videoEffectData = new VideoEffectData();
         try {
-            if (!r7a.e(this.mMagicEffectList)) {
+            if (!iha.e(this.mMagicEffectList)) {
                 ArrayList arrayList = new ArrayList();
                 for (BaseEffect baseEffect : this.mMagicEffectList) {
                     arrayList.add((BaseEffect) baseEffect.clone());
@@ -72,7 +72,7 @@ public class VideoEffectData implements Serializable, Cloneable {
             if (this.mTimeEffect != null) {
                 videoEffectData.setTimeEffect((BaseEffect) this.mTimeEffect.clone());
             }
-            if (!r7a.e(this.mTransitionEffectList)) {
+            if (!iha.e(this.mTransitionEffectList)) {
                 CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
                 for (BaseEffect baseEffect2 : this.mTransitionEffectList) {
                     copyOnWriteArrayList.add((BaseEffect) baseEffect2.clone());
@@ -80,7 +80,7 @@ public class VideoEffectData implements Serializable, Cloneable {
                 videoEffectData.setTransitionEffectList(copyOnWriteArrayList);
             }
         } catch (Exception e) {
-            m7a.g(e);
+            dha.g(e);
         }
         return videoEffectData;
     }
@@ -110,11 +110,11 @@ public class VideoEffectData implements Serializable, Cloneable {
                     return false;
                 }
             }
-            if (r7a.e(this.mMagicEffectList)) {
-                if (!r7a.e(videoEffectData.mMagicEffectList)) {
+            if (iha.e(this.mMagicEffectList)) {
+                if (!iha.e(videoEffectData.mMagicEffectList)) {
                     return false;
                 }
-            } else if (r7a.e(videoEffectData.mMagicEffectList) || this.mMagicEffectList.size() != videoEffectData.mMagicEffectList.size()) {
+            } else if (iha.e(videoEffectData.mMagicEffectList) || this.mMagicEffectList.size() != videoEffectData.mMagicEffectList.size()) {
                 return false;
             } else {
                 for (int i = 0; i < this.mMagicEffectList.size(); i++) {

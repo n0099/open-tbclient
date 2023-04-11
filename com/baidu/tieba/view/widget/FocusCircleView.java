@@ -53,7 +53,7 @@ public class FocusCircleView extends View {
 
         /* renamed from: com.baidu.tieba.view.widget.FocusCircleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0449a implements Animator.AnimatorListener {
+        public class C0459a implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -79,7 +79,7 @@ public class FocusCircleView extends View {
                 }
             }
 
-            public C0449a(a aVar) {
+            public C0459a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,7 +141,7 @@ public class FocusCircleView extends View {
                     FocusCircleView focusCircleView = this.a;
                     focusCircleView.d = ObjectAnimator.ofFloat(focusCircleView, Key.ALPHA, 1.0f, 0.0f);
                     this.a.d.setDuration(960L);
-                    this.a.d.addListener(new C0449a(this));
+                    this.a.d.addListener(new C0459a(this));
                 }
                 this.a.d.start();
             }
@@ -260,7 +260,7 @@ public class FocusCircleView extends View {
             this.a.setColor(Color.parseColor("#ffffffff"));
             this.a.setStrokeWidth(this.b);
             setAlpha(0.0f);
-            this.f = BitmapHelper.resizeBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080445), 180);
+            this.f = BitmapHelper.resizeBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080442), 180);
         }
     }
 }

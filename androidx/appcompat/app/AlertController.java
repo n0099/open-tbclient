@@ -595,8 +595,8 @@ public class AlertController {
     }
 
     private void setScrollIndicators(ViewGroup viewGroup, View view2, int i, int i2) {
-        final View findViewById = this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f8e);
-        final View findViewById2 = this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f8d);
+        final View findViewById = this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f7c);
+        final View findViewById2 = this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f7b);
         if (Build.VERSION.SDK_INT >= 23) {
             ViewCompat.setScrollIndicators(view2, i, i2);
             if (findViewById != null) {
@@ -731,7 +731,7 @@ public class AlertController {
     }
 
     private void setupContent(ViewGroup viewGroup) {
-        NestedScrollView nestedScrollView = (NestedScrollView) this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f8f);
+        NestedScrollView nestedScrollView = (NestedScrollView) this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f7d);
         this.mScrollView = nestedScrollView;
         nestedScrollView.setFocusable(false);
         this.mScrollView.setNestedScrollingEnabled(false);
@@ -774,7 +774,7 @@ public class AlertController {
             this.mWindow.setFlags(131072, 131072);
         }
         if (z) {
-            FrameLayout frameLayout = (FrameLayout) this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0907f6);
+            FrameLayout frameLayout = (FrameLayout) this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0907fa);
             frameLayout.addView(view2, new ViewGroup.LayoutParams(-1, -1));
             if (this.mViewSpacingSpecified) {
                 frameLayout.setPadding(this.mViewSpacingLeft, this.mViewSpacingTop, this.mViewSpacingRight, this.mViewSpacingBottom);
@@ -791,12 +791,12 @@ public class AlertController {
     private void setupTitle(ViewGroup viewGroup) {
         if (this.mCustomTitleView != null) {
             viewGroup.addView(this.mCustomTitleView, 0, new ViewGroup.LayoutParams(-1, -2));
-            this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092428).setVisibility(8);
+            this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09241d).setVisibility(8);
             return;
         }
         this.mIconView = (ImageView) this.mWindow.findViewById(16908294);
         if ((!TextUtils.isEmpty(this.mTitle)) && this.mShowTitle) {
-            TextView textView = (TextView) this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090271);
+            TextView textView = (TextView) this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09026a);
             this.mTitleView = textView;
             textView.setText(this.mTitle);
             int i = this.mIconId;
@@ -813,7 +813,7 @@ public class AlertController {
             this.mIconView.setVisibility(8);
             return;
         }
-        this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092428).setVisibility(8);
+        this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09241d).setVisibility(8);
         this.mIconView.setVisibility(8);
         viewGroup.setVisibility(8);
     }
@@ -829,15 +829,15 @@ public class AlertController {
         View findViewById;
         ListAdapter listAdapter;
         View findViewById2;
-        View findViewById3 = this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091921);
-        View findViewById4 = findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092470);
-        View findViewById5 = findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090787);
-        View findViewById6 = findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0904f4);
-        ViewGroup viewGroup = (ViewGroup) findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0907f7);
+        View findViewById3 = this.mWindow.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091923);
+        View findViewById4 = findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092465);
+        View findViewById5 = findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09078b);
+        View findViewById6 = findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0904f5);
+        ViewGroup viewGroup = (ViewGroup) findViewById3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0907fb);
         setupCustomContent(viewGroup);
-        View findViewById7 = viewGroup.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092470);
-        View findViewById8 = viewGroup.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090787);
-        View findViewById9 = viewGroup.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0904f4);
+        View findViewById7 = viewGroup.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092465);
+        View findViewById8 = viewGroup.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09078b);
+        View findViewById9 = viewGroup.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0904f5);
         ViewGroup resolvePanel = resolvePanel(findViewById7, findViewById4);
         ViewGroup resolvePanel2 = resolvePanel(findViewById8, findViewById5);
         ViewGroup resolvePanel3 = resolvePanel(findViewById9, findViewById6);
@@ -860,7 +860,7 @@ public class AlertController {
         } else {
             z3 = false;
         }
-        if (!z3 && resolvePanel2 != null && (findViewById2 = resolvePanel2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092302)) != null) {
+        if (!z3 && resolvePanel2 != null && (findViewById2 = resolvePanel2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0922f4)) != null) {
             findViewById2.setVisibility(0);
         }
         if (z2) {
@@ -870,12 +870,12 @@ public class AlertController {
             }
             View view2 = null;
             if (this.mMessage != null || this.mListView != null) {
-                view2 = resolvePanel.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092400);
+                view2 = resolvePanel.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0923f4);
             }
             if (view2 != null) {
                 view2.setVisibility(0);
             }
-        } else if (resolvePanel2 != null && (findViewById = resolvePanel2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092303)) != null) {
+        } else if (resolvePanel2 != null && (findViewById = resolvePanel2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0922f5)) != null) {
             findViewById.setVisibility(0);
         }
         ListView listView = this.mListView;

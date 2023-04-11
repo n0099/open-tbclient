@@ -1,77 +1,108 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import java.util.List;
 /* loaded from: classes3.dex */
-public interface cg5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("AlaLiveSdk", "IMSdkService");
-    public static final Comparator<ChatMsg> b = new a();
+public class cg5 extends ag5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    void a(@NonNull Context context, @NonNull List<Long> list, @NonNull mg5 mg5Var);
+    @Override // com.baidu.tieba.ag5
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "resize" : (String) invokeV.objValue;
+    }
 
-    void b(@NonNull Context context, long j, long j2, int i, boolean z, boolean z2, @Nullable pg5 pg5Var, @NonNull og5 og5Var);
-
-    void c(@NonNull Context context, @NonNull List<Long> list, @NonNull mg5 mg5Var);
-
-    void d(@NonNull Context context, @NonNull String str, @NonNull List<Long> list, @NonNull jg5 jg5Var);
-
-    void e(@NonNull ng5 ng5Var);
-
-    void f(@NonNull Context context, @NonNull String str, @NonNull List<Long> list, @NonNull kg5 kg5Var);
-
-    void g(@NonNull ng5 ng5Var);
-
-    void h(@NonNull Context context, @NonNull String str, @NonNull List<Long> list);
-
-    void i(@NonNull Context context, long j, @NonNull ChatMsg chatMsg, @NonNull qg5 qg5Var);
-
-    /* loaded from: classes3.dex */
-    public static class a implements Comparator<ChatMsg> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public cg5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(ChatMsg chatMsg, ChatMsg chatMsg2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMsg, chatMsg2)) == null) {
-                if (TextUtils.equals(chatMsg.getMsgKey(), chatMsg2.getMsgKey())) {
-                    return 0;
-                }
-                if (chatMsg.getMsgId() - chatMsg2.getMsgId() > 0) {
-                    return 1;
-                }
-                return -1;
-            }
-            return invokeLL.intValue;
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public static ImageOperation g(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
+            ImageOperation imageOperation = new ImageOperation();
+            imageOperation.actionName = "resize";
+            imageOperation.actionParam = i + "," + i2;
+            return imageOperation;
+        }
+        return (ImageOperation) invokeII.objValue;
+    }
+
+    @Override // com.baidu.tieba.ag5
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            TbImageMemoryCache.s().q(BitmapHelper.getBitmapSize(bitmap) * 2);
+            return BitmapHelper.resizeBitmap(bitmap, this.a, this.b, z);
+        }
+        return (Bitmap) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.ag5
+    public Bitmap c(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return b(BitmapHelper.loadResizedBitmap(str, this.a, this.b), true);
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ag5
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || str == null) {
+            return;
+        }
+        String[] split = str.split(",");
+        if (split.length != 2) {
+            return;
+        }
+        this.a = gg.e(split[0], 0);
+        this.b = gg.e(split[1], 0);
     }
 }

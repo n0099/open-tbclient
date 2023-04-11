@@ -1,31 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ku4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ku4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, JSONObject> a;
+    public final Context a;
+    public final View b;
+    public final ThreadAchievementShareInfo.ParamBean c;
+    public TbRichTextView d;
+    public wu5 e;
+    public TbImageView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public TextView j;
+    public TextView k;
 
-    public ku4() {
+    public ku4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, threadAchievementShareInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,64 +54,96 @@ public class ku4 {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.a = context;
+        this.b = LayoutInflater.from(context).inflate(R.layout.normal_interaction_achievement, (ViewGroup) null);
+        this.c = threadAchievementShareInfo.getParams();
+        c();
+        b();
     }
 
-    public static ku4 c() {
+    public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ku4.class) {
-                    if (b == null) {
-                        b = new ku4();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c.getContent() != null && this.c.getContent().size() != 0) {
+            JSONArray jSONArray = new JSONArray();
+            ThreadAchievementShareInfo.ContentBean contentBean = null;
+            for (ThreadAchievementShareInfo.ContentBean contentBean2 : this.c.getContent()) {
+                if (contentBean2.getType() == 0) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("type", "0");
+                        jSONObject.put("text", contentBean2.getText());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
+                    jSONArray.put(jSONObject);
+                } else if (contentBean2.getType() == 3) {
+                    contentBean = contentBean2;
                 }
             }
-            return b;
-        }
-        return (ku4) invokeV.objValue;
-    }
-
-    public void a(String str, String str2, String str3, String str4) {
-        HashMap<String, JSONObject> hashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) && StringUtils.isNotNull(str) && (hashMap = this.a) != null && hashMap.get(str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("apkName", str2);
-                jSONObject.put("source", str3 + "");
-                jSONObject.put("apkUrl", str4);
-                this.a.put(str, jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (!TextUtils.isEmpty(this.c.getThread_title())) {
+                this.g.setText(this.c.getThread_title());
+                this.g.setVisibility(0);
+                this.d.setMaxLines(6);
+            } else {
+                ((LinearLayout.LayoutParams) this.d.getLayoutParams()).topMargin = ii.g(this.a, R.dimen.tbds20);
+                this.d.setMaxLines(8);
             }
-        }
-    }
-
-    public void b(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) {
-            StatisticItem param = new StatisticItem(str).param("obj_source", str2).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", str3);
-            if (StringUtils.isNotNull(str4)) {
-                param.param(TiebaStatic.Params.OBJ_URL, str4);
-            }
-            TiebaStatic.log(param);
-        }
-    }
-
-    public void d(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
-            String g = cf5.g(intent);
-            HashMap<String, JSONObject> hashMap = this.a;
-            if (hashMap != null && hashMap.get(g) != null) {
-                JSONObject jSONObject = this.a.get(g);
-                if (jSONObject != null) {
-                    b(TbadkCoreStatisticKey.INSTALL_APK_COMPLETION, jSONObject.optString("source"), jSONObject.optString("apkName"), jSONObject.optString("apkUrl"));
+            this.d.setTextEllipsize(TextUtils.TruncateAt.END);
+            this.d.setMinimumHeight(ii.g(this.a, R.dimen.tbds516));
+            if (contentBean != null && !TextUtils.isEmpty(contentBean.getSrc()) && this.c.getThread_type().contains("pic")) {
+                this.f.setVisibility(0);
+                this.f.setDefaultBgResource(R.color.transparent);
+                this.f.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.f.setPlaceHolder(2);
+                this.f.N(contentBean.getSrc(), 10, false);
+                if (!TextUtils.isEmpty(this.c.getThread_title())) {
+                    this.d.setVisibility(8);
+                } else {
+                    this.d.setMaxLines(2);
+                    this.d.setTextEllipsize(TextUtils.TruncateAt.END);
+                    this.d.setLayoutStrategy(this.e);
+                    this.d.setMinimumHeight(ii.g(this.a, R.dimen.tbds0));
                 }
-                this.a.remove(g);
             }
+            this.d.setText(TbRichTextView.Z(jSONArray, false));
+            this.k.setText(StringHelper.numFormatOverWanWithNegative(this.c.getAgree_num()));
+            this.h.setText(StringHelper.numFormatOverWanWithNegative(this.c.getPost_num()));
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.h = (TextView) this.b.findViewById(R.id.comment_num);
+            this.i = (TextView) this.b.findViewById(R.id.comment_desc);
+            this.j = (TextView) this.b.findViewById(R.id.praise_desc);
+            this.k = (TextView) this.b.findViewById(R.id.praise_num);
+            this.g = (TextView) this.b.findViewById(R.id.thread_title);
+            this.f = (TbImageView) this.b.findViewById(R.id.main_img);
+            this.d = (TbRichTextView) this.b.findViewById(R.id.rich_text);
+            this.k.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            wu5 wu5Var = new wu5();
+            this.e = wu5Var;
+            wu5Var.u(ii.g(this.a, R.dimen.tbds38));
+            this.e.x(ii.g(this.a, R.dimen.tbds42));
+            this.e.k(ii.g(this.a, R.dimen.tbds23));
+            this.e.p(ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);
+            this.e.j(ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+            this.d.setLayoutStrategy(this.e);
+            this.d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }
 }

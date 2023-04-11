@@ -4,7 +4,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import com.yy.hiidostatis.inner.util.StringUtil;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class StatisContent extends BaseStatisContent {
     public static AtomicInteger TMP_START_ID = new AtomicInteger(0);
     public String mAct;
@@ -18,7 +18,7 @@ public class StatisContent extends BaseStatisContent {
     public Priority priority = Priority.PRIORITY_NORMAL;
     public int tmpId = TMP_START_ID.incrementAndGet();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum Priority {
         PRIORITY_HIGH,
         PRIORITY_NORMAL,

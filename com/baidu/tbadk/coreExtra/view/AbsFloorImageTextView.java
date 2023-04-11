@@ -13,9 +13,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dq5;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.mj8;
+import com.baidu.tieba.cu8;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.jr5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,8 +34,8 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageUrlData a;
-    public mj8.a b;
-    public mj8 c;
+    public cu8.a b;
+    public cu8 c;
 
     public abstract void e(boolean z);
 
@@ -48,12 +48,12 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements mj8.a {
+    public class a implements cu8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsFloorImageTextView a;
 
-        @Override // com.baidu.tieba.mj8.a
+        @Override // com.baidu.tieba.cu8.a
         public boolean a(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeLL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.mj8.a
+        @Override // com.baidu.tieba.cu8.a
         public boolean c(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             this.a = absFloorImageTextView;
         }
 
-        @Override // com.baidu.tieba.mj8.a
+        @Override // com.baidu.tieba.cu8.a
         public boolean b(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -104,12 +104,12 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends mj8 {
+    public class b extends cu8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsFloorImageTextView d;
 
-        @Override // com.baidu.tieba.mj8, android.view.GestureDetector.OnGestureListener
+        @Override // com.baidu.tieba.cu8, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeCommon.booleanValue;
         }
 
-        @Override // com.baidu.tieba.mj8, android.view.GestureDetector.OnGestureListener
+        @Override // com.baidu.tieba.cu8, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(AbsFloorImageTextView absFloorImageTextView, mj8.a aVar) {
+        public b(AbsFloorImageTextView absFloorImageTextView, cu8.a aVar) {
             super(aVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -141,7 +141,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((mj8.a) newInitContext.callArgs[0]);
+                    super((cu8.a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -164,12 +164,12 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                 return;
             }
         }
-        d = hi.g(TbadkApplication.getInst(), R.dimen.tbds34);
-        e = hi.g(TbadkApplication.getInst(), R.dimen.tbds28);
-        f = hi.g(TbadkApplication.getInst(), R.dimen.tbds44);
-        g = hi.g(TbadkApplication.getInst(), R.dimen.tbds44);
-        h = (hi.l(TbadkApplication.getInst()) - f) - g;
-        i = hi.g(TbadkApplication.getInst(), R.dimen.tbds42);
+        d = ii.g(TbadkApplication.getInst(), R.dimen.tbds34);
+        e = ii.g(TbadkApplication.getInst(), R.dimen.tbds28);
+        f = ii.g(TbadkApplication.getInst(), R.dimen.tbds44);
+        g = ii.g(TbadkApplication.getInst(), R.dimen.tbds44);
+        h = (ii.l(TbadkApplication.getInst()) - f) - g;
+        i = ii.g(TbadkApplication.getInst(), R.dimen.tbds42);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -206,7 +206,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return dq5.j(str, i, h);
+            return jr5.i(str, i, h);
         }
         return (Pair) invokeL.objValue;
     }

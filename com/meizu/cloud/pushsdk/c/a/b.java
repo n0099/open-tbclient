@@ -119,7 +119,7 @@ public class b<T extends b> {
 
     /* renamed from: com.meizu.cloud.pushsdk.c.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0663b<T extends C0663b> {
+    public static class C0664b<T extends C0664b> {
         public final String c;
         public Object d;
         public Bitmap.Config e;
@@ -134,7 +134,7 @@ public class b<T extends b> {
         public final HashMap<String, String> k = new HashMap<>();
         public final int b = 0;
 
-        public C0663b(String str) {
+        public C0664b(String str) {
             this.c = str;
         }
 
@@ -256,7 +256,7 @@ public class b<T extends b> {
         this.K = aVar.k;
     }
 
-    public b(C0663b c0663b) {
+    public b(C0664b c0664b) {
         this.j = new HashMap<>();
         this.k = new HashMap<>();
         this.l = new HashMap<>();
@@ -270,19 +270,19 @@ public class b<T extends b> {
         this.D = 0;
         this.L = null;
         this.d = 0;
-        this.b = c0663b.b;
-        this.c = c0663b.a;
-        this.e = c0663b.c;
-        this.g = c0663b.d;
-        this.i = c0663b.i;
-        this.F = c0663b.e;
-        this.H = c0663b.g;
-        this.G = c0663b.f;
-        this.I = c0663b.h;
-        this.m = c0663b.j;
-        this.n = c0663b.k;
-        this.J = c0663b.l;
-        this.K = c0663b.m;
+        this.b = c0664b.b;
+        this.c = c0664b.a;
+        this.e = c0664b.c;
+        this.g = c0664b.d;
+        this.i = c0664b.i;
+        this.F = c0664b.e;
+        this.H = c0664b.g;
+        this.G = c0664b.f;
+        this.I = c0664b.h;
+        this.m = c0664b.j;
+        this.n = c0664b.k;
+        this.J = c0664b.l;
+        this.K = c0664b.m;
     }
 
     public b(c cVar) {

@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
-import com.baidu.tieba.gn;
-import com.baidu.tieba.o29;
-import com.baidu.tieba.r29;
-import com.baidu.tieba.yx4;
+import com.baidu.tieba.ay4;
+import com.baidu.tieba.fc9;
+import com.baidu.tieba.hn;
+import com.baidu.tieba.ic9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerListData bannerListData;
-    public ArrayList<gn> threadList;
+    public ArrayList<hn> threadList;
     public HashMap<String, MetaData> userMap;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,7 +61,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
         return (BannerListData) invokeV.objValue;
     }
 
-    public ArrayList<gn> getThreadList() {
+    public ArrayList<hn> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -96,7 +96,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            o29.e().h(threadListResIdl.data.asp_shown_info);
+            fc9.e().h(threadListResIdl.data.asp_shown_info);
             long j = 0;
             Message<?> orginalMessage2 = getOrginalMessage();
             if (orginalMessage2 != null && (orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
@@ -121,18 +121,18 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     threadData.parser_title();
                     threadData.isFromBrandForum = z;
                     if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                        yx4 yx4Var = new yx4();
-                        yx4Var.g(threadData.getLegoCard());
-                        this.threadList.add(yx4Var);
+                        ay4 ay4Var = new ay4();
+                        ay4Var.e(threadData.getLegoCard());
+                        this.threadList.add(ay4Var);
                     } else {
                         this.threadList.add(threadData);
-                        JSONObject b = r29.b(threadInfo);
+                        JSONObject b = ic9.b(threadInfo);
                         if (b != null) {
                             arrayList.add(b);
                         }
                     }
                 }
-                r29.f().h("FRS", arrayList);
+                ic9.f().h("FRS", arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

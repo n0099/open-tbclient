@@ -6,8 +6,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tieba.do1;
-import com.baidu.tieba.ld3;
+import com.baidu.tieba.eo1;
+import com.baidu.tieba.md3;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,8 +25,8 @@ public final class SoUtils {
     public static final String SO_EVENT_ID_NEW_SO = "25";
     public static final String SO_EVENT_ID_V8_SO = "26";
     public static final String TAG = "SoUtils";
-    public static final boolean DEBUG = do1.a;
-    public static a sUbcImpl = new ld3();
+    public static final boolean DEBUG = eo1.a;
+    public static a sUbcImpl = new md3();
     public static String[] uris = {"lib/armeabi", "lib/arm64-v8a"};
 
     /* loaded from: classes3.dex */

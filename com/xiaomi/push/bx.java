@@ -12,7 +12,7 @@ public class bx extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo219a() {
+    public String mo221a() {
         return "10052";
     }
 

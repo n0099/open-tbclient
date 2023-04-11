@@ -16,9 +16,9 @@ import com.baidu.tieba.hf;
 import com.baidu.tieba.jf;
 import com.baidu.tieba.kf;
 import com.baidu.tieba.lf;
-import com.baidu.tieba.m35;
 import com.baidu.tieba.mf;
-import com.baidu.tieba.oi;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -336,7 +336,7 @@ public class WebClient implements ag.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (m35.m().n("image_no_cache_switch", 0) != 1) {
+            if (p45.m().n("image_no_cache_switch", 0) != 1) {
                 return true;
             }
             return this.needCache;
@@ -432,7 +432,7 @@ public class WebClient implements ag.a {
                 if (this.mIsRequestSuccess && ((z || z2) && new String(downloadBytesInternal, 0, 23).equalsIgnoreCase(IMAGESECRET))) {
                     downloadBytesInternal = copyOfRange(downloadBytesInternal, 23, downloadBytesInternal.length);
                 }
-                if (downloadBytesInternal.length == 4262 && "E9FA8E3AF5271BBFA7BDDBCAD1E8BE5B".equals(oi.d(downloadBytesInternal))) {
+                if (downloadBytesInternal.length == 4262 && "E9FA8E3AF5271BBFA7BDDBCAD1E8BE5B".equals(pi.d(downloadBytesInternal))) {
                     TiebaStatic.log(new StatisticItem("image_time_err").addParam("obj_source", str).addParam("obj_param1", TbadkCoreApplication.getInst().getCurrentActivity() + "").addParam(TiebaStatic.Params.OBJ_PARAM2, System.currentTimeMillis()));
                 }
                 return downloadBytesInternal;

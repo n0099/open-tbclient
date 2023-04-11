@@ -1,182 +1,92 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.view.NavigationBarCoverTip;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.Arrays;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class m85 {
     public static /* synthetic */ Interceptable $ic;
-    public static m85 c;
+    public static final List<String> a;
+    public static List<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public h85 a;
-    public String b;
 
-    public m85() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926559, "Lcom/baidu/tieba/m85;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947926559, "Lcom/baidu/tieba/m85;");
                 return;
             }
         }
-        this.a = b();
+        a = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
     }
 
-    public static m85 c() {
-        InterceptResult invokeV;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        String s;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (m85.class) {
-                    if (c == null) {
-                        c = new m85();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (hi.isEmpty(str)) {
+                return false;
+            }
+            Uri parse = Uri.parse(str);
+            if (parse != null && "file".equals(parse.getScheme()) && parse.getPath() != null && parse.getPath().contains("bdtbNWCache")) {
+                return true;
+            }
+            if (b == null && (s = p45.m().s("js_host_white_list", null)) != null) {
+                b = b(s);
+            }
+            if (b == null) {
+                b = a;
+            }
+            if (parse != null) {
+                for (String str2 : b) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        String host = parse.getHost();
+                        if (!TextUtils.isEmpty(host) && host.endsWith(str2)) {
+                            return true;
+                        }
                     }
                 }
             }
-            return c;
-        }
-        return (m85) invokeV.objValue;
-    }
-
-    public final h85 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, h85.class);
-            if (runTask != null) {
-                return (h85) runTask.getData();
-            }
-            return null;
-        }
-        return (h85) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            h85 h85Var = this.a;
-            if (h85Var != null) {
-                return h85Var.g();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            h85 h85Var = this.a;
-            if (h85Var != null) {
-                return h85Var.b();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            h85 h85Var = this.a;
-            if (h85Var != null) {
-                return h85Var.a();
-            }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public void l() {
-        h85 h85Var;
+    public static List<String> b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (h85Var = this.a) != null) {
-            h85Var.c();
-        }
-    }
-
-    public void a(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z) {
-        h85 h85Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), tbPageContext, viewGroup, Boolean.valueOf(z)}) == null) && (h85Var = this.a) != null) {
-            h85Var.f(i, tbPageContext, viewGroup, z);
-        }
-    }
-
-    public void h(boolean z, int i, int i2) {
-        h85 h85Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) && (h85Var = this.a) != null) {
-            h85Var.i(z, i, i2);
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public NavigationBarCoverTip j(Activity activity, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, viewGroup)) == null) {
-            h85 h85Var = this.a;
-            if (h85Var != null) {
-                return h85Var.e(activity, viewGroup);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (hi.isEmpty(str)) {
+                return null;
             }
-            return null;
+            return Arrays.asList(str.split(ParamableElem.DIVIDE_PARAM));
         }
-        return (NavigationBarCoverTip) invokeLL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public void m(boolean z, long j) {
-        h85 h85Var;
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) && (h85Var = this.a) != null) {
-            h85Var.h(z, j);
-        }
-    }
-
-    public Dialog k(int i, TbPageContext tbPageContext, nu5 nu5Var, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), tbPageContext, nu5Var, Boolean.valueOf(z)})) == null) {
-            h85 h85Var = this.a;
-            if (h85Var != null) {
-                return h85Var.d(i, tbPageContext, nu5Var, z);
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            if (str == null) {
+                p45.m().B("js_host_white_list", "");
+            } else {
+                p45.m().B("js_host_white_list", str);
             }
-            return null;
+            b = b(str);
         }
-        return (Dialog) invokeCommon.objValue;
     }
 }

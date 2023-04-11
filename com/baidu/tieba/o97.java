@@ -3,97 +3,40 @@ package com.baidu.tieba;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.frs.entelechy.adapter.FrsVideoActivityViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.FrsPage.RecmForumInfo;
+import java.util.Calendar;
 /* loaded from: classes5.dex */
-public class o97 extends ef5 {
+public class o97 extends y47<mk9, FrsVideoActivityViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView a;
-    public TextView b;
-    public BdListView c;
-    public a d;
-    public a9 e;
-    public View f;
-    public TextView g;
-    public TextView h;
+    public String l;
 
     /* loaded from: classes5.dex */
-    public class a extends BaseAdapter {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<RecmForumInfo> a;
+        public final /* synthetic */ mk9 a;
         public final /* synthetic */ o97 b;
 
-        @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-        }
-
-        /* renamed from: com.baidu.tieba.o97$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0364a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ int a;
-            public final /* synthetic */ a b;
-
-            public View$OnClickListenerC0364a(a aVar, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Integer.valueOf(i)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = i;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !StringUtils.isNull(this.b.getItem(this.a).forum_name)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.b.b.e.getContext()).createNormalCfg(this.b.getItem(this.a).forum_name, null)));
-                }
-            }
-        }
-
-        public a(o97 o97Var, List<RecmForumInfo> list) {
+        public a(o97 o97Var, mk9 mk9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {o97Var, list};
+                Object[] objArr = {o97Var, mk9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -104,188 +47,123 @@ public class o97 extends ef5 {
                 }
             }
             this.b = o97Var;
-            this.a = list;
+            this.a = mk9Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.widget.Adapter
-        /* renamed from: a */
-        public RecmForumInfo getItem(int i) {
-            InterceptResult invokeI;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                return this.a.get(i);
-            }
-            return (RecmForumInfo) invokeI.objValue;
-        }
-
-        @Override // android.widget.Adapter
-        public int getCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.size();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // android.widget.Adapter
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            InterceptResult invokeILL;
-            b bVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-                if (view2 == null) {
-                    view2 = LayoutInflater.from(this.b.e.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07e0, (ViewGroup) null);
-                    bVar = new b();
-                    bVar.f = view2.findViewById(R.id.obfuscated_res_0x7f091e45);
-                    bVar.a = (TextView) view2.findViewById(R.id.forum_name);
-                    bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b31);
-                    bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923a5);
-                    bVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902cc);
-                    bVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ebf);
-                    bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b30);
-                    bVar.h = (TextView) view2.findViewById(R.id.thread_title);
-                    bVar.i = view2.findViewById(R.id.obfuscated_res_0x7f0908c1);
-                    bVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09078d);
-                    view2.setTag(bVar);
-                } else {
-                    bVar = (b) view2.getTag();
-                }
-                if (getItem(i) != null) {
-                    bVar.a.setText(StringHelper.cutChineseAndEnglishWithSuffix(getItem(i).forum_name, 14, StringHelper.STRING_MORE));
-                    bVar.e.M(getItem(i).avatar, 10, false);
-                    bVar.c.setText(StringHelper.numberUniformFormat(getItem(i).member_count.intValue()));
-                    bVar.b.setText(StringHelper.numberUniformFormat(getItem(i).post_num.intValue()));
-                    bVar.f.setOnClickListener(new View$OnClickListenerC0364a(this, i));
-                    SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0105);
-                    SkinManager.setViewTextColor(bVar.c, (int) R.color.CAM_X0109);
-                    SkinManager.setViewTextColor(bVar.b, (int) R.color.CAM_X0109);
-                    SkinManager.setViewTextColor(bVar.h, (int) R.color.CAM_X0109);
-                    SkinManager.setViewTextColor(bVar.g, (int) R.color.CAM_X0109);
-                    SkinManager.setBackgroundResource(bVar.i, R.color.CAM_X0204);
-                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(bVar.d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-                    SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-                    SkinManager.setBackgroundResource(bVar.j, R.drawable.picture_content_frame);
-                }
-                return view2;
-            }
-            return (View) invokeILL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public TextView c;
-        public ImageView d;
-        public TbImageView e;
-        public View f;
-        public TextView g;
-        public TextView h;
-        public View i;
-        public ImageView j;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                TiebaStatic.log(new StatisticItem("c12587").param("fid", this.b.l));
+                p45 m = p45.m();
+                m.A("frs_video_activity_tip" + this.b.l, System.currentTimeMillis());
+                mk9 mk9Var = this.a;
+                if (mk9Var != null && !StringUtils.isNull(mk9Var.b)) {
+                    it4.q(this.b.mContext, this.a.b);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o97(a9 a9Var, View.OnClickListener onClickListener) {
-        super(LayoutInflater.from(a9Var.getContext()).inflate(R.layout.obfuscated_res_0x7f0d02b6, (ViewGroup) null));
+    public o97(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a9Var, onClickListener};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = a9Var;
-        this.a = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
-        this.b = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
-        this.f = this.attachedView.findViewById(R.id.obfuscated_res_0x7f0908ae);
-        this.c = (BdListView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091d31);
-        this.attachedView.setOnClickListener(null);
-        this.g = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090796);
-        this.h = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09159d);
     }
 
-    public void b(List<RecmForumInfo> list) {
+    public void M(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.l = str;
         }
-        a aVar = new a(this, list);
-        this.d = aVar;
-        this.c.setAdapter((ListAdapter) aVar);
     }
 
-    public void c(String str) {
+    public final boolean I(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (str == null) {
-                this.b.setVisibility(8);
-                return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            if (j == 0) {
+                return true;
             }
-            this.b.setVisibility(0);
-            this.b.setText(str);
-        }
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && isViewAttached()) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            SkinManager.setImageResource(this.a, R.drawable.new_pic_emotion_01);
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0109, 1, skinType);
-            SkinManager.setBackgroundColor(this.attachedView, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.g, R.color.CAM_X0109, 1, skinType);
-            SkinManager.setViewTextColor(this.h, R.color.CAM_X0106, 1, skinType);
-            a aVar = this.d;
-            if (aVar != null) {
-                aVar.notifyDataSetChanged();
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - j > 86400000) {
+                return true;
             }
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(currentTimeMillis);
+            Calendar calendar2 = Calendar.getInstance();
+            calendar2.setTimeInMillis(j);
+            if (calendar.get(7) > calendar2.get(7)) {
+                return true;
+            }
+            return false;
         }
+        return invokeJ.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ef5
-    public void onViewAttached() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.um
+    /* renamed from: J */
+    public FrsVideoActivityViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onViewAttached();
-            onChangeSkinType();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0377, (ViewGroup) null);
+            FrsVideoActivityViewHolder frsVideoActivityViewHolder = new FrsVideoActivityViewHolder(inflate);
+            SkinManager.setViewTextColor(frsVideoActivityViewHolder.a, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(frsVideoActivityViewHolder.c, (int) R.color.CAM_X0301);
+            SkinManager.setImageResource(frsVideoActivityViewHolder.b, R.drawable.icon_news_list_prompt);
+            SkinManager.setImageResource(frsVideoActivityViewHolder.d, R.drawable.icon_index_category_arrow_r);
+            SkinManager.setBackgroundColor(frsVideoActivityViewHolder.e, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(frsVideoActivityViewHolder.f, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(inflate, R.drawable.home_thread_card_item_bg);
+            return frsVideoActivityViewHolder;
         }
+        return (FrsVideoActivityViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ef5
-    public void onViewDettached() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.y47, com.baidu.tieba.um
+    /* renamed from: K */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mk9 mk9Var, FrsVideoActivityViewHolder frsVideoActivityViewHolder) {
+        InterceptResult invokeCommon;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onViewDettached();
-            this.a.setImageResource(0);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mk9Var, frsVideoActivityViewHolder})) == null) {
+            if (view2 != null && frsVideoActivityViewHolder != null) {
+                view2.setOnClickListener(new a(this, mk9Var));
+                TextView textView = frsVideoActivityViewHolder.a;
+                if (mk9Var != null) {
+                    str = mk9Var.a;
+                } else {
+                    str = "";
+                }
+                textView.setText(str);
+                p45 m = p45.m();
+                if (I(m.o("frs_video_activity_tip" + this.l, 0L))) {
+                    frsVideoActivityViewHolder.b.setVisibility(0);
+                } else {
+                    frsVideoActivityViewHolder.b.setVisibility(8);
+                }
+                return frsVideoActivityViewHolder.getView();
+            }
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 }

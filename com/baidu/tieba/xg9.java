@@ -1,104 +1,197 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.res.Configuration;
+import android.os.Looper;
+import android.os.MessageQueue;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tieba.downloadball.DownloadFloatBallManager;
-import com.baidu.tieba.redtip.PersonRedTipManager;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class xg9 extends CustomMessageListener {
+/* loaded from: classes7.dex */
+public class xg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final df9 b;
-    public final se9 c;
+    public zg9 a;
+    public yg9 b;
+    public ah9 c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xg9(MainTabActivity mainTabActivity, se9 se9Var) {
-        super(2001371);
+    /* loaded from: classes7.dex */
+    public class a implements MessageQueue.IdleHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(xg9 xg9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xg9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_IDLE_END_STAMP_KEY);
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(xg9 xg9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xg9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_HANDLER_END_STAMP_KEY);
+            }
+        }
+    }
+
+    public xg9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, se9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
-        this.c = se9Var;
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && Build.VERSION.SDK_INT > 25) {
-            zk0.l().p();
         }
     }
 
-    public final void b() {
+    public void e() {
+        zg9 zg9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !MainTabActivity.Y) {
-            if (UbsABTestHelper.isAdRetargetNotificationRemindTest()) {
-                a();
-            }
-            lq5.a(1);
-            h95.i(HotEventData.getInstance());
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (zg9Var = this.a) != null) {
+            zg9Var.a(false);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        df9 df9Var;
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
-            b();
-            TbadkCoreApplication.getInst().syncHasFinish = true;
-            if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                if (!TbSingleton.getInstance().mIsSplashClick && (df9Var = this.b) != null && df9Var.b() != null) {
-                    if (UbsABTestHelper.isNewInterestShowTestA()) {
-                        this.b.b().d();
-                    } else {
-                        this.b.b().a();
-                    }
-                }
-                df9 df9Var2 = this.b;
-                if (df9Var2 != null && df9Var2.h() != null) {
-                    this.b.h().a();
-                }
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            yg9 yg9Var = this.b;
+            if (yg9Var != null) {
+                yg9Var.a();
             }
-            if (!MainTabActivity.Y && UbsABTestHelper.isAdRetargetTipsRemindTest()) {
-                new go5(this.a).o();
+            MessageManager.getInstance().runTask(2921555, (Class) null);
+        }
+    }
+
+    public void a(@NonNull BaseFragmentActivity baseFragmentActivity, @NonNull ViewGroup viewGroup, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLI(1048576, this, baseFragmentActivity, viewGroup, i) != null) || baseFragmentActivity == null) {
+            return;
+        }
+        SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_METHOD_START_STAMP_KEY);
+        b(baseFragmentActivity, viewGroup, i);
+        c();
+        SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_METHOD_END_STAMP_KEY);
+    }
+
+    public final void b(@NonNull BaseFragmentActivity baseFragmentActivity, @NonNull ViewGroup viewGroup, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, viewGroup, i) == null) {
+            dh9 dh9Var = new dh9(baseFragmentActivity, viewGroup, i);
+            this.a = dh9Var;
+            eh9 eh9Var = new eh9(dh9Var);
+            this.c = eh9Var;
+            this.b = new hh9(this.a, eh9Var);
+            viewGroup.setBackgroundResource(R.drawable.pic_splash_logo);
+            uj9.g().i(this.a.getUniqueId());
+            MessageManager.getInstance().runTask(2921668, (Class) null);
+            baseFragmentActivity.registerListener(new ch9(this.a, this.c));
+        }
+    }
+
+    public final void c() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            boolean q = kp5.q();
+            StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.REQUEST_AD_TIME).param("obj_type", "a064").param("tid", q ? 1 : 0).param(TiebaStatic.Params.BEAR_CONFIG, q ? 1 : 0).param(TiebaStatic.Params.PLG_CONFIG, kp5.w() ? 1 : 0);
+            int i2 = 2;
+            if (this.a.h()) {
+                i = 2;
+            } else {
+                i = 1;
             }
-            ch9 B1 = this.a.B1();
-            if (B1 != null) {
-                B1.c();
+            StatisticItem param2 = param.param("obj_param1", i);
+            if (!this.a.h()) {
+                i2 = 1;
             }
-            if (m35.m().i(m35.q("key_new_god_pop_is_show"), false)) {
-                PersonRedTipManager.getInstance().updateRedTipState(11, true, true);
+            param2.param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, this.a.i()).eventStat();
+            Looper.myQueue().addIdleHandler(new a(this));
+            jg.a().post(new b(this));
+            this.b.b();
+        }
+    }
+
+    public void d(Configuration configuration) {
+        yg9 yg9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) && (yg9Var = this.b) != null) {
+            yg9Var.onConfigurationChanged(configuration);
+        }
+    }
+
+    public void f() {
+        zg9 zg9Var;
+        ah9 ah9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (zg9Var = this.a) != null) {
+            zg9Var.a(true);
+            ol5 pageStayDurationItem = this.a.getActivity().getPageStayDurationItem();
+            if (pageStayDurationItem != null) {
+                pageStayDurationItem.r(this.a.getAdSource());
             }
-            MainTabActivity.Y = true;
-            this.c.O();
-            DownloadFloatBallManager.k().r(false, true);
+            if (this.a.f() && (ah9Var = this.c) != null) {
+                ah9Var.a();
+            }
         }
     }
 }

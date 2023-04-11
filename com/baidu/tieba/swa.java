@@ -1,336 +1,123 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.SystemClock;
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.DnsResultInfo;
-import com.yy.gslbsdk.GslbEvent;
-import com.yy.gslbsdk.HttpDnsService;
-import com.yy.gslbsdk.thread.ThreadPoolMgr;
-import com.yy.mobile.framework.revenuesdk.baseapi.Env;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayNetStateStatistics;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import okhttp3.Dns;
 /* loaded from: classes6.dex */
-public class swa implements Dns {
-    public static /* synthetic */ Interceptable $ic;
-    public static CopyOnWriteArrayList<IPayNetStateStatistics> c;
+public class swa {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "BaseKeyUtil";
     public transient /* synthetic */ FieldHolder $fh;
-    public HttpDnsService a;
-    public volatile boolean b;
-
-    /* loaded from: classes6.dex */
-    public class a implements GslbEvent.GslbEventListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.yy.gslbsdk.GslbEvent.GslbEventListener
-        public void onMessage(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        public a(swa swaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final swa a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-417069330, "Lcom/baidu/tieba/swa$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-417069330, "Lcom/baidu/tieba/swa$b;");
-                    return;
-                }
-            }
-            a = new swa(null);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948167212, "Lcom/baidu/tieba/swa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948167212, "Lcom/baidu/tieba/swa;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948167212, "Lcom/baidu/tieba/swa;")) == null) {
+            return;
         }
-        c = new CopyOnWriteArrayList<>();
-    }
-
-    public static swa c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return b.a;
-        }
-        return (swa) invokeV.objValue;
-    }
-
-    public swa() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = null;
-        this.b = true;
-        RLog.info("YYPayHttpDns", "new OkHttpDns:" + toString());
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948167212, "Lcom/baidu/tieba/swa;");
+        }
     }
 
-    public /* synthetic */ swa(a aVar) {
-        this();
+    public static int a(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) {
+            if (i2 < i) {
+                i = i2;
+            }
+            return i3 < i ? i3 : i;
+        }
+        return invokeIII.intValue;
     }
 
-    public List<String> d(String[] strArr) {
+    public static boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 16 : invokeI.booleanValue;
+    }
+
+    public static boolean c(int i, byte[] bArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, bArr)) == null) {
+            return b(i) & d(bArr);
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public static boolean d(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-            ArrayList arrayList = new ArrayList(strArr.length);
-            for (String str : strArr) {
-                if (!TextUtils.isEmpty(str)) {
-                    arrayList.add(str);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            if (bArr.length >= 16) {
+                return true;
             }
-            return arrayList;
+            return false;
         }
-        return (List) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static void a(IPayNetStateStatistics iPayNetStateStatistics) {
-        boolean z;
+    public static byte[] e(String str, String str2, String str3, String str4, int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, iPayNetStateStatistics) == null) {
-            if (!c.contains(iPayNetStateStatistics)) {
-                c.add(iPayNetStateStatistics);
-                z = true;
-            } else {
-                z = false;
-            }
-            RLog.info("YYPayHttpDns", "addPayNetReport add " + z + " payNetReporter:" + iPayNetStateStatistics);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return g(str, str2, str3, uwa.b(str4), i, z);
         }
+        return (byte[]) invokeCommon.objValue;
     }
 
-    public static void g(IPayNetStateStatistics iPayNetStateStatistics) {
-        boolean z;
+    @SuppressLint({"NewApi"})
+    public static byte[] g(String str, String str2, String str3, byte[] bArr, int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, iPayNetStateStatistics) == null) {
-            if (c.contains(iPayNetStateStatistics)) {
-                c.remove(iPayNetStateStatistics);
-                z = true;
-            } else {
-                z = false;
-            }
-            RLog.info("YYPayHttpDns", "removePayNetReport remove " + z + " payNetReporter:" + iPayNetStateStatistics);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return f(str, str2, str3, bArr, 10000, i, z);
         }
+        return (byte[]) invokeCommon.objValue;
     }
 
-    public static void e(String str, String str2, String str3) {
+    public static byte[] f(String str, String str2, String str3, byte[] bArr, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, str3) == null) {
-            Iterator<IPayNetStateStatistics> it = c.iterator();
-            while (it.hasNext()) {
-                it.next().reportPayNetEvent(str, str2, str3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            byte[] b = uwa.b(str);
+            byte[] b2 = uwa.b(str2);
+            byte[] b3 = uwa.b(str3);
+            int a2 = a(b.length, b2.length, b3.length);
+            if (c(a2, bArr)) {
+                char[] cArr = new char[a2];
+                for (int i3 = 0; i3 < a2; i3++) {
+                    cArr[i3] = (char) ((b[i3] ^ b2[i3]) ^ b3[i3]);
+                }
+                if (!z) {
+                    xwa.d(a, "exportRootKey: sha1");
+                    return pwa.b(cArr, bArr, i, i2 * 8);
+                }
+                xwa.d(a, "exportRootKey: sha256");
+                return pwa.c(cArr, bArr, i, i2 * 8);
             }
+            throw new IllegalArgumentException("key length must be more than 128bit.");
         }
+        return (byte[]) invokeCommon.objValue;
     }
 
-    public List<String> b(String str) throws UnknownHostException {
-        InterceptResult invokeL;
+    @SuppressLint({"NewApi"})
+    public static byte[] h(String str, String str2, String str3, byte[] bArr, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.a == null) {
-                RLog.error("YYPayHttpDns", "getIPListByHost error mHttpDnsService null", new Object[0]);
-                return null;
-            }
-            long uptimeMillis = SystemClock.uptimeMillis();
-            DnsResultInfo ipsByHost = this.a.getIpsByHost(str);
-            if (ipsByHost != null) {
-                ArrayList arrayList = new ArrayList();
-                String[] strArr = ipsByHost.mIpsV6;
-                if (strArr != null) {
-                    arrayList.addAll(d(strArr));
-                    if (ipsByHost.mIpsV6.length == 0) {
-                        RLog.error("YYPayHttpDns", "getIPListByHost IpsV6 empty hostname " + str + " code " + ipsByHost.mErrorCode, new Object[0]);
-                    }
-                } else {
-                    RLog.error("YYPayHttpDns", "getIPListByHost IpsV6 null hostname " + str + " code " + ipsByHost.mErrorCode, new Object[0]);
-                }
-                String[] strArr2 = ipsByHost.mIpsV4;
-                if (strArr2 != null) {
-                    arrayList.addAll(d(strArr2));
-                    if (ipsByHost.mIpsV4.length == 0) {
-                        RLog.error("YYPayHttpDns", "getIPListByHost IpsV4 empty hostname " + str + " code " + ipsByHost.mErrorCode, new Object[0]);
-                    }
-                } else {
-                    RLog.error("YYPayHttpDns", "getIPListByHost IpsV4 null hostname " + str + " code " + ipsByHost.mErrorCode, new Object[0]);
-                }
-                e(EventType.PayNetStateID.EVENT_DNS_RESULT, ipsByHost.mErrorCode + "", "ipList " + arrayList.size());
-                RLog.info("YYPayHttpDns", "hostname " + str + " mDataSource " + ipsByHost.mDataSource + " code " + ipsByHost.mErrorCode + " res.IPList " + arrayList + " use duration " + (SystemClock.uptimeMillis() - uptimeMillis));
-                return arrayList;
-            }
-            RLog.info("YYPayHttpDns", "getIPListByDns host " + str + "  use duration " + (SystemClock.uptimeMillis() - uptimeMillis));
-            return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, bArr, Boolean.valueOf(z)})) == null) {
+            return g(str, str2, str3, bArr, 16, z);
         }
-        return (List) invokeL.objValue;
-    }
-
-    public List<InetAddress> f(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (String str : list) {
-                if (!TextUtils.isEmpty(str)) {
-                    try {
-                        arrayList.add(InetAddress.getByName(str));
-                    } catch (UnknownHostException e) {
-                        RLog.error("YYPayHttpDns", "getByName(" + str + ") error", e);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public synchronized int h(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, str2)) == null) {
-            synchronized (this) {
-                if (!this.b) {
-                    RLog.warn("YYPayHttpDns", "tryInitHttpDns but not enable appId:" + str + " hdid:" + str2);
-                    return -1;
-                } else if (this.a != null) {
-                    RLog.warn("YYPayHttpDns", "tryInitHttpDns but mHttpDnsService exit appId:" + str + " hdid:" + str2);
-                    return -2;
-                } else if (context == null) {
-                    RLog.error("YYPayHttpDns", "tryInitHttpDns error context params null", new Object[0]);
-                    return -3;
-                } else {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    HttpDnsService service = HttpDnsService.getService(context, str, (ThreadPoolMgr.ITaskExecutor) null, str2, "CN");
-                    this.a = service;
-                    service.setLogEnabled(Env.instance().isTestEnv());
-                    this.a.setGslbEventMessager(new a(this));
-                    this.a.setHttpsEnable(true);
-                    this.a.setNetworkStatus(3);
-                    ArrayList<String> arrayList = new ArrayList<>();
-                    arrayList.add(Env.instance().REVENUE_HTTP_URL);
-                    if (!Env.instance().isTestEnv()) {
-                        arrayList.addAll(Arrays.asList(Env.instance().BACKUP_DOMAIN_POOL));
-                    }
-                    RLog.info("YYPayHttpDns", "PreResolveHost hosts " + arrayList.toString());
-                    this.a.setPreResolveHosts(arrayList);
-                    RLog.info("YYPayHttpDns", "dns init success cost time = " + (System.currentTimeMillis() - currentTimeMillis) + " appId:" + str + " hdid:" + str2);
-                    return 1;
-                }
-            }
-        }
-        return invokeLLL.intValue;
-    }
-
-    /* JADX WARN: Can't wrap try/catch for region: R(8:3|(5:7|8|9|(3:18|19|20)|(2:14|15)(1:17))|27|(1:11)|18|19|20|(0)(0)) */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x004d, code lost:
-        r5 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004e, code lost:
-        com.yy.mobile.framework.revenuesdk.baseapi.log.RLog.error("YYPayHttpDns", "System lookup dns error", r5);
-     */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0055  */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    @Override // okhttp3.Dns
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public List<InetAddress> lookup(String str) {
-        InterceptResult invokeL;
-        List<InetAddress> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (this.b && this.a != null) {
-                RLog.info("YYPayHttpDns", "httpdns lookup ");
-                try {
-                    list = f(b(str));
-                } catch (Exception e) {
-                    RLog.error("YYPayHttpDns", "lookup exception:" + e.getLocalizedMessage(), new Object[0]);
-                }
-                if (list != null || list.isEmpty()) {
-                    RLog.info("YYPayHttpDns", "system lookup");
-                    list = Dns.SYSTEM.lookup(str);
-                }
-                if (list != null) {
-                    return Collections.emptyList();
-                }
-                return list;
-            }
-            list = null;
-            if (list != null) {
-            }
-            RLog.info("YYPayHttpDns", "system lookup");
-            list = Dns.SYSTEM.lookup(str);
-            if (list != null) {
-            }
-        } else {
-            return (List) invokeL.objValue;
-        }
+        return (byte[]) invokeCommon.objValue;
     }
 }

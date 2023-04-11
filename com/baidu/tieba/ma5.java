@@ -1,21 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONObject;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ma5 {
+public final class ma5 {
     public static /* synthetic */ Interceptable $ic;
-    public static ma5 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public HashMap<String, String> b;
-    public HashMap<String, String> c;
+    public final HashSet<String> a;
+    public a b;
+    public int c;
+    public final bg<sm> d;
+    public final Runnable e;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b extends bg<sm> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ma5 a;
+
+        public b(ma5 ma5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ma5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ma5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bg
+        public void onLoaded(sm smVar, String key, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, smVar, key, i) == null) {
+                Intrinsics.checkNotNullParameter(key, "key");
+                if (smVar != null && !TextUtils.isEmpty(key)) {
+                    this.a.a.remove(key);
+                }
+                this.a.f();
+            }
+        }
+    }
 
     public ma5() {
         Interceptable interceptable = $ic;
@@ -30,93 +78,73 @@ public class ma5 {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-    }
+        this.a = new HashSet<>();
+        this.c = 10;
+        this.d = new b(this);
+        this.e = new Runnable() { // from class: com.baidu.tieba.ja5
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ma5 a() {
-        InterceptResult invokeV;
-        ma5 ma5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (ma5.class) {
-                if (d == null) {
-                    d = new ma5();
+            @Override // java.lang.Runnable
+            public final void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    ma5.e(ma5.this);
                 }
-                ma5Var = d;
             }
-            return ma5Var;
-        }
-        return (ma5) invokeV.objValue;
+        };
     }
 
-    public void b(JSONObject jSONObject) {
+    public static final void e(ma5 this$0) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            HashSet<String> hashSet = new HashSet<>();
+            hashSet.addAll(this$0.a);
+            this$0.d(hashSet);
+        }
+    }
+
+    @JvmOverloads
+    public final void c(List<String> list, a aVar, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLI(1048576, this, list, aVar, i) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("upload_file_frequency");
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("2g");
-                String optString2 = optJSONObject.optString("3g");
-                String optString3 = optJSONObject.optString("4g");
-                String optString4 = optJSONObject.optString("wifi");
-                if (optString != null) {
-                    this.a.put("2g", optString);
-                }
-                if (optString2 != null) {
-                    this.a.put("3g", optString2);
-                }
-                if (optString3 != null) {
-                    this.a.put("4g", optString3);
-                }
-                if (optString4 != null) {
-                    this.a.put("wifi", optString4);
-                }
+        HashSet<String> hashSet = new HashSet<>();
+        Intrinsics.checkNotNull(list);
+        hashSet.addAll(list);
+        this.b = aVar;
+        this.c = i;
+        d(hashSet);
+    }
+
+    public final void d(HashSet<String> hashSet) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashSet) != null) || hashSet.isEmpty()) {
+            return;
+        }
+        this.a.clear();
+        Iterator<String> it = hashSet.iterator();
+        while (it.hasNext()) {
+            String next = it.next();
+            if (!hi.isEmpty(next) && ((sm) cg.h().n(next, this.c, new Object[0])) == null) {
+                this.a.add(next);
+                cg.h().k(next, this.c, this.d, 0, 0, null, new Object[0]);
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
-            if (optJSONObject2 != null) {
-                String optString5 = optJSONObject2.optString("2g");
-                String optString6 = optJSONObject2.optString("3g");
-                String optString7 = optJSONObject2.optString("4g");
-                String optString8 = optJSONObject2.optString("wifi");
-                if (optString5 != null) {
-                    this.b.put("2g", optString5);
-                }
-                if (optString6 != null) {
-                    this.b.put("3g", optString6);
-                }
-                if (optString7 != null) {
-                    this.b.put("4g", optString7);
-                }
-                if (optString8 != null) {
-                    this.b.put("wifi", optString8);
-                }
+        }
+        f();
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.isEmpty()) {
+            jg.a().removeCallbacks(this.e);
+            a aVar = this.b;
+            if (aVar != null) {
+                Intrinsics.checkNotNull(aVar);
+                aVar.a();
             }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
-            if (optJSONObject3 != null) {
-                String optString9 = optJSONObject3.optString("2g");
-                String optString10 = optJSONObject3.optString("3g");
-                String optString11 = optJSONObject3.optString("4g");
-                String optString12 = optJSONObject3.optString("wifi");
-                if (optString9 != null) {
-                    this.c.put("2g", optString9);
-                }
-                if (optString10 != null) {
-                    this.c.put("3g", optString10);
-                }
-                if (optString11 != null) {
-                    this.c.put("4g", optString11);
-                }
-                if (optString12 != null) {
-                    this.c.put("wifi", optString12);
-                }
-            }
-            jSONObject.optString("is_on");
-        } catch (Exception e) {
-            BdLog.detailException(e);
         }
     }
 }

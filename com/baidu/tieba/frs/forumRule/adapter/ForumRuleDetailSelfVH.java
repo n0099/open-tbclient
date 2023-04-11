@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.ii;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +64,7 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.m = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        this.m = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
         this.a = view2;
         a(view2);
         d(TbadkCoreApplication.getInst().getSkinType());
@@ -84,10 +84,10 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
             this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090baa);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.obfuscated_res_0x7f090ba2);
             this.h = tBSpecificationBtn;
-            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0714));
+            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f070c));
             EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090ba1);
             this.l = eMTextView;
-            eMTextView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0719));
+            eMTextView.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0711));
             this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ba8);
             this.j = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090ba9);
             this.k = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090ba7);
@@ -140,18 +140,18 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            n15 d = n15.d(this.c);
-            d.B(R.string.F_X01);
+            q25 d = q25.d(this.c);
+            d.C(R.string.F_X01);
             d.w(R.color.CAM_X0105);
-            n15 d2 = n15.d(this.g);
-            d2.B(R.string.F_X01);
+            q25 d2 = q25.d(this.g);
+            d2.C(R.string.F_X01);
             d2.w(R.color.CAM_X0109);
-            n15 d3 = n15.d(this.l);
-            d3.B(R.string.F_X01);
+            q25 d3 = q25.d(this.l);
+            d3.C(R.string.F_X01);
             d3.w(R.color.CAM_X0107);
-            n15.d(this.k).w(R.color.CAM_X0105);
-            n15 d4 = n15.d(this.j);
-            d4.B(R.string.F_X02);
+            q25.d(this.k).w(R.color.CAM_X0105);
+            q25 d4 = q25.d(this.j);
+            d4.C(R.string.F_X02);
             d4.w(R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
             this.b.setSkinType(i);

@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface yu7 {
-    void a(BaseMsg baseMsg, int i, int i2);
+    void a();
+
+    void h0(int i, List<hn> list);
 }

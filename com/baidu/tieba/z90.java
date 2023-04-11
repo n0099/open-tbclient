@@ -1,48 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.RequestSearchData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
+import com.baidu.live.feed.search.model.data.SearchResultBean;
+import java.util.List;
 /* loaded from: classes7.dex */
 public interface z90 {
-    void a(Context context, String str);
+    void E0();
 
-    void b(Context context);
+    void Z0(List<String> list);
 
-    void c();
+    void h0();
 
-    void d();
+    void i0(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
 
-    void e(Context context);
+    void k(int i);
 
-    void f(Context context, int i);
+    void m();
 
-    void g(String str, String str2, RequestSearchData requestSearchData);
+    void q(aa0 aa0Var);
 
-    void h();
+    void showToast(String str);
 
-    void i(String str);
+    void t(List<String> list);
 
-    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
+    void u(SearchResultBean searchResultBean);
 
-    void onDetach();
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static /* synthetic */ void a(z90 z90Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
-            if (obj == null) {
-                if ((i & 4) != 0) {
-                    requestSearchData = new RequestSearchData();
-                }
-                z90Var.g(str, str2, requestSearchData);
-                return;
-            }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
-        }
-    }
+    void z0(List<? extends LiveRoomEntity> list);
 }

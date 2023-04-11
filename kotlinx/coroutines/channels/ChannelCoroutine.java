@@ -75,8 +75,8 @@ public class ChannelCoroutine<E> extends AbstractCoroutine<Unit> implements Chan
     @Override // kotlinx.coroutines.channels.SendChannel
     @ExperimentalCoroutinesApi
     /* renamed from: invokeOnClose */
-    public void mo2240invokeOnClose(Function1<? super Throwable, Unit> function1) {
-        this._channel.mo2240invokeOnClose(function1);
+    public void mo2242invokeOnClose(Function1<? super Throwable, Unit> function1) {
+        this._channel.mo2242invokeOnClose(function1);
     }
 
     @Override // kotlinx.coroutines.channels.ReceiveChannel

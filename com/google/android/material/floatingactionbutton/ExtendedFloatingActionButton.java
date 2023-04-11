@@ -28,7 +28,7 @@ import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ExtendedFloatingActionButton extends MaterialButton implements CoordinatorLayout.AttachedBehavior {
     public static final int ANIM_STATE_HIDING = 1;
     public static final int ANIM_STATE_NONE = 0;
@@ -76,7 +76,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     };
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class OnChangedCallback {
         public void onExtended(ExtendedFloatingActionButton extendedFloatingActionButton) {
         }
@@ -91,7 +91,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Size {
         int getHeight();
 
@@ -100,7 +100,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         int getWidth();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class ChangeSizeStrategy extends BaseMotionStrategy {
         public final boolean extending;
         public final Size size;
@@ -185,7 +185,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ExtendedFloatingActionButtonBehavior<T extends ExtendedFloatingActionButton> extends CoordinatorLayout.Behavior<T> {
         public static final boolean AUTO_HIDE_DEFAULT = false;
         public static final boolean AUTO_SHRINK_DEFAULT = true;
@@ -350,7 +350,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class HideStrategy extends BaseMotionStrategy {
         public boolean isCancelled;
 
@@ -404,7 +404,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class ShowStrategy extends BaseMotionStrategy {
         @Override // com.google.android.material.floatingactionbutton.MotionStrategy
         public int getDefaultMotionSpecResource() {

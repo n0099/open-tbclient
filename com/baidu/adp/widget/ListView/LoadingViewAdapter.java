@@ -11,10 +11,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.kf5;
-import com.baidu.tieba.nn;
-import com.baidu.tieba.tm;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.og5;
+import com.baidu.tieba.on;
+import com.baidu.tieba.um;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,10 +22,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class LoadingViewAdapter extends tm<nn, TabLoadingViewHolder> {
+public class LoadingViewAdapter extends um<on, TabLoadingViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedList<Pair<RelativeLayout, kf5>> a;
+    public final LinkedList<Pair<RelativeLayout, og5>> a;
     public int b;
     public int c;
 
@@ -33,7 +33,7 @@ public class LoadingViewAdapter extends tm<nn, TabLoadingViewHolder> {
     public static class TabLoadingViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public kf5 a;
+        public og5 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public TabLoadingViewHolder(View view2) {
@@ -58,7 +58,7 @@ public class LoadingViewAdapter extends tm<nn, TabLoadingViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingViewAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), nn.a);
+        super(tbPageContext.getPageActivity(), on.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,20 +84,20 @@ public class LoadingViewAdapter extends tm<nn, TabLoadingViewHolder> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return hi.g(TbadkCoreApplication.getInst(), i);
+            return ii.g(TbadkCoreApplication.getInst(), i);
         }
         return invokeI.intValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.tm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, nn nnVar, TabLoadingViewHolder tabLoadingViewHolder) {
-        u(i, view2, viewGroup, nnVar, tabLoadingViewHolder);
+    @Override // com.baidu.tieba.um
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, on onVar, TabLoadingViewHolder tabLoadingViewHolder) {
+        u(i, view2, viewGroup, onVar, tabLoadingViewHolder);
         return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm
+    @Override // com.baidu.tieba.um
     /* renamed from: t */
     public TabLoadingViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -109,31 +109,31 @@ public class LoadingViewAdapter extends tm<nn, TabLoadingViewHolder> {
             generateLayoutParamsByParent.height = -1;
             relativeLayout.setLayoutParams(generateLayoutParamsByParent);
             relativeLayout.setGravity(1);
-            kf5 kf5Var = new kf5(this.mContext, 0);
-            kf5Var.attachView(relativeLayout);
-            kf5Var.t(this.b);
-            kf5Var.p(this.c);
-            View view2 = kf5Var.getView();
+            og5 og5Var = new og5(this.mContext, 0);
+            og5Var.attachView(relativeLayout);
+            og5Var.t(this.b);
+            og5Var.p(this.c);
+            View view2 = og5Var.getView();
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view2.getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = -2;
             layoutParams.addRule(14);
             view2.setLayoutParams(layoutParams);
-            this.a.add(new Pair<>(relativeLayout, kf5Var));
+            this.a.add(new Pair<>(relativeLayout, og5Var));
             TabLoadingViewHolder tabLoadingViewHolder = new TabLoadingViewHolder(relativeLayout);
-            tabLoadingViewHolder.a = kf5Var;
+            tabLoadingViewHolder.a = og5Var;
             return tabLoadingViewHolder;
         }
         return (TabLoadingViewHolder) invokeL.objValue;
     }
 
-    public View u(int i, View view2, ViewGroup viewGroup, nn nnVar, TabLoadingViewHolder tabLoadingViewHolder) {
+    public View u(int i, View view2, ViewGroup viewGroup, on onVar, TabLoadingViewHolder tabLoadingViewHolder) {
         InterceptResult invokeCommon;
-        kf5 kf5Var;
+        og5 og5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nnVar, tabLoadingViewHolder})) == null) {
-            if (tabLoadingViewHolder != null && (kf5Var = tabLoadingViewHolder.a) != null) {
-                kf5Var.m(TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, onVar, tabLoadingViewHolder})) == null) {
+            if (tabLoadingViewHolder != null && (og5Var = tabLoadingViewHolder.a) != null) {
+                og5Var.m(TbadkCoreApplication.getInst().getSkinType());
             }
             return view2;
         }

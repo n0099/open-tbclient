@@ -1,83 +1,81 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
-import java.util.List;
-import kotlin.comparisons.ComparisonsKt__ComparisonsKt;
-import kotlin.jvm.functions.Function1;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class jj6 {
+public final class jj6 implements e07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
-    public static final <T, K extends Comparable<? super K>> int a(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.e07
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, list, key, selector)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(selector, "selector");
-            int size = list.size() - 1;
-            if (list.isEmpty()) {
-                return -1;
-            }
-            int i = 0;
-            while (i < size) {
-                int i2 = (i + size) >>> 1;
-                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
-                if (compareValues < 0) {
-                    i = i2 + 1;
-                } else if (compareValues > 0) {
-                    size = i2;
-                } else {
-                    return i2 - 1;
-                }
-            }
-            return i;
-        }
-        return invokeLLL.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? CommonStatisticKey.KEY_CONCERN_YY_LIVE_AVATER_CLICK : (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
-    public static final <T, K extends Comparable<? super K>> int b(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
-        InterceptResult invokeLLL;
+    public jj6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, list, key, selector)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(selector, "selector");
-            int size = list.size() - 1;
-            if (list.isEmpty()) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            int i = 0;
-            while (i < size) {
-                int i2 = (i + size) >>> 1;
-                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
-                if (compareValues < 0) {
-                    i = i2 + 1;
-                } else if (compareValues > 0) {
-                    size = i2;
-                } else {
-                    return i2 - 1;
-                }
-            }
-            return size;
         }
-        return invokeLLL.intValue;
     }
 
-    public static final <T extends Comparable<? super T>> bi6<T> c(Collection<? extends T> collection) {
+    @Override // com.baidu.tieba.e07
+    public Map<String, String> a(qw6 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, collection)) == null) {
-            Intrinsics.checkNotNullParameter(collection, "<this>");
-            return new bi6<>(collection);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.put("obj_type", b(businessInfo));
+            String str = a.get("live_type");
+            String str2 = "";
+            if (str == null) {
+                str = "";
+            }
+            hashMap.put("obj_param1", str);
+            String str3 = a.get("live_app_id");
+            if (str3 != null) {
+                str2 = str3;
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str2);
+            return hashMap;
         }
-        return (bi6) invokeL.objValue;
+        return (Map) invokeL.objValue;
+    }
+
+    public final String b(qw6 qw6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qw6Var)) == null) {
+            Map<String, String> a = qw6Var.a();
+            if (Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK)) {
+                return "3";
+            }
+            if (!Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW) && !Intrinsics.areEqual(a.get("thread_type"), "69") && !Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK)) {
+                return "2";
+            }
+            return "1";
+        }
+        return (String) invokeL.objValue;
     }
 }

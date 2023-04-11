@@ -1,11 +1,13 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface lk1 {
-    void d();
+    void a(mk1 mk1Var);
 
-    void g();
+    void c(kk1 kk1Var);
 
-    void h(String str);
+    View getAdView();
 
-    void onAdError(String str);
+    void load();
 }

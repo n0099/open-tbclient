@@ -8,7 +8,7 @@ import com.baidu.searchbox.aperf.param.ThreadCollector;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
-import com.baidu.tieba.zha;
+import com.baidu.tieba.qra;
 import com.github.anrwatchdog.ANRError;
 import java.text.SimpleDateFormat;
 import java.util.LinkedHashMap;
@@ -23,14 +23,14 @@ public class BlockMonitor implements IBlockMonitor {
     public static final SimpleDateFormat TIME_FORMATTER = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
     public static String sBlockTimeStamp;
     public boolean mMonitorStarted = false;
-    public zha mBlockWatchDog = null;
+    public qra mBlockWatchDog = null;
 
     /* loaded from: classes2.dex */
-    public static class BlockListenerImpl implements zha.f {
+    public static class BlockListenerImpl implements qra.f {
         public BlockListenerImpl() {
         }
 
-        @Override // com.baidu.tieba.zha.f
+        @Override // com.baidu.tieba.qra.f
         public void onAppNotResponding(ANRError aNRError) {
             Log.d(BlockMonitor.TAG, "BlockWatchDog catch block", aNRError);
             BlockMonitor.collectData(aNRError.getSTStackMap());
@@ -44,9 +44,9 @@ public class BlockMonitor implements IBlockMonitor {
 
     @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
     public void stopBlockMonitor() {
-        zha zhaVar;
-        if (this.mMonitorStarted && (zhaVar = this.mBlockWatchDog) != null) {
-            zhaVar.interrupt();
+        qra qraVar;
+        if (this.mMonitorStarted && (qraVar = this.mBlockWatchDog) != null) {
+            qraVar.interrupt();
             this.mMonitorStarted = false;
         }
     }
@@ -100,9 +100,9 @@ public class BlockMonitor implements IBlockMonitor {
             return;
         }
         this.mMonitorStarted = true;
-        zha zhaVar = new zha(i);
-        this.mBlockWatchDog = zhaVar;
-        zhaVar.e();
+        qra qraVar = new qra(i);
+        this.mBlockWatchDog = qraVar;
+        qraVar.e();
         this.mBlockWatchDog.d(true);
         this.mBlockWatchDog.c(new BlockListenerImpl());
         if (AppConfig.isDebug()) {

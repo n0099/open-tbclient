@@ -1,23 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class yh2 extends th2 {
+public class yh2 extends uh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tz1 c;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
-    public yh2(@NonNull String str, @NonNull tz1 tz1Var) {
+    public yh2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, tz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,17 +29,22 @@ public class yh2 extends th2 {
                 return;
             }
         }
-        this.a = str;
-        this.c = tz1Var;
+        this.a = "route";
     }
 
-    @Override // com.baidu.tieba.th2
+    @Override // com.baidu.tieba.uh2
     public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("status", Integer.valueOf(this.c.b));
-            map.put("data", this.c.d);
-            map.put("message", this.c.c);
+            map.put("fromId", this.c);
+            map.put("toId", this.d);
+            map.put("toTabIndex", this.g);
+            if (!TextUtils.isEmpty(this.e)) {
+                map.put("routeType", this.e);
+            }
+            if (!TextUtils.isEmpty(this.f)) {
+                map.put("toPage", this.f);
+            }
         }
     }
 }

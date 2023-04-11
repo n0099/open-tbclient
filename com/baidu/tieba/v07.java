@@ -1,42 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.CardVideoView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface v07 {
-    void a(String str);
+public class v07 extends lz6<CardVideoView, gw6> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v07(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    int c();
+    @Override // com.baidu.tieba.lz6, com.baidu.tieba.a07
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            i17.j(a);
+            return a;
+        }
+        return (View) invokeL.objValue;
+    }
 
-    void d(qn qnVar);
-
-    void e();
-
-    List<gn> f();
-
-    void g(ArrayList<gn> arrayList, FrsViewData frsViewData);
-
-    HashMap<Integer, ThreadData> h();
-
-    int i();
-
-    int j();
-
-    boolean k(BdUniqueId bdUniqueId);
-
-    void l(zv6 zv6Var);
-
-    void m(boolean z);
-
-    void notifyDataSetChanged();
-
-    void onDestory();
-
-    void setFromCDN(boolean z);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.a07
+    /* renamed from: e */
+    public void b(@NonNull CardVideoView cardVideoView, @NonNull gw6 gw6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVideoView, gw6Var) == null) {
+            cardVideoView.f(gw6Var);
+        }
+    }
 }

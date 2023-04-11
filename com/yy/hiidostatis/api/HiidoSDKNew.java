@@ -67,7 +67,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HiidoSDKNew implements HiidoApi {
     public static final String DEFAULT_METRICS_NAME = "DEFAULT_METRICS";
     public static final int INTERVAL_HEART_BEAT = 900000;
@@ -115,12 +115,12 @@ public class HiidoSDKNew implements HiidoApi {
     public volatile boolean userAgreed = true;
     public ActivityLifecycleController mActivityLifecycleController = new ActivityLifecycleController();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface HdidReceiver {
         void onHdidReceived(String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class QuitTimer {
         public final Runnable mQuitTimer;
 

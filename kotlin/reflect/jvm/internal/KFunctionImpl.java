@@ -143,7 +143,7 @@ public final class KFunctionImpl extends KCallableImpl<Object> implements Functi
                     createInstanceMethodCaller = kFunctionImpl.createConstructorCaller((Constructor) constructor, kFunctionImpl.getDescriptor());
                 } else if (constructor instanceof Method) {
                     Method method = (Method) constructor;
-                    createInstanceMethodCaller = !Modifier.isStatic(method.getModifiers()) ? KFunctionImpl.this.createInstanceMethodCaller(method) : KFunctionImpl.this.getDescriptor().getAnnotations().mo2018findAnnotation(UtilKt.getJVM_STATIC()) != null ? KFunctionImpl.this.createJvmStaticInObjectCaller(method) : KFunctionImpl.this.createStaticMethodCaller(method);
+                    createInstanceMethodCaller = !Modifier.isStatic(method.getModifiers()) ? KFunctionImpl.this.createInstanceMethodCaller(method) : KFunctionImpl.this.getDescriptor().getAnnotations().mo2020findAnnotation(UtilKt.getJVM_STATIC()) != null ? KFunctionImpl.this.createJvmStaticInObjectCaller(method) : KFunctionImpl.this.createStaticMethodCaller(method);
                 } else {
                     throw new KotlinReflectionInternalError("Could not compute caller for function: " + KFunctionImpl.this.getDescriptor() + " (member = " + constructor + ')');
                 }
@@ -162,17 +162,17 @@ public final class KFunctionImpl extends KCallableImpl<Object> implements Functi
             public final Caller<? extends Member> invoke() {
                 GenericDeclaration genericDeclaration;
                 Caller caller;
-                ?? mo2015getMember;
+                ?? mo2017getMember;
                 JvmFunctionSignature mapSignature = RuntimeTypeMapper.INSTANCE.mapSignature(KFunctionImpl.this.getDescriptor());
                 if (mapSignature instanceof JvmFunctionSignature.KotlinFunction) {
                     KDeclarationContainerImpl container = KFunctionImpl.this.getContainer();
                     JvmFunctionSignature.KotlinFunction kotlinFunction = (JvmFunctionSignature.KotlinFunction) mapSignature;
                     String methodName = kotlinFunction.getMethodName();
                     String methodDesc = kotlinFunction.getMethodDesc();
-                    if (KFunctionImpl.this.getCaller().mo2015getMember() == 0) {
+                    if (KFunctionImpl.this.getCaller().mo2017getMember() == 0) {
                         Intrinsics.throwNpe();
                     }
-                    genericDeclaration = container.findDefaultMethod(methodName, methodDesc, !Modifier.isStatic(mo2015getMember.getModifiers()));
+                    genericDeclaration = container.findDefaultMethod(methodName, methodDesc, !Modifier.isStatic(mo2017getMember.getModifiers()));
                 } else if (mapSignature instanceof JvmFunctionSignature.KotlinConstructor) {
                     if (KFunctionImpl.this.isAnnotationConstructor()) {
                         Class<?> jClass = KFunctionImpl.this.getContainer().getJClass();
@@ -204,7 +204,7 @@ public final class KFunctionImpl extends KCallableImpl<Object> implements Functi
                     KFunctionImpl kFunctionImpl = KFunctionImpl.this;
                     caller = kFunctionImpl.createConstructorCaller((Constructor) genericDeclaration, kFunctionImpl.getDescriptor());
                 } else if (genericDeclaration instanceof Method) {
-                    if (KFunctionImpl.this.getDescriptor().getAnnotations().mo2018findAnnotation(UtilKt.getJVM_STATIC()) != null) {
+                    if (KFunctionImpl.this.getDescriptor().getAnnotations().mo2020findAnnotation(UtilKt.getJVM_STATIC()) != null) {
                         DeclarationDescriptor containingDeclaration = KFunctionImpl.this.getDescriptor().getContainingDeclaration();
                         if (containingDeclaration != null) {
                             if (!((ClassDescriptor) containingDeclaration).isCompanionObject()) {

@@ -49,7 +49,7 @@ public class u8 {
                     String optString = new JSONObject(t8.b().e(str)).optString("sid");
                     String[] split = optString.split("_");
                     if (split.length == 2) {
-                        hashMap.put(optString, new j8(r10.d(split[0]), r10.d(split[1])));
+                        hashMap.put(optString, new j8(s10.d(split[0]), s10.d(split[1])));
                     }
                 } catch (JSONException unused) {
                     if (ABTestConfig.isDebug()) {
@@ -76,7 +76,7 @@ public class u8 {
                         String optString = optJSONObject.optString("sid");
                         String[] split = optString.split("_");
                         if (split.length == 2) {
-                            hashMap.put(optString, new j8(r10.d(split[0]), r10.d(split[1])));
+                            hashMap.put(optString, new j8(s10.d(split[0]), s10.d(split[1])));
                         }
                     }
                 }
@@ -101,7 +101,7 @@ public class u8 {
                             String string = jSONArray.getString(i);
                             String[] split = string.split("_");
                             if (split.length == 2) {
-                                hashMap.put(string, new j8(r10.d(split[0]), r10.d(split[1])));
+                                hashMap.put(string, new j8(s10.d(split[0]), s10.d(split[1])));
                             }
                         }
                     }
@@ -120,7 +120,7 @@ public class u8 {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             ArrayList arrayList = new ArrayList();
             for (String str : t8.b().f()) {
-                if (s10.a(str, this.a) == i) {
+                if (t10.a(str, this.a) == i) {
                     try {
                         arrayList.add(new r8(str, new JSONObject(t8.b().e(str)).opt("data")));
                     } catch (JSONException unused) {
@@ -149,7 +149,7 @@ public class u8 {
                             String string = jSONArray.getString(i);
                             String[] split = string.split("_");
                             if (split.length == 2) {
-                                hashMap.put(string, new j8(r10.d(split[0]), r10.d(split[1])));
+                                hashMap.put(string, new j8(s10.d(split[0]), s10.d(split[1])));
                             }
                         }
                     }
@@ -174,7 +174,7 @@ public class u8 {
                         JSONArray jSONArray = new JSONArray(c);
                         jSONObject.put("version", d);
                         jSONObject.put("exps", jSONArray);
-                        j10.h(jSONObject);
+                        k10.h(jSONObject);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -198,7 +198,7 @@ public class u8 {
                         }
                     }
                 }
-                j10.k(jSONObject);
+                k10.k(jSONObject);
             }
         }
     }

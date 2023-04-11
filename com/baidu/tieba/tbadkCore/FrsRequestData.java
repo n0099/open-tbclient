@@ -5,16 +5,16 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.aj5;
-import com.baidu.tieba.dj5;
-import com.baidu.tieba.eo5;
+import com.baidu.tieba.fc9;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.gi;
-import com.baidu.tieba.jo5;
+import com.baidu.tieba.gk5;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.ic9;
+import com.baidu.tieba.jk5;
+import com.baidu.tieba.jk7;
 import com.baidu.tieba.kp5;
-import com.baidu.tieba.ma7;
-import com.baidu.tieba.o29;
-import com.baidu.tieba.r29;
+import com.baidu.tieba.pp5;
+import com.baidu.tieba.qq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import tbclient.FrsPage.AdParam;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes6.dex */
-public class FrsRequestData extends OrmObject implements dj5, aj5 {
+public class FrsRequestData extends OrmObject implements jk5, gk5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CATEGORY_ID_KEY = "categoryid";
     public static final int FRS_SMARTLOAD_TYPE_BY_REFRESH = 1;
@@ -81,8 +81,8 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
     public int y;
     public int z;
 
-    @Override // com.baidu.tieba.cj5
-    public HashMap<String, Object> J() {
+    @Override // com.baidu.tieba.ik5
+    public HashMap<String, Object> K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -91,8 +91,8 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.aj5
-    public String Q() {
+    @Override // com.baidu.tieba.gk5
+    public String P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -101,31 +101,31 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zi5
+    @Override // com.baidu.tieba.fk5
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.aj5
+    @Override // com.baidu.tieba.gk5
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.aj5
-    public boolean x() {
+    @Override // com.baidu.tieba.gk5
+    public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -159,8 +159,8 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
         this.L = "";
     }
 
-    @Override // com.baidu.tieba.cj5
-    public HashMap<String, String> P() {
+    @Override // com.baidu.tieba.ik5
+    public HashMap<String, String> O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -169,7 +169,7 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
         return (HashMap) invokeV.objValue;
     }
 
-    public int S() {
+    public int R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -178,7 +178,7 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
         return invokeV.intValue;
     }
 
-    public int T() {
+    public int S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -187,7 +187,7 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
         return invokeV.intValue;
     }
 
-    public int U() {
+    public int T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -196,7 +196,7 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
         return invokeV.intValue;
     }
 
-    public String V() {
+    public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -205,7 +205,7 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
         return (String) invokeV.objValue;
     }
 
-    public int W() {
+    public int V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -214,7 +214,7 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
         return invokeV.intValue;
     }
 
-    public int X() {
+    public int W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -226,7 +226,7 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
     public int getPn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             return this.e;
         }
         return invokeV.intValue;
@@ -235,7 +235,7 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
     public int getUpdateType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             return this.a;
         }
         return invokeV.intValue;
@@ -244,13 +244,13 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
     public boolean isNeedCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             return this.b;
         }
         return invokeV.booleanValue;
     }
 
-    public void R(String str, String str2) {
+    public void Q(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
             if (this.G == null) {
@@ -262,250 +262,250 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
         }
     }
 
-    public void Y(String str) {
+    public void X(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.L = str;
         }
     }
 
-    public void Z(int i) {
+    public void Y(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             this.q = i;
         }
     }
 
-    public void a0(int i) {
+    public void Z(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             this.j = i;
         }
     }
 
-    public void b0(int i) {
+    public void a0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.u = i;
         }
     }
 
-    public void c0(int i) {
+    public void b0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.v = i;
         }
     }
 
-    public void d0(int i) {
+    public void c0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.K = i;
         }
     }
 
-    public void e0(long j) {
+    public void d0(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
             this.H = j;
         }
     }
 
-    public void f0(int i) {
+    public void e0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.I = i;
         }
     }
 
-    public void g0(int i) {
+    public void f0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             this.i = i;
         }
     }
 
-    public void h0(int i) {
+    public void g0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             this.E = i;
         }
     }
 
-    public void i0(String str) {
+    public void h0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
             this.c = str;
-            this.d = gi.getUrlEncode(str);
+            this.d = hi.getUrlEncode(str);
         }
     }
 
-    public void j0(long j) {
+    public void i0(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
             this.x = j;
         }
     }
 
-    public void k0(String str) {
+    public void j0(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
             this.p = str;
+        }
+    }
+
+    public void k0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.A = i;
         }
     }
 
     public void l0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
-            this.A = i;
+            this.z = i;
         }
     }
 
     public void m0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
-            this.z = i;
-        }
-    }
-
-    public void n0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
             this.w = i;
         }
     }
 
-    public void o0(String str) {
+    public void n0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
             this.C = str;
         }
     }
 
-    public void p0(String str) {
+    public void o0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
             this.D = str;
         }
     }
 
-    public void q0(int i) {
+    public void p0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
             this.B = i;
         }
     }
 
-    public void r0(int i) {
+    public void q0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
             this.r = i;
         }
     }
 
-    public void s0(String str) {
+    public void r0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
             this.J = str;
         }
     }
 
+    public void s0(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.m = d;
+        }
+    }
+
     public void setCallFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
             this.F = i;
         }
     }
 
     public void setNeedCache(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
             this.b = z;
         }
     }
 
     public void setPn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
             this.e = i;
         }
     }
 
     public void setPushTid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
             this.M = gg.g(str, 0L);
         }
     }
 
     public void setSortType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
             this.y = i;
         }
     }
 
     public void setStType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
             this.o = str;
         }
     }
 
     public void setUpdateType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
             this.a = i;
         }
     }
 
-    public void t0(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.m = d;
-        }
-    }
-
-    public void u0(int i) {
+    public void t0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
             this.l = i;
         }
     }
 
-    public void v0(int i) {
+    public void u0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
             this.k = i;
         }
     }
 
-    public void w0(int i) {
+    public void v0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
             this.h = i;
         }
     }
 
-    public void x0(String str) {
+    public void w0(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
             this.s = str;
         }
     }
 
-    public void y0(int i) {
+    public void x0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
             this.n = i;
         }
     }
 
-    @Override // com.baidu.tieba.fj5
-    public Object j(boolean z) {
+    @Override // com.baidu.tieba.lk5
+    public Object n(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048602, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048607, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.kw = this.d;
             builder.pn = Integer.valueOf(this.e);
@@ -529,18 +529,18 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
             builder.yuelaou_locate = this.s;
             builder.sort_type = Integer.valueOf(this.y);
             builder.last_click_tid = Long.valueOf(this.x);
-            builder.app_pos = o29.e().a();
+            builder.app_pos = fc9.e().a();
             builder.load_type = Integer.valueOf(this.z);
             builder.obj_locate = this.C;
             builder.obj_source = this.D;
             builder.is_selection = Integer.valueOf(this.E);
             builder.call_from = Integer.valueOf(this.F);
             builder.hot_thread_id = Long.valueOf(this.H);
-            String d = ma7.e().d("frs_feed");
+            String d = jk7.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = eo5.g(d, eo5.f());
-            builder.ad_bear_sid_price = Double.valueOf(eo5.i());
-            builder.has_ad_bear = Integer.valueOf(eo5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = kp5.g(d, kp5.f());
+            builder.ad_bear_sid_price = Double.valueOf(kp5.i());
+            builder.has_ad_bear = Integer.valueOf(kp5.n(builder.ad_bear_sid) ? 1 : 0);
             AdParam.Builder builder2 = new AdParam.Builder();
             builder2.refresh_count = Integer.valueOf(this.B);
             builder2.load_count = Integer.valueOf(this.A);
@@ -549,7 +549,7 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
             builder.ad_param = builder2.build(false);
             builder.is_default_navtab = Integer.valueOf(this.I);
             if (this.z != 1) {
-                str = r29.f().d("FRS");
+                str = ic9.f().d("FRS");
             }
             builder.ad_context_list = str;
             builder.up_schema = this.J;
@@ -557,9 +557,9 @@ public class FrsRequestData extends OrmObject implements dj5, aj5 {
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.L);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = jo5.b();
+            builder.app_transmit_data = pp5.b();
             builder.push_tid = Long.valueOf(this.M);
-            kp5.c(builder, true, false, true);
+            qq5.c(builder, true, false, true);
             FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);

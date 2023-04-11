@@ -1,41 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cj9 extends BdAsyncTask<String, String, Integer> {
+public class cj9 implements u25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public a b;
+    public lz4 a;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a();
-
-        void b();
-
-        void c();
-
-        void onError(String str);
-    }
-
-    public cj9(String str, a aVar) {
+    public cj9(lz4 lz4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, aVar};
+            Object[] objArr = {lz4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,65 +27,47 @@ public class cj9 extends BdAsyncTask<String, String, Integer> {
                 return;
             }
         }
-        this.a = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
-        this.b = aVar;
+        this.a = lz4Var;
     }
 
-    public final boolean b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return UrlUtils.getParamValue(this.a, "url", true).contains("yandex.");
+            lz4 lz4Var = this.a;
+            if (lz4Var == null) {
+                return null;
+            }
+            return lz4Var.c();
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Integer doInBackground(String... strArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.u25
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-            try {
-                if (b()) {
-                    return 5;
-                }
-                NetWork netWork = new NetWork(this.a);
-                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
-                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                JSONArray optJSONArray = new JSONObject(new String(netWork.getNetData())).optJSONArray("result");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            return Integer.valueOf(optJSONObject.optInt("main", -1));
-                        }
-                    }
-                    return -1;
-                }
-                return -1;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            lz4 lz4Var = this.a;
+            if (lz4Var == null) {
+                return null;
             }
+            return lz4Var.b();
         }
-        return (Integer) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(Integer num) {
+    @Override // com.baidu.tieba.u25
+    public String getPicUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, num) == null) && this.b != null && num != null) {
-            if (num.intValue() == -1) {
-                this.b.onError(null);
-            } else if (num.intValue() == 1) {
-                this.b.c();
-            } else if (num.intValue() != 2 && num.intValue() != 0) {
-                this.b.a();
-            } else {
-                this.b.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            lz4 lz4Var = this.a;
+            if (lz4Var == null) {
+                return null;
             }
+            return lz4Var.a();
         }
+        return (String) invokeV.objValue;
     }
 }

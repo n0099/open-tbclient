@@ -58,7 +58,7 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
         this.a = a9Var;
     }
 
-    public void R() {
+    public void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -68,7 +68,7 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
         }
     }
 
-    public void S() {
+    public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));

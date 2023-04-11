@@ -215,7 +215,7 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
             f.setDefaultResource(R.drawable.icon_at_all_user);
             avater = "";
         }
-        f.M(avater, 12, false);
+        f.N(avater, 12, false);
         if (h()) {
             f.setTag(metaData);
             f.setOnClickListener(this.j);

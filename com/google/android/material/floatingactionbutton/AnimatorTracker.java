@@ -2,7 +2,7 @@ package com.google.android.material.floatingactionbutton;
 
 import android.animation.Animator;
 import androidx.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AnimatorTracker {
     @Nullable
     public Animator currentAnimator;

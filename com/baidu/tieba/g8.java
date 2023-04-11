@@ -20,10 +20,10 @@ public class g8 {
     public static final g8 f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean a;
-    public zh1 b;
+    public ai1 b;
     public long c;
     public final Handler d;
-    public final CopyOnWriteArrayList<mk1> e;
+    public final CopyOnWriteArrayList<nk1> e;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -62,11 +62,11 @@ public class g8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if ((this.a == 1 && ((float) (System.currentTimeMillis() - this.b.c)) < ki1.i() * 60000.0f) || !hi0.a().n()) {
+                if ((this.a == 1 && ((float) (System.currentTimeMillis() - this.b.c)) < li1.i() * 60000.0f) || !ii0.a().n()) {
                     return;
                 }
                 if (this.b.b == null) {
-                    this.b.b = new zh1();
+                    this.b.b = new ai1();
                 }
                 this.b.b.k();
                 this.b.c = System.currentTimeMillis();
@@ -108,12 +108,12 @@ public class g8 {
 
     public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !k41.b()) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !l41.b()) {
             return;
         }
-        Context b2 = hi0.b();
+        Context b2 = ii0.b();
         if (b2 instanceof Application) {
-            ((Application) b2).registerActivityLifecycleCallbacks(new di1());
+            ((Application) b2).registerActivityLifecycleCallbacks(new ei1());
         }
     }
 
@@ -121,7 +121,7 @@ public class g8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject d = xh1.a().d();
+            JSONObject d = yh1.a().d();
             if (d == null || d.optBoolean("real_time_query_switch", true)) {
                 return true;
             }

@@ -65,14 +65,14 @@ public class a {
         if (this.PM.contains(bVar.ait)) {
             return;
         }
-        com.kwad.components.a.a.a.a(this.mContext, bVar, new a.InterfaceC0543a() { // from class: com.kwad.components.a.a.5
-            @Override // com.kwad.components.a.a.a.InterfaceC0543a
+        com.kwad.components.a.a.a.a(this.mContext, bVar, new a.InterfaceC0544a() { // from class: com.kwad.components.a.a.5
+            @Override // com.kwad.components.a.a.a.InterfaceC0544a
             public final void c(com.kwad.sdk.e.kwai.b bVar2) {
                 a.this.PM.add(bVar2.ait);
                 com.kwad.sdk.core.e.b.d("HybridPackageManager", "download onStart: " + bVar2.toString());
             }
 
-            @Override // com.kwad.components.a.a.a.InterfaceC0543a
+            @Override // com.kwad.components.a.a.a.InterfaceC0544a
             public final void d(com.kwad.sdk.e.kwai.b bVar2) {
                 com.kwad.sdk.core.e.b.d("HybridPackageManager", "download success: " + bVar2.toString());
                 if (com.kwad.components.a.a.b.a(a.this.mContext, bVar2)) {
@@ -85,7 +85,7 @@ public class a {
                 a.this.PM.remove(bVar2.ait);
             }
 
-            @Override // com.kwad.components.a.a.a.InterfaceC0543a
+            @Override // com.kwad.components.a.a.a.InterfaceC0544a
             public final void e(com.kwad.sdk.e.kwai.b bVar2) {
                 com.kwad.sdk.core.e.b.d("HybridPackageManager", "download failure: " + bVar2.toString());
                 a.this.PM.remove(bVar2.ait);

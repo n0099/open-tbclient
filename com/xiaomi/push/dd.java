@@ -93,7 +93,7 @@ public class dd {
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
                 try {
-                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bv.m723a() + "; lng :" + Locale.getDefault().toString() + "; sdk :48; andver :" + Build.VERSION.SDK_INT + "\n");
+                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bv.m725a() + "; lng :" + Locale.getDefault().toString() + "; sdk :48; andver :" + Build.VERSION.SDK_INT + "\n");
                     this.f204a = 0;
                     Iterator<File> it = this.f206a.iterator();
                     while (it.hasNext()) {
@@ -155,7 +155,7 @@ public class dd {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dd m274a(File file) {
+    public dd m276a(File file) {
         if (file.exists()) {
             this.f206a.add(file);
         }
@@ -186,14 +186,14 @@ public class dd {
             if (!file2.exists()) {
                 file2 = context.getFilesDir();
             }
-            m274a(new File(file2, "xmsf.log.1"));
+            m276a(new File(file2, "xmsf.log.1"));
             file3 = new File(file2, "xmsf.log");
         } else {
             file2 = new File(context.getExternalFilesDir(null) + a);
-            m274a(new File(file2, "log0.txt"));
+            m276a(new File(file2, "log0.txt"));
             file3 = new File(file2, "log1.txt");
         }
-        m274a(file3);
+        m276a(file3);
         if (file2.isDirectory()) {
             File file4 = new File(file, date.getTime() + "-" + date2.getTime() + ".zip");
             if (file4.exists()) {

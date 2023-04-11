@@ -1,49 +1,37 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.tbadk.editortools.local.view.LocalInputContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zc5 extends wb5 {
+public class zc5 extends ad5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LocalInputContainer t;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zc5(Context context, qc5 qc5Var) {
-        super(context, (String) null, 36);
+    public zc5(Context context) {
+        super((String) null, 23, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, qc5Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        g(context, qc5Var);
-        this.m = this.t;
-        this.o = false;
-        this.n = 3;
-        this.p = new int[]{24, 3};
-    }
-
-    public final void g(Context context, qc5 qc5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, qc5Var) == null) {
-            LocalInputContainer localInputContainer = new LocalInputContainer(context);
-            this.t = localInputContainer;
-            localInputContainer.e(qc5Var);
-        }
+        this.d = R.drawable.icon_pure_post_more24_svg;
+        this.e = R.drawable.icon_mask_post_more24_selection_svg;
+        this.i = true;
+        this.p = new int[]{32};
     }
 }

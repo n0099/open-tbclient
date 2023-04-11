@@ -1,9 +1,19 @@
 package com.baidu.tieba;
-
-import java.io.IOException;
 /* loaded from: classes5.dex */
 public interface p4a {
-    void close() throws IOException;
+    void C();
 
-    int write(byte[] bArr, int i, int i2) throws IOException;
+    void N();
+
+    void R();
+
+    void T0(int i, boolean z);
+
+    void c(String str);
+
+    void e();
+
+    void finish();
+
+    void setResult(int i);
 }

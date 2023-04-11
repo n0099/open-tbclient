@@ -11,8 +11,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aq6;
-import com.baidu.tieba.vo5;
+import com.baidu.tieba.bq5;
+import com.baidu.tieba.dt6;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import com.baidu.tieba.l58;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,6 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.annotations.SerializedName;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
 public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -27,11 +32,16 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
     public static final int MSG_TYPE = 102;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    @vo5(serialize = false)
+    @bq5(serialize = false)
     public CharSequence cacheText;
-    @vo5(serialize = false)
+    @Nullable
+    public BotsDTO.BotListDTO.SkillDTO.ItemsDTO fileItem;
+    @Nullable
+    @SerializedName("robot_params")
+    public Map<String, Object> robotParams;
+    @bq5(serialize = false)
     public String text;
-    @vo5(serialize = false)
+    @bq5(serialize = false)
     public SpannableStringBuilder thumbnailText;
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
@@ -45,7 +55,7 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements aq6.i {
+    public class a implements dt6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleTextImageMsg a;
@@ -68,7 +78,7 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
             this.a = singleTextImageMsg;
         }
 
-        @Override // com.baidu.tieba.aq6.i
+        @Override // com.baidu.tieba.dt6.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) && this.a.thumbnailText.length() <= 0) {
@@ -130,7 +140,7 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.gn
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.hn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -140,11 +150,53 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
         return (BdUniqueId) invokeV.objValue;
     }
 
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
+    public void onClearRedundancyFields(@NonNull Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
+            super.onClearRedundancyFields(map);
+            map.remove("fileItem");
+            Map<String, Object> map2 = this.robotParams;
+            if (map2 != null) {
+                map.put("robot_params", map2);
+            }
+        }
+    }
+
     public void setCacheText(@Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, charSequence) == null) {
             this.cacheText = charSequence;
         }
+    }
+
+    public void setFileItem(@Nullable BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, itemsDTO) == null) {
+            this.fileItem = itemsDTO;
+        }
+    }
+
+    public void setRobotParams(@Nullable Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, map) == null) {
+            this.robotParams = map;
+        }
+    }
+
+    @NonNull
+    public static SingleTextImageMsg create(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
+            SingleTextImageMsg singleTextImageMsg = new SingleTextImageMsg();
+            singleTextImageMsg.text = str;
+            singleTextImageMsg.setThumbUrl(str2);
+            singleTextImageMsg.setThumbSize(str3);
+            singleTextImageMsg.setBigSize(str3);
+            return singleTextImageMsg;
+        }
+        return (SingleTextImageMsg) invokeLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -178,7 +230,7 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
                 return spannableStringBuilder;
             }
             this.thumbnailText = new SpannableStringBuilder();
-            aq6.d(TbadkApplication.getInst(), this.text, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this));
+            dt6.d(TbadkApplication.getInst(), this.text, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this));
             if (this.thumbnailText.length() <= 0) {
                 this.thumbnailText.append((CharSequence) this.text);
             }
@@ -188,5 +240,20 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
             return this.thumbnailText;
         }
         return (CharSequence) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg
+    public void setSdkMsg(String str, String str2) {
+        BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO;
+        List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts;
+        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) {
+            super.setSdkMsg(str, str2);
+            if (this.robotParams != null && (itemsDTO = this.fileItem) != null && itemsDTO.isFileType() && (opts = this.fileItem.getOpts()) != null && !opts.isEmpty() && (ext = opts.get(0).getExt()) != null) {
+                ext.setPicPath(str2);
+                l58.n(this.robotParams, this.fileItem);
+            }
+        }
     }
 }

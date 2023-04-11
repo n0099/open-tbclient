@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gt4;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.n06;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.it4;
+import com.baidu.tieba.t16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -184,11 +184,11 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
             this.b.setIsRound(true);
             this.b.setIsPreDrawBorder(true);
             this.b.setDrawBorder(true);
-            this.b.setBorderWidth(hi.g(context, R.dimen.tbds1));
+            this.b.setBorderWidth(ii.g(context, R.dimen.tbds1));
             this.b.setDefaultResource(R.color.CAM_X0205);
-            this.b.setRadius(hi.g(context, R.dimen.obfuscated_res_0x7f070266));
+            this.b.setRadius(ii.g(context, R.dimen.obfuscated_res_0x7f070266));
             ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
-            layoutParams.height = ((hi.l(getContext()) - hi.g(getContext(), R.dimen.tbds130)) * 9) / 16;
+            layoutParams.height = ((ii.l(getContext()) - ii.g(getContext(), R.dimen.tbds130)) * 9) / 16;
             this.e.setLayoutParams(layoutParams);
             this.e.setConrers(15);
             setOnClickListener(this);
@@ -222,11 +222,11 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) != null) || (smartApp = this.h) == null) {
             return;
         }
-        if (!n06.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+        if (!t16.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
             if (StringUtils.isNull(this.h.h5_url)) {
                 return;
             }
-            gt4.s(getContext(), this.h.h5_url);
+            it4.s(getContext(), this.h.h5_url);
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("fid", this.j).param("tid", this.k).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", this.h.name).param("obj_id", this.h.naws_app_id.longValue()).param("obj_source", this.i).param("obj_param1", this.h.is_game.intValue()));
     }
@@ -240,7 +240,7 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
             }
             setVisibility(0);
             this.h = smartApp;
-            this.b.M(smartApp.avatar, 10, false);
+            this.b.N(smartApp.avatar, 10, false);
             this.c.setText(smartApp.name);
             if (StringUtils.isNull(smartApp._abstract, true)) {
                 this.d.setVisibility(8);
@@ -253,7 +253,7 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
                 return;
             }
             this.e.setEvent(new a(this));
-            this.e.M(smartApp.pic, 10, false);
+            this.e.N(smartApp.pic, 10, false);
         }
     }
 }

@@ -266,7 +266,7 @@ public class ne<T> implements me.c<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (BdBaseApplication.getInst().isDebugMode() && hi.E()) {
+            if (BdBaseApplication.getInst().isDebugMode() && ii.E()) {
                 if (!this.a) {
                     BdLog.detailException("access db in main thread!", new Exception());
                 } else {
@@ -283,7 +283,7 @@ public class ne<T> implements me.c<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (BdBaseApplication.getInst().isDebugMode() && hi.E()) {
+            if (BdBaseApplication.getInst().isDebugMode() && ii.E()) {
                 if (!this.a) {
                     BdLog.detailException("access db in main thread!", new Exception());
                 } else {

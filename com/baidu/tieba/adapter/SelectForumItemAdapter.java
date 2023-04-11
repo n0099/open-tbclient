@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.qv5;
-import com.baidu.tieba.zw5;
+import com.baidu.tieba.fy5;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.ww5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,13 +34,13 @@ import java.util.List;
 public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qv5 a;
+    public ww5 a;
     public int b;
     public List<SelectForumData> c;
     public View.OnClickListener d;
     public View.OnClickListener e;
     @Nullable
-    public zw5.e f;
+    public fy5.e f;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -146,20 +146,20 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
                     return;
                 }
             }
-            this.a = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f09063d);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090640);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09063f);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09063e);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090641);
+            this.a = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090641);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090644);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090643);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090642);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090645);
         }
     }
 
-    public SelectForumItemAdapter(qv5 qv5Var) {
+    public SelectForumItemAdapter(ww5 ww5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qv5Var};
+            Object[] objArr = {ww5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -171,37 +171,47 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         }
         this.d = new a(this);
         this.e = new b(this);
-        this.a = qv5Var;
+        this.a = ww5Var;
     }
 
-    public void i(List<SelectForumData> list) {
+    public void p(List<SelectForumData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.c = list;
         }
     }
 
-    public void j(zw5.e eVar) {
+    public void q(fy5.e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
             this.f = eVar;
         }
     }
 
-    public void k(int i) {
+    public void r(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.b = i;
         }
     }
 
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ListUtils.getCount(this.c);
+        }
+        return invokeV.intValue;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: g */
+    /* renamed from: n */
     public void onBindViewHolder(@NonNull c cVar, int i) {
         SelectForumData selectForumData;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048576, this, cVar, i) != null) || (selectForumData = (SelectForumData) ListUtils.getItem(this.c, i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, i) != null) || (selectForumData = (SelectForumData) ListUtils.getItem(this.c, i)) == null) {
             return;
         }
         cVar.a.setPlaceHolder(1);
@@ -210,8 +220,8 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         int i2 = 0;
         cVar.a.setShowInnerBorder(false);
         cVar.a.setStrokeColorResId(R.color.CAM_X0401);
-        cVar.a.setStrokeWith(hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-        cVar.a.M(selectForumData.avatarUrl, 10, false);
+        cVar.a.setStrokeWith(ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        cVar.a.N(selectForumData.avatarUrl, 10, false);
         cVar.b.setText(selectForumData.forumName);
         SkinManager.setViewTextColor(cVar.b, (int) R.color.CAM_X0105);
         if (selectForumData.level <= 0) {
@@ -247,20 +257,10 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         cVar.itemView.setOnClickListener(this.d);
     }
 
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ListUtils.getCount(this.c);
-        }
-        return invokeV.intValue;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: h */
+    /* renamed from: o */
     public c onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

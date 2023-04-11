@@ -150,6 +150,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(FunnySpriteSwitch.class);
             SwitchManager.getInstance().registerSwitch(FunnySpriteDeviceScoreSwitch.class);
             SwitchManager.getInstance().registerSwitch(OfflinePkgAutoCleanSwitch.class);
+            SwitchManager.getInstance().registerSwitch(SpriteTypeWriterSwitch.class);
         }
     }
 }

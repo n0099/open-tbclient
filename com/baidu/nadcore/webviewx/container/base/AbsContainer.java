@@ -14,15 +14,15 @@ import android.view.View;
 import android.view.Window;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
-import com.baidu.tieba.i91;
-import com.baidu.tieba.m91;
-import com.baidu.tieba.ml0;
-import com.baidu.tieba.ql0;
-import com.baidu.tieba.t51;
-import com.baidu.tieba.w51;
+import com.baidu.tieba.j91;
+import com.baidu.tieba.n91;
+import com.baidu.tieba.nl0;
+import com.baidu.tieba.rl0;
+import com.baidu.tieba.u51;
+import com.baidu.tieba.x51;
 /* loaded from: classes2.dex */
-public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callback, ActivityCompat.OnRequestPermissionsResultCallback, w51 {
-    public i91 a;
+public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callback, ActivityCompat.OnRequestPermissionsResultCallback, x51 {
+    public j91 a;
     public boolean b = true;
     public final Object c = new Object();
 
@@ -91,28 +91,28 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public abstract void z();
 
     /* loaded from: classes2.dex */
-    public class a extends ql0<t51> {
+    public class a extends rl0<u51> {
         public a(Class cls) {
             super(cls);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ql0
-        public void onEvent(@NonNull t51 t51Var) {
-            if (TextUtils.isEmpty(t51Var.a)) {
+        @Override // com.baidu.tieba.rl0
+        public void onEvent(@NonNull u51 u51Var) {
+            if (TextUtils.isEmpty(u51Var.a)) {
                 return;
             }
-            AbsContainer.this.l(t51Var.a);
+            AbsContainer.this.l(u51Var.a);
         }
     }
 
-    public AbsContainer(@NonNull i91 i91Var) {
-        this.a = i91Var;
+    public AbsContainer(@NonNull j91 j91Var) {
+        this.a = j91Var;
     }
 
     public void w(View view2) {
-        i91 i91Var = this.a;
-        if (i91Var == null || !i91Var.d()) {
+        j91 j91Var = this.a;
+        if (j91Var == null || !j91Var.f()) {
             getActivity().setContentView(view2);
         }
     }
@@ -122,12 +122,12 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     }
 
     public void c() {
-        this.a.c();
+        this.a.d();
     }
 
     @NonNull
     public final Context d() {
-        return m91.b();
+        return n91.b();
     }
 
     @NonNull
@@ -135,7 +135,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
         return this.a.getIntent();
     }
 
-    @Override // com.baidu.tieba.w51
+    @Override // com.baidu.tieba.x51
     public void g() {
         z();
     }
@@ -155,7 +155,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
         return getActivity().getWindow();
     }
 
-    @Override // com.baidu.tieba.w51
+    @Override // com.baidu.tieba.x51
     public void k() {
         c();
     }
@@ -165,10 +165,10 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     }
 
     public void p() {
-        ml0.a().unregister(this.c);
+        nl0.a().unregister(this.c);
     }
 
     public final void v() {
-        ml0.a().c(this.c, 1, new a(t51.class));
+        nl0.a().c(this.c, 1, new a(u51.class));
     }
 }

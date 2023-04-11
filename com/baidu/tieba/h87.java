@@ -1,19 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class h87 {
+public class h87 implements s97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SharedPreferences a;
+
+    @Override // com.baidu.tieba.s97
+    public boolean e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
 
     public h87() {
         Interceptable interceptable = $ic;
@@ -25,46 +38,56 @@ public class h87 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.s97
+    public void a(aj7 aj7Var, FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, aj7Var, frsViewData) == null) && aj7Var != null && frsViewData != null) {
+            ArrayList<hn> threadList = frsViewData.getThreadList();
+            if (ListUtils.isEmpty(threadList)) {
                 return;
             }
-        }
-        this.a = TbadkCoreApplication.getInst().getSharedPreferences("frs_guide_sp", 0);
-    }
-
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && !"0".equals(str) && !"0".equals(str2)) {
-                return true;
+            ArrayList arrayList = new ArrayList();
+            Iterator<hn> it = threadList.iterator();
+            while (it.hasNext()) {
+                hn next = it.next();
+                if (next.getType() == ThreadData.TYPE_TOP) {
+                    arrayList.add(next);
+                }
             }
-            return false;
+            frsViewData.setTopThreadList(arrayList);
         }
-        return invokeLL.booleanValue;
     }
 
-    public long b(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.s97
+    public void b(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (!a(str, str2)) {
-                return 0L;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            view2.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.s97
+    public void c(aj7 aj7Var, e57 e57Var, FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, aj7Var, e57Var, frsViewData) == null) && aj7Var != null && e57Var != null && frsViewData != null) {
+            aj7Var.J();
+            if (frsViewData != null && frsViewData.getForum() != null) {
+                e57Var.g1(frsViewData.getForum().getFrsBannerData());
             }
-            return this.a.getLong(str + '_' + str2 + "_show_time", 0L);
         }
-        return invokeLL.longValue;
     }
 
-    public void c(String str, String str2, long j, boolean z) {
+    @Override // com.baidu.tieba.s97
+    public int d(int i, FrsRequestData frsRequestData) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) != null) || !a(str, str2)) {
-            return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, frsRequestData)) == null) {
+            return oi7.e(i, frsRequestData);
         }
-        SharedPreferences.Editor edit = this.a.edit();
-        edit.putLong(str + '_' + str2 + "_show_time", j);
-        if (z) {
-            edit.putBoolean(str + '_' + str2 + "_show", true);
-        }
-        edit.apply();
+        return invokeIL.intValue;
     }
 }

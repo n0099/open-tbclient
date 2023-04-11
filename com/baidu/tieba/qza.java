@@ -1,62 +1,50 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.JvmStatic;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public final class qza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int[] b;
+    public int[] c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948110513, "Lcom/baidu/tieba/qza;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public qza() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948110513, "Lcom/baidu/tieba/qza;");
-        }
-    }
-
-    @JvmStatic
-    @JvmOverloads
-    public static final int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(str, 0, 2, null) : invokeL.intValue;
-    }
-
-    @JvmStatic
-    @JvmOverloads
-    public static final int b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            try {
-                return Color.parseColor(str);
-            } catch (Exception e) {
-                RLog.error("ColorUtil", e.getLocalizedMessage(), new Object[0]);
-                return i;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeLI.intValue;
     }
 
-    public static /* synthetic */ int c(String str, int i, int i2, Object obj) {
-        if ((i2 & 2) != 0) {
-            i = -16777216;
+    public static void a(qza qzaVar, kza kzaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, qzaVar, kzaVar) == null) {
+            int length = qzaVar.c.length;
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                qzaVar.c[i2] = i;
+                nza.n(qzaVar.a, qzaVar.b, i, kzaVar);
+                i += 1080;
+            }
         }
-        return b(str, i);
+    }
+
+    public static void b(qza qzaVar, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65538, null, qzaVar, i, i2) == null) {
+            qzaVar.a = i;
+            qzaVar.b = new int[i2 * 1080];
+            qzaVar.c = new int[i2];
+        }
     }
 }

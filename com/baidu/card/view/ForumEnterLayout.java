@@ -23,10 +23,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ba9;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.hw4;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.jw4;
+import com.baidu.tieba.q25;
+import com.baidu.tieba.sj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class ForumEnterLayout extends RelativeLayout {
     public ThreadForumEnterGoodsButton c;
     public TextView d;
     public EMTextView e;
-    public hw4 f;
+    public jw4 f;
     public Drawable g;
     public final int h;
     public final int i;
@@ -109,18 +109,18 @@ public class ForumEnterLayout extends RelativeLayout {
                 return;
             }
         }
-        this.h = hi.g(TbadkApplication.getInst(), R.dimen.tbds44);
-        this.i = hi.g(TbadkApplication.getInst(), R.dimen.tbds60);
+        this.h = ii.g(TbadkApplication.getInst(), R.dimen.tbds44);
+        this.i = ii.g(TbadkApplication.getInst(), R.dimen.tbds60);
         this.k = 0;
         this.m = new a(this);
         i(context);
     }
 
-    public final boolean m(hw4 hw4Var) {
+    public final boolean m(jw4 jw4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, hw4Var)) == null) {
-            if (hw4Var != null && hw4Var.getThreadData() != null && hw4Var.getThreadData().getPollData() != null && hw4Var.getThreadData().getPollData().getOptions() != null && hw4Var.getThreadData().getPollData().getOptions().size() > 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jw4Var)) == null) {
+            if (jw4Var != null && jw4Var.getThreadData() != null && jw4Var.getThreadData().getPollData() != null && jw4Var.getThreadData().getPollData().getOptions() != null && jw4Var.getThreadData().getPollData().getOptions().size() > 0) {
                 return true;
             }
             return false;
@@ -147,8 +147,8 @@ public class ForumEnterLayout extends RelativeLayout {
                 return;
             }
         }
-        this.h = hi.g(TbadkApplication.getInst(), R.dimen.tbds44);
-        this.i = hi.g(TbadkApplication.getInst(), R.dimen.tbds60);
+        this.h = ii.g(TbadkApplication.getInst(), R.dimen.tbds44);
+        this.i = ii.g(TbadkApplication.getInst(), R.dimen.tbds60);
         this.k = 0;
         this.m = new a(this);
         i(context);
@@ -173,8 +173,8 @@ public class ForumEnterLayout extends RelativeLayout {
                 return;
             }
         }
-        this.h = hi.g(TbadkApplication.getInst(), R.dimen.tbds44);
-        this.i = hi.g(TbadkApplication.getInst(), R.dimen.tbds60);
+        this.h = ii.g(TbadkApplication.getInst(), R.dimen.tbds44);
+        this.i = ii.g(TbadkApplication.getInst(), R.dimen.tbds60);
         this.k = 0;
         this.m = new a(this);
         i(context);
@@ -192,11 +192,11 @@ public class ForumEnterLayout extends RelativeLayout {
         return invokeL.booleanValue;
     }
 
-    public final boolean l(hw4 hw4Var) {
+    public final boolean l(jw4 jw4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, hw4Var)) == null) {
-            if (hw4Var != null && hw4Var.getThreadData() != null && hw4Var.getThreadData().isVideoThreadType() && hw4Var.getThreadData().getThreadVideoInfo() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jw4Var)) == null) {
+            if (jw4Var != null && jw4Var.getThreadData() != null && jw4Var.getThreadData().isVideoThreadType() && jw4Var.getThreadData().getThreadVideoInfo() != null) {
                 return true;
             }
             return false;
@@ -234,11 +234,11 @@ public class ForumEnterLayout extends RelativeLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int l = (hi.l(this.a) - (this.h * 2)) - this.i;
+            int l = (ii.l(this.a) - (this.h * 2)) - this.i;
             if (l > 0) {
                 this.j = l / 2;
             } else {
-                this.j = hi.g(this.a, R.dimen.tbds540);
+                this.j = ii.g(this.a, R.dimen.tbds540);
             }
             this.d.setMaxWidth(this.j);
         }
@@ -270,7 +270,7 @@ public class ForumEnterLayout extends RelativeLayout {
             i = 2;
         }
         if (str != null && i > 0) {
-            TiebaStatic.log(ba9.k(str, threadData, i));
+            TiebaStatic.log(sj9.k(str, threadData, i));
         }
     }
 
@@ -281,7 +281,7 @@ public class ForumEnterLayout extends RelativeLayout {
             View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_item, (ViewGroup) this, true);
             TextView textView = (TextView) inflate.findViewById(R.id.text_post);
             this.d = textView;
-            textView.setCompoundDrawablePadding(hi.g(context, R.dimen.tbds10));
+            textView.setCompoundDrawablePadding(ii.g(context, R.dimen.tbds10));
             this.b = (ThreadForumEnterButton) inflate.findViewById(R.id.forum_enter_button);
             this.c = (ThreadForumEnterGoodsButton) inflate.findViewById(R.id.forum_enter_goods_button);
             this.b.setAfterClickListener(this.m);
@@ -309,21 +309,21 @@ public class ForumEnterLayout extends RelativeLayout {
             this.b.e();
             this.c.e();
             this.g = getArrowRight();
-            n15 d = n15.d(this.e);
+            q25 d = q25.d(this.e);
             d.w(R.color.CAM_X0109);
-            d.B(R.string.F_X01);
+            d.C(R.string.F_X01);
         }
     }
 
-    public void setData(hw4 hw4Var) {
+    public void setData(jw4 jw4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hw4Var) == null) {
-            this.f = hw4Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jw4Var) == null) {
+            this.f = jw4Var;
             g();
-            ThreadData threadData = hw4Var.getThreadData();
+            ThreadData threadData = jw4Var.getThreadData();
             int i = 8;
-            if (!k(threadData) && ((hw4Var.showCardEnterFourm() || !threadData.isFromHomPage) && !StringUtils.isNull(threadData.getForum_name()) && !j(threadData))) {
+            if (!k(threadData) && ((jw4Var.showCardEnterFourm() || !threadData.isFromHomPage) && !StringUtils.isNull(threadData.getForum_name()) && !j(threadData))) {
                 this.b.setVisibility(0);
                 this.b.b(threadData, this.j);
                 z = true;
@@ -331,7 +331,7 @@ public class ForumEnterLayout extends RelativeLayout {
                 this.b.setVisibility(8);
                 z = false;
             }
-            if (!m(hw4Var) && !l(hw4Var) && hw4Var.showCardGoodsFourm() && hw4Var.getThreadData().isGoods()) {
+            if (!m(jw4Var) && !l(jw4Var) && jw4Var.showCardGoodsFourm() && jw4Var.getThreadData().isGoods()) {
                 this.c.setVisibility(0);
                 this.c.a(threadData);
                 z = true;
@@ -340,7 +340,7 @@ public class ForumEnterLayout extends RelativeLayout {
             }
             if (ThreadCardUtils.isSelf(threadData) && threadData.isPrivacy) {
                 this.d.setVisibility(0);
-                this.d.setTextSize(0, hi.g(getContext(), R.dimen.tbds32));
+                this.d.setTextSize(0, ii.g(getContext(), R.dimen.tbds32));
                 this.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
                 this.d.setText(R.string.private_desc);

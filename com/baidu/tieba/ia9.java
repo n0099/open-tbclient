@@ -1,21 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ia9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
+    public String a;
+    public int b;
     public int c;
-    public String d;
-    public long e;
+    public int d;
+    public int e;
 
     public ia9() {
         Interceptable interceptable = $ic;
@@ -30,31 +31,91 @@ public class ia9 {
                 return;
             }
         }
-        this.a = false;
-        this.b = false;
+        this.b = 0;
         this.c = 0;
-        this.d = "";
-        this.e = 0L;
+        this.d = 0;
+        this.e = 0;
     }
 
-    public static ia9 a(ResponsedMessage responsedMessage) {
-        InterceptResult invokeL;
-        boolean z;
+    public ia9(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, responsedMessage)) == null) {
-            ia9 ia9Var = new ia9();
-            if (BdNetTypeUtil.isNetWorkAvailable() && (responsedMessage.getError() < -13 || responsedMessage.getError() > -10)) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            ia9Var.a = z;
-            ia9Var.b = !responsedMessage.hasError();
-            ia9Var.c = responsedMessage.getError();
-            ia9Var.d = responsedMessage.getErrorString();
-            ia9Var.e = responsedMessage.getDownSize();
-            return ia9Var;
         }
-        return (ia9) invokeL.objValue;
+        this.b = 0;
+        this.c = 0;
+        this.d = 0;
+        this.e = 0;
+        if (jSONObject != null) {
+            this.a = jSONObject.optString("forum_name");
+            this.b = jSONObject.optInt("refresh_count");
+            this.c = jSONObject.optInt("loadmore_count");
+            this.d = jSONObject.optInt("loadmore_count_pb");
+            this.e = jSONObject.optInt("refresh_count_pb");
+        }
+    }
+
+    public void a(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z2) {
+                if (z) {
+                    this.e++;
+                } else {
+                    this.d++;
+                }
+            } else if (z) {
+                this.b++;
+            } else {
+                this.c++;
+            }
+        }
+    }
+
+    public int b(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z2) {
+                if (z) {
+                    return this.e;
+                }
+                return this.d;
+            } else if (z) {
+                return this.b;
+            } else {
+                return this.c;
+            }
+        }
+        return invokeCommon.intValue;
+    }
+
+    public JSONObject c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("forum_name", this.a);
+                jSONObject.put("refresh_count", this.b);
+                jSONObject.put("loadmore_count", this.c);
+                jSONObject.put("loadmore_count_pb", this.d);
+                jSONObject.put("refresh_count_pb", this.e);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

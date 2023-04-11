@@ -1,6 +1,6 @@
 package com.baidu.helios.channels.upc;
 
-import com.baidu.tieba.u30;
+import com.baidu.tieba.v30;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -94,7 +94,7 @@ public class ReflectUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            return new String(new u30().a(bArr));
+            return new String(new v30().a(bArr));
         }
         return (String) invokeL.objValue;
     }

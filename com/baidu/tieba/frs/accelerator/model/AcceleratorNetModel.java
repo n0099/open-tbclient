@@ -125,7 +125,7 @@ public class AcceleratorNetModel extends BdBaseModel {
         }
     }
 
-    public void T(int i) {
+    public void S(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.b) {
             return;
@@ -136,7 +136,7 @@ public class AcceleratorNetModel extends BdBaseModel {
         this.b = true;
     }
 
-    public void U(b bVar) {
+    public void T(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.a = bVar;

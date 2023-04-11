@@ -221,7 +221,7 @@ public class lf {
                 }
                 sb.append(this.e.get(i).getName());
                 sb.append("=");
-                sb.append(gi.getUrlEncode(this.e.get(i).getValue()));
+                sb.append(hi.getUrlEncode(this.e.get(i).getValue()));
             }
             if (jfVar != null) {
                 jfVar.a = sb.length();

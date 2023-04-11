@@ -49,7 +49,7 @@ public class TiebaPlusInfoPojo extends OrmObject {
         }
     }
 
-    public static TiebaPlusInfoPojo R(TiebaPlusInfo tiebaPlusInfo) {
+    public static TiebaPlusInfoPojo Q(TiebaPlusInfo tiebaPlusInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tiebaPlusInfo)) == null) {
@@ -74,7 +74,7 @@ public class TiebaPlusInfoPojo extends OrmObject {
             tiebaPlusInfoPojo.jumpType = tiebaPlusInfo.jumpType;
             tiebaPlusInfoPojo.itemId = tiebaPlusInfo.itemId;
             tiebaPlusInfoPojo.isAppoint = tiebaPlusInfo.isAppoint;
-            tiebaPlusInfoPojo.pluginUser = PluginUserPojo.R(tiebaPlusInfo.pluginUser);
+            tiebaPlusInfoPojo.pluginUser = PluginUserPojo.Q(tiebaPlusInfo.pluginUser);
             tiebaPlusInfoPojo.forumName = tiebaPlusInfo.forumName;
             tiebaPlusInfoPojo.jumpSetting = tiebaPlusInfo.jumpSetting;
             tiebaPlusInfoPojo.wxThumbnail = tiebaPlusInfo.wxThumbnail;
@@ -84,7 +84,7 @@ public class TiebaPlusInfoPojo extends OrmObject {
         return (TiebaPlusInfoPojo) invokeL.objValue;
     }
 
-    public static TiebaPlusInfoPojo S(tbclient.TiebaPlusInfo tiebaPlusInfo) {
+    public static TiebaPlusInfoPojo R(tbclient.TiebaPlusInfo tiebaPlusInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tiebaPlusInfo)) == null) {
@@ -109,7 +109,7 @@ public class TiebaPlusInfoPojo extends OrmObject {
             tiebaPlusInfoPojo.jumpType = tiebaPlusInfo.jump_type;
             tiebaPlusInfoPojo.itemId = tiebaPlusInfo.item_id;
             tiebaPlusInfoPojo.isAppoint = tiebaPlusInfo.is_appoint;
-            tiebaPlusInfoPojo.pluginUser = PluginUserPojo.S(tiebaPlusInfo.plugin_user);
+            tiebaPlusInfoPojo.pluginUser = PluginUserPojo.R(tiebaPlusInfo.plugin_user);
             tiebaPlusInfoPojo.forumName = tiebaPlusInfo.forum_name;
             tiebaPlusInfoPojo.jumpSetting = tiebaPlusInfo.jump_setting;
             tiebaPlusInfoPojo.wxThumbnail = tiebaPlusInfo.wx_thumbnail;

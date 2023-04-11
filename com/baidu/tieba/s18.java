@@ -1,78 +1,77 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.widget.image.TbImage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.chat.officialBar.RequestLocalHistoryMessage;
+import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
+import com.baidu.tieba.im.chat.officialBar.ResponseLocalHistoryMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.squareup.wire.Wire;
+import java.util.Date;
+import java.util.LinkedList;
+import protobuf.QueryHistoryMsg.MsgInfo;
+import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
 /* loaded from: classes6.dex */
-public final class s18 extends r18<i08, ImageView, f08> {
+public class s18 implements CustomMessageTask.CustomRunnable<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s18(String name) {
-        super(name);
+    public s18() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {name};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(name, "name");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r18
-    /* renamed from: i */
-    public ImageView f(ViewGroup parent) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, parent)) == null) {
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            Context context = parent.getContext();
-            Intrinsics.checkNotNullExpressionValue(context, "parent.context");
-            TbImage tbImage = new TbImage(context, null, 0, 6, null);
-            tbImage.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds96), UtilHelper.getDimenPixelSize(R.dimen.tbds50)));
-            return tbImage;
-        }
-        return (ImageView) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r18
-    /* renamed from: h */
-    public void d(ImageView imageView, f08 data) {
-        TbImage tbImage;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageView, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (imageView instanceof TbImage) {
-                tbImage = (TbImage) imageView;
-            } else {
-                tbImage = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof RequestLocalHistoryMessage)) {
+                b05.d();
+                me<byte[]> b = b05.b("tb.im_official_history");
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                byte[] bArr = b.get(currentAccount + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
+                if (bArr == null) {
+                    return null;
+                }
+                LinkedList linkedList = new LinkedList();
+                try {
+                    QueryHistoryMsgResIdl queryHistoryMsgResIdl = (QueryHistoryMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHistoryMsgResIdl.class);
+                    if (queryHistoryMsgResIdl.data.res != null) {
+                        for (MsgInfo msgInfo : queryHistoryMsgResIdl.data.res) {
+                            ResponseHistoryMessage.a aVar = new ResponseHistoryMessage.a();
+                            if (msgInfo != null) {
+                                Date date = new Date();
+                                date.setTime(msgInfo.sendTime.longValue() * 1000);
+                                hi.getDateStringMouth(date);
+                                msgInfo.type.intValue();
+                                String str = msgInfo.content;
+                                msgInfo.id.intValue();
+                                linkedList.add(aVar);
+                            }
+                        }
+                    }
+                    return new ResponseLocalHistoryMessage(linkedList);
+                } catch (Exception unused) {
+                }
             }
-            i08 f = data.c().f();
-            if (f != null && tbImage != null) {
-                tbImage.i("res://drawable/" + f.a());
-            }
+            return null;
         }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

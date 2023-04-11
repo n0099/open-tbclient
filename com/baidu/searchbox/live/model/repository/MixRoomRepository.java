@@ -224,6 +224,7 @@ public final class MixRoomRepository {
                 Map enterIdCallbacks3;
                 Map enterIdCallbacks4;
                 Integer num;
+                Integer num2;
                 MediaLivePluginLogger.Companion.getInstance().logPageEnterLiveRoomReqNetEnd();
                 MediaLiveEnterRoomRate.INSTANCE.doEnterUbcByRequestEnterRealNet(roomEnterParams.getId(), "enter_live_real_req_end", "-1", "", roomEnterParams.getSource());
                 LiveRoomEnterRespData liveRoomEnterRespData = null;
@@ -242,7 +243,13 @@ public final class MixRoomRepository {
                                     num = null;
                                 }
                                 sb.append(num.intValue());
-                                onMixDataLoaded2.onMixDataLoaded(new MixResult.MixError(new Exception(sb.toString()), null, null, 6, null));
+                                Exception exc = new Exception(sb.toString());
+                                if (netResponse != null) {
+                                    num2 = Integer.valueOf(netResponse.netErrorCode);
+                                } else {
+                                    num2 = null;
+                                }
+                                onMixDataLoaded2.onMixDataLoaded(new MixResult.MixError(exc, num2, null, 4, null));
                             }
                         }
                     }
@@ -274,10 +281,14 @@ public final class MixRoomRepository {
                         }
                     }
                 } else {
+                    int i2 = -1;
                     if (jSONObject != null) {
                         i = jSONObject.optInt("errno");
                     } else {
                         i = -1;
+                    }
+                    if (jSONObject != null) {
+                        i2 = jSONObject.optInt("logid");
                     }
                     if (jSONObject != null) {
                         liveRoomEnterRespData = new LiveRoomEnterRespData(jSONObject);
@@ -287,7 +298,7 @@ public final class MixRoomRepository {
                     if (list4 != null) {
                         for (OnMixDataLoaded onMixDataLoaded4 : list4) {
                             if (onMixDataLoaded4 != null) {
-                                onMixDataLoaded4.onMixDataLoaded(new MixResult.MixError(new Exception("errno Invalid, errno = " + i), Integer.valueOf(i), liveRoomEnterRespData));
+                                onMixDataLoaded4.onMixDataLoaded(new MixResult.MixError(new Exception("errno Invalid, errno = " + i + " logid: " + i2), Integer.valueOf(i), liveRoomEnterRespData));
                             }
                         }
                     }

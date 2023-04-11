@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.tieba.cd4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,50 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pc4 extends fc4<iu2> {
+public class pc4 extends gc4<iu2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements cd4.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iu2 a;
-        public final /* synthetic */ cu2 b;
-
-        public a(pc4 pc4Var, iu2 iu2Var, cu2 cu2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pc4Var, iu2Var, cu2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iu2Var;
-            this.b = cu2Var;
-        }
-
-        @Override // com.baidu.tieba.cd4.b
-        public void onAnimationEnd() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!TextUtils.isEmpty(this.a.y)) {
-                    this.b.c(this.a.y, null);
-                }
-                t42.i("map", "TranslateMarkerAction animation end");
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -70,7 +29,7 @@ public class pc4 extends fc4<iu2> {
                 return;
             }
         }
-        boolean z = do1.a;
+        boolean z = eo1.a;
     }
 
     public pc4() {
@@ -97,56 +56,47 @@ public class pc4 extends fc4<iu2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fc4
+    @Override // com.baidu.tieba.gc4
     /* renamed from: d */
-    public boolean b(Context context, iu2 iu2Var, cu2 cu2Var, t73 t73Var, JSONObject jSONObject) {
+    public boolean b(Context context, iu2 iu2Var, du2 du2Var, u73 u73Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iu2Var, cu2Var, t73Var, jSONObject)) == null) {
-            return f(context, iu2Var, cu2Var, t73Var);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iu2Var, du2Var, u73Var, jSONObject)) == null) {
+            return g(context, iu2Var, du2Var, u73Var);
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final boolean f(Context context, iu2 iu2Var, cu2 cu2Var, t73 t73Var) {
-        InterceptResult invokeLLLL;
+    public final Bundle f(iu2 iu2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, iu2Var, cu2Var, t73Var)) == null) {
-            t42.i("map", "TranslateMarkerAction start");
-            bu1 A = gt2.U().A(iu2Var.c);
-            if (!(A instanceof zt1)) {
-                t42.c("map", "WebViewManager is null");
-                return false;
-            }
-            dd4 d = cc4.b().c((zt1) A).d(iu2Var.b);
-            if (d == null) {
-                t42.c("map", "can not find map by id " + iu2Var.b);
-                return false;
-            }
-            return g(iu2Var, d, cu2Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iu2Var)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("slaveId", iu2Var.c);
+            bundle.putDouble("latitude", iu2Var.j.a);
+            bundle.putDouble("longitude", iu2Var.j.b);
+            bundle.putDouble("scale", iu2Var.k);
+            bundle.putString("name", iu2Var.z);
+            bundle.putString("address", iu2Var.A);
+            bundle.putStringArrayList("ignoredApps", iu2Var.B);
+            return bundle;
         }
-        return invokeLLLL.booleanValue;
+        return (Bundle) invokeL.objValue;
     }
 
-    public final boolean g(iu2 iu2Var, dd4 dd4Var, cu2 cu2Var) {
-        InterceptResult invokeLLL;
+    public final boolean g(Context context, iu2 iu2Var, du2 du2Var, u73 u73Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, iu2Var, dd4Var, cu2Var)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, context, iu2Var, du2Var, u73Var)) == null) {
+            u42.i("map", "OpenLocationAction start");
             if (!iu2Var.isValid()) {
+                u42.c("map", "model is invalid");
                 return false;
             }
-            mu2 mu2Var = iu2Var.A;
-            LatLng latLng = new LatLng(mu2Var.a, mu2Var.b);
-            List<cd4> I = dd4Var.I(iu2Var.z);
-            t42.i("map", "TranslateMarkerAction animation start");
-            if (I != null) {
-                for (cd4 cd4Var : I) {
-                    cd4Var.c(dd4Var, latLng, iu2Var, new a(this, iu2Var, cu2Var));
-                }
-            }
-            t42.i("map", "TranslateMarkerAction end");
+            bd4.u3(f(iu2Var)).y3();
+            u42.i("map", "OpenLocationAction end");
             return true;
         }
-        return invokeLLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

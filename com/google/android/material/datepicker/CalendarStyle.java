@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.resources.MaterialResources;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CalendarStyle {
     @NonNull
     public final CalendarItemStyle day;

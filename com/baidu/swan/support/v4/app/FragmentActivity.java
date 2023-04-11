@@ -22,15 +22,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tieba.dl4;
-import com.baidu.tieba.fl4;
-import com.baidu.tieba.fm4;
+import com.baidu.tieba.el4;
 import com.baidu.tieba.gl4;
-import com.baidu.tieba.kl4;
-import com.baidu.tieba.nl4;
+import com.baidu.tieba.gm4;
+import com.baidu.tieba.hl4;
+import com.baidu.tieba.ll4;
 import com.baidu.tieba.ol4;
 import com.baidu.tieba.pl4;
-import com.baidu.tieba.tl4;
+import com.baidu.tieba.ql4;
+import com.baidu.tieba.ul4;
 import com.bumptech.glide.load.engine.GlideException;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.FileDescriptor;
@@ -39,9 +39,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes3.dex */
-public class FragmentActivity extends kl4 implements dl4.b, fl4.a {
+public class FragmentActivity extends ll4 implements el4.b, gl4.a {
     public final Handler a = new a();
-    public final nl4 b = nl4.b(new b());
+    public final ol4 b = ol4.b(new b());
     public boolean c;
     public boolean d;
     public boolean e;
@@ -54,7 +54,7 @@ public class FragmentActivity extends kl4 implements dl4.b, fl4.a {
     public static final class c {
         public Object a;
         public List<Fragment> b;
-        public fm4<String, tl4> c;
+        public gm4<String, ul4> c;
     }
 
     public void m(Fragment fragment) {
@@ -89,28 +89,28 @@ public class FragmentActivity extends kl4 implements dl4.b, fl4.a {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends ol4<FragmentActivity> {
+    public class b extends pl4<FragmentActivity> {
         public b() {
             super(FragmentActivity.this);
         }
 
-        @Override // com.baidu.tieba.ol4, com.baidu.tieba.ml4
+        @Override // com.baidu.tieba.pl4, com.baidu.tieba.nl4
         @Nullable
         public View a(int i) {
             return FragmentActivity.this.findViewById(i);
         }
 
-        @Override // com.baidu.tieba.ol4
+        @Override // com.baidu.tieba.pl4
         public void k(Fragment fragment) {
             FragmentActivity.this.m(fragment);
         }
 
-        @Override // com.baidu.tieba.ol4
+        @Override // com.baidu.tieba.pl4
         public boolean q(Fragment fragment) {
             return !FragmentActivity.this.isFinishing();
         }
 
-        @Override // com.baidu.tieba.ol4, com.baidu.tieba.ml4
+        @Override // com.baidu.tieba.pl4, com.baidu.tieba.nl4
         public boolean b() {
             Window window = FragmentActivity.this.getWindow();
             if (window != null && window.peekDecorView() != null) {
@@ -119,12 +119,12 @@ public class FragmentActivity extends kl4 implements dl4.b, fl4.a {
             return false;
         }
 
-        @Override // com.baidu.tieba.ol4
+        @Override // com.baidu.tieba.pl4
         public LayoutInflater m() {
             return FragmentActivity.this.getLayoutInflater().cloneInContext(FragmentActivity.this);
         }
 
-        @Override // com.baidu.tieba.ol4
+        @Override // com.baidu.tieba.pl4
         public int n() {
             Window window = FragmentActivity.this.getWindow();
             if (window == null) {
@@ -133,7 +133,7 @@ public class FragmentActivity extends kl4 implements dl4.b, fl4.a {
             return window.getAttributes().windowAnimations;
         }
 
-        @Override // com.baidu.tieba.ol4
+        @Override // com.baidu.tieba.pl4
         public boolean o() {
             if (FragmentActivity.this.getWindow() != null) {
                 return true;
@@ -141,28 +141,28 @@ public class FragmentActivity extends kl4 implements dl4.b, fl4.a {
             return false;
         }
 
-        @Override // com.baidu.tieba.ol4
+        @Override // com.baidu.tieba.pl4
         public void s() {
             FragmentActivity.this.u();
         }
 
-        @Override // com.baidu.tieba.ol4
+        @Override // com.baidu.tieba.pl4
         public void l(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
             FragmentActivity.this.dump(str, fileDescriptor, printWriter, strArr);
         }
 
-        @Override // com.baidu.tieba.ol4
+        @Override // com.baidu.tieba.pl4
         public void p(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
             FragmentActivity.this.r(fragment, strArr, i);
         }
 
-        @Override // com.baidu.tieba.ol4
+        @Override // com.baidu.tieba.pl4
         public void r(Fragment fragment, Intent intent, int i) {
             FragmentActivity.this.s(fragment, intent, i);
         }
     }
 
-    public pl4 l() {
+    public ql4 l() {
         return this.b.y();
     }
 
@@ -226,7 +226,7 @@ public class FragmentActivity extends kl4 implements dl4.b, fl4.a {
         }
         Object q = q();
         List<Fragment> F = this.b.F();
-        fm4<String, tl4> E = this.b.E();
+        gm4<String, ul4> E = this.b.E();
         if (F == null && E == null && q == null) {
             return null;
         }
@@ -255,18 +255,18 @@ public class FragmentActivity extends kl4 implements dl4.b, fl4.a {
     }
 
     public void t() {
-        dl4.e(this);
+        el4.e(this);
     }
 
     public void u() {
         if (Build.VERSION.SDK_INT >= 11) {
-            gl4.a(this);
+            hl4.a(this);
         } else {
             this.h = true;
         }
     }
 
-    @Override // com.baidu.tieba.jl4
+    @Override // com.baidu.tieba.kl4
     public final View h(View view2, String str, Context context, AttributeSet attributeSet) {
         return this.b.A(view2, str, context, attributeSet);
     }
@@ -436,7 +436,7 @@ public class FragmentActivity extends kl4 implements dl4.b, fl4.a {
         this.b.d(configuration);
     }
 
-    @Override // com.baidu.tieba.jl4, android.app.Activity
+    @Override // com.baidu.tieba.kl4, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         List<Fragment> list = null;
         this.b.a(null);
@@ -447,11 +447,11 @@ public class FragmentActivity extends kl4 implements dl4.b, fl4.a {
         }
         if (bundle != null) {
             Parcelable parcelable = bundle.getParcelable(androidx.fragment.app.FragmentActivity.FRAGMENTS_TAG);
-            nl4 nl4Var = this.b;
+            ol4 ol4Var = this.b;
             if (cVar != null) {
                 list = cVar.b;
             }
-            nl4Var.C(parcelable, list);
+            ol4Var.C(parcelable, list);
         }
         this.b.f();
     }
@@ -471,7 +471,7 @@ public class FragmentActivity extends kl4 implements dl4.b, fl4.a {
         }
     }
 
-    @Override // com.baidu.tieba.fl4.a
+    @Override // com.baidu.tieba.gl4.a
     public final void validateRequestPermissionsRequestCode(int i) {
         if (this.i) {
             this.i = false;
@@ -591,10 +591,10 @@ public class FragmentActivity extends kl4 implements dl4.b, fl4.a {
 
     public final void r(Fragment fragment, String[] strArr, int i) {
         if (i == -1) {
-            dl4.requestPermissions(this, strArr, i);
+            el4.requestPermissions(this, strArr, i);
         } else if ((i & (-256)) == 0) {
             this.i = true;
-            dl4.requestPermissions(this, strArr, ((fragment.f + 1) << 8) + (i & 255));
+            el4.requestPermissions(this, strArr, ((fragment.f + 1) << 8) + (i & 255));
         } else {
             throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
         }
@@ -610,7 +610,7 @@ public class FragmentActivity extends kl4 implements dl4.b, fl4.a {
         }
     }
 
-    @Override // android.app.Activity, com.baidu.tieba.dl4.b
+    @Override // android.app.Activity, com.baidu.tieba.el4.b
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         int i2 = (i >> 8) & 255;
         if (i2 != 0) {

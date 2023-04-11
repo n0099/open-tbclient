@@ -1,40 +1,64 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public class jx3 {
     public static /* synthetic */ Interceptable $ic;
+    public static Handler a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, hashMap)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (hashMap != null) {
-                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                    sb.append(entry.getKey());
-                    sb.append("=");
-                    sb.append(entry.getValue());
-                    sb.append("&");
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947898628, "Lcom/baidu/tieba/jx3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            StringBuilder sb2 = new StringBuilder();
-            sb2.append(str);
-            sb2.append("?code2=");
-            fx3 fx3Var = new fx3();
-            sb2.append(fx3Var.a(sb.toString() + "b" + System.currentTimeMillis() + "=1"));
-            String sb3 = sb2.toString();
-            StringBuilder sb4 = new StringBuilder();
-            sb4.append("&b" + System.currentTimeMillis());
-            sb4.append("=");
-            sb4.append("1");
-            return sb3 + sb4.toString();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947898628, "Lcom/baidu/tieba/jx3;");
+                return;
+            }
         }
-        return (String) invokeLL.objValue;
+        a = new Handler(Looper.getMainLooper());
+    }
+
+    public static void a(Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65537, null, runnable, j) == null) {
+            a.postDelayed(runnable, j);
+        }
+    }
+
+    public static void d(Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j) == null) {
+            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+                a.postDelayed(runnable, j);
+            } else {
+                runnable.run();
+            }
+        }
+    }
+
+    public static void b(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
+            a.removeCallbacks(runnable);
+        }
+    }
+
+    public static void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            d(runnable, 0L);
+        }
     }
 }

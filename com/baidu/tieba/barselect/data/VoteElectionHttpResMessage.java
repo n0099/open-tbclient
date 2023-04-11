@@ -3,9 +3,9 @@ package com.baidu.tieba.barselect.data;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.n96;
-import com.baidu.tieba.o96;
-import com.baidu.tieba.p96;
+import com.baidu.tieba.ta6;
+import com.baidu.tieba.ua6;
+import com.baidu.tieba.va6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import tbclient.Myrecord;
 public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p96 mVoteData;
+    public va6 mVoteData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoteElectionHttpResMessage() {
@@ -42,13 +42,13 @@ public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public p96 getVoteData() {
+    public va6 getVoteData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mVoteData;
         }
-        return (p96) invokeV.objValue;
+        return (va6) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -65,30 +65,30 @@ public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
                     return;
                 }
                 if (this.mVoteData == null) {
-                    this.mVoteData = new p96();
+                    this.mVoteData = new va6();
                 }
                 if (electionInfoResIdl.data.election_list != null) {
-                    ArrayList<n96> arrayList = new ArrayList<>();
+                    ArrayList<ta6> arrayList = new ArrayList<>();
                     for (ElectionList electionList : electionInfoResIdl.data.election_list) {
-                        arrayList.add(n96.o(electionList));
+                        arrayList.add(ta6.o(electionList));
                     }
                     this.mVoteData.h(arrayList);
                 }
                 Basic basic = electionInfoResIdl.data.basic;
                 if (basic != null) {
-                    this.mVoteData.m(o96.j(basic));
+                    this.mVoteData.m(ua6.j(basic));
                 }
                 Myrecord myrecord = electionInfoResIdl.data.my_record;
                 if (myrecord != null) {
-                    this.mVoteData.n(n96.p(myrecord));
+                    this.mVoteData.n(ta6.p(myrecord));
                 }
                 Integer num = electionInfoResIdl.data.has_more;
                 if (num != null) {
-                    p96 p96Var = this.mVoteData;
+                    va6 va6Var = this.mVoteData;
                     if (num.intValue() == 1) {
                         z = true;
                     }
-                    p96Var.j(z);
+                    va6Var.j(z);
                 }
                 ManagerElection managerElection = electionInfoResIdl.data.vote_limit;
                 if (managerElection != null) {

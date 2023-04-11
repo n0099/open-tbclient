@@ -1,169 +1,319 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
-import com.baidu.tbadk.download.DownloadData;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import org.json.JSONException;
-import org.json.JSONObject;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
 public class v45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public View b;
+    public int c;
+    public ViewGroup.LayoutParams d;
+    public int e;
+    public Runnable f;
+    public FrameLayout g;
+    public int h;
+    public boolean i;
+    public ViewTreeObserver.OnGlobalLayoutListener j;
+    public int k;
 
     /* loaded from: classes6.dex */
-    public static class a extends BdAsyncTask<String, Integer, Integer> {
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v45 a;
 
-        public a() {
+        public a(v45 v45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Type inference failed for: r2v0, types: [int] */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Integer doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            HttpURLConnection httpURLConnection;
-            DataOutputStream dataOutputStream;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                HttpURLConnection httpURLConnection2 = null;
-                if (strArr != null) {
-                    ?? length = strArr.length;
-                    try {
-                        if (length != 0) {
-                            try {
-                                httpURLConnection = (HttpURLConnection) new URL("https://appc.baidu.com/appsrv?action=appdistributionlog&native_api=1").openConnection();
-                                try {
-                                    httpURLConnection.setRequestMethod("POST");
-                                    httpURLConnection.setDoOutput(true);
-                                    httpURLConnection.setDoInput(true);
-                                    httpURLConnection.setConnectTimeout(ib.d().c().b());
-                                    httpURLConnection.setReadTimeout(ib.d().b().b());
-                                    httpURLConnection.setRequestProperty("Content-Type", "application/json");
-                                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
-                                    httpURLConnection.connect();
-                                    try {
-                                        dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                                        try {
-                                            dataOutputStream.write(strArr[0].getBytes("UTF-8"));
-                                            dataOutputStream.flush();
-                                            fg.d(dataOutputStream);
-                                            httpURLConnection.getResponseCode();
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            fg.d(dataOutputStream);
-                                            throw th;
-                                        }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        dataOutputStream = null;
-                                    }
-                                } catch (Exception e) {
-                                    e = e;
-                                    e.printStackTrace();
-                                    fg.f(httpURLConnection);
-                                    return null;
-                                }
-                            } catch (Exception e2) {
-                                e = e2;
-                                httpURLConnection = null;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                fg.f(httpURLConnection2);
-                                throw th;
-                            }
-                            fg.f(httpURLConnection);
-                            return null;
-                        }
-                    } catch (Throwable th4) {
-                        th = th4;
-                        httpURLConnection2 = length;
-                    }
-                }
-                return null;
-            }
-            return (Integer) invokeL.objValue;
-        }
-    }
-
-    public static void a(DownloadData downloadData, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, downloadData, i) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            ItemDownloadExtraData itemDownloadExtraData = (ItemDownloadExtraData) downloadData.getExtra();
-            if (gi.isEmpty(itemDownloadExtraData.shouzhuSource)) {
-                itemDownloadExtraData.shouzhuSource = w45.f().g(itemDownloadExtraData.pkgName);
-            }
-            c(downloadData, i);
-            b(itemDownloadExtraData.pkgName, itemDownloadExtraData.appName, itemDownloadExtraData.shouzhuScene, itemDownloadExtraData.shouzhuCategory, itemDownloadExtraData.shouzhuSource, i);
-        }
-    }
-
-    public static void c(DownloadData downloadData, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, downloadData, i) == null) {
-            if (i != 100 && i != 200) {
-                if (i != 300) {
-                    if (i != 400) {
-                        if (i != 500) {
-                            if (i != 600) {
-                                if (i != 700 && i != 800) {
-                                    if (i == 900) {
-                                        w45.f().k(downloadData);
-                                        return;
-                                    }
-                                    return;
-                                }
-                                w45.f().e(downloadData);
-                                return;
-                            }
-                        }
-                    }
-                    w45.f().j(downloadData);
                     return;
                 }
-                w45.f().d(downloadData);
+            }
+            this.a = v45Var;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            w45.f();
+            this.a.k();
         }
     }
 
-    public static void b(String str, String str2, int i, int i2, String str3, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3, Integer.valueOf(i3)}) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("pkgname", str);
-                jSONObject.put("appname", str2);
-                jSONObject.put("host", 4);
-                jSONObject.put("scene", i);
-                jSONObject.put("category", i2);
-                jSONObject.put("event", i3);
-                jSONObject.put("source", str3);
-                new a().execute(jSONObject.toString());
-            } catch (JSONException unused) {
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v45 a;
+
+        public b(v45 v45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v45Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = v45Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.l();
+        }
+    }
+
+    public v45(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 3;
+        this.h = R.color.CAM_X0201;
+        this.i = false;
+        this.j = null;
+        this.k = 0;
+        h(activity, R.color.CAM_X0201, true);
+    }
+
+    public v45(Activity activity, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 3;
+        this.h = R.color.CAM_X0201;
+        this.i = false;
+        this.j = null;
+        this.k = 0;
+        h(activity, i, z);
+    }
+
+    public v45(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = 3;
+        this.h = R.color.CAM_X0201;
+        this.i = false;
+        this.j = null;
+        this.k = 0;
+        h(activity, R.color.CAM_X0201, z);
+    }
+
+    public static v45 c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
+            return new v45(activity);
+        }
+        return (v45) invokeL.objValue;
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (this.f != null) {
+                jg.a().removeCallbacks(this.f);
+                this.f = null;
+            }
+            this.f = new b(this);
+            jg.a().postDelayed(this.f, i);
+        }
+    }
+
+    public void j(int i) {
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048580, this, i) != null) || !this.i) {
+            return;
+        }
+        if (i != this.a && (frameLayout = this.g) != null) {
+            SkinManager.setBackgroundColor(frameLayout, this.h);
+        }
+        this.a = i;
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.k = i;
+        }
+    }
+
+    public static v45 d(Activity activity, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return new v45(activity, i, z);
+        }
+        return (v45) invokeCommon.objValue;
+    }
+
+    public static v45 e(Activity activity, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, activity, z)) == null) {
+            return new v45(activity, z);
+        }
+        return (v45) invokeLZ.objValue;
+    }
+
+    public final int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Rect rect = new Rect();
+            this.b.getWindowVisibleDisplayFrame(rect);
+            return rect.bottom;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b.requestLayout();
+        }
+    }
+
+    public final void h(Activity activity, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.h = i;
+            this.i = z;
+            FrameLayout frameLayout = (FrameLayout) activity.findViewById(16908290);
+            this.g = frameLayout;
+            if (z) {
+                SkinManager.setBackgroundColor(frameLayout, i);
+            } else {
+                SkinManager.setBackgroundColor(frameLayout, i, 0);
+            }
+            View childAt = this.g.getChildAt(0);
+            this.b = childAt;
+            if (childAt == null) {
+                return;
+            }
+            this.j = new a(this);
+            this.b.getViewTreeObserver().addOnGlobalLayoutListener(this.j);
+            this.d = this.b.getLayoutParams();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.f != null) {
+                jg.a().removeCallbacks(this.f);
+                this.f = null;
+            }
+            View view2 = this.b;
+            if (view2 != null) {
+                view2.getViewTreeObserver().removeGlobalOnLayoutListener(this.j);
+                this.j = null;
+            }
+            this.b = null;
+            this.g = null;
+        }
+    }
+
+    public final void k() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (view2 = this.b) == null) {
+            return;
+        }
+        int height = view2.getHeight();
+        if (height > this.e) {
+            this.e = height;
+        }
+        int f = f();
+        int i = this.k;
+        if (i > 0 && i <= this.d.height) {
+            f -= i;
+        }
+        if (f != this.c) {
+            int i2 = this.e;
+            int i3 = i2 - f;
+            if (i3 == 0) {
+                this.d.height = i2;
+                l();
+            } else if (i3 > 200) {
+                this.d.height = i2 - i3;
+                g(200);
+                if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i3) && i3 < (this.e * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i3) {
+                    TbadkCoreApplication.getInst().setKeyboardHeight(i3);
+                }
+            }
+            this.c = f;
         }
     }
 }

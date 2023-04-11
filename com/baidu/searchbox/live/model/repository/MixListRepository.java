@@ -63,25 +63,30 @@ public final class MixListRepository {
             @Override // com.baidu.searchbox.live.model.net.MixNetCallback
             public void onNetResponse(NetResponse netResponse, SlideListInfo slideListInfo) {
                 Integer num;
+                Integer num2;
                 long j;
                 MediaLivePluginLogger.Companion.getInstance().logListSlideReqNetEndAndStartParse();
                 MixListRepository.this.isRequestIng = false;
                 if (netResponse != null && netResponse.isSuccessful() && slideListInfo != null) {
-                    MixResultStatData mixResultStatData = new MixResultStatData();
-                    NetStatData netStatData = netResponse.statData;
-                    long j2 = 0;
-                    if (netStatData != null) {
-                        j = netStatData.requestTimestamp;
-                    } else {
-                        j = 0;
+                    if (slideListInfo.errno == 0) {
+                        MixResultStatData mixResultStatData = new MixResultStatData();
+                        NetStatData netStatData = netResponse.statData;
+                        long j2 = 0;
+                        if (netStatData != null) {
+                            j = netStatData.requestTimestamp;
+                        } else {
+                            j = 0;
+                        }
+                        mixResultStatData.requestTime = j;
+                        NetStatData netStatData2 = netResponse.statData;
+                        if (netStatData2 != null) {
+                            j2 = netStatData2.responseTimestamp;
+                        }
+                        mixResultStatData.responseTime = j2;
+                        onMixDataLoaded.onMixDataLoaded(new MixResult.MixSuccess(slideListInfo, mixResultStatData));
+                        return;
                     }
-                    mixResultStatData.requestTime = j;
-                    NetStatData netStatData2 = netResponse.statData;
-                    if (netStatData2 != null) {
-                        j2 = netStatData2.responseTimestamp;
-                    }
-                    mixResultStatData.responseTime = j2;
-                    onMixDataLoaded.onMixDataLoaded(new MixResult.MixSuccess(slideListInfo, mixResultStatData));
+                    onMixDataLoaded.onMixDataLoaded(new MixResult.MixError(new Exception("fetchGoodsListInfo Invalid, code = " + netResponse.responseCode + " logid: " + slideListInfo.logId), Integer.valueOf(slideListInfo.errno), null, 4, null));
                     return;
                 }
                 OnMixDataLoaded onMixDataLoaded2 = onMixDataLoaded;
@@ -94,7 +99,13 @@ public final class MixListRepository {
                     num = null;
                 }
                 sb.append(num);
-                onMixDataLoaded2.onMixDataLoaded(new MixResult.MixError(new Exception(sb.toString()), null, null, 6, null));
+                Exception exc = new Exception(sb.toString());
+                if (netResponse != null) {
+                    num2 = Integer.valueOf(netResponse.netErrorCode);
+                } else {
+                    num2 = null;
+                }
+                onMixDataLoaded2.onMixDataLoaded(new MixResult.MixError(exc, num2, null, 4, null));
             }
 
             /* JADX DEBUG: Method merged with bridge method */

@@ -19,7 +19,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.m35;
+import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,6 +71,7 @@ public class TopBubbleSlice extends Slice {
                 Pair pair = (Pair) customResponsedMessage.getData();
                 if (this.a.l != null) {
                     this.a.k.b.setVisibility(0);
+                    this.a.j.A2(0);
                     this.a.l.setContent((String) pair.first);
                     this.a.l.setVersionKey((String) pair.second);
                     this.a.k.b.c(this.a.l, this.a.j);
@@ -114,10 +115,10 @@ public class TopBubbleSlice extends Slice {
                 return;
             }
             if (this.a.l != null) {
-                m35.m().w(this.a.l.getVersionKey() + TbadkCoreApplication.getCurrentAccount(), true);
+                p45.m().w(this.a.l.getVersionKey() + TbadkCoreApplication.getCurrentAccount(), true);
             }
             this.a.k.b.setVisibility(8);
-            this.a.j.w2(8);
+            this.a.j.A2(8);
         }
     }
 
@@ -149,8 +150,8 @@ public class TopBubbleSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 c cVar = new c();
                 cVar.a = view2;
-                cVar.b = (TopBubbleView) view2.findViewById(R.id.obfuscated_res_0x7f09188d);
-                cVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09067e);
+                cVar.b = (TopBubbleView) view2.findViewById(R.id.obfuscated_res_0x7f091890);
+                cVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090681);
                 return cVar;
             }
             return (c) invokeL.objValue;
@@ -178,20 +179,11 @@ public class TopBubbleSlice extends Slice {
         this.j = groupChatFragment;
     }
 
-    public final boolean L(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return m35.m().i(str + TbadkCoreApplication.getCurrentAccount(), false);
-        }
-        return invokeL.booleanValue;
-    }
-
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void q(int i) {
+    public void H(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            super.q(i);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.H(i);
             TopBubbleView topBubbleView = this.k.b;
             if (topBubbleView != null) {
                 topBubbleView.b();
@@ -199,11 +191,30 @@ public class TopBubbleSlice extends Slice {
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void E(@Nullable View view2, @Nullable Bundle bundle) {
+    public final boolean U(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, bundle) == null) {
-            super.E(view2, bundle);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return p45.m().i(str + TbadkCoreApplication.getCurrentAccount(), false);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.immessagecenter.slice.Slice
+    public View I(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0905, viewGroup, false);
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.immessagecenter.slice.Slice
+    public void P(@Nullable View view2, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bundle) == null) {
+            super.P(view2, bundle);
             if (view2 != null) {
                 this.k = c.a(view2);
             }
@@ -212,34 +223,24 @@ public class TopBubbleSlice extends Slice {
         }
     }
 
-    public void O(List<TopBubbleData> list, ChatRoomDetail chatRoomDetail) {
+    public void V(List<TopBubbleData> list, ChatRoomDetail chatRoomDetail) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, chatRoomDetail) == null) && list != null && list.size() > 0) {
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, list, chatRoomDetail) == null) && list != null && list.size() > 0) {
             TopBubbleData topBubbleData = list.get(0);
             this.l = topBubbleData;
-            if (!L(topBubbleData.getVersionKey())) {
+            if (!U(topBubbleData.getVersionKey())) {
                 this.k.b.c(this.l, this.j);
             }
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice, com.baidu.tieba.immessagecenter.slice.ability.LifecycleAbility
-    public void onDestroy() {
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onDestroy();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.l();
             MessageManager.getInstance().unRegisterListener(this.n);
             MessageManager.getInstance().unRegisterListener(this.m);
         }
-    }
-
-    @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public View u(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d090b, viewGroup, false);
-        }
-        return (View) invokeLLL.objValue;
     }
 }

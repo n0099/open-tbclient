@@ -1,13 +1,15 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface et5 {
-    boolean a(String str);
+    String a();
 
-    void b(int i);
+    void b(String str);
 
-    boolean c(at5 at5Var);
+    String c();
 
-    void dismiss();
+    String d();
 
-    void show();
+    boolean e();
+
+    boolean isValid();
 }

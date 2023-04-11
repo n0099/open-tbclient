@@ -1,52 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.os.Looper;
+import android.util.Printer;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.looper.ioc.ILooperNeedContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class uf9 extends CustomMessageListener {
+public class uf9 implements ILooperNeedContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final se9 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uf9(MainTabActivity mainTabActivity, se9 se9Var) {
-        super(2921348);
+    public uf9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, se9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = se9Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        se9 se9Var;
+    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
+    public void addLooperPrinter(Printer printer) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && (se9Var = this.b) != null && se9Var.y() != null) {
-            if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.b.y().getTabWrapper().animate().translationY(this.b.y().getTabWrapper().getHeight()).setDuration(200L).start();
-            } else {
-                this.b.y().getTabWrapper().animate().translationY(0.0f).setDuration(400L).start();
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, printer) == null) && printer != null) {
+            Looper.getMainLooper().setMessageLogging(printer);
+        }
+    }
+
+    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
+    public void removeLooperPrinter(Printer printer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, printer) == null) {
+            Looper.getMainLooper().setMessageLogging(null);
         }
     }
 }

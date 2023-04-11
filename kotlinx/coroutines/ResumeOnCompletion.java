@@ -30,7 +30,7 @@ public final class ResumeOnCompletion extends JobNode<Job> {
         Continuation<Unit> continuation = this.continuation;
         Unit unit = Unit.INSTANCE;
         Result.Companion companion = Result.Companion;
-        continuation.resumeWith(Result.m768constructorimpl(unit));
+        continuation.resumeWith(Result.m770constructorimpl(unit));
     }
 
     @Override // kotlinx.coroutines.internal.LockFreeLinkedListNode

@@ -6,7 +6,7 @@ public class StickerUnit extends RichStickerBaseUnit {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public StickerUnit m75clone() throws CloneNotSupportedException {
+    public StickerUnit m77clone() throws CloneNotSupportedException {
         return (StickerUnit) super.clone();
     }
 }

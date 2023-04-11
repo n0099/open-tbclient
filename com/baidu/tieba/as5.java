@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import android.view.animation.LinearInterpolator;
-import android.widget.Scroller;
+import android.net.Uri;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,20 +10,69 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class as5 implements Runnable {
+public class as5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Scroller a;
-    public final zr5 b;
+    public WebView a;
+    public String b;
     public int c;
-    public int d;
+    public long d;
 
-    public as5(zr5 zr5Var) {
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes3.dex */
+    public class a extends WebViewClient {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ as5 b;
+
+        public a(as5 as5Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {as5Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = as5Var;
+            this.a = bVar;
+        }
+
+        @Override // android.webkit.WebViewClient
+        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
+                if (str.startsWith("http://notify/ready")) {
+                    this.b.c = 2;
+                    b bVar = this.a;
+                    if (bVar != null) {
+                        bVar.a();
+                        return true;
+                    }
+                    return true;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public as5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zr5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,59 +82,39 @@ public class as5 implements Runnable {
                 return;
             }
         }
-        this.b = zr5Var;
-        this.a = new Scroller(zr5Var.getContext(), new LinearInterpolator());
+        this.c = 0;
+        this.d = 0L;
+        this.d = System.currentTimeMillis();
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !this.a.isFinished();
+            if (this.c == 2) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void d() {
+    public void b(b bVar) {
+        WebView webView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.abortAnimation();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) != null) || (webView = this.a) == null) {
+            return;
         }
-    }
-
-    public void b(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3) == null) {
-            c(0, 0, i, i2, i3);
+        webView.setWebViewClient(new a(this, bVar));
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.b);
+        if (hi.isEmpty(Uri.parse(this.b).getQuery())) {
+            sb.append("?");
+        } else {
+            sb.append("&");
         }
-    }
-
-    public void c(int i, int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            this.a.startScroll(i, i2, i3, i4, i5);
-            this.b.removeCallbacks(this);
-            this.b.post(this);
-            this.c = i;
-            this.d = i2;
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.a.computeScrollOffset()) {
-                int currX = this.a.getCurrX();
-                int currY = this.a.getCurrY();
-                this.b.b(this.c, this.d, currX, currY);
-                this.b.post(this);
-                this.c = currX;
-                this.d = currY;
-                return;
-            }
-            this.b.removeCallbacks(this);
-            this.b.a();
-        }
+        sb.append("page_lifecycle_type=preheat_enabled");
+        this.a.loadUrl(sb.toString());
+        this.c = 1;
     }
 }

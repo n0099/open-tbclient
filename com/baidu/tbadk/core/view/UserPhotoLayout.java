@@ -13,7 +13,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.tieba.xf;
 import com.baidu.tieba.yf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -316,7 +316,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mAutoChangeStyle = true;
         this.mNormalShowCount = 6;
         this.mContext = context;
-        this.mPadding = hi.d(context, 5);
+        this.mPadding = ii.d(context, 5);
         this.mItemSize = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070253);
         Context context2 = this.mContext;
         if (context2 instanceof f) {
@@ -495,7 +495,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
                 imageView.setAutoChangeStyle(this.mAutoChangeStyle);
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 addView(imageView);
-                imageView.M(this.mDatas.get(i2).getPortrait(), 12, false);
+                imageView.N(this.mDatas.get(i2).getPortrait(), 12, false);
             }
             requestLayout();
             invalidate();

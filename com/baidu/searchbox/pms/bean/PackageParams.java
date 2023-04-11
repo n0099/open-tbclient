@@ -4,6 +4,7 @@ import android.text.TextUtils;
 /* loaded from: classes2.dex */
 public class PackageParams {
     public String packageName;
+    public String uniqueVersion;
     public String updateMd5;
     public long updateVersion;
     public long version;
@@ -12,19 +13,14 @@ public class PackageParams {
         this.version = -1L;
         this.updateVersion = -1L;
         this.updateMd5 = "";
-    }
-
-    public String getUpdateParams() {
-        if (this.updateVersion > -1 && !TextUtils.isEmpty(this.updateMd5)) {
-            return this.updateVersion + "|" + this.updateMd5;
-        }
-        return String.valueOf(this.updateVersion);
+        this.uniqueVersion = "";
     }
 
     public PackageParams(String str) {
         this.version = -1L;
         this.updateVersion = -1L;
         this.updateMd5 = "";
+        this.uniqueVersion = "";
         this.packageName = str;
     }
 
@@ -36,8 +32,23 @@ public class PackageParams {
         this.version = -1L;
         this.updateVersion = -1L;
         this.updateMd5 = "";
+        this.uniqueVersion = "";
         this.packageName = str;
         this.version = j;
         this.updateVersion = j2;
+    }
+
+    public String getUpdateParams() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.updateVersion);
+        if (this.updateVersion > -1) {
+            if (!TextUtils.isEmpty(this.uniqueVersion)) {
+                sb.append("_" + this.uniqueVersion);
+            }
+            if (!TextUtils.isEmpty(this.updateMd5)) {
+                sb.append("|" + this.updateMd5);
+            }
+        }
+        return sb.toString();
     }
 }

@@ -14,7 +14,7 @@ public final class a extends com.kwad.components.core.offline.init.a {
 
     /* renamed from: com.kwad.components.offline.obiwan.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static final class C0618a {
+    public static final class C0619a {
         public static final a Qh = new a((byte) 0);
     }
 
@@ -31,7 +31,7 @@ public final class a extends com.kwad.components.core.offline.init.a {
     }
 
     public static a qw() {
-        return C0618a.Qh;
+        return C0619a.Qh;
     }
 
     @Override // com.kwad.components.core.offline.init.a

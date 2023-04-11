@@ -151,7 +151,7 @@ public abstract class AbstractTypeParameterDescriptor extends DeclarationDescrip
     }
 
     /* renamed from: reportSupertypeLoopError */
-    public abstract void mo2026reportSupertypeLoopError(KotlinType kotlinType);
+    public abstract void mo2028reportSupertypeLoopError(KotlinType kotlinType);
 
     public abstract List<KotlinType> resolveUpperBounds();
 
@@ -252,7 +252,7 @@ public abstract class AbstractTypeParameterDescriptor extends DeclarationDescrip
 
         @Override // kotlin.reflect.jvm.internal.impl.types.AbstractTypeConstructor, kotlin.reflect.jvm.internal.impl.types.TypeConstructor
         /* renamed from: getDeclarationDescriptor */
-        public ClassifierDescriptor mo2023getDeclarationDescriptor() {
+        public ClassifierDescriptor mo2025getDeclarationDescriptor() {
             AbstractTypeParameterDescriptor abstractTypeParameterDescriptor = this.this$0;
             if (abstractTypeParameterDescriptor == null) {
                 $$$reportNull$$$0(3);
@@ -287,7 +287,7 @@ public abstract class AbstractTypeParameterDescriptor extends DeclarationDescrip
             if (kotlinType == null) {
                 $$$reportNull$$$0(6);
             }
-            this.this$0.mo2026reportSupertypeLoopError(kotlinType);
+            this.this$0.mo2028reportSupertypeLoopError(kotlinType);
         }
     }
 
@@ -380,11 +380,11 @@ public abstract class AbstractTypeParameterDescriptor extends DeclarationDescrip
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor
     public List<KotlinType> getUpperBounds() {
-        List<KotlinType> mo2024getSupertypes = ((TypeParameterTypeConstructor) getTypeConstructor()).mo2024getSupertypes();
-        if (mo2024getSupertypes == null) {
+        List<KotlinType> mo2026getSupertypes = ((TypeParameterTypeConstructor) getTypeConstructor()).mo2026getSupertypes();
+        if (mo2026getSupertypes == null) {
             $$$reportNull$$$0(8);
         }
-        return mo2024getSupertypes;
+        return mo2026getSupertypes;
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor

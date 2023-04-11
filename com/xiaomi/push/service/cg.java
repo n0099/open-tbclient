@@ -83,7 +83,7 @@ public class cg implements XMPushService.n {
 
     @Override // com.xiaomi.push.service.XMPushService.n
     /* renamed from: a */
-    public void mo466a() {
+    public void mo468a() {
         if (f970a.size() > 0) {
             synchronized (f970a) {
                 b();

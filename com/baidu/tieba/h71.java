@@ -1,44 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
+import android.content.Intent;
+import android.os.Handler;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tieba.s51;
-import com.baidu.tieba.t71;
+import com.baidu.tieba.u71;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class h71 extends f71 implements v71 {
+public final class h71 extends g71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public RelativeLayout b;
-    public String c;
-    public final Object d;
-    public final j71 e;
+    public boolean a;
+    public Handler b;
+    public final k71 c;
 
     /* loaded from: classes4.dex */
-    public static final class a implements s51.b {
+    public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ h71 a;
+        public final /* synthetic */ u71.b b;
 
-        public a(h71 h71Var) {
+        public a(h71 h71Var, u71.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {h71Var};
+                Object[] objArr = {h71Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,23 +43,20 @@ public final class h71 extends f71 implements v71 {
                 }
             }
             this.a = h71Var;
+            this.b = bVar;
         }
 
-        @Override // com.baidu.tieba.s51.b
-        public final void a(String str) {
+        @Override // java.lang.Runnable
+        public final void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                AbsNadBrowserView m = this.a.e.m();
-                String str2 = this.a.a;
-                n81.a(str2, "js is " + str + " and browserView is " + m);
-                if (m != null) {
-                    AbsNadBrowserView.B(m, str, null, 2, null);
-                }
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
+            this.a.q(this.b.a());
         }
     }
 
-    public h71(j71 container) {
+    public h71(k71 container) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,207 +72,111 @@ public final class h71 extends f71 implements v71 {
             }
         }
         Intrinsics.checkNotNullParameter(container, "container");
-        this.e = container;
-        AbsNadBrowserView m = container.m();
-        if (m != null) {
-            m.setDownloadListener(this);
-        }
-        this.a = "DownloadPlugin";
-        this.c = "";
-        this.d = new Object();
+        this.c = container;
     }
 
-    @Override // com.baidu.tieba.v71
-    public boolean a(Context context, String str, String str2, String str3, String str4, long j, String str5) {
-        InterceptResult invokeCommon;
+    public final void o(u71.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, str3, str4, Long.valueOf(j), str5})) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            String str6 = this.a;
-            n81.a(str6, "onDownloadStart :: url = " + str + ",ua = " + str2 + ",contentDisposition = " + str3 + ",mimetype = " + str4 + ",contentLength = " + j);
-            if (b41.b(b41.c(b41.e(str, str3, str4)), str4) == 3) {
-                JSONObject c = v01.c(this.c);
-                Intrinsics.checkNotNullExpressionValue(c, "JSONUtils.newJSONObject(downloadParams)");
-                v01.f(c, "url", str);
-                v01.e(c, BreakpointSQLiteKey.CONTENT_LENGTH, j);
-                s51 a2 = y51.a();
-                if (a2 != null) {
-                    a2.b(context, this.b, c.toString());
-                    return true;
-                }
-                return true;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) && !this.a && bVar != null && bVar.d()) {
+            if (this.b == null) {
+                this.b = new Handler();
             }
-            return false;
+            Handler handler = this.b;
+            if (handler != null) {
+                handler.postDelayed(new a(this, bVar), (long) (bVar.b() * 1000));
+            }
         }
-        return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.f71
+    @Override // com.baidu.tieba.g71
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return super.b();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.g71
     public void c() {
+        u71.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String str = this.a;
-            n81.a(str, "context " + this.e.c());
+            u71.d l = this.c.l();
+            if (l != null) {
+                bVar = l.d();
+            } else {
+                bVar = null;
+            }
+            o(bVar);
             super.c();
         }
     }
 
-    @Override // com.baidu.tieba.f71
+    @Override // com.baidu.tieba.g71
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            s51 a2 = y51.a();
-            if (a2 != null) {
-                a2.release();
+            Handler handler = this.b;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
             }
-            ml0.a().unregister(this.d);
+            this.b = null;
+            this.a = false;
             super.d();
         }
     }
 
-    @Override // com.baidu.tieba.f71
-    public void m() {
+    @Override // com.baidu.tieba.g71
+    public void e(Intent intent) {
+        u71.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            s51 a2 = y51.a();
-            if (a2 != null) {
-                a2.a(this.d, new a(this));
-            }
-            q();
-            p();
-            super.m();
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0051 A[Catch: JSONException -> 0x0096, TryCatch #0 {JSONException -> 0x0096, blocks: (B:12:0x001e, B:16:0x0026, B:18:0x002d, B:22:0x0035, B:24:0x003c, B:27:0x0043, B:29:0x0051, B:31:0x0057, B:33:0x005e, B:35:0x0064, B:37:0x006b, B:39:0x0071, B:41:0x0078, B:43:0x007e, B:45:0x0085, B:46:0x0089), top: B:55:0x001e }] */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0056  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x005e A[Catch: JSONException -> 0x0096, TryCatch #0 {JSONException -> 0x0096, blocks: (B:12:0x001e, B:16:0x0026, B:18:0x002d, B:22:0x0035, B:24:0x003c, B:27:0x0043, B:29:0x0051, B:31:0x0057, B:33:0x005e, B:35:0x0064, B:37:0x006b, B:39:0x0071, B:41:0x0078, B:43:0x007e, B:45:0x0085, B:46:0x0089), top: B:55:0x001e }] */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0063  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x006b A[Catch: JSONException -> 0x0096, TryCatch #0 {JSONException -> 0x0096, blocks: (B:12:0x001e, B:16:0x0026, B:18:0x002d, B:22:0x0035, B:24:0x003c, B:27:0x0043, B:29:0x0051, B:31:0x0057, B:33:0x005e, B:35:0x0064, B:37:0x006b, B:39:0x0071, B:41:0x0078, B:43:0x007e, B:45:0x0085, B:46:0x0089), top: B:55:0x001e }] */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0070  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x0078 A[Catch: JSONException -> 0x0096, TryCatch #0 {JSONException -> 0x0096, blocks: (B:12:0x001e, B:16:0x0026, B:18:0x002d, B:22:0x0035, B:24:0x003c, B:27:0x0043, B:29:0x0051, B:31:0x0057, B:33:0x005e, B:35:0x0064, B:37:0x006b, B:39:0x0071, B:41:0x0078, B:43:0x007e, B:45:0x0085, B:46:0x0089), top: B:55:0x001e }] */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x007d  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0085 A[Catch: JSONException -> 0x0096, TryCatch #0 {JSONException -> 0x0096, blocks: (B:12:0x001e, B:16:0x0026, B:18:0x002d, B:22:0x0035, B:24:0x003c, B:27:0x0043, B:29:0x0051, B:31:0x0057, B:33:0x005e, B:35:0x0064, B:37:0x006b, B:39:0x0071, B:41:0x0078, B:43:0x007e, B:45:0x0085, B:46:0x0089), top: B:55:0x001e }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void p() {
-        t71.c cVar;
-        String b;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            t71.d l = this.e.l();
-            String str5 = null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
+            u71.d l = this.c.l();
             if (l != null) {
-                cVar = l.e();
+                bVar = l.d();
             } else {
-                cVar = null;
+                bVar = null;
             }
-            JSONObject jSONObject = new JSONObject();
-            String str6 = "";
-            if (l != null) {
-                try {
-                    b = l.b();
-                } catch (JSONException e) {
-                    n81.d(e);
-                }
-                if (b != null) {
-                    jSONObject.put(LegoListActivityConfig.AD_ID, b);
-                    if (l != null || (r6 = l.l()) == null) {
-                        String str7 = "";
-                    }
-                    jSONObject.put("lp_url", str7);
-                    if (l != null && (f = l.f()) != null) {
-                        str6 = f;
-                    }
-                    jSONObject.put("log_ext", str6);
-                    jSONObject.put("business", "native_ads");
-                    if (cVar == null) {
-                        str = cVar.e();
-                    } else {
-                        str = null;
-                    }
-                    jSONObject.put("key", str);
-                    if (cVar == null) {
-                        str2 = cVar.d();
-                    } else {
-                        str2 = null;
-                    }
-                    jSONObject.put("url", str2);
-                    if (cVar == null) {
-                        str3 = cVar.c();
-                    } else {
-                        str3 = null;
-                    }
-                    jSONObject.put("close_v_dl", str3);
-                    if (cVar == null) {
-                        str4 = cVar.a();
-                    } else {
-                        str4 = null;
-                    }
-                    jSONObject.put("app_icon", str4);
-                    if (cVar != null) {
-                        str5 = cVar.b();
-                    }
-                    jSONObject.put("app_name", str5);
-                    Intrinsics.checkNotNullExpressionValue(jSONObject.toString(), "paramsJson.apply {\n     …\n            }.toString()");
-                    this.c = jSONObject.toString();
-                }
-            }
-            b = "";
-            jSONObject.put(LegoListActivityConfig.AD_ID, b);
-            if (l != null) {
-            }
-            String str72 = "";
-            jSONObject.put("lp_url", str72);
-            if (l != null) {
-                str6 = f;
-            }
-            jSONObject.put("log_ext", str6);
-            jSONObject.put("business", "native_ads");
-            if (cVar == null) {
-            }
-            jSONObject.put("key", str);
-            if (cVar == null) {
-            }
-            jSONObject.put("url", str2);
-            if (cVar == null) {
-            }
-            jSONObject.put("close_v_dl", str3);
-            if (cVar == null) {
-            }
-            jSONObject.put("app_icon", str4);
-            if (cVar != null) {
-            }
-            jSONObject.put("app_name", str5);
-            Intrinsics.checkNotNullExpressionValue(jSONObject.toString(), "paramsJson.apply {\n     …\n            }.toString()");
-            this.c = jSONObject.toString();
+            o(bVar);
+            super.e(intent);
         }
     }
 
-    public final void q() {
+    public final void p(u71.b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.e.h() != null && this.e.m() != null) {
-            this.b = new RelativeLayout(this.e.c());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.gravity = 80;
-            RelativeLayout relativeLayout = this.b;
-            if (relativeLayout != null) {
-                relativeLayout.setBackgroundColor(0);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) && !this.a && bVar != null && bVar.e()) {
+            q(bVar.a());
+        }
+    }
+
+    public final void q(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        m11.b(str);
+        this.a = true;
+    }
+
+    @Override // com.baidu.tieba.g71
+    public void g(AbsNadBrowserView webView, String str) {
+        u71.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            AbsNadBrowserView m = this.c.m();
+            if (m != null && !m.v() && !this.a) {
+                u71.d l = this.c.l();
+                if (l != null) {
+                    bVar = l.d();
+                } else {
+                    bVar = null;
+                }
+                p(bVar);
             }
-            RelativeLayout relativeLayout2 = this.b;
-            if (relativeLayout2 != null) {
-                relativeLayout2.setVisibility(8);
-            }
-            FrameLayout h = this.e.h();
-            if (h != null) {
-                h.addView(this.b, layoutParams);
-            }
+            super.g(webView, str);
         }
     }
 }

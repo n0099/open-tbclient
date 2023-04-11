@@ -1,66 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import android.webkit.WebResourceResponse;
 import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
-import androidx.webkit.WebViewAssetLoader;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URLConnection;
+import java.util.zip.GZIPInputStream;
 /* loaded from: classes6.dex */
-public final class qp4 implements WebViewAssetLoader.PathHandler {
+public class qp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final File a;
 
-    public qp4(@NonNull Context context, @NonNull File file) {
+    @NonNull
+    public static String a(@NonNull File file) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, file};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            String canonicalPath = file.getCanonicalPath();
+            if (!canonicalPath.endsWith("/")) {
+                return canonicalPath + "/";
             }
+            return canonicalPath;
         }
-        try {
-            this.a = new File(pp4.a(file));
-        } catch (IOException e) {
-            throw new IllegalArgumentException("Failed to resolve the canonical path for the given directory: " + file.getPath(), e);
-        }
+        return (String) invokeL.objValue;
     }
 
-    @Override // androidx.webkit.WebViewAssetLoader.PathHandler
     @NonNull
-    @WorkerThread
-    public WebResourceResponse handle(@NonNull String str) {
+    public static String c(@NonNull String str) {
         InterceptResult invokeL;
-        File b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                b = pp4.b(this.a, str);
-            } catch (IOException e) {
-                Log.e("ExtStoragePathHandler", "Error opening the requested path: " + str, e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String guessContentTypeFromName = URLConnection.guessContentTypeFromName(str);
+            if (guessContentTypeFromName == null) {
+                return "text/plain";
             }
-            if (b != null) {
-                return new WebResourceResponse(pp4.c(str), null, pp4.e(b));
-            }
-            Log.e("ExtStoragePathHandler", String.format("The requested file: %s is outside the mounted directory: %s", str, this.a));
-            return new WebResourceResponse(null, null, null);
+            return guessContentTypeFromName;
         }
-        return (WebResourceResponse) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    @NonNull
+    public static InputStream e(@NonNull File file) throws FileNotFoundException, IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            return d(file.getPath(), new FileInputStream(file));
+        }
+        return (InputStream) invokeL.objValue;
+    }
+
+    @Nullable
+    public static File b(@NonNull File file, @NonNull String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) {
+            String a = a(file);
+            String canonicalPath = new File(file, str).getCanonicalPath();
+            if (canonicalPath.startsWith(a)) {
+                return new File(canonicalPath);
+            }
+            return null;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    @NonNull
+    public static InputStream d(@NonNull String str, @NonNull InputStream inputStream) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, inputStream)) == null) {
+            if (str.endsWith(".svgz")) {
+                return new GZIPInputStream(inputStream);
+            }
+            return inputStream;
+        }
+        return (InputStream) invokeLL.objValue;
     }
 }

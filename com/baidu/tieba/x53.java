@@ -1,9 +1,9 @@
 package com.baidu.tieba;
-
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface x53 {
-    void a(JSONObject jSONObject);
+    int getHeight();
 
-    void onFail(String str);
+    void onSoftInputShowing(boolean z);
+
+    void refreshHeight(int i);
 }

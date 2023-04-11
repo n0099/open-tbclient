@@ -1,273 +1,62 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.RelativeLayout;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.PollOptionData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.view.VoteView;
-import com.baidu.tbadk.coreExtra.data.WriteVoteData;
-import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
-import com.baidu.tieba.zz4;
+import com.baidu.tieba.videoplay.editor.VideoPlayInputContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Calendar;
 /* loaded from: classes4.dex */
-public class fx9 {
+public class fx9 extends ad5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public RelativeLayout b;
-    public VoteView c;
-    public WriteVoteData d;
-    public b e;
+    public EditText t;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(WriteVoteData writeVoteData);
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fx9 a;
-
-        /* renamed from: com.baidu.tieba.fx9$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0270a implements zz4.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0270a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // com.baidu.tieba.zz4.e
-            public void onClick(zz4 zz4Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeL(1048576, this, zz4Var) != null) {
-                    return;
-                }
-                this.a.a.d = null;
-                this.a.a.i(false);
-                zz4Var.dismiss();
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public class b implements zz4.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // com.baidu.tieba.zz4.e
-            public void onClick(zz4 zz4Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
-                    zz4Var.dismiss();
-                }
-            }
-        }
-
-        public a(fx9 fx9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fx9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fx9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                zz4 zz4Var = new zz4(this.a.a.getPageActivity());
-                zz4Var.setTitle(this.a.a.getString(R.string.obfuscated_res_0x7f0f16c0));
-                zz4Var.setTitleShowCenter(true);
-                zz4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f16bf));
-                zz4Var.setMessageShowCenter(true);
-                zz4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04db, new C0270a(this));
-                zz4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038e, new b(this));
-                zz4Var.create(this.a.a).show();
-            }
-        }
-    }
-
-    public fx9(TbPageContext<?> tbPageContext, RelativeLayout relativeLayout) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fx9(Context context) {
+        super(context, (String) null, 28);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, relativeLayout};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = relativeLayout;
-        VoteView voteView = new VoteView(this.a.getPageActivity());
-        this.c = voteView;
-        voteView.setPageContext(this.a);
-        this.c.setDeleteOnClickListener(new a(this));
-        this.c.setVoteViewDeleteVisibility(0);
-        this.b.addView(this.c);
-        i(false);
+        this.o = false;
+        this.n = 3;
+        VideoPlayInputContainer videoPlayInputContainer = new VideoPlayInputContainer(context);
+        this.m = videoPlayInputContainer;
+        this.t = videoPlayInputContainer.getInputView();
+        this.p = new int[]{4, 24, 3, 9, 6};
     }
 
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.c.D(i);
-        }
-    }
-
-    public void e(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public void f(View.OnClickListener onClickListener) {
-        VoteView voteView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && (voteView = this.c) != null && onClickListener != null) {
-            voteView.setOnItemClickListener(onClickListener);
-        }
-    }
-
-    public void g(View.OnClickListener onClickListener) {
-        VoteView voteView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) && (voteView = this.c) != null && onClickListener != null) {
-            voteView.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void i(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            RelativeLayout relativeLayout = this.b;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            relativeLayout.setVisibility(i);
-            b bVar = this.e;
-            if (bVar != null) {
-                bVar.a(this.d);
-            }
-        }
-    }
-
-    public WriteVoteData c() {
+    public EditText g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+            return this.t;
         }
-        return (WriteVoteData) invokeV.objValue;
+        return (EditText) invokeV.objValue;
     }
 
-    public void h(WriteVoteData writeVoteData) {
-        VoteView voteView;
-        TbPageContext<?> tbPageContext;
-        int i;
-        String str;
+    public VideoPlayInputContainer h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, writeVoteData) == null) && writeVoteData != null && (voteView = this.c) != null) {
-            this.d = writeVoteData;
-            voteView.setVoteTitle(writeVoteData.getTitle());
-            if (this.d.getIs_multi() == 1) {
-                tbPageContext = this.a;
-                i = R.string.vote_type_multiple;
-            } else {
-                tbPageContext = this.a;
-                i = R.string.vote_type_single;
-            }
-            String string = tbPageContext.getString(i);
-            int expire_type = this.d.getExpire_type();
-            if (expire_type > 0) {
-                Calendar calendar = Calendar.getInstance();
-                calendar.add(6, expire_type);
-                str = String.format(this.a.getString(R.string.write_vote_content_time), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
-            } else {
-                str = "";
-            }
-            if (StringUtils.isNull(str)) {
-                this.c.setVoteSubContent(string);
-            } else {
-                VoteView voteView2 = this.c;
-                voteView2.setVoteSubContent(string + " · " + str);
-            }
-            ArrayList arrayList = new ArrayList();
-            for (WriteVoteItemData writeVoteItemData : this.d.getOptions()) {
-                PollOptionData pollOptionData = new PollOptionData();
-                pollOptionData.setId(writeVoteItemData.getId());
-                pollOptionData.setText(writeVoteItemData.getText());
-                arrayList.add(pollOptionData);
-            }
-            if (!ListUtils.isEmpty(arrayList)) {
-                if (arrayList.size() > 3) {
-                    this.c.setData(arrayList.subList(0, 3));
-                } else {
-                    this.c.setData(arrayList);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (VideoPlayInputContainer) this.m;
         }
+        return (VideoPlayInputContainer) invokeV.objValue;
     }
 }

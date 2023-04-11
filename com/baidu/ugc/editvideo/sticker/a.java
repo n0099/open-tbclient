@@ -5,7 +5,7 @@ import android.graphics.RectF;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
-import com.baidu.tieba.lf0;
+import com.baidu.tieba.mf0;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
@@ -153,7 +153,7 @@ public class a {
         PointF pointF = this.x;
         Matrix.multiplyMM(fArr, 0, fArr2, 0, a(f, pointF.x, pointF.y, -this.C, this.D), 0);
         fullFrameRect.setVertexPoint(fArr);
-        fullFrameRect.drawFrame(this.u.textureId, lf0.b);
+        fullFrameRect.drawFrame(this.u.textureId, mf0.b);
         Matrix.setIdentityM(fArr, 0);
         fullFrameRect.setVertexPoint(fArr);
     }
@@ -169,14 +169,14 @@ public class a {
         int i2 = gLViewPortLocation.height;
         Matrix.multiplyMM(fArr, 0, fArr2, 0, a(0.0f, i / 2.0f, i2 / 2.0f, Math.min(i, i2), 5.0f), 0);
         fullFrameRect.setVertexPoint(fArr);
-        fullFrameRect.drawFrame(multiMediaData.textureId, lf0.b);
+        fullFrameRect.drawFrame(multiMediaData.textureId, mf0.b);
         float[] fArr3 = this.f;
         GLViewPortLocation gLViewPortLocation2 = this.i;
         int i3 = gLViewPortLocation2.width;
         int i4 = gLViewPortLocation2.height;
         Matrix.multiplyMM(fArr, 0, fArr3, 0, a(90.0f, i3 / 2.0f, i4 / 2.0f, Math.min(i3, i4), 5.0f), 0);
         fullFrameRect.setVertexPoint(fArr);
-        fullFrameRect.drawFrame(multiMediaData.textureId, lf0.b);
+        fullFrameRect.drawFrame(multiMediaData.textureId, mf0.b);
         Matrix.setIdentityM(fArr, 0);
         fullFrameRect.setVertexPoint(fArr);
     }
@@ -312,13 +312,13 @@ public class a {
         PointF pointF = this.v;
         Matrix.multiplyMM(fArr, 0, fArr2, 0, a(f, pointF.x, pointF.y, -this.C, this.D), 0);
         fullFrameRect.setVertexPoint(fArr);
-        fullFrameRect.drawFrame(this.s.textureId, lf0.b);
+        fullFrameRect.drawFrame(this.s.textureId, mf0.b);
         float[] fArr3 = this.f;
         float f2 = this.j;
         PointF pointF2 = this.w;
         Matrix.multiplyMM(fArr, 0, fArr3, 0, a(f2, pointF2.x, pointF2.y, -this.C, this.D), 0);
         fullFrameRect.setVertexPoint(fArr);
-        fullFrameRect.drawFrame(this.t.textureId, lf0.b);
+        fullFrameRect.drawFrame(this.t.textureId, mf0.b);
         Matrix.setIdentityM(fArr, 0);
         fullFrameRect.setVertexPoint(fArr);
     }

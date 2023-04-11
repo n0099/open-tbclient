@@ -13,11 +13,11 @@ import com.baidu.searchbox.looper.ioc.ILooperRegister_LooperRuntime_ListProvider
 import com.baidu.searchbox.looper.ioc.ILooperUIContext;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.aj1;
 import com.baidu.tieba.bj1;
+import com.baidu.tieba.bsa;
 import com.baidu.tieba.cj1;
 import com.baidu.tieba.dj1;
-import com.baidu.tieba.kia;
+import com.baidu.tieba.ej1;
 /* loaded from: classes2.dex */
 public class LooperRuntime {
     public static final ILooperUIContext EMPTY_RUKA_UI_CONTEXT = new ILooperUIContext() { // from class: com.baidu.searchbox.looper.impl.LooperRuntime.1
@@ -28,19 +28,19 @@ public class LooperRuntime {
     };
     public static LooperRuntime sInstance;
     @Inject
-    public dj1<ILooperRegister> mLooperMonitordList;
+    public ej1<ILooperRegister> mLooperMonitordList;
     @Inject
-    public cj1<ILooperNeedContext> mLooperNeedContext;
-    public cj1<ILooperUIContext> mLooperUIContext;
+    public dj1<ILooperNeedContext> mLooperNeedContext;
+    public dj1<ILooperUIContext> mLooperUIContext;
 
     public void initmLooperMonitordList() {
-        bj1 b = bj1.b();
+        cj1 b = cj1.b();
         this.mLooperMonitordList = b;
         b.a(new ILooperRegister_LooperRuntime_ListProvider());
     }
 
     public void initmLooperNeedContext() {
-        aj1 b = aj1.b();
+        bj1 b = bj1.b();
         this.mLooperNeedContext = b;
         b.a(new ILooperNeedContext_LooperRuntime_Provider());
     }
@@ -61,7 +61,7 @@ public class LooperRuntime {
         return sInstance;
     }
 
-    public dj1<ILooperRegister> getLooperMonitorList() {
+    public ej1<ILooperRegister> getLooperMonitorList() {
         return this.mLooperMonitordList;
     }
 
@@ -70,17 +70,17 @@ public class LooperRuntime {
     }
 
     public ILooperUIContext getLooperUIContext() {
-        cj1<ILooperUIContext> cj1Var = this.mLooperUIContext;
-        if (cj1Var == null) {
+        dj1<ILooperUIContext> dj1Var = this.mLooperUIContext;
+        if (dj1Var == null) {
             return EMPTY_RUKA_UI_CONTEXT;
         }
-        return cj1Var.get();
+        return dj1Var.get();
     }
 
-    public void dispatchBlock(Context context, kia kiaVar) {
-        dj1<ILooperRegister> dj1Var = this.mLooperMonitordList;
-        if (dj1Var != null && dj1Var.getList() != null) {
-            LooperBlock looperBlock = new LooperBlock(kiaVar.r, kiaVar.q, kiaVar.n, kiaVar.o, kiaVar.w);
+    public void dispatchBlock(Context context, bsa bsaVar) {
+        ej1<ILooperRegister> ej1Var = this.mLooperMonitordList;
+        if (ej1Var != null && ej1Var.getList() != null) {
+            LooperBlock looperBlock = new LooperBlock(bsaVar.r, bsaVar.q, bsaVar.n, bsaVar.o, bsaVar.w);
             TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
             if (lastTrackUI != null) {
                 if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {
@@ -97,8 +97,8 @@ public class LooperRuntime {
     }
 
     public boolean enableLooper() {
-        dj1<ILooperRegister> dj1Var = this.mLooperMonitordList;
-        if (dj1Var != null && dj1Var.getList() != null) {
+        ej1<ILooperRegister> ej1Var = this.mLooperMonitordList;
+        if (ej1Var != null && ej1Var.getList() != null) {
             for (ILooperRegister iLooperRegister : this.mLooperMonitordList.getList()) {
                 if (iLooperRegister != null && iLooperRegister.checkEnable()) {
                     if (AppConfig.isDebug()) {

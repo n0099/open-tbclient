@@ -48,7 +48,7 @@ public final class Pinger {
             }
         }
         INSTANCE = new Pinger();
-        pingHandler = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.waa
+        pingHandler = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.nka
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,7 +56,7 @@ public final class Pinger {
             public final boolean handleMessage(Message message) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, message)) == null) ? Pinger.m81pingHandler$lambda0(message) : invokeL.booleanValue;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, message)) == null) ? Pinger.m83pingHandler$lambda0(message) : invokeL.booleanValue;
             }
         });
     }
@@ -104,7 +104,7 @@ public final class Pinger {
     }
 
     /* renamed from: pingHandler$lambda-0  reason: not valid java name */
-    public static final boolean m81pingHandler$lambda0(Message message) {
+    public static final boolean m83pingHandler$lambda0(Message message) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message)) == null) {

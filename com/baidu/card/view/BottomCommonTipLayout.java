@@ -43,12 +43,12 @@ import com.baidu.tieba.a9;
 import com.baidu.tieba.bg;
 import com.baidu.tieba.cg;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.ga9;
-import com.baidu.tieba.i95;
-import com.baidu.tieba.k45;
-import com.baidu.tieba.rm;
-import com.baidu.tieba.sj9;
-import com.baidu.tieba.un;
+import com.baidu.tieba.jt9;
+import com.baidu.tieba.ma5;
+import com.baidu.tieba.n55;
+import com.baidu.tieba.sm;
+import com.baidu.tieba.vn;
+import com.baidu.tieba.xj9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -163,31 +163,31 @@ public final class BottomCommonTipLayout extends FrameLayout {
                     if (i == 2) {
                         BottomCommonTipLayout bottomCommonTipLayout = this.a.get();
                         Intrinsics.checkNotNull(bottomCommonTipLayout);
-                        sj9.b(bottomCommonTipLayout, this.b);
+                        jt9.b(bottomCommonTipLayout, this.b);
                         return;
                     }
                     return;
                 }
                 BottomCommonTipLayout bottomCommonTipLayout2 = this.a.get();
                 Intrinsics.checkNotNull(bottomCommonTipLayout2);
-                sj9.d(bottomCommonTipLayout2, this.b);
+                jt9.d(bottomCommonTipLayout2, this.b);
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class b extends bg<rm> {
+    public static final class b extends bg<sm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BottomCommonTipLayout a;
-        public final /* synthetic */ un b;
+        public final /* synthetic */ vn b;
 
-        public b(BottomCommonTipLayout bottomCommonTipLayout, un unVar) {
+        public b(BottomCommonTipLayout bottomCommonTipLayout, vn vnVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bottomCommonTipLayout, unVar};
+                Object[] objArr = {bottomCommonTipLayout, vnVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -198,18 +198,18 @@ public final class BottomCommonTipLayout extends FrameLayout {
                 }
             }
             this.a = bottomCommonTipLayout;
-            this.b = unVar;
+            this.b = vnVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.bg
-        public void onLoaded(rm rmVar, String key, int i) {
+        public void onLoaded(sm smVar, String key, int i) {
             Drawable i2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, rmVar, key, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, smVar, key, i) == null) {
                 Intrinsics.checkNotNullParameter(key, "key");
-                super.onLoaded((b) rmVar, key, i);
-                if (rmVar != null && rmVar.w() && (i2 = this.a.i(rmVar)) != null) {
+                super.onLoaded((b) smVar, key, i);
+                if (smVar != null && smVar.w() && (i2 = this.a.i(smVar)) != null) {
                     this.b.a(i2);
                 }
             }
@@ -217,7 +217,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
     }
 
     /* loaded from: classes2.dex */
-    public static final class c implements i95.a {
+    public static final class c implements ma5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BottomCommonTipLayout a;
@@ -242,7 +242,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
             this.b = memberBroadcastData;
         }
 
-        @Override // com.baidu.tieba.i95.a
+        @Override // com.baidu.tieba.ma5.a
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.getVisibility() == 0 || this.a.h.hasMessages(1) || this.a.h.hasMessages(2)) {
@@ -303,7 +303,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
         g();
         this.h = new a(this, this);
         setVisibility(4);
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.oy
+        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.py
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -321,18 +321,18 @@ public final class BottomCommonTipLayout extends FrameLayout {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final Drawable k(TbRichTextData data, BottomCommonTipLayout this$0, un unVar) {
+    public static final Drawable k(TbRichTextData data, BottomCommonTipLayout this$0, vn vnVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, data, this$0, unVar)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, data, this$0, vnVar)) == null) {
             Intrinsics.checkNotNullParameter(data, "$data");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            rm rmVar = (rm) cg.h().n(data.Z().getSrc(), 21, new Object[0]);
-            Drawable i = this$0.i(rmVar);
-            if (rmVar == null) {
-                cg.h().m(data.Z().getSrc(), 21, new b(this$0, unVar), null);
+            sm smVar = (sm) cg.h().n(data.Y().getSrc(), 21, new Object[0]);
+            Drawable i = this$0.i(smVar);
+            if (smVar == null) {
+                cg.h().m(data.Y().getSrc(), 21, new b(this$0, vnVar), null);
             } else if (i != null) {
-                unVar.a(i);
+                vnVar.a(i);
             }
             return i;
         }
@@ -369,11 +369,11 @@ public final class BottomCommonTipLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(65547, this, memberBroadcastData) == null) {
             byte[] bArr2 = null;
             if (!TextUtils.isEmpty(memberBroadcastData.getBackgroundSrc())) {
-                rm rmVar = (rm) cg.h().n(memberBroadcastData.getBackgroundSrc(), 33, new Object[0]);
-                if (f(rmVar)) {
+                sm smVar = (sm) cg.h().n(memberBroadcastData.getBackgroundSrc(), 33, new Object[0]);
+                if (f(smVar)) {
                     RequestManager with = Glide.with(getContext());
-                    if (rmVar != null) {
-                        bArr = rmVar.k();
+                    if (smVar != null) {
+                        bArr = smVar.k();
                     } else {
                         bArr = null;
                     }
@@ -381,11 +381,11 @@ public final class BottomCommonTipLayout extends FrameLayout {
                 }
             }
             if (!TextUtils.isEmpty(memberBroadcastData.getLeftIconSrc())) {
-                rm rmVar2 = (rm) cg.h().n(memberBroadcastData.getLeftIconSrc(), 33, new Object[0]);
-                if (f(rmVar2)) {
+                sm smVar2 = (sm) cg.h().n(memberBroadcastData.getLeftIconSrc(), 33, new Object[0]);
+                if (f(smVar2)) {
                     RequestManager with2 = Glide.with(getContext());
-                    if (rmVar2 != null) {
-                        bArr2 = rmVar2.k();
+                    if (smVar2 != null) {
+                        bArr2 = smVar2.k();
                     }
                     with2.load(bArr2).into(this.e);
                 }
@@ -404,14 +404,14 @@ public final class BottomCommonTipLayout extends FrameLayout {
             } else {
                 this.g.setText("去看看");
             }
-            k45 k45Var = new k45();
+            n55 n55Var = new n55();
             if (!TextUtils.isEmpty(memberBroadcastData.getBtnBackgroundColor()) && !TextUtils.isEmpty(memberBroadcastData.getBtnTextColor())) {
-                k45Var.q(ga9.f(memberBroadcastData.getBtnBackgroundColor()), ga9.f(memberBroadcastData.getBtnTextColor()));
+                n55Var.q(xj9.f(memberBroadcastData.getBtnBackgroundColor()), xj9.f(memberBroadcastData.getBtnTextColor()));
             } else {
-                k45Var.w(R.color.CAM_X0108);
+                n55Var.w(R.color.CAM_X0108);
             }
-            this.g.setConfig(k45Var);
-            this.g.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qy
+            this.g.setConfig(n55Var);
+            this.g.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ry
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -424,7 +424,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
                 }
             });
             if (!TextUtils.isEmpty(memberBroadcastData.getTextColor())) {
-                this.f.setTextColor(ga9.f(memberBroadcastData.getTextColor()));
+                this.f.setTextColor(xj9.f(memberBroadcastData.getTextColor()));
             }
             m(memberBroadcastData.getTbRichText());
         }
@@ -436,11 +436,11 @@ public final class BottomCommonTipLayout extends FrameLayout {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final boolean f(rm rmVar) {
+    public final boolean f(sm smVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rmVar)) == null) {
-            if (rmVar != null && rmVar.w() && getContext() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, smVar)) == null) {
+            if (smVar != null && smVar.w() && getContext() != null) {
                 if (Build.VERSION.SDK_INT >= 17) {
                     Context context = getContext();
                     if (context == null) {
@@ -502,13 +502,13 @@ public final class BottomCommonTipLayout extends FrameLayout {
         this.h.sendEmptyMessage(2);
     }
 
-    public final Drawable i(rm rmVar) {
+    public final Drawable i(sm smVar) {
         InterceptResult invokeL;
         Bitmap p;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rmVar)) == null) {
-            if (rmVar == null || (p = rmVar.p()) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, smVar)) == null) {
+            if (smVar == null || (p = smVar.p()) == null) {
                 return null;
             }
             BitmapDrawable bitmapDrawable = new BitmapDrawable((Resources) null, p);
@@ -524,42 +524,42 @@ public final class BottomCommonTipLayout extends FrameLayout {
         return (Drawable) invokeL.objValue;
     }
 
-    public final un j(final TbRichTextData tbRichTextData) {
+    public final vn j(final TbRichTextData tbRichTextData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tbRichTextData)) == null) {
-            if (tbRichTextData.Z() != null && !TextUtils.isEmpty(tbRichTextData.Z().getSrc())) {
-                return new un(new un.a() { // from class: com.baidu.tieba.py
+            if (tbRichTextData.Y() != null && !TextUtils.isEmpty(tbRichTextData.Y().getSrc())) {
+                return new vn(new vn.a() { // from class: com.baidu.tieba.qy
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.un.a
-                    public final Drawable a(un unVar) {
+                    @Override // com.baidu.tieba.vn.a
+                    public final Drawable a(vn vnVar) {
                         InterceptResult invokeL2;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, unVar)) == null) ? BottomCommonTipLayout.k(TbRichTextData.this, this, unVar) : (Drawable) invokeL2.objValue;
+                        return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, vnVar)) == null) ? BottomCommonTipLayout.k(TbRichTextData.this, this, vnVar) : (Drawable) invokeL2.objValue;
                     }
                 }, 0, 1);
             }
             return null;
         }
-        return (un) invokeL.objValue;
+        return (vn) invokeL.objValue;
     }
 
     public final void m(TbRichText tbRichText) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, tbRichText) == null) && tbRichText != null && !ListUtils.isEmpty(tbRichText.T())) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, tbRichText) == null) && tbRichText != null && !ListUtils.isEmpty(tbRichText.S())) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            int size = tbRichText.T().size();
+            int size = tbRichText.S().size();
             for (int i = 0; i < size; i++) {
-                TbRichTextData item = tbRichText.T().get(i);
+                TbRichTextData item = tbRichText.S().get(i);
                 if (item.getType() == 8) {
                     Intrinsics.checkNotNullExpressionValue(item, "item");
-                    un j = j(item);
+                    vn j = j(item);
                     spannableStringBuilder.append((CharSequence) " ");
                     spannableStringBuilder.setSpan(j, spannableStringBuilder.length() - 1, spannableStringBuilder.length(), 17);
-                } else if (item.getType() == 1 && !TextUtils.isEmpty(item.d0())) {
-                    spannableStringBuilder.append((CharSequence) item.d0());
+                } else if (item.getType() == 1 && !TextUtils.isEmpty(item.c0())) {
+                    spannableStringBuilder.append((CharSequence) item.c0());
                 }
             }
             this.f.setMarqueeRepeatLimit(10);
@@ -581,7 +581,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
             ArrayList arrayList = new ArrayList();
             arrayList.add(memberBroadcastData.getBackgroundSrc());
             arrayList.add(memberBroadcastData.getLeftIconSrc());
-            new i95().c(arrayList, new c(this, memberBroadcastData), 33);
+            new ma5().c(arrayList, new c(this, memberBroadcastData), 33);
         }
     }
 }

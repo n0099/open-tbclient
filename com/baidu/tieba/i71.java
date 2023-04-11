@@ -1,28 +1,34 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
+import android.content.Context;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.t71;
-import com.baidu.tieba.u51;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tieba.t51;
+import com.baidu.tieba.u71;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class i71 extends f71 {
+public final class i71 extends g71 implements w71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zh0 a;
-    public final j71 b;
+    public final String a;
+    public RelativeLayout b;
+    public String c;
+    public final Object d;
+    public final k71 e;
 
     /* loaded from: classes4.dex */
-    public static final class a implements zh0 {
+    public static final class a implements t51.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ i71 a;
@@ -45,20 +51,21 @@ public final class i71 extends f71 {
             this.a = i71Var;
         }
 
-        @Override // com.baidu.tieba.zh0
-        public final void a(boolean z, Map<String, String> map) {
-            AbsNadBrowserView m;
+        @Override // com.baidu.tieba.t51.b
+        public final void a(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, map) == null) {
-                String p = ei0.p(map);
-                if (!TextUtils.isEmpty(p) && (m = this.a.b.m()) != null) {
-                    AbsNadBrowserView.B(m, p, null, 2, null);
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                AbsNadBrowserView m = this.a.e.m();
+                String str2 = this.a.a;
+                o81.a(str2, "js is " + str + " and browserView is " + m);
+                if (m != null) {
+                    AbsNadBrowserView.B(m, str, null, 2, null);
                 }
             }
         }
     }
 
-    public i71(j71 container) {
+    public i71(k71 container) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,66 +81,206 @@ public final class i71 extends f71 {
             }
         }
         Intrinsics.checkNotNullParameter(container, "container");
-        this.b = container;
-        this.a = new a(this);
+        this.e = container;
+        AbsNadBrowserView m = container.m();
+        if (m != null) {
+            m.setDownloadListener(this);
+        }
+        this.a = "DownloadPlugin";
+        this.c = "";
+        this.d = new Object();
     }
 
-    @Override // com.baidu.tieba.f71
-    public boolean f(AbsNadBrowserView webView, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.w71
+    public boolean a(Context context, String str, String str2, String str3, String str4, long j, String str5) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            String d = p81.d(str);
-            Intrinsics.checkNotNullExpressionValue(d, "UrlUtil.handleAbnormalUrlIfNeeded(url)");
-            if (!TextUtils.isEmpty(d) && (StringsKt__StringsJVMKt.startsWith$default(d, "http://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(d, "https://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(d, "ftp://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(d, "sftp://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(d, "ftps://", false, 2, null))) {
-                return false;
-            }
-            if (str != null && this.b.a(str)) {
-                return true;
-            }
-            o(webView, str);
-            if (this.b.l() != null) {
-                t71.d l = this.b.l();
-                Intrinsics.checkNotNull(l);
-                if (!l.a()) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, str3, str4, Long.valueOf(j), str5})) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            String str6 = this.a;
+            o81.a(str6, "onDownloadStart :: url = " + str + ",ua = " + str2 + ",contentDisposition = " + str3 + ",mimetype = " + str4 + ",contentLength = " + j);
+            if (c41.b(c41.c(c41.e(str, str3, str4)), str4) == 3) {
+                JSONObject c = w01.c(this.c);
+                Intrinsics.checkNotNullExpressionValue(c, "JSONUtils.newJSONObject(downloadParams)");
+                w01.f(c, "url", str);
+                w01.e(c, BreakpointSQLiteKey.CONTENT_LENGTH, j);
+                t51 a2 = z51.a();
+                if (a2 != null) {
+                    a2.b(context, this.b, c.toString());
                     return true;
                 }
-            }
-            if (!ci0.a(this.b.c(), str) || oh0.b(this.b.c(), str, false) || u51.b.a().a(this.b.c(), str, webView.getUrl(), this.a) || qh0.c(str, this.b.c())) {
                 return true;
             }
-            AbsNadBrowserView m = this.b.m();
-            if (m != null) {
-                m.T();
-            }
-            return super.f(webView, str);
+            return false;
         }
-        return invokeLL.booleanValue;
+        return invokeCommon.booleanValue;
     }
 
-    public final void o(AbsNadBrowserView absNadBrowserView, String str) {
-        String str2;
+    @Override // com.baidu.tieba.g71
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absNadBrowserView, str) == null) && str != null) {
-            String str3 = null;
-            if (StringsKt__StringsJVMKt.startsWith$default(str, "tel:", false, 2, null) && this.b.c() != null) {
-                t71.d l = this.b.l();
-                if (l != null) {
-                    str2 = l.f();
-                } else {
-                    str2 = null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            String str = this.a;
+            o81.a(str, "context " + this.e.c());
+            super.c();
+        }
+    }
+
+    @Override // com.baidu.tieba.g71
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            t51 a2 = z51.a();
+            if (a2 != null) {
+                a2.release();
+            }
+            nl0.a().unregister(this.d);
+            super.d();
+        }
+    }
+
+    @Override // com.baidu.tieba.g71
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            t51 a2 = z51.a();
+            if (a2 != null) {
+                a2.a(this.d, new a(this));
+            }
+            q();
+            p();
+            super.m();
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0051 A[Catch: JSONException -> 0x0096, TryCatch #0 {JSONException -> 0x0096, blocks: (B:12:0x001e, B:16:0x0026, B:18:0x002d, B:22:0x0035, B:24:0x003c, B:27:0x0043, B:29:0x0051, B:31:0x0057, B:33:0x005e, B:35:0x0064, B:37:0x006b, B:39:0x0071, B:41:0x0078, B:43:0x007e, B:45:0x0085, B:46:0x0089), top: B:55:0x001e }] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0056  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x005e A[Catch: JSONException -> 0x0096, TryCatch #0 {JSONException -> 0x0096, blocks: (B:12:0x001e, B:16:0x0026, B:18:0x002d, B:22:0x0035, B:24:0x003c, B:27:0x0043, B:29:0x0051, B:31:0x0057, B:33:0x005e, B:35:0x0064, B:37:0x006b, B:39:0x0071, B:41:0x0078, B:43:0x007e, B:45:0x0085, B:46:0x0089), top: B:55:0x001e }] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0063  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x006b A[Catch: JSONException -> 0x0096, TryCatch #0 {JSONException -> 0x0096, blocks: (B:12:0x001e, B:16:0x0026, B:18:0x002d, B:22:0x0035, B:24:0x003c, B:27:0x0043, B:29:0x0051, B:31:0x0057, B:33:0x005e, B:35:0x0064, B:37:0x006b, B:39:0x0071, B:41:0x0078, B:43:0x007e, B:45:0x0085, B:46:0x0089), top: B:55:0x001e }] */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x0070  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x0078 A[Catch: JSONException -> 0x0096, TryCatch #0 {JSONException -> 0x0096, blocks: (B:12:0x001e, B:16:0x0026, B:18:0x002d, B:22:0x0035, B:24:0x003c, B:27:0x0043, B:29:0x0051, B:31:0x0057, B:33:0x005e, B:35:0x0064, B:37:0x006b, B:39:0x0071, B:41:0x0078, B:43:0x007e, B:45:0x0085, B:46:0x0089), top: B:55:0x001e }] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x007d  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0085 A[Catch: JSONException -> 0x0096, TryCatch #0 {JSONException -> 0x0096, blocks: (B:12:0x001e, B:16:0x0026, B:18:0x002d, B:22:0x0035, B:24:0x003c, B:27:0x0043, B:29:0x0051, B:31:0x0057, B:33:0x005e, B:35:0x0064, B:37:0x006b, B:39:0x0071, B:41:0x0078, B:43:0x007e, B:45:0x0085, B:46:0x0089), top: B:55:0x001e }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void p() {
+        u71.c cVar;
+        String b;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            u71.d l = this.e.l();
+            String str5 = null;
+            if (l != null) {
+                cVar = l.e();
+            } else {
+                cVar = null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            String str6 = "";
+            if (l != null) {
+                try {
+                    b = l.b();
+                } catch (JSONException e) {
+                    o81.d(e);
                 }
-                if (!TextUtils.isEmpty(str2)) {
-                    oc1 oc1Var = new oc1();
-                    Activity c = this.b.c();
-                    Intrinsics.checkNotNull(c);
-                    t71.d l2 = this.b.l();
-                    if (l2 != null) {
-                        str3 = l2.f();
+                if (b != null) {
+                    jSONObject.put(LegoListActivityConfig.AD_ID, b);
+                    if (l != null || (r6 = l.l()) == null) {
+                        String str7 = "";
                     }
-                    oc1Var.p(c, str3, "tel");
+                    jSONObject.put("lp_url", str7);
+                    if (l != null && (f = l.f()) != null) {
+                        str6 = f;
+                    }
+                    jSONObject.put("log_ext", str6);
+                    jSONObject.put("business", "native_ads");
+                    if (cVar == null) {
+                        str = cVar.e();
+                    } else {
+                        str = null;
+                    }
+                    jSONObject.put("key", str);
+                    if (cVar == null) {
+                        str2 = cVar.d();
+                    } else {
+                        str2 = null;
+                    }
+                    jSONObject.put("url", str2);
+                    if (cVar == null) {
+                        str3 = cVar.c();
+                    } else {
+                        str3 = null;
+                    }
+                    jSONObject.put("close_v_dl", str3);
+                    if (cVar == null) {
+                        str4 = cVar.a();
+                    } else {
+                        str4 = null;
+                    }
+                    jSONObject.put("app_icon", str4);
+                    if (cVar != null) {
+                        str5 = cVar.b();
+                    }
+                    jSONObject.put("app_name", str5);
+                    Intrinsics.checkNotNullExpressionValue(jSONObject.toString(), "paramsJson.apply {\n     …\n            }.toString()");
+                    this.c = jSONObject.toString();
                 }
+            }
+            b = "";
+            jSONObject.put(LegoListActivityConfig.AD_ID, b);
+            if (l != null) {
+            }
+            String str72 = "";
+            jSONObject.put("lp_url", str72);
+            if (l != null) {
+                str6 = f;
+            }
+            jSONObject.put("log_ext", str6);
+            jSONObject.put("business", "native_ads");
+            if (cVar == null) {
+            }
+            jSONObject.put("key", str);
+            if (cVar == null) {
+            }
+            jSONObject.put("url", str2);
+            if (cVar == null) {
+            }
+            jSONObject.put("close_v_dl", str3);
+            if (cVar == null) {
+            }
+            jSONObject.put("app_icon", str4);
+            if (cVar != null) {
+            }
+            jSONObject.put("app_name", str5);
+            Intrinsics.checkNotNullExpressionValue(jSONObject.toString(), "paramsJson.apply {\n     …\n            }.toString()");
+            this.c = jSONObject.toString();
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.e.h() != null && this.e.m() != null) {
+            this.b = new RelativeLayout(this.e.c());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+            layoutParams.gravity = 80;
+            RelativeLayout relativeLayout = this.b;
+            if (relativeLayout != null) {
+                relativeLayout.setBackgroundColor(0);
+            }
+            RelativeLayout relativeLayout2 = this.b;
+            if (relativeLayout2 != null) {
+                relativeLayout2.setVisibility(8);
+            }
+            FrameLayout h = this.e.h();
+            if (h != null) {
+                h.addView(this.b, layoutParams);
             }
         }
     }

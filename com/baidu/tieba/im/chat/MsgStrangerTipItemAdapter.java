@@ -8,10 +8,10 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,16 +71,16 @@ public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm
+    @Override // com.baidu.tieba.um
     /* renamed from: G */
     public MsgCommonItemAdapter.MsgViewHolder<TextView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-            frameLayout.setPadding(hi.g(viewGroup.getContext(), R.dimen.M_W_X022), hi.g(viewGroup.getContext(), R.dimen.M_H_X005), hi.g(viewGroup.getContext(), R.dimen.M_W_X022), hi.g(viewGroup.getContext(), R.dimen.M_H_X008));
+            frameLayout.setPadding(ii.g(viewGroup.getContext(), R.dimen.M_W_X022), ii.g(viewGroup.getContext(), R.dimen.M_H_X005), ii.g(viewGroup.getContext(), R.dimen.M_W_X022), ii.g(viewGroup.getContext(), R.dimen.M_H_X008));
             TextView textView = new TextView(viewGroup.getContext());
-            textView.setPadding(hi.g(viewGroup.getContext(), R.dimen.M_W_X006), hi.g(viewGroup.getContext(), R.dimen.M_H_X002), hi.g(viewGroup.getContext(), R.dimen.M_W_X006), hi.g(viewGroup.getContext(), R.dimen.M_H_X002));
+            textView.setPadding(ii.g(viewGroup.getContext(), R.dimen.M_W_X006), ii.g(viewGroup.getContext(), R.dimen.M_H_X002), ii.g(viewGroup.getContext(), R.dimen.M_W_X006), ii.g(viewGroup.getContext(), R.dimen.M_H_X002));
             textView.setGravity(17);
             frameLayout.addView(textView, new ViewGroup.LayoutParams(-1, -2));
             return new a(frameLayout, textView);
@@ -89,7 +89,7 @@ public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.tm
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.um
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         x(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
@@ -102,9 +102,9 @@ public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
             TextView a2 = msgViewHolder.a();
-            n15 d = n15.d(a2);
-            d.A(R.dimen.T_X09);
-            d.B(R.string.F_X01);
+            q25 d = q25.d(a2);
+            d.B(R.dimen.T_X09);
+            d.C(R.string.F_X01);
             d.w(R.color.CAM_X0101);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0603);

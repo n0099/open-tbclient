@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ng8;
+import com.baidu.tieba.er8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -91,7 +91,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     public void onReq(BaseReq baseReq) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, baseReq) == null) && baseReq.getType() == 4 && (baseReq instanceof ShowMessageFromWX.Req)) {
-            z1((ShowMessageFromWX.Req) baseReq);
+            x1((ShowMessageFromWX.Req) baseReq);
         }
     }
 
@@ -106,7 +106,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.sapi_login_navi);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0b25));
+            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0b21));
             try {
                 this.a = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
             } catch (Exception e) {
@@ -120,7 +120,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         }
     }
 
-    public final void z1(ShowMessageFromWX.Req req) {
+    public final void x1(ShowMessageFromWX.Req req) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, req) == null) {
             String str = req.message.messageExt;
@@ -191,10 +191,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             }
             return;
         }
-        ng8 ng8Var = new ng8();
-        ng8Var.a = this;
-        ng8Var.b = baseResp;
-        MessageManager.getInstance().runTask(2921351, null, ng8Var);
+        er8 er8Var = new er8();
+        er8Var.a = this;
+        er8Var.b = baseResp;
+        MessageManager.getInstance().runTask(2921351, null, er8Var);
         closeActivity();
     }
 }

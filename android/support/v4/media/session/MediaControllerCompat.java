@@ -1660,7 +1660,7 @@ public final class MediaControllerCompat {
     }
 
     public static void setMediaController(@NonNull Activity activity, MediaControllerCompat mediaControllerCompat) {
-        activity.getWindow().getDecorView().setTag(R.id.obfuscated_res_0x7f09164c, mediaControllerCompat);
+        activity.getWindow().getDecorView().setTag(R.id.obfuscated_res_0x7f09164f, mediaControllerCompat);
         if (Build.VERSION.SDK_INT >= 21) {
             MediaController mediaController = null;
             if (mediaControllerCompat != null) {
@@ -1715,7 +1715,7 @@ public final class MediaControllerCompat {
 
     public static MediaControllerCompat getMediaController(@NonNull Activity activity) {
         MediaController mediaController;
-        Object tag = activity.getWindow().getDecorView().getTag(R.id.obfuscated_res_0x7f09164c);
+        Object tag = activity.getWindow().getDecorView().getTag(R.id.obfuscated_res_0x7f09164f);
         if (tag instanceof MediaControllerCompat) {
             return (MediaControllerCompat) tag;
         }

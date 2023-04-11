@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonalTalkSettingViewSettingView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -97,11 +97,11 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setOrientation(1);
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d06f0, this);
-            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f09219e);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d06ee, this);
+            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f09218f);
             this.a = settingTextSwitchView;
             SkinManager.setBackgroundColor(settingTextSwitchView.getView(), R.color.CAM_X0201);
-            SettingTextSwitchView settingTextSwitchView2 = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f0921a0);
+            SettingTextSwitchView settingTextSwitchView2 = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f092191);
             this.b = settingTextSwitchView2;
             SkinManager.setBackgroundColor(settingTextSwitchView2.getView(), R.color.CAM_X0201);
         }

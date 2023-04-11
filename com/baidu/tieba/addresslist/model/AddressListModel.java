@@ -7,9 +7,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
-import com.baidu.tieba.v85;
-import com.baidu.tieba.x85;
-import com.baidu.tieba.yy5;
+import com.baidu.tieba.ba5;
+import com.baidu.tieba.e06;
+import com.baidu.tieba.z95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.util.List;
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yy5 a;
+    public e06 a;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -60,20 +60,20 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.a = yy5.d();
+        this.a = e06.d();
     }
 
-    public int S(String str) {
+    public int R(String str) {
         InterceptResult invokeL;
-        List<v85> c;
+        List<z95> c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!x85.a(str) || (c = this.a.c()) == null) {
+            if (!ba5.a(str) || (c = this.a.c()) == null) {
                 return -1;
             }
-            for (v85 v85Var : c) {
-                if (str.equals(v85Var.a())) {
-                    return c.indexOf(v85Var);
+            for (z95 z95Var : c) {
+                if (str.equals(z95Var.a())) {
+                    return c.indexOf(z95Var);
                 }
             }
             return -1;
@@ -81,42 +81,42 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         return invokeL.intValue;
     }
 
-    public void R(v85 v85Var) {
+    public void Q(z95 z95Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, v85Var) == null) {
-            this.a.a(v85Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, z95Var) == null) {
+            this.a.a(z95Var);
         }
     }
 
-    public void T(long j) {
+    public void S(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             this.a.b(j);
         }
     }
 
-    public void X(yy5.a aVar) {
+    public void W(e06.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.a.f(aVar);
         }
     }
 
-    public void Y(List<v85> list) {
+    public void X(List<z95> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.a.g(list);
         }
     }
 
-    public void Z(yy5.a aVar) {
+    public void Y(e06.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             this.a.h(aVar);
         }
     }
 
-    public List<v85> U() {
+    public List<z95> T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -125,14 +125,14 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         return (List) invokeV.objValue;
     }
 
-    public void V() {
+    public void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             sendMessage(new CustomMessage(2001178));
         }
     }
 
-    public void W() {
+    public void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.sendMessage(new RequestGetAddressListMessage(304001));

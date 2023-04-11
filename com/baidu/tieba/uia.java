@@ -1,267 +1,178 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.session.XRSessionAnchor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.FatalException;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 /* loaded from: classes6.dex */
-public final class uia extends ArCoreApk {
+public class uia {
     public static /* synthetic */ Interceptable $ic;
-    public static final uia h;
     public transient /* synthetic */ FieldHolder $fh;
-    public Exception a;
-    public ArCoreApk.Availability b;
-    public boolean c;
-    public aja d;
-    public boolean e;
-    public boolean f;
-    public int g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948213340, "Lcom/baidu/tieba/uia;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948213340, "Lcom/baidu/tieba/uia;");
-                return;
-            }
-        }
-        h = new uia();
-    }
-
-    public uia() {
+    public static long a(InputStream inputStream, OutputStream outputStream) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static uia d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return h;
-        }
-        return (uia) invokeV.objValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                Exception exc = this.a;
-                if (this.d != null) {
-                    this.d.a();
-                    this.d = null;
-                }
-            }
-        }
-    }
-
-    public static /* synthetic */ boolean f(uia uiaVar, boolean z) {
-        uiaVar.c = false;
-        return false;
-    }
-
-    public static int k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(XRSessionAnchor.apkinfo, 4);
-                int i = packageInfo.versionCode;
-                if (i == 0) {
-                    if (packageInfo.services != null) {
-                        if (packageInfo.services.length == 0) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, outputStream)) == null) {
+            if (inputStream != null && outputStream != null) {
+                try {
+                    byte[] bArr = new byte[o81.a];
+                    long j = 0;
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            outputStream.write(bArr, 0, read);
+                            j += read;
+                        } else {
+                            outputStream.flush();
+                            return j;
                         }
                     }
-                    return -1;
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-                return i;
-            } catch (PackageManager.NameNotFoundException unused) {
-                return -1;
             }
+            return 0L;
         }
-        return invokeL.intValue;
+        return invokeLL.longValue;
     }
 
-    public final synchronized aja e(Context context) {
+    public static String b(File file) {
         InterceptResult invokeL;
-        aja ajaVar;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            synchronized (this) {
-                if (this.d == null) {
-                    aja ajaVar2 = new aja((byte) 0);
-                    ajaVar2.d(context.getApplicationContext());
-                    this.d = ajaVar2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            try {
+                fileInputStream = new FileInputStream(file);
+                try {
+                    String c = c(fileInputStream);
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException unused) {
+                    }
+                    return c;
+                } catch (FileNotFoundException unused2) {
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    return null;
+                } catch (Throwable unused4) {
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused5) {
+                        }
+                    }
+                    return null;
                 }
-                ajaVar = this.d;
+            } catch (FileNotFoundException unused6) {
+                fileInputStream = null;
+            } catch (Throwable unused7) {
+                fileInputStream = null;
             }
-            return ajaVar;
+        } else {
+            return (String) invokeL.objValue;
         }
-        return (aja) invokeL.objValue;
     }
 
-    public final boolean h(Context context) {
+    public static String c(@NonNull FileInputStream fileInputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            l(context);
-            if (k(context) != 0 && k(context) < this.g) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fileInputStream)) == null) {
+            if (fileInputStream != null) {
+                StringBuilder sb = new StringBuilder();
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+                    while (true) {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine != null) {
+                            sb.append(readLine);
+                        } else {
+                            return sb.toString();
+                        }
+                    }
+                } catch (IOException unused) {
+                    return sb.toString();
+                } catch (Throwable unused2) {
+                    return sb.toString();
+                }
+            } else {
+                throw new NullPointerException("inputStream should not be null");
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static boolean d(InputStream inputStream, File file, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, inputStream, file, z)) == null) {
+            boolean z2 = false;
+            FileOutputStream fileOutputStream = null;
+            try {
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file, z);
+                try {
+                    if (a(inputStream, fileOutputStream2) != 0) {
+                        z2 = true;
+                    }
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException unused) {
+                    }
+                    return z2;
+                } catch (FileNotFoundException unused2) {
+                    fileOutputStream = fileOutputStream2;
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    return false;
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream = fileOutputStream2;
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (FileNotFoundException unused5) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return invokeLLZ.booleanValue;
+        }
+    }
+
+    public static boolean e(String str, File file, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, file, z)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return true;
+            return d(new ByteArrayInputStream(str.getBytes()), file, z);
         }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            l(context);
-            return this.f;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.google.ar.core.ArCoreApk
-    public final ArCoreApk.Availability a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (!i()) {
-                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
-            }
-            try {
-                if (h(context)) {
-                    g();
-                    return tia.c(context);
-                }
-                synchronized (this) {
-                    if ((this.b == null || this.b.isUnknown()) && !this.c) {
-                        this.c = true;
-                        tia tiaVar = new tia(this);
-                        if (h(context)) {
-                            tiaVar.a(ArCoreApk.Availability.SUPPORTED_INSTALLED);
-                        } else if (k(context) != -1) {
-                            tiaVar.a(ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD);
-                        } else if (j(context)) {
-                            tiaVar.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
-                        } else {
-                            e(context).e(context, tiaVar);
-                        }
-                    }
-                    if (this.b != null) {
-                        return this.b;
-                    }
-                    if (this.c) {
-                        return ArCoreApk.Availability.UNKNOWN_CHECKING;
-                    }
-                    Log.e("ARCore-ArCoreApk", "request not running but result is null?");
-                    return ArCoreApk.Availability.UNKNOWN_ERROR;
-                }
-            } catch (FatalException e) {
-                Log.e("ARCore-ArCoreApk", "Error while checking app details and ARCore status", e);
-                return ArCoreApk.Availability.UNKNOWN_ERROR;
-            }
-        }
-        return (ArCoreApk.Availability) invokeL.objValue;
-    }
-
-    public final synchronized void l(Context context) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            synchronized (this) {
-                if (this.e) {
-                    return;
-                }
-                PackageManager packageManager = context.getPackageManager();
-                String packageName = context.getPackageName();
-                try {
-                    Bundle bundle = packageManager.getApplicationInfo(packageName, 128).metaData;
-                    if (bundle.containsKey(XRSessionAnchor.apkinfo)) {
-                        this.f = bundle.getString(XRSessionAnchor.apkinfo).equals("required");
-                        if (bundle.containsKey("com.google.ar.core.min_apk_version")) {
-                            this.g = bundle.getInt("com.google.ar.core.min_apk_version");
-                            try {
-                                ActivityInfo[] activityInfoArr = packageManager.getPackageInfo(packageName, 1).activities;
-                                String canonicalName = InstallActivity.class.getCanonicalName();
-                                int length = activityInfoArr.length;
-                                boolean z = false;
-                                int i = 0;
-                                while (true) {
-                                    if (i >= length) {
-                                        break;
-                                    } else if (canonicalName.equals(activityInfoArr[i].name)) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        i++;
-                                    }
-                                }
-                                if (!z) {
-                                    String valueOf = String.valueOf(canonicalName);
-                                    if (valueOf.length() != 0) {
-                                        str = "Application manifest must contain activity ".concat(valueOf);
-                                    } else {
-                                        str = new String("Application manifest must contain activity ");
-                                    }
-                                    throw new FatalException(str);
-                                }
-                                this.e = true;
-                                return;
-                            } catch (PackageManager.NameNotFoundException e) {
-                                throw new FatalException("Could not load application package info", e);
-                            }
-                        }
-                        throw new FatalException("Application manifest must contain meta-data com.google.ar.core.min_apk_version");
-                    }
-                    throw new FatalException("Application manifest must contain meta-data com.google.ar.core");
-                } catch (PackageManager.NameNotFoundException e2) {
-                    throw new FatalException("Could not load application package metadata", e2);
-                }
-            }
-        }
+        return invokeLLZ.booleanValue;
     }
 }

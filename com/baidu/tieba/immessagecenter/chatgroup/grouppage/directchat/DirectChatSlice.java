@@ -11,10 +11,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.CustomRecyclerView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fv7;
+import com.baidu.tieba.a58;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class DirectChatSlice extends Slice {
     @Nullable
     public ChatRoomDetail m;
     @Nullable
-    public fv7 n;
+    public a58 n;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -62,19 +62,19 @@ public class DirectChatSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 a aVar = new a();
                 aVar.a = view2;
-                aVar.b = (CustomRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f09088c);
+                aVar.b = (CustomRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f09088f);
                 return aVar;
             }
             return (a) invokeL.objValue;
         }
     }
 
-    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull fv7 fv7Var) {
+    public DirectChatSlice(@NonNull TbPageContext<?> tbPageContext, @NonNull a58 a58Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, fv7Var};
+            Object[] objArr = {tbPageContext, a58Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,14 +85,14 @@ public class DirectChatSlice extends Slice {
             }
         }
         this.j = tbPageContext;
-        this.n = fv7Var;
+        this.n = a58Var;
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void E(@Nullable View view2, @Nullable Bundle bundle) {
+    public void P(@Nullable View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, bundle) == null) {
-            super.E(view2, bundle);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bundle) == null) {
+            super.P(view2, bundle);
             if (view2 != null) {
                 this.k = a.a(view2);
             }
@@ -102,45 +102,45 @@ public class DirectChatSlice extends Slice {
         }
     }
 
-    public final void H() {
-        ChatRoomDetail chatRoomDetail;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (chatRoomDetail = this.m) != null && chatRoomDetail.getQuickTalk() != null) {
-            this.l.o(this.m.getQuickTalk());
-            if (this.m.getBasicInfo() != null) {
-                this.l.k(this.m.getBasicInfo().getId());
-            }
-            this.l.notifyDataSetChanged();
-        }
-    }
-
-    public void J(@NonNull ChatRoomDetail chatRoomDetail) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatRoomDetail) == null) {
-            this.m = chatRoomDetail;
-            H();
-        }
-    }
-
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void q(int i) {
+    public void H(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            super.q(i);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.H(i);
             this.l.notifyDataSetChanged();
-            n15.d(this.k.b).f(R.color.transparent);
-            n15.d(this.k.a).f(R.color.transparent);
+            q25.d(this.k.b).f(R.color.transparent);
+            q25.d(this.k.a).f(R.color.transparent);
+        }
+    }
+
+    public void T(@NonNull ChatRoomDetail chatRoomDetail) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, chatRoomDetail) == null) {
+            this.m = chatRoomDetail;
+            S();
         }
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
     @Nullable
-    public View u(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View I(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d083a, viewGroup, false);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup, bundle)) == null) {
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0833, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
+    }
+
+    public final void S() {
+        ChatRoomDetail chatRoomDetail;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (chatRoomDetail = this.m) != null && chatRoomDetail.getQuickTalk() != null) {
+            this.l.x(this.m.getQuickTalk());
+            if (this.m.getBasicInfo() != null) {
+                this.l.r(this.m.getBasicInfo().getId());
+            }
+            this.l.notifyDataSetChanged();
+        }
     }
 }

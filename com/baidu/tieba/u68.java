@@ -2,6 +2,8 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,19 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.Item;
 /* loaded from: classes6.dex */
-public class u68 implements gn {
+public class u68 extends q78 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
-    public String b;
-    public String c;
-    public List<String> d;
-    public Double e;
-    public Integer f;
+    public AbilityItem a;
+    public BaseMsg b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +32,7 @@ public class u68 implements gn {
                 return;
             }
         }
-        g = BdUniqueId.gen();
+        c = BdUniqueId.gen().getId();
     }
 
     public u68() {
@@ -53,80 +49,45 @@ public class u68 implements gn {
         }
     }
 
-    public String a() {
+    @Override // com.baidu.tieba.q78
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return c;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public Long b() {
+    public AbilityItem b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (Long) invokeV.objValue;
+        return (AbilityItem) invokeV.objValue;
     }
 
-    public String c() {
+    public BaseMsg c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (String) invokeV.objValue;
+        return (BaseMsg) invokeV.objValue;
     }
 
-    public Double f() {
-        InterceptResult invokeV;
+    public void d(AbilityItem abilityItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeL(1048579, this, abilityItem) == null) {
+            this.a = abilityItem;
         }
-        return (Double) invokeV.objValue;
     }
 
-    public Integer g() {
-        InterceptResult invokeV;
+    public void e(BaseMsg baseMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return (Integer) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return g;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public List<String> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void i(Item item) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, item) == null) {
-            this.a = item.item_id;
-            this.b = item.item_name;
-            Double d = item.icon_size;
-            this.c = item.icon_url;
-            this.d = item.tags;
-            this.e = item.score;
-            this.f = item.star;
+        if (interceptable == null || interceptable.invokeL(1048580, this, baseMsg) == null) {
+            this.b = baseMsg;
         }
     }
 }

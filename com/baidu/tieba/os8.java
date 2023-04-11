@@ -1,24 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.chosen.PbChosenActivity;
+import com.baidu.tieba.pb.chosen.net.ChosenPbHttpResponse;
+import com.baidu.tieba.pb.chosen.net.ChosenPbNetMessage;
+import com.baidu.tieba.pb.chosen.net.ChosenPbSocketResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.CustomGrid;
 /* loaded from: classes5.dex */
 public class os8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public String d;
-    public int e;
-    public long f;
-    public String g;
-    public String h;
 
     public os8() {
         Interceptable interceptable = $ic;
@@ -30,41 +28,52 @@ public class os8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        b();
+        a();
     }
 
-    public void a(CustomGrid customGrid) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customGrid) == null) {
-            this.a = customGrid.title;
-            this.b = customGrid.action_uri;
-            this.c = customGrid.action_type.intValue();
-            this.d = customGrid.icon;
-            this.e = customGrid.type.intValue();
-            this.g = customGrid.desc;
-            this.h = customGrid.mark_text;
-            this.f = customGrid.red_point_version.longValue();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            fn5 fn5Var = new fn5(309093);
+            fn5Var.setResponsedClass(ChosenPbSocketResponse.class);
+            fn5Var.g(true);
+            fn5Var.h(false);
+            MessageManager.getInstance().registerTask(fn5Var);
         }
     }
 
-    public xs8 b() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            xs8 xs8Var = new xs8();
-            xs8Var.e = this.a;
-            xs8Var.n = true;
-            xs8Var.l = this.d;
-            xs8Var.g = this.b;
-            xs8Var.a = this.e;
-            xs8Var.m = this.c;
-            zs8 zs8Var = new zs8();
-            zs8Var.b = this.g;
-            zs8Var.i = this.h;
-            xs8Var.i = zs8Var;
-            return xs8Var;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FINE_PB, al9.a(TbConfig.FINE_PB_PAGE, 309093));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(ChosenPbHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        return (xs8) invokeV.objValue;
+    }
+
+    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            ChosenPbNetMessage chosenPbNetMessage = new ChosenPbNetMessage();
+            int l = ii.l(pbChosenActivity.getPageContext().getPageActivity());
+            int j4 = ii.j(pbChosenActivity.getPageContext().getPageActivity());
+            float i = ii.i(pbChosenActivity.getPageContext().getPageActivity());
+            chosenPbNetMessage.setQ_type(45L);
+            chosenPbNetMessage.setScrH(j4);
+            chosenPbNetMessage.setScrW(l);
+            chosenPbNetMessage.setScr_dip(i);
+            chosenPbNetMessage.setExcId(j);
+            chosenPbNetMessage.setTagCode(j2);
+            chosenPbNetMessage.setThreadId(j3);
+            pbChosenActivity.sendMessage(chosenPbNetMessage);
+        }
     }
 }

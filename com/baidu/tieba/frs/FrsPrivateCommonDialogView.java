@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
@@ -14,10 +15,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.he5;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.m35;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.lf5;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.q25;
+import com.baidu.tieba.qk6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,6 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.util.StringUtils;
+import com.bumptech.glide.Glide;
 /* loaded from: classes4.dex */
 public class FrsPrivateCommonDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -58,11 +61,11 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
                 return;
             }
         }
-        j = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        k = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds250);
-        l = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
-        m = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds405);
-        n = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds220);
+        j = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        k = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds250);
+        l = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds190);
+        m = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds405);
+        n = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds220);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -83,19 +86,63 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
                 return;
             }
         }
-        d(context);
+        f(context);
     }
 
-    public final boolean e(String str) {
+    public final boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (!"left_time".equals(str) && !"clear_forum".equals(str) && !"task_complete".equals(str) && !"task_fail".equals(str)) {
                 return true;
             }
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public static boolean b(PrivateForumPopInfoData privateForumPopInfoData, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, privateForumPopInfoData, z)) == null) {
+            if (privateForumPopInfoData == null || StringUtils.isEmpty(privateForumPopInfoData.T()) || d(privateForumPopInfoData, z)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public static boolean d(PrivateForumPopInfoData privateForumPopInfoData, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, privateForumPopInfoData, z)) == null) {
+            if (!p45.m().i(e(privateForumPopInfoData, z), false)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public static void setDialogShown(PrivateForumPopInfoData privateForumPopInfoData, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65541, null, privateForumPopInfoData, z) == null) {
+            p45.m().w(e(privateForumPopInfoData, z), true);
+        }
+    }
+
+    public static String e(PrivateForumPopInfoData privateForumPopInfoData, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, privateForumPopInfoData, z)) == null) {
+            String str = privateForumPopInfoData.T() + "_" + privateForumPopInfoData.S() + "_" + privateForumPopInfoData.Q();
+            if (z) {
+                return str + "_" + TbadkCoreApplication.getCurrentAccount();
+            }
+            return str;
+        }
+        return (String) invokeLZ.objValue;
     }
 
     public final void a(boolean z) {
@@ -121,26 +168,26 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         }
     }
 
-    public boolean b(PrivateForumPopInfoData privateForumPopInfoData, boolean z) {
+    public boolean c(PrivateForumPopInfoData privateForumPopInfoData, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, privateForumPopInfoData, z)) == null) {
-            if (privateForumPopInfoData == null || StringUtils.isEmpty(privateForumPopInfoData.U()) || c(privateForumPopInfoData, z)) {
+            if (!b(privateForumPopInfoData, z)) {
                 return false;
             }
-            a(e(privateForumPopInfoData.U()));
-            if (privateForumPopInfoData.U().equals("left_time")) {
+            a(g(privateForumPopInfoData.T()));
+            if (privateForumPopInfoData.T().equals("left_time")) {
                 this.f.setText(R.string.frs_private_create_button);
                 SkinManager.setImageResource(this.a, R.drawable.pic_frs_private_target_remind);
-            } else if (!privateForumPopInfoData.U().equals("clear_forum") && !privateForumPopInfoData.U().equals("task_fail")) {
-                if (privateForumPopInfoData.U().equals("task_complete")) {
+            } else if (!privateForumPopInfoData.T().equals("clear_forum") && !privateForumPopInfoData.T().equals("task_fail")) {
+                if (privateForumPopInfoData.T().equals("task_complete")) {
                     this.f.setText(R.string.frs_private_create_button);
                     SkinManager.setImageResource(this.a, R.drawable.pic_frs_private_target_success);
                 } else {
                     this.f.setText(R.string.frs_private_create_button);
-                    f();
+                    h();
                     SkinManager.setImageResource(this.c, R.drawable.pic_frs_private_create_success);
-                    SkinManager.setImageResource(this.a, R.drawable.pic_frs_private_create_success_bg);
+                    Glide.with(this.a).load(qk6.b("pic_frs_private_create_success_bg.webp", "pic_frs_private_create_success_bg")).into(this.a);
                 }
             } else {
                 this.f.setText(R.string.frs_private_fail_button);
@@ -149,32 +196,15 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             this.f.setTag(R.id.is_forum_owner_check, Boolean.valueOf(z));
             this.f.setTag(R.id.private_pop_info, privateForumPopInfoData);
             this.d.setText(privateForumPopInfoData.getTitle());
-            this.e.setText(privateForumPopInfoData.S());
+            this.e.setText(privateForumPopInfoData.R());
             return true;
         }
         return invokeLZ.booleanValue;
     }
 
-    public final boolean c(PrivateForumPopInfoData privateForumPopInfoData, boolean z) {
-        InterceptResult invokeLZ;
+    public final void f(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, privateForumPopInfoData, z)) == null) {
-            String str = privateForumPopInfoData.U() + "_" + privateForumPopInfoData.T() + "_" + privateForumPopInfoData.R();
-            if (z) {
-                str = str + "_" + TbadkCoreApplication.getCurrentAccount();
-            }
-            if (m35.m().i(str, false)) {
-                return true;
-            }
-            m35.m().w(str, true);
-            return false;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public final void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.frs_private_common_dialog, this);
             this.a = (ImageView) findViewById(R.id.frs_private_common_image);
             HeadImageView headImageView = (HeadImageView) findViewById(R.id.forum_owner_avatar);
@@ -191,40 +221,40 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             this.h = findViewById(R.id.header_bg);
             this.i = findViewById(R.id.private_pop_content);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0108);
-            n15 d = n15.d(this.f);
+            q25 d = q25.d(this.f);
             d.m(R.dimen.tbds1);
             d.o(R.string.J_X07);
             d.l(R.color.CAM_X0304);
             d.w(R.color.CAM_X0304);
-            n15 d2 = n15.d(this.d);
-            d2.B(R.string.F_X02);
+            q25 d2 = q25.d(this.d);
+            d2.C(R.string.F_X02);
             d2.w(R.color.CAM_X0105);
-            n15 d3 = n15.d(this.h);
+            q25 d3 = q25.d(this.h);
             d3.o(R.string.J_X14);
             d3.f(R.color.CAM_X0201);
-            n15 d4 = n15.d(this.i);
+            q25 d4 = q25.d(this.i);
             d4.o(R.string.J_X17);
             d4.f(R.color.CAM_X0201);
         }
     }
 
-    public final void f() {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b.setVisibility(0);
             this.c.setVisibility(0);
-            String avater = he5.d().e().getAvater();
+            String avater = lf5.d().e().getAvater();
             if (avater.startsWith("http")) {
-                this.b.M(avater, 10, false);
+                this.b.N(avater, 10, false);
             } else {
-                this.b.M(avater, 12, false);
+                this.b.N(avater, 12, false);
             }
         }
     }
 
     public void setConfirmButton(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) && onClickListener != null) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) && onClickListener != null) {
             this.f.setOnClickListener(onClickListener);
         }
     }

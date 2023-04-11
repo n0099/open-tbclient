@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +64,7 @@ public class TopBubbleView extends FrameLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.d2();
+                this.a.c2();
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.a.getContext(), null, this.b.getJumpTo(), true);
                 tbWebViewActivityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
@@ -105,12 +105,12 @@ public class TopBubbleView extends FrameLayout {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 b bVar = new b();
                 bVar.a = view2;
-                bVar.f = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f09067f);
-                bVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904ef);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904ee);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904ec);
-                bVar.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0904ed);
-                bVar.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090680);
+                bVar.f = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f090682);
+                bVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904f0);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904ef);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904ed);
+                bVar.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0904ee);
+                bVar.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090683);
                 return bVar;
             }
             return (b) invokeL.objValue;
@@ -185,7 +185,7 @@ public class TopBubbleView extends FrameLayout {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a = b.a(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d090c, this));
+            this.a = b.a(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0906, this));
             b();
         }
     }
@@ -193,24 +193,24 @@ public class TopBubbleView extends FrameLayout {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            n15 d = n15.d(this.a.d);
+            q25 d = q25.d(this.a.d);
             d.w(R.color.CAM_X0101);
-            d.B(R.string.F_X01);
-            d.A(R.dimen.T_X10);
-            n15 d2 = n15.d(this.a.e);
-            d2.B(R.string.F_X01);
+            d.C(R.string.F_X01);
+            d.B(R.dimen.T_X10);
+            q25 d2 = q25.d(this.a.e);
+            d2.C(R.string.F_X01);
             d2.w(R.color.CAM_X0107);
-            d2.A(R.dimen.T_X08);
-            n15 d3 = n15.d(this.a.f);
+            d2.B(R.dimen.T_X08);
+            q25 d3 = q25.d(this.a.f);
             d3.m(R.dimen.L_X02);
             d3.o(R.string.J_X05);
             d3.f(R.color.CAM_X0207);
-            n15 d4 = n15.d(this.a.c);
+            q25 d4 = q25.d(this.a.c);
             d4.o(R.string.J_X04);
             d4.f(R.color.CAM_X0304);
             SkinManager.setViewTextColor(this.a.d, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.a.e, (int) R.color.CAM_X0107);
-            SkinManager.setImageResource(this.a.g, R.drawable.obfuscated_res_0x7f080471);
+            SkinManager.setImageResource(this.a.g, R.drawable.obfuscated_res_0x7f08046e);
             SkinManager.setViewTextColor(this.a.c, (int) R.color.CAM_X0304);
             SkinManager.setBackgroundResource(this.a.b, R.drawable.pic_mask_chat_notice_bg);
         }
@@ -219,10 +219,10 @@ public class TopBubbleView extends FrameLayout {
     public void c(@NonNull TopBubbleData topBubbleData, GroupChatFragment groupChatFragment) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, topBubbleData, groupChatFragment) == null) && topBubbleData != null) {
-            groupChatFragment.w2(0);
+            groupChatFragment.A2(0);
             this.a.b.setVisibility(0);
             if ("notice".equals(topBubbleData.getTopBubbleType())) {
-                this.a.d.setText(R.string.obfuscated_res_0x7f0f03ca);
+                this.a.d.setText(R.string.obfuscated_res_0x7f0f03c9);
             }
             this.a.e.setText(topBubbleData.getContent());
             TiebaStatic.log(new StatisticItem("c15200"));

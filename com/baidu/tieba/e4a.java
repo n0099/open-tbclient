@@ -1,29 +1,68 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g4a;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.QuestionTagChooseActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.data.ForumTagInfo;
+import com.baidu.tbadk.core.view.NormalItemCell;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.tieba.write.data.QuestionTagListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class e4a implements g4a.a {
+public class e4a extends l4a<e5a> implements n4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d4a a;
-    public b b;
-    public Thread c;
-    public List<g4a> d;
-    public int e;
-    public int f;
+    @Nullable
+    public ForumTagInfo g;
+    @Nullable
+    public String h;
+    @Nullable
+    public View i;
+    @Nullable
+    public NormalItemCell j;
+    @Nullable
+    public u6a k;
+
+    @Override // com.baidu.tieba.q4a
+    public void a(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.q4a
+    public void c(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.q4a
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
+        }
+    }
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e4a a;
@@ -46,280 +85,249 @@ public class e4a implements g4a.a {
             this.a = e4aVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e4a e4aVar = this.a;
-                if (e4aVar.j(e4aVar.a)) {
-                    if (r7a.e(this.a.d)) {
-                        this.a.m(" start mix chains error:mMixtureChains empty ");
-                        return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.L()) {
+                    if (this.a.b != null) {
+                        this.a.b.c(this.a.a.getString(R.string.obfuscated_res_0x7f0f03f1));
+                    }
+                } else if (this.a.g == null) {
+                    if (!TextUtils.isEmpty(this.a.h)) {
+                        this.a.N();
                     } else {
-                        ((g4a) this.a.d.get(0)).d(this.a.a);
-                        return;
+                        this.a.M();
                     }
                 }
-                e4a e4aVar2 = this.a;
-                StringBuilder sb = new StringBuilder();
-                sb.append(" start mix chains error:initChainConfig ");
-                sb.append(this.a.a == null);
-                e4aVar2.m(sb.toString());
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public interface b {
-        void onAudioMixtureCancel();
+    public class b implements r6a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e4a a;
 
-        void onAudioMixtureFail(String str);
+        public b(e4a e4aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e4aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = e4aVar;
+        }
 
-        void onAudioMixtureProgress(int i);
-
-        void onAudioMixtureSuccess(c4a c4aVar);
+        @Override // com.baidu.tieba.r6a
+        public void a(@NonNull QuestionTagListData.QuestionTag questionTag) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, questionTag) == null) {
+                if (this.a.e != null) {
+                    this.a.e.setQuestionTagId(questionTag.id);
+                    this.a.e.setQuestionTagManualCreated(true);
+                }
+                if (this.a.j != null) {
+                    this.a.j.setSubTitle(questionTag.tagName);
+                }
+            }
+        }
     }
 
-    public e4a(d4a d4aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e4a(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, e5a.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d4aVar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = d4aVar;
-        this.d = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.g4a.a
-    public void a(g4a g4aVar) {
+    @Override // com.baidu.tieba.q4a
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, g4aVar) == null) {
-            l();
-        }
-    }
-
-    @Override // com.baidu.tieba.g4a.a
-    public void b(g4a g4aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g4aVar) == null) {
-            int k = this.e + g4aVar.k();
-            this.e = k;
-            n(k);
-            if (g4aVar == null || !g4aVar.m()) {
-                return;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            NormalItemCell normalItemCell = this.j;
+            if (normalItemCell != null) {
+                normalItemCell.d();
             }
-            c4a k2 = k(g4aVar.n());
-            if (k2 != null) {
-                o(k2);
-            } else {
-                m("onChainFinished result error");
+            u6a u6aVar = this.k;
+            if (u6aVar != null) {
+                u6aVar.r();
             }
         }
     }
 
-    @Override // com.baidu.tieba.g4a.a
-    public void c(int i, int i2) {
-        int i3;
+    @Override // com.baidu.tieba.n4a
+    public void onUpdate(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || (i3 = (int) (this.e + (((i * 1.0f) / 100.0f) * i2))) <= this.f) {
-            return;
-        }
-        n(i3);
-        this.f = i3;
-    }
-
-    @Override // com.baidu.tieba.g4a.a
-    public void d(String str, g4a g4aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, g4aVar) == null) {
-            m(str);
+        if ((interceptable == null || interceptable.invokeL(1048587, this, obj) == null) && (obj instanceof SelectForumData)) {
+            SelectForumData selectForumData = (SelectForumData) obj;
+            this.g = selectForumData.forumTagInfo;
+            this.h = selectForumData.firstCategory;
+            O();
         }
     }
 
-    public void i() {
+    public final boolean L() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!r7a.e(this.d)) {
-                for (g4a g4aVar : this.d) {
-                    g4aVar.b();
-                }
-            }
-            Thread thread = this.c;
-            if (thread != null) {
-                thread.interrupt();
-            }
-        }
-    }
-
-    public final boolean j(d4a d4aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, d4aVar)) == null) {
-            if (d4aVar == null || r7a.e(d4aVar.c())) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WriteData writeData = this.e;
+            if (writeData == null || !"2".equals(writeData.getCallFrom()) || this.g != null || !TextUtils.isEmpty(this.e.getForumName())) {
                 return false;
-            }
-            List<f4a> c = d4aVar.c();
-            c4a c4aVar = null;
-            boolean z = false;
-            boolean z2 = false;
-            boolean z3 = false;
-            int i = 0;
-            for (int i2 = 0; i2 < c.size(); i2++) {
-                if (l4a.o(c.get(i2).b())) {
-                    z = true;
-                }
-                if (!r7a.e(c.get(i2).a())) {
-                    for (b4a b4aVar : c.get(i2).a()) {
-                        if (b4aVar != null) {
-                            if (b4aVar.c()) {
-                                if (c4aVar == null) {
-                                    c4aVar = b4aVar.a();
-                                }
-                                if (c4aVar != null) {
-                                    int k = c4aVar.k(b4aVar.a());
-                                    z2 = ((c4a.g & k) == 0 && (c4a.i & k) == 0 && (k & c4a.h) == 0) ? false : true;
-                                }
-                                if (b4aVar.b().mSpeed != 1.0f) {
-                                    z = true;
-                                }
-                                if (MimeTypes.AUDIO_RAW.equals(b4aVar.a().f())) {
-                                    z = true;
-                                }
-                                z3 = true;
-                            }
-                            i++;
-                            if (i > 1) {
-                                z2 = true;
-                            }
-                            if (z2 && z && z3) {
-                                break;
-                            }
-                        }
-                    }
-                }
-                if (z2 && z && z3) {
-                    break;
-                }
-            }
-            if (z) {
-                i4a i4aVar = new i4a();
-                i4aVar.c(z2 ? 50 : 90);
-                i4aVar.e(this);
-                this.d.add(i4aVar);
-                h4a h4aVar = new h4a();
-                h4aVar.c(z2 ? 50 : 10);
-                h4aVar.e(this);
-                this.d.add(h4aVar);
-                i4aVar.f(h4aVar);
-            } else {
-                h4a h4aVar2 = new h4a();
-                h4aVar2.c(100);
-                h4aVar2.e(this);
-                this.d.add(h4aVar2);
             }
             return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final c4a k(d4a d4aVar) {
-        InterceptResult invokeL;
+    public final void M() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, d4aVar)) == null) {
-            if (d4aVar != null && r7a.b(d4aVar.c()) == 1 && r7a.b(d4aVar.c().get(0).a()) == 1) {
-                b4a b4aVar = d4aVar.c().get(0).a().get(0);
-                if (b4aVar.b() == null || b4aVar.b().isNeedEdit() || !b4aVar.c()) {
-                    return null;
-                }
-                return b4aVar.a();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e != null && this.j != null && this.a.getPageActivity() != null && !this.a.getPageActivity().isFinishing()) {
+            if (this.k == null) {
+                this.k = new u6a();
             }
-            return null;
+            String str = null;
+            if (this.g == null) {
+                str = this.j.getSubTitleContent();
+            }
+            this.k.u(this.a.getPageActivity(), str, this.e.getForumId(), new b(this));
         }
-        return (c4a) invokeL.objValue;
     }
 
-    public final void l() {
-        b bVar;
+    public final void O() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bVar = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.j == null) {
             return;
         }
-        bVar.onAudioMixtureCancel();
-    }
-
-    public final void m(String str) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (bVar = this.b) == null) {
+        ForumTagInfo forumTagInfo = this.g;
+        if (forumTagInfo != null) {
+            WriteData writeData = this.e;
+            if (writeData != null) {
+                writeData.setQuestionTagId(forumTagInfo.id);
+                this.e.setQuestionTagManualCreated(false);
+            }
+            this.j.setSubTitle(this.g.name);
+            this.j.a();
             return;
         }
-        bVar.onAudioMixtureFail(str);
+        WriteData writeData2 = this.e;
+        if (writeData2 != null) {
+            writeData2.setQuestionTagId(null);
+            this.e.setQuestionTagManualCreated(false);
+        }
+        this.j.setSubTitle(null);
+        this.j.h();
     }
 
-    public final void n(int i) {
-        b bVar;
+    public final void N() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || (bVar = this.b) == null) {
-            return;
-        }
-        bVar.onAudioMixtureProgress(i);
-    }
-
-    public final void o(c4a c4aVar) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, c4aVar) == null) || (bVar = this.b) == null) {
-            return;
-        }
-        bVar.onAudioMixtureProgress(100);
-        this.b.onAudioMixtureSuccess(c4aVar);
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || r7a.e(this.d)) {
-            return;
-        }
-        for (g4a g4aVar : this.d) {
-            g4aVar.h();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            QuestionTagChooseActivityConfig questionTagChooseActivityConfig = new QuestionTagChooseActivityConfig(this.a.getPageActivity());
+            questionTagChooseActivityConfig.setCategory(this.h);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, questionTagChooseActivityConfig));
         }
     }
 
-    public void q(b bVar) {
+    @Override // com.baidu.tieba.l4a, com.baidu.tieba.q4a
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
-            this.b = bVar;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.d();
+            u6a u6aVar = this.k;
+            if (u6aVar != null) {
+                u6aVar.s();
+            }
         }
     }
 
-    public void r() {
+    @Override // com.baidu.tieba.l4a, com.baidu.tieba.q4a
+    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.d.clear();
-            this.e = 0;
-            this.f = 0;
-            c4a k = k(this.a);
-            if (k != null && k.i()) {
-                o(k);
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle, intent, writeData) == null) {
+            super.m(bundle, intent, writeData);
+            if (bundle != null) {
+                this.h = bundle.getString(WriteActivityConfig.FORUM_FIRST_CATEGORY);
+                this.g = (ForumTagInfo) bundle.getSerializable(WriteActivityConfig.FORUM_TAG_INFO);
+            } else if (intent != null) {
+                this.h = intent.getStringExtra(WriteActivityConfig.FORUM_FIRST_CATEGORY);
+                this.g = (ForumTagInfo) intent.getSerializableExtra(WriteActivityConfig.FORUM_TAG_INFO);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.l4a, com.baidu.tieba.q4a
+    public void onActivityResult(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048585, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 != -1 || i != 25072 || intent == null || this.e == null || this.j == null) {
                 return;
             }
-            Thread thread = this.c;
-            if (thread != null) {
-                thread.interrupt();
-                this.c = null;
+            if (intent.getBooleanExtra(QuestionTagChooseActivityConfig.KEY_RESPONSE_CREATE_TAG, false)) {
+                M();
+                return;
             }
-            Thread thread2 = new Thread(new a(this));
-            this.c = thread2;
-            thread2.start();
+            QuestionTagListData.QuestionTag questionTag = (QuestionTagListData.QuestionTag) intent.getParcelableExtra(QuestionTagChooseActivityConfig.KEY_RESPONSE_TAG);
+            if (questionTag == null) {
+                return;
+            }
+            this.e.setQuestionTagId(questionTag.id);
+            this.e.setQuestionTagManualCreated(false);
+            this.j.setSubTitle(questionTag.tagName);
         }
+    }
+
+    @Override // com.baidu.tieba.q4a
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        ForumTagInfo forumTagInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0509, viewGroup, false);
+            this.i = inflate;
+            this.j = (NormalItemCell) inflate.findViewById(R.id.obfuscated_res_0x7f091cc5);
+            NormalItemCell.a aVar = new NormalItemCell.a();
+            aVar.b = 1;
+            aVar.f = this.a.getString(R.string.obfuscated_res_0x7f0f03fe);
+            aVar.e = this.a.getString(R.string.obfuscated_res_0x7f0f03fd);
+            NormalItemCell normalItemCell = this.j;
+            if (normalItemCell != null) {
+                normalItemCell.setConfig(aVar);
+                this.j.setOnClickListener(new a(this));
+                WriteData writeData = this.e;
+                if (writeData != null && "2".equals(writeData.getCallFrom()) && (forumTagInfo = this.g) != null && forumTagInfo.isValid()) {
+                    this.e.setQuestionTagId(this.g.id);
+                    this.e.setQuestionTagManualCreated(false);
+                    this.j.setSubTitle(this.g.name);
+                    this.j.setOnClickListener(null);
+                    this.j.a();
+                }
+            }
+            return this.i;
+        }
+        return (View) invokeL.objValue;
     }
 }

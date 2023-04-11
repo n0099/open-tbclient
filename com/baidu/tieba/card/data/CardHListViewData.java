@@ -4,8 +4,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.gi;
-import com.baidu.tieba.gn;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.hn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
     public static final BdUniqueId TYPE;
     public static final long serialVersionUID = 6577771607010727691L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<gn> mList;
+    public final List<hn> mList;
     public boolean showBottomDivider;
     public boolean showTopDivider;
     public String threadId;
@@ -66,7 +66,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
         this.mList = new ArrayList();
     }
 
-    public final List<gn> getDataList() {
+    public final List<hn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -75,7 +75,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.gn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.hn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
             }
             this.mList.clear();
             for (GuessLikeThreadInfo guessLikeThreadInfo : list) {
-                if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !gi.isEmptyStringAfterTrim(guessLikeThreadInfo.recom_cover) && !gi.isEmptyStringAfterTrim(guessLikeThreadInfo.title)) {
+                if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !hi.isEmptyStringAfterTrim(guessLikeThreadInfo.recom_cover) && !hi.isEmptyStringAfterTrim(guessLikeThreadInfo.title)) {
                     CardHListViewNormalItemData cardHListViewNormalItemData = new CardHListViewNormalItemData();
                     cardHListViewNormalItemData.parseProtobuf(guessLikeThreadInfo);
                     this.mList.add(cardHListViewNormalItemData);

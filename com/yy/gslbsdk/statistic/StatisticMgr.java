@@ -6,14 +6,14 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class StatisticMgr {
     public static StatisticMgr sInstance;
     public IGslbStatistic mStatistic = null;
     public ScheduledThreadPoolExecutor mExecutor = new ScheduledThreadPoolExecutor(1);
     public Map<String, StatisticInfo> mMapStatistic = new ConcurrentHashMap();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface IGslbStatistic {
         void onStatistic(Map<String, String> map);
     }

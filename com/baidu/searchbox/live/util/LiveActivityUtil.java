@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
+import com.baidu.searchbox.live.interfaces.context.PluginContextUtil;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
 import java.lang.reflect.Method;
@@ -54,7 +55,7 @@ public class LiveActivityUtil {
     }
 
     public static boolean startActivitySafely(Context context, Intent intent, boolean z, boolean z2) {
-        if (z || !(context instanceof Activity)) {
+        if (z || PluginContextUtil.INSTANCE.getActivity(context) == null) {
             intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         }
         try {

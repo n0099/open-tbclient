@@ -411,7 +411,7 @@ public class qf implements IHttpNet {
                         sb.append("&");
                     }
                     sb.append(name + "=");
-                    sb.append(gi.getUrlEncode(value));
+                    sb.append(hi.getUrlEncode(value));
                     i++;
                 }
             }

@@ -18,7 +18,7 @@ import com.google.android.material.dialog.MaterialDialogs;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.shape.MaterialShapeDrawable;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP, RestrictTo.Scope.TESTS})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     @AttrRes
     public static final int DEF_STYLE_ATTR = 16843612;

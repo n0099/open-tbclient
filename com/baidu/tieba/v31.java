@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.text.TextUtils;
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.view.View;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,20 +14,39 @@ public class v31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @ColorInt
-    public static int a(@Nullable String str, @ColorRes int i) {
-        InterceptResult invokeLI;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948189749, "Lcom/baidu/tieba/v31;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948189749, "Lcom/baidu/tieba/v31;");
+        }
+    }
+
+    @Nullable
+    public static Bitmap a(@Nullable View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return ContextCompat.getColor(hi0.b(), i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            Bitmap bitmap = null;
+            if (view2 == null || view2.getWidth() <= 0 || view2.getHeight() <= 0) {
+                return null;
             }
             try {
-                return Color.parseColor(str);
-            } catch (IllegalArgumentException unused) {
-                return ContextCompat.getColor(hi0.b(), i);
+                bitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_8888);
+                view2.draw(new Canvas(bitmap));
+                return bitmap;
+            } catch (OutOfMemoryError e) {
+                e.printStackTrace();
+                return bitmap;
             }
         }
-        return invokeLI.intValue;
+        return (Bitmap) invokeL.objValue;
     }
 }

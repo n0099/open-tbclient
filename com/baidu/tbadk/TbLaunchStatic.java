@@ -2,7 +2,7 @@ package com.baidu.tbadk;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
-import com.baidu.tieba.hn7;
+import com.baidu.tieba.ex7;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
 import com.baidu.tieba.im.message.ResponseDelSystemMessage;
 import com.baidu.tieba.wxapi.WXEntryActivity;
@@ -60,8 +60,8 @@ public class TbLaunchStatic {
     public static void initRegisterTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            hn7.b(202004, ResponseDelSystemMessage.class, false);
-            hn7.b(202001, ResponseCommitGroupMessage.class, false);
+            ex7.b(202004, ResponseDelSystemMessage.class, false);
+            ex7.b(202001, ResponseCommitGroupMessage.class, false);
         }
     }
 }

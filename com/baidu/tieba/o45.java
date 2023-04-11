@@ -1,249 +1,41 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.view.headViewPendant.LightInteractiveLayout;
-import com.baidu.tbadk.data.MetaData;
-import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
 public class o45 {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "com.baidu.tieba";
+    public static String b = "com.baidu.tieba:remote";
+    public static String c = "com.baidu.tieba:bdservice_v1";
+    public static String d = "com.baidu.tieba:pluginInstaller";
+    public static String e = "com.baidu.tieba:daemon";
+    public static String f = "com.baidu.tieba:cdnTachometer";
+    public static String g = "plugininstaller_settings";
+    public static String h = "daemon_settings";
+    public static String i = "cdnTachometer_settings";
+    public static String j = "download_product_info";
+    public static final String[] k;
+    public static final String[] l;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947982297, "Lcom/baidu/tieba/o45;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947982297, "Lcom/baidu/tieba/o45;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WeakReference a;
-        public final /* synthetic */ WeakReference b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i, WeakReference weakReference, WeakReference weakReference2, int i2, int i3) {
-            super(i);
-            Interceptable interceptable = $ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947982297, "Lcom/baidu/tieba/o45;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), weakReference, weakReference2, Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = weakReference;
-            this.b = weakReference2;
-            this.c = i2;
-            this.d = i3;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && this.a.get() != null) {
-                if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                    ((Window) this.a.get()).getDecorView().setSystemUiVisibility(1280);
-                } else {
-                    ((Window) this.a.get()).getDecorView().setSystemUiVisibility(9472);
-                }
-                if (this.b.get() != null) {
-                    ((LightInteractiveLayout) this.b.get()).setListBackground(this.c, this.d);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947982297, "Lcom/baidu/tieba/o45;");
+                return;
             }
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CustomMessageListener a;
-        public final /* synthetic */ WeakReference b;
-
-        public b(CustomMessageListener customMessageListener, WeakReference weakReference) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {customMessageListener, weakReference};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = customMessageListener;
-            this.b = weakReference;
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_QINGHUDONG_EMOTION);
-                MessageManager.getInstance().unRegisterListener(this.a);
-                if (this.b.get() != null) {
-                    ((LightInteractiveLayout) this.b.get()).D();
-                }
-                boolean unused = o45.a = false;
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements q45 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Dialog a;
-
-        public c(Dialog dialog) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dialog};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dialog;
-        }
-
-        @Override // com.baidu.tieba.q45
-        public void onClose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d implements DialogInterface.OnShowListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.content.DialogInterface.OnShowListener
-        public void onShow(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                boolean unused = o45.a = true;
-            }
-        }
-    }
-
-    public static void b(Context context, int i, int i2, MetaData metaData, int i3, int i4, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), metaData, Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)}) != null) || a) {
-            return;
-        }
-        if ((context instanceof Application) && (context = TbadkCoreApplication.getInst().getCurrentActivity()) == null) {
-            return;
-        }
-        MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_QINGHUDONG_EMOTION, TbConfig.SERVER_ADDRESS + "c/c/agree/agreeVirtualImage"));
-        Dialog dialog = new Dialog(context, R.style.obfuscated_res_0x7f1003bc);
-        dialog.setCancelable(true);
-        WeakReference weakReference = new WeakReference(dialog.getWindow());
-        if (weakReference.get() != null) {
-            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                ((Window) weakReference.get()).getDecorView().setSystemUiVisibility(1280);
-            } else {
-                ((Window) weakReference.get()).getDecorView().setSystemUiVisibility(9472);
-            }
-            ((Window) weakReference.get()).addFlags(Integer.MIN_VALUE);
-            ((Window) weakReference.get()).setStatusBarColor(0);
-            ((Window) weakReference.get()).setDimAmount(0.0f);
-            WindowManager.LayoutParams attributes = ((Window) weakReference.get()).getAttributes();
-            attributes.width = -1;
-            attributes.height = -1;
-            ((Window) weakReference.get()).setNavigationBarColor(0);
-            ((Window) weakReference.get()).setAttributes(attributes);
-        }
-        WeakReference weakReference2 = new WeakReference(new LightInteractiveLayout(context));
-        if (weakReference2.get() != null) {
-            ((LightInteractiveLayout) weakReference2.get()).setUserInfo(metaData);
-            ((LightInteractiveLayout) weakReference2.get()).setType(i3);
-            ((LightInteractiveLayout) weakReference2.get()).setFrom(i4);
-            ((LightInteractiveLayout) weakReference2.get()).setNeedHomeIcon(z);
-            ((LightInteractiveLayout) weakReference2.get()).setLocation(i, i2);
-            dialog.setContentView((View) weakReference2.get());
-        }
-        GreyUtil.grey(dialog);
-        a aVar = new a(2001304, weakReference, weakReference2, i, i2);
-        dialog.setOnDismissListener(new b(aVar, weakReference2));
-        if (weakReference2.get() != null) {
-            ((LightInteractiveLayout) weakReference2.get()).setOnDismissListener(new c(dialog));
-        }
-        dialog.setOnShowListener(new d());
-        dialog.show();
-        if (metaData != null) {
-            p45.b(i4, metaData.getUserId());
-        }
-        MessageManager.getInstance().registerListener(aVar);
+        k = new String[]{"skin_", "from_id", "bd_loc_crash_count", "webview_crash_count", "bd_loc_switcher", "install_other_app_file_name", "cuid", "new_cuid", "new_cuid_galaxy2", "gpu_open", "client_id", "keepalive_wifi", "keepalive_nonwifi", "networkcore_type", "socket_reconn_strategy", "image_quality", "capable_of_webp_format", "webp_failure_count", "log_stat_upload_time ", "log_stat_debug_time", "log_stat_switch_data", "log_stat_error_time", "is_motu_forbidden", "cdn_iplist_cache_key_three", "report_user_info_time_key", "image_viewer_tip", "location_lat", "location_lng", "location_pos", "location_on", "xiaoying_crash_count", "plugin_patch_hook_failed_count", "page_stay_duration_switch", "page_stay_max_cost", "applist_intalled_apk_ids", "applist_intalled_apk_ids_timestamp", "KEY_UPLOAD_LOG_INTERVAL", "KEY_LOG_REAL_TIME_UPLOAD_SWITCH", "smart_app_tid", "smart_app_id", "smart_app_name", "key_ai_app_guide_display", "AD_SNIFF_RESULT_KEY", "key_baiduid_for_anti", "key_secret_is_show_new", "key_qq_share_h5_enable", "key_wechat_small_app_to_h5", "key_launch_up_speed", "fun_ad_big_image_floor", "fun_ad_big_image_density", "fun_ad_big_image_size", "fun_ad_big_image_switch", "key_post_thread_has_request_location", "key_sync_extra_field", "key_member_auto_ban_renewal_show", "key_server_picpage_bear_sid", "key_live_bubble_remind_show_count", "key_live_top_float_remind_show_count", "key_hot_event_tip_show_time", "switch_immersive_sticky_status", "key_live_bubble_icon_cache_key", "key_live_gif_load_library_key", "key_big_imagecache_optimize_scale", "key_big_image_pre_page_limit"};
+        l = new String[0];
     }
 }

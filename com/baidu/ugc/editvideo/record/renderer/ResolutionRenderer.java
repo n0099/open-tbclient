@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.record.renderer;
 
 import android.opengl.GLES20;
-import com.baidu.tieba.jf0;
+import com.baidu.tieba.kf0;
 /* loaded from: classes7.dex */
 public class ResolutionRenderer extends MediaBaseRenderer {
     public int mLastResolutionHeight;
@@ -29,7 +29,7 @@ public class ResolutionRenderer extends MediaBaseRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(jf0 jf0Var, int i, float[] fArr) {
+    public void onDrawFrame(kf0 kf0Var, int i, float[] fArr) {
         int i2;
         int i3;
         int i4;

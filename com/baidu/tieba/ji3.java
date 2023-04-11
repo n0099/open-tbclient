@@ -1,14 +1,15 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.core.content.ContextCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.yc3;
+import com.baidu.tieba.y23;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,105 +17,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import java.util.HashMap;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ji3 extends wv1 {
+public class ji3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final mm3<ti3<si3>> f;
-    public static final mm3<ti3<List<si3>>> g;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.wv1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "Wifi" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wv1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "WifiApi" : (String) invokeV.objValue;
-    }
+    public long a;
+    public c b;
+    public final y23.a c;
 
     /* loaded from: classes5.dex */
-    public class a implements w23 {
+    public class a implements y23.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ ri3 b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ ji3 d;
+        public final /* synthetic */ ji3 a;
 
-        /* renamed from: com.baidu.tieba.ji3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0305a implements mm3<ti3<si3>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0305a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.mm3
-            /* renamed from: b */
-            public void a(ti3<si3> ti3Var) {
-                tz1 tz1Var;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ti3Var) == null) {
-                    if (ti3Var.a != 0) {
-                        t42.i("WifiApi", "connectWifi: " + ti3Var.a + ZeusCrashHandler.NAME_SEPERATOR + ti3Var.b);
-                    }
-                    JSONObject jSONObject = null;
-                    if (ti3Var.c != null) {
-                        jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("wifi", ti3Var.c.n());
-                        } catch (JSONException e) {
-                            t42.i("WifiApi", "getConnectedWifi: " + ti3Var.a + ZeusCrashHandler.NAME_SEPERATOR + ti3Var.b + ZeusCrashHandler.NAME_SEPERATOR + ti3Var.c + "\n" + Log.getStackTraceString(e));
-                        }
-                    }
-                    a aVar = this.a;
-                    ji3 ji3Var = aVar.d;
-                    String str = aVar.c;
-                    if (jSONObject == null) {
-                        tz1Var = new tz1(ti3Var.a, ti3Var.b);
-                    } else {
-                        tz1Var = new tz1(ti3Var.a, ti3Var.b, jSONObject);
-                    }
-                    ji3Var.d(str, tz1Var);
-                }
-            }
-        }
-
-        public a(ji3 ji3Var, Activity activity, ri3 ri3Var, String str) {
+        public a(ji3 ji3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ji3Var, activity, ri3Var, str};
+                Object[] objArr = {ji3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -124,83 +47,53 @@ public class ji3 extends wv1 {
                     return;
                 }
             }
-            this.d = ji3Var;
-            this.a = activity;
-            this.b = ri3Var;
-            this.c = str;
+            this.a = ji3Var;
         }
 
-        @Override // com.baidu.tieba.w23
-        public void a(String str) {
+        @Override // com.baidu.tieba.y23.a
+        public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                qi3.s(this.a).a(this.b, new C0305a(this));
-            }
-        }
-
-        @Override // com.baidu.tieba.w23
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                t42.i("WifiApi", "connectWifi: 12012 : no location permission");
-                this.d.d(this.c, new tz1(12012, "no location permission"));
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == 700 && iArr.length > 0 && iArr[0] == 0 && this.a.b != null) {
+                this.a.b.a(this.a.a);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class g implements w23 {
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ji3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-689031369, "Lcom/baidu/tieba/ji3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-689031369, "Lcom/baidu/tieba/ji3$b;");
+                    return;
+                }
+            }
+            a = new ji3(null);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ji3 c;
+        public Vibrator a;
 
-        /* loaded from: classes5.dex */
-        public class a implements mm3<ti3<Void>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ g a;
-
-            public a(g gVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {gVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = gVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.mm3
-            /* renamed from: b */
-            public void a(ti3<Void> ti3Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ti3Var) == null) {
-                    if (ti3Var.a != 0) {
-                        t42.i("WifiApi", "getWifiList: " + ti3Var.a + ZeusCrashHandler.NAME_SEPERATOR + ti3Var.b);
-                    }
-                    g gVar = this.a;
-                    gVar.c.d(gVar.b, new tz1(ti3Var.a, ti3Var.b));
-                }
-            }
-        }
-
-        public g(ji3 ji3Var, Activity activity, String str) {
+        public c(@NonNull Vibrator vibrator) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ji3Var, activity, str};
+                Object[] objArr = {vibrator};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -210,418 +103,21 @@ public class ji3 extends wv1 {
                     return;
                 }
             }
-            this.c = ji3Var;
-            this.a = activity;
-            this.b = str;
+            this.a = vibrator;
         }
 
-        @Override // com.baidu.tieba.w23
-        public void a(String str) {
+        @SuppressLint({"MissingPermission"})
+        public void a(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                qi3.s(this.a).c(new a(this));
-            }
-        }
-
-        @Override // com.baidu.tieba.w23
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                t42.i("WifiApi", "getWifiList: 12012 : no location permission");
-                this.c.d(this.b, new tz1(12012, "no location permission"));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class i implements w23 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ji3 c;
-
-        /* loaded from: classes5.dex */
-        public class a implements mm3<ti3<si3>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ i a;
-
-            public a(i iVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {iVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = iVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.mm3
-            /* renamed from: b */
-            public void a(ti3<si3> ti3Var) {
-                tz1 tz1Var;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ti3Var) == null) {
-                    if (ti3Var.a != 0) {
-                        t42.i("WifiApi", "getConnectedWifi: " + ti3Var.a + ZeusCrashHandler.NAME_SEPERATOR + ti3Var.b);
-                    }
-                    JSONObject jSONObject = null;
-                    if (ti3Var.c != null) {
-                        jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("wifi", ti3Var.c.n());
-                        } catch (JSONException e) {
-                            t42.i("WifiApi", "getConnectedWifi: " + ti3Var.a + ZeusCrashHandler.NAME_SEPERATOR + ti3Var.b + ZeusCrashHandler.NAME_SEPERATOR + ti3Var.c + "\n" + Log.getStackTraceString(e));
-                        }
-                    }
-                    i iVar = this.a;
-                    ji3 ji3Var = iVar.c;
-                    String str = iVar.b;
-                    if (jSONObject == null) {
-                        tz1Var = new tz1(ti3Var.a, ti3Var.b);
-                    } else {
-                        tz1Var = new tz1(ti3Var.a, ti3Var.b, jSONObject);
-                    }
-                    ji3Var.d(str, tz1Var);
-                }
-            }
-        }
-
-        public i(ji3 ji3Var, Activity activity, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ji3Var, activity, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ji3Var;
-            this.a = activity;
-            this.b = str;
-        }
-
-        @Override // com.baidu.tieba.w23
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                qi3.s(this.a).j(new a(this));
-            }
-        }
-
-        @Override // com.baidu.tieba.w23
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                t42.i("WifiApi", "getConnectedWifi: 12012 : no location permission");
-                this.c.d(this.b, new tz1(12012, "no location permission"));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements mm3<ti3<si3>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mm3
-        /* renamed from: b */
-        public void a(ti3<si3> ti3Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ti3Var) == null) && ti3Var != null && ti3Var.a == 0 && ti3Var.c != null) {
-                JSONObject jSONObject = new JSONObject();
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
                 try {
-                    jSONObject.put("wifiInfo", ti3Var.c);
-                } catch (JSONException e) {
-                    t42.c("WifiApi", "dispatch event onWifiConnected: " + Log.getStackTraceString(e));
+                    if (bk3.j()) {
+                        this.a.vibrate(VibrationEffect.createOneShot(j, -1));
+                        return;
+                    }
+                    this.a.vibrate(j);
+                } catch (Exception unused) {
                 }
-                HashMap hashMap = new HashMap();
-                hashMap.put("data", jSONObject.toString());
-                gt2.U().u(new uh2("wifiConnected", hashMap));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements mm3<ti3<List<si3>>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mm3
-        /* renamed from: b */
-        public void a(ti3<List<si3>> ti3Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ti3Var) == null) && ti3Var != null && ti3Var.a == 0 && ti3Var.c != null) {
-                JSONObject jSONObject = new JSONObject();
-                JSONArray jSONArray = new JSONArray();
-                for (si3 si3Var : ti3Var.c) {
-                    jSONArray.put(si3Var);
-                }
-                try {
-                    jSONObject.put("wifiList", jSONArray);
-                } catch (JSONException e) {
-                    t42.c("WifiApi", "dispatch event onGetWifiList: " + Log.getStackTraceString(e));
-                }
-                HashMap hashMap = new HashMap();
-                hashMap.put("data", jSONObject.toString());
-                gt2.U().u(new uh2("getWifiList", hashMap));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements mm3<ti3<Void>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ji3 b;
-
-        public d(ji3 ji3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ji3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ji3Var;
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mm3
-        /* renamed from: b */
-        public void a(ti3<Void> ti3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ti3Var) == null) {
-                if (ti3Var.a != 0) {
-                    t42.i("WifiApi", "startWifi: " + ti3Var.a + ZeusCrashHandler.NAME_SEPERATOR + ti3Var.b);
-                }
-                this.b.d(this.a, new tz1(ti3Var.a, ti3Var.b));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements mm3<ti3<Void>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ji3 b;
-
-        public e(ji3 ji3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ji3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ji3Var;
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mm3
-        /* renamed from: b */
-        public void a(ti3<Void> ti3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ti3Var) == null) {
-                if (ti3Var.a != 0) {
-                    t42.i("WifiApi", "stopWifi: " + ti3Var.a + ZeusCrashHandler.NAME_SEPERATOR + ti3Var.b);
-                }
-                this.b.d(this.a, new tz1(ti3Var.a, ti3Var.b));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements mm3<wc3<yc3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ji3 b;
-
-        public f(ji3 ji3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ji3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ji3Var;
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mm3
-        /* renamed from: b */
-        public void a(wc3<yc3.e> wc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wc3Var) == null) {
-                if (rc3.h(wc3Var)) {
-                    this.b.F(this.a);
-                    return;
-                }
-                int b = wc3Var.b();
-                t42.i("WifiApi", "getWifiList: " + b + ZeusCrashHandler.NAME_SEPERATOR + rc3.f(b));
-                this.b.d(this.a, new tz1(b, rc3.f(b)));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class h implements mm3<wc3<yc3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ji3 b;
-
-        public h(ji3 ji3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ji3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ji3Var;
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mm3
-        /* renamed from: b */
-        public void a(wc3<yc3.e> wc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wc3Var) == null) {
-                if (rc3.h(wc3Var)) {
-                    this.b.E(this.a);
-                    return;
-                }
-                int b = wc3Var.b();
-                t42.i("WifiApi", "getConnectedWifi: " + b + ZeusCrashHandler.NAME_SEPERATOR + rc3.f(b));
-                this.b.d(this.a, new tz1(b, rc3.f(b)));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class j implements mm3<wc3<yc3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ri3 b;
-        public final /* synthetic */ ji3 c;
-
-        public j(ji3 ji3Var, String str, ri3 ri3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ji3Var, str, ri3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = ji3Var;
-            this.a = str;
-            this.b = ri3Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mm3
-        /* renamed from: b */
-        public void a(wc3<yc3.e> wc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wc3Var) == null) {
-                if (!rc3.h(wc3Var)) {
-                    int b = wc3Var.b();
-                    t42.i("WifiApi", "connectWifi: " + b + ZeusCrashHandler.NAME_SEPERATOR + rc3.f(b));
-                    this.c.d(this.a, new tz1(b, rc3.f(b)));
-                    return;
-                }
-                this.c.D(this.a, this.b);
             }
         }
     }
@@ -639,231 +135,92 @@ public class ji3 extends wv1 {
                 return;
             }
         }
-        f = new b();
-        g = new c();
+        d = eo1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ji3(@NonNull uv1 uv1Var) {
-        super(uv1Var);
+    public static ji3 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return b.a;
+        }
+        return (ji3) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!bk3.h()) {
+                return true;
+            }
+            Context appContext = AppRuntime.getAppContext();
+            if (appContext != null && ContextCompat.checkSelfPermission(appContext, "android.permission.VIBRATE") == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            e(400L);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            e(15L);
+        }
+    }
+
+    public ji3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uv1Var};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((uv1) newInitContext.callArgs[0]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    public final void D(String str, ri3 ri3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, ri3Var) == null) {
-            SwanAppActivity w = s73.K().w();
-            v23.g(w, new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, 0, new a(this, w, ri3Var, str));
+        this.a = 0L;
+        this.c = new a(this);
+        Vibrator vibrator = (Vibrator) AppRuntime.getAppContext().getSystemService("vibrator");
+        if (vibrator != null) {
+            this.b = new c(vibrator);
         }
     }
 
-    public tz1 A(String str) {
-        InterceptResult invokeL;
+    public /* synthetic */ ji3(a aVar) {
+        this();
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void e(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#connectWifi", false);
-            t73 b0 = t73.b0();
-            if (b0 == null) {
-                t42.c("WifiApi", "connectWifi: 1001 : swan app is null");
-                return new tz1(1001, "swan app is null");
-            } else if (b0.w() == null) {
-                t42.c("WifiApi", "connectWifi: 1001 : swan activity is null");
-                return new tz1(1001, "swan activity is null");
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.a = j;
+            if (this.b == null) {
+                if (!d) {
+                    return;
+                }
+                throw new RuntimeException("not support vibration");
+            } else if (c()) {
+                this.b.a(this.a);
             } else {
-                Pair<tz1, JSONObject> s = s(str);
-                tz1 tz1Var = (tz1) s.first;
-                if (!tz1Var.isSuccess()) {
-                    return tz1Var;
-                }
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    t42.c("WifiApi", "connectWifi: 201 : callback is null");
-                    return new tz1(201, "callback is null");
-                }
-                ri3 a2 = ri3.a(jSONObject);
-                if (TextUtils.isEmpty(a2.a)) {
-                    t42.i("WifiApi", "connectWifi: 12008 : invalid ssid");
-                    return new tz1(12008, "invalid ssid");
-                } else if (b0.n0()) {
-                    t42.i("WifiApi", "connectWifi: 12011 : app is invisible");
-                    return new tz1(12011, "app is invisible");
-                } else {
-                    b0.e0().g(getContext(), "mapp_location", new j(this, optString, a2));
-                    return tz1.f();
+                String[] strArr = {"android.permission.VIBRATE"};
+                SwanAppActivity w = t73.K().w();
+                if (w != null) {
+                    w.A(700, strArr, this.c);
                 }
             }
-        }
-        return (tz1) invokeL.objValue;
-    }
-
-    public tz1 B(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getConnectedWifi", false);
-            t73 b0 = t73.b0();
-            if (b0 == null) {
-                t42.c("WifiApi", "getConnectedWifi: 1001 : swan app is null");
-                return new tz1(1001, "swan app is null");
-            } else if (b0.w() == null) {
-                t42.c("WifiApi", "getConnectedWifi: 1001 : swan activity is null");
-                return new tz1(1001, "swan activity is null");
-            } else {
-                Pair<tz1, JSONObject> s = s(str);
-                tz1 tz1Var = (tz1) s.first;
-                if (!tz1Var.isSuccess()) {
-                    return tz1Var;
-                }
-                String optString = ((JSONObject) s.second).optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    t42.c("WifiApi", "getConnectedWifi: 201 : callback is null");
-                    return new tz1(201, "callback is null");
-                } else if (b0.n0()) {
-                    t42.i("WifiApi", "getConnectedWifi: 12011 : app is invisible");
-                    return new tz1(12011, "app is invisible");
-                } else {
-                    b0.e0().g(getContext(), "mapp_location", new h(this, optString));
-                    return tz1.f();
-                }
-            }
-        }
-        return (tz1) invokeL.objValue;
-    }
-
-    public tz1 C(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#getWifiList", false);
-            t73 b0 = t73.b0();
-            if (b0 == null) {
-                t42.c("WifiApi", "getWifiList: 1001 : swan app is null");
-                return new tz1(1001, "swan app is null");
-            } else if (b0.w() == null) {
-                t42.c("WifiApi", "getWifiList: 1001 : swan activity is null");
-                return new tz1(1001, "swan activity is null");
-            } else {
-                Pair<tz1, JSONObject> s = s(str);
-                tz1 tz1Var = (tz1) s.first;
-                if (!tz1Var.isSuccess()) {
-                    return tz1Var;
-                }
-                String optString = ((JSONObject) s.second).optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    t42.c("WifiApi", "getWifiList: 201 : callback is null");
-                    return new tz1(201, "callback is null");
-                } else if (b0.n0()) {
-                    t42.i("WifiApi", "getWifiList: 12011 : app is invisible");
-                    return new tz1(12011, "app is invisible");
-                } else {
-                    b0.e0().g(getContext(), "mapp_location", new f(this, optString));
-                    return tz1.f();
-                }
-            }
-        }
-        return (tz1) invokeL.objValue;
-    }
-
-    public tz1 G(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            q("#startWifi", false);
-            t73 b0 = t73.b0();
-            if (b0 == null) {
-                t42.c("WifiApi", "startWifi: 1001 : swan app is null");
-                return new tz1(1001, "swan app is null");
-            }
-            SwanAppActivity w = b0.w();
-            if (w == null) {
-                t42.c("WifiApi", "startWifi: 1001 : swan activity is null");
-                return new tz1(1001, "swan activity is null");
-            }
-            Pair<tz1, JSONObject> s = s(str);
-            tz1 tz1Var = (tz1) s.first;
-            if (!tz1Var.isSuccess()) {
-                return tz1Var;
-            }
-            String optString = ((JSONObject) s.second).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                t42.c("WifiApi", "startWifi: 201 : callback is null");
-                return new tz1(201, "callback is null");
-            }
-            qi3 s2 = qi3.s(w);
-            if (s2.n(f) && s2.d(g)) {
-                s2.p(new d(this, optString));
-                return tz1.f();
-            }
-            t42.i("WifiApi", "startWifi: 12010 : unknown failed");
-            return new tz1(12010, "unknown failed");
-        }
-        return (tz1) invokeL.objValue;
-    }
-
-    public tz1 H(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            q("#stopWifi", false);
-            t73 b0 = t73.b0();
-            if (b0 == null) {
-                t42.c("WifiApi", "stopWifi: 1001 : swan app is null");
-                return new tz1(1001, "swan app is null");
-            }
-            SwanAppActivity w = b0.w();
-            if (w == null) {
-                t42.c("WifiApi", "stopWifi: 1001 : swan activity is null");
-                return new tz1(1001, "swan activity is null");
-            }
-            Pair<tz1, JSONObject> s = s(str);
-            tz1 tz1Var = (tz1) s.first;
-            if (!tz1Var.isSuccess()) {
-                return tz1Var;
-            }
-            String optString = ((JSONObject) s.second).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                t42.c("WifiApi", "stopWifi: 201 : callback is null");
-                return new tz1(201, "callback is null");
-            }
-            qi3 s2 = qi3.s(w);
-            if (s2.r(f) && s2.b(g)) {
-                s2.q(new e(this, optString));
-                return tz1.f();
-            }
-            t42.i("WifiApi", "stopWifi: 12010 : unknown failed");
-            return new tz1(12010, "unknown failed");
-        }
-        return (tz1) invokeL.objValue;
-    }
-
-    public final void E(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            SwanAppActivity w = s73.K().w();
-            v23.g(w, new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, 0, new i(this, w, str));
-        }
-    }
-
-    public final void F(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            SwanAppActivity w = s73.K().w();
-            v23.g(w, new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, 0, new g(this, w, str));
         }
     }
 }

@@ -26,7 +26,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import java.util.ArrayList;
 @RequiresApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
     public void jumpDrawableToCurrentState() {
@@ -41,7 +41,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     public void updateFromViewRotation() {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class AlwaysStatefulMaterialShapeDrawable extends MaterialShapeDrawable {
         @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
         public boolean isStateful() {

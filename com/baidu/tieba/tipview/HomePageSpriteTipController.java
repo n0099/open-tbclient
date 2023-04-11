@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.message.SpriteTipHttpResponseMessage;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.switchs.FunnySpriteSwitch;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.m35;
+import com.baidu.tieba.ng8;
+import com.baidu.tieba.p45;
 import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
 import com.baidu.tieba.sprite.resdownload.FunnySpriteResDownloadUtil;
 import com.baidu.tieba.sprite.tips.SpriteBottomTipView;
 import com.baidu.tieba.tipview.HomePageSpriteTipController;
 import com.baidu.tieba.tipview.HomePageSpriteTipController$httpListener$2;
-import com.baidu.tieba.uf5;
-import com.baidu.tieba.w58;
+import com.baidu.tieba.yg5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -178,24 +178,24 @@ public final class HomePageSpriteTipController {
                             if (spriteTipHttpResponseMessage.isSuccess() && spriteTipHttpResponseMessage.getScene() != 2) {
                                 z2 = this.a.b;
                                 if (z2 && HomeSpriteEdgeFloatManager.j.b()) {
-                                    w58 defaultLog = DefaultLog.getInstance();
+                                    ng8 defaultLog = DefaultLog.getInstance();
                                     defaultLog.c("SpriteTip", "show responseTip:" + spriteTipHttpResponseMessage.getText());
                                     this.a.a = System.currentTimeMillis();
                                     SpriteBottomTipView spriteBottomTipView = this.b;
                                     if (spriteBottomTipView != null) {
                                         spriteBottomTipView.setDataAndShow(spriteTipHttpResponseMessage);
                                     }
-                                    String s = m35.m().s("key_sprite_speech_version", "");
+                                    String s = p45.m().s("key_sprite_speech_version", "");
                                     String version = spriteTipHttpResponseMessage.getVersion();
                                     if (!TextUtils.isEmpty(version) && !Intrinsics.areEqual(s, version)) {
-                                        m35.m().B("key_sprite_speech_version", version);
+                                        p45.m().B("key_sprite_speech_version", version);
                                         return;
                                     }
                                     return;
                                 }
                             }
                         }
-                        w58 defaultLog2 = DefaultLog.getInstance();
+                        ng8 defaultLog2 = DefaultLog.getInstance();
                         StringBuilder sb = new StringBuilder();
                         sb.append("not show Tip isActivityResumed:");
                         z = this.a.b;
@@ -229,9 +229,9 @@ public final class HomePageSpriteTipController {
     public final void k(final int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            w58 defaultLog = DefaultLog.getInstance();
+            ng8 defaultLog = DefaultLog.getInstance();
             defaultLog.c("SpriteTip", "requestTip canShowSpriteTip:" + this.b);
-            jg.a().post(new Runnable() { // from class: com.baidu.tieba.ti9
+            jg.a().post(new Runnable() { // from class: com.baidu.tieba.ks9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -261,7 +261,7 @@ public final class HomePageSpriteTipController {
         if (interceptable == null || interceptable.invokeL(65541, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (this$0.b) {
-                uf5.c();
+                yg5.c();
             }
         }
     }
@@ -280,11 +280,11 @@ public final class HomePageSpriteTipController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65544, null, i) == null) {
             if (TbSingleton.getInstance().isShowSpriteDialog) {
-                uf5.b(3);
+                yg5.b(3);
                 TbSingleton.getInstance().isShowSpriteDialog = false;
                 return;
             }
-            uf5.b(i);
+            yg5.b(i);
         }
     }
 
@@ -330,7 +330,7 @@ public final class HomePageSpriteTipController {
             }
             MessageManager.getInstance().registerListener(c());
             if (!TbSingleton.getInstance().isShowSpriteDialog) {
-                jg.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.si9
+                jg.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.js9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -353,7 +353,7 @@ public final class HomePageSpriteTipController {
             jg.a().removeCallbacks(this.d);
             jg.a().postDelayed(this.d, AppConfig.TIMESTAMP_AVAILABLE_DURATION);
             if (TbSingleton.getInstance().isShowSpriteDialog) {
-                jg.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.vi9
+                jg.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.ms9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -366,7 +366,7 @@ public final class HomePageSpriteTipController {
                     }
                 }, 3000L);
             } else if (this.a > 0 && System.currentTimeMillis() - this.a > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
-                jg.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.ui9
+                jg.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.ls9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

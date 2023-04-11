@@ -1,132 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.RecomTopicList;
 /* loaded from: classes4.dex */
 public class hp7 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static volatile SQLiteDatabase b;
-    public static HashMap<String, SQLiteDatabase> c;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public int c;
+    public int d;
+    public boolean e;
+    public int f;
+    public long g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947831482, "Lcom/baidu/tieba/hp7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947831482, "Lcom/baidu/tieba/hp7;");
+    public hp7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c = new HashMap<>();
+        this.e = true;
     }
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            try {
-                try {
-                    if (!TextUtils.isEmpty(str)) {
-                        ip7.d().f();
-                        Iterator<String> it = b().iterator();
-                        while (it.hasNext()) {
-                            String next = it.next();
-                            if (next != null) {
-                                if (next.equals("tb_message_center")) {
-                                    ContentValues contentValues = new ContentValues();
-                                    contentValues.put("is_hidden", (Integer) 1);
-                                    ip7.d().update("tb_message_center", contentValues, null, null);
-                                } else if (!next.equals("tb_new_friends")) {
-                                    ip7.d().delete(next, null, null);
-                                }
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
-                    e.printStackTrace();
-                }
-            } finally {
-                ip7.d().b();
-            }
-        }
-    }
-
-    public static LinkedList<String> b() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            SQLiteDatabase c2 = c();
-            LinkedList<String> linkedList = new LinkedList<>();
-            Cursor cursor = null;
-            try {
-                if (c2 != null) {
-                    try {
-                        cursor = c2.rawQuery("select * from sqlite_master where type='table'", null);
-                        if (cursor != null) {
-                            cursor.moveToFirst();
-                            while (cursor.moveToNext()) {
-                                linkedList.add(cursor.getString(cursor.getColumnIndex("name")));
-                            }
-                        }
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.getAllTables", new Object[0]);
-                        e.printStackTrace();
-                    }
-                }
-                return linkedList;
-            } finally {
-                ii.a(cursor);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
-        return (LinkedList) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static synchronized SQLiteDatabase c() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (hp7.class) {
-                try {
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.getImDataBase", new Object[0]);
-                }
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return null;
-                }
-                String str = TbadkCoreApplication.getCurrentAccount() + ".db";
-                if (c.containsKey(str)) {
-                    return c.get(str);
-                }
-                if (b != null && str.equals(a) && b.isOpen()) {
-                    return b;
-                }
-                if (b != null) {
-                    ii.b(b);
-                }
-                gp7 gp7Var = new gp7(TbadkCoreApplication.getInst().getApp(), str);
-                a = str;
-                b = gp7Var.getWritableDatabase();
-                return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public hp7(@NonNull RecomTopicList recomTopicList, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {recomTopicList, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (SQLiteDatabase) invokeV.objValue;
+        this.a = recomTopicList.topic_id.longValue();
+        this.b = recomTopicList.topic_name;
+        this.c = recomTopicList.tag.intValue();
+        this.d = i + 1;
+        this.f = recomTopicList.is_video_topic.intValue();
+        this.g = recomTopicList.discuss_num.longValue();
     }
 }

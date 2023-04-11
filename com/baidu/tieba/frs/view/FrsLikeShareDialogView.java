@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l87;
-import com.baidu.tieba.m87;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.ii7;
+import com.baidu.tieba.ji7;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -46,7 +46,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
     public ImageView r;
     public ImageView s;
     public View t;
-    public l87 u;
+    public ii7 u;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FrsLikeShareDialogView(Context context) {
@@ -69,7 +69,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
         }
     }
 
-    public final void d(int i) {
+    public final void e(int i) {
         ForumData forumData;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -86,7 +86,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
                 }
             }
             if (i2 != -1 && (forumData = this.a) != null) {
-                m87.a(forumData.getId(), i2);
+                ji7.a(forumData.getId(), i2);
             }
         }
     }
@@ -94,15 +94,15 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         int i;
-        l87 l87Var;
+        ii7 ii7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             if (view2 == this.q) {
-                l87 l87Var2 = this.u;
-                if (l87Var2 != null) {
-                    l87Var2.a();
+                ii7 ii7Var2 = this.u;
+                if (ii7Var2 != null) {
+                    ii7Var2.a();
                 }
-                d(-1);
+                e(-1);
                 return;
             }
             if (view2 == this.k) {
@@ -114,10 +114,10 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
             } else {
                 i = -1;
             }
-            if (i != -1 && (l87Var = this.u) != null) {
-                l87Var.b(i);
+            if (i != -1 && (ii7Var = this.u) != null) {
+                ii7Var.b(i);
             }
-            d(i);
+            e(i);
         }
     }
 
@@ -167,7 +167,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0352, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0353, this);
             this.b = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f090c90);
             this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ca1);
             this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090c8e);
@@ -187,15 +187,15 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
             this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c95);
             this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c93);
             this.t = findViewById(R.id.obfuscated_res_0x7f090c9b);
+            d();
             c();
-            b();
         }
     }
 
-    public final void b() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            n15 d = n15.d(this.j);
+            q25 d = q25.d(this.j);
             d.o(R.string.J_X17);
             d.h(SkinManager.getColor(0, (int) R.color.CAM_X0204));
             this.l.setImageDrawable(SvgManager.getInstance().getNormalDrawable(R.drawable.icon_mask_share_wechat40_svg, SvgManager.SvgResourceStateType.NORMAL));
@@ -209,7 +209,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
         }
     }
 
-    public final void c() {
+    public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.d.setAutoChangeStyle(false);
@@ -219,8 +219,8 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
             this.c.setRadiusById(R.string.J_X14);
             this.c.setConrers(3);
             this.c.setIsBitmapPic(true);
-            SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080c69, 0);
-            n15 d = n15.d(this.t);
+            SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080c57, 0);
+            q25 d = q25.d(this.t);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0501);
         }

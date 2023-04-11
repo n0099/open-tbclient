@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.VoteSchema;
+import org.json.JSONObject;
+import tbclient.VideoChannelInfo;
 /* loaded from: classes6.dex */
 public class uz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public long a;
+    public int b;
 
     public uz4() {
         Interceptable interceptable = $ic;
@@ -28,19 +28,25 @@ public class uz4 {
         }
     }
 
-    public static uz4 a(VoteSchema voteSchema) {
-        InterceptResult invokeL;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, voteSchema)) == null) {
-            if (voteSchema == null) {
-                return null;
-            }
-            uz4 uz4Var = new uz4();
-            uz4Var.a = voteSchema.text_before_vote;
-            uz4Var.b = voteSchema.text_after_vote;
-            uz4Var.c = voteSchema.jump_url;
-            return uz4Var;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (uz4) invokeL.objValue;
+        try {
+            this.a = jSONObject.optLong("channel_id", 0L);
+            jSONObject.optString("channel_name");
+            jSONObject.optString("channel_avatar");
+        } catch (Exception unused) {
+        }
+    }
+
+    public void b(VideoChannelInfo videoChannelInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoChannelInfo) == null) && videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
+            this.a = videoChannelInfo.channel_id.longValue();
+            String str = videoChannelInfo.channel_name;
+            String str2 = videoChannelInfo.channel_avatar;
+        }
     }
 }

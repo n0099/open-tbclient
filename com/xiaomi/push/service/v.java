@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class v {
     public static v a;
 
@@ -61,7 +61,7 @@ public class v {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m759a(String str) {
+    public boolean m761a(String str) {
         boolean contains;
         synchronized (this.f1008a) {
             contains = this.f1008a.contains(str);
@@ -79,7 +79,7 @@ public class v {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m760b(String str) {
+    public boolean m762b(String str) {
         boolean contains;
         synchronized (this.b) {
             contains = this.b.contains(str);
@@ -97,7 +97,7 @@ public class v {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m761c(String str) {
+    public boolean m763c(String str) {
         boolean contains;
         synchronized (this.c) {
             contains = this.c.contains(str);

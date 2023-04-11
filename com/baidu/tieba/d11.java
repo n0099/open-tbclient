@@ -1,59 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.sapi2.stat.ShareLoginStat;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+import android.widget.TextView;
+import com.baidu.tieba.hq0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes4.dex */
-public interface d11 {
-    public static final ServiceReference a = new ServiceReference("nad.core", ShareLoginStat.GetShareListStat.VALUE_FROM_SP);
-    public static final d11 b = new a();
+public final class d11 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    e11 a();
-
-    e11 b(String str);
-
-    /* loaded from: classes4.dex */
-    public static class a implements d11 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: android.text.SpannableString */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static final TextView a(Context context, hq0.c cVar) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, cVar)) == null) {
+            if (cVar != null && !StringsKt__StringsJVMKt.isBlank(cVar.a)) {
+                int[] iArr = cVar.b;
+                if (iArr != null && iArr.length == 2) {
+                    SpannableString spannableString = new SpannableString(cVar.a);
+                    int a = w31.a(cVar.d, R.color.nad_sliding_tag_highlight_color_default);
+                    StyleSpan styleSpan = new StyleSpan(1);
+                    ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(a);
+                    spannableString.setSpan(styleSpan, iArr[0], iArr[1], 17);
+                    spannableString.setSpan(foregroundColorSpan, iArr[0], iArr[1], 17);
+                    str = spannableString;
+                } else {
+                    str = cVar.a;
                 }
+                int a2 = w31.a(cVar.c, R.color.nad_sliding_tag_text_color_default);
+                TextView textView = new TextView(context);
+                textView.setText(str);
+                textView.setTextColor(a2);
+                return textView;
             }
+            return null;
         }
-
-        @Override // com.baidu.tieba.d11
-        public e11 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new f11();
-            }
-            return (e11) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.d11
-        public e11 b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                return new f11(str);
-            }
-            return (e11) invokeL.objValue;
-        }
+        return (TextView) invokeLL.objValue;
     }
 }

@@ -1,109 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class jg1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "https://etrade.baidu.com/sgw/common/pingd/trace";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
+    public String c;
+    public String d;
+    public JSONObject e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947882229, "Lcom/baidu/tieba/jg1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947882229, "Lcom/baidu/tieba/jg1;");
-                return;
-            }
-        }
-        if (jf1.a() != 1) {
-            a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
-        }
-    }
-
-    public jg1() {
+    public jg1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = new JSONObject();
+        this.a = str;
+        this.b = System.currentTimeMillis();
+        this.c = xg1.c();
     }
 
-    public void a(ef1 ef1Var, df1 df1Var, cf1 cf1Var) {
-        DataOutputStream dataOutputStream;
+    public jg1 a(String str, Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, ef1Var, df1Var, cf1Var) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
             try {
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a).openConnection();
-                for (Map.Entry<String, String> entry : ef1Var.c().entrySet()) {
-                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-                }
-                httpURLConnection.setDoInput(true);
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setUseCaches(false);
-                httpURLConnection.setConnectTimeout(5000);
-                httpURLConnection.setReadTimeout(5000);
-                StringBuilder sb = new StringBuilder();
-                for (Map.Entry<String, String> entry2 : df1Var.c().entrySet()) {
-                    String encode = URLEncoder.encode(entry2.getValue(), IMAudioTransRequest.CHARSET);
-                    sb.append(entry2.getKey());
-                    sb.append("=");
-                    sb.append(encode);
-                    sb.append("&");
-                }
-                byte[] bytes = sb.toString().getBytes();
-                httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
-                httpURLConnection.connect();
-                dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                try {
-                    dataOutputStream.write(bytes);
-                    dataOutputStream.flush();
-                    int responseCode = httpURLConnection.getResponseCode();
-                    if (cf1Var != null) {
-                        if (responseCode >= 200 && responseCode <= 299) {
-                            cf1Var.c(null);
-                        } else {
-                            cf1Var.a(null, 119501, null);
-                        }
-                    }
-                    sg1.a(dataOutputStream);
-                } catch (Throwable unused) {
-                    if (cf1Var != null) {
-                        try {
-                            cf1Var.a(null, 119501, null);
-                        } catch (Throwable th) {
-                            sg1.a(dataOutputStream);
-                            throw th;
-                        }
-                    }
-                    sg1.a(dataOutputStream);
-                }
-            } catch (Throwable unused2) {
-                dataOutputStream = null;
+                this.e.put(str, obj);
+            } catch (JSONException unused) {
             }
+            return this;
         }
+        return (jg1) invokeLL.objValue;
+    }
+
+    public jg1 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            this.d = str;
+            return this;
+        }
+        return (jg1) invokeL.objValue;
+    }
+
+    public jg1 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            this.e = jSONObject;
+            return this;
+        }
+        return (jg1) invokeL.objValue;
+    }
+
+    public JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                vg1.d("statistics action can not null");
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("a", this.a);
+                jSONObject.put("t", this.b);
+                jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.c);
+                if (this.e != null) {
+                    jSONObject.put("cn", this.e);
+                } else if (!TextUtils.isEmpty(this.d)) {
+                    try {
+                        jSONObject.put("cn", new JSONObject(this.d));
+                    } catch (JSONException unused) {
+                        jSONObject.put("cn", this.d);
+                    }
+                }
+            } catch (JSONException e) {
+                if (vg1.d) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

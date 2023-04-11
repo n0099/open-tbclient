@@ -11,10 +11,10 @@ public abstract class jn {
     }
 
     /* renamed from: a */
-    public abstract void mo637a(byte[] bArr, int i, int i2);
+    public abstract void mo639a(byte[] bArr, int i, int i2);
 
     /* renamed from: a */
-    public byte[] mo638a() {
+    public byte[] mo640a() {
         return null;
     }
 

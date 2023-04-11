@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.so7;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.py7;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class GameContactsItemView extends RelativeLayout {
     public CircleStrokeHeadImageView a;
     public MessageRedDotView b;
     public View c;
-    public so7 d;
+    public py7 d;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class GameContactsItemView extends RelativeLayout {
                 return;
             }
         }
-        e = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds114);
+        e = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds114);
     }
 
     public void a() {
@@ -71,13 +71,13 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public so7 getGameMatchUser() {
+    public py7 getGameMatchUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.d;
         }
-        return (so7) invokeV.objValue;
+        return (py7) invokeV.objValue;
     }
 
     public void h() {
@@ -91,7 +91,7 @@ public class GameContactsItemView extends RelativeLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.d != null) {
-            this.a.getImgView().M(this.d.a(), 12, false);
+            this.a.getImgView().N(this.d.a(), 12, false);
         }
     }
 
@@ -178,12 +178,12 @@ public class GameContactsItemView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.c = new View(getContext());
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(hi.g(getContext(), R.dimen.tbds13), hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds47));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ii.g(getContext(), R.dimen.tbds13), ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds47));
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(8);
-            n15 d = n15.d(this.c);
+            q25 d = q25.d(this.c);
             d.o(R.string.J_X12);
             d.f(R.color.CAM_X0302);
             addView(this.c);
@@ -197,7 +197,7 @@ public class GameContactsItemView extends RelativeLayout {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(6, this.a.getId());
             layoutParams.addRule(7, this.a.getId());
-            layoutParams.setMargins(0, -hi.g(getContext(), R.dimen.tbds10), -hi.g(getContext(), R.dimen.tbds14), 0);
+            layoutParams.setMargins(0, -ii.g(getContext(), R.dimen.tbds10), -ii.g(getContext(), R.dimen.tbds14), 0);
             this.b.setLayoutParams(layoutParams);
             addView(this.b);
         }
@@ -215,12 +215,12 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public void setGameMatchUser(@NonNull so7 so7Var) {
+    public void setGameMatchUser(@NonNull py7 py7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, so7Var) != null) || so7Var.equals(this.d)) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, py7Var) != null) || py7Var.equals(this.d)) {
             return;
         }
-        this.d = so7Var;
+        this.d = py7Var;
         i();
     }
 }

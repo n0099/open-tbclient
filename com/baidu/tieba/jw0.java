@@ -1,27 +1,51 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class jw0 {
+public class jw0 implements lm0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile iw0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized iw0 a() {
-        InterceptResult invokeV;
-        iw0 iw0Var;
+    public jw0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (jw0.class) {
-                if (a == null) {
-                    a = new iw0();
-                }
-                iw0Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return iw0Var;
         }
-        return (iw0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.lm0
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || yi0.a().a()) {
+            return;
+        }
+        wz0.a();
+    }
+
+    @Override // com.baidu.tieba.lm0
+    public void b(@NonNull Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) {
+            AppRuntimeInit.onApplicationattachBaseContext(application);
+            jj1.b(application);
+        }
     }
 }

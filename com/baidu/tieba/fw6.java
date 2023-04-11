@@ -1,18 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.ThreadData;
+import android.content.Context;
+import com.baidu.tieba.feed.component.uistate.CardUiStateKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
 public class fw6 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static ThreadData b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Function1<ux6, Unit> a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,43 +35,36 @@ public class fw6 {
         }
     }
 
-    public static ThreadData a() {
-        InterceptResult invokeV;
+    public fw6(Function2<? super Context, ? super String, Unit> onClick, Function1<? super ux6, Unit> onStat) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a() != null && a().isFromConcern()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static synchronized void update(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) == null) {
-            synchronized (fw6.class) {
-                a = threadData.getTid();
-                b = threadData;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {onClick, onStat};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(onClick, "onClick");
+        Intrinsics.checkNotNullParameter(onStat, "onStat");
+        this.a = onStat;
+    }
+
+    public /* synthetic */ fw6(Function2 function2, Function1 function1, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? CardUiStateKt.a() : function2, (i & 2) != 0 ? CardUiStateKt.b() : function1);
+    }
+
+    public final Function1<ux6, Unit> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Function1) invokeV.objValue;
     }
 }

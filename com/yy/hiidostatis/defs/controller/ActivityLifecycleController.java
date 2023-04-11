@@ -7,11 +7,11 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ActivityLifecycleController {
     public volatile boolean isRegister = false;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ActivityLifecycleCallback {
         void onActivityPaused(Activity activity);
 

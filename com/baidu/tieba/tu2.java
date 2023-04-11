@@ -1,45 +1,20 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class tu2 {
+public final class tu2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean v;
+    public static ArrayList<su2> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public boolean i;
-    public String j;
-    public int k;
-    public int l;
-    public String m;
-    public int n;
-    public int o;
-    public String p;
-    public boolean q;
-    public boolean r;
-    public String s;
-    public String t;
-    public String u;
 
     static {
         InterceptResult invokeClinit;
@@ -54,129 +29,144 @@ public class tu2 {
                 return;
             }
         }
-        v = do1.a;
+        a = new ArrayList<>();
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.r;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a.clear();
         }
-        return invokeV.booleanValue;
     }
 
-    public tu2() {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                su2 su2Var = a.get(size);
+                if (su2Var != null) {
+                    su2Var.onDestroy();
+                }
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = "";
-        this.i = false;
-        this.j = "";
-        this.k = 0;
-        this.l = 0;
-        this.m = "";
-        this.q = false;
     }
 
-    public static tu2 b(JSONObject jSONObject, tu2 tu2Var) {
-        InterceptResult invokeLL;
-        boolean z;
+    public static void a(su2 su2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, tu2Var)) == null) {
-            tu2 tu2Var2 = new tu2();
-            if (jSONObject != null) {
-                tu2Var2.a = jSONObject.optString("audioId", tu2Var.a);
-                tu2Var2.b = jSONObject.optString("slaveId", tu2Var.b);
-                tu2Var2.c = jSONObject.optString("src", tu2Var.c);
-                if (t73.M() != null && bf3.E(tu2Var2.c)) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                tu2Var2.q = z;
-                tu2Var2.d = jSONObject.optString("title", tu2Var.d);
-                tu2Var2.e = jSONObject.optString("epname", tu2Var.e);
-                tu2Var2.f = jSONObject.optString("singer", tu2Var.f);
-                tu2Var2.g = jSONObject.optString("coverImgUrl", tu2Var.g);
-                tu2Var2.h = jSONObject.optString("lrcURL", tu2Var.h);
-                tu2Var2.i = jSONObject.optBoolean("showFloatView", tu2Var.i);
-                tu2Var2.j = jSONObject.optString("floatPosition", tu2Var.j);
-                tu2Var2.k = jSONObject.optInt("startTime", tu2Var.k);
-                tu2Var2.l = jSONObject.optInt(CriusAttrConstants.POSITION, tu2Var.l);
-                tu2Var2.p = jSONObject.optString("cb", tu2Var.p);
-                tu2Var2.m = jSONObject.optString("param", tu2Var.m);
-                tu2Var2.r = TextUtils.isEmpty(jSONObject.optString("src"));
-                String g0 = ne2.U().g0();
-                if (!TextUtils.isEmpty(g0)) {
-                    tu2Var2.s = g0;
-                }
-                String b = al3.b();
-                if (!TextUtils.isEmpty(b) && al3.c(tu2Var2.c)) {
-                    tu2Var2.t = b;
-                }
-                String j = pg3.l().j(tu2Var2.c);
-                if (!TextUtils.isEmpty(j)) {
-                    tu2Var2.u = j;
-                    if (v) {
-                        Log.d("AudioPlayerParams", "addCookiesToHeader cookie: " + j);
-                    }
+        if ((interceptable == null || interceptable.invokeL(65537, null, su2Var) == null) && su2Var != null && !a.contains(su2Var)) {
+            a.add(su2Var);
+        }
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                su2 su2Var = a.get(size);
+                if (su2Var != null) {
+                    su2Var.j(z);
                 }
             }
-            return tu2Var2;
         }
-        return (tu2) invokeLL.objValue;
     }
 
-    public String c(String str) {
+    public static void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                su2 su2Var = a.get(size);
+                if (su2Var != null) {
+                    su2Var.k(z);
+                }
+            }
+        }
+    }
+
+    public static void k(su2 su2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65547, null, su2Var) != null) || su2Var == null) {
+            return;
+        }
+        a.remove(su2Var);
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            su2 su2Var = a.get(size);
+            if (su2Var != null && TextUtils.equals(str, su2Var.b())) {
+                su2Var.onDestroy();
+            }
+        }
+    }
+
+    public static su2 e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("src", str);
-                jSONObject.putOpt("title", this.d);
-                jSONObject.putOpt("epname", this.e);
-                jSONObject.putOpt("singer", this.f);
-                jSONObject.putOpt("coverImgUrl", this.g);
-                jSONObject.putOpt("lrcURL", this.h);
-                jSONObject.putOpt("isLocal", Boolean.valueOf(this.q));
-                jSONObject.putOpt("appid", t73.g0());
-                jSONObject.putOpt("user-agent", this.s);
-                jSONObject.putOpt(TiebaStatic.Params.REFER, this.t);
-                jSONObject.putOpt("Cookie", this.u);
-            } catch (JSONException e) {
-                if (v) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                su2 su2Var = a.get(size);
+                if (su2Var != null && TextUtils.equals(str, su2Var.c())) {
+                    return su2Var;
                 }
             }
-            return jSONObject.toString();
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (su2) invokeL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static boolean g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "AudioBGPlayerParams{ playerId=" + this.a + " slaveId=" + this.b + " url=" + this.c + " startTime=" + this.k + " pos=" + this.l + " canPlay=" + this.r + " }";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                su2 su2Var = a.get(size);
+                if (su2Var != null && TextUtils.equals(str, su2Var.b()) && su2Var.onBackPressed()) {
+                    return true;
+                }
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static su2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                su2 su2Var = a.get(size);
+                if (su2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, su2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, su2Var.f())) || TextUtils.equals(str3, su2Var.c())))) {
+                    return su2Var;
+                }
+            }
+            return null;
+        }
+        return (su2) invokeLLL.objValue;
+    }
+
+    public static void i(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(65545, null, str, z) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            su2 su2Var = a.get(size);
+            if (su2Var != null && TextUtils.equals(str, su2Var.b())) {
+                su2Var.k(z);
+            }
+        }
     }
 }

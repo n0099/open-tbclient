@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f28;
-import com.baidu.tieba.g28;
-import com.baidu.tieba.i28;
 import com.baidu.tieba.interestlabel.model.LabelRequestEnum;
 import com.baidu.tieba.interestlabel.model.LabelSettingModel;
-import com.baidu.tieba.m35;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.wc8;
+import com.baidu.tieba.xc8;
+import com.baidu.tieba.zc8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,17 +23,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LabelSettingModel a;
-    public i28 b;
+    public zc8 b;
     public int c;
-    public g28 d;
+    public xc8 d;
 
-    /* loaded from: classes4.dex */
-    public class a implements g28 {
+    /* loaded from: classes5.dex */
+    public class a implements xc8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LabelRecommendActivity a;
@@ -56,15 +56,15 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             this.a = labelRecommendActivity;
         }
 
-        @Override // com.baidu.tieba.g28
-        public void a(LabelRequestEnum labelRequestEnum, f28 f28Var, int i) {
+        @Override // com.baidu.tieba.xc8
+        public void a(LabelRequestEnum labelRequestEnum, wc8 wc8Var, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, f28Var, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, wc8Var, i) == null) {
                 int i2 = b.a[labelRequestEnum.ordinal()];
                 if (i2 != 1) {
                     if (i2 == 2 && i == 0) {
-                        m35.m().w("set_recommend_label", true);
-                        this.a.B1();
+                        p45.m().w("set_recommend_label", true);
+                        this.a.A1();
                         this.a.finish();
                         return;
                     }
@@ -72,19 +72,19 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 }
                 LabelRecommendActivity labelRecommendActivity = this.a;
                 labelRecommendActivity.hideLoadingView(labelRecommendActivity.b.c());
-                if (f28Var != null && !ListUtils.isEmpty(f28Var.b()) && !ListUtils.isEmpty(f28Var.a())) {
+                if (wc8Var != null && !ListUtils.isEmpty(wc8Var.b()) && !ListUtils.isEmpty(wc8Var.a())) {
                     LabelRecommendActivity labelRecommendActivity2 = this.a;
                     labelRecommendActivity2.hideNetRefreshView(labelRecommendActivity2.b.c());
-                    this.a.b.j(f28Var);
+                    this.a.b.j(wc8Var);
                     return;
                 }
                 LabelRecommendActivity labelRecommendActivity3 = this.a;
-                labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.b.c(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d1f), true);
+                labelRecommendActivity3.showNetRefreshView(labelRecommendActivity3.b.c(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d1b), true);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -135,7 +135,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.W();
+            this.a.V();
             showLoadingView(this.b.c(), true);
         }
     }
@@ -149,7 +149,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         }
     }
 
-    public final void B1() {
+    public final void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             List<Integer> d = this.b.d();
@@ -179,7 +179,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 TiebaStatic.log(new StatisticItem("c12245").param("obj_type", this.c));
                 finish();
             } else if (view2 == this.b.f()) {
-                this.a.X(this.b.d());
+                this.a.W(this.b.d());
             }
         }
     }
@@ -189,18 +189,18 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            i28 i28Var = new i28(this);
-            this.b = i28Var;
-            i28Var.k(this);
+            zc8 zc8Var = new zc8(this);
+            this.b = zc8Var;
+            zc8Var.k(this);
             LabelSettingModel labelSettingModel = new LabelSettingModel(getPageContext());
             this.a = labelSettingModel;
-            labelSettingModel.Y(this.d);
+            labelSettingModel.X(this.d);
             if (getIntent() != null) {
                 this.c = getIntent().getIntExtra("from", -1);
             }
             TiebaStatic.log(new StatisticItem("c12243").param("obj_type", this.c));
             a();
-            m35.m().w("show_recommend_label", true);
+            p45.m().w("show_recommend_label", true);
         }
     }
 }

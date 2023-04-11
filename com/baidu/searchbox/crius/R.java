@@ -74,7 +74,7 @@ public final class R {
         public static final int crius_swipe_indicator_default = 0x7f060594;
         public static final int crius_swipe_indicator_selected = 0x7f060595;
         public static final int crius_white = 0x7f060596;
-        public static final int transparent = 0x7f0609cf;
+        public static final int transparent = 0x7f0609cd;
     }
 
     /* loaded from: classes2.dex */
@@ -93,39 +93,39 @@ public final class R {
 
     /* loaded from: classes2.dex */
     public static final class drawable {
-        public static final int crius = 0x7f0804a1;
+        public static final int crius = 0x7f08049c;
     }
 
     /* loaded from: classes2.dex */
     public static final class id {
         public static final int absolute = 0x7f09002c;
-        public static final int auto = 0x7f090308;
-        public static final int baseline = 0x7f09035f;
-        public static final int benchmarkSelect = 0x7f0903c8;
-        public static final int btn = 0x7f090476;
-        public static final int center = 0x7f09064f;
-        public static final int column = 0x7f09071a;
-        public static final int column_reverse = 0x7f09071b;
-        public static final int flex = 0x7f090ade;
-        public static final int flex_end = 0x7f090adf;
-        public static final int flex_start = 0x7f090ae0;
-        public static final int hidden = 0x7f090ec0;
-        public static final int inherit = 0x7f09108d;
-        public static final int ltr = 0x7f0915d6;
-        public static final int no_wrap = 0x7f091870;
-        public static final int none = 0x7f091873;
-        public static final int relative = 0x7f091d72;
-        public static final int root = 0x7f091e2e;
-        public static final int row = 0x7f091e54;
-        public static final int row_reverse = 0x7f091e56;
-        public static final int rtl = 0x7f091e57;
-        public static final int scroll = 0x7f091f8c;
-        public static final int space_around = 0x7f0920ee;
-        public static final int space_between = 0x7f0920ef;
-        public static final int stretch = 0x7f09216f;
-        public static final int text = 0x7f0922fd;
-        public static final int visible = 0x7f092820;
-        public static final int wrap = 0x7f0928c3;
+        public static final int auto = 0x7f0902fd;
+        public static final int baseline = 0x7f090356;
+        public static final int benchmarkSelect = 0x7f0903bf;
+        public static final int btn = 0x7f090477;
+        public static final int center = 0x7f090653;
+        public static final int column = 0x7f09071e;
+        public static final int column_reverse = 0x7f09071f;
+        public static final int flex = 0x7f090ae1;
+        public static final int flex_end = 0x7f090ae2;
+        public static final int flex_start = 0x7f090ae3;
+        public static final int hidden = 0x7f090ec1;
+        public static final int inherit = 0x7f091092;
+        public static final int ltr = 0x7f0915d9;
+        public static final int no_wrap = 0x7f091873;
+        public static final int none = 0x7f091876;
+        public static final int relative = 0x7f091d61;
+        public static final int root = 0x7f091e1d;
+        public static final int row = 0x7f091e42;
+        public static final int row_reverse = 0x7f091e44;
+        public static final int rtl = 0x7f091e45;
+        public static final int scroll = 0x7f091f7a;
+        public static final int space_around = 0x7f0920dd;
+        public static final int space_between = 0x7f0920de;
+        public static final int stretch = 0x7f09215c;
+        public static final int text = 0x7f0922ef;
+        public static final int visible = 0x7f09280e;
+        public static final int wrap = 0x7f0928b1;
     }
 
     /* loaded from: classes2.dex */
@@ -133,20 +133,20 @@ public final class R {
         public static final int activity_benchmark = 0x7f0d002d;
         public static final int activity_crius = 0x7f0d0032;
         public static final int activity_crius_flatten = 0x7f0d0033;
-        public static final int benchmark_flatten_layout = 0x7f0d0167;
-        public static final int benchmark_layout = 0x7f0d0168;
+        public static final int benchmark_flatten_layout = 0x7f0d0166;
+        public static final int benchmark_layout = 0x7f0d0167;
     }
 
     /* loaded from: classes2.dex */
     public static final class string {
         public static final int app_name = 0x7f0f029e;
-        public static final int bm_child_6_text = 0x7f0f0336;
+        public static final int bm_child_6_text = 0x7f0f0335;
         public static final int child_1_text = 0x7f0f03e8;
         public static final int child_2_text = 0x7f0f03e9;
         public static final int child_3_text = 0x7f0f03ea;
         public static final int child_4_text = 0x7f0f03eb;
         public static final int child_5_text = 0x7f0f03ec;
-        public static final int run_benchmark = 0x7f0f10ff;
+        public static final int run_benchmark = 0x7f0f10f8;
     }
 
     /* loaded from: classes2.dex */

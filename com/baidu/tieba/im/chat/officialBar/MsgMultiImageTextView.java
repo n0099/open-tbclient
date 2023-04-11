@@ -5,24 +5,24 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eq7;
+import com.baidu.tieba.b08;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.pn7;
+import com.baidu.tieba.mx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class MsgMultiImageTextView extends pn7 {
+public class MsgMultiImageTextView extends mx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiContentView G;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgMultiImageTextView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05e6);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05e4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,24 +39,24 @@ public class MsgMultiImageTextView extends pn7 {
                 return;
             }
         }
-        Z();
+        k0();
     }
 
-    public final void Z() {
+    public final void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.i = (TextView) i(R.id.tex_msgitem_time);
-            this.G = (MultiContentView) i(R.id.obfuscated_res_0x7f0916f6);
+            this.i = (TextView) u(R.id.tex_msgitem_time);
+            this.G = (MultiContentView) u(R.id.obfuscated_res_0x7f0916fa);
         }
     }
 
-    public void a0(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view2) {
+    public void l0(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, chatMessage, view2) != null) || chatMessage == null) {
             return;
         }
-        T(chatMessage);
-        List<eq7.a> b = eq7.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+        d0(chatMessage);
+        List<b08.a> b = b08.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
         this.G.setPosition(this.f);
         this.G.setOnItemViewLongClickListener(this.c);
         this.G.setNeedNightMode(true);

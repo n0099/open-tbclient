@@ -20,7 +20,7 @@ import com.baidu.searchbox.v8engine.thread.V8DefaultThreadPolicy;
 import com.baidu.searchbox.v8engine.thread.V8ExecuteCallback;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.smallgame.sdk.Log;
-import com.baidu.tieba.jl1;
+import com.baidu.tieba.kl1;
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -116,13 +116,13 @@ public class V8Engine implements JSRuntime {
     public boolean mIsWorker = false;
     public volatile boolean mSetMemSetMemMemoryEnable = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface JavaScriptExceptionDelegate {
         void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo);
     }
 
     @NotProguard
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MemoryInfo {
         @V8JavascriptField
         public int dalvikPrivateDirty;
@@ -156,7 +156,7 @@ public class V8Engine implements JSRuntime {
         public int totalPss;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface V8EngineConsole {
         void onDebugConsole(String str);
 
@@ -171,7 +171,7 @@ public class V8Engine implements JSRuntime {
         void onWarnConsole(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface V8StatusListener {
         void onPause();
 
@@ -180,7 +180,7 @@ public class V8Engine implements JSRuntime {
         void onResume();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface WorkerFactory {
         V8Engine onCreateWorker();
     }
@@ -1174,7 +1174,7 @@ public class V8Engine implements JSRuntime {
                 if (str == null) {
                     str = getBuildInV8BinPath();
                 }
-                if (str != null && jl1.b(str)) {
+                if (str != null && kl1.b(str)) {
                     this.mV8BinAssetManager = (AssetManager) AssetManager.class.newInstance();
                     AssetManager.class.getDeclaredMethod(ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class).invoke(this.mV8BinAssetManager, str);
                 }

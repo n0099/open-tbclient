@@ -33,13 +33,13 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         }
     }
 
-    public final void H() {
+    public final void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    public final void I() {
+    public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
@@ -146,7 +146,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) != null) {
                 return;
             }
-            this.a.H();
+            this.a.I();
             if (this.a.j) {
                 this.a.cancelAnimation();
                 this.a.j = false;
@@ -159,7 +159,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
             if (interceptable != null && interceptable.invokeL(1048579, this, animator) != null) {
                 return;
             }
-            this.a.I();
+            this.a.J();
             this.a.i = true;
         }
     }

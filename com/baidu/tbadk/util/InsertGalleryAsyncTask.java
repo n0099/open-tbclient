@@ -16,7 +16,7 @@ import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.ci;
+import com.baidu.tieba.di;
 import com.baidu.tieba.fg;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.ib;
@@ -307,7 +307,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, b> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
-            ci.k(str);
+            di.k(str);
             return new File(str);
         }
         return (File) invokeL.objValue;

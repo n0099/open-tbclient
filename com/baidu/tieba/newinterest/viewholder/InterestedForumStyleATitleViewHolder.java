@@ -36,8 +36,8 @@ public class InterestedForumStyleATitleViewHolder extends TypeAdapter.ViewHolder
                 return;
             }
         }
-        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0910d4);
-        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910d3);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910d2);
+        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0910d9);
+        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910d8);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910d7);
     }
 }

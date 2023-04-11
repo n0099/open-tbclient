@@ -6,11 +6,11 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax7;
 import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.sx7;
-import com.baidu.tieba.tx7;
+import com.baidu.tieba.q25;
+import com.baidu.tieba.q78;
+import com.baidu.tieba.r78;
+import com.baidu.tieba.w68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,7 +21,7 @@ public class SkillTagItemViewHolder extends BaseTagItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView c;
-    public ax7 d;
+    public w68 d;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -60,13 +60,13 @@ public class SkillTagItemViewHolder extends BaseTagItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SkillTagItemViewHolder(View view2, tx7 tx7Var) {
+    public SkillTagItemViewHolder(View view2, r78 r78Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, tx7Var};
+            Object[] objArr = {view2, r78Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -83,17 +83,17 @@ public class SkillTagItemViewHolder extends BaseTagItemViewHolder {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder
-    public void f(sx7 sx7Var, Context context, int i) {
+    public void f(q78 q78Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, sx7Var, context, i) == null) {
-            super.f(sx7Var, context, i);
-            if (sx7Var instanceof ax7) {
-                ax7 ax7Var = (ax7) sx7Var;
-                this.d = ax7Var;
-                this.c.setText(ax7Var.d());
-                n15 d = n15.d(this.c);
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, q78Var, context, i) == null) {
+            super.f(q78Var, context, i);
+            if (q78Var instanceof w68) {
+                w68 w68Var = (w68) q78Var;
+                this.d = w68Var;
+                this.c.setText(w68Var.d());
+                q25 d = q25.d(this.c);
                 d.w(R.color.CAM_X0302);
-                d.A(R.dimen.T_X08);
+                d.B(R.dimen.T_X08);
                 d.o(R.string.J_X19);
                 d.f(R.color.CAM_X0905);
             }

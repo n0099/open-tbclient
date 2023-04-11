@@ -1,90 +1,58 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class rp9 {
+public class rp9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static rp9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<CloudMusicData.MusicTagList.MusicList> a;
+    public final MainTabActivity a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948129454, "Lcom/baidu/tieba/rp9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948129454, "Lcom/baidu/tieba/rp9;");
-        }
-    }
-
-    public rp9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rp9(MainTabActivity mainTabActivity, jo9 jo9Var) {
+        super(2921666);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, jo9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new SparseArray<>();
+        this.a = mainTabActivity;
     }
 
-    public static synchronized rp9 b() {
-        InterceptResult invokeV;
-        rp9 rp9Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (rp9.class) {
-                if (b == null) {
-                    b = new rp9();
-                }
-                rp9Var = b;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            TbSingleton.isAppInBackground = booleanValue;
+            if (booleanValue) {
+                MainTabActivity mainTabActivity = this.a;
+                mainTabActivity.J = 0;
+                mainTabActivity.K = System.currentTimeMillis();
+                TbSingleton.getInstance();
+                TbSingleton.setExceptInsertAdDiaShow(false);
+                qc8.o = false;
+                qc8.p = false;
+                return;
             }
-            return rp9Var;
-        }
-        return (rp9) invokeV.objValue;
-    }
-
-    public CloudMusicData.MusicTagList.MusicList a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get(4096);
-        }
-        return (CloudMusicData.MusicTagList.MusicList) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = null;
-            b = null;
-        }
-    }
-
-    public void d(CloudMusicData.MusicTagList.MusicList musicList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, musicList) == null) {
-            this.a.put(4096, musicList);
+            rr5.a(2);
         }
     }
 }

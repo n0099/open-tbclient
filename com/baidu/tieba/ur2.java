@@ -1,35 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface ur2 {
-    boolean a(Context context, ju2 ju2Var, cu2 cu2Var, t73 t73Var);
 
-    boolean b(Context context, eu2 eu2Var, cu2 cu2Var, t73 t73Var);
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(ta3 ta3Var);
 
-    boolean c(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var);
+        void onFailed(int i);
+    }
 
-    void d(zt1 zt1Var);
+    void a();
 
-    boolean e(Context context, du2 du2Var, cu2 cu2Var, t73 t73Var);
+    void b(String str, boolean z, boolean z2, a aVar);
 
-    void f(zt1 zt1Var);
+    void c();
 
-    boolean g(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var);
+    void d();
 
-    boolean h(Context context, hu2 hu2Var, cu2 cu2Var, t73 t73Var);
+    void e();
 
-    void i(zt1 zt1Var);
+    void f(a aVar);
 
-    boolean j(Context context, iu2 iu2Var, cu2 cu2Var, t73 t73Var);
+    double[] g(@NonNull ta3 ta3Var, @NonNull String str);
 
-    boolean k(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var);
-
-    boolean l(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var);
-
-    boolean m(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var);
-
-    boolean n(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var);
-
-    boolean update(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var);
+    ta3 h();
 }

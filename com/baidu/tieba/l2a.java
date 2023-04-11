@@ -1,70 +1,108 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.write.util.PhotoType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.BufferUnderflowException;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
 /* loaded from: classes5.dex */
-public final class l2a {
+public class l2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SQLiteDatabase a;
 
-    public l2a() {
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0072: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:47:0x0072 */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0044 -> B:61:0x0070). Please submit an issue!!! */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static PhotoType a(String str) {
+        InterceptResult invokeL;
+        RandomAccessFile randomAccessFile;
+        RandomAccessFile randomAccessFile2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            PhotoType photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            RandomAccessFile randomAccessFile3 = null;
+            try {
+                try {
+                    try {
+                        randomAccessFile = new RandomAccessFile(str, "r");
+                        try {
+                            MappedByteBuffer map = randomAccessFile.getChannel().map(FileChannel.MapMode.READ_ONLY, 0L, randomAccessFile.length());
+                            if (map != null && map.getInt() == -1991225785 && map.getInt(4) == 218765834 && map.getInt(37) == 1633899596) {
+                                photoType = PhotoType.APNG;
+                            }
+                            randomAccessFile.close();
+                        } catch (FileNotFoundException e) {
+                            e = e;
+                            e.printStackTrace();
+                            if (randomAccessFile != null) {
+                                randomAccessFile.close();
+                            }
+                            return photoType;
+                        } catch (IOException e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            if (randomAccessFile != null) {
+                                randomAccessFile.close();
+                            }
+                            return photoType;
+                        } catch (BufferUnderflowException e3) {
+                            e = e3;
+                            e.printStackTrace();
+                            if (randomAccessFile != null) {
+                                randomAccessFile.close();
+                            }
+                            return photoType;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        randomAccessFile3 = randomAccessFile2;
+                        if (randomAccessFile3 != null) {
+                            try {
+                                randomAccessFile3.close();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (FileNotFoundException e5) {
+                    e = e5;
+                    randomAccessFile = null;
+                } catch (IOException e6) {
+                    e = e6;
+                    randomAccessFile = null;
+                } catch (BufferUnderflowException e7) {
+                    e = e7;
+                    randomAccessFile = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (randomAccessFile3 != null) {
+                    }
+                    throw th;
+                }
+            } catch (IOException e8) {
+                e8.printStackTrace();
             }
+            return photoType;
         }
-        this.a = i2a.a().c();
-    }
-
-    public final List<com.baidu.ubs.analytics.a.l> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Cursor rawQuery = this.a.rawQuery("SELECT * FROM  tb_ab_page_log order by _id ", null);
-            ArrayList arrayList = new ArrayList();
-            while (rawQuery.moveToNext()) {
-                com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-                lVar.t(rawQuery.getString(rawQuery.getColumnIndex("_pagerName")));
-                lVar.setPath(rawQuery.getString(rawQuery.getColumnIndex("_path")));
-                lVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
-                lVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
-                lVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
-                lVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
-                arrayList.add(lVar);
-            }
-            rawQuery.close();
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.execSQL("delete from tb_ab_page_log where _id <= " + i);
-        }
-    }
-
-    public final void c(com.baidu.ubs.analytics.a.l lVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
-            this.a.execSQL("INSERT INTO tb_ab_page_log(_startTime,_endTime,_pagerName,_path,_sessionId) VALUES (?,?,?,?,?);", new String[]{lVar.N(), lVar.O(), lVar.E(), lVar.getPath(), lVar.I()});
-        }
+        return (PhotoType) invokeL.objValue;
     }
 }

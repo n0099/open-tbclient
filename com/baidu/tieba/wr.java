@@ -1,20 +1,7 @@
 package com.baidu.tieba;
-
-import android.app.Activity;
-import android.content.Context;
 /* loaded from: classes6.dex */
 public interface wr {
-    Activity a();
+    String a(String str);
 
-    void b(Activity activity);
-
-    boolean c();
-
-    Context getAppContext();
-
-    String getAppVersion();
-
-    xr getEnv();
-
-    String getSdkVersion();
+    void a(String str, String str2);
 }

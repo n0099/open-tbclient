@@ -19,13 +19,13 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aq9;
-import com.baidu.tieba.bq9;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.ql6;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.qz9;
+import com.baidu.tieba.rz9;
+import com.baidu.tieba.sz9;
 import com.baidu.tieba.tbadkcore.databinding.FoldCloseViewBinding;
+import com.baidu.tieba.to6;
 import com.baidu.tieba.view.foldclose.FoldCloseView;
-import com.baidu.tieba.zp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,17 +35,17 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\\\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0010\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003B\u000f\b\u0016\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006B\u0019\b\u0016\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\b\u0010\u0007\u001a\u0004\u0018\u00010\b¢\u0006\u0002\u0010\tB!\b\u0016\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\b\u0010\u0007\u001a\u0004\u0018\u00010\b\u0012\u0006\u0010\n\u001a\u00020\u000b¢\u0006\u0002\u0010\fJ\u0018\u0010+\u001a\u00020,2\u0006\u0010-\u001a\u00020\u000b2\u0006\u0010.\u001a\u00020\u000bH\u0002J\u0006\u0010/\u001a\u00020,J\b\u00100\u001a\u00020,H\u0002J\u0010\u00101\u001a\u00020,2\u0006\u00102\u001a\u00020\u000bH\u0016J\u0010\u00103\u001a\u00020,2\u0006\u00104\u001a\u00020*H\u0016J\u0006\u00105\u001a\u00020,J\u001e\u00106\u001a\u00020,2\u0006\u0010)\u001a\u00020*2\u0006\u00107\u001a\u00020\u000b2\u0006\u00108\u001a\u00020\u000bJ\u000e\u00109\u001a\u00020,2\u0006\u0010:\u001a\u00020\u0010J\u0006\u0010;\u001a\u00020,R\u000e\u0010\r\u001a\u00020\u000eX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u0013\u001a\u00020\u00122\u0006\u0010\u0011\u001a\u00020\u0012@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u0013\u0010\u0014R\u001c\u0010\u0015\u001a\u0004\u0018\u00010\u0002X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0016\u0010\u0017\"\u0004\b\u0018\u0010\u0019R\u001c\u0010\u001a\u001a\u0004\u0018\u00010\u001bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001c\u0010\u001d\"\u0004\b\u001e\u0010\u001fR\u001c\u0010 \u001a\u0004\u0018\u00010!X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\"\u0010#\"\u0004\b$\u0010%R\u001c\u0010&\u001a\u0004\u0018\u00010\u0002X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b'\u0010\u0017\"\u0004\b(\u0010\u0019R\u0010\u0010)\u001a\u0004\u0018\u00010*X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006<"}, d2 = {"Lcom/baidu/tieba/view/foldclose/FoldCloseView;", "Landroid/widget/RelativeLayout;", "Landroid/view/View$OnClickListener;", "Lcom/baidu/tieba/edgefloat/IChangeSkinType;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "binding", "Lcom/baidu/tieba/tbadkcore/databinding/FoldCloseViewBinding;", "foldCloseData", "Lcom/baidu/tieba/view/foldclose/FoldCloseData;", "<set-?>", "", "isFolded", "()Z", "onCloseClickListener", "getOnCloseClickListener", "()Landroid/view/View$OnClickListener;", "setOnCloseClickListener", "(Landroid/view/View$OnClickListener;)V", "onFoldCloseWidthChangeListener", "Lcom/baidu/tieba/view/foldclose/OnFoldCloseWidthChangeListener;", "getOnFoldCloseWidthChangeListener", "()Lcom/baidu/tieba/view/foldclose/OnFoldCloseWidthChangeListener;", "setOnFoldCloseWidthChangeListener", "(Lcom/baidu/tieba/view/foldclose/OnFoldCloseWidthChangeListener;)V", "onFoldStateChangeListener", "Lcom/baidu/tieba/view/foldclose/OnFoldStateChangeListener;", "getOnFoldStateChangeListener", "()Lcom/baidu/tieba/view/foldclose/OnFoldStateChangeListener;", "setOnFoldStateChangeListener", "(Lcom/baidu/tieba/view/foldclose/OnFoldStateChangeListener;)V", "onOtherClickListener", "getOnOtherClickListener", "setOnOtherClickListener", NativeConstants.TYPE_VIEW, "Landroid/view/View;", "doAnimation", "", "oldWidth", "newWidth", StatKey.EDITADDR_PASTE_ADDRESS_STAGE_FOLD, "init", "onChangeSkinType", "type", "onClick", "v", "resetWidth", "setChild", "width", "height", "setData", "data", "unfold", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class FoldCloseView extends RelativeLayout implements View.OnClickListener, ql6 {
+public final class FoldCloseView extends RelativeLayout implements View.OnClickListener, to6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FoldCloseViewBinding a;
     public View b;
-    public zp9 c;
+    public qz9 c;
     public boolean d;
     public View.OnClickListener e;
     public View.OnClickListener f;
-    public bq9 g;
-    public aq9 h;
+    public sz9 g;
+    public rz9 h;
 
     /* loaded from: classes6.dex */
     public static final class a implements Animator.AnimatorListener {
@@ -102,7 +102,7 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
                 Intrinsics.checkNotNullExpressionValue(layoutParams, "layoutParams");
                 layoutParams.width = this.b;
                 this.a.setLayoutParams(layoutParams);
-                aq9 onFoldCloseWidthChangeListener = this.a.getOnFoldCloseWidthChangeListener();
+                rz9 onFoldCloseWidthChangeListener = this.a.getOnFoldCloseWidthChangeListener();
                 if (onFoldCloseWidthChangeListener != null) {
                     int i = this.b;
                     onFoldCloseWidthChangeListener.a(i, i);
@@ -205,7 +205,7 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.c = new zp9();
+        this.c = new qz9();
         this.d = true;
         d();
     }
@@ -222,9 +222,9 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
                 int i = layoutParams.width;
                 layoutParams.width = intValue;
                 this$0.setLayoutParams(layoutParams);
-                aq9 aq9Var = this$0.h;
-                if (aq9Var != null) {
-                    aq9Var.a(i, intValue);
+                rz9 rz9Var = this$0.h;
+                if (rz9Var != null) {
+                    rz9Var.a(i, intValue);
                     return;
                 }
                 return;
@@ -239,7 +239,7 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
             ValueAnimator widthAnim = ValueAnimator.ofInt(i, i2);
             widthAnim.setDuration(this.c.a());
             widthAnim.setInterpolator(new DecelerateInterpolator());
-            widthAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.yp9
+            widthAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pz9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -263,9 +263,9 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
             return;
         }
         this.d = true;
-        bq9 bq9Var = this.g;
-        if (bq9Var != null) {
-            bq9Var.a(true);
+        sz9 sz9Var = this.g;
+        if (sz9Var != null) {
+            sz9Var.a(true);
         }
         a(this.c.d() + (this.c.c() * 2), this.c.b() + (this.c.c() * 2));
         FoldCloseViewBinding foldCloseViewBinding = this.a;
@@ -305,17 +305,17 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
             return;
         }
         this.d = true;
-        bq9 bq9Var = this.g;
-        if (bq9Var != null) {
-            bq9Var.a(true);
+        sz9 sz9Var = this.g;
+        if (sz9Var != null) {
+            sz9Var.a(true);
         }
         int b = this.c.b() + (this.c.c() * 2);
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         int i = layoutParams.width;
         layoutParams.width = b;
-        aq9 aq9Var = this.h;
-        if (aq9Var != null) {
-            aq9Var.a(i, b);
+        rz9 rz9Var = this.h;
+        if (rz9Var != null) {
+            rz9Var.a(i, b);
         }
         setLayoutParams(layoutParams);
         FoldCloseViewBinding foldCloseViewBinding = this.a;
@@ -332,9 +332,9 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
             return;
         }
         this.d = false;
-        bq9 bq9Var = this.g;
-        if (bq9Var != null) {
-            bq9Var.a(false);
+        sz9 sz9Var = this.g;
+        if (sz9Var != null) {
+            sz9Var.a(false);
         }
         a(this.c.b() + (this.c.c() * 2), this.c.d() + (this.c.c() * 2));
         FoldCloseViewBinding foldCloseViewBinding = this.a;
@@ -363,22 +363,22 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
         return (View.OnClickListener) invokeV.objValue;
     }
 
-    public final aq9 getOnFoldCloseWidthChangeListener() {
+    public final rz9 getOnFoldCloseWidthChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.h;
         }
-        return (aq9) invokeV.objValue;
+        return (rz9) invokeV.objValue;
     }
 
-    public final bq9 getOnFoldStateChangeListener() {
+    public final sz9 getOnFoldStateChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.g;
         }
-        return (bq9) invokeV.objValue;
+        return (sz9) invokeV.objValue;
     }
 
     public final View.OnClickListener getOnOtherClickListener() {
@@ -390,19 +390,19 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
         return (View.OnClickListener) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ql6
+    @Override // com.baidu.tieba.to6
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             View view2 = this.b;
-            if (view2 instanceof ql6) {
+            if (view2 instanceof to6) {
                 if (view2 != null) {
-                    ((ql6) view2).onChangeSkinType(i);
+                    ((to6) view2).onChangeSkinType(i);
                 } else {
                     throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.edgefloat.IChangeSkinType");
                 }
             }
-            ShadowDrawable offsetY = TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0211).setShapeRadius(hi.g(getContext(), R.dimen.tbds65)).setShadowRadius(hi.g(getContext(), R.dimen.tbds25)).setShadowColor(R.color.CAM_X0804).setOffsetX(0).setOffsetY(hi.g(getContext(), R.dimen.tbds8));
+            ShadowDrawable offsetY = TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0211).setShapeRadius(ii.g(getContext(), R.dimen.tbds65)).setShadowRadius(ii.g(getContext(), R.dimen.tbds25)).setShadowColor(R.color.CAM_X0804).setOffsetX(0).setOffsetY(ii.g(getContext(), R.dimen.tbds8));
             FoldCloseViewBinding foldCloseViewBinding = this.a;
             if (foldCloseViewBinding == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -440,7 +440,7 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    public final void setData(zp9 data) {
+    public final void setData(qz9 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -455,17 +455,17 @@ public final class FoldCloseView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    public final void setOnFoldCloseWidthChangeListener(aq9 aq9Var) {
+    public final void setOnFoldCloseWidthChangeListener(rz9 rz9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, aq9Var) == null) {
-            this.h = aq9Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, rz9Var) == null) {
+            this.h = rz9Var;
         }
     }
 
-    public final void setOnFoldStateChangeListener(bq9 bq9Var) {
+    public final void setOnFoldStateChangeListener(sz9 sz9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bq9Var) == null) {
-            this.g = bq9Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, sz9Var) == null) {
+            this.g = sz9Var;
         }
     }
 

@@ -1,128 +1,163 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsInterstitialAd;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsScene;
+import java.util.List;
 /* loaded from: classes4.dex */
-public final class dqa {
+public class dqa extends xpa<KsInterstitialAd> {
     public static /* synthetic */ Interceptable $ic;
-    public static final dqa[] d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final byte[] a;
-    public final int b;
-    public final byte[] c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947714581, "Lcom/baidu/tieba/dqa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements KsLoadManager.InterstitialAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dqa a;
+
+        public a(dqa dqaVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dqaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947714581, "Lcom/baidu/tieba/dqa;");
-                return;
+            this.a = dqaVar;
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.InterstitialAdListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
             }
         }
-        d = new dqa[]{new dqa("", 0, ""), new dqa("", 0, " "), new dqa(" ", 0, " "), new dqa("", 12, ""), new dqa("", 10, " "), new dqa("", 0, " the "), new dqa(" ", 0, ""), new dqa("s ", 0, " "), new dqa("", 0, " of "), new dqa("", 10, ""), new dqa("", 0, " and "), new dqa("", 13, ""), new dqa("", 1, ""), new dqa(StringUtil.ARRAY_ELEMENT_SEPARATOR, 0, " "), new dqa("", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new dqa(" ", 10, " "), new dqa("", 0, " in "), new dqa("", 0, " to "), new dqa("e ", 0, " "), new dqa("", 0, "\""), new dqa("", 0, "."), new dqa("", 0, "\">"), new dqa("", 0, "\n"), new dqa("", 3, ""), new dqa("", 0, PreferencesUtil.RIGHT_MOUNT), new dqa("", 0, " for "), new dqa("", 14, ""), new dqa("", 2, ""), new dqa("", 0, " a "), new dqa("", 0, " that "), new dqa(" ", 10, ""), new dqa("", 0, ". "), new dqa(".", 0, ""), new dqa(" ", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new dqa("", 15, ""), new dqa("", 0, " with "), new dqa("", 0, "'"), new dqa("", 0, " from "), new dqa("", 0, " by "), new dqa("", 16, ""), new dqa("", 17, ""), new dqa(" the ", 0, ""), new dqa("", 4, ""), new dqa("", 0, ". The "), new dqa("", 11, ""), new dqa("", 0, " on "), new dqa("", 0, " as "), new dqa("", 0, " is "), new dqa("", 7, ""), new dqa("", 1, "ing "), new dqa("", 0, "\n\t"), new dqa("", 0, ":"), new dqa(" ", 0, ". "), new dqa("", 0, "ed "), new dqa("", 20, ""), new dqa("", 18, ""), new dqa("", 6, ""), new dqa("", 0, "("), new dqa("", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new dqa("", 8, ""), new dqa("", 0, " at "), new dqa("", 0, "ly "), new dqa(" the ", 0, " of "), new dqa("", 5, ""), new dqa("", 9, ""), new dqa(" ", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new dqa("", 10, "\""), new dqa(".", 0, "("), new dqa("", 11, " "), new dqa("", 10, "\">"), new dqa("", 0, "=\""), new dqa(" ", 0, "."), new dqa(".com/", 0, ""), new dqa(" the ", 0, " of the "), new dqa("", 10, "'"), new dqa("", 0, ". This "), new dqa("", 0, ","), new dqa(".", 0, " "), new dqa("", 10, "("), new dqa("", 10, "."), new dqa("", 0, " not "), new dqa(" ", 0, "=\""), new dqa("", 0, "er "), new dqa(" ", 11, " "), new dqa("", 0, "al "), new dqa(" ", 11, ""), new dqa("", 0, "='"), new dqa("", 11, "\""), new dqa("", 10, ". "), new dqa(" ", 0, "("), new dqa("", 0, "ful "), new dqa(" ", 10, ". "), new dqa("", 0, "ive "), new dqa("", 0, "less "), new dqa("", 11, "'"), new dqa("", 0, "est "), new dqa(" ", 10, "."), new dqa("", 11, "\">"), new dqa(" ", 0, "='"), new dqa("", 10, ","), new dqa("", 0, "ize "), new dqa("", 11, "."), new dqa("Â ", 0, ""), new dqa(" ", 0, ","), new dqa("", 10, "=\""), new dqa("", 11, "=\""), new dqa("", 0, "ous "), new dqa("", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new dqa("", 10, "='"), new dqa(" ", 10, ","), new dqa(" ", 11, "=\""), new dqa(" ", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new dqa("", 11, ","), new dqa("", 11, "("), new dqa("", 11, ". "), new dqa(" ", 11, "."), new dqa("", 11, "='"), new dqa(" ", 11, ". "), new dqa(" ", 10, "=\""), new dqa(" ", 11, "='"), new dqa(" ", 10, "='")};
+
+        @Override // com.kwad.sdk.api.KsLoadManager.InterstitialAdListener
+        public void onInterstitialAdLoad(@Nullable List<KsInterstitialAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onInterstitialAdLoad error: adList is null or empty", new Object[0]);
+                    this.a.onError(0, "NoFill");
+                    return;
+                }
+                this.a.onAdLoaded((dqa) list.get(0));
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.InterstitialAdListener
+        public void onRequestResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            }
+        }
     }
 
-    public dqa(String str, int i, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dqa(Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid, moduleConfigKs);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {pid, moduleConfigKs};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigKs) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = a(str);
-        this.b = i;
-        this.c = a(str2);
     }
 
-    public static byte[] a(String str) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            int length = str.length();
-            byte[] bArr = new byte[length];
-            for (int i = 0; i < length; i++) {
-                bArr[i] = (byte) str.charAt(i);
-            }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new upa(pid) : (AdRipper) invokeL.objValue;
     }
 
-    public static int b(byte[] bArr, int i, byte[] bArr2, int i2, int i3, dqa dqaVar) {
-        InterceptResult invokeCommon;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2), Integer.valueOf(i3), dqaVar})) == null) {
-            int i4 = i;
-            for (byte b : dqaVar.a) {
-                bArr[i4] = b;
-                i4++;
-            }
-            int i5 = dqaVar.b;
-            int a = fqa.a(i5);
-            if (a > i3) {
-                a = i3;
-            }
-            int i6 = i2 + a;
-            int b2 = (i3 - a) - fqa.b(i5);
-            int i7 = b2;
-            while (i7 > 0) {
-                bArr[i4] = bArr2[i6];
-                i7--;
-                i4++;
-                i6++;
-            }
-            if (i5 == 11 || i5 == 10) {
-                int i8 = i4 - b2;
-                if (i5 == 10) {
-                    b2 = 1;
-                }
-                while (b2 > 0) {
-                    int i9 = bArr[i8] & 255;
-                    if (i9 < 192) {
-                        if (i9 >= 97 && i9 <= 122) {
-                            bArr[i8] = (byte) (bArr[i8] ^ 32);
-                        }
-                        i8++;
-                        b2--;
-                    } else if (i9 < 224) {
-                        int i10 = i8 + 1;
-                        bArr[i10] = (byte) (bArr[i10] ^ 32);
-                        i8 += 2;
-                        b2 -= 2;
-                    } else {
-                        int i11 = i8 + 2;
-                        bArr[i11] = (byte) (bArr[i11] ^ 5);
-                        i8 += 3;
-                        b2 -= 3;
-                    }
-                }
-            }
-            for (byte b3 : dqaVar.c) {
-                bArr[i4] = b3;
-                i4++;
-            }
-            return i4 - i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            KsInterstitialAd ksInterstitialAd = (KsInterstitialAd) obj;
         }
-        return invokeCommon.intValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
+            KsAdSDK.getLoadManager().loadInterstitialAd(new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(1).build(), new a(this));
+            onLoadStart(funAdSlot);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public double getAdBiddingPrices(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return ((KsInterstitialAd) obj).getECPM() / 100.0d;
+        }
+        return invokeL.doubleValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            KsInterstitialAd ksInterstitialAd = (KsInterstitialAd) obj;
+            if (z) {
+                ksInterstitialAd.setBidEcpm((int) (d2 * 100.0d));
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
+            KsInterstitialAd ksInterstitialAd = (KsInterstitialAd) obj;
+            onShowStart(ksInterstitialAd);
+            ksInterstitialAd.setAdInteractionListener(new eqa(this, ksInterstitialAd));
+            ksInterstitialAd.showInterstitialAd(activity, e());
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

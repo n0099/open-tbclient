@@ -1,94 +1,91 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import android.app.Application;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class br9 {
     public static /* synthetic */ Interceptable $ic;
+    public static br9 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    public boolean b;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return qk9.d;
-        }
-        return (String) invokeV.objValue;
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a(Application application);
     }
 
-    public static String b() {
+    public br9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+        this.a = c();
+    }
+
+    public static br9 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return qk9.c;
+            if (c == null) {
+                synchronized (br9.class) {
+                    if (c == null) {
+                        c = new br9();
+                    }
+                }
+            }
+            return c;
         }
-        return (String) invokeV.objValue;
+        return (br9) invokeV.objValue;
     }
 
-    public static String c(String str, Bitmap bitmap, String str2) {
-        InterceptResult invokeLLL;
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, bitmap, str2)) == null) {
-            String str3 = "";
-            FileOutputStream fileOutputStream = null;
-            try {
-            } catch (IOException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (p45.m().n("pref_key_jpush_sdk_enable", 0) != 1) {
+                return false;
             }
-            try {
-                try {
-                } catch (Exception e2) {
-                    e = e2;
-                }
-                if (TextUtils.isEmpty(str)) {
-                    return "";
-                }
-                File file = new File(str);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                File file2 = new File(file, str2);
-                if (!file2.exists()) {
-                    file2.createNewFile();
-                }
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
-                try {
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream2);
-                    fileOutputStream2.flush();
-                    str3 = file2.getAbsolutePath();
-                    fileOutputStream2.close();
-                } catch (Exception e3) {
-                    e = e3;
-                    fileOutputStream = fileOutputStream2;
-                    e.printStackTrace();
-                    if (fileOutputStream != null) {
-                        fileOutputStream.close();
-                    }
-                    return str3;
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = fileOutputStream2;
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
-                return str3;
-            } catch (Throwable th2) {
-                th = th2;
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final a c() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (a() && (runTask = MessageManager.getInstance().runTask(2156672, a.class)) != null) {
+                return (a) runTask.getData();
             }
-        } else {
-            return (String) invokeLLL.objValue;
+            return null;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public void d(Application application) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) && !this.b && (aVar = this.a) != null) {
+            aVar.a(application);
+            this.b = true;
         }
     }
 }

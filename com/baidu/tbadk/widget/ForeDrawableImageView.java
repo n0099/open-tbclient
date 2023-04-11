@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pv4;
+import com.baidu.tieba.rv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -90,9 +90,9 @@ public class ForeDrawableImageView extends TbImageView {
         this.z0 = new Paint();
     }
 
-    public final void S(Canvas canvas, int i, int i2) {
+    public final void T(Canvas canvas, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048576, this, canvas, i, i2) == null) && !StringUtils.isNull(this.x0) && !pv4.c().g()) {
+        if ((interceptable == null || interceptable.invokeLII(1048576, this, canvas, i, i2) == null) && !StringUtils.isNull(this.x0) && !rv4.c().g()) {
             canvas.drawText(this.x0, (int) (i - (this.z0.measureText(this.x0) / 2.0f)), i2 + this.y0, this.z0);
         }
     }
@@ -133,7 +133,7 @@ public class ForeDrawableImageView extends TbImageView {
                 canvas.translate(i3, height);
                 this.w0.draw(canvas);
                 canvas.restore();
-                S(canvas, i3 + i2, height + intrinsicHeight);
+                T(canvas, i3 + i2, height + intrinsicHeight);
             }
         }
     }

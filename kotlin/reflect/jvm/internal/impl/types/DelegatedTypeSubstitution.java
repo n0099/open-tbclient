@@ -16,8 +16,8 @@ public class DelegatedTypeSubstitution extends TypeSubstitution {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeSubstitution
     /* renamed from: get */
-    public TypeProjection mo2028get(KotlinType kotlinType) {
-        return this.substitution.mo2028get(kotlinType);
+    public TypeProjection mo2030get(KotlinType kotlinType) {
+        return this.substitution.mo2030get(kotlinType);
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeSubstitution

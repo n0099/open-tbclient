@@ -1,77 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.operators.NotificationLite;
-import rx.internal.operators.OnSubscribeCombineLatest$LatestCoordinator;
+import com.google.ar.core.AugmentedFace;
+import com.google.ar.core.Session;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class msa<T, R> extends ura<T> {
+public final class msa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final OnSubscribeCombineLatest$LatestCoordinator<T, R> e;
-    public final int f;
-    public boolean g;
+    public final Map<Long, AugmentedFace> a;
 
-    public msa(OnSubscribeCombineLatest$LatestCoordinator<T, R> onSubscribeCombineLatest$LatestCoordinator, int i) {
+    public msa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {onSubscribeCombineLatest$LatestCoordinator, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = onSubscribeCombineLatest$LatestCoordinator;
-        this.f = i;
-        e(onSubscribeCombineLatest$LatestCoordinator.bufferSize);
+        this.a = new com.google.ar.core.j(1, 0.75f, true);
     }
 
-    public void g(long j) {
+    public final synchronized AugmentedFace a(long j, Session session) {
+        InterceptResult invokeJL;
+        AugmentedFace augmentedFace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            e(j);
-        }
-    }
-
-    @Override // com.baidu.tieba.pra
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            if (this.g) {
-                vva.j(th);
-                return;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) {
+            synchronized (this) {
+                augmentedFace = this.a.get(Long.valueOf(j));
+                if (augmentedFace == null) {
+                    augmentedFace = new AugmentedFace(j, session);
+                    this.a.put(Long.valueOf(j), augmentedFace);
+                }
             }
-            this.e.onError(th);
-            this.g = true;
-            this.e.combine(null, this.f);
+            return augmentedFace;
         }
-    }
-
-    @Override // com.baidu.tieba.pra
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || this.g) {
-            return;
-        }
-        this.e.combine(NotificationLite.h(t), this.f);
-    }
-
-    @Override // com.baidu.tieba.pra
-    public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
-            return;
-        }
-        this.g = true;
-        this.e.combine(null, this.f);
+        return (AugmentedFace) invokeJL.objValue;
     }
 }

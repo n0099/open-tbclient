@@ -241,13 +241,13 @@ public class HeadPendantClickableView extends HeadPendantView {
             getHeadView().setUserName(author.getUserName());
             getHeadView().setUrl(author.getAvater());
             if (author.isDefaultAvatar) {
-                getHeadView().M(String.valueOf((int) R.drawable.pic_mask_pass_head), 24, false);
+                getHeadView().N(String.valueOf((int) R.drawable.pic_mask_pass_head), 24, false);
             } else if (!StringUtils.isNull(author.getAvater()) && author.getAvater().startsWith("http")) {
-                getHeadView().M(author.getAvater(), 10, false);
+                getHeadView().N(author.getAvater(), 10, false);
             } else if (z) {
-                getHeadView().M(author.getAvater(), 25, false);
+                getHeadView().N(author.getAvater(), 25, false);
             } else {
-                getHeadView().M(author.getAvater(), 28, false);
+                getHeadView().N(author.getAvater(), 28, false);
             }
             i(author);
         }

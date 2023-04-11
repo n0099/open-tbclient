@@ -1,55 +1,159 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.dialog.yun.YunTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
+import java.util.concurrent.PriorityBlockingQueue;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class a15 extends z05 {
+public final class a15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final Comparator<YunTask> b;
+    public final PriorityBlockingQueue<YunTask> c;
 
-    public a15() {
+    /* loaded from: classes3.dex */
+    public /* synthetic */ class a {
+        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-998351353, "Lcom/baidu/tieba/a15$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-998351353, "Lcom/baidu/tieba/a15$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[YunTask.Type.values().length];
+            iArr[YunTask.Type.DIRECT_EXECUTE.ordinal()] = 1;
+            iArr[YunTask.Type.ENQUEUE.ordinal()] = 2;
+            $EnumSwitchMapping$0 = iArr;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947562340, "Lcom/baidu/tieba/a15;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947562340, "Lcom/baidu/tieba/a15;");
+        }
+    }
+
+    public a15(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = i;
+        this.b = new Comparator() { // from class: com.baidu.tieba.x05
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // java.util.Comparator
+            public final int compare(Object obj, Object obj2) {
+                InterceptResult invokeLL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? a15.b((YunTask) obj, (YunTask) obj2) : invokeLL.intValue;
+            }
+        };
+        this.c = new PriorityBlockingQueue<>(11, this.b);
+    }
+
+    public final void c(YunTask yunTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yunTask) == null) {
+            yunTask.b(this);
+            this.c.add(yunTask);
+            int size = this.c.size();
+            int i = this.a;
+            if (size > i) {
+                int size2 = this.c.size();
+                while (i < size2) {
+                    YunTask yunTask2 = (YunTask) CollectionsKt___CollectionsKt.elementAt(this.c, i);
+                    this.c.remove(yunTask2);
+                    yunTask2.g();
+                    i++;
+                }
+            }
+            d();
         }
     }
 
-    @Override // com.baidu.tieba.z05
-    public void a(@NonNull Context context, @NonNull y05 y05Var) {
+    public static final int b(YunTask yunTask, YunTask yunTask2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, y05Var) == null) {
-            String a = y05Var.a("yun_dialogName");
-            String a2 = y05Var.a("yun_dialogUrl");
-            if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(a2)) {
-                b(context, a2, a);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, yunTask, yunTask2)) == null) {
+            if (yunTask2.f().isExecuting()) {
+                return Integer.MAX_VALUE;
             }
+            return yunTask2.e() - yunTask.e();
+        }
+        return invokeLL.intValue;
+    }
+
+    public final void a(YunTask task) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, task) == null) {
+            Intrinsics.checkNotNullParameter(task, "task");
+            int i = a.$EnumSwitchMapping$0[task.getType().ordinal()];
+            if (i != 1) {
+                if (i == 2) {
+                    c(task);
+                    return;
+                }
+                return;
+            }
+            task.c();
         }
     }
 
-    public final void b(Context context, String str, String str2) {
+    public final void e(YunTask task) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) == null) {
-            TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, "", str, false, true, true);
-            tbWebViewActivityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-            tbWebViewActivityConfig.setWebDialogName(str2);
-            tbWebViewActivityConfig.setTranslucentAutoClose(true);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+        if (interceptable == null || interceptable.invokeL(1048579, this, task) == null) {
+            Intrinsics.checkNotNullParameter(task, "task");
+            this.c.remove(task);
+            d();
+        }
+    }
+
+    public final void d() {
+        YunTask peek;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (peek = this.c.peek()) != null && peek.f().isUnStart()) {
+            peek.c();
         }
     }
 }

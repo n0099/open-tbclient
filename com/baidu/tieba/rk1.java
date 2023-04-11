@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-
-import android.view.Surface;
 /* loaded from: classes6.dex */
 public interface rk1 {
-    void a();
+    void onVideoSizeChanged(int i, int i2);
 
-    void b(Surface surface);
+    void setDisplayMode(int i);
 }

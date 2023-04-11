@@ -10,7 +10,7 @@ public class p54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public String errMsg;
+    public String value;
 
     public p54() {
         Interceptable interceptable = $ic;

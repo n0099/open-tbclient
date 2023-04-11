@@ -15,7 +15,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HttpDNSProtocolMgr {
     public static final String TAG = "HttpDNSProtocolMgr";
 

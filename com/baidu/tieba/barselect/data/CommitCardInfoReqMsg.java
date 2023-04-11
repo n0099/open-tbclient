@@ -3,7 +3,7 @@ package com.baidu.tieba.barselect.data;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.kp5;
+import com.baidu.tieba.qq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class CommitCardInfoReqMsg extends NetMessage {
             builder.card_type = Integer.valueOf(this.card_type);
             builder.image_info = this.image_info;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                kp5.a(builder, true);
+                qq5.a(builder, true);
             }
             CommitCardInfoReqIdl.Builder builder2 = new CommitCardInfoReqIdl.Builder();
             builder2.data = builder.build(false);

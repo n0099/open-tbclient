@@ -1,53 +1,72 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewPropertyAnimator;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
 /* loaded from: classes6.dex */
 public class uy {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public yy[] a;
 
-    public uy() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448319369, "Lcom/baidu/tieba/uy;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448319369, "Lcom/baidu/tieba/uy;");
                 return;
             }
         }
-        this.a = new yy[]{new zy(8, 0), new az(0, 1), new az(1, 1), new zy(7, 1)};
+        a = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
     }
 
-    public byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
+    public static void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, bArr)) != null) {
-            return (byte[]) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
+            view2.setPivotX(0.0f);
+            ViewPropertyAnimator animate = view2.animate();
+            animate.scaleY(1.0f);
+            animate.scaleX(1.0f);
+            animate.translationY(0.0f);
+            animate.setDuration(0L);
+            animate.start();
         }
-        xy xyVar = new xy();
-        byte[] b = vy.b(bArr, bArr.length + ((this.a.length + 1) * xy.b));
-        vy.a(b, xyVar.b(), bArr.length);
-        int i = 0;
-        while (true) {
-            yy[] yyVarArr = this.a;
-            if (i >= yyVarArr.length) {
-                return Arrays.copyOf(xyVar.b(), xy.b);
-            }
-            yy yyVar = yyVarArr[i];
-            i++;
-            int length = bArr.length + (xy.b * i);
-            xyVar.a(yyVar.b(b, 0, length), yyVar.a(), yyVar.c(), yyVar.d());
-            vy.a(b, xyVar.b(), length);
+    }
+
+    public static void b(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
+            view2.setPivotX(0.0f);
+            ViewPropertyAnimator animate = view2.animate();
+            animate.scaleY(0.75f);
+            animate.scaleX(0.75f);
+            animate.translationY(-a);
+            animate.setDuration(i);
+            animate.start();
+        }
+    }
+
+    public static void c(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, view2) == null) {
+            view2.setPivotX(0.0f);
+            view2.setPivotY(0.0f);
+            ViewPropertyAnimator animate = view2.animate();
+            animate.scaleY(0.75f);
+            animate.scaleX(0.75f);
+            animate.translationY((-a) / 2.0f);
+            animate.setDuration(400L);
+            animate.start();
         }
     }
 }

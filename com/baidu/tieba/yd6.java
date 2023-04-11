@@ -1,63 +1,69 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class yd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final File a;
+    public final Map<String, de6> b;
+    public final String c;
 
-    public static boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public yd6(File file, String str, Map<String, de6> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            pd6.b("lt-log", "基础版本：" + str + ",当前版本：" + str2);
-            if (TextUtils.equals(str, str2)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file, str, map};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                try {
-                    String[] split = str.split("[._]");
-                    String[] split2 = str2.split("[._]");
-                    int min = Math.min(split.length, split2.length);
-                    long j = 0;
-                    for (int i = 0; i < min; i++) {
-                        j = b(split2[i]).longValue() - b(split[i]).longValue();
-                        if (j != 0) {
-                            break;
-                        }
-                    }
-                    int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                    if (i2 == 0) {
-                        if (split2.length > split.length) {
-                            return true;
-                        }
-                        return false;
-                    } else if (i2 > 0) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } catch (Exception unused) {
-                }
+        }
+        this.a = file;
+        this.b = map;
+        this.c = str;
+    }
+
+    public Map<String, de6> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            File file = this.a;
+            if (file != null && file.exists() && this.a.isDirectory() && !df6.b(this.b)) {
+                return true;
             }
             return false;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static Long b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return Long.valueOf(Long.parseLong(str));
-            } catch (NumberFormatException unused) {
-                return 0L;
-            }
-        }
-        return (Long) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

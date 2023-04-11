@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.defs.obj;
 
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ErrorParam extends ParamableElem {
     public static final long serialVersionUID = -4313338615427788235L;
 

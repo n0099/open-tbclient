@@ -21,14 +21,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h39;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.aq5;
+import com.baidu.tieba.av5;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.ng8;
+import com.baidu.tieba.q25;
 import com.baidu.tieba.sprite.tips.SpriteBottomTipView;
-import com.baidu.tieba.uf5;
-import com.baidu.tieba.uo5;
-import com.baidu.tieba.ut5;
-import com.baidu.tieba.w58;
+import com.baidu.tieba.yc9;
+import com.baidu.tieba.yg5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -196,17 +196,17 @@ public final class SpriteBottomTipView extends LinearLayout {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0855, (ViewGroup) this, true);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f09077e);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d084e, (ViewGroup) this, true);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f090782);
         Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.content)");
         this.a = findViewById;
-        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09168b);
+        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09168f);
         Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.message)");
         this.c = (TextView) findViewById2;
-        this.c.setMaxWidth((hi.l(context) - hi.g(context, R.dimen.M_W_X017)) - hi.g(context, R.dimen.M_W_X021));
+        this.c.setMaxWidth((ii.l(context) - ii.g(context, R.dimen.M_W_X017)) - ii.g(context, R.dimen.M_W_X021));
         e();
         this.d = new b(this, this);
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.p89
+        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gi9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -230,13 +230,13 @@ public final class SpriteBottomTipView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, context, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(context, "$context");
-            if (uo5.a()) {
+            if (aq5.a()) {
                 return;
             }
             String jumpScheme = this$0.getJumpScheme();
             if (!TextUtils.isEmpty(jumpScheme) && (context instanceof TbPageContextSupport)) {
                 int i2 = 1;
-                h39.b(((TbPageContextSupport) context).getPageContext(), new String[]{jumpScheme});
+                yc9.b(((TbPageContextSupport) context).getPageContext(), new String[]{jumpScheme});
                 StatisticItem param = new StatisticItem("c15226").param("uid", TbadkCoreApplication.getCurrentAccountId());
                 SpriteTipHttpResponseMessage spriteTipHttpResponseMessage = this$0.b;
                 if (spriteTipHttpResponseMessage != null) {
@@ -267,7 +267,7 @@ public final class SpriteBottomTipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, richTextList) == null) {
             Intrinsics.checkNotNullParameter(richTextList, "richTextList");
-            this.c.setText(ut5.H(richTextList));
+            this.c.setText(av5.H(richTextList));
         }
     }
 
@@ -294,8 +294,8 @@ public final class SpriteBottomTipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundResource(this.a, R.drawable.sprite_bottom_tip_bg);
-            n15 d = n15.d(this.c);
-            d.A(R.dimen.T_X05);
+            q25 d = q25.d(this.c);
+            d.B(R.dimen.T_X05);
             d.w(R.color.CAM_X0105);
         }
     }
@@ -334,15 +334,15 @@ public final class SpriteBottomTipView extends LinearLayout {
                     Intrinsics.checkNotNull(spriteTipHttpResponseMessage2);
                     String sendText = spriteTipHttpResponseMessage2.getSendText();
                     Intrinsics.checkNotNullExpressionValue(sendText, "mData!!.sendText");
-                    return uf5.a(sendText, 1);
+                    return yg5.a(sendText, 1);
                 }
                 SpriteTipHttpResponseMessage spriteTipHttpResponseMessage3 = this.b;
                 Intrinsics.checkNotNull(spriteTipHttpResponseMessage3);
                 String text = spriteTipHttpResponseMessage3.getText();
                 Intrinsics.checkNotNullExpressionValue(text, "mData!!.text");
-                return uf5.a(text, 2);
+                return yg5.a(text, 2);
             }
-            return uf5.a("", 0);
+            return yg5.a("", 0);
         }
         return (String) invokeV.objValue;
     }
@@ -363,7 +363,7 @@ public final class SpriteBottomTipView extends LinearLayout {
             this.d.removeMessages(2);
             this.d.sendEmptyMessage(1);
             this.d.sendEmptyMessageDelayed(2, 5000L);
-            w58 defaultLog = DefaultLog.getInstance();
+            ng8 defaultLog = DefaultLog.getInstance();
             StringBuilder sb = new StringBuilder();
             sb.append("showTip:");
             SpriteTipHttpResponseMessage spriteTipHttpResponseMessage = this.b;

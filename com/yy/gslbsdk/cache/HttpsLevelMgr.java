@@ -8,7 +8,7 @@ import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HttpsLevelMgr {
     public static final String TAG = "HttpsLevelMgr";
     public static HttpsLevelMgr sInstance;

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-
-import android.content.Context;
 /* loaded from: classes4.dex */
 public interface fr1 {
-    void a(Context context);
+    String c();
+
+    boolean d();
 }

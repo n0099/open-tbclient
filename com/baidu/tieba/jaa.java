@@ -1,12 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import org.json.JSONObject;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
-public interface jaa {
-    public static final ServiceReference a = new ServiceReference("yaLog", "yaLogConfig");
+public class jaa {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(JSONObject jSONObject);
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+        }
+    }
 
-    void b(JSONObject jSONObject, boolean z);
+    public static void a(uaa uaaVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, uaaVar) == null) && uaaVar != null && !uaaVar.y()) {
+            JSONArray n = uaaVar.n();
+            int length = n.length();
+            boolean B = uaaVar.B();
+            for (int i = 0; i < length; i++) {
+                try {
+                    if (B != p9a.o().e(n.getJSONObject(i).getString("id"))) {
+                        Log.w("UBCDebug", " data is " + B + "  content " + uaaVar.u().toString());
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

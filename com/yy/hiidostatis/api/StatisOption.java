@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.api;
 
 import com.yy.hiidostatis.defs.BaseStatisOption;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class StatisOption extends BaseStatisOption {
     public StatisOption() {
     }

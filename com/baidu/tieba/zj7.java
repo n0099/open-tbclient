@@ -1,78 +1,110 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomListNetModel;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
+import com.baidu.tieba.ys4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class zj7 extends hw4 {
+public final class zj7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final VoiceRoomListNetModel a;
 
-    @Override // com.baidu.tieba.hw4
-    public fy4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (fy4) invokeV.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public static final class a implements NetModel.k<xj7, yj7> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xs4<List<VoiceRoomWrapper>> a;
 
-    @Override // com.baidu.tieba.hw4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948361954, "Lcom/baidu/tieba/zj7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(xs4<List<VoiceRoomWrapper>> xs4Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xs4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948361954, "Lcom/baidu/tieba/zj7;");
-                return;
+            this.a = xs4Var;
+        }
+
+        @Override // com.baidu.tbadk.mvc.model.NetModel.l
+        public void H(MvcHttpResponsedMessage<yj7> mvcHttpResponsedMessage, MvcHttpMessage<xj7, yj7> mvcHttpMessage, MvcNetMessage<xj7, yj7> mvcNetMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) && mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
+                if (mvcHttpResponsedMessage.getError() == 0) {
+                    this.a.a(new ys4.c(mvcHttpResponsedMessage.getData().a()));
+                    return;
+                }
+                xs4<List<VoiceRoomWrapper>> xs4Var = this.a;
+                String errorString = mvcHttpResponsedMessage.getErrorString();
+                Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
+                xs4Var.a(new ys4.a(errorString, null, 2, null));
             }
         }
-        a = BdUniqueId.gen();
+
+        @Override // com.baidu.tbadk.mvc.model.NetModel.m
+        public void w(MvcSocketResponsedMessage<yj7, ?> mvcSocketResponsedMessage, MvcSocketMessage<xj7, yj7> mvcSocketMessage, MvcNetMessage<xj7, yj7> mvcNetMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) && mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
+                if (mvcSocketResponsedMessage.getError() == 0) {
+                    this.a.a(new ys4.c(mvcSocketResponsedMessage.getData().a()));
+                    return;
+                }
+                xs4<List<VoiceRoomWrapper>> xs4Var = this.a;
+                String errorString = mvcSocketResponsedMessage.getErrorString();
+                Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
+                xs4Var.a(new ys4.a(errorString, null, 2, null));
+            }
+        }
     }
 
     public zj7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new VoiceRoomListNetModel();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.gn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public final void a(TbPageContext<?> tbPageContext, long j, long j2, xs4<List<VoiceRoomWrapper>> callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return a;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), Long.valueOf(j2), callback}) == null) {
+            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            xj7 xj7Var = new xj7(j, j2);
+            this.a.setUniqueId(tbPageContext.getUniqueId());
+            this.a.t0(xj7Var);
+            this.a.s0(new a(callback));
+            this.a.loadData();
+            callback.a(new ys4.b(null, 1, null));
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 }

@@ -7,8 +7,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.jb9;
-import com.baidu.tieba.oh9;
+import com.baidu.tieba.al9;
+import com.baidu.tieba.fr9;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +29,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void l1(boolean z, long j, int i, String str, int i2);
+        void k1(boolean z, long j, int i, String str, int i2);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -91,25 +91,25 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
                 return;
             }
             if (responsedMessage.getError() == 0) {
-                this.a.Z(true);
+                this.a.Y(true);
             } else {
-                this.a.Z(false);
+                this.a.Y(false);
             }
             if (z) {
                 SetPendantHttpResponse setPendantHttpResponse = (SetPendantHttpResponse) responsedMessage;
-                this.a.X(setPendantHttpResponse.getPendantId());
+                this.a.W(setPendantHttpResponse.getPendantId());
                 this.a.c = setPendantHttpResponse.getFreeUseLevel();
             } else if (responsedMessage instanceof SetPendantSocketResponse) {
                 SetPendantSocketResponse setPendantSocketResponse = (SetPendantSocketResponse) responsedMessage;
-                this.a.X(setPendantSocketResponse.getPendantId());
+                this.a.W(setPendantSocketResponse.getPendantId());
                 this.a.c = setPendantSocketResponse.getFreeUseLevel();
             }
             if (this.a.e != null) {
-                int i = oh9.b;
-                if (responsedMessage.getError() == oh9.c) {
-                    i = oh9.a;
+                int i = fr9.b;
+                if (responsedMessage.getError() == fr9.c) {
+                    i = fr9.a;
                 }
-                this.a.e.l1(this.a.d, this.a.a, this.a.c, responsedMessage.getErrorString(), i);
+                this.a.e.k1(this.a.d, this.a.a, this.a.c, responsedMessage.getErrorString(), i);
             }
         }
     }
@@ -129,33 +129,33 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         }
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
-        jb9.h(309412, SetPendantSocketResponse.class, false, false);
-        jb9.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        al9.h(309412, SetPendantSocketResponse.class, false, false);
+        al9.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
         registerListener(this.f);
     }
 
-    public void X(long j) {
+    public void W(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             this.a = j;
         }
     }
 
-    public void Y(b bVar) {
+    public void X(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.e = bVar;
         }
     }
 
-    public void Z(boolean z) {
+    public void Y(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.d = z;
         }
     }
 
-    public void W(long j, int i, int i2) {
+    public void V(long j, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             SetPendantRequest setPendantRequest = new SetPendantRequest();

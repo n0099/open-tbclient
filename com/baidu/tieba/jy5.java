@@ -1,265 +1,148 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.timer.bean.FetchTimer;
-import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.IMConstants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.coreExtra.data.CombineDownload;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.Date;
 /* loaded from: classes5.dex */
 public class jy5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile jy5 o;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public long m;
-    public boolean n;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-674195482, "Lcom/baidu/tieba/jy5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-674195482, "Lcom/baidu/tieba/jy5$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[AbsDataRecorder.Scene.values().length];
-            a = iArr;
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             try {
-                iArr[AbsDataRecorder.Scene.RECOMMEND.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+                String versionName = TbadkCoreApplication.getInst().getVersionName();
+                String s = p45.m().s("version_name", "");
+                if (TextUtils.isEmpty(versionName)) {
+                    return null;
+                }
+                if (versionName.equals(s)) {
+                    return p45.m().s("apk_md5", "");
+                }
+                p45.m().B("version_name", versionName);
+                String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
+                p45.m().B("apk_md5", aPKMd5);
+                return aPKMd5;
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.detailException(e);
+                return null;
             }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void b(Context context, VersionData versionData) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, versionData) == null) {
             try {
-                a[AbsDataRecorder.Scene.FRS_HOT.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+                str = TbMd5.creatSignInt(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.detailException(e);
+                str = "-1";
+                Intent intent = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
+                intent.setFlags(268435488);
+                intent.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
+                intent.putExtra("backup", "0");
+                intent.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
+                Bundle bundle = new Bundle();
+                bundle.putInt("versioncode", versionData.getNewVersionCode());
+                bundle.putLong("patch_size", gg.g(versionData.getPatchSize(), 0L));
+                bundle.putString("patch_url", versionData.getPatch());
+                bundle.putString("sname", context.getString(R.string.obfuscated_res_0x7f0f029e));
+                bundle.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
+                bundle.putString("downurl", versionData.getUrl());
+                bundle.putString("versionname", versionData.getNewVersion());
+                bundle.putString(IMConstants.SHARE_ICON_URL, versionData.getTiebaIconUrl());
+                bundle.putString("updatetime", hi.getDateStringDay(new Date(System.currentTimeMillis())));
+                bundle.putString("size", versionData.getSize());
+                bundle.putString("signmd5", str);
+                bundle.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
+                intent.putExtra("extra_client_downloadinfo", bundle);
+                context.startActivity(intent);
+            } catch (NumberFormatException e2) {
+                BdLog.detailException(e2);
+                str = "-1";
+                Intent intent2 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
+                intent2.setFlags(268435488);
+                intent2.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
+                intent2.putExtra("backup", "0");
+                intent2.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("versioncode", versionData.getNewVersionCode());
+                bundle2.putLong("patch_size", gg.g(versionData.getPatchSize(), 0L));
+                bundle2.putString("patch_url", versionData.getPatch());
+                bundle2.putString("sname", context.getString(R.string.obfuscated_res_0x7f0f029e));
+                bundle2.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
+                bundle2.putString("downurl", versionData.getUrl());
+                bundle2.putString("versionname", versionData.getNewVersion());
+                bundle2.putString(IMConstants.SHARE_ICON_URL, versionData.getTiebaIconUrl());
+                bundle2.putString("updatetime", hi.getDateStringDay(new Date(System.currentTimeMillis())));
+                bundle2.putString("size", versionData.getSize());
+                bundle2.putString("signmd5", str);
+                bundle2.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
+                intent2.putExtra("extra_client_downloadinfo", bundle2);
+                context.startActivity(intent2);
             }
-            try {
-                a[AbsDataRecorder.Scene.FRS_NEW.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
+            Intent intent22 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
+            intent22.setFlags(268435488);
+            intent22.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
+            intent22.putExtra("backup", "0");
+            intent22.putExtra(WebChromeClient.KEY_FUNCTION_NAME, "11");
+            Bundle bundle22 = new Bundle();
+            bundle22.putInt("versioncode", versionData.getNewVersionCode());
+            bundle22.putLong("patch_size", gg.g(versionData.getPatchSize(), 0L));
+            bundle22.putString("patch_url", versionData.getPatch());
+            bundle22.putString("sname", context.getString(R.string.obfuscated_res_0x7f0f029e));
+            bundle22.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
+            bundle22.putString("downurl", versionData.getUrl());
+            bundle22.putString("versionname", versionData.getNewVersion());
+            bundle22.putString(IMConstants.SHARE_ICON_URL, versionData.getTiebaIconUrl());
+            bundle22.putString("updatetime", hi.getDateStringDay(new Date(System.currentTimeMillis())));
+            bundle22.putString("size", versionData.getSize());
+            bundle22.putString("signmd5", str);
+            bundle22.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
+            intent22.putExtra("extra_client_downloadinfo", bundle22);
+            context.startActivity(intent22);
+        }
+    }
+
+    public static boolean c(Context context, CombineDownload combineDownload) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, combineDownload)) == null) {
+            if (combineDownload == null || wk9.b(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) {
+                return false;
             }
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    public jy5() {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static jy5 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (o == null) {
-                synchronized (jy5.class) {
-                    if (o == null) {
-                        o = new jy5();
-                    }
-                }
-            }
-            return o;
-        }
-        return (jy5) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = null;
-            this.c = null;
-            this.d = null;
-            this.e = 0;
-            this.f = 0;
-            this.g = 0;
-            this.h = 0;
-            this.i = 0;
-            this.n = false;
-        }
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.m;
-        }
-        return invokeV.longValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.l;
-        }
-        return invokeV.intValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.n;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int k(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, scene)) == null) {
-            int i = a.a[scene.ordinal()];
-            if (i != 1) {
-                if (i != 2 && i != 3) {
-                    return 0;
-                }
-                return this.h;
-            }
-            return this.f;
-        }
-        return invokeL.intValue;
-    }
-
-    public int l(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, scene)) == null) {
-            int i = a.a[scene.ordinal()];
-            if (i != 1) {
-                if (i != 2 && i != 3) {
-                    return 0;
-                }
-                return this.i;
-            }
-            return this.g;
-        }
-        return invokeL.intValue;
-    }
-
-    public void o(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) {
-            if (jSONObject != null) {
-                this.n = true;
-                this.a = jSONObject.optString("icon_url");
-                this.b = jSONObject.optString("title");
-                this.c = jSONObject.optString("desc");
-                this.d = jSONObject.optString("btn_text");
-                this.e = jSONObject.optInt(FetchTimer.FREQUENCY);
-                jSONObject.optInt("index");
-                JSONObject optJSONObject = jSONObject.optJSONObject("display_after_refresh");
-                if (optJSONObject != null) {
-                    this.f = optJSONObject.optInt("rec_refresh_times");
-                    this.g = optJSONObject.optInt("rec_refresh_times_interval");
-                    this.h = optJSONObject.optInt("frs_refresh_times");
-                    this.i = optJSONObject.optInt("frs_refresh_times_interval");
-                    this.j = optJSONObject.optInt("rec_frequency");
-                    this.k = optJSONObject.optInt("frs_frequency");
-                    this.l = optJSONObject.optInt("pb_frequency");
-                }
-                this.m = jSONObject.optLong("ad_free_remain_time");
-                return;
-            }
-            this.n = false;
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && TbSingleton.getInstance().getSyncModel() != null) {
+            w95 syncModel = TbSingleton.getInstance().getSyncModel();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), TbSingleton.getInstance().getSyncModel().u(), syncModel.j())));
         }
     }
 }

@@ -7,25 +7,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class lp0 {
+public final class lp0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
     @JvmField
-    public int a;
+    public String a;
     @JvmField
-    public int b;
+    public String b;
     @JvmField
-    public Object c;
-    @JvmField
-    public fp0 d;
-    @JvmField
-    public ip0 e;
+    public String c;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +37,7 @@ public class lp0 {
                 return;
             }
         }
-        f = new a(null);
+        d = new a(null);
     }
 
     /* loaded from: classes5.dex */
@@ -74,20 +71,18 @@ public class lp0 {
                 if (jSONObject == null) {
                     return null;
                 }
-                JSONObject optJSONObject = jSONObject.optJSONObject("popover");
+                JSONObject optJSONObject = jSONObject.optJSONObject("panel");
                 if (optJSONObject == null) {
-                    optJSONObject = v01.c(jSONObject.optString("popover"));
+                    optJSONObject = w01.c(jSONObject.optString("panel"));
                 }
                 if (optJSONObject == null) {
                     return null;
                 }
                 lp0 lp0Var = new lp0();
-                lp0Var.a = optJSONObject.optInt("type");
-                lp0Var.b = optJSONObject.optInt("show_time");
-                optJSONObject.optInt("async_get_popover_data_switch");
-                optJSONObject.optInt("async_get_popover_data_delay_time");
-                optJSONObject.optString("popover_data_request_url");
-                optJSONObject.optJSONObject("popover_data_request_params");
+                lp0Var.a = optJSONObject.optString("title");
+                lp0Var.b = optJSONObject.optString("brand_name");
+                lp0Var.c = optJSONObject.optString("avatar");
+                optJSONObject.optJSONArray(PushConstants.SUB_TAGS_STATUS_LIST);
                 return lp0Var;
             }
             return (lp0) invokeL.objValue;

@@ -1,22 +1,19 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.u62;
-import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes6.dex */
 public interface wr1 {
-    int a();
+    void a(String str, bv2 bv2Var);
 
-    VideoPlayerFactory b();
+    int getDuration();
 
-    int c();
+    boolean isPlaying();
 
-    void d(boolean z);
+    void onRelease();
 
-    boolean e();
+    void pause();
 
-    boolean f();
+    void play();
 
-    void g(int i);
+    void seek(int i);
 
-    void h(u62.c cVar);
+    void stop();
 }

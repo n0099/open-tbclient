@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.tieba.il4;
-import com.baidu.tieba.ql4;
+import com.baidu.tieba.jl4;
+import com.baidu.tieba.rl4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public final class BackStackState implements Parcelable {
@@ -58,19 +58,19 @@ public final class BackStackState implements Parcelable {
         this.mSharedElementTargetNames = parcel.createStringArrayList();
     }
 
-    public BackStackState(il4 il4Var) {
+    public BackStackState(jl4 jl4Var) {
         int i;
         int i2 = 0;
-        for (il4.d dVar = il4Var.b; dVar != null; dVar = dVar.a) {
+        for (jl4.d dVar = jl4Var.b; dVar != null; dVar = dVar.a) {
             ArrayList<Fragment> arrayList = dVar.i;
             if (arrayList != null) {
                 i2 += arrayList.size();
             }
         }
-        this.mOps = new int[(il4Var.d * 7) + i2];
-        if (il4Var.k) {
+        this.mOps = new int[(jl4Var.d * 7) + i2];
+        if (jl4Var.k) {
             int i3 = 0;
-            for (il4.d dVar2 = il4Var.b; dVar2 != null; dVar2 = dVar2.a) {
+            for (jl4.d dVar2 = jl4Var.b; dVar2 != null; dVar2 = dVar2.a) {
                 int[] iArr = this.mOps;
                 int i4 = i3 + 1;
                 iArr[i3] = dVar2.c;
@@ -108,36 +108,36 @@ public final class BackStackState implements Parcelable {
                     i3 = i9 + 1;
                 }
             }
-            this.mTransition = il4Var.i;
-            this.mTransitionStyle = il4Var.j;
-            this.mName = il4Var.m;
-            this.mIndex = il4Var.o;
-            this.mBreadCrumbTitleRes = il4Var.p;
-            this.mBreadCrumbTitleText = il4Var.q;
-            this.mBreadCrumbShortTitleRes = il4Var.r;
-            this.mBreadCrumbShortTitleText = il4Var.s;
-            this.mSharedElementSourceNames = il4Var.t;
-            this.mSharedElementTargetNames = il4Var.u;
+            this.mTransition = jl4Var.i;
+            this.mTransitionStyle = jl4Var.j;
+            this.mName = jl4Var.m;
+            this.mIndex = jl4Var.o;
+            this.mBreadCrumbTitleRes = jl4Var.p;
+            this.mBreadCrumbTitleText = jl4Var.q;
+            this.mBreadCrumbShortTitleRes = jl4Var.r;
+            this.mBreadCrumbShortTitleText = jl4Var.s;
+            this.mSharedElementSourceNames = jl4Var.t;
+            this.mSharedElementTargetNames = jl4Var.u;
             return;
         }
         throw new IllegalStateException("Not on back stack");
     }
 
-    public il4 instantiate(ql4 ql4Var) {
-        il4 il4Var = new il4(ql4Var);
+    public jl4 instantiate(rl4 rl4Var) {
+        jl4 jl4Var = new jl4(rl4Var);
         int i = 0;
         int i2 = 0;
         while (i < this.mOps.length) {
-            il4.d dVar = new il4.d();
+            jl4.d dVar = new jl4.d();
             int i3 = i + 1;
             dVar.c = this.mOps[i];
-            if (ql4.x) {
-                Log.v("FragmentManager", "Instantiate " + il4Var + " op #" + i2 + " base fragment #" + this.mOps[i3]);
+            if (rl4.x) {
+                Log.v("FragmentManager", "Instantiate " + jl4Var + " op #" + i2 + " base fragment #" + this.mOps[i3]);
             }
             int i4 = i3 + 1;
             int i5 = this.mOps[i3];
             if (i5 >= 0) {
-                dVar.d = ql4Var.d.get(i5);
+                dVar.d = rl4Var.d.get(i5);
             } else {
                 dVar.d = null;
             }
@@ -156,31 +156,31 @@ public final class BackStackState implements Parcelable {
                 dVar.i = new ArrayList<>(i11);
                 int i12 = 0;
                 while (i12 < i11) {
-                    if (ql4.x) {
-                        Log.v("FragmentManager", "Instantiate " + il4Var + " set remove fragment #" + this.mOps[i10]);
+                    if (rl4.x) {
+                        Log.v("FragmentManager", "Instantiate " + jl4Var + " set remove fragment #" + this.mOps[i10]);
                     }
-                    dVar.i.add(ql4Var.d.get(this.mOps[i10]));
+                    dVar.i.add(rl4Var.d.get(this.mOps[i10]));
                     i12++;
                     i10++;
                 }
             }
             i = i10;
-            il4Var.o(dVar);
+            jl4Var.o(dVar);
             i2++;
         }
-        il4Var.i = this.mTransition;
-        il4Var.j = this.mTransitionStyle;
-        il4Var.m = this.mName;
-        il4Var.o = this.mIndex;
-        il4Var.k = true;
-        il4Var.p = this.mBreadCrumbTitleRes;
-        il4Var.q = this.mBreadCrumbTitleText;
-        il4Var.r = this.mBreadCrumbShortTitleRes;
-        il4Var.s = this.mBreadCrumbShortTitleText;
-        il4Var.t = this.mSharedElementSourceNames;
-        il4Var.u = this.mSharedElementTargetNames;
-        il4Var.q(1);
-        return il4Var;
+        jl4Var.i = this.mTransition;
+        jl4Var.j = this.mTransitionStyle;
+        jl4Var.m = this.mName;
+        jl4Var.o = this.mIndex;
+        jl4Var.k = true;
+        jl4Var.p = this.mBreadCrumbTitleRes;
+        jl4Var.q = this.mBreadCrumbTitleText;
+        jl4Var.r = this.mBreadCrumbShortTitleRes;
+        jl4Var.s = this.mBreadCrumbShortTitleText;
+        jl4Var.t = this.mSharedElementSourceNames;
+        jl4Var.u = this.mSharedElementTargetNames;
+        jl4Var.q(1);
+        return jl4Var;
     }
 
     @Override // android.os.Parcelable

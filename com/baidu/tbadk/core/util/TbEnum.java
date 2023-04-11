@@ -235,6 +235,7 @@ public abstract class TbEnum {
         public static final short MSG_CONTENT_TYPE_TEXT = 1;
         public static final short MSG_CONTENT_TYPE_TEXT_GEN_IMAGE = 101;
         public static final short MSG_CONTENT_TYPE_VOICE = 3;
+        public static final int MSG_SUBSCRIBE_TIPS = -7015;
         public static final short MSG_SYSTEM = 11;
         public static final short MSG_TOPIC_UPDATE = 12;
         public static final short MSG_UEG_ILLEGAL = 31;

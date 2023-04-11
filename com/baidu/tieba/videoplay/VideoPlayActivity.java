@@ -26,17 +26,17 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ga7;
-import com.baidu.tieba.gi;
+import com.baidu.tieba.aq4;
+import com.baidu.tieba.dk7;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.kw5;
-import com.baidu.tieba.tq5;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.qx5;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.danmu.DanmuProgressManager;
 import com.baidu.tieba.videoplay.fragment.VideoMiddleFragment;
 import com.baidu.tieba.w8;
-import com.baidu.tieba.yp4;
 import com.baidu.tieba.zp4;
+import com.baidu.tieba.zr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public boolean b;
     public List<VideoItemData> c;
     public VideoMiddleFragment d;
-    public kw5 e;
+    public qx5 e;
     public boolean f;
     public Rect g;
     public String h;
@@ -117,7 +117,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 videoMiddleFragment.setPrimary(false);
                 this.d.setUserVisibleHint(false);
             }
-            zp4.w().E();
+            aq4.w().E();
         }
     }
 
@@ -130,7 +130,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (videoMiddleFragment != null) {
                 videoMiddleFragment.setPrimary(true);
                 this.d.setUserVisibleHint(true);
-                zp4.w().P(yp4.c0, this.d.J0());
+                aq4.w().Q(zp4.c0, this.d.k());
             }
         }
     }
@@ -181,15 +181,15 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            kw5 kw5Var = this.e;
-            if (kw5Var != null) {
-                kw5Var.h();
+            qx5 qx5Var = this.e;
+            if (qx5Var != null) {
+                qx5Var.h();
             }
             if (UbsABTestHelper.isVideoAdDrawABTestA()) {
-                ga7.m().d("6061002332-203360688");
+                dk7.m().d("6061002332-203360688");
             }
             if (UbsABTestHelper.isVideoAdDrawABTestB()) {
-                ga7.m().c(ga7.s());
+                dk7.m().c(dk7.s());
             }
         }
     }
@@ -211,13 +211,13 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIL(1048579, this, i, i2, intent) != null) || tq5.c(i, i2, intent)) {
+        if ((interceptable != null && interceptable.invokeIIL(1048579, this, i, i2, intent) != null) || zr5.c(i, i2, intent)) {
             return;
         }
         super.onActivityResult(i, i2, intent);
         VideoMiddleFragment videoMiddleFragment = this.d;
         if (videoMiddleFragment != null) {
-            videoMiddleFragment.i1(i, i2, intent);
+            videoMiddleFragment.m(i, i2, intent);
         }
     }
 
@@ -243,8 +243,8 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_PAGE);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FRS_PAGE);
-            setContentView(R.layout.obfuscated_res_0x7f0d0959);
-            this.e = new kw5(getPageContext(), "client_videomiddle");
+            setContentView(R.layout.obfuscated_res_0x7f0d0951);
+            this.e = new qx5(getPageContext(), "client_videomiddle");
             u1();
             v1();
             addNoAdjustSoftInputHeightListener();
@@ -278,10 +278,10 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (i == 4) {
                 VideoMiddleFragment videoMiddleFragment = this.d;
                 if (videoMiddleFragment != null) {
-                    if (videoMiddleFragment.t1()) {
+                    if (videoMiddleFragment.p()) {
                         return false;
                     }
-                    this.d.E0();
+                    this.d.H0();
                 }
                 finish();
                 return false;
@@ -318,7 +318,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.c)) {
-                hi.P(this, R.string.obfuscated_res_0x7f0f0d1c);
+                ii.P(this, R.string.obfuscated_res_0x7f0f0d18);
                 finish();
                 return;
             }
@@ -326,7 +326,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (list != null && list.size() > 0 && this.c.get(0) != null) {
                 this.h = this.c.get(0).thread_id;
             }
-            if (getIntent() != null && !gi.isEmpty(VideoPlayActivityConfig.VIDEO_VIEW_RECT)) {
+            if (getIntent() != null && !hi.isEmpty(VideoPlayActivityConfig.VIDEO_VIEW_RECT)) {
                 this.g = (Rect) getIntent().getParcelableExtra(VideoPlayActivityConfig.VIDEO_VIEW_RECT);
             }
             VideoMiddleFragment videoMiddleFragment = new VideoMiddleFragment();
@@ -335,7 +335,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             this.d.setArguments(getIntent().getExtras());
             this.d.W1(this.c);
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f0927a7, this.d);
+            beginTransaction.add(R.id.obfuscated_res_0x7f092795, this.d);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
         }

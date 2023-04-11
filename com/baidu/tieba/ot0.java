@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ot0 extends ut0 {
+public class ot0 extends st0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,43 +25,20 @@ public class ot0 extends ut0 {
         }
     }
 
-    @Override // com.baidu.tieba.ut0
-    public boolean E() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.st0, com.baidu.tieba.qt0, com.baidu.tieba.rt0, com.baidu.tieba.nt0
+    public void k(@NonNull su0 su0Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return q().V();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ut0
-    public void L() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            N(q().V());
-        }
-    }
-
-    @Override // com.baidu.tieba.ut0
-    public void J() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            boolean E = E();
-            if (E && e01.c(getContext()) == 0) {
-                e01.d(getContext(), (int) (e01.b(getContext()) * 0.35d));
+        if (interceptable == null || interceptable.invokeL(1048576, this, su0Var) == null) {
+            super.k(su0Var);
+            if (PlayerEvent.ACTION_PLAYER_ATTACH.equals(su0Var.c())) {
+                if (q().n1().g()) {
+                    i = 0;
+                } else {
+                    i = 8;
+                }
+                M(i);
             }
-            M(E);
-            boolean z = !E;
-            N(z);
-            Q(z);
-        }
-    }
-
-    public void Q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            q().w0(z);
         }
     }
 }

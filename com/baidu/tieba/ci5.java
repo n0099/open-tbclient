@@ -1,44 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.CurrentPageTypeHelper;
-import com.baidu.tbadk.mutiprocess.currentpagetype.CurrentPageTypeEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class ci5 implements ph5<CurrentPageTypeEvent> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ci5 {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("HotTopic", "HotTopicRequest");
 
-    public ci5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a();
+
+        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ph5
-    /* renamed from: a */
-    public boolean onEvent(CurrentPageTypeEvent currentPageTypeEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, currentPageTypeEvent)) == null) {
-            if (currentPageTypeEvent == null) {
-                return false;
-            }
-            CurrentPageTypeHelper.currentPageType = currentPageTypeEvent.currentPageType;
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    ci5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str);
+
+    void b(int i, ly4 ly4Var, long j);
+
+    void c(@Nullable a aVar);
 }

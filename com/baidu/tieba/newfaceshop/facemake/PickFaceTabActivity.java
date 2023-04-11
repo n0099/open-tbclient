@@ -21,11 +21,11 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bf8;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
-import com.baidu.tieba.fv4;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.sp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class PickFaceTabActivity extends BaseFragmentActivity implements bf8 {
+public class PickFaceTabActivity extends BaseFragmentActivity implements sp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -176,8 +176,8 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements bf8 {
         this.k = new b(this);
     }
 
-    @Override // com.baidu.tieba.bf8
-    public void F() {
+    @Override // com.baidu.tieba.sp8
+    public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.i++;
@@ -185,7 +185,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements bf8 {
         }
     }
 
-    @Override // com.baidu.tieba.bf8
+    @Override // com.baidu.tieba.sp8
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -197,7 +197,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements bf8 {
         }
     }
 
-    @Override // com.baidu.tieba.bf8
+    @Override // com.baidu.tieba.sp8
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -228,7 +228,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements bf8 {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            fv4 layoutMode = getLayoutMode();
+            hv4 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -253,8 +253,8 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements bf8 {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             this.j = getPageContext().getPageActivity();
-            setContentView(R.layout.obfuscated_res_0x7f0d0791);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f0921f5);
+            setContentView(R.layout.obfuscated_res_0x7f0d0789);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f0921e6);
             this.e = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.e.setOnPageChangeListener(this.k);
@@ -279,7 +279,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements bf8 {
                 this.c.setTitle(this.j.getText(R.string.album_all).toString());
                 return;
             }
-            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f064f).toString());
+            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0647).toString());
         }
     }
 
@@ -330,12 +330,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements bf8 {
                     A1();
                 }
             }
-            v1(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f064b).toString());
-            v1(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f0647).toString());
+            v1(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f0643).toString());
+            v1(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f063f).toString());
             v1(this.g, 2, this.j.getText(R.string.my_mark).toString());
             this.e.k(1);
             this.e.setCurrentTab(0);
-            this.e.getFragmentTabWidget().getLayoutParams().height = hi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070237);
+            this.e.getFragmentTabWidget().getLayoutParams().height = ii.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070237);
             this.e.getFragmentTabWidget().setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d_alpha90));
         }
     }
@@ -346,7 +346,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements bf8 {
             this.a = (LinearLayout) findViewById(R.id.layout_root);
             this.b = (NavigationBar) findViewById(R.id.navigation_bar);
             this.c = new FaceGroupMakeTitleBar(getPageContext().getPageActivity());
-            this.c.setLayoutParams(new RelativeLayout.LayoutParams(hi.l(getPageContext().getPageActivity()), -1));
+            this.c.setLayoutParams(new RelativeLayout.LayoutParams(ii.l(getPageContext().getPageActivity()), -1));
             this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.c, (View.OnClickListener) null);
             this.d = (NoNetworkView) findViewById(R.id.view_no_network);
             this.c.setRightListener(new a(this));

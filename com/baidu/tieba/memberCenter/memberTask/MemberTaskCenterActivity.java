@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ka8;
-import com.baidu.tieba.ma8;
+import com.baidu.tieba.bl8;
+import com.baidu.tieba.c05;
+import com.baidu.tieba.dl8;
+import com.baidu.tieba.fl8;
+import com.baidu.tieba.gl8;
 import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
-import com.baidu.tieba.oa8;
-import com.baidu.tieba.pa8;
-import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,19 +32,19 @@ import tbclient.GetMemberTaskList.ImgInfo;
 public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oa8 a;
-    public pa8 b;
+    public fl8 a;
+    public gl8 b;
     public String c;
     public String d;
     public int e;
-    public ma8 f;
+    public dl8 f;
     public boolean g;
-    public ma8.b h;
-    public oa8.b i;
+    public dl8.b h;
+    public fl8.b i;
     public View.OnClickListener j;
 
     /* loaded from: classes5.dex */
-    public class a implements ma8.b {
+    public class a implements dl8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MemberTaskCenterActivity a;
@@ -67,36 +67,37 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             this.a = memberTaskCenterActivity;
         }
 
-        @Override // com.baidu.tieba.ma8.b
+        @Override // com.baidu.tieba.dl8.b
         public void a(int i, String str, int i2, int i3, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) && i == 0 && this.a.b != null) {
-                this.a.O1(i3);
-                ka8 ka8Var = new ka8();
-                ka8Var.h(j);
-                if (this.a.e == 1 && i2 == 2) {
-                    this.a.a.l(this.a.a.h() + i3);
-                }
-                if (this.a.e == 2) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016498, Integer.valueOf(i3)));
-                }
-                if (i2 >= 1) {
-                    i2 = 1;
-                }
-                ka8Var.g(i2);
-                this.a.M1(ka8Var, i3);
-                if (this.a.e == 2) {
-                    TiebaStatic.log(new StatisticItem("c11744"));
-                }
-                if (this.a.e == 1) {
-                    TiebaStatic.log(new StatisticItem("c11745"));
-                }
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) != null) || i != 0 || this.a.b == null) {
+                return;
+            }
+            this.a.N1(i3);
+            bl8 bl8Var = new bl8();
+            bl8Var.h(j);
+            if (this.a.e == 1 && i2 == 2) {
+                this.a.a.l(this.a.a.h() + i3);
+            }
+            if (this.a.e == 2) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016498, Integer.valueOf(i3)));
+            }
+            if (i2 >= 1) {
+                i2 = 1;
+            }
+            bl8Var.g(i2);
+            this.a.L1(bl8Var, i3);
+            if (this.a.e == 2) {
+                TiebaStatic.log(new StatisticItem("c11744"));
+            }
+            if (this.a.e == 1) {
+                TiebaStatic.log(new StatisticItem("c11745"));
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements oa8.b {
+    public class b implements fl8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MemberTaskCenterActivity a;
@@ -119,7 +120,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             this.a = memberTaskCenterActivity;
         }
 
-        @Override // com.baidu.tieba.oa8.b
+        @Override // com.baidu.tieba.fl8.b
         public void a(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
@@ -132,8 +133,8 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             }
         }
 
-        @Override // com.baidu.tieba.oa8.b
-        public void b(List<ImgInfo> list, List<ka8> list2, long j) {
+        @Override // com.baidu.tieba.fl8.b
+        public void b(List<ImgInfo> list, List<bl8> list2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, list2, Long.valueOf(j)}) == null) {
                 this.a.b.b().setVisibility(0);
@@ -180,40 +181,43 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09014c) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09014a) {
                 MemberCenterStatic.a(this.a.getPageContext(), new String[]{this.a.c});
                 this.a.g = true;
                 TiebaStatic.log(new StatisticItem("c11747"));
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0922c5 && (view2.getTag() instanceof ka8)) {
-                ka8 ka8Var = (ka8) view2.getTag();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0922b7 && (view2.getTag() instanceof bl8)) {
+                bl8 bl8Var = (bl8) view2.getTag();
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(this.a.getPageContext().getPageActivity());
-                } else if (ka8Var.getType() == 2) {
-                    this.a.e = 2;
-                    this.a.N1(ka8Var);
-                } else if (ka8Var.getType() == 1) {
+                } else if (bl8Var.getType() != 2) {
+                    if (bl8Var.getType() != 1) {
+                        return;
+                    }
                     this.a.e = 1;
                     if (this.a.f != null) {
-                        this.a.f.f(ka8Var.c(), ka8Var.a());
+                        this.a.f.f(bl8Var.c(), bl8Var.a());
                     }
+                } else {
+                    this.a.e = 2;
+                    this.a.M1(bl8Var);
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements zz4.e {
+    public class d implements c05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zz4 a;
+        public final /* synthetic */ c05 a;
         public final /* synthetic */ MemberTaskCenterActivity b;
 
-        public d(MemberTaskCenterActivity memberTaskCenterActivity, zz4 zz4Var) {
+        public d(MemberTaskCenterActivity memberTaskCenterActivity, c05 c05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {memberTaskCenterActivity, zz4Var};
+                Object[] objArr = {memberTaskCenterActivity, c05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -224,13 +228,13 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                 }
             }
             this.b = memberTaskCenterActivity;
-            this.a = zz4Var;
+            this.a = c05Var;
         }
 
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
                 this.a.dismiss();
                 ViewHelper.skipToLoginActivity(this.b.getPageContext().getPageActivity());
             }
@@ -238,18 +242,18 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     }
 
     /* loaded from: classes5.dex */
-    public class e implements zz4.e {
+    public class e implements c05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zz4 a;
+        public final /* synthetic */ c05 a;
         public final /* synthetic */ MemberTaskCenterActivity b;
 
-        public e(MemberTaskCenterActivity memberTaskCenterActivity, zz4 zz4Var) {
+        public e(MemberTaskCenterActivity memberTaskCenterActivity, c05 c05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {memberTaskCenterActivity, zz4Var};
+                Object[] objArr = {memberTaskCenterActivity, c05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -260,31 +264,31 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                 }
             }
             this.b = memberTaskCenterActivity;
-            this.a = zz4Var;
+            this.a = c05Var;
         }
 
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
                 this.a.dismiss();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f implements zz4.e {
+    public class f implements c05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zz4 a;
+        public final /* synthetic */ c05 a;
         public final /* synthetic */ MemberTaskCenterActivity b;
 
-        public f(MemberTaskCenterActivity memberTaskCenterActivity, zz4 zz4Var) {
+        public f(MemberTaskCenterActivity memberTaskCenterActivity, c05 c05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {memberTaskCenterActivity, zz4Var};
+                Object[] objArr = {memberTaskCenterActivity, c05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -295,13 +299,13 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                 }
             }
             this.b = memberTaskCenterActivity;
-            this.a = zz4Var;
+            this.a = c05Var;
         }
 
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
                 this.a.dismiss();
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.b.getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 0);
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_MISSION_CENTER_NATIVE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_BUTTON);
@@ -311,18 +315,18 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     }
 
     /* loaded from: classes5.dex */
-    public class g implements zz4.e {
+    public class g implements c05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zz4 a;
+        public final /* synthetic */ c05 a;
         public final /* synthetic */ MemberTaskCenterActivity b;
 
-        public g(MemberTaskCenterActivity memberTaskCenterActivity, zz4 zz4Var) {
+        public g(MemberTaskCenterActivity memberTaskCenterActivity, c05 c05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {memberTaskCenterActivity, zz4Var};
+                Object[] objArr = {memberTaskCenterActivity, c05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -333,13 +337,13 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
                 }
             }
             this.b = memberTaskCenterActivity;
-            this.a = zz4Var;
+            this.a = c05Var;
         }
 
-        @Override // com.baidu.tieba.zz4.e
-        public void onClick(zz4 zz4Var) {
+        @Override // com.baidu.tieba.c05.e
+        public void onClick(c05 c05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zz4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, c05Var) == null) {
                 this.a.dismiss();
             }
         }
@@ -373,19 +377,19 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         }
     }
 
-    public void M1(ka8 ka8Var, int i) {
-        List<ka8> i2;
+    public void L1(bl8 bl8Var, int i) {
+        List<bl8> i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048576, this, ka8Var, i) == null) && ka8Var != null && i > 0) {
+        if ((interceptable == null || interceptable.invokeLI(1048576, this, bl8Var, i) == null) && bl8Var != null && i > 0) {
             if (this.a.i() != null && (i2 = this.a.i()) != null && i2.size() > 0) {
-                Iterator<ka8> it = i2.iterator();
+                Iterator<bl8> it = i2.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    ka8 next = it.next();
-                    if (next != null && next.c() == ka8Var.c()) {
-                        next.g(ka8Var.e());
+                    bl8 next = it.next();
+                    if (next != null && next.c() == bl8Var.c()) {
+                        next.g(bl8Var.e());
                         break;
                     }
                 }
@@ -394,44 +398,44 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         }
     }
 
-    public final void N1(ka8 ka8Var) {
+    public final void M1(bl8 bl8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ka8Var) != null) || ka8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bl8Var) != null) || bl8Var == null) {
             return;
         }
         if (!TbadkCoreApplication.isLogin()) {
-            zz4 zz4Var = new zz4(getPageContext().getPageActivity());
-            zz4Var.setTitle(R.string.obfuscated_res_0x7f0f1519);
-            zz4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0b25, new d(this, zz4Var));
-            zz4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038e, new e(this, zz4Var));
-            zz4Var.create(getPageContext());
-            zz4Var.show();
+            c05 c05Var = new c05(getPageContext().getPageActivity());
+            c05Var.setTitle(R.string.obfuscated_res_0x7f0f1510);
+            c05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0b21, new d(this, c05Var));
+            c05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new e(this, c05Var));
+            c05Var.create(getPageContext());
+            c05Var.show();
         } else if (TbadkCoreApplication.getCurrentMemberType() >= 2) {
-            ma8 ma8Var = this.f;
-            if (ma8Var != null) {
-                ma8Var.f(ka8Var.c(), ka8Var.a());
+            dl8 dl8Var = this.f;
+            if (dl8Var != null) {
+                dl8Var.f(bl8Var.c(), bl8Var.a());
             }
         } else {
-            zz4 zz4Var2 = new zz4(getPageContext().getPageActivity());
-            zz4Var2.setTitle(R.string.obfuscated_res_0x7f0f151a);
-            zz4Var2.setButtonTextColor(R.color.CAM_X0305);
-            zz4Var2.setPositiveButton(R.string.open_now, new f(this, zz4Var2));
-            zz4Var2.setNegativeButton(R.string.obfuscated_res_0x7f0f038e, new g(this, zz4Var2));
-            zz4Var2.create(getPageContext());
-            zz4Var2.show();
+            c05 c05Var2 = new c05(getPageContext().getPageActivity());
+            c05Var2.setTitle(R.string.obfuscated_res_0x7f0f1511);
+            c05Var2.setButtonTextColor(R.color.CAM_X0305);
+            c05Var2.setPositiveButton(R.string.open_now, new f(this, c05Var2));
+            c05Var2.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new g(this, c05Var2));
+            c05Var2.create(getPageContext());
+            c05Var2.show();
         }
     }
 
-    public final void O1(int i) {
+    public final void N1(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || i <= 0) {
             return;
         }
         int i2 = this.e;
         if (i2 == 1) {
-            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1518), Integer.valueOf(i)));
+            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f150f), Integer.valueOf(i)));
         } else if (i2 == 2) {
-            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1517), Integer.valueOf(i)));
+            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f150e), Integer.valueOf(i)));
         }
     }
 
@@ -440,13 +444,13 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            this.b = new pa8(this, this.j);
-            oa8 oa8Var = new oa8();
-            this.a = oa8Var;
-            oa8Var.m(this.i);
-            ma8 ma8Var = new ma8();
-            this.f = ma8Var;
-            ma8Var.h(this.h);
+            this.b = new gl8(this, this.j);
+            fl8 fl8Var = new fl8();
+            this.a = fl8Var;
+            fl8Var.m(this.i);
+            dl8 dl8Var = new dl8();
+            this.f = dl8Var;
+            dl8Var.h(this.h);
             this.a.j();
             showLoadingView(this.b.c());
         }
@@ -457,13 +461,13 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            ma8 ma8Var = this.f;
-            if (ma8Var != null) {
-                ma8Var.g();
+            dl8 dl8Var = this.f;
+            if (dl8Var != null) {
+                dl8Var.g();
             }
-            oa8 oa8Var = this.a;
-            if (oa8Var != null) {
-                oa8Var.k();
+            fl8 fl8Var = this.a;
+            if (fl8Var != null) {
+                fl8Var.k();
             }
         }
     }

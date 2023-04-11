@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ic4 extends fc4<fu2> {
+public class ic4 extends gc4<gu2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class ic4 extends fc4<fu2> {
                 return;
             }
         }
-        boolean z = do1.a;
+        boolean z = eo1.a;
     }
 
     public ic4() {
@@ -54,24 +54,24 @@ public class ic4 extends fc4<fu2> {
         return (ic4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fc4
-    public boolean b(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.gc4
+    public boolean b(Context context, gu2 gu2Var, du2 du2Var, u73 u73Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, fu2Var, cu2Var, t73Var, jSONObject)) == null) {
-            return e(context, fu2Var, cu2Var, t73Var);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, gu2Var, du2Var, u73Var, jSONObject)) == null) {
+            return e(context, gu2Var, du2Var, u73Var);
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final boolean e(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var) {
+    public final boolean e(Context context, gu2 gu2Var, du2 du2Var, u73 u73Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fu2Var, cu2Var, t73Var)) == null) {
-            t42.i("map", "MapUpdateAction start");
-            boolean update = cc4.b().update(context, fu2Var);
-            t42.i("map", "MapUpdateAction end");
-            return update;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, gu2Var, du2Var, u73Var)) == null) {
+            u42.i("map", "MapRemoveAction start");
+            boolean g = dc4.b().g(gu2Var);
+            u42.i("map", "MapRemoveAction end");
+            return g;
         }
         return invokeLLLL.booleanValue;
     }

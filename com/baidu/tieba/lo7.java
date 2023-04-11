@@ -1,90 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
+import android.util.LongSparseArray;
+import android.util.SparseArray;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.RecomVertical.DataRes;
+import tbclient.RecomVertical.DislikeReason;
+import tbclient.RecomVertical.ThreadPersonalized;
 /* loaded from: classes5.dex */
 public class lo7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public long d;
-        public String e;
-        public long f;
-        public String g;
-        public long h;
-        public int i;
-        public int j;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static void a(DataRes dataRes, List<hn> list) {
+        eh6 eh6Var;
+        ThreadData threadData;
+        ThreadPersonalized threadPersonalized;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, dataRes, list) == null) && dataRes != null && list != null) {
+            LongSparseArray longSparseArray = new LongSparseArray();
+            for (ThreadPersonalized threadPersonalized2 : dataRes.thread_personalized) {
+                if (threadPersonalized2 != null) {
+                    longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
                 }
             }
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.f = 0L;
-            this.g = null;
-            this.h = 0L;
-            this.i = 0;
-            this.j = 0;
+            int count = ListUtils.getCount(list);
+            for (int i = 0; i < count; i++) {
+                hn hnVar = (hn) ListUtils.getItem(list, i);
+                if ((hnVar instanceof eh6) && (threadData = (eh6Var = (eh6) hnVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(gg.g(threadData.getTid(), 0L))) != null) {
+                    eh6Var.F(threadPersonalized.source);
+                    eh6Var.I(threadPersonalized.weight);
+                    eh6Var.y(threadPersonalized.abtest_tag);
+                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
+                    threadData.mRecomSource = threadPersonalized.source;
+                    threadData.mRecomWeight = threadPersonalized.weight;
+                    if (threadData.getThreadVideoInfo() != null) {
+                        eh6Var.D(threadData.getThreadVideoInfo().is_vertical);
+                    }
+                    List<DislikeReason> list2 = threadPersonalized.dislike_resource;
+                    if (list2 != null) {
+                        SparseArray<String> sparseArray = new SparseArray<>();
+                        for (DislikeReason dislikeReason : list2) {
+                            int intValue = dislikeReason.dislike_id.intValue();
+                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
+                        }
+                        eh6Var.feedBackReasonMap = sparseArray;
+                        eh6Var.A(threadPersonalized.extra);
+                    }
+                }
+            }
         }
     }
 
-    public static a a(String str) {
-        InterceptResult invokeL;
+    public static void b(DataRes dataRes, List<hn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            a aVar = new a();
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() > 0) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                    aVar.a = optJSONObject.optString(TableDefine.UserInfoColumns.COLUMN_HEAD_URL);
-                    aVar.b = optJSONObject.optString("user_id");
-                    aVar.c = optJSONObject.optString("nick_name");
-                    aVar.d = optJSONObject.optLong("caller_time");
-                    aVar.e = optJSONObject.optString("caller_content");
-                    aVar.f = optJSONObject.optLong("thread_id");
-                    aVar.g = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
-                    optJSONObject.optString("forum_name");
-                    aVar.h = optJSONObject.optLong("post_id");
-                    aVar.i = optJSONObject.optInt("msg_type");
-                    aVar.j = optJSONObject.optInt("remind_count");
-                }
-                return aVar;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeLL(65537, null, dataRes, list) == null) {
+            a(dataRes, list);
         }
-        return (a) invokeL.objValue;
     }
 }

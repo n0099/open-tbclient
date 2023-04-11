@@ -58,7 +58,7 @@ public class ft implements gh {
                 sb.append(ft.this.f403a.format(new Date()));
                 sb.append(this.f404a);
                 sb.append(" Blob [");
-                sb.append(fkVar.m401a());
+                sb.append(fkVar.m403a());
                 sb.append(",");
                 sb.append(fkVar.a());
                 sb.append(",");
@@ -70,18 +70,18 @@ public class ft implements gh {
             if (fkVar == null || fkVar.a() != 99999) {
                 return;
             }
-            String m401a = fkVar.m401a();
+            String m403a = fkVar.m403a();
             fk fkVar2 = null;
             if (!this.f405a) {
-                if ("BIND".equals(m401a)) {
-                    com.xiaomi.channel.commonutils.logger.b.m99a("build binded result for loopback.");
+                if ("BIND".equals(m403a)) {
+                    com.xiaomi.channel.commonutils.logger.b.m101a("build binded result for loopback.");
                     dw.d dVar = new dw.d();
                     dVar.a(true);
                     dVar.c("login success.");
                     dVar.b("success");
                     dVar.a("success");
                     fk fkVar3 = new fk();
-                    fkVar3.a(dVar.m365a(), (String) null);
+                    fkVar3.a(dVar.m367a(), (String) null);
                     fkVar3.a((short) 2);
                     fkVar3.a(VideoItemModel.TYPE_LOADING);
                     fkVar3.a("BIND", (String) null);
@@ -89,20 +89,20 @@ public class ft implements gh {
                     fkVar3.b((String) null);
                     fkVar3.c(fkVar.g());
                     fkVar2 = fkVar3;
-                } else if (!"UBND".equals(m401a) && "SECMSG".equals(m401a)) {
+                } else if (!"UBND".equals(m403a) && "SECMSG".equals(m403a)) {
                     fk fkVar4 = new fk();
                     fkVar4.a(VideoItemModel.TYPE_LOADING);
                     fkVar4.a("SECMSG", (String) null);
                     fkVar4.c(fkVar.g());
                     fkVar4.a(fkVar.e());
-                    fkVar4.a(fkVar.m403a());
+                    fkVar4.a(fkVar.m405a());
                     fkVar4.b(fkVar.f());
-                    fkVar4.a(fkVar.m406a(com.xiaomi.push.service.bg.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), fkVar.g()).h), (String) null);
+                    fkVar4.a(fkVar.m408a(com.xiaomi.push.service.bg.a().a(String.valueOf((int) VideoItemModel.TYPE_LOADING), fkVar.g()).h), (String) null);
                     fkVar2 = fkVar4;
                 }
             }
             if (fkVar2 != null) {
-                for (Map.Entry<ga, fv.a> entry : ft.this.f400a.m424a().entrySet()) {
+                for (Map.Entry<ga, fv.a> entry : ft.this.f400a.m426a().entrySet()) {
                     if (ft.this.f399a != entry.getKey()) {
                         entry.getValue().a(fkVar2);
                     }
@@ -121,7 +121,7 @@ public class ft implements gh {
                 sb.append(ft.this.f403a.format(new Date()));
                 sb.append(this.f404a);
                 sb.append(" PKT ");
-                str = gmVar.mo448a();
+                str = gmVar.mo450a();
             } else {
                 sb = new StringBuilder();
                 sb.append("[Slim] ");
@@ -140,7 +140,7 @@ public class ft implements gh {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.ga.a(Lcom/xiaomi/push/gm;)V */
         @Override // com.xiaomi.push.gi
         /* renamed from: a  reason: collision with other method in class */
-        public boolean mo419a(gm gmVar) {
+        public boolean mo421a(gm gmVar) {
             return true;
         }
     }

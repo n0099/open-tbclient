@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.b;
-import com.baidu.tieba.d15;
-import com.baidu.tieba.w58;
+import com.baidu.tieba.ng8;
+import com.baidu.tieba.z15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes3.dex */
-public class UniqueDialogStrategy implements d15 {
+public class UniqueDialogStrategy implements z15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,7 +59,7 @@ public class UniqueDialogStrategy implements d15 {
         }
     }
 
-    @Override // com.baidu.tieba.d15
+    @Override // com.baidu.tieba.z15
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -72,7 +72,7 @@ public class UniqueDialogStrategy implements d15 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.d15
+    @Override // com.baidu.tieba.z15
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class UniqueDialogStrategy implements d15 {
                 if (Build.VERSION.SDK_INT >= 26) {
                     obj = b.a(",", data.currentShowingDialogList);
                 }
-                w58 yunDialogLog = YunDialogLog.getInstance();
+                ng8 yunDialogLog = YunDialogLog.getInstance();
                 yunDialogLog.c("YunDialogManager", "云弹窗命中唯一策略，当前正在显示弹窗：" + obj);
             }
             return isEmpty;

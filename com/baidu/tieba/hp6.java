@@ -1,125 +1,488 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.EmotionUtil;
 import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import com.baidu.tieba.ed5;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class hp6 implements op6 {
+public class hp6 {
     public static /* synthetic */ Interceptable $ic;
+    public static hp6 c;
+    public static BdAsyncTaskParallel d;
     public transient /* synthetic */ FieldHolder $fh;
-    public jp6 a;
-    public boolean b;
-    public boolean c;
-    public gp6 d;
-    public boolean e;
+    public ArrayList<hd5> a;
+    public final List<ed5> b;
 
-    public hp6(boolean z) {
+    /* loaded from: classes4.dex */
+    public class a extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ArrayList<hd5> a;
+        public final ed5.a b;
+        public final /* synthetic */ hp6 c;
+
+        /* renamed from: com.baidu.tieba.hp6$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class C0294a implements ed5.a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0294a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // com.baidu.tieba.ed5.a
+            public void a(hd5 hd5Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, hd5Var) == null) {
+                    this.a.a.add(hd5Var);
+                }
+            }
+        }
+
+        public a(hp6 hp6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hp6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = hp6Var;
+            this.a = new ArrayList<>();
+            this.b = new C0294a(this);
+            setPriority(4);
+            setParallel(hp6.d);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public void onPostExecute(Void r5) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, r5) == null) {
+                super.onPostExecute(r5);
+                this.c.a = this.a;
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001117));
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) == null) {
+                for (int i = 0; i < this.c.b.size(); i++) {
+                    ((ed5) this.c.b.get(i)).b(this.b);
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947831451, "Lcom/baidu/tieba/hp6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947831451, "Lcom/baidu/tieba/hp6;");
+                return;
+            }
+        }
+        c = new hp6();
+        d = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b.isEmpty()) {
+            try {
+                Class.forName("com.baidu.tieba.faceshop.FaceshopStatic");
+            } catch (Throwable th) {
+                BdLog.e(th);
+            }
+            try {
+                Class.forName("com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic");
+            } catch (Throwable th2) {
+                BdLog.e(th2);
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004602, new ArrayList()));
+        }
+    }
+
+    public hp6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.e = false;
-        this.a = new jp6();
-        this.e = z;
+        this.a = new ArrayList<>();
+        this.b = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.op6
-    public void a(String str, pp6 pp6Var) {
-        gp6 gp6Var;
-        gp6 gp6Var2;
-        float f;
-        float f2;
+    public static hp6 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, pp6Var) != null) || pp6Var == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return c;
+        }
+        return (hp6) invokeV.objValue;
+    }
+
+    public ArrayList<hd5> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            e();
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            new a(this).execute(new Void[0]);
+        }
+    }
+
+    public boolean l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            e();
+            Iterator<hd5> it = this.a.iterator();
+            while (it.hasNext()) {
+                if (it.next().m(str)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean m(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (p(str)) {
+                return false;
+            }
+            return str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean p(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            if (!rf5.f.equals(str) && !"#(meme,diysetting)".equals(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (rf5.f.equals(str) || str.startsWith(rf5.g)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            if ("#(meme,diysetting)".equals(str) || str.startsWith("#(meme,diy_")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void u(ed5 ed5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, ed5Var) == null) {
+            synchronized (this.b) {
+                if (!this.b.contains(ed5Var)) {
+                    this.b.add(ed5Var);
+                    Collections.sort(this.b);
+                }
+            }
+        }
+    }
+
+    public Bitmap t(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, str2)) == null) {
+            return FileHelper.getImage(".emotions/" + str, str2);
+        }
+        return (Bitmap) invokeLL.objValue;
+    }
+
+    public void d(String str, sm smVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLZ(1048576, this, str, smVar, z) != null) || smVar == null) {
             return;
         }
-        if (this.b) {
-            File file = new File(pp6Var.a);
-            Bitmap decodeFile = BitmapFactory.decodeFile(pp6Var.a);
-            if (file.exists() && decodeFile != null) {
-                float height = decodeFile.getHeight();
-                float width = decodeFile.getWidth();
-                float f3 = height * 1.0f;
-                float f4 = f3 / width;
-                if (f4 > 1.0f) {
-                    f = 1.7777778f;
-                } else {
-                    f = 0.75f;
-                }
-                float f5 = 0.0f;
-                if (f4 > f) {
-                    float f6 = f * width;
-                    f2 = (height - f6) * 0.5f;
-                    height = f6;
-                } else {
-                    float f7 = f3 / f;
-                    f5 = (width - f7) * 0.5f;
-                    width = f7;
-                    f2 = 0.0f;
-                }
-                pp6Var.a = FileHelper.saveBitmapByAbsolutelyPath(file.getPath(), file.getName(), Bitmap.createBitmap(decodeFile, (int) f5, (int) f2, (int) width, (int) height), 95);
+        if (z) {
+            TbImageMemoryCache.s().k(f(str, z), smVar);
+            return;
+        }
+        TbImageMemoryCache.s().k(str, smVar);
+    }
+
+    public String f(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
+            if (gp6.e().g()) {
+                return str;
             }
-        }
-        if ("default".equals(str)) {
-            if (!this.c && (gp6Var2 = this.d) != null) {
-                gp6Var2.d0(pp6Var.a);
+            e();
+            if (!z) {
+                return str;
             }
-        } else if ("manual".equals(str) && (gp6Var = this.d) != null) {
-            gp6Var.d0(pp6Var.a);
+            if (gp6.e().f(str)) {
+                return str;
+            }
+            return "#@" + str;
         }
+        return (String) invokeLZ.objValue;
     }
 
-    public void b(qp6 qp6Var, String str) {
+    public String g(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qp6Var, str) == null) {
-            this.a.a(str, this.e).a(qp6Var, this);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
+            if (str == null) {
+                return null;
+            }
+            String str2 = "d_";
+            if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
+                if (p(str)) {
+                    return null;
+                }
+                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
+                String substring = replace.substring(0, replace.indexOf(","));
+                if (substring.contains("collect_")) {
+                    if (substring.contains("_")) {
+                        substring = substring.substring(substring.lastIndexOf("_") + 1);
+                    }
+                    String str3 = xh5.b.c() + "/" + rf5.d() + "/" + substring;
+                    if (z) {
+                        return str3 + "_b.gif";
+                    }
+                    return str3 + "_s.jpg";
+                } else if (substring.contains("diy_")) {
+                    if (substring.contains("_")) {
+                        substring = substring.substring(substring.lastIndexOf("_") + 1);
+                    }
+                    String str4 = xh5.b.c() + "/" + rf5.c() + "/" + substring;
+                    if (z) {
+                        return str4 + "_b.gif";
+                    }
+                    return str4 + "_s.jpg";
+                } else {
+                    long hashCode = str.hashCode();
+                    if (hashCode < 0) {
+                        hashCode *= -1;
+                    }
+                    StringBuilder sb = new StringBuilder();
+                    if (!z) {
+                        str2 = "s_";
+                    }
+                    sb.append(str2);
+                    sb.append(hashCode);
+                    String sb2 = sb.toString();
+                    if (z) {
+                        return sb2 + ".gif";
+                    }
+                    return sb2 + ".jpg";
+                }
+            }
+            long hashCode2 = str.hashCode();
+            if (hashCode2 < 0) {
+                hashCode2 *= -1;
+            }
+            StringBuilder sb3 = new StringBuilder();
+            if (!z) {
+                str2 = "s_";
+            }
+            sb3.append(str2);
+            sb3.append(hashCode2);
+            return sb3.toString();
         }
+        return (String) invokeLZ.objValue;
     }
 
-    @Override // com.baidu.tieba.op6
-    public void onError(String str, String str2) {
+    public String h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            BdLog.e("get cover error ! type : " + str + ", err : " + str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
+                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
+                String substring = replace.substring(0, replace.indexOf(","));
+                if (substring.contains("_")) {
+                    return substring.substring(0, substring.indexOf("_"));
+                }
+            }
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 
-    public void c(boolean z) {
+    @NonNull
+    public String j(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
+                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
+                String substring = replace.substring(0, replace.indexOf(","));
+                if (substring.contains("_")) {
+                    return substring.substring(substring.lastIndexOf("_") + 1);
+                }
+            }
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 
-    public void d(boolean z) {
+    public boolean n(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            if (str == null || !l(str)) {
+                return false;
+            }
+            e();
+            Iterator<hd5> it = this.a.iterator();
+            while (it.hasNext()) {
+                hd5 next = it.next();
+                if (next.m(str)) {
+                    if (next.h() != EmotionGroupType.LOCAL) {
+                        return false;
+                    }
+                    return true;
+                }
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void e(gp6 gp6Var) {
+    public boolean o(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, gp6Var) == null) {
-            this.d = gp6Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            if (!p(str) && str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
+                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
+                String substring = replace.substring(0, replace.indexOf(","));
+                if (substring.contains("_") && !substring.contains("collect_") && !substring.contains("diy_")) {
+                    return true;
+                }
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public sm s(String str, String str2) {
+        InterceptResult invokeLL;
+        Bitmap t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) {
+            sm w = TbImageMemoryCache.s().w(str2);
+            if (w != null) {
+                return w;
+            }
+            e();
+            Iterator<hd5> it = this.a.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                hd5 next = it.next();
+                if (next.m(str2)) {
+                    w = next.o(str2);
+                    break;
+                }
+            }
+            if (w == null && str != null && (t = t(str, g(str2, false))) != null) {
+                w = new sm(t, false, str2);
+            }
+            d(str2, w, false);
+            return w;
+        }
+        return (sm) invokeLL.objValue;
     }
 }

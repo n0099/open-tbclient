@@ -17,6 +17,7 @@ public class AbsMsgImageActivityConfig extends IntentConfig {
     public static final String ID = "id";
     public static final String ID_UNIQUE = "uniqueid";
     public static final String IS_FROM_GROUP_CHAT = "from_group_chat";
+    public static final String IS_SHIELD_LONG_CLICK_VIEW_TITLE = "shield_long_click_view_title";
     public static final int PAGE_TEXT_GEN_IMAGE = 1;
     public static final String PIC_PID = "pid";
     public static final String STATISTIC_INFO_FIELD = "statistic_info_field";
@@ -49,23 +50,30 @@ public class AbsMsgImageActivityConfig extends IntentConfig {
         }
     }
 
+    public void isShieldLongClickViewTitle(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && getIntent() != null) {
+            getIntent().putExtra(IS_SHIELD_LONG_CLICK_VIEW_TITLE, z);
+        }
+    }
+
     public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && getIntent() != null) {
             getIntent().putExtra("from", i);
         }
     }
 
     public void setPid(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && getIntent() != null) {
             getIntent().putExtra("pid", str);
         }
     }
 
     public void setStatisticInfoFild(StatisticInfoField statisticInfoField) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, statisticInfoField) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, statisticInfoField) == null) && getIntent() != null) {
             getIntent().putExtra(STATISTIC_INFO_FIELD, statisticInfoField);
         }
     }

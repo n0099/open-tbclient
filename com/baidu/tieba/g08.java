@@ -1,107 +1,120 @@
 package com.baidu.tieba;
 
+import androidx.collection.LongSparseArray;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.message.MessageSyncMessage;
+import com.baidu.tieba.im.message.ResponsePullMessage;
+import com.baidu.tieba.im.message.ResponseUnLoginMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
 /* loaded from: classes4.dex */
-public final class g08 extends e08<l08> implements qs6<g08> {
+public class g08 extends xa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String c;
-    public boolean d;
-
-    public g08 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (g08) invokeV.objValue;
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g08(k08<l08> data, String templateName) {
-        super(data);
+    public g08() {
+        super(202003);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data, templateName};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((k08) newInitContext.callArgs[0]);
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(templateName, "templateName");
-        this.c = templateName;
     }
 
-    @Override // com.baidu.tieba.qs6
-    public String a() {
-        InterceptResult invokeV;
+    public final void c(GroupMsgData groupMsgData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, groupMsgData) == null) && groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+            MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
         }
-        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.qs6
-    public /* bridge */ /* synthetic */ g08 b() {
-        g();
-        return this;
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.e08
-    public boolean e(e08<?> other) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ua
+    /* renamed from: d */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         InterceptResult invokeL;
-        g08 g08Var;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, other)) == null) {
-            Intrinsics.checkNotNullParameter(other, "other");
-            if (super.e(other)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socketResponsedMessage)) == null) {
+            MessageSyncMessage messageSyncMessage = null;
+            if (!(socketResponsedMessage instanceof ResponsePullMessage)) {
+                return null;
             }
-            if (other instanceof g08) {
-                g08Var = (g08) other;
-            } else {
-                g08Var = null;
+            if (socketResponsedMessage.getOrginalMessage() != null && (socketResponsedMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
+                messageSyncMessage = (MessageSyncMessage) socketResponsedMessage.getOrginalMessage();
             }
-            if (g08Var != null && this.d == g08Var.d) {
-                z = true;
-            } else {
-                z = false;
+            if (messageSyncMessage != null) {
+                e45.a("im", messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
             }
-            if (!z) {
-                return true;
+            if (socketResponsedMessage.getError() == 110000) {
+                MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
+            }
+            ResponsePullMessage responsePullMessage = (ResponsePullMessage) socketResponsedMessage;
+            List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
+            if (groupMsg != null && groupMsg.size() > 0) {
+                for (GroupMsgData groupMsgData : groupMsg) {
+                    if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+                        c(groupMsgData);
+                    }
+                }
+            }
+            if (!e(responsePullMessage)) {
+                e08.n().p();
+            }
+            return socketResponsedMessage;
+        }
+        return (SocketResponsedMessage) invokeL.objValue;
+    }
+
+    public final boolean e(ResponsePullMessage responsePullMessage) {
+        InterceptResult invokeL;
+        Long l;
+        Long l2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, responsePullMessage)) == null) {
+            if (responsePullMessage != null && responsePullMessage.getGroupMsg() != null && responsePullMessage.getGroupMsg().size() != 0 && !responsePullMessage.hasError()) {
+                List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
+                if (!(responsePullMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
+                    return false;
+                }
+                MessageSyncMessage messageSyncMessage = (MessageSyncMessage) responsePullMessage.getOrginalMessage();
+                if (messageSyncMessage.getGroupMids() != null && messageSyncMessage.getGroupMids().size() != 0) {
+                    LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
+                    LongSparseArray<Long> q = xz7.n().q();
+                    boolean z = false;
+                    for (GroupMsgData groupMsgData : groupMsg) {
+                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null && yz7.a(groupMsgData.getGroupInfo().getCustomType()) && (l = q.get(groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
+                            if (l.longValue() > l2.longValue()) {
+                                z = true;
+                            }
+                            if (groupMsgData.hasMore()) {
+                                longSparseArray.put(groupMsgData.getGroupInfo().getGroupId(), l);
+                            }
+                        }
+                    }
+                    if (z && longSparseArray.size() > 0) {
+                        e08.n().t(longSparseArray);
+                        return true;
+                    }
+                }
             }
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    public final void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.d = z;
-        }
     }
 }

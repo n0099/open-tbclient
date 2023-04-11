@@ -36,6 +36,7 @@ import com.baidu.searchbox.live.data.constant.MixYaLogConstants;
 import com.baidu.searchbox.live.eventbus.EventAction;
 import com.baidu.searchbox.live.eventbus.MixEventBus;
 import com.baidu.searchbox.live.frame.IntentData;
+import com.baidu.searchbox.live.interfaces.context.PluginContextUtil;
 import com.baidu.searchbox.live.interfaces.mix.IMixActivityInterface;
 import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
@@ -342,11 +343,11 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final MixYYFakeShell.OrientationChangeCallBack invoke() {
-                Context context2 = context;
-                if (context2 != null) {
-                    return new MixYYFakeShell.OrientationChangeCallBack(new WeakReference((Activity) context2));
+                Activity activity = PluginContextUtil.INSTANCE.getActivity(context);
+                if (activity == null) {
+                    Intrinsics.throwNpe();
                 }
-                throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                return new MixYYFakeShell.OrientationChangeCallBack(new WeakReference(activity));
             }
         });
         this.handler = new Handler(Looper.getMainLooper());
@@ -454,23 +455,6 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
         }
     }
 
-    private final void onRealDetach() {
-        log("RoomLifrCycle MixLiveShell onRealDetach");
-        if (!this.isDetach) {
-            this.isDetach = true;
-            super.onLiveDetach();
-            Lifecycle lifeCycle = getMixActivity().getLifeCycle();
-            if (lifeCycle != null) {
-                lifeCycle.removeObserver(this);
-            }
-            MixEventBus.getInstance().unRegister(this);
-            this.isSelected = false;
-            syncSelectState();
-            syncAttachState();
-            this.yyView = null;
-        }
-    }
-
     private final void registerRoomInfoService() {
         ServiceLocator.Companion.registerGlobalServices(LiveMixRoomInfoService.class, new LiveMixRoomInfoService() { // from class: com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell$registerRoomInfoService$1
             @Override // com.baidu.searchbox.live.service.LiveMixRoomInfoService
@@ -533,7 +517,6 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
         this.isDestroy = false;
         this.curState = STATE_CREATE;
         log("MixLiveShell onCreate ");
-        registerRoomInfoService();
         syncActivityLifecycle();
     }
 
@@ -562,6 +545,7 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
         super.onLiveAttach();
         this.isAttach = true;
         log("RoomLifrCycle MixLiveShell onLiveAttach ");
+        registerRoomInfoService();
         Lifecycle lifeCycle = getMixActivity().getLifeCycle();
         if (lifeCycle != null) {
             lifeCycle.addObserver(this);
@@ -706,6 +690,24 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
             } catch (Throwable th) {
                 log("call create crash throwable th: " + th);
             }
+        }
+    }
+
+    private final void onRealDetach() {
+        log("RoomLifrCycle MixLiveShell onRealDetach");
+        if (!this.isDetach) {
+            this.isDetach = true;
+            super.onLiveDetach();
+            Lifecycle lifeCycle = getMixActivity().getLifeCycle();
+            if (lifeCycle != null) {
+                lifeCycle.removeObserver(this);
+            }
+            MixEventBus.getInstance().unRegister(this);
+            ServiceLocator.Companion.unregisterGlobalService(LiveMixRoomInfoService.class);
+            this.isSelected = false;
+            syncSelectState();
+            syncAttachState();
+            this.yyView = null;
         }
     }
 
@@ -904,12 +906,11 @@ public final class MixYYFakeShell extends AbstractMixFakeShell implements Lifecy
             if (i == STATE_CREATE) {
                 if (mixLiveInterface != null) {
                     try {
-                        Context context = getContext();
-                        if (context != null) {
-                            mixLiveInterface.attachActivity((Activity) context);
-                        } else {
-                            throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
+                        Activity activity = PluginContextUtil.INSTANCE.getActivity(getContext());
+                        if (activity == null) {
+                            Intrinsics.throwNpe();
                         }
+                        mixLiveInterface.attachActivity(activity);
                     } catch (Throwable th) {
                         log("onCreate attachActivity crash throwable th：" + th);
                     }

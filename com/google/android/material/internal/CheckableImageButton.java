@@ -17,7 +17,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.tieba.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CheckableImageButton extends AppCompatImageButton implements Checkable {
     public static final int[] DRAWABLE_STATE_CHECKED = {16842912};
     public boolean checkable;
@@ -50,7 +50,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
         setChecked(!this.checked);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.internal.CheckableImageButton.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

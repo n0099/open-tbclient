@@ -23,12 +23,12 @@ import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.swan.apps.media.image.HugePhotoDraweeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iv2;
-import com.baidu.tieba.kl3;
-import com.baidu.tieba.mv2;
-import com.baidu.tieba.rk3;
-import com.baidu.tieba.sv2;
-import com.baidu.tieba.wv2;
+import com.baidu.tieba.jv2;
+import com.baidu.tieba.ll3;
+import com.baidu.tieba.nv2;
+import com.baidu.tieba.sk3;
+import com.baidu.tieba.tv2;
+import com.baidu.tieba.xv2;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.AbstractDraweeController;
 import com.facebook.drawee.controller.BaseControllerListener;
@@ -44,9 +44,9 @@ import java.util.ArrayList;
 public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
     public ArrayList<MediaModel> a;
     public Activity c;
-    public mv2 d;
+    public nv2 d;
     public h f;
-    public sv2 g;
+    public tv2 g;
     public int[] e = new int[1];
     public SparseArray<View> b = new SparseArray<>();
 
@@ -263,8 +263,8 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
                 this.a.setIsDynamicBitmap(false);
                 this.a.setZoomEnabled(true);
                 Bitmap underlyingBitmap = ((CloseableStaticBitmap) obj).getUnderlyingBitmap();
-                SwanAppAlbumPreviewAdapter.this.e = rk3.j();
-                wv2 b = wv2.b(underlyingBitmap);
+                SwanAppAlbumPreviewAdapter.this.e = sk3.j();
+                xv2 b = xv2.b(underlyingBitmap);
                 if (b == null) {
                     return;
                 }
@@ -293,10 +293,10 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
 
         public h(SwanAppAlbumPreviewAdapter swanAppAlbumPreviewAdapter, View view2) {
             this.a = view2;
-            this.b = (HugePhotoDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090266);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f091c0d);
-            this.d = (VideoView) view2.findViewById(R.id.obfuscated_res_0x7f091c10);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092774);
+            this.b = (HugePhotoDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09025f);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f091bfc);
+            this.d = (VideoView) view2.findViewById(R.id.obfuscated_res_0x7f091bff);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092762);
         }
     }
 
@@ -307,13 +307,13 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
 
     public final void p(h hVar, ImageModel imageModel) {
         if (this.g == null) {
-            this.g = new sv2(this.c);
+            this.g = new tv2(this.c);
         }
         this.g.i(hVar.a, imageModel.getPath());
     }
 
     public final void s(h hVar, boolean z) {
-        mv2 mv2Var;
+        nv2 nv2Var;
         if (hVar == null) {
             return;
         }
@@ -321,14 +321,14 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         Animation loadAnimation = AnimationUtils.loadAnimation(this.c, R.anim.obfuscated_res_0x7f010149);
         loadAnimation.setAnimationListener(new f(this, hVar));
         hVar.b.startAnimation(loadAnimation);
-        if (z && (mv2Var = this.d) != null) {
-            mv2Var.e();
+        if (z && (nv2Var = this.d) != null) {
+            nv2Var.e();
         }
     }
 
     public void u(int i, @ColorInt int i2) {
         if (i < this.b.size() && this.b.get(i) != null) {
-            this.b.get(i).findViewById(R.id.obfuscated_res_0x7f090267).setBackgroundColor(i2);
+            this.b.get(i).findViewById(R.id.obfuscated_res_0x7f090260).setBackgroundColor(i2);
         }
     }
 
@@ -346,8 +346,8 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         hVar.b.startAnimation(loadAnimation);
     }
 
-    public void x(mv2 mv2Var) {
-        this.d = mv2Var;
+    public void x(nv2 nv2Var) {
+        this.d = nv2Var;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -386,7 +386,7 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         MediaModel mediaModel = this.a.get(i);
         View view2 = this.b.get(i);
         if (view2 == null) {
-            view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0898, viewGroup, false);
+            view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0893, viewGroup, false);
             hVar = new h(this, view2);
             view2.setTag(hVar);
             this.b.put(i, view2);
@@ -401,8 +401,8 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
 
     public final void o(HugePhotoDraweeView hugePhotoDraweeView, Bitmap bitmap) {
         float width;
-        int o = kl3.o(this.c);
-        int n = kl3.n(this.c);
+        int o = ll3.o(this.c);
+        int n = ll3.n(this.c);
         if (bitmap != null && bitmap.getHeight() > n * 1.6f) {
             if (bitmap.getWidth() == 0) {
                 width = 1.0f;
@@ -425,9 +425,9 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
                 fromFile = Uri.fromFile(new File(mediaModel.getPath()));
             }
             ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(fromFile);
-            newBuilderWithSource.setResizeOptions(new ResizeOptions(kl3.o(this.c), kl3.n(this.c), 10240.0f));
+            newBuilderWithSource.setResizeOptions(new ResizeOptions(ll3.o(this.c), ll3.n(this.c), 10240.0f));
             newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
-            AbstractDraweeController build = Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(iv2.d).setImageRequest(newBuilderWithSource.build()).setControllerListener(l).setOldController(hVar.b.getController()).build();
+            AbstractDraweeController build = Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(jv2.d).setImageRequest(newBuilderWithSource.build()).setControllerListener(l).setOldController(hVar.b.getController()).build();
             hVar.b.setVisibility(0);
             hVar.b.setController(build);
             if (mediaModel instanceof ImageModel) {

@@ -1,134 +1,124 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class y1a {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayList<MetaData> a;
+    public final Set<String> b;
+    public final ArrayList<MetaData> c;
+    public HashMap<String, String> d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948278688, "Lcom/baidu/tieba/y1a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948278688, "Lcom/baidu/tieba/y1a;");
+    public y1a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = t0a.m();
+        this.a = new ArrayList<>();
+        this.b = new HashSet();
+        this.c = new ArrayList<>();
+        this.d = null;
     }
 
-    public static byte[] a(InputStream inputStream) {
-        InterceptResult invokeL;
-        int i;
+    public ArrayList<MetaData> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[1024];
-            while (true) {
-                try {
-                    i = inputStream.read(bArr, 0, 1024);
-                } catch (IOException e) {
-                    if (a) {
-                        Log.e("StringUtil", e.toString());
-                    }
-                    i = 0;
-                }
-                if (i == -1) {
-                    break;
-                }
-                byteArrayOutputStream.write(bArr, 0, i);
-            }
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            try {
-                byteArrayOutputStream.close();
-            } catch (IOException e2) {
-                if (a) {
-                    Log.e("StringUtil", e2.toString());
-                }
-            }
-            return byteArray;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (byte[]) invokeL.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION] complete} */
-    public static String b(InputStream inputStream) {
-        InterceptResult invokeL;
+    public Set<String> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public ArrayList<MetaData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             try {
-                try {
-                    byte[] a2 = a(inputStream);
-                    if (a2 != null) {
-                        String str = new String(a2);
-                        if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                            str = str.substring(1);
-                        }
-                        return str;
-                    } else if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                            return null;
-                        } catch (Exception e) {
-                            e = e;
-                            if (!a) {
-                                return null;
-                            }
-                            Log.e("StringUtil", e.toString());
-                            return null;
-                        }
-                    } else {
-                        return null;
-                    }
-                } finally {
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception e2) {
-                            if (a) {
-                                Log.e("StringUtil", e2.toString());
-                            }
-                        }
-                    }
-                }
-            } catch (Exception e3) {
-                if (a) {
-                    Log.e("StringUtil", " getStringFromInput exception: ", e3);
-                }
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                        return null;
-                    } catch (Exception e4) {
-                        e = e4;
-                        if (!a) {
-                            return null;
-                        }
-                        Log.e("StringUtil", e.toString());
-                        return null;
-                    }
-                }
-                return null;
+                e(new JSONObject(str), true);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void e(JSONObject jSONObject, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048580, this, jSONObject, z) != null) || jSONObject == null) {
+            return;
+        }
+        if (z) {
+            try {
+                if (this.d == null) {
+                    this.d = new HashMap<>();
+                }
+            } catch (Exception e) {
+                BdLog.detailException(e);
+                return;
+            }
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+        if (optJSONArray != null) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                MetaData metaData = new MetaData();
+                metaData.parserJson(optJSONArray.getJSONObject(i));
+                if (!TextUtils.isEmpty(metaData.getName_show())) {
+                    this.a.add(metaData);
+                    if (z) {
+                        this.d.put(metaData.getName_show(), metaData.getPortrait());
+                    }
+                }
+            }
+        }
+        JSONArray optJSONArray2 = jSONObject.optJSONArray("bot_list");
+        if (optJSONArray2 != null) {
+            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                MetaData metaData2 = new MetaData();
+                metaData2.parserJson(optJSONArray2.getJSONObject(i2));
+                if (!TextUtils.isEmpty(metaData2.getName_show())) {
+                    this.c.add(metaData2);
+                    this.b.add(metaData2.getUserId());
+                }
+            }
+        }
     }
 }

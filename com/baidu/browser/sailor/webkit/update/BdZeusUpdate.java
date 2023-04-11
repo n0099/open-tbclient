@@ -12,8 +12,8 @@ import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tieba.bw;
-import com.baidu.tieba.lw;
+import com.baidu.tieba.cw;
+import com.baidu.tieba.mw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -245,7 +245,7 @@ public class BdZeusUpdate {
             } else if (bdZeusUpdate.d) {
                 return;
             } else {
-                if (lw.d(context)) {
+                if (mw.d(context)) {
                     BdZesuUpdateTask bdZesuUpdateTask = new BdZesuUpdateTask(bdZeusUpdate, context, "https://mbrowser.baidu.com/api/update/kernel?version=");
                     BdNet bdNet = new BdNet(context);
                     bdNet.setEventListener(bdZesuUpdateTask);
@@ -323,7 +323,7 @@ public class BdZeusUpdate {
                 d(sb, "sdk", sdkVersionName);
             }
             String cuid = BdSailorPlatform.getInstance().getCuid();
-            String f = !TextUtils.isEmpty(cuid) ? lw.f(cuid) : "";
+            String f = !TextUtils.isEmpty(cuid) ? mw.f(cuid) : "";
             if (!TextUtils.isEmpty(f)) {
                 d(sb, "cuid", f);
             }
@@ -339,7 +339,7 @@ public class BdZeusUpdate {
             stringBuffer.append(i);
             stringBuffer.append("_");
             stringBuffer.append(str4.replace("_", "-"));
-            String f2 = lw.f(stringBuffer.toString().replace(" ", "-"));
+            String f2 = mw.f(stringBuffer.toString().replace(" ", "-"));
             if (!TextUtils.isEmpty(f2)) {
                 d(sb, BdZeusUtil.URL_KEY_MACHINE, f2);
             }
@@ -541,7 +541,7 @@ public class BdZeusUpdate {
             }
             if (z) {
                 try {
-                    float a2 = bw.a() / 1024.0f;
+                    float a2 = cw.a() / 1024.0f;
                     String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("update_zeus_mem_size_mb");
                     if (a2 < (TextUtils.isEmpty(GetCloudSettingsValue) ? 1024 : Integer.valueOf(GetCloudSettingsValue).intValue())) {
                         return;

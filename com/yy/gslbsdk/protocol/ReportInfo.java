@@ -3,7 +3,7 @@ package com.yy.gslbsdk.protocol;
 import com.yy.gslbsdk.device.NetStatusInfo;
 import java.util.HashMap;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ReportInfo {
     public LinkedList<HijackInfo> hijack;
     public HashMap<String, StatsInfo> stats1;

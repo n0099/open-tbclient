@@ -25,25 +25,25 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gt4;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.is9;
-import com.baidu.tieba.k45;
-import com.baidu.tieba.lb5;
-import com.baidu.tieba.m35;
-import com.baidu.tieba.md5;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.bd5;
+import com.baidu.tieba.c05;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.it4;
+import com.baidu.tieba.n55;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.pc5;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.tieba.q25;
+import com.baidu.tieba.qe5;
 import com.baidu.tieba.write.view.CustomPrivacyDialogView;
-import com.baidu.tieba.xb5;
-import com.baidu.tieba.zz4;
+import com.baidu.tieba.z1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class EditorInfoContainer extends LinearLayout implements xb5 {
+public class EditorInfoContainer extends LinearLayout implements bd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBSpecificationBtn a;
@@ -68,7 +68,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         void a(boolean z);
     }
 
-    @Override // com.baidu.tieba.xb5
+    @Override // com.baidu.tieba.bd5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -144,7 +144,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
                         }
                         this.a.b.B(i);
                         if ("2".equals(this.a.b.h)) {
-                            is9.b(this.a.b.j, i);
+                            z1a.b(this.a.b.j, i);
                         }
                     }
                 }
@@ -217,7 +217,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_COMMUNITY_CONVENTION_CLICK).addParam("obj_locate", "2").addParam("uid", TbadkCoreApplication.getCurrentAccount()));
-                TbWebViewActivityConfig g = gt4.g(this.a.getContext(), "", TbConfig.COMMUNITY_CONVENTION, true);
+                TbWebViewActivityConfig g = it4.g(this.a.getContext(), "", TbConfig.COMMUNITY_CONVENTION, true);
                 g.setFixTitle(true);
                 g.start();
             }
@@ -229,15 +229,15 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j a;
-        public final /* synthetic */ zz4 b;
+        public final /* synthetic */ c05 b;
         public final /* synthetic */ EditorInfoContainer c;
 
-        public b(EditorInfoContainer editorInfoContainer, j jVar, zz4 zz4Var) {
+        public b(EditorInfoContainer editorInfoContainer, j jVar, c05 c05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editorInfoContainer, jVar, zz4Var};
+                Object[] objArr = {editorInfoContainer, jVar, c05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -249,7 +249,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
             }
             this.c = editorInfoContainer;
             this.a = jVar;
-            this.b = zz4Var;
+            this.b = c05Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -270,15 +270,15 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j a;
-        public final /* synthetic */ zz4 b;
+        public final /* synthetic */ c05 b;
         public final /* synthetic */ EditorInfoContainer c;
 
-        public c(EditorInfoContainer editorInfoContainer, j jVar, zz4 zz4Var) {
+        public c(EditorInfoContainer editorInfoContainer, j jVar, c05 c05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editorInfoContainer, jVar, zz4Var};
+                Object[] objArr = {editorInfoContainer, jVar, c05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -290,7 +290,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
             }
             this.c = editorInfoContainer;
             this.a = jVar;
-            this.b = zz4Var;
+            this.b = c05Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -334,7 +334,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.L(new lb5(43, -1, null));
+                this.a.H(new pc5(43, -1, null));
             }
         }
     }
@@ -369,7 +369,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 boolean z = !((Boolean) this.a.c.a).booleanValue();
                 this.a.E(z);
-                m35.m().w("key_write_virtual_image_enable" + TbadkCoreApplication.getCurrentAccount(), z);
+                p45.m().w("key_write_virtual_image_enable" + TbadkCoreApplication.getCurrentAccount(), z);
             }
         }
     }
@@ -404,13 +404,13 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 boolean z = !((Boolean) this.a.d.a).booleanValue();
                 this.a.D(z);
-                m35.m().w(m35.q("key_write_add_bless_enable"), z);
+                p45.m().w(p45.q("key_write_add_bless_enable"), z);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class h implements is9.c {
+    public class h implements z1a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditorInfoContainer a;
@@ -433,7 +433,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
             this.a = editorInfoContainer;
         }
 
-        @Override // com.baidu.tieba.is9.c
+        @Override // com.baidu.tieba.z1a.c
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -475,7 +475,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921756) {
-                m35 m = m35.m();
+                p45 m = p45.m();
                 this.a.E(m.i("key_write_virtual_image_enable" + TbadkCoreApplication.getCurrentAccount(), true));
             }
         }
@@ -542,25 +542,25 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
     public final void A(Context context, int i2, j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, context, i2, jVar) == null) {
-            boolean i3 = m35.m().i("show_privacy_dialog", false);
+            boolean i3 = p45.m().i("show_privacy_dialog", false);
             if (i2 != 1 && !i3) {
-                m35.m().w("show_privacy_dialog", true);
+                p45.m().w("show_privacy_dialog", true);
                 TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) context;
                 if (tbPageContextSupport != null && tbPageContextSupport.getPageContext() != null && tbPageContextSupport.getPageContext().getPageActivity() != null) {
-                    zz4 zz4Var = new zz4(tbPageContextSupport.getPageContext().getPageActivity());
-                    zz4Var.setCancelable(false);
-                    zz4Var.setPositiveButton((String) null, (zz4.e) null);
-                    zz4Var.setNegativeButton((String) null, (zz4.e) null);
-                    zz4Var.setContentViewSize(6);
+                    c05 c05Var = new c05(tbPageContextSupport.getPageContext().getPageActivity());
+                    c05Var.setCancelable(false);
+                    c05Var.setPositiveButton((String) null, (c05.e) null);
+                    c05Var.setNegativeButton((String) null, (c05.e) null);
+                    c05Var.setContentViewSize(6);
                     CustomPrivacyDialogView customPrivacyDialogView = new CustomPrivacyDialogView(context);
-                    customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f171b));
+                    customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f1711));
                     customPrivacyDialogView.setMessageTextViewColor(SkinManager.getColor(R.color.CAM_X0107));
-                    customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f1719));
-                    customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f171a));
-                    customPrivacyDialogView.setPrivacyDialogCancelButtonListener(new b(this, jVar, zz4Var));
-                    customPrivacyDialogView.setPrivacyDialogConfirmButtonListener(new c(this, jVar, zz4Var));
-                    zz4Var.setContentView(customPrivacyDialogView);
-                    zz4Var.create(tbPageContextSupport.getPageContext()).show();
+                    customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f170f));
+                    customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f1710));
+                    customPrivacyDialogView.setPrivacyDialogCancelButtonListener(new b(this, jVar, c05Var));
+                    customPrivacyDialogView.setPrivacyDialogConfirmButtonListener(new c(this, jVar, c05Var));
+                    c05Var.setContentView(customPrivacyDialogView);
+                    c05Var.create(tbPageContextSupport.getPageContext()).show();
                     TiebaStatic.log(new StatisticItem("c13804"));
                 }
             } else if (jVar != null) {
@@ -569,16 +569,16 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         }
     }
 
-    @Override // com.baidu.tieba.xb5
-    public void L(lb5 lb5Var) {
+    @Override // com.baidu.tieba.bd5
+    public void H(pc5 pc5Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, lb5Var) == null) && (editorTools = this.e) != null) {
-            editorTools.C(lb5Var);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, pc5Var) == null) && (editorTools = this.e) != null) {
+            editorTools.C(pc5Var);
         }
     }
 
-    @Override // com.baidu.tieba.xb5
+    @Override // com.baidu.tieba.bd5
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, editorTools) == null) {
@@ -593,7 +593,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         }
     }
 
-    @Override // com.baidu.tieba.xb5
+    @Override // com.baidu.tieba.bd5
     public void setToolId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
@@ -634,7 +634,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048596, this, str, i2) == null) && "2".equals(this.h)) {
             this.j = str;
-            is9.a(str, i2, new h(this));
+            z1a.a(str, i2, new h(this));
         }
     }
 
@@ -642,7 +642,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1014));
+            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f100d));
             TBSpecificationButtonConfig styleConfig = this.a.getStyleConfig();
             if (i2 == 0) {
                 i3 = R.drawable.icon_pure_post_chosen12;
@@ -655,30 +655,30 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
             if (i2 == 0) {
                 z = true;
             }
-            styleConfig2.h(md5.b(z));
+            styleConfig2.h(qe5.b(z));
             this.a.a = Integer.valueOf(i2);
         }
     }
 
-    @Override // com.baidu.tieba.mb5
-    public void C(lb5 lb5Var) {
+    @Override // com.baidu.tieba.qc5
+    public void C(pc5 pc5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lb5Var) != null) || lb5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pc5Var) != null) || pc5Var == null) {
             return;
         }
-        int i2 = lb5Var.a;
+        int i2 = pc5Var.a;
         if (i2 != 54) {
             if (i2 != 57) {
                 if (i2 == 65) {
-                    L(new lb5(66, -1, Boolean.valueOf(y())));
+                    H(new pc5(66, -1, Boolean.valueOf(y())));
                     return;
                 }
                 return;
             }
-            L(new lb5(58, -1, Boolean.FALSE));
+            H(new pc5(58, -1, Boolean.FALSE));
             return;
         }
-        L(new lb5(55, -1, Boolean.valueOf(x())));
+        H(new pc5(55, -1, Boolean.valueOf(x())));
     }
 
     public final void D(boolean z) {
@@ -693,7 +693,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
                 i2 = R.drawable.icon_pure_post_chose12;
             }
             styleConfig.i(i2, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            this.d.getStyleConfig().h(md5.b(z));
+            this.d.getStyleConfig().h(qe5.b(z));
             this.d.a = Boolean.valueOf(z);
         }
     }
@@ -702,7 +702,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1267));
+            this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f125d));
             TBSpecificationButtonConfig styleConfig = this.c.getStyleConfig();
             if (z) {
                 i2 = R.drawable.icon_pure_post_chosen12;
@@ -710,7 +710,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
                 i2 = R.drawable.icon_pure_post_chose12;
             }
             styleConfig.i(i2, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            this.c.getStyleConfig().h(md5.b(z));
+            this.c.getStyleConfig().h(qe5.b(z));
             this.c.a = Boolean.valueOf(z);
         }
     }
@@ -745,11 +745,11 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         this.c = k;
         k.setOnClickListener(new f(this));
         this.m.addView(this.c);
-        m35 m = m35.m();
+        p45 m = p45.m();
         E(m.i("key_write_virtual_image_enable" + TbadkCoreApplication.getCurrentAccount(), true));
     }
 
-    @Override // com.baidu.tieba.xb5
+    @Override // com.baidu.tieba.bd5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -760,7 +760,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         }
     }
 
-    @Override // com.baidu.tieba.xb5
+    @Override // com.baidu.tieba.bd5
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -770,7 +770,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.xb5
+    @Override // com.baidu.tieba.bd5
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -828,18 +828,18 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, hi.g(getContext(), R.dimen.tbds62));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, ii.g(getContext(), R.dimen.tbds62));
             layoutParams.rightMargin = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
-            k45 k45Var = new k45();
-            k45Var.r(R.color.CAM_X0209, SkinManager.getColor(R.color.CAM_X0105));
-            k45Var.y(false);
-            k45Var.h(md5.b(true));
-            k45Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            k45Var.n(hi.g(getContext(), R.dimen.M_W_X004), hi.g(getContext(), R.dimen.M_W_X004));
-            k45Var.o(hi.g(getContext(), R.dimen.M_H_X002));
-            k45Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            n55 n55Var = new n55();
+            n55Var.r(R.color.CAM_X0209, SkinManager.getColor(R.color.CAM_X0105));
+            n55Var.y(false);
+            n55Var.h(qe5.b(true));
+            n55Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            n55Var.n(ii.g(getContext(), R.dimen.M_W_X004), ii.g(getContext(), R.dimen.M_W_X004));
+            n55Var.o(ii.g(getContext(), R.dimen.M_H_X002));
+            n55Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
-            tBSpecificationBtn.setConfig(k45Var);
+            tBSpecificationBtn.setConfig(n55Var);
             tBSpecificationBtn.setTextSize(R.dimen.T_X09);
             tBSpecificationBtn.setLayoutParams(layoutParams);
             return tBSpecificationBtn;
@@ -847,12 +847,12 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         return (TBSpecificationBtn) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xb5
+    @Override // com.baidu.tieba.bd5
     public void onChangeSkinType(int i2) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            n15.d(this.o).f(R.color.CAM_X0401);
+            q25.d(this.o).f(R.color.CAM_X0401);
             TBSpecificationBtn tBSpecificationBtn = this.a;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.getStyleConfig().k(SkinManager.getColor(R.color.CAM_X0105));
@@ -862,7 +862,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
                 } else {
                     z = false;
                 }
-                styleConfig.h(md5.b(z));
+                styleConfig.h(qe5.b(z));
                 this.a.k();
             }
             TBSpecificationBtn tBSpecificationBtn2 = this.b;
@@ -876,13 +876,13 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
             TBSpecificationBtn tBSpecificationBtn3 = this.c;
             if (tBSpecificationBtn3 != null) {
                 tBSpecificationBtn3.getStyleConfig().k(SkinManager.getColor(R.color.CAM_X0105));
-                this.c.getStyleConfig().h(md5.b(((Boolean) this.c.a).booleanValue()));
+                this.c.getStyleConfig().h(qe5.b(((Boolean) this.c.a).booleanValue()));
                 this.c.k();
             }
             TBSpecificationBtn tBSpecificationBtn4 = this.d;
             if (tBSpecificationBtn4 != null) {
                 tBSpecificationBtn4.getStyleConfig().k(SkinManager.getColor(R.color.CAM_X0105));
-                this.d.getStyleConfig().h(md5.b(((Boolean) this.d.a).booleanValue()));
+                this.d.getStyleConfig().h(qe5.b(((Boolean) this.d.a).booleanValue()));
                 this.d.k();
             }
         }
@@ -891,19 +891,19 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
     public final void q(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, context) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, hi.g(getContext(), R.dimen.tbds62));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, ii.g(getContext(), R.dimen.tbds62));
             layoutParams.rightMargin = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
-            k45 k45Var = new k45();
-            k45Var.r(R.color.CAM_X0209, R.color.CAM_X0105);
-            k45Var.h(R.color.CAM_X0110);
-            k45Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            k45Var.n(hi.g(getContext(), R.dimen.M_W_X004), hi.g(getContext(), R.dimen.M_W_X004));
-            k45Var.o(hi.g(getContext(), R.dimen.M_H_X002));
-            k45Var.i(R.drawable.ic_icon_pure_post_topic12, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            k45Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            n55 n55Var = new n55();
+            n55Var.r(R.color.CAM_X0209, R.color.CAM_X0105);
+            n55Var.h(R.color.CAM_X0110);
+            n55Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            n55Var.n(ii.g(getContext(), R.dimen.M_W_X004), ii.g(getContext(), R.dimen.M_W_X004));
+            n55Var.o(ii.g(getContext(), R.dimen.M_H_X002));
+            n55Var.i(R.drawable.ic_icon_pure_post_topic12, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            n55Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
             this.b = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(k45Var);
+            tBSpecificationBtn.setConfig(n55Var);
             this.b.setTextSize(R.dimen.T_X09);
             this.b.setText(getContext().getString(R.string.editor_hot_tipc));
             this.b.setOnClickListener(new d(this));
@@ -914,19 +914,19 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
     public final void r(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, context) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, hi.g(getContext(), R.dimen.tbds62));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, ii.g(getContext(), R.dimen.tbds62));
             layoutParams.rightMargin = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
-            k45 k45Var = new k45();
-            k45Var.r(R.color.CAM_X0209, SkinManager.getColor(R.color.CAM_X0105));
-            k45Var.y(false);
-            k45Var.h(md5.b(true));
-            k45Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            k45Var.n(hi.g(getContext(), R.dimen.M_W_X004), hi.g(getContext(), R.dimen.M_W_X004));
-            k45Var.o(hi.g(getContext(), R.dimen.M_H_X002));
-            k45Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            n55 n55Var = new n55();
+            n55Var.r(R.color.CAM_X0209, SkinManager.getColor(R.color.CAM_X0105));
+            n55Var.y(false);
+            n55Var.h(qe5.b(true));
+            n55Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            n55Var.n(ii.g(getContext(), R.dimen.M_W_X004), ii.g(getContext(), R.dimen.M_W_X004));
+            n55Var.o(ii.g(getContext(), R.dimen.M_H_X002));
+            n55Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
             this.a = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(k45Var);
+            tBSpecificationBtn.setConfig(n55Var);
             this.a.setTextSize(R.dimen.T_X09);
             B(0);
             this.a.setLayoutParams(layoutParams);
@@ -954,13 +954,13 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
 
     public final void u(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048601, this, context) != null) || !md5.a()) {
+        if ((interceptable != null && interceptable.invokeL(1048601, this, context) != null) || !qe5.a()) {
             return;
         }
         TBSpecificationBtn k = k(context);
         this.d = k;
         k.setOnClickListener(new g(this));
         this.m.addView(this.d);
-        D(m35.m().i(m35.q("key_write_add_bless_enable"), true));
+        D(p45.m().i(p45.q("key_write_add_bless_enable"), true));
     }
 }

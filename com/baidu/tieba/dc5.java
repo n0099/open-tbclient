@@ -1,47 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.db.DBTableDefine;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.UserTaskInfo;
 /* loaded from: classes4.dex */
-public abstract class dc5 {
+public class dc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rm a;
-    public rm b;
-    public int c;
+    public String a;
+    public String b;
+    public String c;
     public int d;
-
-    public abstract String b(int i);
-
-    public abstract int c();
-
-    public abstract String f();
-
-    public abstract String g();
-
-    public abstract EmotionGroupType h();
-
-    public abstract int i();
-
-    public abstract boolean j();
-
-    public abstract int l();
-
-    public abstract boolean m(String str);
-
-    public abstract rm n(String str);
-
-    public abstract rm o(String str);
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-        }
-    }
+    public int e;
+    public String f;
+    public String g;
 
     public dc5() {
         Interceptable interceptable = $ic;
@@ -57,73 +36,102 @@ public abstract class dc5 {
         }
     }
 
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.d;
         }
         return invokeV.intValue;
     }
 
-    public rm d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (rm) invokeV.objValue;
-    }
-
-    public rm e() {
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+            return this.g;
         }
-        return (rm) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public int k() {
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
         }
         return invokeV.intValue;
     }
 
-    public void q(int i) {
+    public void h(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.d = i;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
+        jSONObject.optLong("id");
+        this.a = jSONObject.optString("name");
+        this.b = jSONObject.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+        this.c = jSONObject.optString("task_icon_url");
+        this.d = jSONObject.optInt("status");
+        jSONObject.optInt("target_num");
+        jSONObject.optInt("curr_num");
+        jSONObject.optInt("task_type");
+        this.e = jSONObject.optInt("weight");
+        this.f = jSONObject.optString("act_type");
+        this.g = jSONObject.optString("target_scheme");
     }
 
-    public void r(rm rmVar) {
+    public void i(UserTaskInfo userTaskInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, rmVar) == null) {
-            if (rmVar != null) {
-                rmVar.p();
-            }
-            this.a = rmVar;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, userTaskInfo) != null) || userTaskInfo == null) {
+            return;
         }
-    }
-
-    public void s(rm rmVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, rmVar) == null) {
-            if (rmVar != null) {
-                rmVar.p();
-            }
-            this.b = rmVar;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.c = i;
-        }
+        userTaskInfo.id.longValue();
+        this.a = userTaskInfo.name;
+        this.b = userTaskInfo.brief;
+        this.c = userTaskInfo.task_icon_url;
+        this.d = userTaskInfo.status.intValue();
+        userTaskInfo.target_num.intValue();
+        userTaskInfo.curr_num.intValue();
+        userTaskInfo.task_type.intValue();
+        this.e = userTaskInfo.weight.intValue();
+        this.f = userTaskInfo.act_type;
+        this.g = userTaskInfo.target_scheme;
     }
 }

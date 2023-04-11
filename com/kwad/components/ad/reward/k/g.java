@@ -89,9 +89,9 @@ public final class g extends v implements View.OnClickListener {
     }
 
     public final void e(ViewGroup viewGroup) {
-        super.a(viewGroup, R.id.obfuscated_res_0x7f0911ed, R.id.obfuscated_res_0x7f0911eb);
+        super.a(viewGroup, R.id.obfuscated_res_0x7f0911f1, R.id.obfuscated_res_0x7f0911ef);
         if (this.eQ == null) {
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911ec);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911f0);
         }
         this.pV.setOnClickListener(this);
     }

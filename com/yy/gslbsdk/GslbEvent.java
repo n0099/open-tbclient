@@ -2,13 +2,13 @@ package com.yy.gslbsdk;
 
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.util.GlobalTools;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum GslbEvent {
     INSTANCE;
     
     public GslbEventListener listener;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface GslbEventListener {
         void onMessage(String str);
     }

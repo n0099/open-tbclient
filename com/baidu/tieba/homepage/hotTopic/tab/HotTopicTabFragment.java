@@ -18,21 +18,20 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gn;
+import com.baidu.tieba.e67;
+import com.baidu.tieba.hn;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
-import com.baidu.tieba.kx6;
-import com.baidu.tieba.nf7;
-import com.baidu.tieba.nn;
-import com.baidu.tieba.pn;
+import com.baidu.tieba.kp7;
+import com.baidu.tieba.on;
 import com.baidu.tieba.qb;
-import com.baidu.tieba.tf5;
-import com.baidu.tieba.ue7;
-import com.baidu.tieba.v05;
-import com.baidu.tieba.ve7;
-import com.baidu.tieba.w05;
-import com.baidu.tieba.xu4;
+import com.baidu.tieba.qn;
+import com.baidu.tieba.ro7;
+import com.baidu.tieba.so7;
+import com.baidu.tieba.xg5;
+import com.baidu.tieba.y05;
+import com.baidu.tieba.z05;
+import com.baidu.tieba.zu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,30 +40,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
+public class HotTopicTabFragment extends BaseFragment implements e67, so7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotTopicTabModel a;
     public HotTopicTabView b;
     public ViewGroup c;
-    public xu4<Object> d;
+    public zu4<Object> d;
     public boolean e;
 
-    @Override // com.baidu.tieba.kx6
-    public void B() {
+    @Override // com.baidu.tieba.e67
+    public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.kx6
-    public void P() {
+    @Override // com.baidu.tieba.e67
+    public void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.fk5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ll5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -72,7 +71,7 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements xu4<Object> {
+    public class a implements zu4<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicTabFragment a;
@@ -95,22 +94,22 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
             this.a = hotTopicTabFragment;
         }
 
-        @Override // com.baidu.tieba.xu4
+        @Override // com.baidu.tieba.zu4
         public void c(View view2, Object obj, int i, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) != null) || obj == null) {
                 return;
             }
-            ue7.a(view2, obj, i + 1, this.a.G1());
+            ro7.b(view2, obj, this.a.G1());
         }
 
-        @Override // com.baidu.tieba.xu4
+        @Override // com.baidu.tieba.zu4
         public void d(View view2, Object obj, int i, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) != null) || obj == null) {
                 return;
             }
-            ue7.b(view2, obj, this.a.G1());
+            ro7.a(view2, obj, i + 1, this.a.G1());
         }
     }
 
@@ -203,7 +202,7 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
     public final String G1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             HotTopicTabModel hotTopicTabModel = this.a;
             if (hotTopicTabModel != null) {
                 return String.valueOf(hotTopicTabModel.getTabId() + 1);
@@ -216,7 +215,7 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
     public final void J1() {
         HotTopicTabView hotTopicTabView;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (hotTopicTabView = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (hotTopicTabView = this.b) == null) {
             return;
         }
         if (hotTopicTabView.t()) {
@@ -247,15 +246,15 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new nn());
+        arrayList.add(new on());
         this.b.o();
         this.b.setListData(arrayList);
     }
 
-    @Override // com.baidu.tieba.kx6
-    public void Z() {
+    @Override // com.baidu.tieba.e67
+    public void g0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -281,7 +280,7 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
                     this.a.onDestroy();
                 }
                 this.e = false;
-                tf5.e().b();
+                xg5.e().b();
             }
         }
     }
@@ -291,12 +290,12 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onPause();
-            w05.m(v05.i);
+            z05.m(y05.i);
         }
     }
 
-    @Override // com.baidu.tieba.kx6
-    public void q() {
+    @Override // com.baidu.tieba.e67
+    public void u() {
         HotTopicTabView hotTopicTabView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (hotTopicTabView = this.b) != null) {
@@ -330,7 +329,7 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
     public void H1(Context context) {
         String string;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, context) != null) || !this.e) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) != null) || !this.e) {
             return;
         }
         this.e = false;
@@ -352,7 +351,7 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
     public void I1(ScrollFragmentTabHost scrollFragmentTabHost) {
         HotTopicTabView hotTopicTabView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, scrollFragmentTabHost) == null) && (hotTopicTabView = this.b) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, scrollFragmentTabHost) == null) && (hotTopicTabView = this.b) != null) {
             hotTopicTabView.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
@@ -364,7 +363,7 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
             super.onActivityCreated(bundle);
             HotTopicTabModel hotTopicTabModel = this.a;
             if (hotTopicTabModel != null) {
-                hotTopicTabModel.a0(this);
+                hotTopicTabModel.Z(this);
                 this.a.setUniqueId(getUniqueId());
             }
         }
@@ -379,21 +378,21 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
         }
     }
 
-    @Override // com.baidu.tieba.ve7
-    public void G0(int i, nf7 nf7Var) {
+    @Override // com.baidu.tieba.so7
+    public void K0(int i, kp7 kp7Var) {
         HotTopicTabView hotTopicTabView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, nf7Var) == null) && this.a != null && (hotTopicTabView = this.b) != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048581, this, i, kp7Var) == null) && this.a != null && (hotTopicTabView = this.b) != null) {
             hotTopicTabView.m();
             this.b.n();
             this.b.D();
-            if (nf7Var != null && i == 0 && !ListUtils.isEmpty(nf7Var.getDataList())) {
-                this.b.setData(nf7Var);
+            if (kp7Var != null && i == 0 && !ListUtils.isEmpty(kp7Var.getDataList())) {
+                this.b.setData(kp7Var);
                 this.b.B();
-            } else if (ListUtils.isEmpty(this.a.W())) {
+            } else if (ListUtils.isEmpty(this.a.V())) {
                 J1();
             } else {
-                this.b.setListData(this.a.W());
+                this.b.setListData(this.a.V());
             }
         }
     }
@@ -404,15 +403,15 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        pn pnVar = new pn();
-        pnVar.b = R.drawable.new_pic_emotion_05;
-        pnVar.a = getString(R.string.no_data_common_txt);
-        arrayList.add(pnVar);
+        qn qnVar = new qn();
+        qnVar.b = R.drawable.new_pic_emotion_05;
+        qnVar.a = getString(R.string.no_data_common_txt);
+        arrayList.add(qnVar);
         this.b.o();
         this.b.setListData(arrayList);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.fk5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ll5
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -442,41 +441,36 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
                     hotTopicTabView.setViewForeground();
                 }
                 if (getContext() != null) {
-                    w05.n(getContext(), v05.i);
+                    z05.n(getContext(), y05.i);
                     return;
                 }
                 return;
             }
-            w05.m(v05.i);
+            z05.m(y05.i);
         }
     }
 
-    @Override // com.baidu.tieba.ve7
+    @Override // com.baidu.tieba.so7
     public void a() {
         HotTopicTabModel hotTopicTabModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (hotTopicTabModel = this.a) != null && this.b != null) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (hotTopicTabModel = this.a) != null && this.b != null) {
             boolean loadData = hotTopicTabModel.loadData();
             HotTopicTabModel hotTopicTabModel2 = this.a;
-            List<gn> X = hotTopicTabModel2.X(hotTopicTabModel2.Y());
+            List<hn> W = hotTopicTabModel2.W(hotTopicTabModel2.X());
             if (loadData) {
-                if (ListUtils.isEmpty(X) && !this.b.t()) {
+                if (ListUtils.isEmpty(W) && !this.b.t()) {
                     this.b.D();
                     this.b.n();
-                    if (LooperBlockSwitch.getIsOn()) {
-                        this.b.post(new c(this));
-                        return;
-                    } else {
-                        K1();
-                        return;
-                    }
+                    this.b.post(new c(this));
+                    return;
                 }
                 return;
             }
             this.b.D();
             this.b.m();
-            if (!ListUtils.isEmpty(X)) {
-                this.b.setListData(X);
+            if (!ListUtils.isEmpty(W)) {
+                this.b.setListData(W);
             } else if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                 J1();
             }
@@ -487,9 +481,6 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
-            if (!LooperBlockSwitch.getIsOn()) {
-                H1(getContext());
-            }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOT_TOPIC_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             HotTopicTabView hotTopicTabView = this.b;
@@ -508,19 +499,12 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048594, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOT_TOPIC_TAB_ON_CREATE_VIEW_START_STAMP_KEY);
-            if (LooperBlockSwitch.getIsOn()) {
-                this.c = new FrameLayout(getContext());
-                if (this.isLazyLoaded) {
-                    onLazyLoad();
-                }
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOT_TOPIC_TAB_ON_CREATE_VIEW_END_STAMP_KEY);
-                return this.c;
-            }
-            if (this.b.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.b.getParent()).removeView(this.b);
+            this.c = new FrameLayout(getContext());
+            if (this.isLazyLoaded) {
+                onLazyLoad();
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOT_TOPIC_TAB_ON_CREATE_VIEW_END_STAMP_KEY);
-            return this.b;
+            return this.c;
         }
         return (View) invokeLLL.objValue;
     }
@@ -529,24 +513,22 @@ public class HotTopicTabFragment extends BaseFragment implements kx6, ve7 {
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            if (LooperBlockSwitch.getIsOn()) {
-                H1(getContext());
-                HotTopicTabModel hotTopicTabModel = this.a;
-                if (hotTopicTabModel != null) {
-                    hotTopicTabModel.a0(this);
-                    this.a.setUniqueId(getUniqueId());
+            H1(getContext());
+            HotTopicTabModel hotTopicTabModel = this.a;
+            if (hotTopicTabModel != null) {
+                hotTopicTabModel.Z(this);
+                this.a.setUniqueId(getUniqueId());
+            }
+            HotTopicTabView hotTopicTabView = this.b;
+            if (hotTopicTabView != null) {
+                hotTopicTabView.setPresenter(this);
+                this.b.setUniqueId(getUniqueId());
+                if (this.b.getParent() instanceof ViewGroup) {
+                    ((ViewGroup) this.b.getParent()).removeView(this.b);
                 }
-                HotTopicTabView hotTopicTabView = this.b;
-                if (hotTopicTabView != null) {
-                    hotTopicTabView.setPresenter(this);
-                    this.b.setUniqueId(getUniqueId());
-                    if (this.b.getParent() instanceof ViewGroup) {
-                        ((ViewGroup) this.b.getParent()).removeView(this.b);
-                    }
-                    ViewGroup viewGroup = this.c;
-                    if (viewGroup != null) {
-                        viewGroup.addView(this.b);
-                    }
+                ViewGroup viewGroup = this.c;
+                if (viewGroup != null) {
+                    viewGroup.addView(this.b);
                 }
             }
             a();

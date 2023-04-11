@@ -1,47 +1,96 @@
 package com.baidu.tieba;
 
+import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActBtn;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.yy.gslbsdk.db.DelayTB;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class tb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
+    public List<a> b;
 
-    public tb9(ActBtn actBtn) {
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public long b;
+        public long c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                this.a = jSONObject.optInt("style");
+                long optLong = jSONObject.optLong(DelayTB.DELAY);
+                this.b = optLong;
+                if (optLong < 0) {
+                    this.b = 0L;
+                }
+                this.c = jSONObject.optLong("duration");
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+    }
+
+    public tb9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {actBtn};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        if (actBtn == null) {
-            return;
-        }
-        this.a = actBtn.type.intValue();
-        String str = actBtn.url;
-        String str2 = actBtn.text;
     }
 
-    public int getType() {
-        InterceptResult invokeV;
+    public static tb9 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            tb9 tb9Var = new tb9();
+            tb9Var.a = jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
+            JSONArray optJSONArray = jSONObject.optJSONArray(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
+            tb9Var.b = new ArrayList();
+            for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
+                List<a> list = tb9Var.b;
+                a aVar = new a();
+                aVar.a(optJSONArray.optJSONObject(i));
+                list.add(aVar);
+            }
+            return tb9Var;
         }
-        return invokeV.intValue;
+        return (tb9) invokeL.objValue;
     }
 }

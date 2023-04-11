@@ -1,5 +1,5 @@
 package com.yy.gslbsdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.yy.gslbsdk";
     public static final String BUILD_TYPE = "release";

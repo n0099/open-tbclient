@@ -41,20 +41,20 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ad9;
+import com.baidu.tieba.cd9;
+import com.baidu.tieba.dd9;
+import com.baidu.tieba.ed9;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.i85;
+import com.baidu.tieba.ii;
 import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.tieba.j39;
-import com.baidu.tieba.l39;
-import com.baidu.tieba.m39;
-import com.baidu.tieba.n39;
+import com.baidu.tieba.lt9;
+import com.baidu.tieba.m95;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.tieba.screenlocknotify.loadmore.ScreenLockLoadMoreHttpResponseMessage;
 import com.baidu.tieba.screenlocknotify.loadmore.ScreenLockLoadMoreModel;
 import com.baidu.tieba.screenlocknotify.loadmore.ScreenLockLoadMoreSocketResponseMessage;
 import com.baidu.tieba.screenlocknotify.view.ScreenLockHeaderView;
-import com.baidu.tieba.uj9;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -71,8 +71,8 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
     public ImageView b;
     public Drawable c;
     public DynamicHeightListView d;
-    public l39 e;
-    public m39 f;
+    public cd9 e;
+    public dd9 f;
     public int g;
     public TextView h;
     public ScreenLockLoadMoreModel i;
@@ -113,7 +113,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
             String stringExtra;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent.getAction().equals("android.intent.action.CLOSE_SYSTEM_DIALOGS") && (stringExtra = intent.getStringExtra("reason")) != null && stringExtra.equals(PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_HOME_KEY)) {
-                j39.j().d.d();
+                ad9.j().d.d();
                 this.this$0.finish();
             }
         }
@@ -145,14 +145,14 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            m39 item;
+            dd9 item;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.e.getCount() > 0 && (item = this.a.e.getItem(0)) != null) {
                     TiebaStatic.log(new StatisticItem("c11704").param("msg_id", item.m / 100).param("task_id", item.s));
                 }
                 this.a.finish();
-                j39.j().d.d();
+                ad9.j().d.d();
             }
         }
     }
@@ -195,10 +195,10 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
                 if (this.a.d.getHeight() == this.a.g) {
                     if (i + i2 == i3) {
                         if (this.a.h.isEnabled()) {
-                            this.a.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b06));
+                            this.a.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b02));
                             this.a.h.setEnabled(false);
                         }
-                        this.a.K1();
+                        this.a.J1();
                         return;
                     }
                     return;
@@ -235,7 +235,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            m39 data;
+            dd9 data;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.k == null || StringUtils.isNull(this.a.k.getInputMsg()) || (data = this.a.k.getData()) == null) {
                 return;
@@ -245,14 +245,14 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
             }
             if (data.h == 2) {
                 MessageUtils.createPersonalChatMessage(1, this.a.k.getInputMsg(), gg.g(data.j, 0L), data.b, data.c, data.k);
-                i85.h0().r(data.j);
+                m95.h0().r(data.j);
                 MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.j, 2)));
                 MessageUtils.sendHasReadMessage(data.j, 2);
             }
             if (PermissionUtil.isAgreePrivacyPolicy()) {
                 new PvThread("lockscreen_reply", true).start();
             }
-            j39.j().d.d();
+            ad9.j().d.d();
             this.a.finish();
         }
     }
@@ -285,9 +285,9 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b06));
+                this.a.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b02));
                 this.a.h.setEnabled(false);
-                this.a.K1();
+                this.a.J1();
             }
         }
     }
@@ -323,7 +323,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
                 ScreenLockActivity screenLockActivity = this.a;
                 screenLockActivity.f = screenLockActivity.e.getItem(i);
                 ScreenLockActivity screenLockActivity2 = this.a;
-                screenLockActivity2.H1(screenLockActivity2.f);
+                screenLockActivity2.G1(screenLockActivity2.f);
             }
         }
     }
@@ -359,7 +359,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
                 ScreenLockActivity screenLockActivity = this.a;
                 screenLockActivity.f = screenLockActivity.k.getData();
                 ScreenLockActivity screenLockActivity2 = this.a;
-                screenLockActivity2.H1(screenLockActivity2.f);
+                screenLockActivity2.G1(screenLockActivity2.f);
             }
         }
     }
@@ -394,55 +394,56 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
 
         @Override // com.baidu.tieba.za
         public void onMessage(ResponsedMessage responsedMessage) {
-            n39 n39Var;
+            ed9 ed9Var;
             String errorString;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.j = false;
-                if (responsedMessage == null) {
-                    return;
-                }
-                boolean z = responsedMessage instanceof ScreenLockLoadMoreHttpResponseMessage;
-                if (!z && !(responsedMessage instanceof ScreenLockLoadMoreSocketResponseMessage)) {
-                    return;
-                }
-                if (responsedMessage.getError() != 0) {
-                    ScreenLockActivity screenLockActivity = this.a;
-                    if (TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1182);
-                    } else {
-                        errorString = responsedMessage.getErrorString();
-                    }
-                    screenLockActivity.showToast(errorString);
-                    if (this.a.h != null) {
-                        this.a.h.setText(this.a.getResources().getString(R.string.data_load_error));
-                        this.a.h.setEnabled(true);
-                        return;
-                    }
-                    return;
-                }
-                if (z) {
-                    n39Var = ((ScreenLockLoadMoreHttpResponseMessage) responsedMessage).getData();
-                } else if (responsedMessage instanceof ScreenLockLoadMoreSocketResponseMessage) {
-                    n39Var = ((ScreenLockLoadMoreSocketResponseMessage) responsedMessage).getData();
+            if (interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) {
+                return;
+            }
+            this.a.j = false;
+            if (responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof ScreenLockLoadMoreHttpResponseMessage;
+            if (!z && !(responsedMessage instanceof ScreenLockLoadMoreSocketResponseMessage)) {
+                return;
+            }
+            if (responsedMessage.getError() != 0) {
+                ScreenLockActivity screenLockActivity = this.a;
+                if (TextUtils.isEmpty(responsedMessage.getErrorString())) {
+                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f117b);
                 } else {
-                    n39Var = null;
+                    errorString = responsedMessage.getErrorString();
                 }
-                if (n39Var == null) {
+                screenLockActivity.showToast(errorString);
+                if (this.a.h != null) {
+                    this.a.h.setText(this.a.getResources().getString(R.string.data_load_error));
+                    this.a.h.setEnabled(true);
                     return;
                 }
-                ArrayList<m39> a = n39Var.a();
-                l39 l39Var = this.a.e;
-                if (l39Var != null) {
-                    l39Var.a(a);
-                }
-                if (!n39Var.b()) {
-                    this.a.e.f(false);
-                    if (this.a.h != null) {
-                        ScreenLockActivity screenLockActivity2 = this.a;
-                        screenLockActivity2.d.removeFooterView(screenLockActivity2.h);
-                        this.a.h = null;
-                    }
+                return;
+            }
+            if (z) {
+                ed9Var = ((ScreenLockLoadMoreHttpResponseMessage) responsedMessage).getData();
+            } else if (responsedMessage instanceof ScreenLockLoadMoreSocketResponseMessage) {
+                ed9Var = ((ScreenLockLoadMoreSocketResponseMessage) responsedMessage).getData();
+            } else {
+                ed9Var = null;
+            }
+            if (ed9Var == null) {
+                return;
+            }
+            ArrayList<dd9> a = ed9Var.a();
+            cd9 cd9Var = this.a.e;
+            if (cd9Var != null) {
+                cd9Var.a(a);
+            }
+            if (!ed9Var.b()) {
+                this.a.e.f(false);
+                if (this.a.h != null) {
+                    ScreenLockActivity screenLockActivity2 = this.a;
+                    screenLockActivity2.d.removeFooterView(screenLockActivity2.h);
+                    this.a.h = null;
                 }
             }
         }
@@ -473,21 +474,21 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         this.p = new h(this, CmdConfigHttp.CMD_SCREEN_LOCK_MESSAGE_MORE, 309420);
     }
 
-    public final void K1() {
-        m39 item;
+    public final void J1() {
+        dd9 item;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.j) {
             return;
         }
         this.j = true;
-        this.i.R();
-        l39 l39Var = this.e;
-        if (l39Var != null && l39Var.getCount() > 0 && (item = this.e.getItem(0)) != null) {
+        this.i.Q();
+        cd9 cd9Var = this.e;
+        if (cd9Var != null && cd9Var.getCount() > 0 && (item = this.e.getItem(0)) != null) {
             TiebaStatic.log(new StatisticItem("c11738").param("msg_id", item.m / 100).param("task_id", item.s));
         }
     }
 
-    public String G1() {
+    public String F1() {
         InterceptResult invokeV;
         ActivityManager.RunningTaskInfo runningTaskInfo;
         Interceptable interceptable = $ic;
@@ -506,21 +507,21 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPause();
-            j39.j().f = 0;
-            j39.j().e = 0;
+            ad9.j().f = 0;
+            ad9.j().e = 0;
             if (this.k != null) {
                 HidenSoftKeyPad((InputMethodManager) getSystemService("input_method"), this.k.getEditText());
             }
         }
     }
 
-    public void H1(m39 m39Var) {
+    public void G1(dd9 dd9Var) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m39Var) != null) || m39Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dd9Var) != null) || dd9Var == null) {
             return;
         }
-        int i2 = m39Var.h;
+        int i2 = dd9Var.h;
         if (i2 != 2) {
             if (i2 != 4) {
                 if (i2 != 5) {
@@ -534,50 +535,50 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         } else {
             i = 3;
         }
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("msg_id", m39Var.m / 100).param("task_id", m39Var.s).param("service_id", m39Var.t).param("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, m39Var.q).param("app_version", TbConfig.getVersion()).param("obj_source", i).param("hdid", TbadkCoreApplication.getInst().getHdid()).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1));
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("msg_id", dd9Var.m / 100).param("task_id", dd9Var.s).param("service_id", dd9Var.t).param("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, dd9Var.q).param("app_version", TbConfig.getVersion()).param("obj_source", i).param("hdid", TbadkCoreApplication.getInst().getHdid()).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1));
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0d1f));
-        } else if (!TextUtils.isEmpty(m39Var.q)) {
-            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{m39Var.q + "&is_from_push=true"});
-            TiebaStatic.log(new StatisticItem("c10316").param("obj_type", m39Var.r).param("obj_locate", 2));
-            j39.j().h(m39Var);
+            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0d1b));
+        } else if (!TextUtils.isEmpty(dd9Var.q)) {
+            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{dd9Var.q + "&is_from_push=true"});
+            TiebaStatic.log(new StatisticItem("c10316").param("obj_type", dd9Var.r).param("obj_locate", 2));
+            ad9.j().h(dd9Var);
             finish();
         } else {
-            int i3 = m39Var.h;
+            int i3 = dd9Var.h;
             if (i3 == 2) {
-                PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(getPageContext().getPageActivity(), gg.g(this.f.j, 0L), m39Var.a, m39Var.c, m39Var.k, 0, m39Var.o ? 1 : 0);
-                personalChatActivityConfig.setFollowStatus(m39Var.p);
+                PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(getPageContext().getPageActivity(), gg.g(this.f.j, 0L), dd9Var.a, dd9Var.c, dd9Var.k, 0, dd9Var.o ? 1 : 0);
+                personalChatActivityConfig.setFollowStatus(dd9Var.p);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002005, personalChatActivityConfig));
-                j39.j().h(m39Var);
-                j39.j().e = 0;
-                j39.j().d.d();
-                if (!j39.j().d.b()) {
-                    j39.j().d.e();
+                ad9.j().h(dd9Var);
+                ad9.j().e = 0;
+                ad9.j().d.d();
+                if (!ad9.j().d.b()) {
+                    ad9.j().d.e();
                 }
                 finish();
             } else if (i3 == 4) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), gg.g(this.f.j, 0L), m39Var.a, m39Var.k, 0, 4)));
-                j39.j().h(m39Var);
-                j39.j().e = 0;
-                j39.j().d.d();
-                if (!j39.j().d.b()) {
-                    j39.j().d.e();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), gg.g(this.f.j, 0L), dd9Var.a, dd9Var.k, 0, 4)));
+                ad9.j().h(dd9Var);
+                ad9.j().e = 0;
+                ad9.j().d.d();
+                if (!ad9.j().d.b()) {
+                    ad9.j().d.e();
                 }
                 finish();
             } else {
                 TiebaStatic.log("c11962");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(getPageContext().getContext(), 2)));
-                j39.j().h(m39Var);
-                j39.j().d.d();
-                if (!j39.j().d.b()) {
-                    j39.j().d.e();
+                ad9.j().h(dd9Var);
+                ad9.j().d.d();
+                if (!ad9.j().d.b()) {
+                    ad9.j().d.e();
                 }
                 finish();
             }
         }
     }
 
-    public final void I1() {
+    public final void H1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             TextView textView = new TextView(getActivity());
@@ -585,26 +586,26 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
             textView.setGravity(17);
             this.h.setText(R.string.click_load_more);
             this.h.setHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
-            this.h.setBackgroundResource(R.drawable.obfuscated_res_0x7f08114c);
-            this.h.setTextColor(getResources().getColorStateList(R.color.obfuscated_res_0x7f0608ee));
+            this.h.setBackgroundResource(R.drawable.obfuscated_res_0x7f081136);
+            this.h.setTextColor(getResources().getColorStateList(R.color.obfuscated_res_0x7f0608ed));
             this.h.setTextSize(0, getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
             this.h.setOnClickListener(new e(this));
         }
     }
 
-    public void J1() {
+    public void I1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e77);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e78);
             this.b = imageView;
             imageView.setOnClickListener(new b(this));
-            this.d = (DynamicHeightListView) findViewById(R.id.obfuscated_res_0x7f091f88);
-            l39 l39Var = new l39(getPageContext().getPageActivity());
-            this.e = l39Var;
-            this.d.setAdapter((ListAdapter) l39Var);
+            this.d = (DynamicHeightListView) findViewById(R.id.obfuscated_res_0x7f091f76);
+            cd9 cd9Var = new cd9(getPageContext().getPageActivity());
+            this.e = cd9Var;
+            this.d.setAdapter((ListAdapter) cd9Var);
             this.d.setOnItemClickListener(this.n);
             registerReceiver(this.l, new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS"));
-            j39.j().g = false;
+            ad9.j().g = false;
             this.d.setMaxHeight(this.g);
             this.d.setTranscriptMode(0);
             this.d.setOnScrollListener(new c(this));
@@ -617,19 +618,19 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onResume();
             boolean z = true;
-            j39.j().f = 1;
-            j39.j().e = 0;
-            List<m39> m = j39.j().m();
-            m39 l = j39.j().l();
-            j39.j().s();
+            ad9.j().f = 1;
+            ad9.j().e = 0;
+            List<dd9> m = ad9.j().m();
+            dd9 l = ad9.j().l();
+            ad9.j().s();
             if ((m == null || m.isEmpty()) && l == null && this.e.getCount() == 0 && this.d.getHeaderViewsCount() == 0) {
-                j39.j().d.d();
+                ad9.j().d.d();
                 finish();
                 return;
             }
-            L1(m);
+            K1(m);
             if (l != null) {
-                M1(l);
+                L1(l);
             }
             ScreenLockHeaderView screenLockHeaderView = this.k;
             if (screenLockHeaderView != null) {
@@ -641,21 +642,21 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         }
     }
 
-    public final void L1(List<m39> list) {
-        l39 l39Var;
+    public final void K1(List<dd9> list) {
+        cd9 cd9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && list.size() > 0 && (l39Var = this.e) != null) {
-            l39Var.a(list);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && list.size() > 0 && (cd9Var = this.e) != null) {
+            cd9Var.a(list);
             if (this.e.e() && this.h == null) {
-                I1();
+                H1();
                 this.d.addFooterView(this.h);
             }
         }
     }
 
-    public final void M1(m39 m39Var) {
+    public final void L1(dd9 dd9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, m39Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, dd9Var) == null) {
             if (this.k == null) {
                 ScreenLockHeaderView screenLockHeaderView = new ScreenLockHeaderView(getActivity());
                 this.k = screenLockHeaderView;
@@ -663,7 +664,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
                 this.k.setLayoutParams(new AbsListView.LayoutParams(-1, -2));
                 this.d.addHeaderView(this.k);
             }
-            this.k.d(m39Var);
+            this.k.d(dd9Var);
         }
     }
 
@@ -689,8 +690,8 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
             unregisterReceiver(this.l);
-            j39.j().s();
-            j39.j().f = 0;
+            ad9.j().s();
+            ad9.j().f = 0;
             this.c = null;
         }
     }
@@ -700,7 +701,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onStop();
-            if (!"com.baidu.tieba.screenlocknotify.ScreenLockActivity".equalsIgnoreCase(G1())) {
+            if (!"com.baidu.tieba.screenlocknotify.ScreenLockActivity".equalsIgnoreCase(F1())) {
                 finish();
             }
         }
@@ -721,17 +722,17 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
             setContentView(R.layout.obfuscated_res_0x7f0d0050);
             addGlobalLayoutListener();
             adjustResizeForSoftInput(R.color.transparent, true);
-            if (hi.C()) {
-                Drawable a2 = uj9.a();
+            if (ii.C()) {
+                Drawable a2 = lt9.a();
                 this.c = a2;
                 if (a2 != null) {
                     this.a.setBackgroundDrawable(a2);
                 }
             }
-            this.g = hi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07030c) - hi.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070275);
+            this.g = ii.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07030c) - ii.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070275);
             this.i = new ScreenLockLoadMoreModel(this);
             registerListener(this.p);
-            J1();
+            I1();
         }
     }
 
@@ -741,11 +742,11 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i, keyEvent)) == null) {
             if (i == 4) {
-                j39.j().d.d();
+                ad9.j().d.d();
                 finish();
                 return true;
             } else if (i == 82) {
-                j39.j().d.d();
+                ad9.j().d.d();
                 finish();
                 return true;
             } else {

@@ -1,82 +1,52 @@
 package com.baidu.tieba;
 
-import android.opengl.Matrix;
-import android.os.Handler;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface;
-import com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor;
 /* loaded from: classes5.dex */
-public class lq9 extends BaseOutputSurface {
+public class lq9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float[] a;
-    public MultiMediaData b;
+    public final uo9 a;
 
-    public lq9(int i, int i2, boolean z, Handler handler) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lq9(MainTabActivity mainTabActivity) {
+        super(2921725);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), handler};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new float[16];
-        this.b = new MultiMediaData();
-        init(i, i2, z, handler);
-        this.mFullScreenEXT.setMirror(true);
-        Matrix.orthoM(this.a, 0, 0.0f, i, 0.0f, i2, -1.0f, 1.0f);
+        this.a = mainTabActivity.e;
     }
 
-    public void a(int i, int i2, float f) {
-        float f2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        uo9 uo9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
-            MultiMediaData multiMediaData = this.b;
-            multiMediaData.type = 1;
-            multiMediaData.width = i;
-            multiMediaData.height = i2;
-            multiMediaData.rotation = f;
-            if (f != 90.0f && f != 270.0f) {
-                f2 = (i * 1.0f) / i2;
-            } else {
-                f2 = (i2 * 1.0f) / i;
-            }
-            if (f2 <= (this.mVideoWidth * 1.0f) / this.mVideoHeight) {
-                this.b.scaleType = "center_crop";
-            } else {
-                this.b.scaleType = "center_inside";
-            }
-        }
-    }
-
-    @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
-    public void drawImage(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            super.drawImage(i);
-            if (this.mFullScreenEXT == null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (uo9Var = this.a) != null && uo9Var.f() != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                Runnable runnable = this.a.f().c;
+                jg.a().removeCallbacks(runnable);
+                jg.a().post(runnable);
                 return;
             }
-            float[] fArr = new float[16];
-            Matrix.setIdentityM(fArr, 0);
-            Matrix.multiplyMM(fArr, 0, this.a, 0, MultiMediaPreProcessor.calculateModelView(this.b, this.mVideoWidth, this.mVideoHeight, 0, 0), 0);
-            this.mFullScreenEXT.setVertexPoint(fArr);
-            this.mFullScreenEXT.setAngle(180.0f);
-            this.mFullScreenEXT.drawFrame(this.mTextureId, this.mSTMatrix);
-            Matrix.setIdentityM(fArr, 0);
-            this.mFullScreenEXT.setVertexPoint(fArr);
+            jg.a().removeCallbacks(this.a.f().c);
         }
     }
 }

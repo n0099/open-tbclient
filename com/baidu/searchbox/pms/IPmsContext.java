@@ -12,6 +12,11 @@ public interface IPmsContext {
         }
 
         @Override // com.baidu.searchbox.pms.IPmsContext
+        public List<String> getAutoClearChannelIdList() {
+            return null;
+        }
+
+        @Override // com.baidu.searchbox.pms.IPmsContext
         public List<RequestParams.Channel> getLongConnectParams() {
             return null;
         }
@@ -33,6 +38,8 @@ public interface IPmsContext {
     };
 
     boolean checkChannelAllow(String str, String str2);
+
+    List<String> getAutoClearChannelIdList();
 
     List<RequestParams.Channel> getLongConnectParams();
 

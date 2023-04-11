@@ -1,92 +1,40 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.webkit.WebView;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.live.interfaces.service.AppInfoService;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ImageMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.RecallSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ShareForumSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ShareThreadSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SubscribeSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TipsSysMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.VoiceMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
-public class h78 implements AppInfoService {
+public class h78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public void addHostJavascriptInterface(@NonNull WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, webView) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    @NonNull
-    public String getCloudControlUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getLiveAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "tieba" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "com.baidu.tieba" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    @NonNull
-    public String getProtocol() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "tieba" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getSid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public float getStaticDeviceScore(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
-            return -1.0f;
-        }
-        return invokeL.floatValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public boolean isNightMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    public final m68 a;
 
     public h78() {
         Interceptable interceptable = $ic;
@@ -98,111 +46,113 @@ public class h78 implements AppInfoService {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new m68();
+        b();
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public Application getApplication() {
-        InterceptResult invokeV;
+    @Nullable
+    public static String a(List<GroupChatRoomPojo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return TbadkCoreApplication.getInst();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < list.size(); i++) {
+                GroupChatRoomPojo groupChatRoomPojo = list.get(i);
+                HashMap hashMap = new HashMap();
+                hashMap.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
+                hashMap.put("msg_id", String.valueOf(groupChatRoomPojo.getLatestMsgId()));
+                arrayList.add(hashMap);
+            }
+            if (ListUtils.isEmpty(arrayList)) {
+                return null;
+            }
+            return DataExt.toJson(arrayList);
         }
-        return (Application) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getCuid() {
-        InterceptResult invokeV;
+    public static long f(@NonNull ChatMsg chatMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return TbadkCoreApplication.getInst().getCuidGalaxy2();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMsg)) == null) {
+            long millis = TimeUnit.MICROSECONDS.toMillis(chatMsg.getMsgId());
+            if (millis == 0) {
+                return System.currentTimeMillis();
+            }
+            return millis;
         }
-        return (String) invokeV.objValue;
+        return invokeL.longValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getImAppId() {
-        InterceptResult invokeV;
+    public boolean c(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        BaseSysMsg e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return String.valueOf(10773430L);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatMsg)) == null) {
+            if (chatMsg == null || (e = e(chatMsg)) == null || e.getMsgConf() == null || !e.getMsgConf().isVisible()) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getVersionCode() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return TbadkCoreApplication.getInst().getVersionCode() + "";
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.I(1, TextMsg.class);
+            this.a.I(3, VoiceMsg.class);
+            this.a.I(2, ImageMsg.class);
+            this.a.I(101, TextGenImageMsg.class);
+            this.a.I(7009, ShareForumSysMsg.class);
+            this.a.I(7010, ShareThreadSysMsg.class);
+            this.a.I(7001, NoticeModifySysMsg.class);
+            this.a.J(RecallSysMsg.MSG_TYPE_LIST, RecallSysMsg.class);
+            this.a.J(TipsSysMsg.MSG_TYPE_LIST, TipsSysMsg.class);
+            this.a.I(-7015, SubscribeSysMsg.class);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getVersionName() {
-        InterceptResult invokeV;
+    @Nullable
+    public BaseMsg d(long j, @NonNull ChatMsg chatMsg) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return TbConfig.getVersion();
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, chatMsg)) == null) {
+            if (TextUtils.isEmpty(chatMsg.getChatRoomContentExt())) {
+                return null;
+            }
+            return this.a.G(j, chatMsg);
         }
-        return (String) invokeV.objValue;
+        return (BaseMsg) invokeJL.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getZid() {
-        InterceptResult invokeV;
+    @Nullable
+    public BaseSysMsg e(@NonNull ChatMsg chatMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return TbadkCoreApplication.getInst().getZid();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public boolean isDebug() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return AppConfig.isDebug();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getFFmpegPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!StringUtils.isNull(TbadkCoreApplication.getInst().getLibcyberffmpeg()) && !StringUtils.isNull(TbadkCoreApplication.getInst().getLibssl()) && !StringUtils.isNull(TbadkCoreApplication.getInst().getLibcrypto())) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("libcyber-ffmpeg", TbadkCoreApplication.getInst().getLibcyberffmpeg());
-                    jSONObject.put("libcyber-ffmpeg_version", TbadkCoreApplication.getInst().getmLibcyberVersion());
-                    jSONObject.put("libssl", TbadkCoreApplication.getInst().getLibssl());
-                    jSONObject.put("libssl_version", TbadkCoreApplication.getInst().getmLibcyberVersion());
-                    jSONObject.put("libcrypto", TbadkCoreApplication.getInst().getLibcrypto());
-                    jSONObject.put("libcrypto_version", TbadkCoreApplication.getInst().getmLibcyberVersion());
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, chatMsg)) == null) {
+            if (TextUtils.isEmpty(chatMsg.getMsgContent())) {
+                return null;
+            }
+            try {
+                BaseSysMsg H = this.a.H(chatMsg);
+                if (H.getMsgConf() != null) {
+                    if (H.getMsgConf().isVisible()) {
+                        return H;
+                    }
                 }
-                return jSONObject.toString();
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
             }
-            return "";
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
-    public String getUA() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return oq5.b() + " (Baidu; P1 " + ji.k() + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
+        return (BaseSysMsg) invokeL.objValue;
     }
 }

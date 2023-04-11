@@ -88,7 +88,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
                 if (httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
                     String str = (String) httpResponsedMessage.getOrginalMessage().getExtra();
                     this.a.a.a(str, queryMatchEmotionResponseMessage.getData());
-                    this.a.V(str, queryMatchEmotionResponseMessage.getData());
+                    this.a.U(str, queryMatchEmotionResponseMessage.getData());
                     return;
                 }
                 return;
@@ -149,7 +149,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public final List<EmotionImageData> T(String str) {
+    public final List<EmotionImageData> S(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -162,14 +162,14 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         return (List) invokeL.objValue;
     }
 
-    public void U(String str, b bVar) {
+    public void T(String str, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar) == null) {
             this.a = bVar;
             if (bVar == null) {
                 return;
             }
-            if (!ListUtils.isEmpty(T(str))) {
+            if (!ListUtils.isEmpty(S(str))) {
                 this.a.a(str, c.get(str));
                 return;
             }
@@ -180,7 +180,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         }
     }
 
-    public final void V(String str, List<EmotionImageData> list) {
+    public final void U(String str, List<EmotionImageData> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, list) == null) && !TextUtils.isEmpty(str) && !ListUtils.isEmpty(list)) {
             if (c == null) {

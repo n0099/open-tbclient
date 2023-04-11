@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.log;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.w58;
+import com.baidu.tieba.ng8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ public final class HybridLog {
     public static /* synthetic */ Interceptable $ic;
     public static final HybridLog INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
-    public final w58 instance;
+    public final ng8 instance;
 
     static {
         InterceptResult invokeClinit;
@@ -36,13 +36,13 @@ public final class HybridLog {
         $VALUES = new HybridLog[]{hybridLog};
     }
 
-    public static w58 getInstance() {
+    public static ng8 getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return INSTANCE.instance;
         }
-        return (w58) invokeV.objValue;
+        return (ng8) invokeV.objValue;
     }
 
     public static HybridLog[] values() {
@@ -72,7 +72,7 @@ public final class HybridLog {
                 return;
             }
         }
-        this.instance = new w58("hybrid");
+        this.instance = new ng8("hybrid");
     }
 
     public static HybridLog valueOf(String str) {

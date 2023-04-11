@@ -1,52 +1,55 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.activity.PayCommonWebActivity;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
 /* loaded from: classes6.dex */
-public class vza {
+public final class vza {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] a;
+    public static final int[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(PayFlowType payFlowType, int i, int i2, PayUIKitConfig payUIKitConfig, Activity activity, String str, String str2) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{payFlowType, Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig, activity, str, str2}) == null) {
-            boolean z = false;
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                if (TextUtils.isEmpty(str)) {
-                    RLog.error("PayWebActivityUtils", "startPayWebActivity error url null", new Object[0]);
-                    return;
-                }
-                if (str2 != null && !str2.isEmpty()) {
-                    str3 = str2;
-                } else {
-                    str3 = "";
-                }
-                Intent intent = new Intent(activity, PayCommonWebActivity.class);
-                intent.putExtra(H5PayConstant.EXTRA_TITLE, str3);
-                intent.putExtra(H5PayConstant.EXTRA_URL, str);
-                intent.putExtra(H5PayConstant.EXTRA_APP_ID, i);
-                intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, i2);
-                if (str.equals(iza.e(payUIKitConfig))) {
-                    intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 1);
-                    z = true;
-                }
-                RLog.info("PayWebActivityUtils", "startPayWebActivity payFlowType:" + payFlowType + " isWalletActivity:" + z);
-                if (TextUtils.isEmpty(str2)) {
-                    str2 = j0b.a(str);
-                }
-                PayCommonWebActivity.z(activity, payFlowType, intent, i, i2, str2);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948259468, "Lcom/baidu/tieba/vza;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948259468, "Lcom/baidu/tieba/vza;");
                 return;
             }
-            RLog.error("PayWebActivityUtils", "startPayWebActivity error mPayUIKitConfig null", new Object[0]);
+        }
+        a = new byte[1024];
+        b = new int[1024];
+    }
+
+    public static void a(byte[] bArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65537, null, bArr, i, i2) == null) {
+            int i3 = 0;
+            while (i3 < i2) {
+                int min = Math.min(i3 + 1024, i2) - i3;
+                System.arraycopy(a, 0, bArr, i + i3, min);
+                i3 += min;
+            }
+        }
+    }
+
+    public static void b(int[] iArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65538, null, iArr, i, i2) == null) {
+            int i3 = 0;
+            while (i3 < i2) {
+                int min = Math.min(i3 + 1024, i2) - i3;
+                System.arraycopy(b, 0, iArr, i + i3, min);
+                i3 += min;
+            }
         }
     }
 }

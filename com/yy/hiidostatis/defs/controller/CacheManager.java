@@ -4,7 +4,7 @@ import android.content.Context;
 import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.cipher.Base64Util;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CacheManager {
     public Context c;
     public String mCacheKey;

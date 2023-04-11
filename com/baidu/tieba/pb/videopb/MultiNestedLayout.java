@@ -158,29 +158,8 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void setNestedScrollingEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
             this.c.setNestedScrollingEnabled(z);
-        }
-    }
-
-    public void setScrollBottomListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, aVar) == null) {
-            this.i = aVar;
-        }
-    }
-
-    public void setScrollStateChangeListener(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, bVar) == null) {
-            this.j = bVar;
-        }
-    }
-
-    public void setScrollToTopListener(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, cVar) == null) {
-            this.h = cVar;
         }
     }
 
@@ -188,7 +167,7 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
     public boolean startNestedScroll(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
             return this.c.startNestedScroll(i);
         }
         return invokeI.booleanValue;
@@ -249,24 +228,10 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
         return invokeV.booleanValue;
     }
 
-    public void setMaxOffset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            setOffset(this.d);
-        }
-    }
-
-    public void setMinOffset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            setOffset(0);
-        }
-    }
-
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void stopNestedScroll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             this.c.stopNestedScroll();
         }
     }
@@ -399,56 +364,25 @@ public class MultiNestedLayout extends RelativeLayout implements NestedScrolling
                     bVar2.a(this.g);
                 }
             }
-        } else if (this.f > Math.abs(i2)) {
-            iArr[1] = iArr[1] + i2;
-            this.f += i2;
-            this.g = 2;
+        } else {
+            if (this.f > Math.abs(i2)) {
+                iArr[1] = iArr[1] + i2;
+                this.f += i2;
+                this.g = 2;
+            } else {
+                iArr[1] = iArr[1] + (-this.f);
+                this.f = 0;
+                this.g = 0;
+                a aVar = this.i;
+                if (aVar != null) {
+                    aVar.a();
+                }
+            }
             b bVar3 = this.j;
             if (bVar3 != null) {
-                bVar3.a(2);
-            }
-        } else {
-            iArr[1] = iArr[1] + (-this.f);
-            this.f = 0;
-            this.g = 0;
-            a aVar = this.i;
-            if (aVar != null) {
-                aVar.a();
-            }
-            b bVar4 = this.j;
-            if (bVar4 != null) {
-                bVar4.a(this.g);
+                bVar3.a(this.g);
             }
         }
         setTargetOffsetTopAndBottom(-this.f);
-    }
-
-    public void setOffset(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048597, this, i) != null) || !c()) {
-            return;
-        }
-        this.f = i;
-        setTargetOffsetTopAndBottom(-i);
-        int i2 = this.f;
-        if (i2 == this.d) {
-            this.g = 1;
-            c cVar = this.h;
-            if (cVar != null) {
-                cVar.onScrollToTop();
-            }
-        } else if (i2 == 0) {
-            this.g = 0;
-            a aVar = this.i;
-            if (aVar != null) {
-                aVar.a();
-            }
-        } else {
-            this.g = 2;
-        }
-        b bVar = this.j;
-        if (bVar != null) {
-            bVar.a(this.g);
-        }
     }
 }

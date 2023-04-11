@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,33 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecentUpdate;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
-public class s47 extends hw4 {
+public class s47 implements d67 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final AtomicReference<d67> a;
+    public static final d67 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecentUpdate a;
-
-    @Override // com.baidu.tieba.hw4
-    public fy4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (fy4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hw4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +35,8 @@ public class s47 extends hw4 {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = new AtomicReference<>(null);
+        b = new s47();
     }
 
     public s47() {
@@ -65,35 +49,64 @@ public class s47 extends hw4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        setSupportType(BaseCardInfo.SupportType.FULL);
     }
 
-    public RecentUpdate c() {
+    public static d67 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            d67 d67Var = a.get();
+            if (d67Var == null) {
+                return b;
+            }
+            return d67Var;
         }
-        return (RecentUpdate) invokeV.objValue;
+        return (d67) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.gn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.d67
+    public um<? extends oz4, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
+            BdLog.e("Frs extra project not loaded.");
+            return null;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (um) invokeLLZ.objValue;
     }
 
-    public void f(RecentUpdate recentUpdate) {
+    @Override // com.baidu.tieba.d67
+    public y47<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recentUpdate) == null) {
-            this.a = recentUpdate;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
+            BdLog.e("Frs extra project not loaded.");
+            return null;
         }
+        return (y47) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.d67
+    public um<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
+            BdLog.e("Frs extra project not loaded.");
+            return null;
+        }
+        return (um) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.d67
+    public um<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
+            BdLog.e("Frs extra project not loaded.");
+            return null;
+        }
+        return (um) invokeCommon.objValue;
     }
 }

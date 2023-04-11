@@ -148,7 +148,7 @@ public class ec implements lc {
                 }
                 if (componentType == Byte.TYPE) {
                     try {
-                        zh.k((byte[]) this.a, 0);
+                        ai.k((byte[]) this.a, 0);
                     } catch (Exception unused) {
                         return null;
                     }

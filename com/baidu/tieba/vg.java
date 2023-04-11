@@ -117,10 +117,10 @@ public class vg {
                 }
                 jSONObject2.put("client_ip", ug.b());
                 jSONObject2.put("network", d());
-                jSONObject2.put("model", ji.g());
+                jSONObject2.put("model", ki.g());
                 jSONObject2.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.BRAND);
                 jSONObject2.put("os_type", "AND");
-                jSONObject2.put(HttpConstants.OS_VERSION, ji.k());
+                jSONObject2.put(HttpConstants.OS_VERSION, ki.k());
                 jSONObject2.put("active_id", ug.a());
                 jSONObject2.put("mission_id", ug.c());
                 jSONObject.put("base_info", jSONObject2);

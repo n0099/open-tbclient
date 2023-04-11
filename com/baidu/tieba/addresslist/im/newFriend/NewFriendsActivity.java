@@ -21,17 +21,17 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 import com.baidu.tieba.R;
 import com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel;
-import com.baidu.tieba.aq5;
-import com.baidu.tieba.az5;
-import com.baidu.tieba.b05;
 import com.baidu.tieba.bb;
-import com.baidu.tieba.bz5;
-import com.baidu.tieba.tj5;
-import com.baidu.tieba.v35;
-import com.baidu.tieba.vo7;
-import com.baidu.tieba.wp5;
-import com.baidu.tieba.zo5;
-import com.baidu.tieba.zy5;
+import com.baidu.tieba.cr5;
+import com.baidu.tieba.e05;
+import com.baidu.tieba.f06;
+import com.baidu.tieba.fq5;
+import com.baidu.tieba.g06;
+import com.baidu.tieba.gr5;
+import com.baidu.tieba.h06;
+import com.baidu.tieba.sy7;
+import com.baidu.tieba.y45;
+import com.baidu.tieba.zk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,27 +43,27 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public bz5 b;
-    public b05 c;
-    public zy5.c d;
+    public h06 b;
+    public e05 c;
+    public f06.c d;
     public final CustomMessageListener e;
     public final bb f;
-    public final v35.g g;
+    public final y45.g g;
     public final RecommendFriendModel h;
 
     /* loaded from: classes3.dex */
-    public class a extends wp5<Boolean> {
+    public class a extends cr5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vo7 a;
+        public final /* synthetic */ sy7 a;
         public final /* synthetic */ NewFriendsActivity b;
 
-        public a(NewFriendsActivity newFriendsActivity, vo7 vo7Var) {
+        public a(NewFriendsActivity newFriendsActivity, sy7 sy7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendsActivity, vo7Var};
+                Object[] objArr = {newFriendsActivity, sy7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -74,35 +74,35 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                 }
             }
             this.b = newFriendsActivity;
-            this.a = vo7Var;
+            this.a = sy7Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.wp5
+        @Override // com.baidu.tieba.cr5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return Boolean.valueOf(az5.f().b(this.a.b()));
+                return Boolean.valueOf(g06.f().b(this.a.b()));
             }
             return (Boolean) invokeV.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements zo5<Boolean> {
+    public class b implements fq5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vo7 a;
+        public final /* synthetic */ sy7 a;
         public final /* synthetic */ NewFriendsActivity b;
 
-        public b(NewFriendsActivity newFriendsActivity, vo7 vo7Var) {
+        public b(NewFriendsActivity newFriendsActivity, sy7 sy7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendsActivity, vo7Var};
+                Object[] objArr = {newFriendsActivity, sy7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -113,22 +113,22 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                 }
             }
             this.b = newFriendsActivity;
-            this.a = vo7Var;
+            this.a = sy7Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zo5
+        @Override // com.baidu.tieba.fq5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, bool) == null) && bool.booleanValue()) {
-                this.b.b.n(this.a);
+                this.b.b.z(this.a);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements v35.g {
+    public class c implements y45.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFriendsActivity a;
@@ -151,13 +151,13 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
             this.a = newFriendsActivity;
         }
 
-        @Override // com.baidu.tieba.v35.g
+        @Override // com.baidu.tieba.y45.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || z) {
                 return;
             }
-            this.a.L1();
+            this.a.K1();
         }
     }
 
@@ -189,8 +189,8 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         public void i(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.b.l();
-                this.a.b.o(null);
+                this.a.b.x();
+                this.a.b.A(null);
                 BdToast.b(this.a.getPageContext().getPageActivity(), str);
             }
         }
@@ -201,13 +201,13 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) {
                 return;
             }
-            this.a.L1();
+            this.a.K1();
             TbadkSettings.getInst().saveBoolean(this.a.a, true);
         }
     }
 
     /* loaded from: classes3.dex */
-    public class e implements zy5.c {
+    public class e implements f06.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFriendsActivity a;
@@ -230,15 +230,18 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
             this.a = newFriendsActivity;
         }
 
-        @Override // com.baidu.tieba.zy5.c
-        public void a(int i, int i2, View view2, vo7 vo7Var) {
+        @Override // com.baidu.tieba.f06.c
+        public void a(int i, int i2, View view2, sy7 sy7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), view2, vo7Var}) == null) {
-                if (vo7Var.f() == 0) {
-                    this.a.I1(vo7Var);
-                } else if (vo7Var.f() == 1) {
-                    this.a.N1(vo7Var);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), view2, sy7Var}) == null) {
+                if (sy7Var.f() != 0) {
+                    if (sy7Var.f() != 1) {
+                        return;
+                    }
+                    this.a.M1(sy7Var);
+                    return;
                 }
+                this.a.H1(sy7Var);
             }
         }
     }
@@ -276,16 +279,16 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001174 && (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg)) {
                 if (((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() == 1) {
-                    this.a.M1();
+                    this.a.L1();
                 } else {
-                    this.a.O1();
+                    this.a.N1();
                 }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class g extends wp5<List<vo7>> {
+    public class g extends cr5<List<sy7>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFriendsActivity a;
@@ -309,20 +312,20 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wp5
+        @Override // com.baidu.tieba.cr5
         /* renamed from: a */
-        public List<vo7> doInBackground() {
+        public List<sy7> doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return az5.f().j();
+                return g06.f().j();
             }
             return (List) invokeV.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class h implements zo5<List<vo7>> {
+    public class h implements fq5<List<sy7>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFriendsActivity a;
@@ -346,13 +349,13 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zo5
+        @Override // com.baidu.tieba.fq5
         /* renamed from: a */
-        public void onReturnDataInUI(List<vo7> list) {
+        public void onReturnDataInUI(List<sy7> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.a.b.m().e(list);
-                this.a.b.m().notifyDataSetChanged();
+                this.a.b.y().e(list);
+                this.a.b.y().notifyDataSetChanged();
             }
         }
     }
@@ -396,7 +399,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                 if (socketResponsedMessage != null && (socketResponsedMessage instanceof SocketResponsedMessage)) {
                     if ((socketResponsedMessage instanceof ResponsePassFriendMessage) && (error = (responsePassFriendMessage = (ResponsePassFriendMessage) socketResponsedMessage).getError()) != 0 && error != 3100098) {
                         if (StringUtils.isNull(responsePassFriendMessage.getErrorString())) {
-                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d1f);
+                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d1b);
                         } else {
                             errorString = responsePassFriendMessage.getErrorString();
                         }
@@ -405,13 +408,13 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     }
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0d1f);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0d1b);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class j extends wp5<List<vo7>> {
+    public class j extends cr5<List<sy7>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFriendsActivity a;
@@ -435,21 +438,21 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wp5
+        @Override // com.baidu.tieba.cr5
         /* renamed from: a */
-        public List<vo7> doInBackground() {
+        public List<sy7> doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                az5.f().p();
-                return az5.f().j();
+                g06.f().p();
+                return g06.f().j();
             }
             return (List) invokeV.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class k implements zo5<List<vo7>> {
+    public class k implements fq5<List<sy7>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFriendsActivity a;
@@ -473,19 +476,19 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zo5
+        @Override // com.baidu.tieba.fq5
         /* renamed from: a */
-        public void onReturnDataInUI(List<vo7> list) {
+        public void onReturnDataInUI(List<sy7> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.a.b.l();
-                this.a.b.o(list);
+                this.a.b.x();
+                this.a.b.A(list);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class l extends wp5<List<vo7>> {
+    public class l extends cr5<List<sy7>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFriendsActivity a;
@@ -509,20 +512,20 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.wp5
+        @Override // com.baidu.tieba.cr5
         /* renamed from: a */
-        public List<vo7> doInBackground() {
+        public List<sy7> doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return az5.f().g();
+                return g06.f().g();
             }
             return (List) invokeV.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class m implements zo5<List<vo7>> {
+    public class m implements fq5<List<sy7>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFriendsActivity a;
@@ -546,29 +549,29 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zo5
+        @Override // com.baidu.tieba.fq5
         /* renamed from: a */
-        public void onReturnDataInUI(List<vo7> list) {
+        public void onReturnDataInUI(List<sy7> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.a.b.s(list);
+                this.a.b.E(list);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class n implements b05.c {
+    public class n implements e05.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public vo7 a;
+        public sy7 a;
         public final /* synthetic */ NewFriendsActivity b;
 
-        public n(NewFriendsActivity newFriendsActivity, vo7 vo7Var) {
+        public n(NewFriendsActivity newFriendsActivity, sy7 sy7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendsActivity, vo7Var};
+                Object[] objArr = {newFriendsActivity, sy7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -579,18 +582,19 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                 }
             }
             this.b = newFriendsActivity;
-            this.a = vo7Var;
+            this.a = sy7Var;
         }
 
-        @Override // com.baidu.tieba.b05.c
-        public void a(b05 b05Var, int i, View view2) {
+        @Override // com.baidu.tieba.e05.c
+        public void a(e05 e05Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, b05Var, i, view2) == null) {
-                b05Var.e();
-                vo7 vo7Var = this.a;
-                if (vo7Var != null) {
-                    this.b.J1(vo7Var);
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, e05Var, i, view2) == null) {
+                e05Var.e();
+                sy7 sy7Var = this.a;
+                if (sy7Var == null) {
+                    return;
                 }
+                this.b.I1(sy7Var);
             }
         }
     }
@@ -616,17 +620,17 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         this.h = new RecommendFriendModel(this, new d(this));
     }
 
-    public final void J1(vo7 vo7Var) {
+    public final void I1(sy7 sy7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vo7Var) == null) {
-            aq5.c(new a(this, vo7Var), new b(this, vo7Var));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sy7Var) == null) {
+            gr5.c(new a(this, sy7Var), new b(this, sy7Var));
         }
     }
 
-    public final void N1(vo7 vo7Var) {
+    public final void M1(sy7 sy7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, vo7Var) == null) {
-            tj5.a(vo7Var.b(), AddFriendActivityConfig.TYPE_NEW_FRD);
+        if (interceptable == null || interceptable.invokeL(1048581, this, sy7Var) == null) {
+            zk5.a(sy7Var.b(), AddFriendActivityConfig.TYPE_NEW_FRD);
         }
     }
 
@@ -634,27 +638,27 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.b.i(getLayoutMode(), i2);
+            this.b.u(getLayoutMode(), i2);
         }
     }
 
-    public final void I1(vo7 vo7Var) {
+    public final void H1(sy7 sy7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, vo7Var) == null) && vo7Var != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(getPageContext().getPageActivity(), String.valueOf(vo7Var.b()), vo7Var.d(), vo7Var.e(), "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));
+        if ((interceptable == null || interceptable.invokeL(1048576, this, sy7Var) == null) && sy7Var != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(getPageContext().getPageActivity(), String.valueOf(sy7Var.b()), sy7Var.d(), sy7Var.e(), "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));
         }
     }
 
-    public final b05 K1(n nVar) {
+    public final e05 J1(n nVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nVar)) == null) {
-            b05 b05Var = new b05(getPageContext().getPageActivity());
-            b05Var.k(R.string.obfuscated_res_0x7f0f0deb);
-            b05Var.j(new String[]{getPageContext().getString(R.string.obfuscated_res_0x7f0f04db)}, nVar);
-            return b05Var;
+            e05 e05Var = new e05(getPageContext().getPageActivity());
+            e05Var.k(R.string.obfuscated_res_0x7f0f0de6);
+            e05Var.j(new String[]{getPageContext().getString(R.string.obfuscated_res_0x7f0f04d9)}, nVar);
+            return e05Var;
         }
-        return (b05) invokeL.objValue;
+        return (e05) invokeL.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
@@ -665,24 +669,24 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         }
     }
 
-    public final void L1() {
+    public final void K1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            aq5.c(new j(this), new k(this));
+            gr5.c(new j(this), new k(this));
         }
     }
 
-    public final void M1() {
+    public final void L1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            aq5.c(new g(this), new h(this));
+            gr5.c(new g(this), new h(this));
         }
     }
 
-    public final void O1() {
+    public final void N1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            aq5.c(new l(this), new m(this));
+            gr5.c(new l(this), new m(this));
         }
     }
 
@@ -691,9 +695,9 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            b05 b05Var = this.c;
-            if (b05Var != null) {
-                b05Var.e();
+            e05 e05Var = this.c;
+            if (e05Var != null) {
+                e05Var.e();
             }
         }
     }
@@ -703,30 +707,30 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0692);
-            bz5 bz5Var = new bz5(this);
-            this.b = bz5Var;
-            bz5Var.p(this.g);
-            this.b.q(this.d);
+            setContentView(R.layout.obfuscated_res_0x7f0d0690);
+            h06 h06Var = new h06(this);
+            this.b = h06Var;
+            h06Var.B(this.g);
+            this.b.C(this.d);
             registerListener(this.e);
             registerListener(this.f);
             if (TbadkSettings.getInst().loadBoolean(this.a, false)) {
-                L1();
-                this.b.r();
+                K1();
+                this.b.D();
                 return;
             }
             this.h.setUniqueId(getUniqueId());
             this.h.registerListener();
-            this.h.S();
-            this.b.r();
+            this.h.R();
+            this.b.D();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i2, long j2) {
-        vo7 item;
+        sy7 item;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{adapterView, view2, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (item = this.b.m().getItem(i2)) != null && (item instanceof vo7) && i2 == j2) {
+        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{adapterView, view2, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (item = this.b.y().getItem(i2)) != null && (item instanceof sy7) && i2 == j2) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), String.valueOf(item.b()), item.d())));
         }
     }
@@ -736,11 +740,11 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{adapterView, view2, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            vo7 item = this.b.m().getItem(i2);
-            if (item != null && (item instanceof vo7)) {
-                b05 K1 = K1(new n(this, item));
-                this.c = K1;
-                K1.c(getPageContext());
+            sy7 item = this.b.y().getItem(i2);
+            if (item != null && (item instanceof sy7)) {
+                e05 J1 = J1(new n(this, item));
+                this.c = J1;
+                J1.c(getPageContext());
                 this.c.m();
                 return true;
             }

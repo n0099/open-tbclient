@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ExternalCache {
     public static final int SCENE_ASYNC_CACHE_OVERTIME = 8;
     public static final int SCENE_ASYNC_NO_RESULT = 4;
@@ -82,7 +82,7 @@ public class ExternalCache {
         return this.mFirstStart;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum NetType {
         WIFI("WIFI", 100),
         MOBILE_CTL("CTL", 1),

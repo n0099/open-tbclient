@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,7 +73,7 @@ public class HeadImageView extends TbClipImageView {
         }
     }
 
-    public final void T(Canvas canvas) {
+    public final void U(Canvas canvas) {
         int i;
         int i2;
         Interceptable interceptable = $ic;
@@ -149,7 +149,7 @@ public class HeadImageView extends TbClipImageView {
     private void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.y0 = hi.g(getContext(), R.dimen.tbds36);
+            this.y0 = ii.g(getContext(), R.dimen.tbds36);
             setDrawerType(1);
             setGifIconSupport(false);
             setDrawBorder(true);
@@ -162,7 +162,7 @@ public class HeadImageView extends TbClipImageView {
         }
     }
 
-    public void U(Canvas canvas) {
+    public void V(Canvas canvas) {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && this.z0 && this.y0 > 0) {
@@ -225,8 +225,8 @@ public class HeadImageView extends TbClipImageView {
             if (canvas == null) {
                 return;
             }
+            V(canvas);
             U(canvas);
-            T(canvas);
         }
     }
 
@@ -270,7 +270,7 @@ public class HeadImageView extends TbClipImageView {
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             setIsRound(true);
             if (i > 0) {
-                this.x0 = hi.g(getContext(), i);
+                this.x0 = ii.g(getContext(), i);
             }
             invalidate();
         }
@@ -287,7 +287,7 @@ public class HeadImageView extends TbClipImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             if (i > 0) {
-                this.y0 = hi.g(getContext(), i);
+                this.y0 = ii.g(getContext(), i);
             }
             invalidate();
         }

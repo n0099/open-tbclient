@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.tieba.jg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -97,7 +97,7 @@ public class AudioAnimationView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        this.l = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
         this.m = R.color.CAM_X0302;
         this.n = new a(this);
         c();
@@ -130,7 +130,7 @@ public class AudioAnimationView extends View {
         this.f = false;
         this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        this.l = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
         this.m = R.color.CAM_X0302;
         this.n = new a(this);
         c();

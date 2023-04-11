@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m35;
-import com.baidu.tieba.mg8;
+import com.baidu.tieba.dr8;
+import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mg8 a;
+    public dr8 a;
     public int b;
     public boolean c;
     public ArrayList<Integer> d;
@@ -66,9 +66,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             r1();
-            mg8 mg8Var = new mg8(this, this.b, this.c, this.d, this.e, this.f);
-            this.a = mg8Var;
-            setContentView(mg8Var.d());
+            dr8 dr8Var = new dr8(this, this.b, this.c, this.d, this.e, this.f);
+            this.a = dr8Var;
+            setContentView(dr8Var.d());
             s1();
         }
     }
@@ -89,7 +89,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
             String str = "";
-            String s = m35.m().s("key_interest_guide_show", "");
+            String s = p45.m().s("key_interest_guide_show", "");
             StringBuilder sb = new StringBuilder();
             sb.append(s);
             if (!StringUtils.isNull(s)) {
@@ -97,9 +97,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             }
             sb.append(str);
             String sb2 = sb.toString();
-            m35 m = m35.m();
+            p45 m = p45.m();
             m.B("key_interest_guide_show", sb2 + System.currentTimeMillis());
-            m35.m().A("key_interest_panel_show_time", System.currentTimeMillis());
+            p45.m().A("key_interest_panel_show_time", System.currentTimeMillis());
         }
     }
 }

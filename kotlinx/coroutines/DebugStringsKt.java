@@ -16,20 +16,20 @@ public final class DebugStringsKt {
     }
 
     public static final String toDebugString(Continuation<?> continuation) {
-        String m768constructorimpl;
+        String m770constructorimpl;
         if (continuation instanceof DispatchedContinuation) {
             return continuation.toString();
         }
         try {
             Result.Companion companion = Result.Companion;
-            m768constructorimpl = Result.m768constructorimpl(continuation + '@' + getHexAddress(continuation));
+            m770constructorimpl = Result.m770constructorimpl(continuation + '@' + getHexAddress(continuation));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m768constructorimpl = Result.m768constructorimpl(ResultKt.createFailure(th));
+            m770constructorimpl = Result.m770constructorimpl(ResultKt.createFailure(th));
         }
-        if (Result.m771exceptionOrNullimpl(m768constructorimpl) != null) {
-            m768constructorimpl = continuation.getClass().getName() + '@' + getHexAddress(continuation);
+        if (Result.m773exceptionOrNullimpl(m770constructorimpl) != null) {
+            m770constructorimpl = continuation.getClass().getName() + '@' + getHexAddress(continuation);
         }
-        return (String) m768constructorimpl;
+        return (String) m770constructorimpl;
     }
 }

@@ -32,7 +32,8 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.w58;
+import com.baidu.tieba.ng8;
+import com.baidu.tieba.z05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,33 +87,34 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                this.this$0.l = (Download) intent.getSerializableExtra("download");
-                if (this.this$0.l != null && this.this$0.l.mSourceKey != null && this.this$0.l.mSourceKey.contains(this.this$0.getApplicationContext().getPackageName())) {
-                    LcUpdateDialogActivity lcUpdateDialogActivity = this.this$0;
-                    lcUpdateDialogActivity.m = lcUpdateDialogActivity.l.mId;
-                    if (DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE.equals(intent.getAction())) {
-                        int intExtra = intent.getIntExtra("progress", 0);
-                        this.this$0.j.setVisibility(0);
-                        this.this$0.j.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.lc_app_downloading), String.valueOf(intExtra)));
-                    } else if (DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE.equals(intent.getAction())) {
-                        LcUpdateDialogActivity lcUpdateDialogActivity2 = this.this$0;
-                        TbadkCoreApplication.saveClientId(lcUpdateDialogActivity2, String.valueOf(lcUpdateDialogActivity2.m));
-                        TbadkCoreApplication.setClientId(String.valueOf(this.this$0.m));
-                        if (DownloadState.FINISH == this.this$0.l.getState()) {
-                            String str = this.this$0.l.mSavedPath + "/" + this.this$0.l.mFileName;
-                            this.this$0.finish();
-                        } else if (DownloadState.DOWNLOADING != this.this$0.l.getState() && DownloadState.PAUSE != this.this$0.l.getState() && DownloadState.CANCEL == this.this$0.l.getState()) {
-                            Toast.makeText(this.this$0.getApplicationContext(), this.this$0.l.mFileName + ": 已删除", 1).show();
-                        }
-                    } else if (DownloadManager.ACTION_DOWNLOAD_MERGE_STATUS.equals(intent.getAction())) {
-                        if (DownloadState.MEAGESTART != this.this$0.l.getState()) {
-                            DownloadState downloadState = DownloadState.MEAGEEND;
-                            this.this$0.l.getState();
-                        }
-                    } else if ("com.baidu.clientupdate.RSA.STATUS_FAIL".equals(intent.getAction())) {
-                        Toast.makeText(this.this$0.getApplicationContext(), "安装包存在被劫持风险，已删除", 1).show();
+            if (interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) {
+                return;
+            }
+            this.this$0.l = (Download) intent.getSerializableExtra("download");
+            if (this.this$0.l != null && this.this$0.l.mSourceKey != null && this.this$0.l.mSourceKey.contains(this.this$0.getApplicationContext().getPackageName())) {
+                LcUpdateDialogActivity lcUpdateDialogActivity = this.this$0;
+                lcUpdateDialogActivity.m = lcUpdateDialogActivity.l.mId;
+                if (DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE.equals(intent.getAction())) {
+                    int intExtra = intent.getIntExtra("progress", 0);
+                    this.this$0.j.setVisibility(0);
+                    this.this$0.j.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.lc_app_downloading), String.valueOf(intExtra)));
+                } else if (DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE.equals(intent.getAction())) {
+                    LcUpdateDialogActivity lcUpdateDialogActivity2 = this.this$0;
+                    TbadkCoreApplication.saveClientId(lcUpdateDialogActivity2, String.valueOf(lcUpdateDialogActivity2.m));
+                    TbadkCoreApplication.setClientId(String.valueOf(this.this$0.m));
+                    if (DownloadState.FINISH == this.this$0.l.getState()) {
+                        String str = this.this$0.l.mSavedPath + "/" + this.this$0.l.mFileName;
+                        this.this$0.finish();
+                    } else if (DownloadState.DOWNLOADING != this.this$0.l.getState() && DownloadState.PAUSE != this.this$0.l.getState() && DownloadState.CANCEL == this.this$0.l.getState()) {
+                        Toast.makeText(this.this$0.getApplicationContext(), this.this$0.l.mFileName + ": 已删除", 1).show();
                     }
+                } else if (DownloadManager.ACTION_DOWNLOAD_MERGE_STATUS.equals(intent.getAction())) {
+                    if (DownloadState.MEAGESTART != this.this$0.l.getState()) {
+                        DownloadState downloadState = DownloadState.MEAGEEND;
+                        this.this$0.l.getState();
+                    }
+                } else if ("com.baidu.clientupdate.RSA.STATUS_FAIL".equals(intent.getAction())) {
+                    Toast.makeText(this.this$0.getApplicationContext(), "安装包存在被劫持风险，已删除", 1).show();
                 }
             }
         }
@@ -138,7 +140,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
 
     private void registerReceiver() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE);
             intentFilter.addAction(DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE);
@@ -164,17 +166,6 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelDownload(this.m);
-            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelAutoCheckUpdate();
-            unregisterReceiver(this.p);
-            super.onDestroy();
-        }
-    }
-
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
@@ -194,9 +185,10 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
+            z05.l("lcUpdateDialog");
             setSwipeBackEnabled(false);
             setContentView(R.layout.activity_lc_update_layout);
-            F1(bundle);
+            E1(bundle);
             initView();
             registerReceiver();
         }
@@ -220,7 +212,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     private boolean update() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             if (!FileHelper.checkSD()) {
                 showToast(FileHelper.getSdErrorString());
                 return false;
@@ -265,7 +257,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         }
     }
 
-    public final void F1(Bundle bundle) {
+    public final void E1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             if (bundle != null) {
@@ -303,12 +295,24 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelDownload(this.m);
+            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelAutoCheckUpdate();
+            unregisterReceiver(this.p);
+            z05.r("lcUpdateDialog");
+            super.onDestroy();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
             if (TbSingleton.getInstance().isSplashShowing()) {
-                w58 defaultLog = DefaultLog.getInstance();
+                ng8 defaultLog = DefaultLog.getInstance();
                 defaultLog.b("BaseActivity", "resume LcUpdateDialogActivity failed，because of splash showing. IS_MAIN_TAB_SPLASH_SHOW=" + MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW + ", IS_HOT_SPLASH_SHOW=" + LogoActivityConfig.IS_HOT_SPLASH_SHOW);
                 finish();
             }

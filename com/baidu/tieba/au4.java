@@ -1,34 +1,27 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.webkit.JsPromptResult;
 import android.webkit.WebView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class au4 implements jd6 {
+public class au4 implements re6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.jd6
+    @Override // com.baidu.tieba.re6
     public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        id6.a(this, webView, str, jSONObject);
-    }
-
-    @Override // com.baidu.tieba.jd6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            return false;
-        }
-        return invokeLLLLL.booleanValue;
+        qe6.a(this, webView, str, jSONObject);
     }
 
     public au4() {
@@ -45,22 +38,42 @@ public class au4 implements jd6 {
         }
     }
 
-    public tc9 c(WebView webView, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.re6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
-            return new tc9();
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (CommonTbJsBridge.IS_DISABLE_GO_BACK.equals(str2)) {
+                jsPromptResult.confirm(c(webView).a());
+                return false;
+            }
+            return false;
         }
-        return (tc9) invokeLL.objValue;
+        return invokeLLLLL.booleanValue;
     }
 
-    public tc9 d(WebView webView, HashMap hashMap) {
-        InterceptResult invokeLL;
+    public km9 c(WebView webView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
-            a(webView, CommonTbJsBridge.OPEN_VIP_SUCCESS, new JSONObject());
-            return new tc9();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
+            km9 km9Var = new km9();
+            Activity a = he6.a(webView.getContext());
+            int i = 1;
+            if (a instanceof BaseWebViewActivity) {
+                ((BaseWebViewActivity) a).isDisableGoBack = true;
+            } else {
+                i = 0;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", i);
+                km9Var.o(jSONObject.toString());
+                return km9Var;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return km9Var;
+            }
         }
-        return (tc9) invokeLL.objValue;
+        return (km9) invokeL.objValue;
     }
 }

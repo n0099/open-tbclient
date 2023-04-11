@@ -5,7 +5,7 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.zl5;
+import com.baidu.tieba.fn5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,12 +56,12 @@ public class HomePageStatic {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_POST, TbConfig.SERVER_ADDRESS + TbConfig.GET_MY_POST + "?cmd=303111");
             tbHttpMessageTask.setResponsedClass(GetMyPostHttpResponseMessage.class);
             messageManager.registerTask(tbHttpMessageTask);
-            zl5 zl5Var = new zl5(303111);
-            zl5Var.setResponsedClass(GetMyPostSocketResponseMessage.class);
-            zl5Var.g(true);
-            zl5Var.h(false);
-            zl5Var.f(SocketMessageTask.DupLicateMode.NONE);
-            messageManager.registerTask(zl5Var);
+            fn5 fn5Var = new fn5(303111);
+            fn5Var.setResponsedClass(GetMyPostSocketResponseMessage.class);
+            fn5Var.g(true);
+            fn5Var.h(false);
+            fn5Var.f(SocketMessageTask.DupLicateMode.NONE);
+            messageManager.registerTask(fn5Var);
         }
     }
 }

@@ -54,7 +54,7 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
             super(view2);
             this.a = (TextView) view2.findViewById(R.id.tv_name);
             this.b = (TextView) view2.findViewById(R.id.tv_num);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09101a);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09101f);
             this.d = (TextView) view2.findViewById(R.id.tv_type);
         }
     }
@@ -65,7 +65,7 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
         this.b = payUIKitConfig;
     }
 
-    public GiftBagItemInfo e(int i) {
+    public GiftBagItemInfo l(int i) {
         List<GiftBagItemInfo> list = this.a;
         if (list != null && !list.isEmpty() && i >= 0 && i < this.a.size()) {
             return this.a.get(i);
@@ -73,33 +73,38 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
         return null;
     }
 
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        return this.a.size();
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: f */
+    /* renamed from: m */
     public void onBindViewHolder(c cVar, int i) {
         cVar.itemView.setOnClickListener(new a(cVar));
-        GiftBagItemInfo e = e(cVar.getAdapterPosition());
-        if (TextUtils.isEmpty(e.name)) {
+        GiftBagItemInfo l = l(cVar.getAdapterPosition());
+        if (TextUtils.isEmpty(l.name)) {
             cVar.a.setVisibility(4);
         } else {
             cVar.a.setVisibility(0);
-            cVar.a.setText(e.name);
+            cVar.a.setText(l.name);
         }
-        if (!TextUtils.isEmpty(e.countDisplay) && !StringUtil.NULL_STRING.equals(e.countDisplay)) {
+        if (!TextUtils.isEmpty(l.countDisplay) && !StringUtil.NULL_STRING.equals(l.countDisplay)) {
             cVar.b.setVisibility(0);
-            cVar.b.setText(e.countDisplay);
+            cVar.b.setText(l.countDisplay);
         } else {
             cVar.b.setVisibility(4);
         }
-        if (!TextUtils.isEmpty(e.typeName) && !StringUtil.NULL_STRING.equals(e.typeName)) {
+        if (!TextUtils.isEmpty(l.typeName) && !StringUtil.NULL_STRING.equals(l.typeName)) {
             cVar.d.setVisibility(0);
-            cVar.d.setText(e.typeName);
+            cVar.d.setText(l.typeName);
         } else {
             cVar.d.setVisibility(4);
         }
         PayUIKitConfig payUIKitConfig = this.b;
         if (payUIKitConfig != null && payUIKitConfig.imageLoaderSupplier != null) {
-            this.b.imageLoaderSupplier.onLoad(this.c, cVar.c, new ImageLoaderSupplier.ImageParam(e.imgUrl, -1, -1));
+            this.b.imageLoaderSupplier.onLoad(this.c, cVar.c, new ImageLoaderSupplier.ImageParam(l.imgUrl, -1, -1));
             return;
         }
         RLog.error("PayAmountCampaignListAdapter", "onBindViewHolder error mPayUIKitConfig null", new Object[0]);
@@ -107,13 +112,8 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: g */
+    /* renamed from: n */
     public c onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pay_ui_item_pay_amount_campaign_list_item, viewGroup, false));
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        return this.a.size();
     }
 }

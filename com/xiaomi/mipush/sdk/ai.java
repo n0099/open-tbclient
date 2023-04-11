@@ -22,7 +22,7 @@ import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
 public class ai {
     public static <T extends is<T, ?>> id a(Context context, T t, hh hhVar) {
-        return a(context, t, hhVar, !hhVar.equals(hh.Registration), context.getPackageName(), b.m143a(context).m144a());
+        return a(context, t, hhVar, !hhVar.equals(hh.Registration), context.getPackageName(), b.m145a(context).m146a());
     }
 
     public static <T extends is<T, ?>> id a(Context context, T t, hh hhVar, boolean z, String str, String str2) {
@@ -35,12 +35,12 @@ public class ai {
         if (a != null) {
             id idVar = new id();
             if (z) {
-                String d = b.m143a(context).d();
+                String d = b.m145a(context).d();
                 if (TextUtils.isEmpty(d)) {
                     str3 = "regSecret is empty, return null";
                 } else {
                     try {
-                        a = com.xiaomi.push.h.b(bl.m215a(d), a);
+                        a = com.xiaomi.push.h.b(bl.m217a(d), a);
                     } catch (Exception unused) {
                         com.xiaomi.channel.commonutils.logger.b.d("encryption error. ");
                     }
@@ -59,28 +59,28 @@ public class ai {
             return idVar;
         }
         str3 = "invoke convertThriftObjectToBytes method, return null.";
-        com.xiaomi.channel.commonutils.logger.b.m99a(str3);
+        com.xiaomi.channel.commonutils.logger.b.m101a(str3);
         return null;
     }
 
     public static is a(Context context, id idVar) {
-        byte[] m549a;
-        if (idVar.m551b()) {
+        byte[] m551a;
+        if (idVar.m553b()) {
             byte[] a = i.a(context, idVar, e.ASSEMBLE_PUSH_FCM);
             if (a == null) {
-                a = bl.m215a(b.m143a(context).d());
+                a = bl.m217a(b.m145a(context).d());
             }
             try {
-                m549a = com.xiaomi.push.h.a(a, idVar.m549a());
+                m551a = com.xiaomi.push.h.a(a, idVar.m551a());
             } catch (Exception e) {
                 throw new u("the aes decrypt failed.", e);
             }
         } else {
-            m549a = idVar.m549a();
+            m551a = idVar.m551a();
         }
         is a2 = a(idVar.a(), idVar.f639b);
         if (a2 != null) {
-            ir.a(a2, m549a);
+            ir.a(a2, m551a);
         }
         return a2;
     }

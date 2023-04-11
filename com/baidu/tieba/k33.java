@@ -1,62 +1,78 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.bw1;
-import com.baidu.tieba.cd3;
+import com.baidu.tieba.d72;
+import com.baidu.tieba.qq2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import com.tencent.open.miniapp.MiniApp;
+import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class k33 extends g33 {
+public class k33 extends i33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.h33
-    public tz1 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            return null;
-        }
-        return (tz1) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.h33
+    @Override // com.baidu.tieba.i33
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "snsapi_userinfo" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h33
+    @Override // com.baidu.tieba.i33
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SwanPluginUserInfoFunPage" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.i33
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.i33
+    public uz1 m(e33 e33Var, g92<f33> g92Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, e33Var, g92Var)) == null) {
+            return null;
+        }
+        return (uz1) invokeLL.objValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a implements mm3<wc3<cd3.d>> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f92 a;
+        public final /* synthetic */ String a;
         public final /* synthetic */ e33 b;
-        public final /* synthetic */ fd3 c;
+        public final /* synthetic */ d72 c;
 
-        public a(k33 k33Var, f92 f92Var, e33 e33Var, fd3 fd3Var) {
+        public a(k33 k33Var, String str, e33 e33Var, d72 d72Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k33Var, f92Var, e33Var, fd3Var};
+                Object[] objArr = {k33Var, str, e33Var, d72Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -66,35 +82,21 @@ public class k33 extends g33 {
                     return;
                 }
             }
-            this.a = f92Var;
+            this.a = str;
             this.b = e33Var;
-            this.c = fd3Var;
+            this.c = d72Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mm3
-        /* renamed from: b */
-        public void a(wc3<cd3.d> wc3Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wc3Var) == null) {
-                if (wc3Var != null && wc3Var.c() && !TextUtils.isEmpty(wc3Var.a.a)) {
-                    JSONObject jSONObject = this.c.g;
-                    if (jSONObject != null) {
-                        try {
-                            jSONObject.put("code", wc3Var.a.a);
-                            this.b.d = true;
-                        } catch (JSONException e) {
-                            if (do1.a) {
-                                l33.b(Log.getStackTraceString(e));
-                            }
-                        }
-                        this.b.e = jSONObject.toString();
-                    }
-                    this.a.a(this.b);
-                    return;
-                }
-                l33.b("login failure, can't get login code");
-                this.a.a(this.b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ux2 ux2Var = new ux2();
+                ux2Var.c = this.a;
+                ux2Var.b = f33.a(this.b);
+                d72.b i = this.c.i("navigateTo");
+                i.n(d72.g, d72.i);
+                i.k("pluginFunPage", ux2Var).a();
             }
         }
     }
@@ -113,22 +115,163 @@ public class k33 extends g33 {
         }
     }
 
-    @Override // com.baidu.tieba.g33
-    public void p(SwanAppActivity swanAppActivity, String str, d33 d33Var, fd3 fd3Var, f92<e33> f92Var) {
+    @Override // com.baidu.tieba.i33
+    public uz1 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, swanAppActivity, str, d33Var, fd3Var, f92Var) == null) {
-            e33 e33Var = new e33(d33Var.f);
-            e33Var.a = d33Var.e;
-            if (fd3Var != null && fd3Var.j.a() == 0) {
-                l33.b("obtain user info detail, get login code");
-                bw1.d dVar = new bw1.d(d33Var.g);
-                Bundle bundle = new Bundle();
-                bundle.putString("__plugin__", d33Var.a);
-                s73.K().q().e0().r(swanAppActivity, dVar, bundle, new a(this, f92Var, e33Var, fd3Var), "SwanPluginUserInfoFunPage");
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new uz1(201, "args params is null");
             }
-            l33.b("open data result failure");
-            f92Var.a(e33Var);
+            if (jSONObject.optLong("fee") < 0) {
+                return new uz1(201, "fee can't smaller than 0");
+            }
+            if (jSONObject.optJSONObject("paymentArgs") == null) {
+                return new uz1(201, "paymentArgs can't be null");
+            }
+            return null;
         }
+        return (uz1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.i33
+    public d33 f(e33 e33Var) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e33Var)) == null) {
+            File file = null;
+            if (e33Var == null) {
+                return null;
+            }
+            String str = e33Var.a;
+            String str2 = e33Var.c;
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            d33 d33Var = new d33();
+            d33Var.a = str;
+            d33Var.b = str2;
+            if (l52.d()) {
+                file = qq2.f.e();
+            } else if (t33.H()) {
+                file = qq2.b.e();
+            } else if (t33.D()) {
+                file = b52.d();
+            } else {
+                if (TextUtils.equals(e33Var.d, MiniApp.MINIAPP_VERSION_DEVELOP)) {
+                    String a2 = wz1.a(str);
+                    File g = qq2.g();
+                    String[] list = g.list();
+                    if (list != null && g.length() != 0) {
+                        String str3 = a2 + "_dev";
+                        int i2 = -1;
+                        for (String str4 : list) {
+                            if (!TextUtils.isEmpty(str4) && str4.startsWith(str3)) {
+                                try {
+                                    int parseInt = Integer.parseInt(str4.substring(str3.length()));
+                                    if (parseInt > i2) {
+                                        i2 = parseInt;
+                                    }
+                                } catch (NumberFormatException e) {
+                                    m33.b(Log.getStackTraceString(e));
+                                }
+                            }
+                        }
+                        if (i2 > -1) {
+                            d33Var.a = str3 + i2;
+                            d33Var.e = true;
+                            File file2 = new File(g, d33Var.a + File.separator + i2);
+                            d33Var.c = file2.getAbsolutePath();
+                            d33Var.d = i2;
+                            file = file2;
+                        } else {
+                            d33Var.e = false;
+                            d33Var.c = null;
+                        }
+                    } else {
+                        return d33Var;
+                    }
+                } else {
+                    File file3 = new File(qq2.g(), str);
+                    if (!file3.exists()) {
+                        return d33Var;
+                    }
+                    String[] list2 = file3.list();
+                    if (list2 != null && list2.length != 0) {
+                        String str5 = null;
+                        int i3 = -1;
+                        for (String str6 : list2) {
+                            if (!TextUtils.isEmpty(str6)) {
+                                try {
+                                    i = Integer.parseInt(str6);
+                                } catch (NumberFormatException e2) {
+                                    m33.b(Log.getStackTraceString(e2));
+                                    i = -1;
+                                }
+                                if (i > i3) {
+                                    str5 = str6;
+                                    i3 = i;
+                                }
+                            }
+                        }
+                        if (i3 != -1) {
+                            d33Var.d = i3;
+                            d33Var.e = true;
+                            file = new File(file3, str5);
+                            d33Var.c = file.getAbsolutePath();
+                        }
+                    }
+                    return d33Var;
+                }
+            }
+            if (file == null) {
+                return d33Var;
+            }
+            File file4 = new File(file, str2);
+            if (!n(file4)) {
+                return d33Var;
+            }
+            d33Var.f = true;
+            d33Var.c = file4.getAbsolutePath();
+            return d33Var;
+        }
+        return (d33) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.i33
+    public uz1 j(String str, e33 e33Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, e33Var)) == null) {
+            if (e33Var == null) {
+                return new uz1(201, "pay args is null");
+            }
+            SwanAppActivity w = t73.K().w();
+            if (w == null) {
+                return new uz1(1001, "runtime exception, try reopen this app");
+            }
+            d72 Z = w.Z();
+            if (Z == null) {
+                return new uz1(1001, "runtime exception, page manager breakdown");
+            }
+            m33.b("jump to fun page");
+            t73.M().post(new a(this, str, e33Var, Z));
+            return new uz1(0);
+        }
+        return (uz1) invokeLL.objValue;
+    }
+
+    public final boolean n(File file) {
+        InterceptResult invokeL;
+        String[] list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, file)) == null) {
+            if (file == null || !file.exists() || !file.isDirectory() || (list = file.list()) == null || list.length <= 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

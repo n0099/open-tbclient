@@ -1,41 +1,129 @@
 package com.baidu.tieba;
 
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.ala.downloader.ResourceDownloader;
+import com.baidu.ala.gift.AlaDynamicGift;
+import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aa6;
-import com.baidu.tieba.eq9;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class ba6 implements aa6 {
+public class ba6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eq9 a;
-    public TextView b;
-    public aa6.c c;
-    public aa6.b d;
-    public aa6.a e;
+    public TbPageContext a;
+    public b b;
+    public BdAsyncTask c;
+    public HttpMessageListener d;
 
     /* loaded from: classes3.dex */
-    public class a implements eq9.a {
+    public interface b {
+        void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage);
+    }
+
+    /* loaded from: classes3.dex */
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ba6 a;
 
-        public a(ba6 ba6Var) {
+        /* renamed from: com.baidu.tieba.ba6$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class C0222a extends BdAsyncTask {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ List a;
+            public final /* synthetic */ HttpResponsedMessage b;
+            public final /* synthetic */ a c;
+
+            public C0222a(a aVar, List list, HttpResponsedMessage httpResponsedMessage) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, list, httpResponsedMessage};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = aVar;
+                this.a = list;
+                this.b = httpResponsedMessage;
+            }
+
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public Object doInBackground(Object[] objArr) {
+                InterceptResult invokeL;
+                AlaDynamicGift alaDynamicGift;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                    for (hn hnVar : this.a) {
+                        if (hnVar instanceof AlaEnterEffectData) {
+                            AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) hnVar;
+                            if (alaEnterEffectData.type == 1 && (alaDynamicGift = alaEnterEffectData.gift) != null && alaDynamicGift.giftZip != null) {
+                                if (ResourceDownloader.checkDirNeedToDownload(AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName, AlaDynamicGiftLocalInfoConfig.PIC_MD5_PREFIX + alaEnterEffectData.gift.giftName)) {
+                                    alaEnterEffectData.downLoadStatus = 100;
+                                } else {
+                                    alaEnterEffectData.downLoadStatus = 101;
+                                }
+                            }
+                        }
+                    }
+                    return null;
+                }
+                return invokeL.objValue;
+            }
+
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public void onCancelled() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    super.onCancelled();
+                    this.c.a.b.a((AlaGetEnterEffectResponsedMessage) this.b);
+                }
+            }
+
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public void onPostExecute(Object obj) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                    super.onPostExecute(obj);
+                    this.c.a.b.a((AlaGetEnterEffectResponsedMessage) this.b);
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ba6 ba6Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ba6Var};
+                Object[] objArr = {ba6Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -44,55 +132,28 @@ public class ba6 implements aa6 {
             this.a = ba6Var;
         }
 
-        @Override // com.baidu.tieba.eq9.a
-        public void onProgress(float f) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-                this.a.b.setText(this.a.h(f));
-            }
-        }
-
-        @Override // com.baidu.tieba.eq9.a
-        public void a(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-                if (this.a.e != null) {
-                    this.a.e.a(f);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaGetEnterEffectResponsedMessage)) {
+                AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage = (AlaGetEnterEffectResponsedMessage) httpResponsedMessage;
+                List<hn> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
+                if (ListUtils.isEmpty(effectList)) {
+                    this.a.b.a(alaGetEnterEffectResponsedMessage);
+                    return;
                 }
-                TextView textView = this.a.b;
-                ba6 ba6Var = this.a;
-                textView.setText(ba6Var.h(ba6Var.getProgress()));
-            }
-        }
-
-        @Override // com.baidu.tieba.eq9.a
-        public float getSpeed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.a.d != null) {
-                    return this.a.d.getSpeed();
-                }
-                return 1.0f;
-            }
-            return invokeV.floatValue;
-        }
-
-        @Override // com.baidu.tieba.eq9.a
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.c != null) {
-                this.a.c.a();
+                this.a.c = new C0222a(this, effectList, httpResponsedMessage).execute(new Object[0]);
             }
         }
     }
 
-    public ba6(eq9 eq9Var, TextView textView, aa6.c cVar, aa6.b bVar, aa6.a aVar) {
+    public ba6(TbPageContext tbPageContext, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eq9Var, textView, cVar, bVar, aVar};
+            Object[] objArr = {tbPageContext, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -102,218 +163,27 @@ public class ba6 implements aa6 {
                 return;
             }
         }
-        this.a = eq9Var;
-        this.b = textView;
-        this.c = cVar;
-        this.d = bVar;
-        this.e = aVar;
-        i();
+        a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
+        this.d = aVar;
+        this.a = tbPageContext;
+        this.b = bVar;
+        tbPageContext.registerListener(aVar);
     }
 
-    @Override // com.baidu.tieba.aa6
-    public boolean setMaxDuration(int i) {
-        InterceptResult invokeI;
+    public void c() {
+        BdAsyncTask bdAsyncTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            eq9 eq9Var = this.a;
-            if (eq9Var != null) {
-                eq9Var.setMaxDuration(i);
-                this.a.invalidate();
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bdAsyncTask = this.c) != null) {
+            bdAsyncTask.cancel();
         }
-        return invokeI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.aa6
-    public boolean setMinDuration(int i) {
-        InterceptResult invokeI;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            eq9 eq9Var = this.a;
-            if (eq9Var != null) {
-                eq9Var.setMinDuration(i);
-                this.a.invalidate();
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
+            httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
+            this.a.sendMessage(httpMessage);
         }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.aa6
-    public boolean setProgress(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            eq9 eq9Var = this.a;
-            if (eq9Var != null) {
-                eq9Var.setProgress(j);
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.aa6
-    public boolean setShowDeleteLastTip(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-            eq9 eq9Var = this.a;
-            if (eq9Var != null) {
-                eq9Var.setShowDeleteLastTip(z);
-                return true;
-            }
-            return false;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.aa6
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            eq9 eq9Var = this.a;
-            if (eq9Var != null) {
-                eq9Var.a();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.aa6
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            eq9 eq9Var = this.a;
-            if (eq9Var != null) {
-                return eq9Var.b();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.aa6
-    public int getMaxDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            eq9 eq9Var = this.a;
-            if (eq9Var != null) {
-                return eq9Var.getMaxDuration();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.aa6
-    public float getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            eq9 eq9Var = this.a;
-            if (eq9Var != null) {
-                return eq9Var.getProgress();
-            }
-            return 0.0f;
-        }
-        return invokeV.floatValue;
-    }
-
-    @Override // com.baidu.tieba.aa6
-    public int getSlideNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            eq9 eq9Var = this.a;
-            if (eq9Var != null) {
-                return eq9Var.getSlideNum();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            eq9 eq9Var = this.a;
-            if (eq9Var == null) {
-                return false;
-            }
-            eq9Var.setOnProgressListener(new a(this));
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.aa6
-    public boolean pause() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            eq9 eq9Var = this.a;
-            if (eq9Var != null) {
-                eq9Var.stop();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.aa6
-    public boolean reset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            eq9 eq9Var = this.a;
-            if (eq9Var != null) {
-                eq9Var.reset();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.aa6
-    public boolean start() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            eq9 eq9Var = this.a;
-            if (eq9Var != null) {
-                eq9Var.start();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final String h(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            if (f >= getMaxDuration()) {
-                f = getMaxDuration();
-            }
-            if (f > 60.0f) {
-                return ((int) (f / 60.0f)) + "'" + String.format("%.1f", Float.valueOf(f % 60.0f));
-            }
-            return String.format("%.1f", Float.valueOf(f));
-        }
-        return (String) invokeF.objValue;
     }
 }

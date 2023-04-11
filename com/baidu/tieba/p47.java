@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,148 +14,279 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import tbclient.ApkDetail;
-import tbclient.ItemInfo;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class p47 extends hw4 {
+public class p47 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<u47> a;
+    public final ArrayList<ThreadData> a;
+    public boolean b;
+    public n67 c;
+    public AntiData d;
+    public String e;
+    public String f;
+    public boolean g;
+    public boolean h;
 
-    @Override // com.baidu.tieba.hw4
-    public fy4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (fy4) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // com.baidu.tieba.hw4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static p47 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948012150, "Lcom/baidu/tieba/p47;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-566083912, "Lcom/baidu/tieba/p47$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-566083912, "Lcom/baidu/tieba/p47$b;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948012150, "Lcom/baidu/tieba/p47;");
-                return;
-            }
+            a = new p47(null);
         }
-        b = BdUniqueId.gen();
     }
 
     public p47() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        setSupportType(BaseCardInfo.SupportType.FULL);
+        this.b = false;
+        this.a = new ArrayList<>();
     }
 
-    public ArrayList<u47> c() {
+    public static p47 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (p47) invokeV.objValue;
+    }
+
+    public AntiData c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (AntiData) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<ThreadData> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.a;
         }
-        return (ArrayList) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public boolean f() {
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !ListUtils.isEmpty(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.h;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.gn
-    public BdUniqueId getType() {
+    public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void g(ItemInfo itemInfo) {
-        ApkDetail apkDetail;
-        int i;
+    public boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            p(false, false);
+            b();
+        }
+    }
+
+    public /* synthetic */ p47(a aVar) {
+        this();
+    }
+
+    public void l(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, threadData) == null) {
+            this.a.remove(threadData);
+            n67 n67Var = this.c;
+            if (n67Var != null) {
+                n67Var.c(this.a.size(), 1);
+            }
+        }
+    }
+
+    public void n(AntiData antiData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, antiData) == null) {
+            this.d = antiData;
+        }
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void s(n67 n67Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, n67Var) == null) {
+            this.c = n67Var;
+        }
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public boolean a(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadData)) == null) {
+            if (threadData == null) {
+                return false;
+            }
+            if (this.a.size() > 29) {
+                n67 n67Var = this.c;
+                if (n67Var != null) {
+                    n67Var.b(1);
+                }
+                return false;
+            }
+            this.a.add(threadData);
+            n67 n67Var2 = this.c;
+            if (n67Var2 != null) {
+                n67Var2.c(this.a.size(), 1);
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Iterator<ThreadData> it = this.a.iterator();
+            while (it.hasNext()) {
+                ThreadData next = it.next();
+                if (next != null) {
+                    next.setMarkToDel(false);
+                }
             }
             this.a.clear();
-            if (itemInfo != null && (apkDetail = itemInfo.apk_detail) != null) {
-                if (!gi.isEmpty(apkDetail.developer)) {
-                    this.a.add(new u47(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0519), itemInfo.apk_detail.developer, null));
+            n67 n67Var = this.c;
+            if (n67Var != null) {
+                n67Var.c(0, 1);
+            }
+        }
+    }
+
+    public void k(List<String> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, list) != null) || ListUtils.isEmpty(list) || ListUtils.isEmpty(this.a)) {
+            return;
+        }
+        Iterator<ThreadData> it = this.a.iterator();
+        while (it.hasNext()) {
+            ThreadData next = it.next();
+            int i = 0;
+            while (true) {
+                if (i >= list.size()) {
+                    break;
+                } else if (StringHelper.equals(list.get(i), next.getId())) {
+                    it.remove();
+                    break;
+                } else {
+                    i++;
                 }
-                if (!gi.isEmpty(itemInfo.apk_detail.publisher)) {
-                    this.a.add(new u47(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f101e), itemInfo.apk_detail.publisher, null));
-                }
-                if (!gi.isEmpty(itemInfo.apk_detail.version)) {
-                    this.a.add(new u47(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f04b0), itemInfo.apk_detail.version, null));
-                }
-                if (!gi.isEmpty(itemInfo.apk_detail.update_time)) {
-                    this.a.add(new u47(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f160a), itemInfo.apk_detail.update_time, null));
-                }
-                if (gg.g(itemInfo.apk_detail.size, 0L) > 0) {
-                    this.a.add(new u47(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0676), StringHelper.getFormatSize(gg.g(itemInfo.apk_detail.size, 0L)), null));
-                }
-                int intValue = itemInfo.apk_detail.need_network.intValue();
-                int i2 = R.string.editor_dialog_yes;
-                if (intValue > 0) {
-                    ArrayList<u47> arrayList = this.a;
-                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a44);
-                    Resources resources = TbadkCoreApplication.getInst().getResources();
-                    if (itemInfo.apk_detail.need_network.intValue() == 1) {
-                        i = R.string.editor_dialog_yes;
-                    } else {
-                        i = R.string.editor_dialog_no;
-                    }
-                    arrayList.add(new u47(string, resources.getString(i), null));
-                }
-                if (itemInfo.apk_detail.need_inner_buy.intValue() > 0) {
-                    ArrayList<u47> arrayList2 = this.a;
-                    String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f08d9);
-                    Resources resources2 = TbadkCoreApplication.getInst().getResources();
-                    if (itemInfo.apk_detail.need_inner_buy.intValue() != 1) {
-                        i2 = R.string.editor_dialog_no;
-                    }
-                    arrayList2.add(new u47(string2, resources2.getString(i2), null));
-                }
-                if (!gi.isEmpty(itemInfo.apk_detail.authority_url)) {
-                    this.a.add(new u47(TbadkCoreApplication.getInst().getResources().getString(R.string.permission_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.authority_url));
-                }
-                if (!gi.isEmpty(itemInfo.apk_detail.privacy_url)) {
-                    this.a.add(new u47(TbadkCoreApplication.getInst().getResources().getString(R.string.privacy_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.privacy_url));
-                }
+            }
+        }
+        n67 n67Var = this.c;
+        if (n67Var != null) {
+            n67Var.c(this.a.size(), 1);
+        }
+    }
+
+    public void p(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.b = z;
+            n67 n67Var = this.c;
+            if (n67Var != null) {
+                n67Var.a(z, z2, 1);
             }
         }
     }

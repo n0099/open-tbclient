@@ -443,7 +443,7 @@ public class o2 extends k0 implements c2 {
     }
 
     @Override // com.baidu.tieba.c2
-    public void P0() {
+    public void Q0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             g();
@@ -451,9 +451,9 @@ public class o2 extends k0 implements c2 {
     }
 
     @Override // com.baidu.tieba.c2
-    public void d0() {
+    public void e0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             k();
             Arrays.fill(this.q, -1);
             Arrays.fill(this.o, false);
@@ -479,7 +479,7 @@ public class o2 extends k0 implements c2 {
     }
 
     @Override // com.baidu.tieba.c2
-    public void a1() {
+    public void c1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
@@ -670,7 +670,7 @@ public class o2 extends k0 implements c2 {
         InterceptResult invokeV;
         int rotation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Context context = this.y;
             if (context instanceof Activity) {
                 rotation = ((Activity) context).getWindowManager().getDefaultDisplay().getRotation();

@@ -1,24 +1,18 @@
 package com.baidu.tieba;
 
+import android.view.ViewGroup;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.LiveRemindData;
-import com.baidu.tbadk.data.LiveRemindNormalConfigData;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class z25 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile z25 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public LiveRemindData a;
-    public LiveRemindNormalConfigData b;
-    public List<LiveRemindRecommendData> c;
+    public int a;
+    public int b;
 
     public z25() {
         Interceptable interceptable = $ic;
@@ -30,58 +24,32 @@ public class z25 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -2;
+        this.b = -1;
     }
 
-    public static z25 a() {
-        InterceptResult invokeV;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (z25.class) {
-                    if (d == null) {
-                        d = new z25();
-                    }
-                }
-            }
-            return d;
-        }
-        return (z25) invokeV.objValue;
-    }
-
-    public final void b() {
-        List<LiveRemindRecommendData> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.c) != null && list.size() >= 1) {
-            LiveRemindConfig.c().e(this.c.get(0));
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = i;
         }
     }
 
-    public LiveRemindRecommendData c(int i) {
-        InterceptResult invokeI;
+    public void b(ViewPager viewPager) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this.c != null) {
-                for (int i2 = 0; i2 < this.c.size(); i2++) {
-                    if (this.c.get(i2) != null && this.c.get(i2).getShowPage() == i) {
-                        return this.c.get(i2);
-                    }
-                }
-            }
-            return null;
-        }
-        return (LiveRemindRecommendData) invokeI.objValue;
-    }
-
-    public void d(LiveRemindData liveRemindData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, liveRemindData) != null) || liveRemindData == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewPager) != null) || viewPager == null) {
             return;
         }
-        this.a = liveRemindData;
-        this.b = liveRemindData.getNormalConfig();
-        this.c = liveRemindData.getLiveRecommendList();
-        b();
+        ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
+        if (layoutParams == null) {
+            layoutParams = new ViewGroup.LayoutParams(this.b, this.a);
+        } else {
+            layoutParams.height = this.a;
+            layoutParams.width = this.b;
+        }
+        viewPager.setLayoutParams(layoutParams);
     }
 }

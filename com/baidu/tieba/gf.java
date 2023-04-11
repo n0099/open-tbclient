@@ -311,7 +311,7 @@ public class gf {
             if (str != null && str.toLowerCase().contains("gzip")) {
                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                di.c(byteArrayInputStream, byteArrayOutputStream);
+                ei.c(byteArrayInputStream, byteArrayOutputStream);
                 this.h = System.currentTimeMillis();
                 return byteArrayOutputStream.toByteArray();
             }
@@ -368,7 +368,7 @@ public class gf {
             }
             if (z2) {
                 try {
-                    ci.k(str);
+                    di.k(str);
                 } catch (Throwable th2) {
                     th = th2;
                 }
@@ -376,7 +376,7 @@ public class gf {
             if (z) {
                 i3 = new File(str);
             } else {
-                i3 = ci.i(str);
+                i3 = di.i(str);
             }
             if (i3 != null) {
                 try {

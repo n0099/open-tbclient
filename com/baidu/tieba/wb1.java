@@ -8,4 +8,10 @@ public interface wb1 {
     void b(AdBaseModel adBaseModel);
 
     void c(AdBaseModel adBaseModel);
+
+    void d(AdBaseModel adBaseModel);
+
+    void e(AdBaseModel adBaseModel);
+
+    void f(AdBaseModel adBaseModel, float f);
 }

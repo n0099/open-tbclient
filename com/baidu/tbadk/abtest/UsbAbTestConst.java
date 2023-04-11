@@ -10,11 +10,13 @@ public class UsbAbTestConst {
     public static final String KEY_AD_RETARGET_NOTIFICATION_REMIND = "12_28_notification_remind_ad";
     public static final String KEY_AD_RETARGET_TIPS_REMIND = "12_28_tips_remind_ad";
     public static final String KEY_AGREE_NUMBER_CAN_CLICK = "12_27_agree_number_can_a";
+    public static final String KEY_BIG_IMAGE_PRE_PAGE = "12.39_big_image_pre_page";
     public static final String KEY_BIG_PIC_RECOMMEND_LIVE_SECOND_FLOOR_A = "12_30_picture_recommend_live_a";
     public static final String KEY_BIG_PIC_RECOMMEND_LIVE_SECOND_FLOOR_B = "12_30_picture_recommend_live_b";
     public static final String KEY_CONCERN_FEED_TEST = "12.38_concern_feed_test";
     public static final String KEY_ENTER_FRS_NO_ANMI = "12.25_enter_frs_no_anim";
     public static final String KEY_EXIT_REMIND_TIP = "12_28_exit_remind_ad";
+    public static final String KEY_FEED_LIVE_CARD_STYLE_A = "12_39_livecard_style_a";
     public static final String KEY_FEED_VIDEO_TRANSITION = "12_19_feed_video_transition_a";
     public static final String KEY_FORUM_REC_REASON_COLOR_TEST_A = "12_19_rec_a";
     public static final String KEY_FRS_FOLLOW_GUIDE_A = "12_22_frs_follow_guide_a";
@@ -54,6 +56,7 @@ public class UsbAbTestConst {
     public static final String KEY_REQUEST_INSERT_AD = "frontpage_popup_a";
     public static final String KEY_SHARE_BTN_TOP_RIGHT = "12_25_zhuanfaweizhi_a";
     public static final String KEY_SHARE_H5_CARD_OPTIMIZE = "12_16_sharecard_a";
+    public static final String KEY_SHOU_BAI_THREAD_TEST = "12.39_shou_bai_thread_test";
     public static final String KEY_VIDEOTAB_AUTO_PLAY = "12_5_zp_1";
     public static final String KEY_VIDEO_AUTO_PLAY_NEXT_VIDEO = "12_15_autoplay_a";
     public static final String KEY_VIDEO_SET_URL_AGAIN = "12_20_repeatset_a";

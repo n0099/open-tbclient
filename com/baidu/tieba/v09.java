@@ -1,27 +1,52 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import java.util.List;
+import tbclient.Anti;
+import tbclient.DynamicInfo;
+import tbclient.ForumDynamic;
+import tbclient.HotUserRankEntry;
+import tbclient.PostInfoList;
+import tbclient.Profile.NicknameInfo;
+import tbclient.Profile.TAInfo;
+import tbclient.Profile.UserAgreeInfo;
+import tbclient.Profile.UserGodInfo;
+import tbclient.TbBookrack;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes6.dex */
 public interface v09 {
-    void autoPlay(int i);
+    Anti GetAntiStat();
 
-    boolean canPlay();
+    List<PostInfoList> GetPostList();
 
-    long getCurrentPosition();
+    User GetUser();
 
-    int getPlayStatus();
+    TbBookrack getBookrackData();
 
-    String getPlayUrl();
+    List<ForumDynamic> getConcernedForumList();
 
-    View getVideoContainer();
+    List<DynamicInfo> getDynamicInfoList();
 
-    boolean isPlayStarted();
+    int getErrorCode();
 
-    boolean isPlaying();
+    hl7 getGoodsWindowInfo();
 
-    void release();
+    HotUserRankEntry getHotRankEntry();
 
-    void startPlay();
+    AlaLiveInfoCoreData getLiveInfo();
 
-    void stopPlay();
+    List<AlaLiveInfoCoreData> getLiveReplayInfo();
+
+    int getMaskType();
+
+    List<ThreadInfo> getNewestThreadList();
+
+    NicknameInfo getNicknameInfo();
+
+    TAInfo getTaInfo();
+
+    UserAgreeInfo getUserAgreeInfo();
+
+    UserGodInfo getUserGodInfo();
 }

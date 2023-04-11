@@ -1,34 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e08;
-import com.baidu.tieba.impersonal.components.PersonalMsgContainer;
+import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
+import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class r18<T, V extends View, M extends e08<T>> implements ps6<PersonalMsgContainer<T, V>, M> {
+public class r18 implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public int a;
+    public jz7 b;
 
-    public abstract void d(V v, M m);
-
-    public abstract V f(ViewGroup viewGroup);
-
-    public r18(String name) {
+    public r18() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {name};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,57 +35,52 @@ public abstract class r18<T, V extends View, M extends e08<T>> implements ps6<Pe
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(name, "name");
-        this.a = name;
+        this.a = 2001154;
+        this.b = jz7.w();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ps6
-    /* renamed from: e */
-    public void b(PersonalMsgContainer<T, V> view2, M data) {
+    public final LoadHistoryResponsedMessage a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, data) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            Intrinsics.checkNotNullParameter(data, "data");
-            view2.h(data);
-            d(view2.getChild(), data);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
+            loadHistoryResponsedMessage.setError(-18);
+            return loadHistoryResponsedMessage;
         }
+        return (LoadHistoryResponsedMessage) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.ps6
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ps6
-    /* renamed from: g */
-    public PersonalMsgContainer<T, V> a(ViewGroup parent) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, parent)) == null) {
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            if (StringsKt__StringsJVMKt.endsWith$default(c(), "_left", false, 2, null)) {
-                Context context = parent.getContext();
-                Intrinsics.checkNotNullExpressionValue(context, "parent.context");
-                PersonalMsgContainer<T, V> personalMsgContainer = new PersonalMsgContainer<>(true, context, null, 4, null);
-                personalMsgContainer.d(f(parent));
-                return personalMsgContainer;
-            } else if (StringsKt__StringsJVMKt.endsWith$default(c(), "_right", false, 2, null)) {
-                Context context2 = parent.getContext();
-                Intrinsics.checkNotNullExpressionValue(context2, "parent.context");
-                PersonalMsgContainer<T, V> personalMsgContainer2 = new PersonalMsgContainer<>(false, context2, null, 4, null);
-                personalMsgContainer2.d(f(parent));
-                return personalMsgContainer2;
-            } else {
-                throw new IllegalArgumentException("unknown template: " + c());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
+            if (this.b == null) {
+                return a(this.a);
             }
+            List<nz7> x = jz7.x();
+            if (x != null && x.size() > 0) {
+                HashMap hashMap = new HashMap(x.size());
+                for (nz7 nz7Var : x) {
+                    hashMap.put(nz7Var.b(), nz7Var);
+                }
+                LinkedList<ChatMessage> l = this.b.l(hashMap, 80);
+                if (l == null) {
+                    return a(this.a);
+                }
+                OfficialFeedHeadResponsedMessage.a aVar = new OfficialFeedHeadResponsedMessage.a();
+                OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.a);
+                aVar.b = l;
+                aVar.a = x;
+                try {
+                    officialFeedHeadResponsedMessage.decodeInBackGround(2001105, aVar);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return officialFeedHeadResponsedMessage;
+            }
+            return a(this.a);
         }
-        return (PersonalMsgContainer) invokeL.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

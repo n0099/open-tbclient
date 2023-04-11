@@ -1,50 +1,91 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class rca {
+public final class rca {
     public static /* synthetic */ Interceptable $ic;
-    public static final SharedPreferences a;
-    public static final SharedPreferences.Editor b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948118201, "Lcom/baidu/tieba/rca;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a extends xca {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.a b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+
+        public a(Map map, com.baidu.ubs.analytics.a.a aVar, String str, String str2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map, aVar, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948118201, "Lcom/baidu/tieba/rca;");
-                return;
+            this.a = map;
+            this.b = aVar;
+            this.c = str;
+            this.d = str2;
+        }
+
+        @Override // com.baidu.tieba.xca
+        public final void a() {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a != null) {
+                    StringBuffer stringBuffer = new StringBuffer();
+                    stringBuffer.append("{");
+                    for (Map.Entry entry : this.a.entrySet()) {
+                        stringBuffer.append("\"");
+                        stringBuffer.append(entry.getKey());
+                        stringBuffer.append("\":\"");
+                        stringBuffer.append(entry.getValue().toString().replace("\"", "\\\""));
+                        stringBuffer.append("\",");
+                    }
+                    StringBuffer stringBuffer2 = new StringBuffer(stringBuffer.subSequence(0, stringBuffer.length() - 1));
+                    stringBuffer2.append("}");
+                    this.b.w(stringBuffer2.toString());
+                }
+                try {
+                    this.b.x(uca.e().I());
+                    this.b.u(String.valueOf(System.currentTimeMillis()));
+                    this.b.t(this.c);
+                    com.baidu.ubs.analytics.a.a aVar = this.b;
+                    if (this.d == null) {
+                        str = "";
+                    } else {
+                        str = this.d;
+                    }
+                    aVar.s(str);
+                    new vba().c(this.b);
+                } catch (Exception e) {
+                    if (e.getMessage() != null) {
+                        vca.b(e.getMessage());
+                    }
+                }
             }
         }
-        SharedPreferences sharedPreferences = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_price", 0);
-        a = sharedPreferences;
-        b = sharedPreferences.edit();
     }
 
-    public static double a() {
-        InterceptResult invokeV;
+    public static void a(String str, String str2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Double.longBitsToDouble(a.getLong("key_price_by_baseprice", 0L)) : invokeV.doubleValue;
-    }
-
-    public static double b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            SharedPreferences sharedPreferences = a;
-            return Double.longBitsToDouble(sharedPreferences.getLong(str + "_", 0L));
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, map) == null) {
+            com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
+            aVar.v(str);
+            wca.c(new a(map, aVar, str2, str3));
         }
-        return invokeL.doubleValue;
     }
 }

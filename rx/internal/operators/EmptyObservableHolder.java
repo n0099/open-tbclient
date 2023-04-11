@@ -1,20 +1,20 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.ora;
-import com.baidu.tieba.ura;
+import com.baidu.tieba.f1b;
+import com.baidu.tieba.l1b;
 /* loaded from: classes9.dex */
-public enum EmptyObservableHolder implements ora.a<Object> {
+public enum EmptyObservableHolder implements f1b.a<Object> {
     INSTANCE;
     
-    public static final ora<Object> EMPTY = ora.a(INSTANCE);
+    public static final f1b<Object> EMPTY = f1b.a(INSTANCE);
 
-    public static <T> ora<T> instance() {
-        return (ora<T>) EMPTY;
+    public static <T> f1b<T> instance() {
+        return (f1b<T>) EMPTY;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ora.a, com.baidu.tieba.csa
-    public void call(ura<? super Object> uraVar) {
-        uraVar.onCompleted();
+    @Override // com.baidu.tieba.f1b.a, com.baidu.tieba.t1b
+    public void call(l1b<? super Object> l1bVar) {
+        l1bVar.onCompleted();
     }
 }

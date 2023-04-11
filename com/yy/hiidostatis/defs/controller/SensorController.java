@@ -15,7 +15,7 @@ import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SensorController implements SensorEventListener, SensorListener {
     public static final int CACHE_HEAD_LENGTH = 5;
     public static final int CACHE_LENGTH = 10;
@@ -57,7 +57,7 @@ public class SensorController implements SensorEventListener, SensorListener {
     public void onAccuracyChanged(Sensor sensor, int i) {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class BatteryInfo {
         public int chargePlugged;
         public int level;
@@ -87,7 +87,7 @@ public class SensorController implements SensorEventListener, SensorListener {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SensorRecord {
         public long time;
         public float[] value;

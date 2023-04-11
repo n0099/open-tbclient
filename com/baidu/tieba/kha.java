@@ -1,417 +1,409 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.http.PostRequest;
-import com.fun.ad.sdk.internal.api.http.RequestParams;
-import com.fun.ad.sdk.internal.api.http.Response;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
-import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.io.IOException;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class kha implements Reporter {
+public class kha {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, HashMap> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Handler a;
-    public final String b;
 
     /* loaded from: classes5.dex */
-    public interface c {
-        boolean a();
+    public interface a {
+        void a(String str);
+
+        void b();
+
+        void c(String str);
+
+        void d();
+
+        void e(boolean z);
+
+        void f(boolean z);
+
+        void g(int i);
+
+        void h();
+
+        void i();
+
+        void j(String str);
+
+        void k(int i);
+
+        void onRecordEnd();
     }
 
-    /* loaded from: classes5.dex */
-    public class d extends b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int f;
-        public final int g;
-        public final int h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(kha khaVar, String str, JSONObject jSONObject, int i, int i2, int i3) {
-            super(khaVar, str, jSONObject);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947914469, "Lcom/baidu/tieba/kha;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {khaVar, str, jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((kha) objArr2[0], (String) objArr2[1], (JSONObject) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.f = i;
-            this.g = i2;
-            this.h = i3;
-        }
-
-        @Override // com.baidu.tieba.kha.b
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                pca.e(this.f, this.g, this.h);
-            }
-        }
-    }
-
-    public kha(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947914469, "Lcom/baidu/tieba/kha;");
                 return;
             }
         }
-        HandlerThread handlerThread = new HandlerThread("rep");
-        handlerThread.start();
-        f fVar = new f(handlerThread.getLooper());
-        this.a = fVar;
-        this.b = str;
-        fVar.obtainMessage(101, pca.j(), 0).sendToTarget();
+        a = new HashMap<>();
     }
 
-    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
-    public void logEvent(String str, String str2, Object obj) {
+    public static HashMap a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, obj) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(str2, obj);
-            } catch (JSONException unused) {
-            }
-            logEvent(str, jSONObject);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "capture_timer_clear");
+            return hashMap;
         }
+        return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
-    public void logEvent(String str, Map<String, Object> map) {
+    public static HashMap b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) == null) {
-            logEvent(str, new JSONObject(map));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "capture_timer_start");
+            return hashMap;
         }
+        return (HashMap) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kha h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(kha khaVar, String str, JSONObject jSONObject) {
-            super(khaVar, str, jSONObject);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {khaVar, str, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((kha) objArr2[0], (String) objArr2[1], (JSONObject) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = khaVar;
-            pca.n();
+    public static HashMap c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            HashMap hashMap = new HashMap();
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("sex_type", Integer.valueOf(i));
+            hashMap.put("event_name", "sex_event");
+            hashMap.put("event_data", hashMap2);
+            return hashMap;
         }
-
-        @Override // com.baidu.tieba.kha.b
-        public void c() {
-            d dVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                pca.f("key_rpt_suc_c", pca.k() + 1);
-                kha khaVar = this.h;
-                khaVar.getClass();
-                int g = pca.g();
-                int i = pca.i();
-                if (g <= 0 && i <= 0) {
-                    dVar = null;
-                } else {
-                    int k = pca.k();
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("fai", g);
-                        jSONObject.put("suc", k);
-                        jSONObject.put("mis", i);
-                    } catch (JSONException unused) {
-                    }
-                    dVar = new d(khaVar, "k_rpt", jSONObject, g, k, i);
-                }
-                if (dVar != null) {
-                    dVar.d();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.kha.e
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                pca.f("key_rpt_fai_c", pca.g() + 1);
-            }
-        }
+        return (HashMap) invokeI.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final JSONObject b;
-        public final long c;
-        public JSONObject d;
-        public final /* synthetic */ kha e;
-
-        public b(kha khaVar, String str, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {khaVar, str, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = khaVar;
-            this.a = str;
-            this.b = jSONObject;
-            this.c = System.currentTimeMillis();
-            if (FunAdSdk.isLogEnabled()) {
-                LogPrinter.v("report Event:" + this, new Object[0]);
-            }
+    public static HashMap e(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Double.valueOf(d)})) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "audio_volume");
+            hashMap.put("event_data", String.valueOf(Math.ceil(d)));
+            return hashMap;
         }
+        return (HashMap) invokeCommon.objValue;
+    }
 
-        @Override // com.baidu.tieba.kha.c
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d() : invokeV.booleanValue;
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+    public static HashMap d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (a.get(str) != null) {
+                return a.get(str);
             }
-        }
-
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        @NonNull
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return "Event{key=" + this.a + ", content=" + this.b + '}';
-            }
-            return (String) invokeV.objValue;
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:17:0x003b  */
-        /* JADX WARN: Removed duplicated region for block: B:18:0x003f  */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final boolean d() {
-            boolean z;
-            Response perform;
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                try {
-                    if (this.d == null) {
-                        this.d = HostAppInfo.buildReportJson(this.a, this.b, this.c);
+            HashMap hashMap = null;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1909077165:
+                    if (str.equals("startRecord")) {
+                        c = 0;
+                        break;
                     }
-                    perform = new PostRequest(this.e.b, new RequestParams(this.d)).perform();
-                } catch (IOException e) {
-                    LogPrinter.e(e);
-                }
-                if (perform != null) {
-                    if (perform.getResponseCode() == 200) {
-                        z = true;
-                        if (!z) {
-                            c();
+                    break;
+                case -1848594969:
+                    if (str.equals("pauseRecord")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -815530368:
+                    if (str.equals("resetRecord")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case -793791417:
+                    if (str.equals("startOverRecord")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 473974106:
+                    if (str.equals("capture_timer_clear")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 488985455:
+                    if (str.equals("capture_timer_start")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                if (c == 5) {
+                                    hashMap = i();
+                                }
+                            } else {
+                                hashMap = b();
+                            }
                         } else {
-                            b();
+                            hashMap = a();
                         }
-                        return z;
+                    } else {
+                        hashMap = g();
                     }
+                } else {
+                    hashMap = f();
                 }
-                z = false;
-                if (!z) {
-                }
-                return z;
+            } else {
+                hashMap = h();
             }
-            return invokeV.booleanValue;
+            if (hashMap != null) {
+                a.put(str, hashMap);
+            }
+            return hashMap;
         }
+        return (HashMap) invokeL.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class e extends b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int f;
-        public final /* synthetic */ kha g;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(kha khaVar, String str, JSONObject jSONObject) {
-            super(khaVar, str, jSONObject);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {khaVar, str, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((kha) objArr2[0], (String) objArr2[1], (JSONObject) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.g = khaVar;
-            this.f = 0;
+    public static HashMap f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_pause");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
         }
-
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.kha.b
-        public final void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = this.f;
-                this.f = i + 1;
-                if (i >= 3) {
-                    LogPrinter.e("Give up report event:" + this, new Object[0]);
-                    e();
-                    return;
-                }
-                try {
-                    if (this.d == null) {
-                        this.d = HostAppInfo.buildReportJson(this.a, this.b, this.c);
-                    }
-                    this.d.put(HostAppInfo.RETRY_I, this.f);
-                } catch (JSONException unused) {
-                }
-                kha khaVar = this.g;
-                khaVar.a.sendMessageDelayed(khaVar.a.obtainMessage(102, this), 2000L);
-            }
-        }
+        return (HashMap) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static class f extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(@NonNull Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
+    public static HashMap g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_reset");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
         }
+        return (HashMap) invokeV.objValue;
+    }
 
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i != 101) {
-                    if (i == 102) {
-                        ((c) message.obj).a();
+    public static HashMap h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_start");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_start_over");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static void j(HashMap<String, Object> hashMap, a aVar) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, hashMap, aVar) == null) && !iha.f(hashMap) && aVar != null && (obj = hashMap.get("event_name")) != null && (obj instanceof String)) {
+            String str = (String) obj;
+            char c = 65535;
+            boolean z = true;
+            int i = 0;
+            switch (str.hashCode()) {
+                case -1903331025:
+                    if (str.equals("show_text")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -1768834290:
+                    if (str.equals("game_end")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case -1584838740:
+                    if (str.equals("filter_adjust_enable")) {
+                        c = 11;
+                        break;
+                    }
+                    break;
+                case -1272940549:
+                    if (str.equals("game_is_ready")) {
+                        c = '\n';
+                        break;
+                    }
+                    break;
+                case -708270859:
+                    if (str.equals("phone_shake")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -672934016:
+                    if (str.equals("case_reset")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case -548493597:
+                    if (str.equals("need_volume")) {
+                        c = '\t';
+                        break;
+                    }
+                    break;
+                case 902635637:
+                    if (str.equals("child_status")) {
+                        c = '\b';
+                        break;
+                    }
+                    break;
+                case 967087977:
+                    if (str.equals("game_pause")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 969912325:
+                    if (str.equals("game_score")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 1000807605:
+                    if (str.equals("game_http")) {
+                        c = '\f';
+                        break;
+                    }
+                    break;
+                case 1001154298:
+                    if (str.equals("game_time")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 1076032614:
+                    if (str.equals("need_face")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    if (hashMap.get("text_content") instanceof String) {
+                        aVar.c((String) hashMap.get("text_content"));
                         return;
                     }
                     return;
-                }
-                int i2 = message.arg1;
-                int k = pca.k();
-                int g = pca.g();
-                int i3 = (i2 - k) - g;
-                LogPrinter.d("ReportCount: req:%d suc:%d fai:%d mis:%d", Integer.valueOf(i2), Integer.valueOf(k), Integer.valueOf(g), Integer.valueOf(i3));
-                if (i3 > 0) {
-                    pca.f("key_rpt_mis_c", i3);
-                }
+                case 1:
+                    aVar.d();
+                    return;
+                case 2:
+                case 3:
+                    if (hashMap.get("game_score") != null) {
+                        aVar.a(hashMap.get("game_score").toString());
+                        return;
+                    }
+                    return;
+                case 4:
+                    if (hashMap.get("game_score") != null) {
+                        aVar.a(hashMap.get("game_score").toString());
+                    }
+                    aVar.onRecordEnd();
+                    return;
+                case 5:
+                    aVar.h();
+                    return;
+                case 6:
+                    aVar.b();
+                    return;
+                case 7:
+                    if (hashMap.get("text_content") instanceof Float) {
+                        try {
+                            i = ((Float) hashMap.get("text_content")).intValue();
+                        } catch (Exception e) {
+                            dha.g(e);
+                        }
+                        aVar.g(i);
+                        return;
+                    }
+                    return;
+                case '\b':
+                    if (hashMap.get("isDefaultChild") != null) {
+                        String obj2 = hashMap.get("isDefaultChild").toString();
+                        if (!TextUtils.equals(obj2, "1.0") && !TextUtils.equals(obj2, "1")) {
+                            z = false;
+                        }
+                        aVar.f(z);
+                        return;
+                    }
+                    return;
+                case '\t':
+                    if (hashMap.get("volume_ability") != null) {
+                        if (hha.a(hashMap.get("volume_ability").toString(), 0.0f) != 1.0f) {
+                            z = false;
+                        }
+                        aVar.e(z);
+                        return;
+                    }
+                    return;
+                case '\n':
+                    aVar.i();
+                    return;
+                case 11:
+                    if (hashMap.get("globalBeautyMakeupFilter") != null && (hashMap.get("globalBeautyMakeupFilter") instanceof Float)) {
+                        aVar.k(((Float) hashMap.get("globalBeautyMakeupFilter")).intValue());
+                        return;
+                    }
+                    return;
+                case '\f':
+                    if (hashMap.get("set_content") != null) {
+                        aVar.j(hashMap.get("set_content").toString());
+                        return;
+                    }
+                    return;
+                default:
+                    return;
             }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
-    public void logEvent(String str, JSONObject jSONObject) {
-        Object eVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject) == null) {
-            if (yba.g(str, jSONObject)) {
-                LogPrinter.d("filter key:%s content:%s", str, jSONObject);
-                return;
-            }
-            if ("ad".equals(str)) {
-                eVar = new a(this, str, jSONObject);
-            } else {
-                eVar = new e(this, str, jSONObject);
-            }
-            this.a.sendMessageDelayed(this.a.obtainMessage(102, eVar), 0L);
         }
     }
 }

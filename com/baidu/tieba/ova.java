@@ -1,28 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
+import java.io.UnsupportedEncodingException;
+import java.security.GeneralSecurityException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import javax.crypto.SecretKey;
 /* loaded from: classes5.dex */
-public final class ova implements nra, vra {
+public class ova implements pva {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final nra a;
-    public vra b;
-    public boolean c;
+    public SecretKey a;
 
-    public ova(nra nraVar) {
+    public ova(String str, String str2, String str3, String str4) throws InvalidKeySpecException, NoSuchAlgorithmException, IllegalArgumentException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nraVar};
+            Object[] objArr = {str, str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,75 +31,26 @@ public final class ova implements nra, vra {
                 return;
             }
         }
-        this.a = nraVar;
-    }
-
-    @Override // com.baidu.tieba.nra
-    public void onSubscribe(vra vraVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vraVar) == null) {
-            this.b = vraVar;
-            try {
-                this.a.onSubscribe(this);
-            } catch (Throwable th) {
-                asa.e(th);
-                vraVar.unsubscribe();
-                onError(th);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vra
-    public boolean isUnsubscribed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.c && !this.b.isUnsubscribed()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.nra
-    public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c) {
+        if (str == null || str2 == null || str3 == null || str4 == null) {
             return;
         }
-        this.c = true;
-        try {
-            this.a.onCompleted();
-        } catch (Throwable th) {
-            asa.e(th);
-            throw new OnCompletedFailedException(th);
-        }
+        this.a = rva.a(hva.b(str), hva.b(str2), hva.b(str3), hva.b(str4), 5000);
     }
 
-    @Override // com.baidu.tieba.vra
-    public void unsubscribe() {
+    @Override // com.baidu.tieba.pva
+    public String a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.unsubscribe();
-        }
-    }
-
-    @Override // com.baidu.tieba.nra
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            vva.j(th);
-            if (this.c) {
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (this.a == null) {
+                return str;
             }
-            this.c = true;
             try {
-                this.a.onError(th);
-            } catch (Throwable th2) {
-                asa.e(th2);
-                throw new OnErrorFailedException(new CompositeException(th, th2));
+                return new String(rva.b(this.a, hva.b(str)), "UTF-8");
+            } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
+                return str2;
             }
         }
+        return (String) invokeLL.objValue;
     }
 }

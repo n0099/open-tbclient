@@ -13,44 +13,44 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.ix5;
-import com.baidu.tieba.jx5;
-import com.baidu.tieba.lf6;
-import com.baidu.tieba.pi7;
-import com.baidu.tieba.tm;
-import com.baidu.tieba.ue6;
-import com.baidu.tieba.zf6;
-import com.baidu.tieba.zj5;
+import com.baidu.tieba.fl5;
+import com.baidu.tieba.gg6;
+import com.baidu.tieba.lh6;
+import com.baidu.tieba.ms7;
+import com.baidu.tieba.oy5;
+import com.baidu.tieba.py5;
+import com.baidu.tieba.um;
+import com.baidu.tieba.xg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class HomePageAlaFriendRoomAdapter extends tm<zf6, HomePageAlaLiveThreadViewHolder> implements jx5 {
+public class HomePageAlaFriendRoomAdapter extends um<lh6, HomePageAlaLiveThreadViewHolder> implements py5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public TbPageContext<?> b;
-    public ue6 c;
+    public gg6 c;
     public NEGFeedBackView.b d;
     public String e;
-    public lf6<zf6> f;
+    public xg6<lh6> f;
 
     /* loaded from: classes4.dex */
     public static class HomePageAlaLiveThreadViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ue6 a;
+        public gg6 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HomePageAlaLiveThreadViewHolder(ue6 ue6Var) {
-            super(ue6Var.h());
+        public HomePageAlaLiveThreadViewHolder(gg6 gg6Var) {
+            super(gg6Var.h());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ue6Var};
+                Object[] objArr = {gg6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -61,12 +61,12 @@ public class HomePageAlaFriendRoomAdapter extends tm<zf6, HomePageAlaLiveThreadV
                     return;
                 }
             }
-            this.a = ue6Var;
+            this.a = gg6Var;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class a extends lf6<zf6> {
+    public class a extends xg6<lh6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomePageAlaFriendRoomAdapter b;
@@ -96,23 +96,23 @@ public class HomePageAlaFriendRoomAdapter extends tm<zf6, HomePageAlaLiveThreadV
         /* JADX WARN: Code restructure failed: missing block: B:21:0x0079, code lost:
             if (r5.getId() == r4.b.c.O().getId()) goto L6;
          */
-        @Override // com.baidu.tieba.lf6
+        @Override // com.baidu.tieba.xg6
         /* renamed from: d */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void a(View view2, zf6 zf6Var) {
+        public void a(View view2, lh6 lh6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, zf6Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, lh6Var) == null) {
                 int i = 2;
                 if (this.b.c.w == view2) {
                     i = 1;
                 } else if (view2 == this.b.c.l.getCommentContainer()) {
-                    this.b.u(zf6Var, view2);
+                    this.b.u(lh6Var, view2);
                     i = 5;
                 } else {
                     if (view2 == this.b.c.m.getCommentContainer()) {
-                        this.b.u(zf6Var, view2);
+                        this.b.u(lh6Var, view2);
                     } else {
                         if (this.b.c.N() != null) {
                         }
@@ -122,7 +122,7 @@ public class HomePageAlaFriendRoomAdapter extends tm<zf6, HomePageAlaLiveThreadV
                     i = 0;
                 }
                 if (i != 0) {
-                    pi7.d(zf6Var.a, this.b.a, zf6Var.k(), i);
+                    ms7.d(lh6Var.a, this.b.a, lh6Var.i(), i);
                 }
             }
         }
@@ -152,7 +152,7 @@ public class HomePageAlaFriendRoomAdapter extends tm<zf6, HomePageAlaLiveThreadV
         this.b = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.jx5
+    @Override // com.baidu.tieba.py5
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -167,24 +167,24 @@ public class HomePageAlaFriendRoomAdapter extends tm<zf6, HomePageAlaLiveThreadV
         }
     }
 
-    public final void u(zf6 zf6Var, View view2) {
+    public final void u(lh6 lh6Var, View view2) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, zf6Var, view2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, lh6Var, view2) == null) {
             String str2 = "";
-            if (zf6Var == null || zf6Var.getThreadData() == null) {
+            if (lh6Var == null || lh6Var.getThreadData() == null) {
                 str = "";
             } else {
-                str2 = zf6Var.getThreadData().getTid();
-                str = zf6Var.getThreadData().getNid();
+                str2 = lh6Var.getThreadData().getTid();
+                str = lh6Var.getThreadData().getNid();
             }
             StatisticItem statisticItem = new StatisticItem("c12942");
             statisticItem.param("obj_locate", 1);
             statisticItem.param("obj_type", 5);
             statisticItem.param("tid", str2);
-            statisticItem.param("obj_source", zf6Var.m());
+            statisticItem.param("obj_source", lh6Var.k());
             statisticItem.param("nid", str);
-            zj5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
+            fl5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
             if (findPageExtraByView != null) {
                 statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, findPageExtraByView.a());
             }
@@ -196,15 +196,15 @@ public class HomePageAlaFriendRoomAdapter extends tm<zf6, HomePageAlaLiveThreadV
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm
+    @Override // com.baidu.tieba.um
     /* renamed from: x */
     public HomePageAlaLiveThreadViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            ue6 ue6Var = new ue6(this.b, this.a);
-            this.c = ue6Var;
-            ue6Var.E(2);
+            gg6 gg6Var = new gg6(this.b, this.a);
+            this.c = gg6Var;
+            gg6Var.E(2);
             BdUniqueId bdUniqueId = this.a;
             if (bdUniqueId != null) {
                 this.c.U(bdUniqueId);
@@ -215,27 +215,27 @@ public class HomePageAlaFriendRoomAdapter extends tm<zf6, HomePageAlaLiveThreadV
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tm
+    @Override // com.baidu.tieba.um
     /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zf6 zf6Var, HomePageAlaLiveThreadViewHolder homePageAlaLiveThreadViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lh6 lh6Var, HomePageAlaLiveThreadViewHolder homePageAlaLiveThreadViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zf6Var, homePageAlaLiveThreadViewHolder})) == null) {
-            zf6Var.E(zf6Var.position + 1);
-            zf6Var.a.statFloor = zf6Var.k();
-            ue6 ue6Var = homePageAlaLiveThreadViewHolder.a;
-            if (ue6Var instanceof ix5) {
-                ue6Var.b(this.e);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lh6Var, homePageAlaLiveThreadViewHolder})) == null) {
+            lh6Var.E(lh6Var.position + 1);
+            lh6Var.a.statFloor = lh6Var.i();
+            gg6 gg6Var = homePageAlaLiveThreadViewHolder.a;
+            if (gg6Var instanceof oy5) {
+                gg6Var.b(this.e);
             }
             homePageAlaLiveThreadViewHolder.a.W(i + 1);
-            homePageAlaLiveThreadViewHolder.a.l(zf6Var);
+            homePageAlaLiveThreadViewHolder.a.l(lh6Var);
             homePageAlaLiveThreadViewHolder.a.n(this.f);
             homePageAlaLiveThreadViewHolder.a.D(this.d);
-            pi7.p(zf6Var.a, this.a, zf6Var.k());
-            if (zf6Var.getThreadData() != null && zf6Var.getThreadData().getThreadAlaInfo() != null) {
+            ms7.p(lh6Var.a, this.a, lh6Var.i());
+            if (lh6Var.getThreadData() != null && lh6Var.getThreadData().getThreadAlaInfo() != null) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.ALA_FRIEND_ROOM_CARD_SHOW);
                 statisticItem.param("obj_locate", 1);
-                statisticItem.param("obj_param1", zf6Var.getThreadData().getThreadAlaInfo().live_id);
+                statisticItem.param("obj_param1", lh6Var.getThreadData().getThreadAlaInfo().live_id);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 TiebaStatic.log(statisticItem);
             }

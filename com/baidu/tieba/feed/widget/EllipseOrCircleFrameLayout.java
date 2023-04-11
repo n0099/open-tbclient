@@ -130,9 +130,17 @@ public final class EllipseOrCircleFrameLayout extends FrameLayout {
         }
     }
 
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.a = z;
+            invalidate();
+        }
+    }
+
     public final void setStrokeColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.m = i;
             invalidate();
         }
@@ -140,7 +148,7 @@ public final class EllipseOrCircleFrameLayout extends FrameLayout {
 
     public final void setStrokeWidth(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
             this.n = f;
             invalidate();
         }

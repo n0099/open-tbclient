@@ -4,11 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
-import com.baidu.tieba.n96;
-import com.baidu.tieba.o96;
-import com.baidu.tieba.p96;
-import com.baidu.tieba.w96;
-import com.baidu.tieba.y96;
+import com.baidu.tieba.cb6;
+import com.baidu.tieba.eb6;
+import com.baidu.tieba.ta6;
+import com.baidu.tieba.ua6;
+import com.baidu.tieba.va6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,8 +19,8 @@ public class CardBasicLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public p96 b;
-    public n96 c;
+    public va6 b;
+    public ta6 c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CardBasicLayout(Context context) {
@@ -65,32 +65,32 @@ public class CardBasicLayout extends LinearLayout {
         this.a = -1;
     }
 
-    public void setData(int i, p96 p96Var) {
-        o96 a;
+    public void setData(int i, va6 va6Var) {
+        ua6 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, p96Var) == null) {
-            this.b = p96Var;
-            if (p96Var != null && p96Var.a() != null && (a = this.b.a()) != null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, va6Var) == null) {
+            this.b = va6Var;
+            if (va6Var != null && va6Var.a() != null && (a = this.b.a()) != null) {
                 int h = a.h();
-                if (h == y96.b) {
+                if (h == eb6.b) {
                     if (i == VoteCandidateCard.A) {
-                        this.a = w96.d;
+                        this.a = cb6.d;
                         this.c = this.b.f();
                         return;
                     }
-                    this.a = w96.a;
-                    List<n96> b = this.b.b();
+                    this.a = cb6.a;
+                    List<ta6> b = this.b.b();
                     if (b != null && b.size() > i) {
                         this.c = b.get(i);
                     }
-                } else if (h == y96.c) {
+                } else if (h == eb6.c) {
                     if (i == VoteCandidateCard.A) {
-                        this.a = w96.c;
-                        List<n96> b2 = this.b.b();
+                        this.a = cb6.c;
+                        List<ta6> b2 = this.b.b();
                         if (b2 != null && b2.size() > 0) {
-                            for (n96 n96Var : b2) {
-                                if (n96Var.i() == 1) {
-                                    this.c = n96Var;
+                            for (ta6 ta6Var : b2) {
+                                if (ta6Var.i() == 1) {
+                                    this.c = ta6Var;
                                     return;
                                 }
                             }
@@ -98,13 +98,13 @@ public class CardBasicLayout extends LinearLayout {
                         }
                         return;
                     }
-                    this.a = w96.b;
-                    List<n96> b3 = this.b.b();
+                    this.a = cb6.b;
+                    List<ta6> b3 = this.b.b();
                     if (b3 != null && b3.size() > i) {
-                        n96 n96Var2 = b3.get(i);
-                        this.c = n96Var2;
-                        if (n96Var2.i() == 1 && i == 0) {
-                            this.a = w96.c;
+                        ta6 ta6Var2 = b3.get(i);
+                        this.c = ta6Var2;
+                        if (ta6Var2.i() == 1 && i == 0) {
+                            this.a = cb6.c;
                         }
                     }
                 }

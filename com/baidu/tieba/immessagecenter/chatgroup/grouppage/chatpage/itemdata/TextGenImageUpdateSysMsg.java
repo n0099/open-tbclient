@@ -9,7 +9,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.Action;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.TaskInfo;
-import com.baidu.tieba.qw7;
+import com.baidu.tieba.m68;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -90,9 +90,9 @@ public class TextGenImageUpdateSysMsg extends NoUISysMsg {
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.Action.a
         @WorkerThread
         /* renamed from: b */
-        public void a(@NonNull Action.Op op, @Nullable TextGenImageMsg textGenImageMsg, @NonNull qw7.i iVar) {
+        public void a(@NonNull Action.Op op, @Nullable TextGenImageMsg textGenImageMsg, @NonNull m68.j jVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, op, textGenImageMsg, iVar) == null) && textGenImageMsg != null) {
+            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, op, textGenImageMsg, jVar) == null) && textGenImageMsg != null) {
                 textGenImageMsg.setTaskInfo(this.a.getTaskInfo());
                 textGenImageMsg.setBigSrc(this.a.imageInfo.url);
                 textGenImageMsg.setThumbUrl(this.a.imageInfo.thumbnail);

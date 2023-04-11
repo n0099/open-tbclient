@@ -21,13 +21,13 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TlsOnlySocketFactory extends SSLSocketFactory {
     public static final String TAG = "TlsOnlySocketFactory";
     public final boolean compatible;
     public final SSLSocketFactory delegate;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class DelegateSSLSocket extends SSLSocket {
         public final SSLSocket delegate;
 
@@ -335,7 +335,7 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class TlsOnlySSLSocket extends DelegateSSLSocket {
         public final boolean compatible;
 

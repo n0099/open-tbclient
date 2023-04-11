@@ -1,15 +1,15 @@
 package com.baidu.tieba.passaccount.app;
 
 import android.content.Context;
-import com.baidu.tieba.g39;
-import com.baidu.tieba.gt4;
+import com.baidu.tieba.it4;
+import com.baidu.tieba.xc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class PassWebViewDispatcher implements g39 {
+public class PassWebViewDispatcher implements xc9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_URL = "url";
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,11 +28,11 @@ public class PassWebViewDispatcher implements g39 {
         }
     }
 
-    @Override // com.baidu.tieba.g39
+    @Override // com.baidu.tieba.xc9
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
-            gt4.s(context, jSONObject.optString("url"));
+            it4.s(context, jSONObject.optString("url"));
         }
     }
 }

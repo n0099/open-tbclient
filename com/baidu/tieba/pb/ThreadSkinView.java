@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.hc9;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.yl9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class ThreadSkinView extends TbImageView {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext w0;
     public SkinInfo x0;
-    public hc9.b y0;
+    public yl9.b y0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadSkinView(Context context) {
@@ -54,7 +54,7 @@ public class ThreadSkinView extends TbImageView {
         SkinInfo skinInfo;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (skinInfo = this.x0) != null && !StringUtils.isNull(skinInfo.url)) {
-            hc9.b bVar = this.y0;
+            yl9.b bVar = this.y0;
             if (bVar != null) {
                 bVar.delete("action_type");
                 this.y0.d("action_type", "CLICK");
@@ -108,7 +108,7 @@ public class ThreadSkinView extends TbImageView {
         x();
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, hc9.b bVar) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, yl9.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, skinInfo, bVar) == null) {
             if (tbPageContext != null && skinInfo != null && !StringUtils.isNull(skinInfo.skin)) {
@@ -123,7 +123,7 @@ public class ThreadSkinView extends TbImageView {
                     this.y0.e();
                 }
                 this.x0 = skinInfo;
-                int l = hi.l(tbPageContext.getPageActivity());
+                int l = ii.l(tbPageContext.getPageActivity());
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 layoutParams.width = l;
                 if (!StringUtils.isNull(skinInfo.skin_size)) {
@@ -141,7 +141,7 @@ public class ThreadSkinView extends TbImageView {
                     layoutParams.height = (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275);
                 }
                 setLayoutParams(layoutParams);
-                M(skinInfo.skin, 10, false);
+                N(skinInfo.skin, 10, false);
                 setOnClickListener(this);
                 setScaleType(ImageView.ScaleType.CENTER_CROP);
                 setVisibility(0);

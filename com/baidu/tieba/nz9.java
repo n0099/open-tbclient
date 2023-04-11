@@ -1,237 +1,73 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Rect;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.UploadDataProvider;
-import com.baidu.turbonet.net.UploadDataSink;
-import java.io.IOException;
-import java.net.HttpRetryException;
-import java.net.ProtocolException;
-import java.nio.ByteBuffer;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+@JvmName(name = "FestivalTipViewHelper")
 /* loaded from: classes5.dex */
-public final class nz9 extends qz9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int i = 16384;
+public final class nz9 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final rz9 d;
-    public final long e;
-    public final ByteBuffer f;
-    public final UploadDataProvider g;
-    public long h;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948019900, "Lcom/baidu/tieba/nz9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948019900, "Lcom/baidu/tieba/nz9;");
-        }
-    }
-
-    @Override // com.baidu.tieba.qz9
-    public void g() throws IOException {
+    public static final void a(String str, String str2, TbRichTextView.Position position) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, position) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FESTIVAL_TIP_VIEW_CLICK);
+            boolean z2 = false;
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
+                statisticItem.addParam("tid", str);
+            }
+            if (!((str2 == null || str2.length() == 0) ? true : true)) {
+                statisticItem.addParam("pid", str2);
+            }
+            if (position != null) {
+                statisticItem.addParam("obj_locate", position.getIndex());
+            }
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.eventStat();
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends UploadDataProvider {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nz9 a;
-
-        public b(nz9 nz9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nz9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static final void b(sl9 postData, TbRichTextView richTextView, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65537, null, postData, richTextView, z) == null) {
+            Intrinsics.checkNotNullParameter(postData, "postData");
+            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
+            if (postData.z() != null) {
+                if (z) {
+                    richTextView.getLayoutStrategy().m(-1);
+                } else {
+                    richTextView.getLayoutStrategy().m(ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004));
                 }
             }
-            this.a = nz9Var;
         }
+    }
 
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void c(UploadDataSink uploadDataSink) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
-                uploadDataSink.b(new HttpRetryException("Cannot retry streamed Http body", -1));
+    public static final void c(sl9 postData, TbRichTextView richTextView) {
+        Rect rect;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, postData, richTextView) == null) {
+            Intrinsics.checkNotNullParameter(postData, "postData");
+            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
+            wu5 layoutStrategy = richTextView.getLayoutStrategy();
+            if (postData.z() != null) {
+                rect = new Rect(-1, -1, -1, ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds53));
+            } else {
+                rect = null;
             }
-        }
-
-        public /* synthetic */ b(nz9 nz9Var, a aVar) {
-            this(nz9Var);
-        }
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public long a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a.e;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.baidu.turbonet.net.UploadDataProvider
-        public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
-                if (byteBuffer.remaining() >= this.a.f.remaining()) {
-                    byteBuffer.put(this.a.f);
-                    this.a.f.clear();
-                    uploadDataSink.c(false);
-                    this.a.d.quit();
-                    return;
-                }
-                int limit = this.a.f.limit();
-                this.a.f.limit(this.a.f.position() + byteBuffer.remaining());
-                byteBuffer.put(this.a.f);
-                this.a.f.limit(limit);
-                uploadDataSink.c(false);
-            }
-        }
-    }
-
-    public nz9(oz9 oz9Var, long j, rz9 rz9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {oz9Var, Long.valueOf(j), rz9Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.g = new b(this, null);
-        if (oz9Var != null) {
-            if (j >= 0) {
-                this.e = j;
-                this.f = ByteBuffer.allocate((int) Math.min(j, i));
-                this.d = rz9Var;
-                this.h = 0L;
-                return;
-            }
-            throw new IllegalArgumentException("Content length must be larger than 0 for non-chunked upload.");
-        }
-        throw null;
-    }
-
-    @Override // java.io.OutputStream
-    public void write(int i2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            c();
-            l(1);
-            m();
-            this.f.put((byte) i2);
-            this.h++;
-            o();
-        }
-    }
-
-    @Override // com.baidu.tieba.qz9
-    public void e() throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.h >= this.e) {
-            return;
-        }
-        throw new ProtocolException("Content received is less than Content-Length.");
-    }
-
-    @Override // com.baidu.tieba.qz9
-    public UploadDataProvider f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (UploadDataProvider) invokeV.objValue;
-    }
-
-    public final void m() throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.f.hasRemaining()) {
-            n();
-        }
-    }
-
-    public final void n() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c();
-            this.f.flip();
-            this.d.a();
-            a();
-        }
-    }
-
-    public final void o() throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.h == this.e) {
-            n();
-        }
-    }
-
-    public final void l(int i2) throws ProtocolException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i2) != null) || this.h + i2 <= this.e) {
-            return;
-        }
-        throw new ProtocolException("expected " + (this.e - this.h) + " bytes but received " + i2);
-    }
-
-    @Override // java.io.OutputStream
-    public void write(byte[] bArr, int i2, int i3) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i2, i3) == null) {
-            c();
-            if (bArr.length - i2 >= i3 && i2 >= 0 && i3 >= 0) {
-                l(i3);
-                int i4 = i3;
-                while (i4 > 0) {
-                    m();
-                    int min = Math.min(i4, this.f.remaining());
-                    this.f.put(bArr, (i2 + i3) - i4, min);
-                    i4 -= min;
-                }
-                this.h += i3;
-                o();
-                return;
-            }
-            throw new IndexOutOfBoundsException();
+            layoutStrategy.s(rect);
         }
     }
 }

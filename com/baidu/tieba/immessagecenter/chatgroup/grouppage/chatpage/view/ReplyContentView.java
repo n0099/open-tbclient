@@ -9,11 +9,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aq6;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.dt6;
+import com.baidu.tieba.ii;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.ReMsgInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.view.ReplyContentView;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.q25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -92,7 +92,7 @@ public final class ReplyContentView extends AppCompatTextView {
         int i4 = this.b;
         setPadding(i3, i4, i3, i4);
         setLineSpacing(0.0f, this.d);
-        e();
+        b();
         setVisibility(8);
     }
 
@@ -100,7 +100,7 @@ public final class ReplyContentView extends AppCompatTextView {
         this(context, (i & 2) != 0 ? null : attributeSet);
     }
 
-    public static final void b(ReplyContentView this$0, SpannableStringBuilder spannableStringBuilder) {
+    public static final void c(ReplyContentView this$0, SpannableStringBuilder spannableStringBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, spannableStringBuilder) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -119,29 +119,19 @@ public final class ReplyContentView extends AppCompatTextView {
     public final void a(ReMsgInfo reMsgInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, reMsgInfo) == null) {
-            aq6.d(getContext(), reMsgInfo.getContent(), this.c, new aq6.i() { // from class: com.baidu.tieba.qv7
+            dt6.d(getContext(), reMsgInfo.getContent(), this.c, new dt6.i() { // from class: com.baidu.tieba.m58
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.aq6.i
+                @Override // com.baidu.tieba.dt6.i
                 public final void a(SpannableStringBuilder spannableStringBuilder) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
-                        ReplyContentView.b(ReplyContentView.this, spannableStringBuilder);
+                        ReplyContentView.c(ReplyContentView.this, spannableStringBuilder);
                     }
                 }
             });
-            e();
-        }
-    }
-
-    public final void c(ReMsgInfo msg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, msg) == null) {
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            this.f = R.color.CAM_X0206;
-            this.g = R.color.CAM_X0108;
-            a(msg);
+            b();
         }
     }
 
@@ -149,18 +139,28 @@ public final class ReplyContentView extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, msg) == null) {
             Intrinsics.checkNotNullParameter(msg, "msg");
+            this.f = R.color.CAM_X0206;
+            this.g = R.color.CAM_X0108;
+            a(msg);
+        }
+    }
+
+    public final void e(ReMsgInfo msg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, msg) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
             this.f = R.color.CAM_X0617;
             this.g = R.color.CAM_X0606;
             a(msg);
         }
     }
 
-    public final void e() {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            n15 d = n15.d(this);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            q25 d = q25.d(this);
             d.w(this.g);
-            d.A(R.dimen.T_X07);
+            d.B(R.dimen.T_X07);
             d.o(R.string.J_X05);
             d.f(this.f);
         }
@@ -170,7 +170,7 @@ public final class ReplyContentView extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
-                getLayoutParams().width = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds608);
+                getLayoutParams().width = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds608);
             } else {
                 getLayoutParams().width = i;
             }

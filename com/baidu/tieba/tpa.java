@@ -1,32 +1,34 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import org.brotli.dec.BrotliRuntimeException;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeInfo;
+import com.win.opensdk.PBMediaView;
+import com.win.opensdk.PBNative;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class tpa {
+public class tpa implements FunNativeInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final byte[] a;
-    public final int[] b;
-    public final aqa c;
-    public InputStream d;
-    public boolean e;
-    public long f;
-    public int g;
-    public int h;
-    public int i;
+    public final PBNative a;
+    public final Context b;
+    public PBMediaView c;
 
-    public tpa() {
+    public tpa(Context context, PBNative pBNative) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, pBNative};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,223 +38,75 @@ public final class tpa {
                 return;
             }
         }
-        this.a = new byte[4160];
-        this.b = new int[1040];
-        this.c = new aqa();
-        this.i = 0;
+        this.b = context;
+        this.a = pBNative;
     }
 
-    public static void a(tpa tpaVar, boolean z) {
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public ChannelNativeAds getChannelNativeAds() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65537, null, tpaVar, z) != null) || !tpaVar.e) {
-            return;
-        }
-        int i = ((tpaVar.h << 2) + ((tpaVar.g + 7) >> 3)) - 8;
-        int i2 = tpaVar.i;
-        if (i <= i2) {
-            if (z && i != i2) {
-                throw new BrotliRuntimeException("Unused bytes after end");
-            }
-            return;
-        }
-        throw new BrotliRuntimeException("Read after end");
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChannelNativeAds.createJy(this.a) : (ChannelNativeAds) invokeV.objValue;
     }
 
-    public static void e(tpa tpaVar, InputStream inputStream) {
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getDescription() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, tpaVar, inputStream) == null) {
-            if (tpaVar.d == null) {
-                aqa.b(tpaVar.c, tpaVar.a, tpaVar.b);
-                tpaVar.d = inputStream;
-                tpaVar.f = 0L;
-                tpaVar.g = 64;
-                tpaVar.h = 1024;
-                tpaVar.e = false;
-                h(tpaVar);
-                return;
-            }
-            throw new IllegalStateException("Bit reader already has associated input stream");
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getBody() : (String) invokeV.objValue;
     }
 
-    public static void b(tpa tpaVar) throws IOException {
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getIconUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, tpaVar) == null) {
-            InputStream inputStream = tpaVar.d;
-            tpaVar.d = null;
-            if (inputStream != null) {
-                inputStream.close();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getIcon() : (String) invokeV.objValue;
     }
 
-    public static void d(tpa tpaVar) {
-        int i;
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public List<String> getImageUrls() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tpaVar) == null) && (i = tpaVar.g) >= 32) {
-            int[] iArr = tpaVar.b;
-            int i2 = tpaVar.h;
-            tpaVar.h = i2 + 1;
-            tpaVar.f = (iArr[i2] << 32) | (tpaVar.f >>> 32);
-            tpaVar.g = i - 32;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(this.a.getIM());
+            return arrayList;
         }
+        return (List) invokeV.objValue;
     }
 
-    public static int f(tpa tpaVar) {
-        InterceptResult invokeL;
-        int i;
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public FunNativeAd.InteractionType getInteractionType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, tpaVar)) == null) {
-            if (tpaVar.e) {
-                i = (tpaVar.i + 3) >> 2;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.isD() ? FunNativeAd.InteractionType.TYPE_DOWNLOAD : FunNativeAd.InteractionType.TYPE_BROWSE : (FunNativeAd.InteractionType) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getHeadline() : (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeInfo
+    public View getVideoView() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String adType = this.a.getAdType();
+            adType.hashCode();
+            if (!adType.equals("h5") && !adType.equals("video")) {
+                z = false;
             } else {
-                i = 1024;
+                z = true;
             }
-            return i - tpaVar.h;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void g(tpa tpaVar) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, tpaVar) == null) && (i = (64 - tpaVar.g) & 7) != 0 && i(tpaVar, i) != 0) {
-            throw new BrotliRuntimeException("Corrupted padding bits");
-        }
-    }
-
-    public static void h(tpa tpaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, tpaVar) == null) {
-            j(tpaVar);
-            a(tpaVar, false);
-            d(tpaVar);
-            d(tpaVar);
-        }
-    }
-
-    public static void k(tpa tpaVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, tpaVar) == null) && tpaVar.g == 64) {
-            h(tpaVar);
-        }
-    }
-
-    public static void c(tpa tpaVar, byte[] bArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65539, null, tpaVar, bArr, i, i2) == null) {
-            if ((tpaVar.g & 7) == 0) {
-                while (true) {
-                    int i3 = tpaVar.g;
-                    if (i3 == 64 || i2 == 0) {
-                        break;
-                    }
-                    bArr[i] = (byte) (tpaVar.f >>> i3);
-                    tpaVar.g = i3 + 8;
-                    i2--;
-                    i++;
-                }
-                if (i2 == 0) {
-                    return;
-                }
-                int min = Math.min(f(tpaVar), i2 >> 2);
-                if (min > 0) {
-                    int i4 = min << 2;
-                    System.arraycopy(tpaVar.a, tpaVar.h << 2, bArr, i, i4);
-                    i += i4;
-                    i2 -= i4;
-                    tpaVar.h += min;
-                }
-                if (i2 == 0) {
-                    return;
-                }
-                if (f(tpaVar) > 0) {
-                    d(tpaVar);
-                    while (i2 != 0) {
-                        long j = tpaVar.f;
-                        int i5 = tpaVar.g;
-                        bArr[i] = (byte) (j >>> i5);
-                        tpaVar.g = i5 + 8;
-                        i2--;
-                        i++;
-                    }
-                    a(tpaVar, false);
-                    return;
-                }
-                while (i2 > 0) {
-                    try {
-                        int read = tpaVar.d.read(bArr, i, i2);
-                        if (read != -1) {
-                            i += read;
-                            i2 -= read;
-                        } else {
-                            throw new BrotliRuntimeException("Unexpected end of input");
-                        }
-                    } catch (IOException e) {
-                        throw new BrotliRuntimeException("Failed to read input", e);
-                    }
-                }
-                return;
+            if (z && this.c == null) {
+                this.c = new PBMediaView(this.b.getApplicationContext());
             }
-            throw new BrotliRuntimeException("Unaligned copyBytes");
+            return this.c;
         }
-    }
-
-    public static int i(tpa tpaVar, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, tpaVar, i)) == null) {
-            d(tpaVar);
-            long j = tpaVar.f;
-            int i2 = tpaVar.g;
-            int i3 = ((int) (j >>> i2)) & ((1 << i) - 1);
-            tpaVar.g = i2 + i;
-            return i3;
-        }
-        return invokeLI.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x003b, code lost:
-        r4.e = true;
-        r4.i = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0040, code lost:
-        r1 = r1 + 3;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void j(tpa tpaVar) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65546, null, tpaVar) != null) || (i = tpaVar.h) <= 1015) {
-            return;
-        }
-        if (tpaVar.e) {
-            if (f(tpaVar) >= -2) {
-                return;
-            }
-            throw new BrotliRuntimeException("No more input");
-        }
-        int i2 = i << 2;
-        int i3 = 4096 - i2;
-        byte[] bArr = tpaVar.a;
-        System.arraycopy(bArr, i2, bArr, 0, i3);
-        tpaVar.h = 0;
-        while (true) {
-            if (i3 >= 4096) {
-                break;
-            }
-            try {
-                int read = tpaVar.d.read(tpaVar.a, i3, 4096 - i3);
-                if (read <= 0) {
-                    break;
-                }
-                i3 += read;
-            } catch (IOException e) {
-                throw new BrotliRuntimeException("Failed to read input", e);
-            }
-        }
-        aqa.a(tpaVar.c, i3 >> 2);
+        return (View) invokeV.objValue;
     }
 }

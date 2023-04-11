@@ -18,7 +18,7 @@ public interface SendChannel<E> {
 
     @ExperimentalCoroutinesApi
     /* renamed from: invokeOnClose */
-    void mo2240invokeOnClose(Function1<? super Throwable, Unit> function1);
+    void mo2242invokeOnClose(Function1<? super Throwable, Unit> function1);
 
     boolean isClosedForSend();
 

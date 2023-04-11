@@ -13,7 +13,7 @@ import androidx.annotation.RestrictTo;
 import com.google.android.material.R;
 import com.google.android.material.internal.ThemeEnforcement;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MaterialDialogs {
     @NonNull
     public static Rect getDialogBackgroundInsets(@NonNull Context context, @AttrRes int i, int i2) {

@@ -1,33 +1,53 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Looper;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
-public abstract class bia {
-    public static /* synthetic */ Interceptable $ic;
+public class bia {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String b = "UnionIDHelper";
+    public static boolean c;
+    public static bia d;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicBoolean a;
-    public long b;
-    public Runnable c;
+    public Context a;
 
-    public abstract void b();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947647311, "Lcom/baidu/tieba/bia;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947647311, "Lcom/baidu/tieba/bia;");
+        }
+    }
 
     /* loaded from: classes3.dex */
-    public class a implements Runnable {
+    public class a implements jia {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bia a;
+        public final /* synthetic */ aia a;
 
-        public a(bia biaVar) {
+        public a(bia biaVar, aia aiaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {biaVar};
+                Object[] objArr = {biaVar, aiaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,57 +57,91 @@ public abstract class bia {
                     return;
                 }
             }
-            this.a = biaVar;
+            this.a = aiaVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.jia
+        public void a(kia kiaVar) {
+            zha zhaVar;
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-                if (this.a.a.get()) {
-                    fia.a().postDelayed(this.a.c, this.a.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, kiaVar) == null) {
+                if (bia.c) {
+                    String str = bia.b;
+                    Log.d(str, "异步回调 结果:" + kiaVar);
+                    String str2 = bia.b;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("异步回调 (listener != null):");
+                    if (this.a != null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    sb.append(z);
+                    Log.d(str2, sb.toString());
+                }
+                aia aiaVar = this.a;
+                if (aiaVar != null) {
+                    if (kiaVar == null) {
+                        zhaVar = null;
+                    } else {
+                        zhaVar = new zha(kiaVar.c(), kiaVar.isSupport(), kiaVar.getOAID(), kiaVar.getAAID(), kiaVar.getVAID(), kiaVar.getStatusCode());
+                    }
+                    aiaVar.a(0, zhaVar);
                 }
             }
         }
     }
 
-    public bia(long j) {
+    public bia(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicBoolean(false);
-        this.c = new a(this);
-        this.b = 0 == j ? 300L : j;
+        this.a = context.getApplicationContext();
     }
 
-    public void c() {
+    public static bia c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a.get()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (d == null) {
+                synchronized (bia.class) {
+                    if (d == null) {
+                        d = new bia(context);
+                        dia.c(context);
+                    }
+                }
+            }
+            return d;
         }
-        this.a.set(true);
-        fia.a().removeCallbacks(this.c);
-        fia.a().postDelayed(this.c, dia.e().i());
+        return (bia) invokeL.objValue;
     }
 
-    public void d() {
+    public void e(aia aiaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !this.a.get()) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aiaVar) == null) {
+            cia ciaVar = new cia();
+            ciaVar.b(1);
+            ciaVar.a(false);
+            d(ciaVar, aiaVar, Looper.getMainLooper());
         }
-        this.a.set(false);
-        fia.a().removeCallbacks(this.c);
+    }
+
+    public void d(cia ciaVar, aia aiaVar, Looper looper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, ciaVar, aiaVar, looper) == null) {
+            hia.o().i(this.a, looper, new a(this, aiaVar));
+        }
     }
 }

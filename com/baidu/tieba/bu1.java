@@ -1,45 +1,31 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.UiThread;
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.tieba.au1;
+import android.view.View;
+import android.webkit.ValueCallback;
 /* loaded from: classes3.dex */
-public interface bu1<T extends au1> extends TypedCallbackHandler {
-    @UiThread
-    void N();
+public interface bu1 extends s62 {
+    boolean canGoBack();
 
-    void U(g92 g92Var);
-
-    String a();
-
-    void attachActivity(Activity activity);
-
-    void b(h62 h62Var);
-
-    String b0();
-
-    SwanAppWebViewManager.d d();
+    View covertToView();
 
     void destroy();
 
-    void e0();
+    @Override // com.baidu.tieba.s62
+    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
 
-    String getUserAgent();
+    int getContentHeight();
 
-    void loadUrl(String str);
+    View getCurrentWebView();
 
-    void onJSLoaded();
+    float getScale();
 
-    void onPause();
+    int getWebViewScrollX();
 
-    void onResume();
+    int getWebViewScrollY();
 
-    @UiThread
-    void q();
+    void goBack();
 
-    T r();
+    void setDefaultViewSize(int i, int i2, String str);
 
-    void t(g92 g92Var);
+    void webViewScrollTo(int i, int i2);
 }

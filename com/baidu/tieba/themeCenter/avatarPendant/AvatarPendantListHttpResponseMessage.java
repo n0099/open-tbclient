@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.avatarPendant;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.ph9;
-import com.baidu.tieba.ri9;
+import com.baidu.tieba.gr9;
+import com.baidu.tieba.is9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import tbclient.GetPendantByCategory.ThemePendantInMain;
 public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ph9> mAvatarPendantList;
-    public ri9 mRecommand;
+    public List<gr9> mAvatarPendantList;
+    public is9 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AvatarPendantListHttpResponseMessage(int i) {
@@ -62,23 +62,23 @@ public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage
             return;
         }
         if (dataRes.recommend != null) {
-            ri9 ri9Var = new ri9();
-            this.mRecommand = ri9Var;
-            ri9Var.d(getPendantByCategoryResIdl.data.recommend);
+            is9 is9Var = new is9();
+            this.mRecommand = is9Var;
+            is9Var.d(getPendantByCategoryResIdl.data.recommend);
         }
         if (getPendantByCategoryResIdl.data.pendant != null) {
             this.mAvatarPendantList = new ArrayList();
             for (ThemePendantInMain themePendantInMain : getPendantByCategoryResIdl.data.pendant) {
                 if (themePendantInMain != null && !StringUtils.isNull(themePendantInMain.pendant_category)) {
-                    ph9 ph9Var = new ph9();
-                    ph9Var.c(themePendantInMain);
-                    this.mAvatarPendantList.add(ph9Var);
+                    gr9 gr9Var = new gr9();
+                    gr9Var.c(themePendantInMain);
+                    this.mAvatarPendantList.add(gr9Var);
                 }
             }
         }
     }
 
-    public List<ph9> getAvatarPendantListList() {
+    public List<gr9> getAvatarPendantListList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -87,12 +87,12 @@ public class AvatarPendantListHttpResponseMessage extends TbHttpResponsedMessage
         return (List) invokeV.objValue;
     }
 
-    public ri9 getRecommand() {
+    public is9 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mRecommand;
         }
-        return (ri9) invokeV.objValue;
+        return (is9) invokeV.objValue;
     }
 }

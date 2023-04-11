@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cg;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.oq4;
-import com.baidu.tieba.rm;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.qq4;
+import com.baidu.tieba.sm;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +32,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public RoundRelativeLayout a;
     public NewUserRedPackageData b;
-    public oq4 c;
+    public qq4 c;
     public ImageView d;
     public ImageView e;
     public View.OnClickListener f;
@@ -125,16 +125,16 @@ public class NewUserRedPackageActivity extends BaseActivity {
         }
     }
 
-    public final void C1() {
-        rm rmVar;
+    public final void B1() {
+        sm smVar;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || getIntent() == null) {
             return;
         }
         NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra(NewUserRedPackageActivityConfig.KEY_DATA);
         this.b = newUserRedPackageData;
-        if (newUserRedPackageData != null && (rmVar = (rm) cg.h().n(this.b.topPicUrl, 10, new Object[0])) != null) {
-            this.d.setImageBitmap(rmVar.p());
+        if (newUserRedPackageData != null && (smVar = (sm) cg.h().n(this.b.topPicUrl, 10, new Object[0])) != null) {
+            this.d.setImageBitmap(smVar.p());
         }
     }
 
@@ -160,14 +160,14 @@ public class NewUserRedPackageActivity extends BaseActivity {
             setContentView(R.layout.obfuscated_res_0x7f0d0047);
             RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
             this.a = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(hi.g(this, R.dimen.tbds31));
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09102b);
+            roundRelativeLayout.setAllCornerRound(ii.g(this, R.dimen.tbds31));
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091030);
             this.e = (ImageView) findViewById(R.id.img_btn_close);
             this.d.setOnClickListener(this.f);
             this.e.setOnClickListener(this.f);
-            C1();
+            B1();
             TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-            this.c = new oq4();
+            this.c = new qq4();
         }
     }
 }

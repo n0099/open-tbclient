@@ -1,56 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.SevenZipUtils;
 /* loaded from: classes6.dex */
 public class qk9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
-    public static final String d;
-    public static final String e;
-    public static final String f;
-    public static final String g;
-    public static final String h;
-    public static final String i;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948094858, "Lcom/baidu/tieba/qk9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static boolean a(String str, Boolean bool) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, bool)) == null) {
+            if (SwitchManager.getInstance().findType("voice") != 0 || ((str != null && b(str)) || bool == null)) {
+                return false;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948094858, "Lcom/baidu/tieba/qk9;");
-                return;
-            }
+            return bool.booleanValue();
         }
-        a = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.music/";
-        StringBuilder sb = new StringBuilder();
-        sb.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
-        sb.append("/");
-        sb.append("tieba");
-        sb.append("/videoCover.jpg");
-        b = sb.toString();
-        c = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/" + SevenZipUtils.FILE_NAME_TEMP;
-        d = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/" + SevenZipUtils.FILE_NAME_TEMP;
-        e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/temp/";
-        f = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/temp/";
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
-        sb2.append("/");
-        sb2.append("DCIM/tieba/");
-        g = sb2.toString();
-        h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.pendant/";
-        i = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/takepic/";
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.voice_black_frs_list);
+            String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f06b5);
+            int length = stringArray.length;
+            for (int i = 0; i < length; i++) {
+                if (!stringArray[i].equals(str)) {
+                    if (str.equals(stringArray[i] + string)) {
+                        return true;
+                    }
+                } else {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

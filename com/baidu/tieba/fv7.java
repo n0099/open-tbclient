@@ -1,88 +1,76 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.Unit;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class fv7 {
+public class fv7 extends yf6<dv7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, hv7> a;
-    public hv7 b;
-    public long c;
+    public View i;
+    public dv7 j;
 
-    public fv7() {
+    @Override // com.baidu.tieba.yf6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01cc : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.yf6
+    public void m(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fv7(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedHashMap();
+        this.i = h().findViewById(R.id.obfuscated_res_0x7f090602);
     }
 
-    public final void a(hv7 handler) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yf6
+    /* renamed from: r */
+    public void l(dv7 dv7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
-            Intrinsics.checkNotNullParameter(handler, "handler");
-            if (handler.c()) {
-                this.b = handler;
-            }
-            this.a.put(handler.d(), handler);
+        if ((interceptable != null && interceptable.invokeL(1048580, this, dv7Var) != null) || dv7Var == null) {
+            return;
         }
-    }
-
-    public final void d(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public final void b(AbilityItem abilityItem, BaseMsg baseMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abilityItem, baseMsg) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            hv7 hv7Var = this.b;
-            if (hv7Var != null) {
-                hv7Var.b(abilityItem, baseMsg);
-            }
-        }
-    }
-
-    public final void c(AbilityItem abilityItem, BaseMsg baseMsg) {
-        Unit unit;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, abilityItem, baseMsg) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            try {
-                hv7 hv7Var = this.a.get(abilityItem.getType());
-                if (hv7Var != null) {
-                    hv7Var.b(abilityItem, baseMsg);
-                    unit = Unit.INSTANCE;
-                } else {
-                    unit = null;
-                }
-                if (unit == null) {
-                    b(abilityItem, baseMsg);
-                }
-            } catch (Exception e) {
-                vu7.g("ability_handle_exception", this.c, e);
-            }
-        }
+        this.j = dv7Var;
+        SkinManager.setBackgroundColor(this.i, dv7Var.b);
+        ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
+        layoutParams.height = ii.g(this.c, dv7Var.a);
+        this.i.setLayoutParams(layoutParams);
     }
 }

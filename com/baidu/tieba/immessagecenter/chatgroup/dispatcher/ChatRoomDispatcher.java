@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.eh5;
-import com.baidu.tieba.g39;
+import com.baidu.tieba.ii5;
+import com.baidu.tieba.xc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ChatRoomDispatcher implements g39 {
+public class ChatRoomDispatcher implements xc9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OPEN_GROUPCHAT_SCHEME = "com.baidu.tieba://unidispatch/router/portal";
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class ChatRoomDispatcher implements g39 {
         return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.g39
+    @Override // com.baidu.tieba.xc9
     public void dispatch(JSONObject jSONObject, Context context) {
         long j;
         String str;
@@ -83,7 +83,7 @@ public class ChatRoomDispatcher implements g39 {
             } else {
                 z = false;
             }
-            eh5.a().d(context, optLong, -1, optString, str, j, z);
+            ii5.a().d(context, optLong, -1, optString, str, j, z);
         }
     }
 }

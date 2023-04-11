@@ -1,60 +1,67 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.mainentrance.ForumSuggestModel;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.immessagecenter.chatgroup.data.RecentlyBotSkillInfoDto;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.GroupChatRobotFloorView;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class a68 extends BaseAdapter {
+public class a68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseActivity<?> a;
-    public final boolean b;
-    public ArrayList<ForumSuggestModel.Forum> c;
-    public String d;
+    public GroupChatFragment a;
+    public GroupChatRobotFloorView b;
+    public e c;
+    public f d;
+    public List<BotsDTO.BotListDTO> e;
+    public List<Object> f;
+    public List<Object> g;
+    public boolean h;
+    public int i;
+    public int j;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    public interface d {
+        void a();
     }
 
     /* loaded from: classes3.dex */
-    public class b {
+    public interface e {
+        void a(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z);
+
+        void b(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z);
+    }
+
+    /* loaded from: classes3.dex */
+    public interface f {
+        void a(BotsDTO.BotListDTO.UserDTO userDTO, BotsDTO.BotListDTO.SkillDTO skillDTO);
+    }
+
+    /* loaded from: classes3.dex */
+    public class a implements GroupChatRobotFloorView.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public TextView b;
-        public BarImageView c;
-        public TextView d;
-        public TextView e;
-        public TextView f;
+        public final /* synthetic */ a68 a;
 
-        public b(a68 a68Var) {
+        public a(a68 a68Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -66,21 +73,112 @@ public class a68 extends BaseAdapter {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a68Var;
+        }
+
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.GroupChatRobotFloorView.e
+        public void a(String str, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, str, i, i2) == null) {
+                BotsDTO.BotListDTO.UserDTO e = this.a.e(str);
+                BotsDTO.BotListDTO.SkillDTO g = this.a.g(str, i);
+                if (e != null && g != null && this.a.d != null) {
+                    this.a.d.a(e, g);
+                    long g2 = this.a.a.g2();
+                    long e2 = this.a.a.e2();
+                    TiebaStatic.log(new StatisticItem("c15132").param("obj_type", 2).param("obj_name", g.getName()).param("obj_source", i2).param("fid", e2).param("room_id", g2).param("fname", this.a.a.f2()).param("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
             }
         }
+    }
 
-        public /* synthetic */ b(a68 a68Var, a aVar) {
-            this(a68Var);
+    /* loaded from: classes3.dex */
+    public class b extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+
+        public b(a68 a68Var, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a68Var, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                super.onAnimationEnd(animator);
+                d dVar = this.a;
+                if (dVar != null) {
+                    dVar.a();
+                }
+            }
         }
     }
 
-    public a68(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
+    /* loaded from: classes3.dex */
+    public class c extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+        public final /* synthetic */ a68 b;
+
+        public c(a68 a68Var, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a68Var, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = a68Var;
+            this.a = dVar;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                super.onAnimationEnd(animator);
+                this.b.s(false, 0);
+                this.b.a.u2(true);
+                d dVar = this.a;
+                if (dVar != null) {
+                    dVar.a();
+                }
+            }
+        }
+    }
+
+    public a68(GroupChatFragment groupChatFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, arrayList};
+            Object[] objArr = {groupChatFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,150 +188,216 @@ public class a68 extends BaseAdapter {
                 return;
             }
         }
-        this.a = baseActivity;
-        this.b = true;
-        this.c = arrayList;
+        this.e = new ArrayList();
+        this.f = new ArrayList();
+        this.g = new ArrayList();
+        this.a = groupChatFragment;
+        if (groupChatFragment != null) {
+            this.i = ii.j(groupChatFragment.getContext());
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public ForumSuggestModel.Forum getItem(int i) {
-        InterceptResult invokeI;
+    public final BotsDTO.BotListDTO.UserDTO e(String str) {
+        InterceptResult invokeL;
+        BotsDTO.BotListDTO botListDTO;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int count = getCount();
-            if (count > 0 && i < count) {
-                return this.c.get(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && !ListUtils.isEmpty(this.e)) {
+                for (BotsDTO.BotListDTO botListDTO2 : this.e) {
+                    if ((botListDTO2 instanceof BotsDTO.BotListDTO) && (botListDTO = botListDTO2) != null && botListDTO.getUser() != null && str.equals(botListDTO.getUser().getUk())) {
+                        return botListDTO.getUser();
+                    }
+                }
             }
             return null;
         }
-        return (ForumSuggestModel.Forum) invokeI.objValue;
+        return (BotsDTO.BotListDTO.UserDTO) invokeL.objValue;
     }
 
-    public void d(ArrayList<ForumSuggestModel.Forum> arrayList) {
+    public final BotsDTO.BotListDTO f(String str) {
+        InterceptResult invokeL;
+        BotsDTO.BotListDTO botListDTO;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.c = arrayList;
-            if (arrayList != null) {
-                notifyDataSetChanged();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && !ListUtils.isEmpty(this.e)) {
+                for (BotsDTO.BotListDTO botListDTO2 : this.e) {
+                    if ((botListDTO2 instanceof BotsDTO.BotListDTO) && (botListDTO = botListDTO2) != null && botListDTO.getUser() != null && str.equals(botListDTO.getUser().getUk())) {
+                        return botListDTO;
+                    }
+                }
+            }
+            return null;
+        }
+        return (BotsDTO.BotListDTO) invokeL.objValue;
+    }
+
+    @NonNull
+    public final List<RecentlyBotSkillInfoDto> h(@NonNull List<BotsDTO.BotListDTO> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            return g78.f().e(list);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void m(boolean z) {
+        GroupChatFragment groupChatFragment;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.h = z;
+            if (z && (groupChatFragment = this.a) != null) {
+                this.j = ke5.d(groupChatFragment.getContext());
             }
         }
     }
 
-    public void e(String str) {
+    public void n(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || interceptable.invokeL(1048585, this, eVar) == null) {
+            this.c = eVar;
         }
     }
 
-    public String b(int i) {
-        InterceptResult invokeI;
+    public void p(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i >= 100000) {
-                return String.valueOf(i / 10000) + this.a.getPageContext().getString(R.string.member_count_unit);
+        if (interceptable == null || interceptable.invokeL(1048587, this, fVar) == null) {
+            this.d = fVar;
+        }
+    }
+
+    public void q(@Nullable d dVar) {
+        e eVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, dVar) == null) && j() && (eVar = this.c) != null) {
+            eVar.b(i(), 0, 200L, new c(this, dVar), false);
+        }
+    }
+
+    public void r(GroupChatRobotFloorView groupChatRobotFloorView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, groupChatRobotFloorView) == null) {
+            this.b = groupChatRobotFloorView;
+            k();
+        }
+    }
+
+    public final BotsDTO.BotListDTO.SkillDTO g(@Nullable String str, int i) {
+        InterceptResult invokeLI;
+        BotsDTO.BotListDTO botListDTO;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str) && !ListUtils.isEmpty(this.e)) {
+                for (BotsDTO.BotListDTO botListDTO2 : this.e) {
+                    if ((botListDTO2 instanceof BotsDTO.BotListDTO) && (botListDTO = botListDTO2) != null && botListDTO.getUser() != null && str.equals(botListDTO.getUser().getUk()) && !ListUtils.isEmpty(botListDTO.getSkill())) {
+                        for (BotsDTO.BotListDTO.SkillDTO skillDTO : botListDTO.getSkill()) {
+                            if (i == skillDTO.getType()) {
+                                return skillDTO;
+                            }
+                        }
+                        continue;
+                    }
+                }
             }
-            return String.valueOf(i);
+            return null;
         }
-        return (String) invokeI.objValue;
+        return (BotsDTO.BotListDTO.SkillDTO) invokeLI.objValue;
     }
 
-    public void c(TextView textView, String str) {
+    public void s(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, str) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.d)) {
-            String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.d.toLowerCase();
-            if (!lowerCase.contains(lowerCase2)) {
-                textView.setText(str);
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            if (z) {
+                this.b.setVisibility(0);
+                this.b.setCallFrom(i);
+                TiebaStatic.log(new StatisticItem("c15132").param("obj_type", 1).param("obj_source", i).param("fid", this.a.e2()).param("room_id", this.a.g2()).param("fname", this.a.f2()).param("uid", TbadkCoreApplication.getCurrentAccount()));
                 return;
             }
-            int indexOf = lowerCase.indexOf(lowerCase2);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.d.length() + indexOf, 33);
-            textView.setText(spannableStringBuilder);
+            this.b.setVisibility(8);
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList<ForumSuggestModel.Forum> arrayList = this.c;
-            if (arrayList == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            GroupChatRobotFloorView groupChatRobotFloorView = this.b;
+            if (groupChatRobotFloorView != null && this.a != null) {
+                int i = ((this.i * 4) / 5) - this.j;
+                int robotFloorHeight = groupChatRobotFloorView.getRobotFloorHeight();
+                if (robotFloorHeight > i) {
+                    return i;
+                }
+                return robotFloorHeight;
             }
-            return arrayList.size();
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        String str;
+    public boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            boolean z = false;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0859, (ViewGroup) null);
-                bVar = new b(this, null);
-                BarImageView barImageView = (BarImageView) view2.findViewById(R.id.forum_avatar);
-                bVar.c = barImageView;
-                barImageView.setGifIconSupport(false);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917a3);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b88);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bb4);
-                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920d8);
-                bVar.a = view2.findViewById(R.id.obfuscated_res_0x7f0918a9);
-                view2.setTag(bVar);
-            } else {
-                bVar = (b) view2.getTag();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.b.getVisibility() == 0) {
+                return true;
             }
-            ForumSuggestModel.Forum item = getItem(i);
-            if (item == null) {
-                return view2;
-            }
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            String str2 = item.avatar;
-            bVar.c.setTag(str2);
-            bVar.c.M(str2, 10, false);
-            bVar.c.invalidate();
-            if (this.b) {
-                str = this.a.getPageContext().getPageActivity().getString(R.string.chosen_pb_original_bar, new Object[]{item.forum_name});
-            } else {
-                str = item.forum_name;
-            }
-            c(bVar.b, str);
-            bVar.c.setTag(item.avatar);
-            TextView textView = bVar.d;
-            textView.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02ba) + " " + b(item.member_num));
-            TextView textView2 = bVar.e;
-            textView2.setText(this.a.getPageContext().getString(R.string.text_post) + " " + b(item.thread_num));
-            if (!this.b && TextUtils.isEmpty(item.slogan)) {
-                bVar.f.setVisibility(8);
-            } else {
-                bVar.f.setVisibility(0);
-                bVar.f.setText(item.slogan);
-            }
-            if (item.is_offical == 1) {
-                bVar.a.setVisibility(0);
-                SkinManager.setBackgroundResource(bVar.a, R.drawable.icon_search_official);
-            } else {
-                bVar.a.setVisibility(8);
-            }
-            fv4 layoutMode = this.a.getLayoutMode();
-            if (skinType == 4) {
-                z = true;
-            }
-            layoutMode.l(z);
-            this.a.getLayoutMode().k(view2);
-            return view2;
+            return false;
         }
-        return (View) invokeILL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final void k() {
+        GroupChatRobotFloorView groupChatRobotFloorView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (groupChatRobotFloorView = this.b) == null) {
+            return;
+        }
+        groupChatRobotFloorView.setOnItemClickListener(new a(this));
+    }
+
+    public void l(Boolean bool) {
+        GroupChatFragment groupChatFragment;
+        BotsDTO.BotListDTO f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bool) == null) {
+            this.b.n();
+            if (bool.booleanValue() && (groupChatFragment = this.a) != null && groupChatFragment.j2() != null && this.a.j2().l0() != null && this.a.j2().l0().q() != null) {
+                List<String> atUidList = this.a.j2().l0().q().getAtUidList();
+                if (ListUtils.getCount(atUidList) == 1 && (f2 = f(BIMManager.getBdUKFromBdUid(atUidList.get(0)))) != null) {
+                    this.g.clear();
+                    this.g.add(f2);
+                    this.b.l(this.g);
+                    return;
+                }
+                return;
+            }
+            this.f.clear();
+            this.f.addAll(h(this.e));
+            this.f.addAll(this.e);
+            this.b.l(this.f);
+        }
+    }
+
+    public void o(BotsDTO botsDTO) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, botsDTO) == null) && botsDTO != null && !ListUtils.isEmpty(botsDTO.getBotList())) {
+            this.e = botsDTO.getBotList();
+            this.f.clear();
+            this.f.addAll(h(this.e));
+            this.f.addAll(this.e);
+            this.b.setData(this.f);
+        }
+    }
+
+    public void t(@Nullable d dVar, int i, Boolean bool) {
+        GroupChatRobotFloorView groupChatRobotFloorView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(1048591, this, dVar, i, bool) == null) && !j() && this.c != null && (groupChatRobotFloorView = this.b) != null && groupChatRobotFloorView.getRobotItemDataAdapter() != null && this.b.getRobotItemDataAdapter().m() != 0 && this.a.j2() != null && this.a.j2().s0() != null && !this.a.j2().s0().e()) {
+            l(bool);
+            s(true, i);
+            this.a.u2(true);
+            this.c.a(0, i(), 200L, new b(this, dVar), true);
+        }
     }
 }

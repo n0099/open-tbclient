@@ -1,312 +1,201 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener;
+import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.location.selectpoi.SelectLocationActivity;
-import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.android.imsdk.upload.AsyncChatTask;
+import com.baidu.android.imsdk.upload.AsyncUploadTask;
+import com.baidu.android.imsdk.upload.IUploadTransferListener;
+import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.yy.hiidostatis.inner.util.cipher.Base64Util;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class u58 extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic;
+public class u58 implements IGenBosObjectUrlListener, IUploadTransferListener, BIMValueCallBack<String>, ISendMessageListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String d = "u58";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<Object> a;
-    public TbPageContext<SelectLocationActivity> b;
-    public boolean c;
+    public Context a;
+    public String b;
+    public t58 c;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948162097, "Lcom/baidu/tieba/u58;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948162097, "Lcom/baidu/tieba/u58;");
+        }
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
+    public void onProgress(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
         }
-        return invokeI.longValue;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
+    @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
+    public void onSendMessageResult(int i, ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, chatMsg) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public ImageView b;
-        public View c;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
-    }
-
-    public u58(TbPageContext<SelectLocationActivity> tbPageContext) {
+    public u58(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-        LocationData b2 = zc9.a().b();
-        this.c = !zc9.a().c();
-        if (b2 == null) {
-            return;
-        }
-        this.a = c(b2.getPoi_info(), b2.getFormatted_address());
+        this.a = context;
+        this.b = str;
     }
 
-    public final View a(View view2, int i, boolean z) {
-        InterceptResult invokeCommon;
-        b bVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0079 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+    /* renamed from: a */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onResult(int i, String str, String str2) {
+        FileOutputStream fileOutputStream;
+        Throwable th;
+        Exception e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            Object item = getItem(i);
-            if (!(item instanceof LocationData.NearByAddressData)) {
-                return null;
-            }
-            LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
-            if (view2 != null && (view2.getTag() instanceof c)) {
-                bVar = (b) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0815, (ViewGroup) null);
-                bVar = new b(null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09200d);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09200b);
-                bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09200e);
-                view2.setTag(bVar);
-            }
-            bVar.b.setText(nearByAddressData.getAddr());
-            if (this.c && i == 1) {
-                bVar.c.setVisibility(0);
-                bVar.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_chx__site_ok24, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
-                if (TextUtils.isEmpty(nearByAddressData.getAddr())) {
-                    bVar.b.setText(R.string.obfuscated_res_0x7f0f11d7);
-                }
-            } else {
-                bVar.c.setVisibility(4);
-            }
-            bVar.a.setText(nearByAddressData.getName());
-            this.b.getLayoutMode().l(z);
-            this.b.getLayoutMode().k(view2);
-            SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final View b(View view2, int i, boolean z) {
-        InterceptResult invokeCommon;
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            Object item = getItem(i);
-            if (!(item instanceof String)) {
-                return null;
-            }
-            String str = (String) item;
-            if (view2 != null && (view2.getTag() instanceof c)) {
-                cVar = (c) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0816, (ViewGroup) null);
-                cVar = new c(null);
-                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09200f);
-                cVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09200e);
-                cVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09200c);
-                view2.setTag(cVar);
-            }
-            if (i == 0 && !this.c) {
-                cVar.b.setVisibility(0);
-                cVar.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_chx__site_ok24, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
-            } else {
-                cVar.b.setVisibility(4);
-            }
-            cVar.a.setText(str);
-            SkinManager.setBackgroundColor(cVar.c, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(cVar.a, R.color.CAM_X0302, 1);
-            SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final ArrayList<Object> c(List<LocationData.NearByAddressData> list, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str)) == null) {
-            LocationData.NearByAddressData nearByAddressData = null;
-            if (list == null || list.size() <= 0) {
-                return null;
-            }
-            ArrayList<Object> arrayList = new ArrayList<>();
-            for (LocationData.NearByAddressData nearByAddressData2 : list) {
-                if (nearByAddressData2 != null && !TextUtils.isEmpty(nearByAddressData2.getName())) {
-                    if (TextUtils.equals(nearByAddressData2.getName(), str)) {
-                        nearByAddressData = nearByAddressData2;
-                    } else {
-                        arrayList.add(nearByAddressData2);
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
+            if (i == 0 && !TextUtils.isEmpty(str2)) {
+                FileOutputStream fileOutputStream2 = null;
+                try {
+                    try {
+                        byte[] decode = Base64Util.decode(str2);
+                        File file = new File(this.b);
+                        if (file.exists()) {
+                            fileOutputStream = new FileOutputStream(file);
+                            try {
+                                try {
+                                    fileOutputStream.write(decode);
+                                    fileOutputStream.flush();
+                                    fileOutputStream2 = fileOutputStream;
+                                } catch (Exception e2) {
+                                    e = e2;
+                                    if (this.c != null) {
+                                        this.c.isFailed();
+                                    }
+                                    LogUtils.e(d, e.getMessage());
+                                    if (fileOutputStream != null) {
+                                        fileOutputStream.close();
+                                    }
+                                    BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
+                                    return;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (Exception e3) {
+                                        LogUtils.e(d, e3.getMessage());
+                                    }
+                                }
+                                throw th;
+                            }
+                        } else if (this.c != null) {
+                            this.c.isFailed();
+                        }
+                    } catch (Exception e4) {
+                        LogUtils.e(d, e4.getMessage());
                     }
+                } catch (Exception e5) {
+                    fileOutputStream = null;
+                    e = e5;
+                } catch (Throwable th3) {
+                    fileOutputStream = null;
+                    th = th3;
+                    if (fileOutputStream != null) {
+                    }
+                    throw th;
                 }
-            }
-            if (nearByAddressData != null) {
-                arrayList.add(0, nearByAddressData);
-            } else {
-                LocationData.NearByAddressData nearByAddressData3 = new LocationData.NearByAddressData();
-                nearByAddressData3.setName(str);
-                arrayList.add(0, nearByAddressData3);
-            }
-            TbPageContext<SelectLocationActivity> tbPageContext = this.b;
-            if (tbPageContext != null) {
-                arrayList.add(0, tbPageContext.getString(R.string.obfuscated_res_0x7f0f11d8));
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeLL.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<Object> arrayList = this.a;
-            if (arrayList == null) {
-                return 0;
-            }
-            return arrayList.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            ArrayList<Object> arrayList = this.a;
-            if (arrayList != null && i >= 0 && i < arrayList.size()) {
-                return this.a.get(i);
-            }
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            Object item = getItem(i);
-            if (item instanceof String) {
-                return 0;
-            }
-            if (item instanceof LocationData.NearByAddressData) {
-                return 1;
-            }
-            return 2;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            int itemViewType = getItemViewType(i);
-            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (itemViewType != 0) {
-                if (itemViewType != 1) {
-                    return null;
+                if (fileOutputStream2 != null) {
+                    fileOutputStream2.close();
                 }
-                return a(view2, i, z);
+                BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
+                return;
             }
-            return b(view2, i, z);
+            t58 t58Var = this.c;
+            if (t58Var != null) {
+                t58Var.isFailed();
+            }
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public void b(@NonNull t58 t58Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t58Var) == null) {
+            this.c = t58Var;
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
+    public void onFailed(int i, int i2, String str) {
+        t58 t58Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) && (t58Var = this.c) != null) {
+            t58Var.isFailed();
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
+    public void onFinished(int i, String str) {
+        t58 t58Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (t58Var = this.c) != null) {
+            t58Var.a(str);
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
+    public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, str2, str3, map}) == null) {
+            if (i == 0) {
+                new AsyncUploadTask(this.a, 2, map.get(AsyncChatTask.PUT_URL), map.get(AsyncChatTask.GET_URL), this.b, "mp3", str2, str3, this).execute(new Void[0]);
+                return;
+            }
+            t58 t58Var = this.c;
+            if (t58Var != null) {
+                t58Var.isFailed();
+            }
+        }
     }
 }

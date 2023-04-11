@@ -2,15 +2,15 @@ package com.google.ar.core;
 
 import android.os.Bundle;
 import android.util.Log;
-import com.baidu.tieba.aja;
-import com.baidu.tieba.bja;
-import com.baidu.tieba.fja;
+import com.baidu.tieba.rsa;
+import com.baidu.tieba.ssa;
+import com.baidu.tieba.wsa;
 import com.google.ar.core.exceptions.FatalException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
 public final class x extends com.google.a.b.a.a.a.e {
     public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ fja b;
+    public final /* synthetic */ wsa b;
 
     @Override // com.google.a.b.a.a.a.d
     public final void a() {
@@ -20,8 +20,8 @@ public final class x extends com.google.a.b.a.a.a.e {
     public final void b(Bundle bundle) {
     }
 
-    public x(fja fjaVar, AtomicBoolean atomicBoolean) {
-        this.b = fjaVar;
+    public x(wsa wsaVar, AtomicBoolean atomicBoolean) {
+        this.b = wsaVar;
         this.a = atomicBoolean;
     }
 
@@ -40,13 +40,13 @@ public final class x extends com.google.a.b.a.a.a.e {
             sb.append(i);
             sb.append(", launching fullscreen.");
             Log.w("ARCore-InstallService", sb.toString());
-            fja fjaVar = this.b;
-            aja ajaVar = fjaVar.c;
-            aja.n(fjaVar.a, fjaVar.b);
+            wsa wsaVar = this.b;
+            rsa rsaVar = wsaVar.c;
+            rsa.n(wsaVar.a, wsaVar.b);
         } else if (bundle.containsKey("resolution.intent")) {
-            fja fjaVar2 = this.b;
-            aja ajaVar2 = fjaVar2.c;
-            aja.b(fjaVar2.a, bundle, fjaVar2.b);
+            wsa wsaVar2 = this.b;
+            rsa rsaVar2 = wsaVar2.c;
+            rsa.b(wsaVar2.a, bundle, wsaVar2.b);
         } else if (i2 != 10) {
             switch (i2) {
                 case 1:
@@ -64,11 +64,11 @@ public final class x extends com.google.a.b.a.a.a.e {
                     this.b.b.a(p.CANCELLED);
                     return;
                 default:
-                    bja bjaVar = this.b.b;
+                    ssa ssaVar = this.b.b;
                     StringBuilder sb2 = new StringBuilder(38);
                     sb2.append("Unexpected install status: ");
                     sb2.append(i2);
-                    bjaVar.b(new FatalException(sb2.toString()));
+                    ssaVar.b(new FatalException(sb2.toString()));
                     return;
             }
         } else {

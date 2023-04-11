@@ -4,7 +4,7 @@ import android.os.Build;
 import androidx.annotation.RestrictTo;
 import java.util.Locale;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ManufacturerUtils {
     public static final String LGE = "lge";
     public static final String MEIZU = "meizu";

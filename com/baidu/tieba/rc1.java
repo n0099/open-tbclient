@@ -1,96 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.text.SpannableStringBuilder;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import android.widget.TextView;
-import com.baidu.tieba.z31;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.style.ImageSpan;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class rc1 {
+public final class rc1 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948116713, "Lcom/baidu/tieba/rc1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948116713, "Lcom/baidu/tieba/rc1;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rc1(Drawable _drawable) {
+        super(_drawable);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {_drawable};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Drawable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        char[] cArr = {21704};
-        a = cArr;
-        b = new String(cArr);
+        Intrinsics.checkNotNullParameter(_drawable, "_drawable");
     }
 
-    public static final String a(String str, String subTag, float f, TextPaint textPaint, float f2) {
-        InterceptResult invokeCommon;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, subTag, Float.valueOf(f), textPaint, Float.valueOf(f2)})) == null) {
-            Intrinsics.checkNotNullParameter(subTag, "subTag");
-            if (TextUtils.isEmpty(subTag)) {
-                subTag = "";
-            }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - (textPaint.measureText(GlideException.IndentedAppendable.INDENT) + f2), TextUtils.TruncateAt.END);
-            if (ellipsize != null) {
-                return ellipsize + GlideException.IndentedAppendable.INDENT + subTag;
-            }
-            return subTag;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            Intrinsics.checkNotNullParameter(canvas, "canvas");
+            Intrinsics.checkNotNullParameter(paint, "paint");
+            Drawable drawable = getDrawable();
+            canvas.save();
+            Intrinsics.checkNotNullExpressionValue(drawable, "drawable");
+            canvas.translate(f, (((i5 - i3) - drawable.getBounds().bottom) / 2) + i3);
+            drawable.draw(canvas);
+            canvas.restore();
         }
-        return (String) invokeCommon.objValue;
     }
 
-    public static final SpannableStringBuilder b(String str, int i, TextView textView, Context context, Drawable drawable, int i2) {
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
         InterceptResult invokeCommon;
-        float e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), textView, context, drawable, Integer.valueOf(i2)})) == null) {
-            if (!TextUtils.isEmpty(str) && textView != null && context != null && drawable != null && i > 0) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                if (textView.getMeasuredWidth() > 0) {
-                    e = (textView.getMeasuredWidth() * i) - drawable.getIntrinsicWidth();
-                } else {
-                    e = ((z31.c.e(context) - i2) * i) - drawable.getIntrinsicWidth();
-                }
-                float f = e - ((i - 1) * 10);
-                Intrinsics.checkNotNull(str);
-                int length = str.length() + 1;
-                spannableStringBuilder.append((CharSequence) " ").append((CharSequence) b);
-                if (f < textView.getPaint().measureText(spannableStringBuilder.toString())) {
-                    String a2 = a(spannableStringBuilder.toString(), b, f, textView.getPaint(), drawable.getIntrinsicWidth());
-                    SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(a2);
-                    drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                    spannableStringBuilder2.setSpan(new qc1(drawable), a2.length() - b.length(), a2.length(), 17);
-                    return spannableStringBuilder2;
-                }
-                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                spannableStringBuilder.setSpan(new qc1(drawable), length, spannableStringBuilder.length(), 17);
-                return spannableStringBuilder;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            Intrinsics.checkNotNullParameter(paint, "paint");
+            Drawable drawable = getDrawable();
+            Intrinsics.checkNotNullExpressionValue(drawable, "drawable");
+            Rect bounds = drawable.getBounds();
+            Intrinsics.checkNotNullExpressionValue(bounds, "drawable.bounds");
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                int i4 = (bounds.bottom - bounds.top) / 2;
+                int i5 = i3 / 4;
+                int i6 = i4 - i5;
+                int i7 = -(i4 + i5);
+                fontMetricsInt.ascent = i7;
+                fontMetricsInt.top = i7;
+                fontMetricsInt.bottom = i6;
+                fontMetricsInt.descent = i6;
             }
-            return new SpannableStringBuilder("");
+            return bounds.right;
         }
-        return (SpannableStringBuilder) invokeCommon.objValue;
+        return invokeCommon.intValue;
     }
 }

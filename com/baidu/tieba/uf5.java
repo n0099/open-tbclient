@@ -1,50 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class uf5 {
+public class uf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
-    public static final String a(String spriteTalk, int i) {
-        InterceptResult invokeLI;
+    public uf5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, spriteTalk, i)) == null) {
-            Intrinsics.checkNotNullParameter(spriteTalk, "spriteTalk");
-            return "tiebaapp://router/portal?params={\"page\":\"im/funnySprite\",\"pageParams\":{\"spriteType\": \"" + i + "\",spriteTalk: \"" + spriteTalk + "\"}}";
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static final void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_REQUEST_SPRITE_LOOP);
-            httpMessage.addParam("scene", i);
-            httpMessage.addParam("sprite_uk", m35.m().s("key_funny_sprite_uk", ""));
-            httpMessage.addParam("version", m35.m().s("key_sprite_speech_version", ""));
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public static final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            w58 defaultLog = DefaultLog.getInstance();
-            defaultLog.c("SpriteTip", "tryRequestFirstTip isShowSpriteDialog:" + TbSingleton.getInstance().isShowSpriteDialog);
-            if (!TbSingleton.getInstance().isShowSpriteDialog) {
-                return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            b(3);
-            TbSingleton.getInstance().isShowSpriteDialog = false;
         }
+    }
+
+    public static uf5 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            try {
+                uf5 uf5Var = new uf5();
+                uf5Var.a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
+                uf5Var.b = jSONObject.optInt("width");
+                uf5Var.c = jSONObject.optInt("height");
+                uf5Var.d = jSONObject.optString("pic_url");
+                uf5Var.e = jSONObject.optString("thumbnail");
+                uf5Var.g = jSONObject.optString("origin_url");
+                return uf5Var;
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (uf5) invokeL.objValue;
     }
 }

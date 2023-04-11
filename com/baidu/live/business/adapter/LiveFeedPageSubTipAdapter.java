@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i90;
-import com.baidu.tieba.kb0;
-import com.baidu.tieba.zb0;
+import com.baidu.tieba.ac0;
+import com.baidu.tieba.j90;
+import com.baidu.tieba.lb0;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -59,12 +59,12 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
         this.c = context;
         this.d = str;
         this.a = LayoutInflater.from(context);
-        float b2 = i90.b(this.c, 14.0f);
+        float b2 = j90.b(this.c, 14.0f);
         this.f = new float[]{b2, b2, b2, b2, b2, b2, b2, b2};
     }
 
-    public int e(String str) {
-        if (!kb0.c(this.b) && str != null) {
+    public int l(String str) {
+        if (!lb0.c(this.b) && str != null) {
             for (int i = 0; i < this.b.size(); i++) {
                 LiveTabEntity.TabLabelInfo tabLabelInfo = this.b.get(i);
                 if (tabLabelInfo != null && str.equals(tabLabelInfo.type)) {
@@ -75,20 +75,12 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
         return -1;
     }
 
-    public void k(b bVar) {
+    public void r(b bVar) {
         this.g = bVar;
     }
 
-    public void l(int i) {
+    public void s(int i) {
         this.e = i;
-    }
-
-    public int f() {
-        return this.e;
-    }
-
-    public LiveTabEntity.TabLabelInfo g() {
-        return (LiveTabEntity.TabLabelInfo) kb0.b(this.b, this.e);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -96,8 +88,16 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
         return this.b.size();
     }
 
-    public void j() {
-        if (!kb0.c(this.b)) {
+    public int m() {
+        return this.e;
+    }
+
+    public LiveTabEntity.TabLabelInfo n() {
+        return (LiveTabEntity.TabLabelInfo) lb0.b(this.b, this.e);
+    }
+
+    public void q() {
+        if (!lb0.c(this.b)) {
             this.b.clear();
         }
         notifyDataSetChanged();
@@ -105,9 +105,9 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: h */
+    /* renamed from: o */
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        LiveTabEntity.TabLabelInfo tabLabelInfo = (LiveTabEntity.TabLabelInfo) kb0.b(this.b, i);
+        LiveTabEntity.TabLabelInfo tabLabelInfo = (LiveTabEntity.TabLabelInfo) lb0.b(this.b, i);
         if (tabLabelInfo != null) {
             viewHolder.a.setText(tabLabelInfo.name);
             if (this.g != null) {
@@ -116,12 +116,12 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setCornerRadii(this.f);
             if (i == this.e) {
-                viewHolder.a.setTextColor(zb0.f().a(this.c, this.d, "color_FF33551"));
-                gradientDrawable.setColors(new int[]{zb0.f().a(this.c, this.d, "color_FF33552"), zb0.f().a(this.c, this.d, "color_FF33552")});
+                viewHolder.a.setTextColor(ac0.f().a(this.c, this.d, "color_FF33551"));
+                gradientDrawable.setColors(new int[]{ac0.f().a(this.c, this.d, "color_FF33552"), ac0.f().a(this.c, this.d, "color_FF33552")});
                 viewHolder.a.setTypeface(Typeface.defaultFromStyle(1));
             } else {
-                viewHolder.a.setTextColor(zb0.f().a(this.c, this.d, "color_525252"));
-                gradientDrawable.setColors(new int[]{zb0.f().a(this.c, this.d, "color_F5F5F53"), zb0.f().a(this.c, this.d, "color_F5F5F53")});
+                viewHolder.a.setTextColor(ac0.f().a(this.c, this.d, "color_525252"));
+                gradientDrawable.setColors(new int[]{ac0.f().a(this.c, this.d, "color_F5F5F53"), ac0.f().a(this.c, this.d, "color_F5F5F53")});
                 viewHolder.a.setTypeface(Typeface.defaultFromStyle(0));
             }
             viewHolder.a.setBackgroundDrawable(gradientDrawable);
@@ -130,16 +130,16 @@ public class LiveFeedPageSubTipAdapter extends RecyclerView.Adapter<ViewHolder> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: i */
+    /* renamed from: p */
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View inflate = this.a.inflate(R.layout.obfuscated_res_0x7f0d0590, viewGroup, false);
+        View inflate = this.a.inflate(R.layout.obfuscated_res_0x7f0d058e, viewGroup, false);
         ViewHolder viewHolder = new ViewHolder(inflate);
-        viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925a8);
+        viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09259e);
         return viewHolder;
     }
 
-    public void m(List<LiveTabEntity.TabLabelInfo> list, String str) {
-        if (kb0.c(list)) {
+    public void t(List<LiveTabEntity.TabLabelInfo> list, String str) {
+        if (lb0.c(list)) {
             return;
         }
         List<LiveTabEntity.TabLabelInfo> list2 = this.b;

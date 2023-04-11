@@ -1,27 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ala.alasquare.livetab.SecondFloorFragment;
-import com.baidu.tieba.sg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class i46 implements qj1<sg5> {
+public class i46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<a> a;
 
     /* loaded from: classes4.dex */
-    public class a implements sg5 {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public SecondFloorFragment b;
 
         public a(i46 i46Var) {
             Interceptable interceptable = $ic;
@@ -39,65 +34,13 @@ public class i46 implements qj1<sg5> {
             }
         }
 
-        @Override // com.baidu.tieba.sg5
-        public void d(@Nullable sg5.a aVar) {
-            SecondFloorFragment secondFloorFragment;
+        public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (secondFloorFragment = this.b) != null) {
-                secondFloorFragment.O1(aVar);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                return;
             }
-        }
-
-        @Override // com.baidu.tieba.sg5
-        @NonNull
-        public Fragment f(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                if (this.b == null) {
-                    SecondFloorFragment secondFloorFragment = new SecondFloorFragment();
-                    this.b = secondFloorFragment;
-                    secondFloorFragment.P1(str);
-                }
-                return this.b;
-            }
-            return (Fragment) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.sg5
-        public void c() {
-            SecondFloorFragment secondFloorFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (secondFloorFragment = this.b) != null) {
-                secondFloorFragment.J1();
-            }
-        }
-
-        @Override // com.baidu.tieba.sg5
-        public void e() {
-            SecondFloorFragment secondFloorFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (secondFloorFragment = this.b) != null) {
-                secondFloorFragment.I1();
-            }
-        }
-
-        @Override // com.baidu.tieba.sg5
-        public void hide() {
-            SecondFloorFragment secondFloorFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (secondFloorFragment = this.b) != null) {
-                secondFloorFragment.M1();
-            }
-        }
-
-        @Override // com.baidu.tieba.sg5
-        public void show() {
-            SecondFloorFragment secondFloorFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (secondFloorFragment = this.b) != null) {
-                secondFloorFragment.Q1();
-            }
+            jSONObject.optString("user_id");
+            jSONObject.optString("portrait");
         }
     }
 
@@ -115,15 +58,30 @@ public class i46 implements qj1<sg5> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qj1
-    /* renamed from: a */
-    public sg5 getService() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (sg5) invokeV.objValue;
+        JSONObject optJSONObject = jSONObject.optJSONObject("user_follow");
+        if (optJSONObject != null) {
+            optJSONObject.optInt("has_follow_live");
+            JSONArray optJSONArray = optJSONObject.optJSONArray("follow_live_list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                this.a = new ArrayList<>(optJSONArray.length());
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                    if (optJSONObject2 != null) {
+                        a aVar = new a(this);
+                        aVar.a(optJSONObject2);
+                        this.a.add(aVar);
+                    }
+                }
+            }
+        }
+        JSONObject optJSONObject3 = jSONObject.optJSONObject("live_rank");
+        if (optJSONObject3 != null) {
+            optJSONObject3.optString("url");
+        }
     }
 }

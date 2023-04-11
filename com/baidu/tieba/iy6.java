@@ -1,86 +1,29 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedLiveComponent;
 /* loaded from: classes5.dex */
-public class iy6 {
+public final class iy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(long j) {
+    public static final void a(FeedLiveComponent feedLiveComponent, List<b07<?>> dataList, dx6 feedExtraData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65536, null, j) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_ENTER_GAME_BTN_CLICK);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_id", j);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65537, null, j) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_ENTER_GAME_BTN_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_id", j);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_RETRY_BTN_CLICK);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_id", j);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void d(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65539, null, j) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_RETRY_BTN_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_id", j);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65541, null, j) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_STOP_BTN_CLICK);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_id", j);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_STOP_BTN_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_id", j);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void e(String str, long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_SHOW);
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_id", j);
-            statisticItem.addParam("obj_source", i);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeLLL(65536, null, feedLiveComponent, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedLiveComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            kx6 kx6Var = new kx6();
+            kx6Var.a = feedLiveComponent.top_label;
+            kx6Var.b = feedLiveComponent.bottom_label;
+            kx6Var.c = feedLiveComponent.audience_label;
+            kx6Var.d = feedLiveComponent.cover_url;
+            kx6Var.f = feedLiveComponent.schema;
+            kx6Var.e = ex6.b(feedExtraData, "live_head_show");
+            dataList.add(new c07(new yv6(kx6Var, null, 2, null), "live"));
         }
     }
 }

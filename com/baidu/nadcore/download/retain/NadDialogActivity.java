@@ -11,9 +11,9 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.connect.NetWorkUtils;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi0;
-import com.baidu.tieba.k11;
-import com.baidu.tieba.vj0;
+import com.baidu.tieba.ii0;
+import com.baidu.tieba.l11;
+import com.baidu.tieba.wj0;
 /* loaded from: classes2.dex */
 public abstract class NadDialogActivity extends BaseActivity {
     public String A;
@@ -81,7 +81,7 @@ public abstract class NadDialogActivity extends BaseActivity {
     @Override // com.baidu.nadcore.appframework.BaseActivity
     public void B1(Bundle bundle) {
         super.B1(bundle);
-        setContentView(vj0.a().a());
+        setContentView(wj0.a().a());
         Intent intent = getIntent();
         this.B = intent;
         if (intent != null) {
@@ -100,9 +100,9 @@ public abstract class NadDialogActivity extends BaseActivity {
         this.x = (LinearLayout) findViewById(R.id.ll_dialog_content_container);
         this.y = (LinearLayout) findViewById(R.id.ll_dialog_btn_container);
         LayoutInflater.from(this).inflate(c2(), (ViewGroup) this.x, true);
-        this.w.setBackground(hi0.b().getResources().getDrawable(R.drawable.nad_dialog_bg));
-        this.w.setDividerDrawable(hi0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_horizon));
-        this.y.setDividerDrawable(hi0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_vertical));
+        this.w.setBackground(ii0.b().getResources().getDrawable(R.drawable.nad_dialog_bg));
+        this.w.setDividerDrawable(ii0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_horizon));
+        this.y.setDividerDrawable(ii0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_vertical));
         if (g2()) {
             this.u.setText(i2());
             this.u.setOnClickListener(new a());
@@ -118,9 +118,9 @@ public abstract class NadDialogActivity extends BaseActivity {
     }
 
     public final void j2(String str, String str2, String str3, String str4) {
-        if (!NetWorkUtils.b(hi0.b())) {
+        if (!NetWorkUtils.b(ii0.b())) {
             return;
         }
-        k11.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
+        l11.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
     }
 }

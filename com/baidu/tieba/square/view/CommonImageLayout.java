@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gt4;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.it4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -84,7 +84,7 @@ public class CommonImageLayout extends ViewGroup {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                gt4.s(this.b.g, this.a.getVideoUrl());
+                it4.s(this.b.g, this.a.getVideoUrl());
             }
         }
     }
@@ -113,7 +113,7 @@ public class CommonImageLayout extends ViewGroup {
     public final void b() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && m < 0.0f) {
-            m = hi.l(this.g) / 320.0f;
+            m = ii.l(this.g) / 320.0f;
             int i2 = 0;
             while (true) {
                 float[] fArr = h;
@@ -223,7 +223,7 @@ public class CommonImageLayout extends ViewGroup {
             tbImageView.setClickable(false);
         }
         tbImageView.setTag(picUrl);
-        tbImageView.M(picUrl, 13, false);
+        tbImageView.N(picUrl, 13, false);
     }
 
     @Override // android.view.ViewGroup, android.view.View

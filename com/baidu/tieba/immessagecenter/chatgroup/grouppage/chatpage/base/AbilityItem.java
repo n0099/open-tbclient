@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
-import com.baidu.tieba.gv7;
+import com.baidu.tieba.b58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -466,7 +466,7 @@ public final class AbilityItem implements Serializable {
                     return false;
                 }
                 try {
-                    c = gv7.a.c(this.toUk);
+                    c = b58.a.c(this.toUk);
                 } catch (Exception e) {
                     BdLog.e(e);
                 }

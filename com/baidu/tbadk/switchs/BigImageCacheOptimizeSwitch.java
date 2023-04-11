@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m35;
+import com.baidu.tieba.p45;
 import com.baidu.tieba.te;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -38,7 +38,8 @@ public final class BigImageCacheOptimizeSwitch extends te {
     }
 
     @Override // com.baidu.tieba.te
-    public String[] getCrashKeys() {
+    /* renamed from: getCrashKeys */
+    public String[] mo55getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -114,7 +115,7 @@ public final class BigImageCacheOptimizeSwitch extends te {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (getResultCachesize() == -1) {
-                    setResultCachesize(m35.m().n("key_big_imagecache_optimize_scale", 0));
+                    setResultCachesize(p45.m().n("key_big_imagecache_optimize_scale", 0));
                 }
                 return getResultCachesize();
             }

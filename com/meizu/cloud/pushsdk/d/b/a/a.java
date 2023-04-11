@@ -20,8 +20,8 @@ public class a extends com.meizu.cloud.pushsdk.d.b.a {
     public d i;
     public int j;
 
-    public a(a.C0665a c0665a) {
-        super(c0665a);
+    public a(a.C0666a c0666a) {
+        super(c0666a);
         this.h = a.class.getSimpleName();
         com.meizu.cloud.pushsdk.d.d.a aVar = new com.meizu.cloud.pushsdk.d.d.a(this.a, this.e);
         this.i = aVar;

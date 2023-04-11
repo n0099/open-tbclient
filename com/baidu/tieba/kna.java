@@ -1,85 +1,47 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.AsyncTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
 /* loaded from: classes5.dex */
-public class kna {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "SecureX509SingleInstance";
-    public static volatile lna b;
+public class kna extends fna<TTNativeAd> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947920235, "Lcom/baidu/tieba/kna;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947920235, "Lcom/baidu/tieba/kna;");
-        }
-    }
-
-    public kna() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kna(TTNativeAd tTNativeAd) {
+        super(tTNativeAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tTNativeAd};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @SuppressLint({"NewApi"})
-    public static lna a(Context context) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.fna
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (context != null) {
-                rna.b(context);
-                if (b == null) {
-                    synchronized (kna.class) {
-                        if (b == null) {
-                            InputStream n = pna.n(context);
-                            if (n == null) {
-                                una.e(a, "get assets bks");
-                                n = context.getAssets().open("hmsrootcas.bks");
-                            } else {
-                                una.e(a, "get files bks");
-                            }
-                            b = new lna(n, "");
-                            new sna().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, context);
-                        }
-                    }
-                }
-                String str = a;
-                una.b(str, "SecureX509TrustManager getInstance: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-                return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b.isEmpty()) {
+                this.b = (String) ((TTNativeAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
             }
-            throw new NullPointerException("context is null");
+            return this.b;
         }
-        return (lna) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

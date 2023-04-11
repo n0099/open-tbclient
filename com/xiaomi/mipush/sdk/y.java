@@ -19,7 +19,7 @@ public final class y implements Runnable {
         try {
             this.a.startService(this.f91a);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m99a(e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m101a(e.getMessage());
         }
     }
 }

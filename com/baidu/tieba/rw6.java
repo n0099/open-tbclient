@@ -1,142 +1,186 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.FeatureCardGod;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.feed.data.CardDataKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.FrsPageUserExtend;
-import tbclient.User;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class rw6 implements gn {
+public final class rw6<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<MetaData> b;
-    public String c;
-    public boolean d;
+    public final List<b07<? extends Object>> a;
+    public final String b;
+    public final boolean c;
+    public final String d;
+    public final String e;
+    public final Function2<Context, rw6<?>, Unit> f;
+    public Object g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948136088, "Lcom/baidu/tieba/rw6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948136088, "Lcom/baidu/tieba/rw6;");
-                return;
+            if (obj instanceof rw6) {
+                rw6 rw6Var = (rw6) obj;
+                return Intrinsics.areEqual(this.a, rw6Var.a) && Intrinsics.areEqual(this.b, rw6Var.b) && this.c == rw6Var.c && Intrinsics.areEqual(this.d, rw6Var.d) && Intrinsics.areEqual(this.e, rw6Var.e) && Intrinsics.areEqual(this.f, rw6Var.f);
             }
+            return false;
         }
-        e = BdUniqueId.gen();
+        return invokeL.booleanValue;
     }
 
-    public rw6() {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            int hashCode = ((this.a.hashCode() * 31) + this.b.hashCode()) * 31;
+            boolean z = this.c;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            int i2 = (hashCode + i) * 31;
+            String str = this.d;
+            int hashCode2 = (i2 + (str == null ? 0 : str.hashCode())) * 31;
+            String str2 = this.e;
+            return ((hashCode2 + (str2 != null ? str2.hashCode() : 0)) * 31) + this.f.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return "CardData(dataList=" + this.a + ", schema=" + this.b + ", isGreyMode=" + this.c + ", threadId=" + this.d + ", userId=" + this.e + ", onCardClick=" + this.f + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmOverloads
+    public rw6(List<b07<? extends Object>> dataList, String schema, boolean z, String str, String str2, Function2<? super Context, ? super rw6<?>, Unit> onCardClick) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dataList, schema, Boolean.valueOf(z), str, str2, onCardClick};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.c = "本吧都在关注";
-        this.d = false;
+        Intrinsics.checkNotNullParameter(dataList, "dataList");
+        Intrinsics.checkNotNullParameter(schema, "schema");
+        Intrinsics.checkNotNullParameter(onCardClick, "onCardClick");
+        this.a = dataList;
+        this.b = schema;
+        this.c = z;
+        this.d = str;
+        this.e = str2;
+        this.f = onCardClick;
     }
 
-    public int a() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ rw6(List list, String str, boolean z, String str2, String str3, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(list, str, r3, str2, str3, (i & 32) != 0 ? CardDataKt.a : function2);
+        boolean z2;
+        if ((i & 4) != 0) {
+            z2 = false;
+        } else {
+            z2 = z;
+        }
+    }
+
+    public final List<b07<? extends Object>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
-    public String b() {
+    public final Object b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.g;
+        }
+        return invokeV.objValue;
+    }
+
+    public final Function2<Context, rw6<?>, Unit> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return (Function2) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public List<MetaData> c() {
+    public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean f() {
+    public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.gn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public final void h(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void g(FeatureCardGod featureCardGod) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, featureCardGod) == null) && featureCardGod != null && !ListUtils.isEmpty(featureCardGod.sub_nodes)) {
-            this.a = featureCardGod.floor.intValue();
-            this.b = featureCardGod.sub_nodes;
-            this.c = featureCardGod.title;
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void h(FrsPageUserExtend frsPageUserExtend) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, frsPageUserExtend) == null) && frsPageUserExtend != null && !ListUtils.isEmpty(frsPageUserExtend.data)) {
-            List<User> list = frsPageUserExtend.data;
-            this.a = frsPageUserExtend.user_extend_storey.intValue();
-            this.b = new ArrayList(list.size());
-            for (int i = 0; i < list.size(); i++) {
-                User user = list.get(i);
-                if (user != null && user.id.longValue() != 0) {
-                    MetaData metaData = new MetaData();
-                    metaData.parserProtobuf(list.get(i));
-                    this.b.add(metaData);
-                }
-            }
-            this.c = frsPageUserExtend.tips;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj) == null) {
+            this.g = obj;
         }
     }
 }

@@ -1,244 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lra;
-import com.baidu.tieba.ora;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicLong;
-import rx.exceptions.MissingBackpressureException;
-import rx.internal.operators.NotificationLite;
-import rx.internal.util.BackpressureDrainManager;
 /* loaded from: classes6.dex */
-public class vsa<T> implements ora.b<T, T> {
+public final class vsa extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Long a;
-    public final bsa b;
-    public final lra.d c;
+    public final /* synthetic */ ssa a;
+    public final /* synthetic */ rsa b;
 
-    /* loaded from: classes6.dex */
-    public static final class a<T> extends ura<T> implements BackpressureDrainManager.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ConcurrentLinkedQueue<Object> e;
-        public final AtomicLong f;
-        public final ura<? super T> g;
-        public final AtomicBoolean h;
-        public final BackpressureDrainManager i;
-        public final bsa j;
-        public final lra.d k;
-
-        public a(ura<? super T> uraVar, Long l, bsa bsaVar, lra.d dVar) {
-            AtomicLong atomicLong;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uraVar, l, bsaVar, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = new ConcurrentLinkedQueue<>();
-            this.h = new AtomicBoolean(false);
-            this.g = uraVar;
-            if (l != null) {
-                atomicLong = new AtomicLong(l.longValue());
-            } else {
-                atomicLong = null;
-            }
-            this.f = atomicLong;
-            this.j = bsaVar;
-            this.i = new BackpressureDrainManager(this);
-            this.k = dVar;
-        }
-
-        @Override // rx.internal.util.BackpressureDrainManager.a
-        public void a(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                if (th != null) {
-                    this.g.onError(th);
-                } else {
-                    this.g.onCompleted();
-                }
-            }
-        }
-
-        @Override // rx.internal.util.BackpressureDrainManager.a
-        public boolean accept(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                return NotificationLite.a(this.g, obj);
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.pra
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048582, this, th) == null) && !this.h.get()) {
-                this.i.terminateAndDrain(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.pra
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048583, this, t) != null) || !g()) {
-                return;
-            }
-            this.e.offer(NotificationLite.h(t));
-            this.i.drain();
-        }
-
-        @Override // com.baidu.tieba.ura
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                e(Long.MAX_VALUE);
-            }
-        }
-
-        public qra h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.i;
-            }
-            return (qra) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.pra
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.h.get()) {
-                this.i.terminateAndDrain();
-            }
-        }
-
-        @Override // rx.internal.util.BackpressureDrainManager.a
-        public Object peek() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return this.e.peek();
-            }
-            return invokeV.objValue;
-        }
-
-        @Override // rx.internal.util.BackpressureDrainManager.a
-        public Object poll() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                Object poll = this.e.poll();
-                AtomicLong atomicLong = this.f;
-                if (atomicLong != null && poll != null) {
-                    atomicLong.incrementAndGet();
-                }
-                return poll;
-            }
-            return invokeV.objValue;
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:36:0x003d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:40:0x004d A[SYNTHETIC] */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final boolean g() {
-            InterceptResult invokeV;
-            long j;
-            boolean z;
-            bsa bsaVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.f == null) {
-                    return true;
-                }
-                do {
-                    j = this.f.get();
-                    if (j <= 0) {
-                        try {
-                        } catch (MissingBackpressureException e) {
-                            if (this.h.compareAndSet(false, true)) {
-                                unsubscribe();
-                                this.g.onError(e);
-                            }
-                        }
-                        if (this.k.a() && poll() != null) {
-                            z = true;
-                            bsaVar = this.j;
-                            if (bsaVar != null) {
-                                try {
-                                    bsaVar.call();
-                                } catch (Throwable th) {
-                                    asa.e(th);
-                                    this.i.terminateAndDrain(th);
-                                    return false;
-                                }
-                            }
-                            if (!z) {
-                                return false;
-                            }
-                        }
-                        z = false;
-                        bsaVar = this.j;
-                        if (bsaVar != null) {
-                        }
-                        if (!z) {
-                        }
-                    }
-                } while (!this.f.compareAndSet(j, j - 1));
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final vsa<?> a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-334875961, "Lcom/baidu/tieba/vsa$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-334875961, "Lcom/baidu/tieba/vsa$b;");
-                    return;
-                }
-            }
-            a = new vsa<>();
-        }
-    }
-
-    public vsa() {
+    public vsa(rsa rsaVar, ssa ssaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rsaVar, ssaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -248,34 +30,33 @@ public class vsa<T> implements ora.b<T, T> {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = lra.b;
+        this.b = rsaVar;
+        this.a = ssaVar;
     }
 
-    public static <T> vsa<T> a() {
-        InterceptResult invokeV;
+    @Override // android.content.BroadcastReceiver
+    public final void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (vsa<T>) b.a;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            String action = intent.getAction();
+            Bundle extras = intent.getExtras();
+            if (!"com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) || extras == null || !extras.containsKey("install.status")) {
+                return;
+            }
+            this.b.p();
+            int i = extras.getInt("install.status");
+            if (i != 1 && i != 2 && i != 3) {
+                if (i != 4) {
+                    if (i == 6) {
+                        this.a.a(com.google.ar.core.p.CANCELLED);
+                        return;
+                    }
+                    return;
+                }
+                this.a.a(com.google.ar.core.p.COMPLETED);
+                return;
+            }
+            this.a.a(com.google.ar.core.p.ACCEPTED);
         }
-        return (vsa) invokeV.objValue;
-    }
-
-    public ura<? super T> call(ura<? super T> uraVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uraVar)) == null) {
-            a aVar = new a(uraVar, this.a, this.b, this.c);
-            uraVar.b(aVar);
-            uraVar.f(aVar.h());
-            return aVar;
-        }
-        return (ura) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ora.b, com.baidu.tieba.gsa
-    public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((ura) ((ura) obj));
     }
 }

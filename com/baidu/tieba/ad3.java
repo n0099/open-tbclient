@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.request.HttpRequest;
 import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,17 +15,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ad3 extends ed3<JSONObject> {
+public class ad3 extends fd3<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context m;
+    public String m;
+    public final Context n;
 
-    public ad3(Context context) {
+    public ad3(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,58 +36,61 @@ public class ad3 extends ed3<JSONObject> {
                 return;
             }
         }
-        this.m = context;
+        this.m = str;
+        this.n = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qc3
+    @Override // com.baidu.tieba.rc3
     /* renamed from: P */
     public JSONObject m(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            return rc3.c(jSONObject);
+            return sc3.c(jSONObject);
         }
         return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ed3
-    public HttpRequest w(ed3 ed3Var) {
+    @Override // com.baidu.tieba.fd3
+    public HttpRequest w(fd3 fd3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ed3Var)) == null) {
-            return ar2.o().M(this.m, ed3Var.B());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fd3Var)) == null) {
+            return br2.o().a(this.n, fd3Var.B());
         }
         return (HttpRequest) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.qc3
+    @Override // com.baidu.tieba.rc3
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            t73 M = t73.M();
-            if (M != null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("ma_id", M.O());
-                } catch (JSONException e) {
-                    e.printStackTrace();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(GameGuideConfigInfo.KEY_APP_KEY, this.m);
+                jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
+                jSONObject.put("host_key_hash", sc3.g());
+                String l = br2.o().l();
+                if (!TextUtils.isEmpty(l)) {
+                    jSONObject.put("host_api_key", l);
                 }
-                v("data", jSONObject.toString());
-                return true;
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            v("data", jSONObject.toString());
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ed3
+    @Override // com.baidu.tieba.fd3
     public SwanInterfaceType z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return SwanInterfaceType.OPEN_ID;
+            return SwanInterfaceType.CHECK_SESSION;
         }
         return (SwanInterfaceType) invokeV.objValue;
     }

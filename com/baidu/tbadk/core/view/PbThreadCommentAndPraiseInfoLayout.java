@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.util.MaskView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.n15;
-import com.baidu.tieba.nw4;
+import com.baidu.tieba.ii;
+import com.baidu.tieba.pw4;
+import com.baidu.tieba.q25;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -121,11 +121,11 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     public void T(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && this.D != null && !TextUtils.isEmpty(str) && str.equals(this.D.getTid())) {
-            nw4 nw4Var = new nw4();
-            nw4Var.b = 4;
-            nw4Var.d = 2;
-            nw4Var.j = str2;
-            this.e.setStatisticData(nw4Var);
+            pw4 pw4Var = new pw4();
+            pw4Var.b = 4;
+            pw4Var.d = 2;
+            pw4Var.j = str2;
+            this.e.setStatisticData(pw4Var);
             this.e.N();
         }
     }
@@ -198,7 +198,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void L() {
+    public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setVisibility(0);
@@ -265,12 +265,12 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             layoutParams.height = -1;
             findViewById.setLayoutParams(layoutParams);
-            int g = hi.g(getContext(), R.dimen.tbds68);
-            int g2 = hi.g(getContext(), R.dimen.T_X09);
-            int g3 = hi.g(getContext(), R.dimen.tbds15);
-            int g4 = hi.g(getContext(), R.dimen.tbds10);
-            hi.g(getContext(), R.dimen.tbds32);
-            hi.g(getContext(), R.dimen.tbds16);
+            int g = ii.g(getContext(), R.dimen.tbds68);
+            int g2 = ii.g(getContext(), R.dimen.T_X09);
+            int g3 = ii.g(getContext(), R.dimen.tbds15);
+            int g4 = ii.g(getContext(), R.dimen.tbds10);
+            ii.g(getContext(), R.dimen.tbds32);
+            ii.g(getContext(), R.dimen.tbds16);
             this.x0 = (LinearLayout) findViewById(R.id.share_more_container);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -1);
             if (V()) {
@@ -297,7 +297,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             textView.setLayoutParams(layoutParams4);
             float f3 = g2;
             textView.setTextSize(0, f3);
-            textView.setText(this.E.getString(R.string.obfuscated_res_0x7f0f1211));
+            textView.setText(this.E.getString(R.string.obfuscated_res_0x7f0f1208));
             if (X()) {
                 this.K = true;
                 setNeedAddReplyIcon(true);
@@ -308,7 +308,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 linearLayout.setOrientation(1);
                 ImageView imageView2 = (ImageView) findViewById(R.id.thread_info_commont_img);
                 RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(g, g);
-                layoutParams6.topMargin = hi.g(getContext(), R.dimen.tbds25);
+                layoutParams6.topMargin = ii.g(getContext(), R.dimen.tbds25);
                 layoutParams6.addRule(13, -1);
                 imageView2.setLayoutParams(layoutParams6);
                 WebPManager.setPureDrawable(imageView2, R.drawable.icon_pure_card_comment22, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
@@ -339,7 +339,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             }
             AgreeView agreeView = (AgreeView) findViewById(R.id.new_agree_view);
             LinearLayout.LayoutParams layoutParams10 = new LinearLayout.LayoutParams(0, -1);
-            layoutParams10.topMargin = hi.g(getContext(), R.dimen.tbds18);
+            layoutParams10.topMargin = ii.g(getContext(), R.dimen.tbds18);
             if (V()) {
                 f2 = 0.25f;
             } else {
@@ -387,10 +387,10 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             WebPManager.setPureDrawable(this.g, R.drawable.icon_pure_pb_operate_commen, R.color.CAM_X0107, null);
             EMTextView eMTextView = this.h;
             if (eMTextView != null) {
-                n15 d = n15.d(eMTextView);
-                d.B(R.string.F_X02);
+                q25 d = q25.d(eMTextView);
+                d.C(R.string.F_X02);
                 d.w(R.color.CAM_X0107);
-                SkinManager.setBackgroundShapeDrawable(this.h, hi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);
+                SkinManager.setBackgroundShapeDrawable(this.h, ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);
             }
             SkinManager.setViewTextColor(this.v0, (int) R.drawable.selector_comment_and_prise_item_text_color);
             SkinManager.setViewTextColor(this.w0, (int) R.drawable.selector_comment_and_prise_item_text_color);

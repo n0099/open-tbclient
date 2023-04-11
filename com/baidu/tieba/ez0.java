@@ -1,67 +1,70 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.SystemEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
-public final class ez0 extends yy0 {
+public class ez0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayList<zy0> a;
+    public final yr0 b;
 
-    @Override // com.baidu.tieba.sv0
-    public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{1} : (int[]) invokeV.objValue;
-    }
-
-    public ez0() {
+    public ez0(@NonNull yr0 yr0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yr0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new ArrayList<>();
+        this.b = yr0Var;
+    }
+
+    public void a(zy0 zy0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, zy0Var) == null) {
+            zy0Var.c(b().x());
+            zy0Var.b(this);
+            this.a.add(zy0Var);
         }
     }
 
-    @Override // com.baidu.tieba.yy0, com.baidu.tieba.sv0
-    public void n(ru0 event) {
-        xr0 it;
-        boolean z;
+    @NonNull
+    public yr0 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            if (Intrinsics.areEqual(SystemEvent.ACTION_VOLUME_CHANGED, event.c()) && (it = i()) != null) {
-                Intrinsics.checkNotNullExpressionValue(it, "player");
-                if (!it.a0() && !it.Q()) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    it = null;
-                }
-                if (it != null) {
-                    int g = event.g(5);
-                    Intrinsics.checkNotNullExpressionValue(it, "it");
-                    jt0 y = it.y();
-                    Intrinsics.checkNotNullExpressionValue(y, "it.playerCallbackManager");
-                    dt0 c = y.c();
-                    if (c != null) {
-                        c.a(g);
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (yr0) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Iterator<zy0> it = this.a.iterator();
+            while (it.hasNext()) {
+                zy0 next = it.next();
+                next.e();
+                next.f();
+                next.m();
             }
+            this.a.clear();
         }
     }
 }

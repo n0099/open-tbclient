@@ -17,7 +17,7 @@ public interface Delay {
     DisposableHandle invokeOnTimeout(long j, Runnable runnable);
 
     /* renamed from: scheduleResumeAfterDelay */
-    void mo2238scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation);
+    void mo2240scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation);
 
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes9.dex */
@@ -27,7 +27,7 @@ public interface Delay {
                 return Unit.INSTANCE;
             }
             CancellableContinuationImpl cancellableContinuationImpl = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(continuation), 1);
-            delay.mo2238scheduleResumeAfterDelay(j, cancellableContinuationImpl);
+            delay.mo2240scheduleResumeAfterDelay(j, cancellableContinuationImpl);
             Object result = cancellableContinuationImpl.getResult();
             if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                 DebugProbesKt.probeCoroutineSuspended(continuation);

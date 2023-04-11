@@ -1,70 +1,42 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.Context;
+import android.graphics.drawable.Animatable;
+import android.view.View;
+import android.view.animation.Animation;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "TopicListUtil")
 /* loaded from: classes6.dex */
-public final class vj9 {
+public class vj9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @JvmOverloads
-    public static final void b() {
+    public static final TbPageContext a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            e(null, null, 3, null);
-        }
-    }
-
-    @JvmOverloads
-    public static final void c(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, tbPageContext) == null) {
-            e(tbPageContext, null, 2, null);
-        }
-    }
-
-    public static final void a(int i, String fid, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), fid, Integer.valueOf(i2)}) == null) {
-            Intrinsics.checkNotNullParameter(fid, "fid");
-            TiebaStatic.log(new StatisticItem("c15112").param("obj_type", i).param("fid", fid).param("obj_locate", i2));
-        }
-    }
-
-    @JvmOverloads
-    public static final void d(TbPageContext<?> tbPageContext, String listType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, tbPageContext, listType) == null) {
-            Intrinsics.checkNotNullParameter(listType, "listType");
-            String str = "https://tieba.baidu.com/mo/q/hybrid/hotTopicRank?customfullscreen=1&nonavigationbar=1&list_type=" + listType;
-            if (Intrinsics.areEqual("all", listType)) {
-                str = str + "&page_key=a078";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context != null && (context instanceof TbPageContextSupport)) {
+                return ((TbPageContextSupport) context).getPageContext();
             }
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null) {
-                gt4.v(currentActivity, null, str, true);
-            } else if (tbPageContext != null) {
-                gt4.v(tbPageContext.getPageActivity(), null, str, true);
-            }
+            return null;
+        }
+        return (TbPageContext) invokeL.objValue;
+    }
+
+    public static final void b(TbPageContextSupport tbPageContextSupport, Animatable animatable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, tbPageContextSupport, animatable) == null) && tbPageContextSupport != null) {
+            tbPageContextSupport.getPageContext().startAnimatable(animatable);
         }
     }
 
-    public static /* synthetic */ void e(TbPageContext tbPageContext, String str, int i, Object obj) {
-        if ((i & 1) != 0) {
-            tbPageContext = null;
+    public static final void c(TbPageContextSupport tbPageContextSupport, View view2, Animation animation, Animation.AnimationListener animationListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65538, null, tbPageContextSupport, view2, animation, animationListener) == null) && tbPageContextSupport != null) {
+            tbPageContextSupport.getPageContext().startAnimation(view2, animation, animationListener);
         }
-        if ((i & 2) != 0) {
-            str = "all";
-        }
-        d(tbPageContext, str);
     }
 }

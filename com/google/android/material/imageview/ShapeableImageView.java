@@ -30,7 +30,7 @@ import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
 import com.google.android.material.shape.Shapeable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ShapeableImageView extends AppCompatImageView implements Shapeable {
     public static final int DEF_STYLE_RES = 2131755912;
     public final Paint borderPaint;
@@ -47,7 +47,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
     public float strokeWidth;
 
     @TargetApi(21)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class OutlineProvider extends ViewOutlineProvider {
         public final Rect rect = new Rect();
 

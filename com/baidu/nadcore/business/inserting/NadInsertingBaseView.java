@@ -13,18 +13,18 @@ import androidx.annotation.Nullable;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.model.MonitorUrl;
 import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tieba.k11;
 import com.baidu.tieba.l11;
-import com.baidu.tieba.ng0;
+import com.baidu.tieba.m11;
 import com.baidu.tieba.og0;
-import com.baidu.tieba.r41;
-import com.baidu.tieba.xm0;
+import com.baidu.tieba.pg0;
+import com.baidu.tieba.s41;
+import com.baidu.tieba.ym0;
 /* loaded from: classes2.dex */
 public abstract class NadInsertingBaseView extends RelativeLayout {
-    public ng0 a;
+    public og0 a;
     public long b;
-    public r41 c;
-    public xm0 d;
+    public s41 c;
+    public ym0 d;
 
     public abstract void a();
 
@@ -34,49 +34,49 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
 
     public abstract View getRealView();
 
-    public abstract void setData(@NonNull AdBaseModel adBaseModel, @NonNull og0.c cVar);
+    public abstract void setData(@NonNull AdBaseModel adBaseModel, @NonNull pg0.c cVar);
 
     /* loaded from: classes2.dex */
-    public class a implements xm0 {
-        @Override // com.baidu.tieba.xm0
+    public class a implements ym0 {
+        @Override // com.baidu.tieba.ym0
         public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
         }
 
-        @Override // com.baidu.tieba.xm0
+        @Override // com.baidu.tieba.ym0
         public void onActivityDestroyed(@NonNull Activity activity) {
         }
 
-        @Override // com.baidu.tieba.xm0
+        @Override // com.baidu.tieba.ym0
         public void onActivitySaveInstanceState(@NonNull Activity activity, @Nullable Bundle bundle) {
         }
 
-        @Override // com.baidu.tieba.xm0
+        @Override // com.baidu.tieba.ym0
         public void onActivityStarted(@NonNull Activity activity) {
         }
 
-        @Override // com.baidu.tieba.xm0
+        @Override // com.baidu.tieba.ym0
         public void onActivityStopped(@NonNull Activity activity) {
         }
 
         public a() {
         }
 
-        @Override // com.baidu.tieba.xm0
+        @Override // com.baidu.tieba.ym0
         public void onActivityPaused(@NonNull Activity activity) {
             NadInsertingBaseView.this.c.b();
         }
 
-        @Override // com.baidu.tieba.xm0
+        @Override // com.baidu.tieba.ym0
         public void onActivityResumed(@NonNull Activity activity) {
             NadInsertingBaseView.this.c.c();
         }
 
-        @Override // com.baidu.tieba.xm0
+        @Override // com.baidu.tieba.ym0
         public void onBackgroundToForeground(@NonNull Activity activity) {
             NadInsertingBaseView.this.c.c();
         }
 
-        @Override // com.baidu.tieba.xm0
+        @Override // com.baidu.tieba.ym0
         public void onForegroundToBackground(@NonNull Activity activity) {
             NadInsertingBaseView.this.c.b();
         }
@@ -88,31 +88,31 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
         b(context);
     }
 
-    public NadInsertingBaseView(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull ng0 ng0Var) {
+    public NadInsertingBaseView(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull og0 og0Var) {
         this(context, null);
         setContainer(viewGroup);
-        this.a = ng0Var;
+        this.a = og0Var;
     }
 
     public void c(@NonNull AdBaseModel adBaseModel, String str, String str2) {
         if (TextUtils.isEmpty(adBaseModel.f.d)) {
             return;
         }
-        k11.b(new ClogBuilder().y(ClogBuilder.LogType.CHECK).p(adBaseModel.f.d).k(str).l(str2));
+        l11.b(new ClogBuilder().y(ClogBuilder.LogType.CHECK).p(adBaseModel.f.d).k(str).l(str2));
     }
 
     public void e(@NonNull AdBaseModel adBaseModel, @NonNull ClogBuilder.Area area, long j) {
         if (TextUtils.isEmpty(adBaseModel.f.d)) {
             return;
         }
-        k11.b(new ClogBuilder().y(ClogBuilder.LogType.CLOSE).p(adBaseModel.f.d).k(String.valueOf(j)).i(area));
+        l11.b(new ClogBuilder().y(ClogBuilder.LogType.CLOSE).p(adBaseModel.f.d).k(String.valueOf(j)).i(area));
     }
 
     public void d(@NonNull AdBaseModel adBaseModel, @NonNull ClogBuilder.Area area) {
-        k11.b(new ClogBuilder().y(ClogBuilder.LogType.CLICK).p(adBaseModel.f.d).i(area));
+        l11.b(new ClogBuilder().y(ClogBuilder.LogType.CLICK).p(adBaseModel.f.d).i(area));
         for (MonitorUrl monitorUrl : adBaseModel.e) {
             if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.clickUrl)) {
-                l11.b(monitorUrl.clickUrl);
+                m11.b(monitorUrl.clickUrl);
             }
         }
     }
@@ -121,10 +121,10 @@ public abstract class NadInsertingBaseView extends RelativeLayout {
         if (adBaseModel.a) {
             return;
         }
-        k11.b(new ClogBuilder().y(ClogBuilder.LogType.SHOW).p(adBaseModel.f.d));
+        l11.b(new ClogBuilder().y(ClogBuilder.LogType.SHOW).p(adBaseModel.f.d));
         for (MonitorUrl monitorUrl : adBaseModel.e) {
             if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.showUrl)) {
-                l11.b(monitorUrl.showUrl);
+                m11.b(monitorUrl.showUrl);
             }
         }
         adBaseModel.a = true;

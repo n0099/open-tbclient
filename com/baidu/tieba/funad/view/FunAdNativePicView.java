@@ -123,7 +123,7 @@ public class FunAdNativePicView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d037d, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d037e, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             this.a = findViewById(R.id.obfuscated_res_0x7f090d44);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d45);
@@ -163,7 +163,7 @@ public class FunAdNativePicView extends FrameLayout {
             if (!StringHelper.equals(str, this.e.getUrl())) {
                 this.e.H();
             }
-            this.e.M(str, 10, false);
+            this.e.N(str, 10, false);
         }
     }
 
@@ -196,7 +196,7 @@ public class FunAdNativePicView extends FrameLayout {
             if (!StringHelper.equals(str, tbImageView.getUrl())) {
                 tbImageView.H();
             }
-            tbImageView.M(str, 10, false);
+            tbImageView.N(str, 10, false);
         }
     }
 

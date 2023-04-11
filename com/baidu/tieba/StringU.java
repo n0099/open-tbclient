@@ -32,7 +32,7 @@ public class StringU {
             }
         }
         try {
-            boolean h = ei.d().h("stringu", 2);
+            boolean h = fi.d().h("stringu", 2);
             a = h;
             if (h) {
                 a("stringu_so_load_success", null);

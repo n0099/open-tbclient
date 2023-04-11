@@ -10,12 +10,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import com.baidu.live.arch.ServiceLocator;
 import com.baidu.live.arch.utils.LiveActivityHelper;
 import com.baidu.live.arch.utils.MiniScreenOrientationCompat;
 import com.baidu.live.arch.utils.MiniUniqueId;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.data.constant.MixConstants;
 import com.baidu.searchbox.live.data.constant.MixTagConstants;
+import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.searchbox.live.gesture.HorizonMotionEventCaptureView;
 import com.baidu.searchbox.live.interfaces.mix.IMixActivityInterface;
 import com.baidu.searchbox.live.interfaces.mix.PluginInvokeService;
@@ -24,11 +26,15 @@ import com.baidu.searchbox.live.interfaces.service.EventDispatcherService;
 import com.baidu.searchbox.live.interfaces.service.LiveSessionService;
 import com.baidu.searchbox.live.list.controller.ListController;
 import com.baidu.searchbox.live.pluginmanager.MiniPluginManager;
+import com.baidu.searchbox.live.service.ILivePageInfoInterface;
+import com.baidu.searchbox.live.service.MixListOperatorInterface;
+import com.baidu.searchbox.live.service.MixRequestServiceLocator;
 import com.baidu.searchbox.live.shell.LiveBaseActivity;
 import com.baidu.searchbox.live.ubc.MediaLivePluginLogger;
 import com.baidu.searchbox.live.util.ImmersionUtils;
 import com.baidu.searchbox.live.util.ListLogKt;
 import com.baidu.searchbox.live.util.LiveActivityUtil;
+import com.baidu.searchbox.live.util.MiniPluginInfoHelper;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import java.util.HashMap;
@@ -42,7 +48,7 @@ import kotlin.jvm.internal.PropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
 import org.json.JSONObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u009e\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0015\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\b\u0016\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\\\u0010\bJ\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0014¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\u0007\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u0011\u0010\n\u001a\u0004\u0018\u00010\tH\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\r\u001a\u00020\fH\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u0010\u001a\u00020\u000fH\u0016¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0013\u001a\u00020\u0012H\u0016¢\u0006\u0004\b\u0013\u0010\u0014J\u000f\u0010\u0016\u001a\u00020\u0015H\u0016¢\u0006\u0004\b\u0016\u0010\u0017J\u000f\u0010\u0018\u001a\u00020\u000fH\u0002¢\u0006\u0004\b\u0018\u0010\u0011J)\u0010\u001d\u001a\u00020\u00042\u0006\u0010\u0019\u001a\u00020\u000f2\u0006\u0010\u001a\u001a\u00020\u000f2\b\u0010\u001c\u001a\u0004\u0018\u00010\u001bH\u0014¢\u0006\u0004\b\u001d\u0010\u001eJ\u0017\u0010!\u001a\u00020\u00042\u0006\u0010 \u001a\u00020\u001fH\u0016¢\u0006\u0004\b!\u0010\"J\u0019\u0010%\u001a\u00020\u00042\b\u0010$\u001a\u0004\u0018\u00010#H\u0014¢\u0006\u0004\b%\u0010&J\u000f\u0010'\u001a\u00020\u0004H\u0014¢\u0006\u0004\b'\u0010\bJ!\u0010,\u001a\u00020+2\u0006\u0010(\u001a\u00020\u000f2\b\u0010*\u001a\u0004\u0018\u00010)H\u0016¢\u0006\u0004\b,\u0010-J\u0017\u0010/\u001a\u00020\u00042\u0006\u0010.\u001a\u00020\u001bH\u0014¢\u0006\u0004\b/\u00100J\u000f\u00101\u001a\u00020\u0004H\u0014¢\u0006\u0004\b1\u0010\bJ/\u00107\u001a\u00020\u00042\u0006\u0010\u0019\u001a\u00020\u000f2\u000e\u00104\u001a\n\u0012\u0006\b\u0001\u0012\u000203022\u0006\u00106\u001a\u000205H\u0016¢\u0006\u0004\b7\u00108J\u000f\u00109\u001a\u00020\u0004H\u0014¢\u0006\u0004\b9\u0010\bJ\u000f\u0010:\u001a\u00020\u0004H\u0014¢\u0006\u0004\b:\u0010\bJ\u000f\u0010;\u001a\u00020\u0004H\u0014¢\u0006\u0004\b;\u0010\bJ\u000f\u0010<\u001a\u00020\u0004H\u0016¢\u0006\u0004\b<\u0010\bR\u0016\u0010=\u001a\u00020+8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b=\u0010>R\u0018\u0010@\u001a\u0004\u0018\u00010?8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b@\u0010AR\u0018\u0010B\u001a\u0004\u0018\u00010\t8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bB\u0010CR\u0016\u0010D\u001a\u00020\u000f8\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\bD\u0010ER\u0016\u0010G\u001a\u00020F8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bG\u0010HR!\u0010K\u001a\n J*\u0004\u0018\u00010I0I8\u0006@\u0006¢\u0006\f\n\u0004\bK\u0010L\u001a\u0004\bM\u0010NR%\u0010T\u001a\n J*\u0004\u0018\u00010O0O8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bP\u0010Q\u001a\u0004\bR\u0010SR$\u0010V\u001a\u0004\u0018\u00010U8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bV\u0010W\u001a\u0004\bX\u0010Y\"\u0004\bZ\u0010[¨\u0006]"}, d2 = {"Lcom/baidu/searchbox/live/list/MixLiveActivity;", "Lcom/baidu/searchbox/live/shell/LiveBaseActivity;", "Landroid/content/Context;", "newBase", "", "attachBaseContext", "(Landroid/content/Context;)V", "finish", "()V", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "genMixActInstance", "()Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "Landroid/content/res/AssetManager;", "getAssets", "()Landroid/content/res/AssetManager;", "", "getCaptureBgColor", "()I", "Ljava/lang/ClassLoader;", "getClassLoader", "()Ljava/lang/ClassLoader;", "Landroid/content/res/Resources;", "getResources", "()Landroid/content/res/Resources;", "isAnimation", "requestCode", "resultCode", "Landroid/content/Intent;", "data", "onActivityResult", "(IILandroid/content/Intent;)V", "Landroid/content/res/Configuration;", "newConfig", "onConfigurationChanged", "(Landroid/content/res/Configuration;)V", "Landroid/os/Bundle;", "savedInstanceState", "onCreate", "(Landroid/os/Bundle;)V", MissionEvent.MESSAGE_DESTROY, "keyCode", "Landroid/view/KeyEvent;", "event", "", "onKeyDown", "(ILandroid/view/KeyEvent;)Z", "intent", "onNewIntent", "(Landroid/content/Intent;)V", MissionEvent.MESSAGE_PAUSE, "", "", "permissions", "", "grantResults", "onRequestPermissionsResult", "(I[Ljava/lang/String;[I)V", "onResume", "onStart", MissionEvent.MESSAGE_STOP, "overrideEnterAnim", "isInnerJump", "Z", "Lcom/baidu/searchbox/live/list/controller/ListController;", "mListController", "Lcom/baidu/searchbox/live/list/controller/ListController;", "mMixActivity", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "matchParent", "I", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "kotlin.jvm.PlatformType", "pluginInvokeService", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "getPluginInvokeService", "()Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;", "preStartPlayerService$delegate", "Lkotlin/Lazy;", "getPreStartPlayerService", "()Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;", "preStartPlayerService", "Landroid/view/View;", "rootView", "Landroid/view/View;", "getRootView", "()Landroid/view/View;", "setRootView", "(Landroid/view/View;)V", "<init>", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u009e\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0015\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\b\u0016\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b`\u0010\bJ\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0014¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\u0007\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\t\u001a\u00020\u0004¢\u0006\u0004\b\t\u0010\bJ\u0011\u0010\u000b\u001a\u0004\u0018\u00010\nH\u0002¢\u0006\u0004\b\u000b\u0010\fJ\u000f\u0010\u000e\u001a\u00020\rH\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u000f\u0010\u0011\u001a\u00020\u0010H\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u000f\u0010\u0014\u001a\u00020\u0013H\u0016¢\u0006\u0004\b\u0014\u0010\u0015J\u000f\u0010\u0017\u001a\u00020\u0016H\u0016¢\u0006\u0004\b\u0017\u0010\u0018J\u000f\u0010\u0019\u001a\u00020\u0010H\u0002¢\u0006\u0004\b\u0019\u0010\u0012J)\u0010\u001e\u001a\u00020\u00042\u0006\u0010\u001a\u001a\u00020\u00102\u0006\u0010\u001b\u001a\u00020\u00102\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0014¢\u0006\u0004\b\u001e\u0010\u001fJ\u0017\u0010\"\u001a\u00020\u00042\u0006\u0010!\u001a\u00020 H\u0016¢\u0006\u0004\b\"\u0010#J\u0019\u0010&\u001a\u00020\u00042\b\u0010%\u001a\u0004\u0018\u00010$H\u0014¢\u0006\u0004\b&\u0010'J\u000f\u0010(\u001a\u00020\u0004H\u0014¢\u0006\u0004\b(\u0010\bJ!\u0010-\u001a\u00020,2\u0006\u0010)\u001a\u00020\u00102\b\u0010+\u001a\u0004\u0018\u00010*H\u0016¢\u0006\u0004\b-\u0010.J\u0017\u00100\u001a\u00020\u00042\u0006\u0010/\u001a\u00020\u001cH\u0014¢\u0006\u0004\b0\u00101J\u000f\u00102\u001a\u00020\u0004H\u0014¢\u0006\u0004\b2\u0010\bJ/\u00108\u001a\u00020\u00042\u0006\u0010\u001a\u001a\u00020\u00102\u000e\u00105\u001a\n\u0012\u0006\b\u0001\u0012\u000204032\u0006\u00107\u001a\u000206H\u0016¢\u0006\u0004\b8\u00109J\u000f\u0010:\u001a\u00020\u0004H\u0014¢\u0006\u0004\b:\u0010\bJ\u000f\u0010;\u001a\u00020\u0004H\u0014¢\u0006\u0004\b;\u0010\bJ\u000f\u0010<\u001a\u00020\u0004H\u0014¢\u0006\u0004\b<\u0010\bJ\u000f\u0010=\u001a\u00020\u0004H\u0016¢\u0006\u0004\b=\u0010\bJ\u0017\u0010?\u001a\u00020\u00042\u0006\u0010>\u001a\u00020,H\u0002¢\u0006\u0004\b?\u0010@R\u0016\u0010A\u001a\u00020,8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bA\u0010BR\u0018\u0010D\u001a\u0004\u0018\u00010C8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bD\u0010ER\u0018\u0010F\u001a\u0004\u0018\u00010\n8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bF\u0010GR\u0016\u0010H\u001a\u00020\u00108\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\bH\u0010IR\u0016\u0010K\u001a\u00020J8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bK\u0010LR!\u0010O\u001a\n N*\u0004\u0018\u00010M0M8\u0006@\u0006¢\u0006\f\n\u0004\bO\u0010P\u001a\u0004\bQ\u0010RR%\u0010X\u001a\n N*\u0004\u0018\u00010S0S8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bT\u0010U\u001a\u0004\bV\u0010WR$\u0010Z\u001a\u0004\u0018\u00010Y8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bZ\u0010[\u001a\u0004\b\\\u0010]\"\u0004\b^\u0010_¨\u0006a"}, d2 = {"Lcom/baidu/searchbox/live/list/MixLiveActivity;", "Lcom/baidu/searchbox/live/shell/LiveBaseActivity;", "Landroid/content/Context;", "newBase", "", "attachBaseContext", "(Landroid/content/Context;)V", "finish", "()V", "finishAndDispatchLifecycle", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "genMixActInstance", "()Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "Landroid/content/res/AssetManager;", "getAssets", "()Landroid/content/res/AssetManager;", "", "getCaptureBgColor", "()I", "Ljava/lang/ClassLoader;", "getClassLoader", "()Ljava/lang/ClassLoader;", "Landroid/content/res/Resources;", "getResources", "()Landroid/content/res/Resources;", "isAnimation", "requestCode", "resultCode", "Landroid/content/Intent;", "data", "onActivityResult", "(IILandroid/content/Intent;)V", "Landroid/content/res/Configuration;", "newConfig", "onConfigurationChanged", "(Landroid/content/res/Configuration;)V", "Landroid/os/Bundle;", "savedInstanceState", "onCreate", "(Landroid/os/Bundle;)V", MissionEvent.MESSAGE_DESTROY, "keyCode", "Landroid/view/KeyEvent;", "event", "", "onKeyDown", "(ILandroid/view/KeyEvent;)Z", "intent", "onNewIntent", "(Landroid/content/Intent;)V", MissionEvent.MESSAGE_PAUSE, "", "", "permissions", "", "grantResults", "onRequestPermissionsResult", "(I[Ljava/lang/String;[I)V", "onResume", "onStart", MissionEvent.MESSAGE_STOP, "overrideEnterAnim", "dispatchLifecycle", "realFinish", "(Z)V", "isInnerJump", "Z", "Lcom/baidu/searchbox/live/list/controller/ListController;", "mListController", "Lcom/baidu/searchbox/live/list/controller/ListController;", "mMixActivity", "Lcom/baidu/searchbox/live/interfaces/mix/IMixActivityInterface;", "matchParent", "I", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "mixUniqueId", "Lcom/baidu/live/arch/utils/MiniUniqueId;", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "kotlin.jvm.PlatformType", "pluginInvokeService", "Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "getPluginInvokeService", "()Lcom/baidu/searchbox/live/interfaces/mix/PluginInvokeService;", "Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;", "preStartPlayerService$delegate", "Lkotlin/Lazy;", "getPreStartPlayerService", "()Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;", "preStartPlayerService", "Landroid/view/View;", "rootView", "Landroid/view/View;", "getRootView", "()Landroid/view/View;", "setRootView", "(Landroid/view/View;)V", "<init>", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
 public class MixLiveActivity extends LiveBaseActivity {
     public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(MixLiveActivity.class), "preStartPlayerService", "getPreStartPlayerService()Lcom/baidu/searchbox/live/interfaces/player/internal/LivePreStartPlayerService;"))};
@@ -120,6 +126,11 @@ public class MixLiveActivity extends LiveBaseActivity {
         } catch (Exception unused) {
             return 0;
         }
+    }
+
+    @Override // android.app.Activity
+    public void finish() {
+        realFinish(getIntent().getBooleanExtra("finish_dispatch_lifecycle", false));
     }
 
     public final PluginInvokeService getPluginInvokeService() {
@@ -234,8 +245,21 @@ public class MixLiveActivity extends LiveBaseActivity {
         this.rootView = view2;
     }
 
-    @Override // android.app.Activity
-    public void finish() {
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        ListController listController;
+        IMixActivityInterface iMixActivityInterface = this.mMixActivity;
+        if (iMixActivityInterface != null && iMixActivityInterface.onKeyDown(this, i, keyEvent)) {
+            return true;
+        }
+        if (keyEvent != null && (listController = this.mListController) != null && listController.onKeyDown(i, keyEvent)) {
+            return true;
+        }
+        return super.onKeyDown(i, keyEvent);
+    }
+
+    private final void realFinish(boolean z) {
+        IMixActivityInterface iMixActivityInterface;
         EventDispatcherService eventDispatcherService;
         EventDispatcherService eventDispatcherService2;
         super.finish();
@@ -245,21 +269,59 @@ public class MixLiveActivity extends LiveBaseActivity {
         if (!this.isInnerJump && (eventDispatcherService = (EventDispatcherService) ServiceManager.getService(EventDispatcherService.Companion.getSERVICE_REFERENCE())) != null) {
             eventDispatcherService.onEvent("onActivityClose", null);
         }
+        int i = 0;
         this.isInnerJump = false;
         overridePendingTransition(R.anim.liveshow_slide_no_anim, R.anim.liveshow_slide_out_left);
         ListController listController = this.mListController;
         if (listController != null) {
             listController.finish();
         }
-        IMixActivityInterface iMixActivityInterface = this.mMixActivity;
-        if (iMixActivityInterface != null) {
-            iMixActivityInterface.finish(this);
+        IMixActivityInterface iMixActivityInterface2 = this.mMixActivity;
+        if (iMixActivityInterface2 != null) {
+            iMixActivityInterface2.finish(this);
         }
+        if (z) {
+            PluginInvokeService pluginInvokeService = MiniPluginInfoHelper.INSTANCE.getPluginInvokeService();
+            if (pluginInvokeService != null) {
+                i = pluginInvokeService.getPluginVersionCode("com.baidu.searchbox.livenps");
+            }
+            if (i >= 670000000 && (iMixActivityInterface = this.mMixActivity) != null) {
+                iMixActivityInterface.dispatchFinishLifecycle();
+            }
+        }
+        MixRequestServiceLocator.Companion.unregisterGlobalService(ILivePageInfoInterface.class);
         LiveSessionService liveSessionService = (LiveSessionService) ServiceManager.getService(LiveSessionService.Companion.getSERVICE_REFERENCE());
         if (liveSessionService != null) {
             liveSessionService.resetSession();
         }
         super.finish();
+    }
+
+    public final void finishAndDispatchLifecycle() {
+        IMixActivityInterface iMixActivityInterface;
+        int i;
+        int i2 = 0;
+        boolean z = false;
+        if (!isFinishing() && !isDestroyed()) {
+            PluginInvokeService pluginInvokeService = MiniPluginInfoHelper.INSTANCE.getPluginInvokeService();
+            if (pluginInvokeService != null) {
+                i = pluginInvokeService.getPluginVersionCode("com.baidu.searchbox.livenps");
+            } else {
+                i = 0;
+            }
+            if (i >= 670000000) {
+                z = true;
+            }
+            realFinish(z);
+            return;
+        }
+        PluginInvokeService pluginInvokeService2 = MiniPluginInfoHelper.INSTANCE.getPluginInvokeService();
+        if (pluginInvokeService2 != null) {
+            i2 = pluginInvokeService2.getPluginVersionCode("com.baidu.searchbox.livenps");
+        }
+        if (i2 >= 670000000 && (iMixActivityInterface = this.mMixActivity) != null) {
+            iMixActivityInterface.dispatchFinishLifecycle();
+        }
     }
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
@@ -365,8 +427,7 @@ public class MixLiveActivity extends LiveBaseActivity {
         View createView;
         IMixActivityInterface iMixActivityInterface;
         ListLogKt.log(MixTagConstants.MIX_REAL_ACT, "onCreate start");
-        IMixActivityInterface iMixActivityInterface2 = this.mMixActivity;
-        if (iMixActivityInterface2 == null) {
+        if (this.mMixActivity == null) {
             super.onCreate(null);
             LivePreStartPlayerService preStartPlayerService = getPreStartPlayerService();
             if (preStartPlayerService != null) {
@@ -375,6 +436,46 @@ public class MixLiveActivity extends LiveBaseActivity {
             finish();
             return;
         }
+        MixRequestServiceLocator.Companion.registerGlobalServices(ILivePageInfoInterface.class, new ILivePageInfoInterface() { // from class: com.baidu.searchbox.live.list.MixLiveActivity$onCreate$1
+            @Override // com.baidu.searchbox.live.service.ILivePageInfoInterface
+            public boolean isInsertVideo() {
+                return false;
+            }
+
+            @Override // com.baidu.searchbox.live.service.ILivePageInfoInterface
+            public void finishActivity() {
+                MixLiveActivity.this.finish();
+            }
+
+            @Override // com.baidu.searchbox.live.service.ILivePageInfoInterface
+            public View getLiveRootView() {
+                return MixLiveActivity.this.getRootView();
+            }
+
+            @Override // com.baidu.searchbox.live.service.ILivePageInfoInterface
+            public Intent getSchemeIntent() {
+                return MixLiveActivity.this.getIntent();
+            }
+
+            @Override // com.baidu.searchbox.live.service.ILivePageInfoInterface
+            public IntentData getSchemeIntentData() {
+                ListController listController;
+                listController = MixLiveActivity.this.mListController;
+                if (listController != null) {
+                    return listController.getMIntentData();
+                }
+                return null;
+            }
+
+            @Override // com.baidu.searchbox.live.service.ILivePageInfoInterface
+            public void scrollToNext() {
+                MixListOperatorInterface mixListOperatorInterface = (MixListOperatorInterface) ServiceLocator.Companion.getGlobalService(MixListOperatorInterface.class);
+                if (mixListOperatorInterface != null) {
+                    mixListOperatorInterface.scrollToNextLiveRoom();
+                }
+            }
+        });
+        IMixActivityInterface iMixActivityInterface2 = this.mMixActivity;
         if (iMixActivityInterface2 != null) {
             iMixActivityInterface2.beforeCreate(this, bundle);
         }
@@ -433,18 +534,5 @@ public class MixLiveActivity extends LiveBaseActivity {
             listController2.onCreate();
         }
         ListLogKt.log(MixTagConstants.MIX_REAL_ACT, "onCreate end");
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        ListController listController;
-        IMixActivityInterface iMixActivityInterface = this.mMixActivity;
-        if (iMixActivityInterface != null && iMixActivityInterface.onKeyDown(this, i, keyEvent)) {
-            return true;
-        }
-        if (keyEvent != null && (listController = this.mListController) != null && listController.onKeyDown(i, keyEvent)) {
-            return true;
-        }
-        return super.onKeyDown(i, keyEvent);
     }
 }

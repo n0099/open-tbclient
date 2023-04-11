@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface kv0 {
-    boolean b(String str);
+public interface kv0 extends lv0 {
+    void a(boolean z);
 
-    void c(ru0 ru0Var);
+    <T extends fx0> void d(T t);
+
+    void onDestroy();
+
+    void onLayerRelease();
 }

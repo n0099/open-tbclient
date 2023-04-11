@@ -1,143 +1,70 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.ServiceConnection;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class pua<E> extends tua<E> {
+public class pua implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Messenger a;
+    public Bundle b;
+    public Context c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pua(int i) {
-        super(i);
+    public pua() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public boolean isEmpty() {
-        InterceptResult invokeV;
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (k() == h()) {
-                return true;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+            Log.i("MessengerSrvConnection", "onServiceConnected");
+            this.a = new Messenger(iBinder);
+            Message obtain = Message.obtain();
+            obtain.setData(this.b);
+            try {
+                this.a.send(obtain);
+            } catch (Exception e) {
+                String str = "message sending failed. " + e.getMessage();
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public int size() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            long k = k();
-            while (true) {
-                long h = h();
-                long k2 = k();
-                if (k == k2) {
-                    return (int) (h - k2);
-                }
-                k = k2;
+            Log.i("MessengerSrvConnection", "start unbind service.");
+            try {
+                this.c.unbindService(this);
+                Log.i("MessengerSrvConnection", "unbind service end.");
+            } catch (Exception unused) {
             }
-        } else {
-            return invokeV.intValue;
         }
     }
 
-    @Override // java.util.Queue
-    public boolean offer(E e) {
-        InterceptResult invokeL;
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e)) == null) {
-            if (e != null) {
-                E[] eArr = this.b;
-                long j = this.a;
-                long h = h();
-                long a = a(h);
-                if (e(eArr, a) != null) {
-                    if (h - k() > j) {
-                        return false;
-                    }
-                    do {
-                    } while (e(eArr, a) != null);
-                    g(eArr, a, e);
-                    i(h + 1);
-                    return true;
-                }
-                g(eArr, a, e);
-                i(h + 1);
-                return true;
-            }
-            throw new NullPointerException("Null is not a valid element");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            Log.i("MessengerSrvConnection", "onServiceDisconnected");
+            this.a = null;
+            this.b = null;
+            this.c = null;
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // java.util.Queue
-    public E peek() {
-        InterceptResult invokeV;
-        E d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long l = l();
-            do {
-                long k = k();
-                if (k >= l) {
-                    long h = h();
-                    if (k >= h) {
-                        return null;
-                    }
-                    m(h);
-                }
-                d = d(a(k));
-            } while (d == null);
-            return d;
-        }
-        return (E) invokeV.objValue;
-    }
-
-    @Override // java.util.Queue, com.baidu.tieba.nua
-    public E poll() {
-        InterceptResult invokeV;
-        long k;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long l = l();
-            do {
-                k = k();
-                if (k >= l) {
-                    long h = h();
-                    if (k >= h) {
-                        return null;
-                    }
-                    m(h);
-                }
-            } while (!j(k, 1 + k));
-            long a = a(k);
-            E[] eArr = this.b;
-            E c = c(eArr, a);
-            f(eArr, a, null);
-            return c;
-        }
-        return (E) invokeV.objValue;
     }
 }

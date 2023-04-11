@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
-import com.baidu.tieba.ap5;
 import com.baidu.tieba.eh;
 import com.baidu.tieba.fg;
-import com.baidu.tieba.gi;
+import com.baidu.tieba.gq5;
 import com.baidu.tieba.hf;
 import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.tieba.jf;
 import com.baidu.tieba.og;
 import com.baidu.tieba.zd;
@@ -108,7 +108,7 @@ public class ImageLogger {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return TbImageMemoryCache.o().H();
+            return TbImageMemoryCache.s().I();
         }
         return (String) invokeV.objValue;
     }
@@ -218,10 +218,10 @@ public class ImageLogger {
         String str7;
         String str8;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Boolean.valueOf(z), str2, bool, jfVar, str3, Long.valueOf(j), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) && hi.F() && jfVar != null) {
+        if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Boolean.valueOf(z), str2, bool, jfVar, str3, Long.valueOf(j), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) && ii.F() && jfVar != null) {
             String str9 = "";
             String str10 = "";
-            boolean a = ap5.a(str2);
+            boolean a = gq5.a(str2);
             if (ICDNIPDirectConnect.getInstance() != null) {
                 if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
                     ICDNIPDirectConnect.getInstance().init();
@@ -342,7 +342,7 @@ public class ImageLogger {
             if (str12 != null) {
                 logItem.b("tracecode2", str12);
             }
-            if (!gi.isEmpty(jfVar.k)) {
+            if (!hi.isEmpty(jfVar.k)) {
                 logItem.b("httpDnsIp", jfVar.k);
             } else {
                 logItem.b("httpDnsIp", jfVar.l);

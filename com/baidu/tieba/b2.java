@@ -184,7 +184,7 @@ public final class b2 extends a2 {
                         this.d.getExecutedRunnables().get(i).run();
                     }
                 }
-                this.d.mo6getInput().a1();
+                this.d.mo6getInput().c1();
                 this.l++;
                 this.d.getApplicationListener().render();
             }

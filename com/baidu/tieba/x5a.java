@@ -1,253 +1,155 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
-import android.text.TextUtils;
-import android.view.Surface;
-import com.baidu.tieba.b6a;
-import com.baidu.tieba.y5a;
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AtListActivityConfig;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileOutputStream;
-import java.nio.ByteBuffer;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class x5a extends y5a {
+public class x5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final s4a b;
+    @Nullable
+    public WriteData c;
+    public boolean d;
+    @Nullable
+    public String e;
+    @Nullable
+    public ArrayList<AtSelectData> f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x5a(String str) {
-        super(str);
+    public x5a(@NonNull TbPageContext<?> tbPageContext, @NonNull s4a s4aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {tbPageContext, s4aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = tbPageContext;
+        this.b = s4aVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:49:0x015c A[Catch: all -> 0x0282, TryCatch #0 {all -> 0x0282, blocks: (B:27:0x00e3, B:29:0x00e9, B:31:0x00f2, B:47:0x0156, B:49:0x015c, B:51:0x0162, B:52:0x016f, B:55:0x0175, B:57:0x0178, B:59:0x0192, B:61:0x0198, B:63:0x01a6, B:65:0x01ac, B:69:0x01b9, B:76:0x01c9, B:78:0x01d0, B:79:0x01d9, B:81:0x01f7, B:83:0x0201, B:86:0x020f, B:89:0x021c, B:33:0x010d, B:35:0x0115, B:39:0x0126, B:44:0x0143, B:42:0x0131, B:93:0x0240, B:95:0x0246, B:96:0x024e), top: B:108:0x00e3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x0209  */
-    @TargetApi(16)
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public y5a.b a(String str, boolean z, b6a.f fVar, b6a.f fVar2, long j, long j2, long j3) throws Exception {
-        InterceptResult invokeCommon;
-        MediaFormat mediaFormat;
-        ByteBuffer[] byteBufferArr;
-        long j4;
-        int dequeueOutputBuffer;
-        ByteBuffer[] byteBufferArr2;
-        byte[] bArr;
-        byte[] bArr2;
-        byte[] bArr3;
+    @Nullable
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), fVar, fVar2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            b6a.f fVar3 = fVar2;
-            long j5 = j2;
-            if (!TextUtils.isEmpty(str) && fVar != null && fVar3 != null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                String str2 = this.a;
-                MediaExtractor mediaExtractor = new MediaExtractor();
-                mediaExtractor.setDataSource(str2);
-                int i = 0;
-                while (true) {
-                    if (i < mediaExtractor.getTrackCount()) {
-                        mediaFormat = mediaExtractor.getTrackFormat(i);
-                        if (mediaFormat.getString("mime").startsWith("audio/")) {
-                            mediaExtractor.selectTrack(i);
-                            break;
-                        }
-                        i++;
-                    } else {
-                        mediaFormat = null;
-                        break;
-                    }
-                }
-                m7a.c("AndroidAudioDecoder", "startTime:" + j + ",endTime:" + j5);
-                if (j > 0) {
-                    mediaExtractor.seekTo(j * 1000, 0);
-                }
-                if (mediaFormat == null) {
-                    m7a.b("not a valid file with audio track..");
-                    mediaExtractor.release();
-                    return null;
-                }
-                m7a.b("mediaFormat " + mediaFormat);
-                y5a.b bVar = new y5a.b();
-                int i2 = fVar3.b;
-                int i3 = fVar3.a;
-                int i4 = fVar3.c;
-                bVar.a = str;
-                FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
-                MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
-                createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
-                createDecoderByType.start();
-                ByteBuffer[] inputBuffers = createDecoderByType.getInputBuffers();
-                ByteBuffer[] outputBuffers = createDecoderByType.getOutputBuffers();
-                double d = mediaFormat.getLong("durationUs");
-                MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-                boolean z2 = false;
-                boolean z3 = false;
-                ByteBuffer[] byteBufferArr3 = outputBuffers;
-                while (!z2) {
-                    long j6 = currentTimeMillis;
-                    if (!z3) {
-                        try {
-                            int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(5000L);
-                            if (dequeueInputBuffer >= 0) {
-                                int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], 0);
-                                if (readSampleData < 0) {
-                                    m7a.b("saw input EOS.");
-                                    createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                    byteBufferArr = inputBuffers;
-                                    j4 = 5000;
-                                } else {
-                                    long sampleTime = mediaExtractor.getSampleTime();
-                                    if (j3 != 0) {
-                                        byteBufferArr = inputBuffers;
-                                        mediaExtractor.seekTo(sampleTime + j3, 0);
-                                    } else {
-                                        byteBufferArr = inputBuffers;
-                                    }
-                                    if (j5 != -1 && sampleTime + j3 >= j5 * 1000) {
-                                        createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                        j4 = 5000;
-                                    }
-                                    createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, sampleTime, 0);
-                                    mediaExtractor.advance();
-                                    j4 = 5000;
-                                    dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
-                                    if (dequeueOutputBuffer >= 0) {
-                                        if ((bufferInfo.flags & 2) != 0) {
-                                            m7a.b("audio encoder: codec config buffer");
-                                            createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                            inputBuffers = byteBufferArr;
-                                            currentTimeMillis = j6;
-                                        } else {
-                                            if (bufferInfo.size != 0 && dequeueOutputBuffer >= 0 && byteBufferArr3.length > dequeueOutputBuffer) {
-                                                ByteBuffer byteBuffer = byteBufferArr3[dequeueOutputBuffer];
-                                                byteBuffer.position(bufferInfo.offset);
-                                                byteBufferArr2 = byteBufferArr3;
-                                                byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
-                                                byte[] bArr4 = new byte[bufferInfo.size];
-                                                byteBuffer.get(bArr4);
-                                                if (!z) {
-                                                    if (fVar2.a()) {
-                                                        bArr2 = b6a.c(fVar3.c / 8, fVar.c / 8, bArr4);
-                                                    } else {
-                                                        bArr2 = null;
-                                                    }
-                                                    if (fVar2.b()) {
-                                                        int i5 = fVar3.b;
-                                                        int i6 = fVar.b;
-                                                        int i7 = fVar.c / 8;
-                                                        if (bArr2 == null) {
-                                                            bArr3 = bArr4;
-                                                        } else {
-                                                            bArr3 = bArr2;
-                                                        }
-                                                        bArr = b6a.d(i5, i6, i7, bArr3);
-                                                    } else {
-                                                        bArr = null;
-                                                    }
-                                                } else {
-                                                    bArr = null;
-                                                    bArr2 = null;
-                                                }
-                                                if (bArr == null) {
-                                                    if (bArr2 == null) {
-                                                        bArr = bArr4;
-                                                    } else {
-                                                        bArr = bArr2;
-                                                    }
-                                                }
-                                                fileOutputStream.write(bArr);
-                                                if (this.b != null) {
-                                                    this.b.a(bArr4, bufferInfo.presentationTimeUs / d);
-                                                }
-                                                m7a.b(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
-                                            } else {
-                                                byteBufferArr2 = byteBufferArr3;
-                                            }
-                                            createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                            if ((bufferInfo.flags & 4) != 0) {
-                                                m7a.b("saw output EOS.");
-                                                z2 = true;
-                                            }
-                                        }
-                                    } else {
-                                        byteBufferArr2 = byteBufferArr3;
-                                        if (dequeueOutputBuffer == -3) {
-                                            byteBufferArr3 = createDecoderByType.getOutputBuffers();
-                                            m7a.b("output buffers have changed.");
-                                            fVar3 = fVar2;
-                                            inputBuffers = byteBufferArr;
-                                            j5 = j2;
-                                            currentTimeMillis = j6;
-                                        } else if (dequeueOutputBuffer == -2) {
-                                            m7a.b("output format has changed to " + createDecoderByType.getOutputFormat());
-                                        }
-                                    }
-                                    byteBufferArr3 = byteBufferArr2;
-                                    fVar3 = fVar2;
-                                    inputBuffers = byteBufferArr;
-                                    j5 = j2;
-                                    currentTimeMillis = j6;
-                                }
-                                z3 = true;
-                                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
-                                if (dequeueOutputBuffer >= 0) {
-                                }
-                                byteBufferArr3 = byteBufferArr2;
-                                fVar3 = fVar2;
-                                inputBuffers = byteBufferArr;
-                                j5 = j2;
-                                currentTimeMillis = j6;
-                            }
-                        } finally {
-                            fileOutputStream.close();
-                            createDecoderByType.stop();
-                            createDecoderByType.release();
-                            mediaExtractor.release();
-                        }
-                    }
-                    byteBufferArr = inputBuffers;
-                    j4 = 5000;
-                    dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
-                    if (dequeueOutputBuffer >= 0) {
-                    }
-                    byteBufferArr3 = byteBufferArr2;
-                    fVar3 = fVar2;
-                    inputBuffers = byteBufferArr;
-                    j5 = j2;
-                    currentTimeMillis = j6;
-                }
-                long j7 = currentTimeMillis;
-                if (this.b != null) {
-                    this.b.a(null, 1.0d);
-                }
-                m7a.b("decode " + str + " cost " + (System.currentTimeMillis() - j7) + " milliseconds !");
-                return bVar;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return (y5a.b) invokeCommon.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public void b(CharSequence charSequence, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2) == null) && charSequence != null && i2 == 1 && i < charSequence.length() && i >= 0 && charSequence.charAt(i) == '@') {
+            i();
+        }
+    }
+
+    public void c(CharSequence charSequence, int i, int i2, String str) {
+        WriteData writeData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), str}) == null) && (writeData = this.c) != null && 14 != writeData.getType() && charSequence != null && i2 == 1 && i < charSequence.length() && i >= 0) {
+            this.d = false;
+            this.e = "";
+            if ("from_content".equals(str)) {
+                this.e = "from_content";
+            } else if ("from_title".equals(str)) {
+                this.e = "from_title";
+            }
+            if (eq5.f(String.valueOf(charSequence.charAt(i)))) {
+                this.b.m();
+            }
+        }
+    }
+
+    public String d(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, intent)) == null) {
+            if (intent == null) {
+                return null;
+            }
+            String stringExtra = intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING);
+            if (StringUtils.isNull(stringExtra)) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            if (this.d) {
+                sb.append("#");
+                this.d = false;
+            }
+            sb.append(stringExtra);
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void e(ArrayList<AtSelectData> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
+            this.f = arrayList;
+        }
+    }
+
+    public void f(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void h(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
+            this.c = writeData;
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.getPageActivity(), 12004, true);
+            atListActivityConfig.setSelectedAtList(this.f);
+            this.a.sendMessage(new CustomMessage(2002001, atListActivityConfig));
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
     }
 }

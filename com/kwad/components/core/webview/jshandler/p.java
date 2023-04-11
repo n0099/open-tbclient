@@ -104,7 +104,7 @@ public final class p implements com.kwad.sdk.core.webview.kwai.a {
         this.Ll.post(new Runnable() { // from class: com.kwad.components.core.webview.jshandler.p.1
             @Override // java.lang.Runnable
             public final void run() {
-                com.kwad.components.core.c.a.a.a(new a.C0593a(p.this.Lk.Gl.getContext()).L(p.this.mAdTemplate).b(p.this.mApkDownloadHelper).a(new a.b() { // from class: com.kwad.components.core.webview.jshandler.p.1.1
+                com.kwad.components.core.c.a.a.a(new a.C0594a(p.this.Lk.Gl.getContext()).L(p.this.mAdTemplate).b(p.this.mApkDownloadHelper).a(new a.b() { // from class: com.kwad.components.core.webview.jshandler.p.1.1
                     @Override // com.kwad.components.core.c.a.a.b
                     public final void onAdClicked() {
                     }

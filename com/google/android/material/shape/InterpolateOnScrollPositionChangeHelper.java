@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class InterpolateOnScrollPositionChangeHelper {
     public ScrollView containingScrollView;
     public MaterialShapeDrawable materialShapeDrawable;

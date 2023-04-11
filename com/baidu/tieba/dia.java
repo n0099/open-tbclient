@@ -1,256 +1,106 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.os.Looper;
+import android.content.Context;
+import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hia;
+import com.baidu.sapi2.share.ShareCallPacking;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FilenameFilter;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes4.dex */
-public final class dia {
+public class dia {
     public static /* synthetic */ Interceptable $ic;
-    public static dia e;
-    public static cia f;
+    public static final AtomicBoolean a;
+    public static HashMap<Integer, Boolean> b;
+    public static HashMap<Integer, Long> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public hia a;
-    public jia b;
-    public iia c;
-    public List<eia> d;
 
-    /* loaded from: classes4.dex */
-    public class a implements hia.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dia a;
-
-        public a(dia diaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {diaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = diaVar;
-        }
-
-        @Override // com.baidu.tieba.hia.b
-        public void a(long j, long j2, long j3, long j4) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-                ArrayList<String> e = this.a.b.e(j, j2);
-                if (!e.isEmpty()) {
-                    kia b = kia.b();
-                    b.c(j, j2, j3, j4);
-                    b.d(this.a.c.e());
-                    b.e(e);
-                    b.a();
-                    if (dia.getContext().displayNotification()) {
-                        gia.c(b.toString());
-                    }
-                    if (this.a.d.size() != 0) {
-                        for (eia eiaVar : this.a.d) {
-                            eiaVar.onBlock(dia.getContext().provideContext(), b);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements FilenameFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ".log";
-        }
-
-        @Override // java.io.FilenameFilter
-        public boolean accept(File file, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
-                return str.endsWith(this.a);
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public dia() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = new LinkedList();
-        this.b = new jia(Looper.getMainLooper().getThread(), f.provideDumpInterval());
-        this.c = new iia(f.provideDumpInterval());
-        l(new hia(new a(this), getContext().provideBlockThreshold(), getContext().stopWhenDebugging()));
-        gia.b();
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        String providePath;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String externalStorageState = Environment.getExternalStorageState();
-            if (getContext() == null) {
-                providePath = "";
-            } else {
-                providePath = getContext().providePath();
-            }
-            if ("mounted".equals(externalStorageState) && Environment.getExternalStorageDirectory().canWrite()) {
-                return Environment.getExternalStorageDirectory().getPath() + providePath;
-            }
-            return getContext().provideContext().getFilesDir() + getContext().providePath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void k(cia ciaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, ciaVar) == null) {
-            f = ciaVar;
-        }
-    }
-
-    public void b(eia eiaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, eiaVar) == null) {
-            this.d.add(eiaVar);
-        }
-    }
-
-    public final void l(hia hiaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hiaVar) == null) {
-            this.a = hiaVar;
-        }
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(h());
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static dia e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (e == null) {
-                synchronized (dia.class) {
-                    if (e == null) {
-                        e = new dia();
-                    }
-                }
-            }
-            return e;
-        }
-        return (dia) invokeV.objValue;
-    }
-
-    public static File[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File c = c();
-            if (c.exists() && c.isDirectory()) {
-                return c.listFiles(new b());
-            }
-            return null;
-        }
-        return (File[]) invokeV.objValue;
-    }
-
-    public static cia getContext() {
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return f;
+            return false;
         }
-        return (cia) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public iia d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947706893, "Lcom/baidu/tieba/dia;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947706893, "Lcom/baidu/tieba/dia;");
+                return;
+            }
         }
-        return (iia) invokeV.objValue;
+        a = new AtomicBoolean(false);
+        b = new HashMap<>();
+        c = new HashMap<>();
     }
 
-    public hia g() {
-        InterceptResult invokeV;
+    public static long a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (c.containsKey(Integer.valueOf(i))) {
+                return c.get(Integer.valueOf(i)).longValue();
+            }
+            return Long.MAX_VALUE;
         }
-        return (hia) invokeV.objValue;
+        return invokeI.longValue;
     }
 
-    public long i() {
-        InterceptResult invokeV;
+    public static SharedPreferences b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return getContext().provideBlockThreshold() * 0.8f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return context.getSharedPreferences("CONFIG_RUNTIME", 0);
         }
-        return invokeV.longValue;
+        return (SharedPreferences) invokeL.objValue;
     }
 
-    public jia j() {
-        InterceptResult invokeV;
+    public static boolean d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (b.containsKey(Integer.valueOf(i))) {
+                return b.get(Integer.valueOf(i)).booleanValue();
+            }
+            return true;
         }
-        return (jia) invokeV.objValue;
+        return invokeI.booleanValue;
+    }
+
+    public static synchronized void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            synchronized (dia.class) {
+                if (!a.get()) {
+                    SharedPreferences b2 = b(context);
+                    Iterator<Integer> it = eia.a.iterator();
+                    while (it.hasNext()) {
+                        int intValue = it.next().intValue();
+                        HashMap<Integer, Long> hashMap = c;
+                        Integer valueOf = Integer.valueOf(intValue);
+                        hashMap.put(valueOf, Long.valueOf(b2.getLong("cache_" + intValue, 10080L)));
+                        HashMap<Integer, Boolean> hashMap2 = b;
+                        Integer valueOf2 = Integer.valueOf(intValue);
+                        hashMap2.put(valueOf2, Boolean.valueOf(b2.getBoolean("close_" + intValue, false)));
+                    }
+                    c.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Long.MAX_VALUE);
+                    b.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Boolean.TRUE);
+                    a.set(true);
+                }
+            }
+        }
     }
 }

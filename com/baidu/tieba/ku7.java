@@ -1,63 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.ChatFloatEntranceFragment;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ku7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pu7 a;
-    public boolean b;
+    public TbPageContext a;
+    public List<um> b;
+    public nn c;
+    public lu7 d;
+    public ju7 e;
+    public av7 f;
 
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ku7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ku7 ku7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ku7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ku7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.b = true;
-            }
-        }
-    }
-
-    public ku7(ChatFloatEntranceFragment chatFloatEntranceFragment, pu7 pu7Var) {
+    public ku7(TbPageContext tbPageContext, nn nnVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {chatFloatEntranceFragment, pu7Var};
+            Object[] objArr = {tbPageContext, nnVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -67,40 +34,37 @@ public class ku7 {
                 return;
             }
         }
-        this.a = pu7Var;
-        a aVar = new a(this, 2921437);
-        if (chatFloatEntranceFragment != null) {
-            chatFloatEntranceFragment.registerListener(aVar);
+        this.a = tbPageContext;
+        this.c = nnVar;
+        a();
+        this.c.addAdapters(this.b);
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = new ArrayList();
+            this.d = new lu7(this.a);
+            this.e = new ju7(this.a);
+            this.f = new av7(this.a);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.b.add(this.f);
         }
     }
 
-    public void b(MotionEvent motionEvent) {
+    public void b() {
+        nn nnVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, motionEvent) != null) || motionEvent == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (nnVar = this.c) != null) {
+            nnVar.getListAdapter().notifyDataSetChanged();
         }
-        if (motionEvent.getAction() == 0) {
-            this.b = false;
-            pu7 pu7Var = this.a;
-            if (pu7Var != null) {
-                pu7Var.a();
-            }
-        } else if (motionEvent.getAction() == 2) {
-            pu7 pu7Var2 = this.a;
-            if (pu7Var2 != null && !this.b) {
-                pu7Var2.a();
-            }
-        } else if (this.b) {
-            pu7 pu7Var3 = this.a;
-            if (pu7Var3 != null) {
-                pu7Var3.b();
-            }
-            this.b = false;
-        } else {
-            pu7 pu7Var4 = this.a;
-            if (pu7Var4 != null) {
-                pu7Var4.a();
-            }
+    }
+
+    public void c(List<hn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.c.setData(list);
         }
     }
 }

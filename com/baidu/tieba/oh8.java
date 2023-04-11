@@ -1,95 +1,67 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Item;
+import tbclient.RecommendForumInfo;
+import tbclient.SearchSug.DataRes;
+import tbclient.SugLiveInfo;
+import tbclient.SugRankingInfo;
 /* loaded from: classes5.dex */
 public class oh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SpannableString a(String str, int i) {
-        InterceptResult invokeLI;
+    public static List<hn> a(DataRes dataRes, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            SpannableString spannableString = new SpannableString(str);
-            if (i <= 0) {
-                i = R.color.CAM_X0101;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
+            if (dataRes == null) {
+                return null;
             }
-            spannableString.setSpan(new ForegroundColorSpan(TbadkCoreApplication.getInst().getResources().getColor(i)), 0, str.length(), 17);
-            return spannableString;
-        }
-        return (SpannableString) invokeLI.objValue;
-    }
-
-    public static void b(String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65537, null, str, i) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) a(str, i));
-        BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).k();
-    }
-
-    public static void c(String str, int i, String str2, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) a(str, i));
-        if (!TextUtils.isEmpty(str2)) {
-            spannableStringBuilder.append((CharSequence) a(str2, i2));
-        }
-        BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).k();
-    }
-
-    public static void d(String str, int i, String str2, int i2, String str3, int i3, String str4, int i4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, Integer.valueOf(i3), str4, Integer.valueOf(i4)}) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        spannableStringBuilder.append((CharSequence) a(str, i));
-        if (!TextUtils.isEmpty(str2)) {
-            spannableStringBuilder.append((CharSequence) a(str2, i2));
-        }
-        if (!TextUtils.isEmpty(str3)) {
-            spannableStringBuilder.append((CharSequence) "\n");
-            spannableStringBuilder.append((CharSequence) a(str3, i3));
-            if (!TextUtils.isEmpty(str4)) {
-                spannableStringBuilder.append((CharSequence) a(str4, i4));
+            ArrayList arrayList = new ArrayList();
+            RecommendForumInfo recommendForumInfo = dataRes.forum_card;
+            if (recommendForumInfo != null) {
+                kh8 kh8Var = new kh8();
+                kh8Var.h(recommendForumInfo);
+                arrayList.add(kh8Var);
             }
+            Item item = dataRes.item_card;
+            if (item != null) {
+                lh8 lh8Var = new lh8();
+                lh8Var.h(item);
+                arrayList.add(lh8Var);
+            }
+            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
+                mh8 mh8Var = new mh8();
+                mh8Var.m(str);
+                mh8Var.l(sugLiveInfo);
+                arrayList.add(mh8Var);
+            }
+            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
+            if (sugRankingInfo != null) {
+                nh8 nh8Var = new nh8();
+                nh8Var.f(str);
+                nh8Var.e(sugRankingInfo);
+                arrayList.add(nh8Var);
+            }
+            int size = arrayList.size();
+            for (String str2 : dataRes.list) {
+                jh8 jh8Var = new jh8();
+                jh8Var.c(str);
+                jh8Var.d(str2);
+                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
+                    arrayList.add(size, jh8Var);
+                } else {
+                    arrayList.add(jh8Var);
+                }
+            }
+            return arrayList;
         }
-        BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).k();
-    }
-
-    public static void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            b(str, R.color.CAM_X0101);
-        }
-    }
-
-    public static void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            c(str, R.color.CAM_X0101, str2, R.color.CAM_X0305);
-        }
-    }
-
-    public static void g(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65542, null, str, str2, str3, str4) == null) {
-            d(str, R.color.CAM_X0101, str2, R.color.CAM_X0305, str3, R.color.CAM_X0109, str4, R.color.CAM_X0305);
-        }
+        return (List) invokeLL.objValue;
     }
 }

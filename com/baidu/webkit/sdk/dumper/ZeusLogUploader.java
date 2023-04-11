@@ -333,7 +333,7 @@ public final class ZeusLogUploader {
         return encrypt;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x00d7: ARRAY_LENGTH  (r7v2 int A[REMOVE]) = (r9v0 byte[]))] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x00d6: ARRAY_LENGTH  (r7v2 int A[REMOVE]) = (r9v0 byte[]))] */
     public static boolean doUpload(byte[] bArr, String str, boolean z, String str2, StringBuffer stringBuffer) {
         String str3;
         String str4;
@@ -385,97 +385,90 @@ public final class ZeusLogUploader {
                 return false;
             }
             URL url = new URL(str4);
+            Certificate generateCertificate = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream("-----BEGIN CERTIFICATE-----\nMIICZTCCAc4CAQAwDQYJKoZIhvcNAQEEBQAwezELMAkGA1UEBhMCQ04xCzAJBgNV\nBAgTAkJKMQswCQYDVQQHEwJCSjELMAkGA1UEChMCQkQxCzAJBgNVBAsTAkJEMRYw\nFAYDVQQDEw13d3cuYmFpZHUuY29tMSAwHgYJKoZIhvcNAQkBFhFsaWJpbjAyQGJh\naWR1LmNvbTAeFw0xMjA1MTAwMjMzNTVaFw0xMjA2MDkwMjMzNTVaMHsxCzAJBgNV\nBAYTAkNOMQswCQYDVQQIEwJCSjELMAkGA1UEBxMCQkoxCzAJBgNVBAoTAkJEMQsw\nCQYDVQQLEwJCRDEWMBQGA1UEAxMNd3d3LmJhaWR1LmNvbTEgMB4GCSqGSIb3DQEJ\nARYRbGliaW4wMkBiYWlkdS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGB\nALckGzvn6jcMqYpXrZKuuCYlVJIgN2ETsnvjCtO1va5u3p0EL9CuR5BlHocJadzM\nhTI7rH/nao8mXRIcJ4Q6lOv5TAotcKUv7ri9YZ48smpE3+KXVB+Mjau05OfiYI2h\nqlYy56acRSgyp8Uj65PXL8+gae8Gx+6lq0XOKduolmmNAgMBAAEwDQYJKoZIhvcN\nAQEEBQADgYEAYGPEvv1fc4XySq+9+5jFi4TxlNy9vAWpHOjsmODM9gs5/9PQFG/c\nZc8Fz+T9IVRa8YI0mLuKlApGmvzHxwdWbtBU6AU8ifg1HBA/4VXweiq6fgRfaemd\njgW3PXjbd+OoZ0VI32TvrDErG83OYohQ5CAS2gKHfBXHJvKtmxUSdVE=\n-----END CERTIFICATE-----\n".getBytes()));
+            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+            keyStore.load(null, null);
+            keyStore.setCertificateEntry("ca", generateCertificate);
+            TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            trustManagerFactory.init(keyStore);
+            SSLContext.getInstance("TLS").init(null, trustManagerFactory.getTrustManagers(), null);
+            httpsURLConnection = (HttpsURLConnection) url.openConnection();
             try {
-                Certificate generateCertificate = CertificateFactory.getInstance("X.509").generateCertificate(new ByteArrayInputStream("-----BEGIN CERTIFICATE-----\nMIICZTCCAc4CAQAwDQYJKoZIhvcNAQEEBQAwezELMAkGA1UEBhMCQ04xCzAJBgNV\nBAgTAkJKMQswCQYDVQQHEwJCSjELMAkGA1UEChMCQkQxCzAJBgNVBAsTAkJEMRYw\nFAYDVQQDEw13d3cuYmFpZHUuY29tMSAwHgYJKoZIhvcNAQkBFhFsaWJpbjAyQGJh\naWR1LmNvbTAeFw0xMjA1MTAwMjMzNTVaFw0xMjA2MDkwMjMzNTVaMHsxCzAJBgNV\nBAYTAkNOMQswCQYDVQQIEwJCSjELMAkGA1UEBxMCQkoxCzAJBgNVBAoTAkJEMQsw\nCQYDVQQLEwJCRDEWMBQGA1UEAxMNd3d3LmJhaWR1LmNvbTEgMB4GCSqGSIb3DQEJ\nARYRbGliaW4wMkBiYWlkdS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGB\nALckGzvn6jcMqYpXrZKuuCYlVJIgN2ETsnvjCtO1va5u3p0EL9CuR5BlHocJadzM\nhTI7rH/nao8mXRIcJ4Q6lOv5TAotcKUv7ri9YZ48smpE3+KXVB+Mjau05OfiYI2h\nqlYy56acRSgyp8Uj65PXL8+gae8Gx+6lq0XOKduolmmNAgMBAAEwDQYJKoZIhvcN\nAQEEBQADgYEAYGPEvv1fc4XySq+9+5jFi4TxlNy9vAWpHOjsmODM9gs5/9PQFG/c\nZc8Fz+T9IVRa8YI0mLuKlApGmvzHxwdWbtBU6AU8ifg1HBA/4VXweiq6fgRfaemd\njgW3PXjbd+OoZ0VI32TvrDErG83OYohQ5CAS2gKHfBXHJvKtmxUSdVE=\n-----END CERTIFICATE-----\n".getBytes()));
-                KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-                keyStore.load(null, null);
-                keyStore.setCertificateEntry("ca", generateCertificate);
-                TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-                trustManagerFactory.init(keyStore);
-                SSLContext.getInstance("TLS").init(null, trustManagerFactory.getTrustManagers(), null);
-                httpsURLConnection = (HttpsURLConnection) url.openConnection();
                 try {
-                    try {
-                        httpsURLConnection.setDoInput(true);
-                        httpsURLConnection.setDoOutput(true);
-                        httpsURLConnection.setUseCaches(false);
-                        httpsURLConnection.setRequestMethod("POST");
-                        httpsURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                        httpsURLConnection.setRequestProperty("Content-Type", "application/x-gzip");
-                        StringBuilder sb = new StringBuilder();
-                        sb.append(bArr.length);
-                        httpsURLConnection.setRequestProperty("Content-Length", sb.toString());
-                        httpsURLConnection.setRequestProperty("Content-Disposition", "attchment;filename=".concat(String.valueOf(substring)));
-                        httpsURLConnection.setRequestProperty("LogType", str);
-                        httpsURLConnection.setFixedLengthStreamingMode(bArr.length);
-                        httpsURLConnection.connect();
-                        byteArrayInputStream = new ByteArrayInputStream(bArr);
-                    } catch (Exception e2) {
-                        e = e2;
-                        outputStream = null;
-                    }
-                    try {
-                        OutputStream outputStream2 = httpsURLConnection.getOutputStream();
-                        while (true) {
-                            int read = byteArrayInputStream.read(bArr2);
-                            if (read == -1) {
-                                break;
-                            }
-                            outputStream2.write(bArr2, 0, read);
-                        }
-                        byteArrayInputStream.close();
-                        outputStream2.flush();
-                        outputStream2.close();
-                        int responseCode = httpsURLConnection.getResponseCode();
-                        Log.i(TAG, "CRASHPAD finish send the reqeust , responseCode = ".concat(String.valueOf(responseCode)));
-                        if (responseCode == 200) {
-                            stringBuffer.append("Upload Success; The server has responed 200 . ");
-                            httpsURLConnection.disconnect();
-                            return true;
-                        }
-                        stringBuffer.append("doUpload Failed, The server has responsed Code ".concat(String.valueOf(responseCode)));
-                        httpsURLConnection.disconnect();
-                        return false;
-                    } catch (Exception e3) {
-                        e = e3;
-                        byteArrayInputStream2 = byteArrayInputStream;
-                        outputStream = null;
-                        stringBuffer.append(e.getMessage());
-                        e.printStackTrace();
-                        if (byteArrayInputStream2 != null) {
-                            try {
-                                byteArrayInputStream2.close();
-                            } catch (Exception unused) {
-                                Log.d(TAG, "failed http.");
-                                httpsURLConnection.disconnect();
-                                return false;
-                            }
-                        }
-                        if (outputStream != null) {
-                            outputStream.close();
-                        }
-                        Log.d(TAG, "failed http.");
-                        httpsURLConnection.disconnect();
-                        return false;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    httpsURLConnection2 = httpsURLConnection;
-                    httpsURLConnection2.disconnect();
-                    throw th;
+                    httpsURLConnection.setDoInput(true);
+                    httpsURLConnection.setDoOutput(true);
+                    httpsURLConnection.setUseCaches(false);
+                    httpsURLConnection.setRequestMethod("POST");
+                    httpsURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                    httpsURLConnection.setRequestProperty("Content-Type", "application/x-gzip");
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(bArr.length);
+                    httpsURLConnection.setRequestProperty("Content-Length", sb.toString());
+                    httpsURLConnection.setRequestProperty("Content-Disposition", "attchment;filename=".concat(String.valueOf(substring)));
+                    httpsURLConnection.setRequestProperty("LogType", str);
+                    httpsURLConnection.setFixedLengthStreamingMode(bArr.length);
+                    httpsURLConnection.connect();
+                    byteArrayInputStream = new ByteArrayInputStream(bArr);
+                } catch (Exception e2) {
+                    e = e2;
+                    outputStream = null;
                 }
-            } catch (Throwable th2) {
-                th2.printStackTrace();
-                stringBuffer.append("Upload Failed; " + th2.getMessage());
+                try {
+                    OutputStream outputStream2 = httpsURLConnection.getOutputStream();
+                    while (true) {
+                        int read = byteArrayInputStream.read(bArr2);
+                        if (read == -1) {
+                            break;
+                        }
+                        outputStream2.write(bArr2, 0, read);
+                    }
+                    byteArrayInputStream.close();
+                    outputStream2.flush();
+                    outputStream2.close();
+                    int responseCode = httpsURLConnection.getResponseCode();
+                    Log.i(TAG, "CRASHPAD finish send the reqeust , responseCode = ".concat(String.valueOf(responseCode)));
+                    if (responseCode == 200) {
+                        stringBuffer.append("Upload Success; The server has responed 200 . ");
+                        httpsURLConnection.disconnect();
+                        return true;
+                    }
+                    stringBuffer.append("doUpload Failed, The server has responsed Code ".concat(String.valueOf(responseCode)));
+                    httpsURLConnection.disconnect();
+                    return false;
+                } catch (Exception e3) {
+                    e = e3;
+                    byteArrayInputStream2 = byteArrayInputStream;
+                    outputStream = null;
+                    stringBuffer.append(e.getMessage());
+                    e.printStackTrace();
+                    if (byteArrayInputStream2 != null) {
+                        try {
+                            byteArrayInputStream2.close();
+                        } catch (Exception unused) {
+                            Log.d(TAG, "failed http.");
+                            httpsURLConnection.disconnect();
+                            return false;
+                        }
+                    }
+                    if (outputStream != null) {
+                        outputStream.close();
+                    }
+                    Log.d(TAG, "failed http.");
+                    httpsURLConnection.disconnect();
+                    return false;
+                }
+            } catch (Throwable th) {
+                th = th;
+                httpsURLConnection2 = httpsURLConnection;
                 httpsURLConnection2.disconnect();
-                return false;
+                throw th;
             }
         } catch (Exception e4) {
             e = e4;
             outputStream = null;
             httpsURLConnection = null;
-        } catch (Throwable th3) {
-            th = th3;
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 

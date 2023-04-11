@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.forbiddenforum;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x39;
+import com.baidu.tieba.od9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetDislikeList.GetDislikeListResIdl;
 public class ForbiddenForumSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x39 pageData;
+    public od9 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForbiddenForumSocketResMsg() {
@@ -36,13 +36,13 @@ public class ForbiddenForumSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public x39 getPageData() {
+    public od9 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.pageData;
         }
-        return (x39) invokeV.objValue;
+        return (od9) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -63,9 +63,9 @@ public class ForbiddenForumSocketResMsg extends SocketResponsedMessage {
                 }
                 setErrorString(getDislikeListResIdl.error.usermsg);
             }
-            x39 x39Var = new x39();
-            this.pageData = x39Var;
-            x39Var.a(getDislikeListResIdl.data);
+            od9 od9Var = new od9();
+            this.pageData = od9Var;
+            od9Var.a(getDislikeListResIdl.data);
             return getDislikeListResIdl;
         }
         return invokeIL.objValue;

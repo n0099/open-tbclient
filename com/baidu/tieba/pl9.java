@@ -1,185 +1,311 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
-import com.baidu.tieba.cl9;
-import com.baidu.tieba.video.editvideo.data.MusicData;
-import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
-public class pl9 implements xk9, cl9.c, xg6 {
+public class pl9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern f;
+    public static final Pattern g;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public pk9 b;
-    public bl9 c;
-    public SelectMusicModel d;
-    public String e;
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public SpannableStringBuilder e;
 
-    @Override // com.baidu.tieba.xk9
-    public void setMusicData(List<MusicData> list) {
+    public static boolean k(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? (i != 0 || i2 == 3 || i2 == 2) ? false : true : invokeII.booleanValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends iq5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pl9 a;
+
+        public a(pl9 pl9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pl9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pl9Var;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                b(this.a.b);
+            }
         }
     }
 
-    public pl9(pk9 pk9Var) {
+    /* loaded from: classes5.dex */
+    public class b extends iq5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pl9 a;
+
+        public b(pl9 pl9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pl9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pl9Var;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Matcher matcher = pl9.f.matcher(this.a.d);
+                if (matcher.find()) {
+                    try {
+                        String group = matcher.group();
+                        a(group.substring(group.lastIndexOf("/") + 1));
+                        return;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                Matcher matcher2 = pl9.g.matcher(this.a.d);
+                if (matcher2.find()) {
+                    try {
+                        String group2 = matcher2.group();
+                        a(group2.substring(group2.lastIndexOf("=") + 1));
+                        return;
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                b(this.a.d);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends iq5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pl9 a;
+
+        public c(pl9 pl9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pl9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pl9Var;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.b != null) {
+                    this.a.b.replace("@", "").replace(" ", "");
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(TbadkCoreApplication.getInst()).createNormalConfig(gg.g(this.a.d, 0L), false, false)));
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948066028, "Lcom/baidu/tieba/pl9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948066028, "Lcom/baidu/tieba/pl9;");
+                return;
+            }
+        }
+        f = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
+        g = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    }
+
+    public pl9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pk9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = pk9Var;
-        this.a = pk9Var.a;
+        this.a = 0;
+        this.b = null;
+        this.d = null;
+        this.e = null;
     }
 
-    public final void a(String str) {
-        pk9 pk9Var;
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (pk9Var = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        if (pk9Var.b()) {
-            this.b.c();
-            this.b = null;
-            return;
-        }
-        this.e = str;
-        VideoInfo videoInfo = new VideoInfo();
-        videoInfo.setVideoPath(this.e);
-        videoInfo.setThumbPath(this.b.c);
-        pk9 pk9Var2 = this.b;
-        if (pk9Var2 != null) {
-            pk9Var2.f(videoInfo);
-        }
+        return (String) invokeV.objValue;
     }
 
-    public void b() {
-        pk9 pk9Var;
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (pk9Var = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        if (pk9Var.b()) {
-            this.b.c();
-            this.b = null;
-            return;
+        return (String) invokeV.objValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-        if (StringUtils.isNull(this.b.d)) {
-            pk9 pk9Var2 = this.b;
-            if (!pk9Var2.e) {
-                q1(pk9Var2.b, -4399, "");
-                return;
+        return invokeV.intValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public SpannableStringBuilder j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (SpannableStringBuilder) invokeV.objValue;
+    }
+
+    public SpannableStringBuilder e(SpannableString spannableString) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, spannableString)) == null) {
+            if (this.e == null) {
+                this.e = new SpannableStringBuilder();
             }
+            this.e.append((CharSequence) spannableString);
+            return this.e;
         }
-        if (this.d == null) {
-            this.d = new SelectMusicModel(this.a.getPageContext(), this);
-        }
-        SelectMusicModel selectMusicModel = this.d;
-        pk9 pk9Var3 = this.b;
-        selectMusicModel.U(pk9Var3.b, pk9Var3.d, qk9.f + "video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, !pk9Var3.e);
+        return (SpannableStringBuilder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xg6
-    public void cancel() {
+    public void l(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            pk9 pk9Var = this.b;
-            if (pk9Var != null) {
-                pk9Var.i(true);
-            }
-            bl9 bl9Var = this.c;
-            if (bl9Var != null && bl9Var.f()) {
-                this.c.e();
-            }
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.a = i;
         }
     }
 
-    @Override // com.baidu.tieba.cl9.c
-    public void onGenFilterVideoFail(int i, String str) {
-        pk9 pk9Var;
+    public SpannableString h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (pk9Var = this.b) != null) {
-            pk9Var.d(i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.cl9.c
-    public void onGenFilterVideoRecordError(int i, String str) {
-        pk9 pk9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && (pk9Var = this.b) != null) {
-            pk9Var.d(i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.cl9.c
-    public void onGenFilterVideoSuccess(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            pk9 pk9Var = this.b;
-            if (pk9Var != null) {
-                pk9Var.e();
-            }
-            a(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.xk9
-    public void q1(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048582, this, str, i, str2) == null) {
-            pk9 pk9Var = this.b;
-            if (pk9Var != null && pk9Var.b()) {
-                this.b.c();
-                this.b = null;
-            } else if (TextUtils.isEmpty(str)) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0bac);
-                pk9 pk9Var2 = this.b;
-                if (pk9Var2 != null) {
-                    pk9Var2.g(i, str2);
-                }
-            } else {
-                pk9 pk9Var3 = this.b;
-                if (pk9Var3 != null) {
-                    pk9Var3.h();
-                }
-                if (!StringUtils.isNull(this.b.f)) {
-                    if (!StringHelper.equals(str, this.b.b)) {
-                        this.b.g = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = this.a;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                return null;
+                            }
+                            if (!this.b.endsWith(" ")) {
+                                this.b += " ";
+                            }
+                            String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1637);
+                            String str = string + this.b;
+                            SpannableString spannableString = new SpannableString(str);
+                            spannableString.setSpan(new a(this), string.length(), str.length() - 1, 33);
+                            return spannableString;
+                        }
+                        if (!this.b.endsWith(" ")) {
+                            this.b += " ";
+                        }
+                        SpannableString spannableString2 = new SpannableString(this.b);
+                        spannableString2.setSpan(new c(this), 0, this.b.length() - 1, 33);
+                        return spannableString2;
                     }
-                    if (this.c == null) {
-                        bl9 bl9Var = new bl9(this.a.getActivity());
-                        this.c = bl9Var;
-                        bl9Var.i(this);
+                    SpannableString spannableString3 = new SpannableString(this.b + " ");
+                    sm face = TbadkCoreApplication.getInst().getFace(this.b);
+                    if (face != null) {
+                        BitmapDrawable j = face.j();
+                        j.setBounds(0, 0, face.r(), face.m());
+                        spannableString3.setSpan(new ImageSpan(j, 1), 0, this.b.length(), 33);
                     }
-                    this.c.g(str, this.b.f);
-                    return;
+                    return spannableString3;
                 }
-                pk9 pk9Var4 = this.b;
-                if (pk9Var4 != null) {
-                    pk9Var4.e();
+                if (!this.b.endsWith(" ")) {
+                    this.b += " ";
                 }
-                a(str);
+                SpannableString spannableString4 = new SpannableString(this.b);
+                spannableString4.setSpan(new b(this), 0, this.b.length() - 1, 33);
+                return spannableString4;
             }
+            return new SpannableString(this.b);
         }
+        return (SpannableString) invokeV.objValue;
     }
 }

@@ -18,7 +18,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class a extends com.kwad.components.core.i.b implements a.InterfaceC0599a, x.b {
+public class a extends com.kwad.components.core.i.b implements a.InterfaceC0600a, x.b {
     public boolean Fu = true;
     public AdTemplate mAdTemplate;
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
@@ -78,11 +78,11 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0599a
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         getActivity().setTheme(R.style.obfuscated_res_0x7f100236);
-        setContentView(R.layout.obfuscated_res_0x7f0d043b);
+        setContentView(R.layout.obfuscated_res_0x7f0d043d);
         d(getIntent());
-        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091299);
+        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09129d);
         nv();
-        com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09129e));
+        com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0912a2));
         this.mk = aVar;
         aVar.a(this.mAdTemplate, this.mRootContainer, this.mApkDownloadHelper);
         this.mk.a(this);
@@ -110,12 +110,12 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0599a
         super.onResume();
     }
 
-    @Override // com.kwad.components.core.kwai.a.InterfaceC0599a
+    @Override // com.kwad.components.core.kwai.a.InterfaceC0600a
     public final void r(View view2) {
         onBackPressed();
     }
 
-    @Override // com.kwad.components.core.kwai.a.InterfaceC0599a
+    @Override // com.kwad.components.core.kwai.a.InterfaceC0600a
     public final void s(View view2) {
         finish();
     }

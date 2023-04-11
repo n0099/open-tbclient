@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.CheckPost.CheckPostResIdl;
 import tbclient.CheckPost.ResData;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CheckPostHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

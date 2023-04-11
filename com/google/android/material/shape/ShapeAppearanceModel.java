@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
 import com.google.android.material.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ShapeAppearanceModel {
     public static final CornerSize PILL = new RelativeCornerSize(0.5f);
     public EdgeTreatment bottomEdge;
@@ -29,13 +29,13 @@ public class ShapeAppearanceModel {
     public CornerSize topRightCornerSize;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface CornerSizeUnaryOperator {
         @NonNull
         CornerSize apply(@NonNull CornerSize cornerSize);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         @NonNull
         public EdgeTreatment bottomEdge;

@@ -87,6 +87,12 @@ public class ResponseDataProcess {
         this.mResponseInfo = cloudControlResponseInfo;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0075, code lost:
+        if (r0.updateVersion == r11.updateVersion) goto L38;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private void dispatchChannelCallbacks(@NonNull RequestParams.Channel channel, @NonNull List<PackageInfo> list, @NonNull Map<String, PackageInfo> map) {
         PackageCallback packageCallback;
         List<PackageInfo> list2;
@@ -109,11 +115,14 @@ public class ResponseDataProcess {
                 z = (packageInfo == null || !ABIUtils.checkLocalABIIsValid(packageInfo.abi, next.abi)) ? false : false;
                 if (next.isValid() && ABIUtils.checkABIIsValid(next.abi)) {
                     if (packageInfo != null) {
-                        packageCallback = callback;
-                        list2 = filteredAndRemove;
-                        if (packageInfo.updateVersion > next.updateVersion && z) {
-                            arrayList.add(next);
+                        if (!next.isOlderThan(packageInfo)) {
+                            packageCallback = callback;
+                            list2 = filteredAndRemove;
+                        } else {
+                            packageCallback = callback;
+                            list2 = filteredAndRemove;
                         }
+                        arrayList.add(next);
                     } else {
                         packageCallback = callback;
                         list2 = filteredAndRemove;

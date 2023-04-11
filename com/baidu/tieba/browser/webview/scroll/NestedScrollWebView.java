@@ -18,7 +18,7 @@ import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.ViewCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.od6;
+import com.baidu.tieba.we6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public abstract class NestedScrollWebView extends WebView implements NestedScrol
     public OverScroller g;
     public int h;
     public NestedScrollingChildHelper i;
-    public od6 j;
+    public we6 j;
     public boolean k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -177,10 +177,10 @@ public abstract class NestedScrollWebView extends WebView implements NestedScrol
         }
     }
 
-    public void setOnScrollChangeListener(od6 od6Var) {
+    public void setOnScrollChangeListener(we6 we6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, od6Var) == null) {
-            this.j = od6Var;
+        if (interceptable == null || interceptable.invokeL(1048596, this, we6Var) == null) {
+            this.j = we6Var;
         }
     }
 

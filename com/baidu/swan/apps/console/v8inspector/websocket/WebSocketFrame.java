@@ -3,7 +3,7 @@ package com.baidu.swan.apps.console.v8inspector.websocket;
 import android.annotation.SuppressLint;
 import android.util.Log;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.do1;
+import com.baidu.tieba.eo1;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,7 +15,7 @@ import java.util.List;
 import kotlin.jvm.internal.ByteCompanionObject;
 /* loaded from: classes3.dex */
 public class WebSocketFrame {
-    public static final boolean g = do1.a;
+    public static final boolean g = eo1.a;
     public static final Charset h = Charset.forName("UTF-8");
     public OpCode a;
     public boolean b;

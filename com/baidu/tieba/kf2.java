@@ -1,17 +1,9 @@
 package com.baidu.tieba;
+
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 /* loaded from: classes5.dex */
 public interface kf2 {
-    void a(bf2 bf2Var);
+    cf2 a(String str, zf2 zf2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy);
 
-    void b(bf2 bf2Var);
-
-    void c(bf2 bf2Var);
-
-    void d(bf2 bf2Var);
-
-    void e(bf2 bf2Var);
-
-    void f(bf2 bf2Var);
-
-    void g(bf2 bf2Var);
+    String getUserAgent();
 }

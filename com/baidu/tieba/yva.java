@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,63 +10,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Properties;
-import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public class yva {
+public final class yva {
     public static /* synthetic */ Interceptable $ic;
-    public static final yva f;
-    public static final uva g;
+    public static Map<Class<?>, uva> b;
+    public static Map<Class<?>, Object> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<uva> a;
-    public final AtomicReference<wva> b;
-    public final AtomicReference<awa> c;
-    public final AtomicReference<tva> d;
-    public final AtomicReference<zva> e;
-
-    /* loaded from: classes7.dex */
-    public static class a extends uva {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends tva {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(yva yvaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yvaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    public Map<Class<?>, uva> a;
 
     static {
         InterceptResult invokeClinit;
@@ -79,24 +36,16 @@ public class yva {
                 return;
             }
         }
-        f = new yva();
-        g = new a();
+        b = new HashMap();
+        c = new HashMap();
     }
 
-    @Deprecated
-    public static yva c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f;
-        }
-        return (yva) invokeV.objValue;
-    }
-
-    public yva() {
+    public yva(List<uva> list, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -106,139 +55,87 @@ public class yva {
                 return;
             }
         }
-        this.a = new AtomicReference<>();
-        this.b = new AtomicReference<>();
-        this.c = new AtomicReference<>();
-        this.d = new AtomicReference<>();
-        this.e = new AtomicReference<>();
+        this.a = new HashMap();
+        new HashMap();
+        c(list, context);
     }
 
-    public tva a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.d.get() == null) {
-                Object e = e(tva.class, System.getProperties());
-                if (e == null) {
-                    this.d.compareAndSet(null, new b(this));
-                } else {
-                    this.d.compareAndSet(null, (tva) e);
-                }
-            }
-            return this.d.get();
-        }
-        return (tva) invokeV.objValue;
-    }
-
-    public uva b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a.get() == null) {
-                Object e = e(uva.class, System.getProperties());
-                if (e == null) {
-                    this.a.compareAndSet(null, g);
-                } else {
-                    this.a.compareAndSet(null, (uva) e);
-                }
-            }
-            return this.a.get();
-        }
-        return (uva) invokeV.objValue;
-    }
-
-    public wva d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b.get() == null) {
-                Object e = e(wva.class, System.getProperties());
-                if (e == null) {
-                    this.b.compareAndSet(null, xva.f());
-                } else {
-                    this.b.compareAndSet(null, (wva) e);
-                }
-            }
-            return this.b.get();
-        }
-        return (wva) invokeV.objValue;
-    }
-
-    public zva f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.e.get() == null) {
-                Object e = e(zva.class, System.getProperties());
-                if (e == null) {
-                    this.e.compareAndSet(null, zva.h());
-                } else {
-                    this.e.compareAndSet(null, (zva) e);
-                }
-            }
-            return this.e.get();
-        }
-        return (zva) invokeV.objValue;
-    }
-
-    public awa g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.c.get() == null) {
-                Object e = e(awa.class, System.getProperties());
-                if (e == null) {
-                    this.c.compareAndSet(null, bwa.e());
-                } else {
-                    this.c.compareAndSet(null, (awa) e);
-                }
-            }
-            return this.c.get();
-        }
-        return (awa) invokeV.objValue;
-    }
-
-    public static Object e(Class<?> cls, Properties properties) {
+    public static Constructor a(Class cls, Class... clsArr) {
         InterceptResult invokeLL;
+        Constructor<?>[] declaredConstructors;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, properties)) == null) {
-            Properties properties2 = (Properties) properties.clone();
-            String simpleName = cls.getSimpleName();
-            String property = properties2.getProperty("rxjava.plugin." + simpleName + ".implementation");
-            if (property == null) {
-                Iterator it = properties2.entrySet().iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, clsArr)) == null) {
+            boolean z = false;
+            for (Constructor<?> constructor : cls.getDeclaredConstructors()) {
+                Class<?>[] parameterTypes = constructor.getParameterTypes();
+                if (parameterTypes.length == clsArr.length) {
+                    for (int i = 0; i < clsArr.length; i++) {
+                        z = parameterTypes[i] == clsArr[i];
                     }
-                    Map.Entry entry = (Map.Entry) it.next();
-                    String obj = entry.getKey().toString();
-                    if (obj.startsWith("rxjava.plugin.") && obj.endsWith(".class") && simpleName.equals(entry.getValue().toString())) {
-                        String str = "rxjava.plugin." + obj.substring(0, obj.length() - 6).substring(14) + ".impl";
-                        String property2 = properties2.getProperty(str);
-                        if (property2 != null) {
-                            property = property2;
-                        } else {
-                            throw new IllegalStateException("Implementing class declaration for " + simpleName + " missing: " + str);
-                        }
+                    if (z) {
+                        return constructor;
                     }
-                }
-            }
-            if (property != null) {
-                try {
-                    return Class.forName(property).asSubclass(cls).newInstance();
-                } catch (ClassCastException e) {
-                    throw new IllegalStateException(simpleName + " implementation is not an instance of " + simpleName + ": " + property, e);
-                } catch (ClassNotFoundException e2) {
-                    throw new IllegalStateException(simpleName + " implementation class not found: " + property, e2);
-                } catch (IllegalAccessException e3) {
-                    throw new IllegalStateException(simpleName + " implementation not able to be accessed: " + property, e3);
-                } catch (InstantiationException e4) {
-                    throw new IllegalStateException(simpleName + " implementation not able to be instantiated: " + property, e4);
                 }
             }
             return null;
         }
-        return invokeLL.objValue;
+        return (Constructor) invokeLL.objValue;
+    }
+
+    public final void b(String str, Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, exc) == null) {
+            Log.e("ServiceRepository", "Instantiate shared service " + str + exc.getLocalizedMessage());
+            StringBuilder sb = new StringBuilder();
+            sb.append("cause message:");
+            sb.append(exc.getCause() != null ? exc.getCause().getMessage() : "");
+            Log.e("ServiceRepository", sb.toString());
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:24:0x005f A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0068 A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void c(List<uva> list, Context context) {
+        Map<Class<?>, uva> map;
+        String str;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, context) == null) || list == null) {
+            return;
+        }
+        for (uva uvaVar : list) {
+            if (uvaVar.c()) {
+                if (!b.containsKey(uvaVar.a())) {
+                    map = b;
+                }
+                if (uvaVar.b() && uvaVar.getType() != null && !c.containsKey(uvaVar.a())) {
+                    try {
+                        Constructor a = a(uvaVar.getType(), Context.class);
+                        c.put(uvaVar.a(), a == null ? a.newInstance(context) : uvaVar.getType().newInstance());
+                    } catch (IllegalAccessException e) {
+                        e = e;
+                        str = "AccessException";
+                        b(str, e);
+                    } catch (InstantiationException e2) {
+                        e = e2;
+                        str = "InstantiationException";
+                        b(str, e);
+                    } catch (InvocationTargetException e3) {
+                        e = e3;
+                        str = "TargetException";
+                        b(str, e);
+                    }
+                }
+            } else {
+                map = this.a;
+            }
+            map.put(uvaVar.a(), uvaVar);
+            if (uvaVar.b()) {
+                Constructor a2 = a(uvaVar.getType(), Context.class);
+                c.put(uvaVar.a(), a2 == null ? a2.newInstance(context) : uvaVar.getType().newInstance());
+            }
+        }
     }
 }

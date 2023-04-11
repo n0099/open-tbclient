@@ -35,7 +35,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.ii;
 import com.baidu.tieba.xf;
 import com.baidu.tieba.yf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,7 +89,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
     /* loaded from: classes6.dex */
     public interface e {
-        xf<TbImageView> a0();
+        xf<TbImageView> b0();
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
@@ -446,11 +446,11 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         this.r = null;
         this.t = true;
         this.e = context;
-        this.i = hi.d(context, 2);
-        this.g = hi.d(this.e, this.j);
+        this.i = ii.d(context, 2);
+        this.g = ii.d(this.e, this.j);
         setOnHierarchyChangeListener(new a(this));
-        this.v = hi.d(this.e, 50.0f);
-        this.w = hi.d(this.e, 23.0f);
+        this.v = ii.d(this.e, 50.0f);
+        this.w = ii.d(this.e, 23.0f);
         Paint paint = new Paint();
         this.x = paint;
         paint.setDither(true);
@@ -458,8 +458,8 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         Resources resources = getResources();
         String str = resources.getString(R.string.frs_item_common_image_canvas_text1) + this.l + resources.getString(R.string.frs_item_common_image_canvas_text2);
         this.y = str;
-        this.z = ((str.length() + 2) * hi.d(this.e, 10.0f)) / 2;
-        this.A = hi.d(this.e, 10.0f);
+        this.z = ((str.length() + 2) * ii.d(this.e, 10.0f)) / 2;
+        this.A = ii.d(this.e, 10.0f);
         Paint paint2 = new Paint(257);
         this.B = paint2;
         paint2.setColor(-1);
@@ -514,7 +514,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public void setItemSize(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.g = hi.d(this.e, i);
+            this.g = ii.d(this.e, i);
         }
     }
 
@@ -728,7 +728,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         } else {
             i2 = 14;
         }
-        tbImageView.M(picUrl, i2, false);
+        tbImageView.N(picUrl, i2, false);
     }
 
     public void setData(a9<?> a9Var, MediaData[] mediaDataArr, int i) {
@@ -740,7 +740,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             Resources resources = getResources();
             this.y = resources.getString(R.string.frs_item_common_image_canvas_text1) + this.l + resources.getString(R.string.frs_item_common_image_canvas_text2);
             if (this.r == null && (a9Var.getOrignalPage() instanceof e)) {
-                this.r = ((e) a9Var.getOrignalPage()).a0();
+                this.r = ((e) a9Var.getOrignalPage()).b0();
             }
             if (this.r == null) {
                 return;

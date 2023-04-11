@@ -1,7 +1,19 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
-public interface yi extends wi {
-    void a(int i);
+public interface yi {
+    boolean isOnCancle();
 
-    void e();
+    void onDeletedVoice(String str);
+
+    void onSendVoice(String str, int i);
+
+    void onShowErr(int i, String str);
+
+    void onShowRecordTime(int i);
+
+    void onShowRecording(int i);
+
+    void onStartedRecorder(boolean z, int i);
+
+    void onStopingRecorder();
 }

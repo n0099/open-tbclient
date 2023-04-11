@@ -1,10 +1,10 @@
 package com.yy.hiidostatis.defs.interf;
 
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IMetricsAPI {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface IReportListener {
         void onReportResult(int i);
     }

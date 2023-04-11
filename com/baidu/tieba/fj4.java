@@ -5,9 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface fj4 {
-    @Nullable
-    JSONObject a(@Nullable dj4<JSONObject> dj4Var);
+    void a(JSONArray jSONArray, pf4 pf4Var, @Nullable pf4 pf4Var2, @Nullable pf4 pf4Var3);
 
-    @Nullable
-    JSONArray b(@Nullable dj4<JSONArray> dj4Var);
+    void b(JSONObject jSONObject, pf4 pf4Var, @Nullable pf4 pf4Var2, @Nullable pf4 pf4Var3);
 }

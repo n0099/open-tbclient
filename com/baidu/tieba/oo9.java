@@ -1,28 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.text.method.LinkMovementMethod;
-import android.view.MotionEvent;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.res.Configuration;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.splashad.SplashAdView;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class oo9 extends LinkMovementMethod {
+public class oo9 {
     public static /* synthetic */ Interceptable $ic;
-    public static oo9 f;
+    public static oo9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public vt5 a;
-    public int b;
-    public int c;
-    public long d;
-    public int e;
+    public WeakReference<SplashAdView> a;
 
     public oo9() {
         Interceptable interceptable = $ic;
@@ -34,128 +28,60 @@ public class oo9 extends LinkMovementMethod {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = -1;
     }
 
     public static oo9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f == null) {
-                f = new oo9();
+            if (b == null) {
+                b = new oo9();
             }
-            return f;
+            return b;
         }
         return (oo9) invokeV.objValue;
     }
 
-    public static boolean c(float f2, float f3, float f4, float f5, long j, long j2, long j3) {
-        InterceptResult invokeCommon;
+    public void c() {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            float abs = Math.abs(f4 - f2);
-            float abs2 = Math.abs(f5 - f3);
-            long j4 = j2 - j;
-            if (abs <= 100.0f && abs2 <= 100.0f && j4 >= j3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final vt5 b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, textView, spannable, motionEvent)) == null) {
-            if (motionEvent != null && motionEvent.getAction() != 3) {
-                int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
-                int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
-                int scrollX = x + textView.getScrollX();
-                int scrollY = y + textView.getScrollY();
-                try {
-                    Layout layout = textView.getLayout();
-                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-                    vt5[] vt5VarArr = (vt5[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, vt5.class);
-                    if (vt5VarArr == null || vt5VarArr.length <= 0 || vt5VarArr[0] == null) {
-                        return null;
-                    }
-                    return vt5VarArr[0];
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return this.a;
-                }
-            }
-            return this.a;
-        }
-        return (vt5) invokeLLL.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.e = i;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
+            splashAdView.a();
         }
     }
 
-    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
-    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
+    public void d() {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, textView, spannable, motionEvent)) == null) {
-            vt5 b = b(textView, spannable, motionEvent);
-            if (b == null && motionEvent.getAction() == 0) {
-                try {
-                    return super.onTouchEvent(textView, spannable, motionEvent);
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return true;
-                }
-            }
-            if (b != null) {
-                this.a = b;
-            }
-            int i = this.e;
-            if (i > -1) {
-                this.a.g(i);
-            }
-            if (motionEvent.getAction() == 0) {
-                this.b = (int) motionEvent.getX();
-                this.c = (int) motionEvent.getY();
-                this.d = System.currentTimeMillis();
-                vt5 vt5Var = this.a;
-                if (vt5Var != null) {
-                    vt5Var.h(1);
-                    Selection.setSelection(spannable, spannable.getSpanStart(this.a), spannable.getSpanEnd(this.a));
-                }
-                textView.invalidate();
-            } else if (motionEvent.getAction() == 2) {
-                if (this.a != null && (Math.abs(this.b - motionEvent.getX()) > 20.0f || Math.abs(this.c - motionEvent.getY()) > 20.0f)) {
-                    this.a.h(2);
-                    textView.invalidate();
-                    Selection.removeSelection(spannable);
-                }
-            } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-                vt5 vt5Var2 = this.a;
-                if (vt5Var2 != null) {
-                    vt5Var2.h(2);
-                    textView.invalidate();
-                    Selection.removeSelection(spannable);
-                }
-                if (c(this.b, this.c, motionEvent.getX(), motionEvent.getY(), this.d, System.currentTimeMillis(), 500L)) {
-                    return true;
-                }
-            }
-            try {
-                return super.onTouchEvent(textView, spannable, motionEvent);
-            } catch (Exception e2) {
-                BdLog.e(e2);
-                return true;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
+            splashAdView.b();
+        }
+    }
+
+    public void b(Configuration configuration) {
+        WeakReference<SplashAdView> weakReference;
+        SplashAdView splashAdView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
+            splashAdView.onConfigurationChanged(configuration);
+        }
+    }
+
+    public void e(MainTabActivity mainTabActivity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, mainTabActivity) == null) && mainTabActivity != null) {
+            SplashAdView splashAdView = new SplashAdView(mainTabActivity, 2);
+            this.a = new WeakReference<>(splashAdView);
+            mainTabActivity.getWindow().setFlags(1024, 1024);
+            ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f0920f3);
+            if (viewGroup != null) {
+                viewGroup.setVisibility(0);
+                viewGroup.addView(splashAdView);
             }
         }
-        return invokeLLL.booleanValue;
     }
 }

@@ -1,22 +1,25 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class fx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<Integer, Integer> a;
+    public Object a;
+    public Activity b;
 
-    public fx5() {
+    public fx5(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,28 +29,24 @@ public class fx5 {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.a = obj;
     }
 
-    public int a(int i) {
-        InterceptResult invokeI;
+    public Object a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            HashMap<Integer, Integer> hashMap = this.a;
-            if (hashMap == null || !hashMap.containsKey(Integer.valueOf(i))) {
-                return 0;
-            }
-            return this.a.get(Integer.valueOf(i)).intValue();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeI.intValue;
+        return invokeV.objValue;
     }
 
-    public void b(int i, int i2) {
-        HashMap<Integer, Integer> hashMap;
+    public Activity getActivity() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) != null) || (hashMap = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        hashMap.put(Integer.valueOf(i), Integer.valueOf(i2));
+        return (Activity) invokeV.objValue;
     }
 }

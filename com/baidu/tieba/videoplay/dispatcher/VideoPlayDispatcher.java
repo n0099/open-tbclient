@@ -5,12 +5,15 @@ import android.graphics.Rect;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.fp5;
-import com.baidu.tieba.g39;
+import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.tieba.gg;
+import com.baidu.tieba.lq5;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.xc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +22,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class VideoPlayDispatcher implements g39 {
+public class VideoPlayDispatcher implements xc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,10 +40,18 @@ public class VideoPlayDispatcher implements g39 {
         }
     }
 
-    @Override // com.baidu.tieba.g39
+    /* JADX WARN: Removed duplicated region for block: B:38:0x017e  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x018e  */
+    @Override // com.baidu.tieba.xc9
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void dispatch(JSONObject jSONObject, Context context) {
         boolean z;
         boolean z2;
+        JSONObject jSONObject2;
+        JSONObject jSONObject3;
+        Rect rect;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
             ArrayList arrayList = new ArrayList();
@@ -57,6 +68,7 @@ public class VideoPlayDispatcher implements g39 {
             videoItemData.video_url = jSONObject.optString("videoUrl");
             videoItemData.video_width = jSONObject.optString("videoWidth");
             videoItemData.video_height = jSONObject.optString("videoHeight");
+            boolean z3 = false;
             videoItemData.video_duration = gg.e(jSONObject.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
             if (gg.g(jSONObject.optString("videoHeight"), 0L) > gg.g(jSONObject.optString("videoWidth"), 0L)) {
                 z = true;
@@ -64,6 +76,7 @@ public class VideoPlayDispatcher implements g39 {
                 z = false;
             }
             videoItemData.comment_num = jSONObject.optString("postNum");
+            videoItemData.is_agreed = jSONObject.optString("isAgreed");
             videoItemData.agree_num = jSONObject.optString("agreeNum");
             videoItemData.share_num = jSONObject.optString("shareNum");
             videoItemData.forum_id = jSONObject.optString("forumId");
@@ -75,21 +88,55 @@ public class VideoPlayDispatcher implements g39 {
             } else {
                 z2 = equals;
             }
-            arrayList.add(videoItemData);
-            JSONObject optJSONObject = jSONObject.optJSONObject("rect");
-            Rect rect = null;
-            if (optJSONObject != null) {
-                rect = new Rect();
-                rect.left = optJSONObject.optInt("l");
-                rect.top = optJSONObject.optInt("t");
-                rect.right = optJSONObject.optInt("r");
-                rect.bottom = optJSONObject.optInt("b");
+            if (jSONObject.optInt("author_is_living") == 1) {
+                z3 = true;
             }
-            Rect rect2 = rect;
-            if (TextUtils.isEmpty(videoItemData.video_url)) {
-                new VideoRecommentPlayActivityConfig(context, arrayList, (String) null, VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE, z2).start();
-            } else {
-                fp5.d(context, arrayList, videoItemData.nid, z, 0, rect2, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", z2, false, gg.g(videoItemData.forum_id, 0L));
+            if (z3) {
+                try {
+                    jSONObject2 = new JSONObject(jSONObject.optString("yy_ext"));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    jSONObject2 = null;
+                }
+                if (jSONObject2 != null) {
+                    AlaInfoData alaInfoData = new AlaInfoData();
+                    alaInfoData.live_status = 1;
+                    alaInfoData.roomId = jSONObject2.optLong("room_id");
+                    YyExtData yyExtData = new YyExtData();
+                    yyExtData.mSid = jSONObject2.optString("sid");
+                    yyExtData.mSsid = jSONObject2.optString(YyLiveRoomConfig.KEY_SSID);
+                    yyExtData.mTemplateId = jSONObject2.optString("template_id");
+                    alaInfoData.mYyExtData = yyExtData;
+                    videoItemData.mAlaInfoData = alaInfoData;
+                }
+            }
+            arrayList.add(videoItemData);
+            String optString = jSONObject.optString("rect");
+            if (!TextUtils.isEmpty(optString)) {
+                try {
+                    jSONObject3 = new JSONObject(optString);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    jSONObject3 = null;
+                }
+                if (jSONObject3 != null) {
+                    Rect rect2 = new Rect();
+                    rect2.left = jSONObject3.optInt("l");
+                    rect2.top = jSONObject3.optInt("t");
+                    rect2.right = jSONObject3.optInt("r");
+                    rect2.bottom = jSONObject3.optInt("b");
+                    rect = rect2;
+                    if (!TextUtils.isEmpty(videoItemData.video_url)) {
+                        new VideoRecommentPlayActivityConfig(context, arrayList, (String) null, VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE, z2).start();
+                        return;
+                    } else {
+                        lq5.d(context, arrayList, videoItemData.nid, z, 0, rect, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", z2, false, gg.g(videoItemData.forum_id, 0L));
+                        return;
+                    }
+                }
+            }
+            rect = null;
+            if (!TextUtils.isEmpty(videoItemData.video_url)) {
             }
         }
     }

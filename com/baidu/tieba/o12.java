@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Typeface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,11 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class o12 extends z02 {
+public class o12 extends a12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public String a;
+    public float b;
+    public boolean c;
+    public boolean d;
 
     public o12() {
         Interceptable interceptable = $ic;
@@ -27,26 +30,71 @@ public class o12 extends z02 {
                 return;
             }
         }
-        this.a = Integer.MAX_VALUE;
-        this.b = Integer.MAX_VALUE;
+        this.a = "sans-serif";
+        this.b = ll3.g(10.0f);
+        this.c = false;
+        this.d = false;
     }
 
-    @Override // com.baidu.tieba.z02
-    public void a(a12 a12Var, Canvas canvas) {
+    @Override // com.baidu.tieba.a12
+    public void a(b12 b12Var, Canvas canvas) {
         int i;
-        int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, a12Var, canvas) == null) && (i = this.a) != Integer.MAX_VALUE && (i2 = this.b) != Integer.MAX_VALUE) {
-            a12Var.f.lineTo(i, i2);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, b12Var, canvas) == null) {
+            if (this.c && this.d) {
+                i = 3;
+            } else if (this.c) {
+                i = 1;
+            } else if (this.d) {
+                i = 2;
+            } else {
+                i = 0;
+            }
+            b12Var.e.setTypeface(Typeface.create(this.a, i));
+            b12Var.e.setTextSize(this.b);
         }
     }
 
-    @Override // com.baidu.tieba.z02
+    @Override // com.baidu.tieba.a12
     public void b(JSONArray jSONArray) {
+        String[] split;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 1) {
-            this.a = kl3.g((float) jSONArray.optDouble(0));
-            this.b = kl3.g((float) jSONArray.optDouble(1));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    for (String str : jSONArray.optString(0).split(" ")) {
+                        if (str.contains("italic")) {
+                            this.d = true;
+                        } else if (str.contains("oblique")) {
+                            this.d = true;
+                        } else if (str.contains("bold")) {
+                            this.c = true;
+                        } else if (!str.contains("normal")) {
+                            if (Character.isDigit(str.charAt(0))) {
+                                int length = str.length();
+                                int i = 0;
+                                while (true) {
+                                    if (i >= str.length()) {
+                                        break;
+                                    } else if (!Character.isDigit(str.charAt(i))) {
+                                        length = i;
+                                        break;
+                                    } else {
+                                        i++;
+                                    }
+                                }
+                                this.b = ll3.g(Float.parseFloat(str.substring(0, length)));
+                            } else {
+                                this.a = str;
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                if (eo1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

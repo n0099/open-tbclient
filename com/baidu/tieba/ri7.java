@@ -1,116 +1,142 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.StringRes;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.App;
-import tbclient.BannerList;
-import tbclient.Personalized.DataRes;
 /* loaded from: classes6.dex */
 public class ri7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, List<gn> list) {
-        zb9 zb9Var;
+    public static TBAlertBuilder a(TBAlertBuilder tBAlertBuilder, @StringRes int i, @StringRes int i2, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, str, list) == null) && list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
-            Iterator<gn> it = list.iterator();
-            int i = 0;
-            AdvertAppInfo advertAppInfo = null;
-            int i2 = 0;
-            int i3 = 0;
-            while (it.hasNext()) {
-                i++;
-                gn next = it.next();
-                if ((i2 + 1 == i || i3 + 1 == i) && (next instanceof py5)) {
-                    it.remove();
-                }
-                if (next instanceof yh7) {
-                    advertAppInfo = ((yh7) next).c();
-                } else if (next instanceof yx4) {
-                    yx4 yx4Var = (yx4) next;
-                    if (yx4Var.c() instanceof AdvertAppInfo.ILegoAdvert) {
-                        advertAppInfo = ((AdvertAppInfo.ILegoAdvert) yx4Var.c()).getAdvertAppInfo();
-                    }
-                } else if ((next instanceof ThreadData) && (zb9Var = ((ThreadData) next).funAdData) != null && zb9Var.i()) {
-                    it.remove();
-                    i3 = i;
-                }
-                if (advertAppInfo != null && str.equals(advertAppInfo.a)) {
-                    it.remove();
-                    advertAppInfo = null;
-                    i2 = i;
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{tBAlertBuilder, Integer.valueOf(i), Integer.valueOf(i2), onClickListener, onClickListener2})) == null) {
+            if (tBAlertBuilder == null) {
+                return null;
             }
+            TBAlertConfig.a aVar = new TBAlertConfig.a(i, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar2 = new TBAlertConfig.a(i2, TBAlertConfig.OperateBtnStyle.SECONDARY);
+            tBAlertBuilder.u(aVar2, aVar);
+            tBAlertBuilder.i();
+            aVar.a(onClickListener);
+            aVar2.a(onClickListener2);
+            return tBAlertBuilder;
+        }
+        return (TBAlertBuilder) invokeCommon.objValue;
+    }
+
+    public static TBAlertBuilder b(Activity activity, @StringRes int i, @StringRes int i2, View view2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), view2})) == null) {
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
+            tBAlertBuilder.w(i);
+            tBAlertBuilder.m(i2);
+            tBAlertBuilder.o(true);
+            tBAlertBuilder.j(false);
+            if (view2 != null) {
+                tBAlertBuilder.k(view2);
+            }
+            return tBAlertBuilder;
+        }
+        return (TBAlertBuilder) invokeCommon.objValue;
+    }
+
+    public static View c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            final LinearLayout linearLayout = new LinearLayout(activity);
+            linearLayout.setOrientation(0);
+            linearLayout.setGravity(16);
+            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X013);
+            linearLayout.setPadding(dimenPixelSize, UtilHelper.getDimenPixelSize(R.dimen.tbds53), dimenPixelSize, 0);
+            linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            final ImageView imageView = new ImageView(activity);
+            WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_check_normal24, R.color.CAM_X0108, null);
+            int g = ii.g(activity, R.dimen.tbds53);
+            linearLayout.addView(imageView, new LinearLayout.LayoutParams(g, g));
+            TextView textView = new TextView(activity);
+            textView.setText(R.string.obfuscated_res_0x7f0f0340);
+            textView.setTextSize(0, UtilHelper.getDimenPixelSize(R.dimen.T_X07));
+            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
+            linearLayout.addView(textView, new LinearLayout.LayoutParams(-2, -2));
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.th7
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.view.View.OnClickListener
+                public final void onClick(View view2) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                        ri7.d(linearLayout, imageView, view2);
+                    }
+                }
+            });
+            return linearLayout;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public static /* synthetic */ void d(LinearLayout linearLayout, ImageView imageView, View view2) {
+        if (gg.a(linearLayout.getTag(), false)) {
+            p45.m().w("key_vpb_booster_disconnect_alert", true);
+            WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_check_normal24, R.color.CAM_X0108, null);
+            linearLayout.setTag(Boolean.FALSE);
+            return;
+        }
+        p45.m().w("key_vpb_booster_disconnect_alert", false);
+        WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_check_select24, R.color.CAM_X0304, null);
+        linearLayout.setTag(Boolean.TRUE);
+    }
+
+    public static void e(Activity activity, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, onClickListener) == null) {
+            a(b(activity, R.string.obfuscated_res_0x7f0f033c, R.string.obfuscated_res_0x7f0f033a, null), R.string.obfuscated_res_0x7f0f045d, R.string.obfuscated_res_0x7f0f038d, onClickListener, null).z();
         }
     }
 
-    public static void b(List<gn> list, DataRes.Builder builder, kg7 kg7Var, vh7 vh7Var) {
-        zb9 zb9Var;
+    public static void f(Activity activity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, list, builder, kg7Var, vh7Var) == null) {
-            if (list != null && list.size() > 0) {
-                Iterator<gn> it = list.iterator();
-                while (it.hasNext()) {
-                    gn next = it.next();
-                    if (!(next instanceof yh7) && !(next instanceof yx4) && !(next instanceof py5)) {
-                        if ((next instanceof ThreadData) && (zb9Var = ((ThreadData) next).funAdData) != null) {
-                            zb9Var.p(true);
-                            it.remove();
-                        }
-                    } else {
-                        it.remove();
-                    }
-                }
-            }
-            if (builder != null && ListUtils.getCount(builder.thread_list) > 0) {
-                BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
-                List<App> list2 = builder2.app;
-                if (list2 != null) {
-                    list2.clear();
-                }
-                builder.banner_list = builder2.build(false);
-                DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
-                builder3.banner_list = builder2.build(true);
-                if (kg7Var != null) {
-                    kg7Var.a(builder3);
-                }
-            }
-            if (vh7Var != null) {
-                vh7Var.y(list);
-            }
+        if (interceptable == null || interceptable.invokeLL(65541, null, activity, onClickListener) == null) {
+            a(b(activity, R.string.obfuscated_res_0x7f0f033c, R.string.obfuscated_res_0x7f0f033b, null), R.string.obfuscated_res_0x7f0f045d, R.string.obfuscated_res_0x7f0f038d, onClickListener, null).z();
         }
     }
 
-    public static void c(String str, DataRes.Builder builder, kg7 kg7Var) {
-        BannerList bannerList;
-        List<App> list;
+    public static void i(Activity activity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, builder, kg7Var) == null) && !TextUtils.isEmpty(str) && builder != null && (bannerList = builder.banner_list) != null && (list = bannerList.app) != null && list.size() > 0) {
-            ArrayList arrayList = new ArrayList();
-            for (App app : builder.banner_list.app) {
-                if (app != null && str.equals(k09.a(app))) {
-                    arrayList.add(app);
-                }
-            }
-            BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
-            List<App> list2 = builder2.app;
-            if (list2 != null) {
-                list2.removeAll(arrayList);
-            }
-            builder.banner_list = builder2.build(false);
-            DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
-            builder3.banner_list = builder2.build(true);
-            if (kg7Var != null) {
-                kg7Var.a(builder3);
-            }
+        if (interceptable == null || interceptable.invokeLL(65544, null, activity, onClickListener) == null) {
+            a(b(activity, R.string.obfuscated_res_0x7f0f034a, R.string.obfuscated_res_0x7f0f0349, null), R.string.obfuscated_res_0x7f0f0348, R.string.obfuscated_res_0x7f0f038d, onClickListener, null).z();
+        }
+    }
+
+    public static void g(Activity activity, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65542, null, activity, onClickListener) != null) || !p45.m().i("key_vpb_booster_disconnect_alert", true)) {
+            return;
+        }
+        a(b(activity, R.string.obfuscated_res_0x7f0f0341, R.string.obfuscated_res_0x7f0f033f, c(activity)), R.string.obfuscated_res_0x7f0f033e, R.string.obfuscated_res_0x7f0f033d, onClickListener, null).z();
+    }
+
+    public static void h(Activity activity, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, activity, onClickListener, onClickListener2) == null) {
+            a(b(activity, R.string.obfuscated_res_0x7f0f0345, R.string.obfuscated_res_0x7f0f0342, null), R.string.obfuscated_res_0x7f0f0344, R.string.obfuscated_res_0x7f0f0343, onClickListener, onClickListener2).z();
         }
     }
 }

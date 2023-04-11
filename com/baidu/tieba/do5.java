@@ -1,21 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Page;
 /* loaded from: classes4.dex */
 public class do5 {
     public static /* synthetic */ Interceptable $ic;
-    public static do5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public f65 a;
-    public ABTestExtraData b;
+    public int a;
+    public boolean b;
+    public Object c;
 
     public do5() {
         Interceptable interceptable = $ic;
@@ -27,74 +23,30 @@ public class do5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = true;
     }
 
-    public static do5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (do5.class) {
-                    if (c == null) {
-                        c = new do5();
-                    }
-                }
-            }
-            return c;
-        }
-        return (do5) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == null) {
-                ABTestExtraData aBTestExtraData = new ABTestExtraData();
-                this.b = aBTestExtraData;
-                aBTestExtraData.parserABTestExtraFormSharedPref();
-            }
-            return this.b.getABTestResult();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void a(f65 f65Var) {
+    public void a(Page page) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, f65Var) == null) {
-            if (f65Var != null && this.a != null && f65Var.a() == this.a.a()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            this.a = f65Var;
-            if (z) {
-                b("zan_or_cai_smallflow");
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, page) != null) || page == null) {
+            return;
         }
-    }
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
+        if (page.has_more.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
         }
-    }
-
-    public void e(f65 f65Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, f65Var) == null) {
-            a(f65Var);
-        }
-    }
-
-    public void f(ABTestExtraData aBTestExtraData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
-            this.b = aBTestExtraData;
-        }
+        this.b = z;
+        page.has_prev.intValue();
+        this.a = page.current_page.intValue();
+        page.page_size.intValue();
+        page.total_page.intValue();
+        page.offset.intValue();
+        page.total_count.intValue();
+        yo5.b("parserProto--->currentPage=" + this.a + ",hasMore=" + this.b);
     }
 }

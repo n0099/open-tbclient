@@ -47,7 +47,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DnsResolveFlow {
     public static final String TAG = "DnsResolveFlow";
     public static DnsResolveFlow mDnsResolveFlow;

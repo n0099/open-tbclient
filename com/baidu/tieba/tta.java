@@ -1,24 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class tta<T> extends ura<T> {
+public class tta implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final csa<? super T> e;
-    public final csa<Throwable> f;
-    public final bsa g;
+    public final /* synthetic */ eua a;
+    public final /* synthetic */ vta b;
 
-    public tta(csa<? super T> csaVar, csa<Throwable> csaVar2, bsa bsaVar) {
+    public tta(vta vtaVar, eua euaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {csaVar, csaVar2, bsaVar};
+            Object[] objArr = {vtaVar, euaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,32 +26,21 @@ public final class tta<T> extends ura<T> {
                 return;
             }
         }
-        this.e = csaVar;
-        this.f = csaVar2;
-        this.g = bsaVar;
+        this.b = vtaVar;
+        this.a = euaVar;
     }
 
-    @Override // com.baidu.tieba.pra
-    public void onCompleted() {
+    @Override // java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.call();
-        }
-    }
-
-    @Override // com.baidu.tieba.pra
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f.call(th);
-        }
-    }
-
-    @Override // com.baidu.tieba.pra
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.e.call(t);
+            synchronized (this.b.c) {
+                uua uuaVar = this.b.a;
+                if (uuaVar != null) {
+                    this.a.c();
+                    ((iua) uuaVar).a.countDown();
+                }
+            }
         }
     }
 }

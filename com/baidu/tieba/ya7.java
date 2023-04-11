@@ -1,21 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-import tbclient.GetGiftList.PresentCategoryList;
 /* loaded from: classes7.dex */
 public class ya7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public ArrayList<Integer> c;
+    public String a;
+    public int b;
+    public int c;
+    public List<hn> d;
+    public boolean e;
+    public int f;
 
     public ya7() {
         Interceptable interceptable = $ic;
@@ -31,45 +34,50 @@ public class ya7 {
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public int a(List<hn> list) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return 0;
+            }
+            if (ListUtils.isEmpty(this.d)) {
+                LinkedList linkedList = new LinkedList();
+                this.d = linkedList;
+                linkedList.addAll(list);
+                return list.size();
+            }
+            LinkedList linkedList2 = new LinkedList();
+            for (int i = 0; i < list.size(); i++) {
+                hn hnVar = list.get(i);
+                int i2 = 0;
+                while (true) {
+                    if (i2 < this.d.size()) {
+                        hn hnVar2 = this.d.get(i2);
+                        if (hnVar != null && (hnVar instanceof xa7) && hnVar2 != null && (hnVar2 instanceof xa7)) {
+                            ThreadData threadData = ((xa7) hnVar).getThreadData();
+                            ThreadData threadData2 = ((xa7) hnVar2).getThreadData();
+                            if (threadData != null && threadData2 != null && threadData.getTid() != null && threadData2.getTid() != null && threadData.getTid().equals(threadData2.getTid())) {
+                                z = true;
+                                break;
+                            }
+                        }
+                        i2++;
+                    } else {
+                        z = false;
+                        break;
+                    }
+                }
+                if (!z) {
+                    ListUtils.add(linkedList2, hnVar);
+                }
+            }
+            if (linkedList2.size() != 0) {
+                ListUtils.addAll(this.d, 0, linkedList2);
+            }
+            return linkedList2.size();
         }
-        return invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public ArrayList<Integer> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public void d(PresentCategoryList presentCategoryList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, presentCategoryList) != null) || presentCategoryList == null) {
-            return;
-        }
-        this.a = presentCategoryList.category_id.intValue();
-        this.b = presentCategoryList.category_name;
-        List<Integer> list = presentCategoryList.gift_ids;
-        if (list != null && list.size() > 0) {
-            ArrayList<Integer> arrayList = new ArrayList<>();
-            this.c = arrayList;
-            arrayList.addAll(presentCategoryList.gift_ids);
-        }
+        return invokeL.intValue;
     }
 }
